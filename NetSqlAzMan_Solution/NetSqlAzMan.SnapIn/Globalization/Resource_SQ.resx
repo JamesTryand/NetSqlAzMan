@@ -1,0 +1,2259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ApplicationGroupScopeNode_Msg10" xml:space="preserve">
+    <value>Gabim në Karakteristikat e Grupit të Aplikacioneve</value>
+  </data>
+  <data name="ApplicationGroupsListView_Msg10" xml:space="preserve">
+    <value>Doni të Eliminoni Grupet e Aplikacioneve të seleksionuara ?</value>
+  </data>
+  <data name="ApplicationGroupsListView_Msg20" xml:space="preserve">
+    <value>Gabim duke eliminuar një Grup Aplikacionesh</value>
+  </data>
+  <data name="ApplicationGroupsScopeNode_Msg10" xml:space="preserve">
+    <value>Importo nga ...</value>
+  </data>
+  <data name="AuthorizationsListView_Tit10" xml:space="preserve">
+    <value>Gabim duke azhornuar Autorizimet</value>
+  </data>
+  <data name="AuthorizationsListView_Tit20" xml:space="preserve">
+    <value>Gabim duke eliminuar Autorizimet</value>
+  </data>
+  <data name="ColumnHeader_ApplicationGroupName" xml:space="preserve">
+    <value>Emri i Grupit të Aplikacioneve</value>
+  </data>
+  <data name="ColumnHeader_ApplicationID" xml:space="preserve">
+    <value>ID e Aplicacionit</value>
+  </data>
+  <data name="ColumnHeader_ApplicationName" xml:space="preserve">
+    <value>Emri i Aplikacionit</value>
+  </data>
+  <data name="ColumnHeader_AuthorizationType" xml:space="preserve">
+    <value>Tip Autorizimi</value>
+  </data>
+  <data name="ColumnHeader_Description" xml:space="preserve">
+    <value>Përshkrim</value>
+  </data>
+  <data name="ColumnHeader_GroupType" xml:space="preserve">
+    <value>Tip Grupi</value>
+  </data>
+  <data name="ColumnHeader_ItemID" xml:space="preserve">
+    <value>ID e Elementit</value>
+  </data>
+  <data name="ColumnHeader_ItemName" xml:space="preserve">
+    <value>Emri i Elementit</value>
+  </data>
+  <data name="ColumnHeader_LDAPQuery" xml:space="preserve">
+    <value>Query LDAP</value>
+  </data>
+  <data name="ColumnHeader_MemberName" xml:space="preserve">
+    <value>Emërtimi</value>
+  </data>
+  <data name="ColumnHeader_MemberNonMember" xml:space="preserve">
+    <value>Pjestar / Jo Pjestar</value>
+  </data>
+  <data name="ColumnHeader_Name" xml:space="preserve">
+    <value>Emërtimi</value>
+  </data>
+  <data name="ColumnHeader_ObjectSID" xml:space="preserve">
+    <value>Object SID</value>
+  </data>
+  <data name="ColumnHeader_Owner" xml:space="preserve">
+    <value>Propietari</value>
+  </data>
+  <data name="ColumnHeader_StoreGroupName" xml:space="preserve">
+    <value>Emri i Grupit të Store</value>
+  </data>
+  <data name="ColumnHeader_StoreID" xml:space="preserve">
+    <value>ID e Store-it</value>
+  </data>
+  <data name="ColumnHeader_StoreName" xml:space="preserve">
+    <value>Emri i Store-it</value>
+  </data>
+  <data name="ColumnHeader_Type" xml:space="preserve">
+    <value>Tipi</value>
+  </data>
+  <data name="ColumnHeader_ValidFrom" xml:space="preserve">
+    <value>Validitet Nga</value>
+  </data>
+  <data name="ColumnHeader_ValidTo" xml:space="preserve">
+    <value>Validitet Në</value>
+  </data>
+  <data name="ColumnHeader_WhereDefined" xml:space="preserve">
+    <value>I definuar në</value>
+  </data>
+  <data name="DeleteError_Msg10" xml:space="preserve">
+    <value>Gabim duke Eliminuar</value>
+  </data>
+  <data name="DGColumn_10" xml:space="preserve">
+    <value>Tip Pjestari</value>
+  </data>
+  <data name="DGColumn_20" xml:space="preserve">
+    <value>Propietari</value>
+  </data>
+  <data name="DGColumn_30" xml:space="preserve">
+    <value>SID i Propietarit</value>
+  </data>
+  <data name="DGColumn_40" xml:space="preserve">
+    <value>Emërtimi</value>
+  </data>
+  <data name="DGColumn_50" xml:space="preserve">
+    <value>Object SID</value>
+  </data>
+  <data name="DGColumn_60" xml:space="preserve">
+    <value>I definuar në</value>
+  </data>
+  <data name="DGColumn_70" xml:space="preserve">
+    <value>Tip Autorizimi</value>
+  </data>
+  <data name="DGColumn_80" xml:space="preserve">
+    <value>Validitet Nga</value>
+  </data>
+  <data name="DGColumn_90" xml:space="preserve">
+    <value>Validitet Në</value>
+  </data>
+  <data name="Domain_Allow" xml:space="preserve">
+    <value>Lejo</value>
+  </data>
+  <data name="Domain_AllowDescription" xml:space="preserve">
+    <value>Imposto lejen Allow (Lejo)</value>
+  </data>
+  <data name="Domain_AllowWithDelegation" xml:space="preserve">
+    <value>Lejo Me Delegim</value>
+  </data>
+  <data name="Domain_AllowWithDelegationDescription" xml:space="preserve">
+    <value>Imposto Lejo me Delegim</value>
+  </data>
+  <data name="Domain_Deny" xml:space="preserve">
+    <value>Mos Lejo</value>
+  </data>
+  <data name="Domain_DenyDescription" xml:space="preserve">
+    <value>Imposto lejen Deny (Mos lejo)</value>
+  </data>
+  <data name="Domain_Member" xml:space="preserve">
+    <value>Pjestar</value>
+  </data>
+  <data name="Domain_Neutral" xml:space="preserve">
+    <value>Neutral</value>
+  </data>
+  <data name="Domain_NeutralDescription" xml:space="preserve">
+    <value>Imposto lejen Neutral (Neutral)</value>
+  </data>
+  <data name="Domain_NonMember" xml:space="preserve">
+    <value>Jo Pjestar</value>
+  </data>
+  <data name="Domain_Operation" xml:space="preserve">
+    <value>Operacione</value>
+  </data>
+  <data name="Domain_Role" xml:space="preserve">
+    <value>Rrol</value>
+  </data>
+  <data name="Domain_Task" xml:space="preserve">
+    <value>Aktivitet</value>
+  </data>
+  <data name="Done_Msg10" xml:space="preserve">
+    <value>Përfundoi.</value>
+  </data>
+  <data name="Expanding_Msg10" xml:space="preserve">
+    <value>Duke Ekspanduar ...</value>
+  </data>
+  <data name="Folder_Msg10" xml:space="preserve">
+    <value>Mbajtës i Grupeve të Aplikacioneve</value>
+  </data>
+  <data name="Folder_Msg100" xml:space="preserve">
+    <value>Grupe Store-sh dhe Aplikacionesh</value>
+  </data>
+  <data name="Folder_Msg110" xml:space="preserve">
+    <value>Autorizim i Aktiviteteve</value>
+  </data>
+  <data name="Folder_Msg120" xml:space="preserve">
+    <value>Definicion i Aktiviteteve</value>
+  </data>
+  <data name="Folder_Msg20" xml:space="preserve">
+    <value>Autorizim i Elementave</value>
+  </data>
+  <data name="Folder_Msg30" xml:space="preserve">
+    <value>Definizion i Elementave</value>
+  </data>
+  <data name="Folder_Msg40" xml:space="preserve">
+    <value>Autorizim i Operacioneve</value>
+  </data>
+  <data name="Folder_Msg50" xml:space="preserve">
+    <value>Definicion i Operacioneve</value>
+  </data>
+  <data name="Folder_Msg60" xml:space="preserve">
+    <value>Autorizim i Rroleve</value>
+  </data>
+  <data name="Folder_Msg70" xml:space="preserve">
+    <value>Definicion i Rroleve</value>
+  </data>
+  <data name="Folder_Msg80" xml:space="preserve">
+    <value>.NET SQL Authorization Manager (Paraqitja e Store)</value>
+  </data>
+  <data name="Folder_Msg90" xml:space="preserve">
+    <value>Grupe Store-sh</value>
+  </data>
+  <data name="Folder_Tit110" xml:space="preserve">
+    <value>Mbajtës i Autorizimeve të Aktiviteteve</value>
+  </data>
+  <data name="Folder_Tit120" xml:space="preserve">
+    <value>Mbajtës i Definicioneve të Aktiviteteve</value>
+  </data>
+  <data name="Folder_Tit20" xml:space="preserve">
+    <value>Autorizim i Elementave</value>
+  </data>
+  <data name="Folder_Tit30" xml:space="preserve">
+    <value>Mbajtës i Definicioneve të Elementave</value>
+  </data>
+  <data name="Folder_Tit40" xml:space="preserve">
+    <value>Mbajtës i Autorizimeve të Operacioneve</value>
+  </data>
+  <data name="Folder_Tit50" xml:space="preserve">
+    <value>Mbajtës i Definicioneve të Operacioneve</value>
+  </data>
+  <data name="Folder_Tit60" xml:space="preserve">
+    <value>Mbajtës i Autorizimeve të Rroleve</value>
+  </data>
+  <data name="Folder_Tit70" xml:space="preserve">
+    <value>Mbajtës i Definicioneve të Rroleve</value>
+  </data>
+  <data name="Folder_Tit90" xml:space="preserve">
+    <value>Mbajtës i Grupeve të Store</value>
+  </data>
+  <data name="frmActiveDirectoryObjectsList.Text" xml:space="preserve">
+    <value>Rrezultati i Query-it LDAP</value>
+  </data>
+  <data name="frmActiveDirectoryObjectsList_btnClose.Text" xml:space="preserve">
+    <value>&amp;Mbyll</value>
+  </data>
+  <data name="frmActiveDirectoryObjectsList_label5.Text" xml:space="preserve">
+    <value>Rrezultati i Query-it LDAP</value>
+  </data>
+  <data name="frmActiveDirectoryObjectsList_lblInfo.Text" xml:space="preserve">
+    <value>Rrezultati i Query-it LDAP</value>
+  </data>
+  <data name="frmActiveDirectoryObjectsList_lsvObjectsSid_0.Text" xml:space="preserve">
+    <value>sAMAccountName</value>
+  </data>
+  <data name="frmActiveDirectoryObjectsList_lsvObjectsSid_1.Text" xml:space="preserve">
+    <value>Emër</value>
+  </data>
+  <data name="frmActiveDirectoryObjectsList_lsvObjectsSid_2.Text" xml:space="preserve">
+    <value>objectClass</value>
+  </data>
+  <data name="frmActiveDirectoryObjectsList_lsvObjectsSid_3.Text" xml:space="preserve">
+    <value>objectSid</value>
+  </data>
+  <data name="frmApplicationAttributes.Text" xml:space="preserve">
+    <value>Atribut i Aplikacionit</value>
+  </data>
+  <data name="frmApplicationAttributes_btnAdd.Text" xml:space="preserve">
+    <value>&amp;Shto</value>
+  </data>
+  <data name="frmApplicationAttributes_btnApply.Text" xml:space="preserve">
+    <value>&amp;Apliko</value>
+  </data>
+  <data name="frmApplicationAttributes_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmApplicationAttributes_btnEdit.Text" xml:space="preserve">
+    <value>&amp;Modifiko</value>
+  </data>
+  <data name="frmApplicationAttributes_btnOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmApplicationAttributes_btnRemove.Text" xml:space="preserve">
+    <value>&amp;Elimino</value>
+  </data>
+  <data name="frmApplicationAttributes_label7.Text" xml:space="preserve">
+    <value>Atribut i Aplikacionit</value>
+  </data>
+  <data name="frmApplicationAttributes_lblInfo.Text" xml:space="preserve">
+    <value>Atribut i Aplikacionit</value>
+  </data>
+  <data name="frmApplicationAttributes_lsvAttributes_0.Text" xml:space="preserve">
+    <value>Çelës</value>
+  </data>
+  <data name="frmApplicationAttributes_lsvAttributes_1.Text" xml:space="preserve">
+    <value>Vlerë</value>
+  </data>
+  <data name="frmApplicationAttributes_Msg10" xml:space="preserve">
+    <value>Një Atribut me të njëjtin Çelës ekziston.\r\nNuk është i mundur shtimi i Atributeve me të njëjtin Çelës.</value>
+  </data>
+  <data name="frmApplicationAttributes_Msg20" xml:space="preserve">
+    <value>Për një Atribut me të njëjtin Çelës nuk është akoma konfermuar fshirja.\r\nE pamundur te duplikohen Çelësat e Atributeve.\r\nApliko përpara modifikimet e bëra, pastaj riprovo të shtosh l'Atributin.</value>
+  </data>
+  <data name="frmApplicationAttributes_Tit10" xml:space="preserve">
+    <value>Çelës i Atributit i duplikuar</value>
+  </data>
+  <data name="frmApplicationAttributes_Tit20" xml:space="preserve">
+    <value>Çelës i Atributit i duplikuar</value>
+  </data>
+  <data name="frmApplicationGroupsList.Text" xml:space="preserve">
+    <value>Lista e Grupeve të Aplikacioneve</value>
+  </data>
+  <data name="frmApplicationGroupsList_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmApplicationGroupsList_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmApplicationGroupsList_label5.Text" xml:space="preserve">
+    <value>Lista e Grupeve të Aplikacioneve</value>
+  </data>
+  <data name="frmApplicationGroupsList_lblInfo.Text" xml:space="preserve">
+    <value>Lista e Grupeve të Aplikacioneve</value>
+  </data>
+  <data name="frmApplicationGroupsList_lsvApplicationGroups_0.Text" xml:space="preserve">
+    <value>Emërtimi</value>
+  </data>
+  <data name="frmApplicationGroupsList_lsvApplicationGroups_1.Text" xml:space="preserve">
+    <value>Përshkrim</value>
+  </data>
+  <data name="frmApplicationGroupsList_lsvApplicationGroups_2.Text" xml:space="preserve">
+    <value>Tipi</value>
+  </data>
+  <data name="frmApplicationGroupsList_Msg10" xml:space="preserve">
+    <value>Grupi Bazë</value>
+  </data>
+  <data name="frmApplicationGroupsList_Msg20" xml:space="preserve">
+    <value>Grupi Query LDAP</value>
+  </data>
+  <data name="frmApplicationGroupsProperties.Text" xml:space="preserve">
+    <value>Karakteristikat e Grupit të Aplikacioneve</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnApply.Text" xml:space="preserve">
+    <value>&amp;Apliko</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnMembersAddApplicationGroups.Text" xml:space="preserve">
+    <value>Grupe &amp;Aplikacionesh</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnMembersAddDBUsers.Text" xml:space="preserve">
+    <value>Përdoruesit &amp;DB</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnMembersAddStoreGroups.Text" xml:space="preserve">
+    <value>Grupe &amp;Store</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnMembersAddWindowsUsersAndGroups.Text" xml:space="preserve">
+    <value>Llogari &amp;Windows</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnMembersRemove.Text" xml:space="preserve">
+    <value>&amp;Elimino</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnNonMembersAddApplicationGroup.Text" xml:space="preserve">
+    <value>Grupe &amp;Aplikacionesh</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnNonMembersAddDBUsers.Text" xml:space="preserve">
+    <value>Përdoruesit &amp;DB</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnNonMembersAddStoreGroups.Text" xml:space="preserve">
+    <value>Grupe &amp;Store</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnNonMembersAddWindowsUsersAndGroup.Text" xml:space="preserve">
+    <value>Llogari &amp;Windows</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnNonMembersRemove.Text" xml:space="preserve">
+    <value>&amp;Elimino</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnTestLDapQuery.Text" xml:space="preserve">
+    <value>Ekzekuto Query &amp;LDAP</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_label1.Text" xml:space="preserve">
+    <value>Emërtimi:</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_label2.Text" xml:space="preserve">
+    <value>Përshkrim:</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_label3.Text" xml:space="preserve">
+    <value>Tip Grupit:</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_label4.Text" xml:space="preserve">
+    <value>Query &amp;LDAP që përcakton pjestarët e Grupit.</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_label5.Text" xml:space="preserve">
+    <value>Përdorues dhe Grupe që do të jenë pjestar në këtë Grup.</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_label6.Text" xml:space="preserve">
+    <value>Përdorues dhe Grupe që nuk do të jenë pjestar në këtë Grup.</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_lblInfo.Text" xml:space="preserve">
+    <value>Karakteristikat e Grupit të Aplikacioneve</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_lsvMembers_0.Text" xml:space="preserve">
+    <value>Emërtimi</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_lsvMembers_1.Text" xml:space="preserve">
+    <value>I definuar në</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_lsvNonMembers_0.Text" xml:space="preserve">
+    <value>Emërtimi</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_lsvNonMembers_1.Text" xml:space="preserve">
+    <value>I definuar në</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_Msg10" xml:space="preserve">
+    <value>Query LDAP</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_Msg20" xml:space="preserve">
+    <value>Rrezultati i Query-it LDAP</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_tabGeneral.Text" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_tabLdapQuery.Text" xml:space="preserve">
+    <value>Query LDAP</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_tabMembers.Text" xml:space="preserve">
+    <value>Pjestarët</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_tabNonMembers.Text" xml:space="preserve">
+    <value>Jo Pjestar</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_tabNonMembers.Text1" xml:space="preserve">
+    <value>Jo Pjestar</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_Tit20" xml:space="preserve">
+    <value>Emri i Grupit të Aplikacioneve i kërkuar</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_Tit30" xml:space="preserve">
+    <value>Gabim duke ekzektuar Query LDAP</value>
+  </data>
+  <data name="frmApplicationPermissions.Text" xml:space="preserve">
+    <value>Permessi dell'Applicazione</value>
+  </data>
+  <data name="frmApplicationPermissions_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Anullo</value>
+  </data>
+  <data name="frmApplicationPermissions_btnOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmApplicationPermissions_lblDescription.Text" xml:space="preserve">
+    <value>Sql Login me lejime speciale.
+(Login-at duhet te shtohen ne menyre paraprake Rroleve SQL: "NetSqlAzMan_Managers", "NetSqlAzMan_Users", "NetSqlAzMan_Readers").
+Vetem login-at e seleksionuara do te autorizohen ne Rrolin per kete Aplikacion.</value>
+  </data>
+  <data name="frmApplicationPermissions_lblInfo.Text" xml:space="preserve">
+    <value>Permessi dell'Applicazione</value>
+  </data>
+  <data name="frmApplicationProperties.Text" xml:space="preserve">
+    <value>Karakteristikat e Aplikacionit</value>
+  </data>
+  <data name="frmApplicationProperties_btnAttributes.Text" xml:space="preserve">
+    <value>A&amp;tributet</value>
+  </data>
+  <data name="frmApplicationProperties_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmApplicationProperties_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmApplicationProperties_btnPermissions.Text" xml:space="preserve">
+    <value>&amp;Permessi</value>
+  </data>
+  <data name="frmApplicationProperties_label1.Text" xml:space="preserve">
+    <value>Emërtimi:</value>
+  </data>
+  <data name="frmApplicationProperties_label2.Text" xml:space="preserve">
+    <value>Përshkrim:</value>
+  </data>
+  <data name="frmApplicationProperties_lblInfo.Text" xml:space="preserve">
+    <value>Karakteristikat e Aplikacionit</value>
+  </data>
+  <data name="frmApplicationProperties_Msg10" xml:space="preserve">
+    <value>Karakteristikat e Aplikacionit</value>
+  </data>
+  <data name="frmApplicationProperties_Msg20" xml:space="preserve">
+    <value>Aplikacion i Ri</value>
+  </data>
+  <data name="frmApplicationProperties_Msg30" xml:space="preserve">
+    <value>Gabim Aplikacioni të Ri</value>
+  </data>
+  <data name="frmApplicationProperties_Msg40" xml:space="preserve">
+    <value>Gabim duke azhornuar Aplikacionin</value>
+  </data>
+  <data name="frmApplicationProperties_Msg50" xml:space="preserve">
+    <value>Emri i Aplikacionit të kërkuar</value>
+  </data>
+  <data name="frmAttributeProperties.Text" xml:space="preserve">
+    <value>Karakteristikat e Atributeve</value>
+  </data>
+  <data name="frmAttributeProperties_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmAttributeProperties_btnOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmAttributeProperties_label1.Text" xml:space="preserve">
+    <value>Çelës:</value>
+  </data>
+  <data name="frmAttributeProperties_label2.Text" xml:space="preserve">
+    <value>Vlera:</value>
+  </data>
+  <data name="frmAttributeProperties_label7.Text" xml:space="preserve">
+    <value>Karakteristikat e Atributeve</value>
+  </data>
+  <data name="frmAttributeProperties_lblInfo.Text" xml:space="preserve">
+    <value>Karakteristikat e Atributeve</value>
+  </data>
+  <data name="frmAuthorizationAttributes.Text" xml:space="preserve">
+    <value>Atributet e Autorizimeve</value>
+  </data>
+  <data name="frmAuthorizationAttributes_btnAdd.Text" xml:space="preserve">
+    <value>&amp;Shto</value>
+  </data>
+  <data name="frmAuthorizationAttributes_btnApply.Text" xml:space="preserve">
+    <value>&amp;Apliko</value>
+  </data>
+  <data name="frmAuthorizationAttributes_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmAuthorizationAttributes_btnEdit.Text" xml:space="preserve">
+    <value>&amp;Modifiko</value>
+  </data>
+  <data name="frmAuthorizationAttributes_btnOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmAuthorizationAttributes_btnRemove.Text" xml:space="preserve">
+    <value>&amp;Elimino</value>
+  </data>
+  <data name="frmAuthorizationAttributes_label7.Text" xml:space="preserve">
+    <value>Atribut i Autorizimit</value>
+  </data>
+  <data name="frmAuthorizationAttributes_lblInfo.Text" xml:space="preserve">
+    <value>Atribut i Autorizimit</value>
+  </data>
+  <data name="frmAuthorizationAttributes_lsvAttributes_0.Text" xml:space="preserve">
+    <value>Çelës</value>
+  </data>
+  <data name="frmAuthorizationAttributes_lsvAttributes_1.Text" xml:space="preserve">
+    <value>Vlera</value>
+  </data>
+  <data name="frmBizRule.Text" xml:space="preserve">
+    <value>Rregull Biznezi</value>
+  </data>
+  <data name="frmBizRule_btnClearBizRule.Text" xml:space="preserve">
+    <value>&amp;Fshij Rregull nga Store</value>
+  </data>
+  <data name="frmBizRule_btnClose.Text" xml:space="preserve">
+    <value>&amp;Mbyll</value>
+  </data>
+  <data name="frmBizRule_btnNewFromTemplate.Text" xml:space="preserve">
+    <value>&amp;Rregull e re Biznezi</value>
+  </data>
+  <data name="frmBizRule_btnReloadBizRule.Text" xml:space="preserve">
+    <value>&amp;Rikariko Rregull në Store</value>
+  </data>
+  <data name="frmBizRule_label1.Text" xml:space="preserve">
+    <value>Tip kodi:</value>
+  </data>
+  <data name="frmBizRule_label2.Text" xml:space="preserve">
+    <value>Kodi:</value>
+  </data>
+  <data name="frmBizRule_label7.Text" xml:space="preserve">
+    <value>Rregull Biznezi</value>
+  </data>
+  <data name="frmBizRule_lblInfo.Text" xml:space="preserve">
+    <value>Rregull Biznezi</value>
+  </data>
+  <data name="frmBizRule_Msg10" xml:space="preserve">
+    <value>(Zgjill një gjuhë .NET dhe shtyp pulsantin 'Rregull e re Biznezi' për të shtypur një Rregull të Re, \r\npastaj shtyp pulsantin 'Rikariko Rregull në Store' për të azhornuar dhe kompiluar Rregullin e Biznezit në db.)</value>
+  </data>
+  <data name="frmBizRule_Msg20" xml:space="preserve">
+    <value>Gabim Rregull Biznezi</value>
+  </data>
+  <data name="frmBizRule_Msg30" xml:space="preserve">
+    <value>Shkruani këtu kodin tuaj</value>
+  </data>
+  <data name="frmCheckAccessTest.Text" xml:space="preserve">
+    <value>Test Lidhjeje</value>
+  </data>
+  <data name="frmCheckAccessTest_btnCheckAccessTest.Text" xml:space="preserve">
+    <value>Filloi Check Access &amp;Test</value>
+  </data>
+  <data name="frmCheckAccessTest_btnClose.Text" xml:space="preserve">
+    <value>&amp;Mbyll</value>
+  </data>
+  <data name="frmCheckAccessTest_label1.Text" xml:space="preserve">
+    <value>Rrezultatet Check Access:</value>
+  </data>
+  <data name="frmCheckAccessTest_label2.Text" xml:space="preserve">
+    <value>Detaje:</value>
+  </data>
+  <data name="frmCheckAccessTest_lblProtocolTransitionWarning.Text" xml:space="preserve">
+    <value>Përdorues të ndryshëm nga i tanishmi mund të seleksionohen vetëm nga komputera me Windows Server 2003 në Domain Windows 2003 nativë (Protocol Transition).</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg10" xml:space="preserve">
+    <value>Gabim në Testin e Check Access</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg100" xml:space="preserve">
+    <value>Pjestar në Grupet e Store:</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg110" xml:space="preserve">
+    <value>Pjestar në Grupet e Aplikacioneve:</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg20" xml:space="preserve">
+    <value>Ju lutemi seleksiononi vetëm një përdorues Database</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg30" xml:space="preserve">
+    <value>Testi Check Access filloi në</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg40" xml:space="preserve">
+    <value>Duke krijuar gjerarkinë e Elementave ...</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg50" xml:space="preserve">
+    <value>Testi Check Access mbaroi në</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg60" xml:space="preserve">
+    <value>Detaje Identiteti</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg70" xml:space="preserve">
+    <value>Testi Check Access Test mbi</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg80" xml:space="preserve">
+    <value>Ju lutemi seleksiononi vetëm një përdorues Database</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg90" xml:space="preserve">
+    <value>Grupet</value>
+  </data>
+  <data name="frmCheckAccessTest_rbDBUser.Text" xml:space="preserve">
+    <value>Përdorues &amp;Database:</value>
+  </data>
+  <data name="frmCheckAccessTest_rbWindowsUser.Text" xml:space="preserve">
+    <value>Përdorues &amp;Windows:</value>
+  </data>
+  <data name="frmDBUsersList.Text" xml:space="preserve">
+    <value>Lista e Perdoruesve te Database</value>
+  </data>
+  <data name="frmDBUsersList_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmDBUsersList_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmDBUsersList_label5.Text" xml:space="preserve">
+    <value>Lista e Perduruesve DB</value>
+  </data>
+  <data name="frmDBUsersList_lblInfo.Text" xml:space="preserve">
+    <value>Lista e Perduruesve DB</value>
+  </data>
+  <data name="frmDBUsersList_lblNote.Text" xml:space="preserve">
+    <value>Shënim: për të modifikuar listën e Përdoruesve DB, modifiko table-function "dbo.GetDBUsers" në database-in NetSqlAzManStorage.</value>
+  </data>
+  <data name="frmDBUsersList_lsvDBUsers_0.Text" xml:space="preserve">
+    <value>Emërtimi</value>
+  </data>
+  <data name="frmDBUsersList_lsvDBUsers_1.Text" xml:space="preserve">
+    <value>Sid i Personalizuar</value>
+  </data>
+  <data name="frmDBUsersList_lsvDBUsers_2.Text" xml:space="preserve">
+    <value>Tipi</value>
+  </data>
+  <data name="frmDBUsersList_Msg10" xml:space="preserve">
+    <value>Gabim i brendshëm: Store-i ose Aplikacioni nuk mund të jenë bosh. Kontaktoni suportin.</value>
+  </data>
+  <data name="frmDBUsersList_Msg20" xml:space="preserve">
+    <value>Përdorues DB</value>
+  </data>
+  <data name="frmExport.Text" xml:space="preserve">
+    <value>Prisini ju lutem ...</value>
+  </data>
+  <data name="frmExport_lblTitle.Text" xml:space="preserve">
+    <value>Duke eksportuar ...</value>
+  </data>
+  <data name="frmExport_Msg10" xml:space="preserve">
+    <value>Duke eksportuar</value>
+  </data>
+  <data name="frmExport_Msg20" xml:space="preserve">
+    <value>Eksportimi përfundoi.</value>
+  </data>
+  <data name="frmExport_Msg30" xml:space="preserve">
+    <value>Gabim Eksportimi</value>
+  </data>
+  <data name="frmExportOptions.Text" xml:space="preserve">
+    <value>Karakteristikat e Eksportimit te .NET Sql Authorization Manager</value>
+  </data>
+  <data name="frmExportOptions_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmExportOptions_btnNext.Text" xml:space="preserve">
+    <value>Përp&amp;ara</value>
+  </data>
+  <data name="frmExportOptions_chkAuthorizations.Text" xml:space="preserve">
+    <value>Merr dhe Autorizime mbi Elementat</value>
+  </data>
+  <data name="frmExportOptions_chkDBUsers.Text" xml:space="preserve">
+    <value>Merr dhe Përdorues DB</value>
+  </data>
+  <data name="frmExportOptions_chkUsersAndGroups.Text" xml:space="preserve">
+    <value>Merr dhe Përdorues e Grupe Windows</value>
+  </data>
+  <data name="frmExportOptions_lblInfo.Text" xml:space="preserve">
+    <value>Opcione Eksportimi</value>
+  </data>
+  <data name="frmExportOptions_lblTitle.Text" xml:space="preserve">
+    <value>Seleksiono një ose më shumë opcione për Eksportim:</value>
+  </data>
+  <data name="frmExportOptions_Msg10" xml:space="preserve">
+    <value>Eksporto Në ...</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper.Text" xml:space="preserve">
+    <value>Xhenero Klasë CheckAccessHelper</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_btnClose.Text" xml:space="preserve">
+    <value>&amp;Mbyll</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_btnCopy.Text" xml:space="preserve">
+    <value>&amp;Kopjo</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_btnGenerate.Text" xml:space="preserve">
+    <value>&amp;Xhenero</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_chkAllowOperations.Text" xml:space="preserve">
+    <value>CheckAccess mbi Operacionet</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_chkAllowRoles.Text" xml:space="preserve">
+    <value>CheckAccess mbi Rrolet</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_chkAllowTasks.Text" xml:space="preserve">
+    <value>CheckAccess mbi Aktivitetet</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_gbSourceCode.Text" xml:space="preserve">
+    <value>Kodi</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_label1.Text" xml:space="preserve">
+    <value>Emri i Klasës:</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_label2.Text" xml:space="preserve">
+    <value>Gjuha e Kodit:</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_label3.Text" xml:space="preserve">
+    <value>Namespace:</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_label4.Text" xml:space="preserve">
+    <value>Xhenero Klasë CheckAccessHelper:</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_lblInfo.Text" xml:space="preserve">
+    <value>Opcione Xhenerimi</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_lblTitle.Text" xml:space="preserve">
+    <value>Opcione Xhenerimi:</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_Msg10" xml:space="preserve">
+    <value>Gabim Xhenerimi</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_Msg20" xml:space="preserve">
+    <value>Emri i Klasës së kërkuar</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_Msg30" xml:space="preserve">
+    <value>Namespace i kërkuar</value>
+  </data>
+  <data name="frmImport.Text" xml:space="preserve">
+    <value>Importim</value>
+  </data>
+  <data name="frmImport_lblTitle.Text" xml:space="preserve">
+    <value>Duke Importuar ...</value>
+  </data>
+  <data name="frmImport_Msg10" xml:space="preserve">
+    <value>Skedari Xml nuk është i vlefshëm ose përmban informacione të gabuara.</value>
+  </data>
+  <data name="frmImport_Msg20" xml:space="preserve">
+    <value>Gabim i brendshëm. E pamundur të gjëndet riferimenti i Storage. Tipi i ObjectForImport jo i suportuar. Kontaktoni suportin.</value>
+  </data>
+  <data name="frmImportFromAzMan.Text" xml:space="preserve">
+    <value>Importo Store nga Microsoft Authorization Manager (AzMan)</value>
+  </data>
+  <data name="frmImportFromAzMan_btnClose.Text" xml:space="preserve">
+    <value>&amp;Mbyll</value>
+  </data>
+  <data name="frmImportFromAzMan_btnImport.Text" xml:space="preserve">
+    <value>&amp;Importo</value>
+  </data>
+  <data name="frmImportFromAzMan_groupBox1.Text" xml:space="preserve">
+    <value>AzMan - Kodi</value>
+  </data>
+  <data name="frmImportFromAzMan_groupBox2.Text" xml:space="preserve">
+    <value>NetSqlAzMan - Destinacion</value>
+  </data>
+  <data name="frmImportFromAzMan_label1.Text" xml:space="preserve">
+    <value>Percorso Store AzMan:</value>
+  </data>
+  <data name="frmImportFromAzMan_label2.Text" xml:space="preserve">
+    <value>(psh.: MSLDAP://myserver:389/DC=MyCompany, DC=org, DC=MyPartition)</value>
+  </data>
+  <data name="frmImportFromAzMan_label3.Text" xml:space="preserve">
+    <value>(psh.: MSXML://c:\MyFolder\MyAuthorizationManagerStore.xml)</value>
+  </data>
+  <data name="frmImportFromAzMan_label4.Text" xml:space="preserve">
+    <value>Shënim: Script-et e Autorizimeve (Biz Rule) nuk do të importohen.</value>
+  </data>
+  <data name="frmImportFromAzMan_label5.Text" xml:space="preserve">
+    <value>(Emërtimi i Store-it që do të krijohet me procesin e importacionit)</value>
+  </data>
+  <data name="frmImportFromAzMan_label6.Text" xml:space="preserve">
+    <value>Emri i Store-it NetSqlAzMan:</value>
+  </data>
+  <data name="frmImportFromAzMan_label7.Text" xml:space="preserve">
+    <value>(ex.: mssql://&lt;connection string&gt;/&lt;database name&gt;/&lt;policy store name&gt;)</value>
+  </data>
+  <data name="frmImportFromAzMan_lblStatus.Text" xml:space="preserve">
+    <value>Gjëndja:</value>
+  </data>
+  <data name="frmImportFromAzMan_Msg10" xml:space="preserve">
+    <value>DLL AzRoles.dll nuk u gjet. Instalo komponentët e Microsoft Authorization Manager (MS AzMan) dhe riprovo.</value>
+  </data>
+  <data name="frmImportFromAzMan_Msg100" xml:space="preserve">
+    <value>Duke liruar Store-in e AzMan ...</value>
+  </data>
+  <data name="frmImportFromAzMan_Msg20" xml:space="preserve">
+    <value>Rruga për në Store të AzMan kërkohet</value>
+  </data>
+  <data name="frmImportFromAzMan_Msg30" xml:space="preserve">
+    <value>Rruga për në Store të AzMan duhet të fillojë me MSXML:// ose MSLDAP://</value>
+  </data>
+  <data name="frmImportFromAzMan_Msg40" xml:space="preserve">
+    <value>Emri i Store të kërkuar</value>
+  </data>
+  <data name="frmImportFromAzMan_Msg50" xml:space="preserve">
+    <value>Fillim Tranzacioni ...</value>
+  </data>
+  <data name="frmImportFromAzMan_Msg60" xml:space="preserve">
+    <value>Store e importuar nga AzMan:</value>
+  </data>
+  <data name="frmImportFromAzMan_Msg70" xml:space="preserve">
+    <value>Duke hapur Store-in:</value>
+  </data>
+  <data name="frmImportFromAzMan_Msg80" xml:space="preserve">
+    <value>Ruajtje e Tranzacionit ...</value>
+  </data>
+  <data name="frmImportFromAzMan_Msg90" xml:space="preserve">
+    <value>Duke anulluar la Tranzacionin ...</value>
+  </data>
+  <data name="frmImportFromAzMan_Tit10" xml:space="preserve">
+    <value>Importimi nga MS AzMan dështoi</value>
+  </data>
+  <data name="frmImportOptions.Text" xml:space="preserve">
+    <value>Opcione Importimi në .NET Sql Authorization Manager</value>
+  </data>
+  <data name="frmImportOptions_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmImportOptions_btnNext.Text" xml:space="preserve">
+    <value>&amp;Përpara</value>
+  </data>
+  <data name="frmImportOptions_chkAuthorizations.Text" xml:space="preserve">
+    <value>Merr dhe Autorizimet për Elementat</value>
+  </data>
+  <data name="frmImportOptions_chkDBUsers.Text" xml:space="preserve">
+    <value>Merr dhe Përdoruesit DB</value>
+  </data>
+  <data name="frmImportOptions_chkUsersAndGroups.Text" xml:space="preserve">
+    <value>Merr dhe Përdorues/Grupe Windows</value>
+  </data>
+  <data name="frmImportOptions_lblInfo.Text" xml:space="preserve">
+    <value>Opcione Importimi</value>
+  </data>
+  <data name="frmImportOptions_lblTitle.Text" xml:space="preserve">
+    <value>Seleksiono opcionet e Importimit:</value>
+  </data>
+  <data name="frmImportOptions_Msg10" xml:space="preserve">
+    <value>Gabim Importimi</value>
+  </data>
+  <data name="frmItemAttributes.Text" xml:space="preserve">
+    <value>Atributet e Elementit</value>
+  </data>
+  <data name="frmItemAttributes_btnAdd.Text" xml:space="preserve">
+    <value>&amp;Shto</value>
+  </data>
+  <data name="frmItemAttributes_btnApply.Text" xml:space="preserve">
+    <value>&amp;Apliko</value>
+  </data>
+  <data name="frmItemAttributes_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmItemAttributes_btnEdit.Text" xml:space="preserve">
+    <value>&amp;Modifiko</value>
+  </data>
+  <data name="frmItemAttributes_btnOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmItemAttributes_btnRemove.Text" xml:space="preserve">
+    <value>&amp;Elimino</value>
+  </data>
+  <data name="frmItemAttributes_label7.Text" xml:space="preserve">
+    <value>Atributet e Elementit</value>
+  </data>
+  <data name="frmItemAttributes_lblInfo.Text" xml:space="preserve">
+    <value>Atributet e Elementit</value>
+  </data>
+  <data name="frmItemAttributes_lsvAttributes_0.Text" xml:space="preserve">
+    <value>Çelës</value>
+  </data>
+  <data name="frmItemAttributes_lsvAttributes_1.Text" xml:space="preserve">
+    <value>Vlera</value>
+  </data>
+  <data name="frmItemAuthorizations.Text" xml:space="preserve">
+    <value>Autorizim i Elementit</value>
+  </data>
+  <data name="frmItemAuthorizations_btnAddApplicationGroups.Text" xml:space="preserve">
+    <value>Grupe &amp;Aplikacionesh</value>
+  </data>
+  <data name="frmItemAuthorizations_btnAddDBUsers.Text" xml:space="preserve">
+    <value>Përdoruesit &amp;DB</value>
+  </data>
+  <data name="frmItemAuthorizations_btnAddStoreGroups.Text" xml:space="preserve">
+    <value>Grupe &amp;Store</value>
+  </data>
+  <data name="frmItemAuthorizations_btnAddWindowsUsersAndGroups.Text" xml:space="preserve">
+    <value>Shto llogari &amp;Windows</value>
+  </data>
+  <data name="frmItemAuthorizations_btnApply.Text" xml:space="preserve">
+    <value>&amp;Apliko</value>
+  </data>
+  <data name="frmItemAuthorizations_btnAttributes.Text" xml:space="preserve">
+    <value>A&amp;tributet</value>
+  </data>
+  <data name="frmItemAuthorizations_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmItemAuthorizations_btnOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmItemAuthorizations_btnRemove.Text" xml:space="preserve">
+    <value>&amp;Elimino</value>
+  </data>
+  <data name="frmItemAuthorizations_gbItemsHierarchyViews.Text" xml:space="preserve">
+    <value>Gjerarkia e Elementave</value>
+  </data>
+  <data name="frmItemAuthorizations_label5.Text" xml:space="preserve">
+    <value>Autorizim i Elementit</value>
+  </data>
+  <data name="frmItemAuthorizations_lblInfo.Text" xml:space="preserve">
+    <value>Autorizim i Elementit</value>
+  </data>
+  <data name="frmItemAuthorizations_Msg10" xml:space="preserve">
+    <value>Gabim i Autoriimeve të Elementit</value>
+  </data>
+  <data name="frmItemAuthorizations_Msg20" xml:space="preserve">
+    <value>'Validitet Në' duhet të jetë më i madh ose i barabartë me 'Validitet Nga'</value>
+  </data>
+  <data name="frmItemAuthorizations_Msg30" xml:space="preserve">
+    <value>Një ose më shumë rreshta Autorizimi përmbjanë gabime. Korigjoni gabimet përpara se të aplikoni modifikimet.</value>
+  </data>
+  <data name="frmItemAuthorizations_Msg40" xml:space="preserve">
+    <value>Modifikimet duhet të aplikohen përpara mundësisë së modifikimit të Atributeve të Autorizimeve.\r\nDoni të ruani modifikimet tani ?</value>
+  </data>
+  <data name="frmItemAuthorizations_Msg50" xml:space="preserve">
+    <value>Gabim në Azhornimin e Atributit</value>
+  </data>
+  <data name="frmItemAuthorizations_Msg60" xml:space="preserve">
+    <value>Vlera nuk është e vlefshme. Verifikoni korrektësinë e Datës/Orës së shkruar dhe riprovoni. Kolona:</value>
+  </data>
+  <data name="frmItemAuthorizations_Tit40" xml:space="preserve">
+    <value>Lajmërim</value>
+  </data>
+  <data name="frmItemProperties.Text" xml:space="preserve">
+    <value>Karakteristikat e Rrolit</value>
+  </data>
+  <data name="frmItemProperties_btnAddOperation.Text" xml:space="preserve">
+    <value>S&amp;hto</value>
+  </data>
+  <data name="frmItemProperties_btnAddRole.Text" xml:space="preserve">
+    <value>S&amp;hto</value>
+  </data>
+  <data name="frmItemProperties_btnAddTask.Text" xml:space="preserve">
+    <value>S&amp;hto</value>
+  </data>
+  <data name="frmItemProperties_btnApply.Text" xml:space="preserve">
+    <value>&amp;Apliko</value>
+  </data>
+  <data name="frmItemProperties_btnAttributes.Text" xml:space="preserve">
+    <value>A&amp;tributet</value>
+  </data>
+  <data name="frmItemProperties_btnBizRule.Text" xml:space="preserve">
+    <value>Rregullat e &amp;Biznezit</value>
+  </data>
+  <data name="frmItemProperties_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmItemProperties_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmItemProperties_btnRemoveOperation.Text" xml:space="preserve">
+    <value>&amp;Elimino</value>
+  </data>
+  <data name="frmItemProperties_btnRemoveRole.Text" xml:space="preserve">
+    <value>&amp;Elimino</value>
+  </data>
+  <data name="frmItemProperties_btnRemoveTask.Text" xml:space="preserve">
+    <value>&amp;Elimino</value>
+  </data>
+  <data name="frmItemProperties_gbItemsHierarchyViews.Text" xml:space="preserve">
+    <value>Gjerarkia e Elementave</value>
+  </data>
+  <data name="frmItemProperties_label1.Text" xml:space="preserve">
+    <value>Emërtimi:</value>
+  </data>
+  <data name="frmItemProperties_label2.Text" xml:space="preserve">
+    <value>Përshkrim:</value>
+  </data>
+  <data name="frmItemProperties_lblInfo.Text" xml:space="preserve">
+    <value>Karakteristikat e Rrolit</value>
+  </data>
+  <data name="frmItemProperties_lsvOperations_0.Text" xml:space="preserve">
+    <value>Emërtimi</value>
+  </data>
+  <data name="frmItemProperties_lsvOperations_1.Text" xml:space="preserve">
+    <value>Përshkrim</value>
+  </data>
+  <data name="frmItemProperties_lsvRoles_0.Text" xml:space="preserve">
+    <value>Emërtimi</value>
+  </data>
+  <data name="frmItemProperties_lsvRoles_1.Text" xml:space="preserve">
+    <value>Përshkrim</value>
+  </data>
+  <data name="frmItemProperties_lsvTasks_0.Text" xml:space="preserve">
+    <value>Emërtimi</value>
+  </data>
+  <data name="frmItemProperties_lsvTasks_1.Text" xml:space="preserve">
+    <value>Përshkrim</value>
+  </data>
+  <data name="frmItemProperties_Msg10" xml:space="preserve">
+    <value>Karakteristikat e Rrolit</value>
+  </data>
+  <data name="frmItemProperties_Msg100" xml:space="preserve">
+    <value>Krijo një Aktivitet të ri</value>
+  </data>
+  <data name="frmItemProperties_Msg110" xml:space="preserve">
+    <value>Operacion i Ri</value>
+  </data>
+  <data name="frmItemProperties_Msg120" xml:space="preserve">
+    <value>Krijo një Operacion të ri</value>
+  </data>
+  <data name="frmItemProperties_Msg130" xml:space="preserve">
+    <value>Emri i kërkuar</value>
+  </data>
+  <data name="frmItemProperties_Msg140" xml:space="preserve">
+    <value>Gabim në krijimin e Elementit</value>
+  </data>
+  <data name="frmItemProperties_Msg150" xml:space="preserve">
+    <value>Gabim duke Azhornuar Elementin</value>
+  </data>
+  <data name="frmItemProperties_Msg160" xml:space="preserve">
+    <value>Gabim në Azhornimin e Atributit</value>
+  </data>
+  <data name="frmItemProperties_Msg170" xml:space="preserve">
+    <value>Rregull Biznezi për Elementin:</value>
+  </data>
+  <data name="frmItemProperties_Msg180" xml:space="preserve">
+    <value>Gabim Rregull Biznezi</value>
+  </data>
+  <data name="frmItemProperties_Msg20" xml:space="preserve">
+    <value>Definicion i Rroleve</value>
+  </data>
+  <data name="frmItemProperties_Msg30" xml:space="preserve">
+    <value>Karakteristikat e Aktivitetit</value>
+  </data>
+  <data name="frmItemProperties_Msg40" xml:space="preserve">
+    <value>Definicion i Aktiviteteve</value>
+  </data>
+  <data name="frmItemProperties_Msg50" xml:space="preserve">
+    <value>Karakteristikat e Operacionit</value>
+  </data>
+  <data name="frmItemProperties_Msg60" xml:space="preserve">
+    <value>Definicion i Operacioneve</value>
+  </data>
+  <data name="frmItemProperties_Msg70" xml:space="preserve">
+    <value>Rrol i ri</value>
+  </data>
+  <data name="frmItemProperties_Msg80" xml:space="preserve">
+    <value>Krijo një Rrol të ri</value>
+  </data>
+  <data name="frmItemProperties_Msg90" xml:space="preserve">
+    <value>Aktivitet i Ri</value>
+  </data>
+  <data name="frmItemProperties_TabOperations.Text" xml:space="preserve">
+    <value>Operacione</value>
+  </data>
+  <data name="frmItemProperties_TabRoles.Text" xml:space="preserve">
+    <value>Rrole</value>
+  </data>
+  <data name="frmItemProperties_TabTasks.Text" xml:space="preserve">
+    <value>Aktivitet</value>
+  </data>
+  <data name="frmItemsHierarchyView.Text" xml:space="preserve">
+    <value>Pamje Gjerarkike e Item-ve</value>
+  </data>
+  <data name="frmItemsHierarchyView_btnClose.Text" xml:space="preserve">
+    <value>&amp;Mbyll</value>
+  </data>
+  <data name="frmItemsHierarchyView_btnPrint.Text" xml:space="preserve">
+    <value>Shty&amp;p</value>
+  </data>
+  <data name="frmItemsHierarchyView_lblInfo.Text" xml:space="preserve">
+    <value>Pamje Gjerarkike e Elementave</value>
+  </data>
+  <data name="frmItemsHierarchyView_lblStatus.Text" xml:space="preserve">
+    <value>Duke llogaritur gjerarkinë ...</value>
+  </data>
+  <data name="frmItemsHierarchyView_Msg10" xml:space="preserve">
+    <value>Gabim Pamje Gjerarkike të Elementave</value>
+  </data>
+  <data name="frmItemsList.Text" xml:space="preserve">
+    <value>Lista e Rroleve</value>
+  </data>
+  <data name="frmItemsList_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmItemsList_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmItemsList_lblInfo1.Text" xml:space="preserve">
+    <value>Lista e Rroleve</value>
+  </data>
+  <data name="frmItemsList_lblInfo2.Text" xml:space="preserve">
+    <value>Lista e Rroleve</value>
+  </data>
+  <data name="frmItemsList_lsvItems_0.Text" xml:space="preserve">
+    <value>Emërtimi</value>
+  </data>
+  <data name="frmItemsList_lsvItems_1.Text" xml:space="preserve">
+    <value>Përshkrim</value>
+  </data>
+  <data name="frmItemsList_Msg10" xml:space="preserve">
+    <value>Lista e Rroleve</value>
+  </data>
+  <data name="frmItemsList_Msg20" xml:space="preserve">
+    <value>Lista e Aktiviteteve</value>
+  </data>
+  <data name="frmItemsList_Msg30" xml:space="preserve">
+    <value>Lista e Operacioneve</value>
+  </data>
+  <data name="frmNewApplicationGroup.Text" xml:space="preserve">
+    <value>Grup Aplikacionesh i Ri</value>
+  </data>
+  <data name="frmNewApplicationGroup_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmNewApplicationGroup_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmNewApplicationGroup_label1.Text" xml:space="preserve">
+    <value>Emërtimi:</value>
+  </data>
+  <data name="frmNewApplicationGroup_label2.Text" xml:space="preserve">
+    <value>Përshkrim:</value>
+  </data>
+  <data name="frmNewApplicationGroup_label3.Text" xml:space="preserve">
+    <value>Tip Grupit:</value>
+  </data>
+  <data name="frmNewApplicationGroup_lblInfo.Text" xml:space="preserve">
+    <value>Krijo një Grup Aplikazionesh të ri</value>
+  </data>
+  <data name="frmNewApplicationGroup_Msg10" xml:space="preserve">
+    <value>Emri i Grupit të Aplikacioneve</value>
+  </data>
+  <data name="frmNewApplicationGroup_Msg20" xml:space="preserve">
+    <value>Gabim në krijimin e Grupit të Aplikacionit</value>
+  </data>
+  <data name="frmNewApplicationGroup_rbtBasic.Text" xml:space="preserve">
+    <value>&amp;Bazë</value>
+  </data>
+  <data name="frmNewApplicationGroup_rbtLDAPQuery.Text" xml:space="preserve">
+    <value>Query &amp;LDAP</value>
+  </data>
+  <data name="frmNewStoreGroup.Text" xml:space="preserve">
+    <value>Grup Store-sh i Ri</value>
+  </data>
+  <data name="frmNewStoreGroup_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmNewStoreGroup_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmNewStoreGroup_label1.Text" xml:space="preserve">
+    <value>Emërtimi:</value>
+  </data>
+  <data name="frmNewStoreGroup_label2.Text" xml:space="preserve">
+    <value>Përshkrim:</value>
+  </data>
+  <data name="frmNewStoreGroup_label3.Text" xml:space="preserve">
+    <value>Tip Grupit:</value>
+  </data>
+  <data name="frmNewStoreGroup_lblInfo.Text" xml:space="preserve">
+    <value>Krijo një Grup Store-sh të ri</value>
+  </data>
+  <data name="frmNewStoreGroup_Msg10" xml:space="preserve">
+    <value>Emri i Grupit të Store i kërkuar</value>
+  </data>
+  <data name="frmNewStoreGroup_Msg20" xml:space="preserve">
+    <value>Gabim duke krijuar Grupin e Store-ve</value>
+  </data>
+  <data name="frmNewStoreGroup_rbtBasic.Text" xml:space="preserve">
+    <value>&amp;Bazë</value>
+  </data>
+  <data name="frmNewStoreGroup_rbtLDAPQuery.Text" xml:space="preserve">
+    <value>Query &amp;LDAP</value>
+  </data>
+  <data name="frmOptions.Text" xml:space="preserve">
+    <value>Opcione të NetSqlAzMan</value>
+  </data>
+  <data name="frmOptions_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmOptions_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmOptions_chkErrors.Text" xml:space="preserve">
+    <value>Gabime</value>
+  </data>
+  <data name="frmOptions_chkInformations.Text" xml:space="preserve">
+    <value>Informacione</value>
+  </data>
+  <data name="frmOptions_chkLogOnDb.Text" xml:space="preserve">
+    <value>Log into &amp;Database</value>
+  </data>
+  <data name="frmOptions_chkLogOnEventLog.Text" xml:space="preserve">
+    <value>Log into E&amp;vent Log</value>
+  </data>
+  <data name="frmOptions_chkWarnings.Text" xml:space="preserve">
+    <value>Lajmerime</value>
+  </data>
+  <data name="frmOptions_label1.Text" xml:space="preserve">
+    <value>Modalitetet .NET Sql Authorization Manager:</value>
+  </data>
+  <data name="frmOptions_label10.Text" xml:space="preserve">
+    <value>MMC:</value>
+  </data>
+  <data name="frmOptions_label2.Text" xml:space="preserve">
+    <value>MMC:</value>
+  </data>
+  <data name="frmOptions_label3.Text" xml:space="preserve">
+    <value>Në Modalitet Zhvillues, llogaritë Windows lokale dhe Autorizimet mbi llogaritë e Domain-it do të konsiderohen nga metodat CheckAccess.</value>
+  </data>
+  <data name="frmOptions_label4.Text" xml:space="preserve">
+    <value>Në Modalitet Administrator, llogaritë Windows lokale dhe Operacionet nuk janë të dukshme.</value>
+  </data>
+  <data name="frmOptions_label5.Text" xml:space="preserve">
+    <value>Në Modalitet Administrator, Autorizimet për llogaritë Windows lokale nuk do të konsiderohen nga metodat CheckAccess.</value>
+  </data>
+  <data name="frmOptions_label6.Text" xml:space="preserve">
+    <value>Run-Time:</value>
+  </data>
+  <data name="frmOptions_label8.Text" xml:space="preserve">
+    <value>Run-Time:</value>
+  </data>
+  <data name="frmOptions_label9.Text" xml:space="preserve">
+    <value>Në Modalitet Zhvillues, përdoruesit do të kenë mundësinë të shohin  llogaritë Windows lokale dhe të Domain-it dhe të kenë kontrollin e plotë mbi Operacionet.</value>
+  </data>
+  <data name="frmOptions_lblEventLog.Text" xml:space="preserve">
+    <value>Log i Eventeve:</value>
+  </data>
+  <data name="frmOptions_rbAdministrator.Text" xml:space="preserve">
+    <value>Modalitet Administrator:</value>
+  </data>
+  <data name="frmOptions_rbDeveloper.Text" xml:space="preserve">
+    <value>Modalitet Zhvillues:</value>
+  </data>
+  <data name="frmPrint.Text" xml:space="preserve">
+    <value>Opcionet e Printimit</value>
+  </data>
+  <data name="frmPrint_btnPageSetup.Text" xml:space="preserve">
+    <value>&amp;Setup i Faqes</value>
+  </data>
+  <data name="frmPrint_btnPreview.Text" xml:space="preserve">
+    <value>Paraqitje</value>
+  </data>
+  <data name="frmPrint_btnPrint.Text" xml:space="preserve">
+    <value>&amp;Printo</value>
+  </data>
+  <data name="frmStorageConnection.Text" xml:space="preserve">
+    <value>Lidhje me Storage</value>
+  </data>
+  <data name="frmStorageConnection.Text1" xml:space="preserve">
+    <value>Lidhje me Storage</value>
+  </data>
+  <data name="frmStorageConnection_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmStorageConnection_btnCancel.Text1" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmStorageConnection_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmStorageConnection_btnOk.Text1" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmStorageConnection_btnRefreshDatabases.Text" xml:space="preserve">
+    <value>A&amp;zhorno</value>
+  </data>
+  <data name="frmStorageConnection_btnRefreshDatabases.Text1" xml:space="preserve">
+    <value>A&amp;zhorno</value>
+  </data>
+  <data name="frmStorageConnection_btnRefreshDataSources.Text" xml:space="preserve">
+    <value>Azho&amp;rno</value>
+  </data>
+  <data name="frmStorageConnection_btnRefreshDataSources.Text1" xml:space="preserve">
+    <value>Azho&amp;rno</value>
+  </data>
+  <data name="frmStorageConnection_btnTestConnection.Text" xml:space="preserve">
+    <value>&amp;Test</value>
+  </data>
+  <data name="frmStorageConnection_btnTestConnection.Text1" xml:space="preserve">
+    <value>&amp;Test</value>
+  </data>
+  <data name="frmStorageConnection_label1.Text" xml:space="preserve">
+    <value>Të Dhënat:</value>
+  </data>
+  <data name="frmStorageConnection_label1.Text1" xml:space="preserve">
+    <value>Të Dhënat:</value>
+  </data>
+  <data name="frmStorageConnection_label2.Text" xml:space="preserve">
+    <value>Autentikim:</value>
+  </data>
+  <data name="frmStorageConnection_label2.Text1" xml:space="preserve">
+    <value>Autentikim:</value>
+  </data>
+  <data name="frmStorageConnection_label3.Text" xml:space="preserve">
+    <value>Id Përdorues:</value>
+  </data>
+  <data name="frmStorageConnection_label3.Text1" xml:space="preserve">
+    <value>Id Përdorues:</value>
+  </data>
+  <data name="frmStorageConnection_label4.Text" xml:space="preserve">
+    <value>Fjalëkalimi:</value>
+  </data>
+  <data name="frmStorageConnection_label4.Text1" xml:space="preserve">
+    <value>Fjalëkalimi:</value>
+  </data>
+  <data name="frmStorageConnection_label5.Text" xml:space="preserve">
+    <value>NetSqlAzMan DB:</value>
+  </data>
+  <data name="frmStorageConnection_label5.Text1" xml:space="preserve">
+    <value>NetSqlAzMan DB:</value>
+  </data>
+  <data name="frmStorageConnection_label6.Text" xml:space="preserve">
+    <value>Impostime të tjera:</value>
+  </data>
+  <data name="frmStorageConnection_label6.Text1" xml:space="preserve">
+    <value>Impostime të tjera:</value>
+  </data>
+  <data name="frmStorageConnection_lblInfo.Text" xml:space="preserve">
+    <value>Menaxhim i Lidhjes me Storage.</value>
+  </data>
+  <data name="frmStorageConnection_lblInfo.Text1" xml:space="preserve">
+    <value>Menaxhim i Lidhjes me Storage</value>
+  </data>
+  <data name="frmStorageConnection_Msg10" xml:space="preserve">
+    <value>Gabim gjatë Lidhjes</value>
+  </data>
+  <data name="frmStorageConnection_Msg20" xml:space="preserve">
+    <value>Sukses !</value>
+  </data>
+  <data name="frmStorageConnection_Msg30" xml:space="preserve">
+    <value>Krijove Database-in Sql 'NetSqlAzManStorage' ?\r\n(shiko dosjen e instalimit)</value>
+  </data>
+  <data name="frmStorageConnection_Msg40" xml:space="preserve">
+    <value>Të Dhënat nuk u gjetën ose të pavlefshme</value>
+  </data>
+  <data name="frmStorageConnection_Msg50" xml:space="preserve">
+    <value>Database SQL Server jo i vlefshëm ose jo disponibël.</value>
+  </data>
+  <data name="frmStorageConnection_rbIntegrated.Text" xml:space="preserve">
+    <value>E Integruar</value>
+  </data>
+  <data name="frmStorageConnection_rbIntegrated.Text1" xml:space="preserve">
+    <value>E Integruar</value>
+  </data>
+  <data name="frmStorageConnection_rbSql.Text" xml:space="preserve">
+    <value>Sql</value>
+  </data>
+  <data name="frmStorageConnection_rbSql.Text1" xml:space="preserve">
+    <value>Sql</value>
+  </data>
+  <data name="frmStorageConnection_Tit20" xml:space="preserve">
+    <value>Test i Lidhjes</value>
+  </data>
+  <data name="frmStorageConnection_Tit30" xml:space="preserve">
+    <value>Testi Dështoi</value>
+  </data>
+  <data name="frmStoreAttributes.Text" xml:space="preserve">
+    <value>Atributet e Store-it</value>
+  </data>
+  <data name="frmStoreAttributes_btnAdd.Text" xml:space="preserve">
+    <value>&amp;Shto</value>
+  </data>
+  <data name="frmStoreAttributes_btnApply.Text" xml:space="preserve">
+    <value>&amp;Apliko</value>
+  </data>
+  <data name="frmStoreAttributes_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmStoreAttributes_btnEdit.Text" xml:space="preserve">
+    <value>&amp;Modifiko</value>
+  </data>
+  <data name="frmStoreAttributes_btnOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmStoreAttributes_btnRemove.Text" xml:space="preserve">
+    <value>&amp;Elimino</value>
+  </data>
+  <data name="frmStoreAttributes_label7.Text" xml:space="preserve">
+    <value>Atributet e Store-it</value>
+  </data>
+  <data name="frmStoreAttributes_lblInfo.Text" xml:space="preserve">
+    <value>Atributet e Store-it</value>
+  </data>
+  <data name="frmStoreAttributes_lsvAttributes_0.Text" xml:space="preserve">
+    <value>Çelës</value>
+  </data>
+  <data name="frmStoreAttributes_lsvAttributes_0.Text1" xml:space="preserve">
+    <value>Çelës</value>
+  </data>
+  <data name="frmStoreAttributes_lsvAttributes_1.Text" xml:space="preserve">
+    <value>Vlera</value>
+  </data>
+  <data name="frmStoreAttributes_lsvAttributes_1.Text1" xml:space="preserve">
+    <value>Vlera</value>
+  </data>
+  <data name="frmStoreGroupsList.Text" xml:space="preserve">
+    <value>Lista e Store-ve te Grupit</value>
+  </data>
+  <data name="frmStoreGroupsList_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmStoreGroupsList_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmStoreGroupsList_label5.Text" xml:space="preserve">
+    <value>Lista e Grupeve të Store</value>
+  </data>
+  <data name="frmStoreGroupsList_lblInfo.Text" xml:space="preserve">
+    <value>Lista e Grupeve të Store</value>
+  </data>
+  <data name="frmStoreGroupsList_lsvStoreGroups_0.Text" xml:space="preserve">
+    <value>Emërtimi</value>
+  </data>
+  <data name="frmStoreGroupsList_lsvStoreGroups_1.Text" xml:space="preserve">
+    <value>Përshkrim</value>
+  </data>
+  <data name="frmStoreGroupsList_lsvStoreGroups_2.Text" xml:space="preserve">
+    <value>Tipi</value>
+  </data>
+  <data name="frmStoreGroupsProperties.Text" xml:space="preserve">
+    <value>Karakterisitkat e Grupit të Store</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnApply.Text" xml:space="preserve">
+    <value>&amp;Apliko</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnMembersAddDBUsers.Text" xml:space="preserve">
+    <value>Përdoruesit &amp;DB</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnMembersAddStoreGroup.Text" xml:space="preserve">
+    <value>Grupe &amp;Store</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnMembersAddWindowsUsersAndGroups.Text" xml:space="preserve">
+    <value>Llogari &amp;Windows</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnMembersRemove.Text" xml:space="preserve">
+    <value>&amp;Elimino</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnNonMembersAddDBUsers.Text" xml:space="preserve">
+    <value>Përdoruesit &amp;DB</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnNonMembersAddStoreGroup.Text" xml:space="preserve">
+    <value>Grupe &amp;Store</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnNonMembersAddWindowsUsersAndGroup.Text" xml:space="preserve">
+    <value>Llogari &amp;Windows</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnNonMembersRemove.Text" xml:space="preserve">
+    <value>&amp;Elimino</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnTestLDapQuery.Text" xml:space="preserve">
+    <value>Ekzekuto Query &amp;LDAP</value>
+  </data>
+  <data name="frmStoreGroupsProperties_label1.Text" xml:space="preserve">
+    <value>Emërtimi:</value>
+  </data>
+  <data name="frmStoreGroupsProperties_label2.Text" xml:space="preserve">
+    <value>Përshkrim:</value>
+  </data>
+  <data name="frmStoreGroupsProperties_label3.Text" xml:space="preserve">
+    <value>Tip Grupit:</value>
+  </data>
+  <data name="frmStoreGroupsProperties_label4.Text" xml:space="preserve">
+    <value>Query &amp;LDAP që definon pjestarët e Grupit.</value>
+  </data>
+  <data name="frmStoreGroupsProperties_label5.Text" xml:space="preserve">
+    <value>Përdorues dhe Grupe që do të merren parasysh në këtë Grup.</value>
+  </data>
+  <data name="frmStoreGroupsProperties_label6.Text" xml:space="preserve">
+    <value>Përdorues dhe Grupe që nuk do të merren parasysh në këtë Grup.</value>
+  </data>
+  <data name="frmStoreGroupsProperties_lblInfo.Text" xml:space="preserve">
+    <value>Karakteristikat e Grupit të Store</value>
+  </data>
+  <data name="frmStoreGroupsProperties_lsvMembers_0.Text" xml:space="preserve">
+    <value>Emërtimi</value>
+  </data>
+  <data name="frmStoreGroupsProperties_lsvMembers_0.Text1" xml:space="preserve">
+    <value>Emërtimi</value>
+  </data>
+  <data name="frmStoreGroupsProperties_lsvMembers_1.Text" xml:space="preserve">
+    <value>I definuar në</value>
+  </data>
+  <data name="frmStoreGroupsProperties_lsvMembers_1.Text1" xml:space="preserve">
+    <value>I definuar në</value>
+  </data>
+  <data name="frmStoreGroupsProperties_lsvNonMembers_0.Text" xml:space="preserve">
+    <value>Emërtimi</value>
+  </data>
+  <data name="frmStoreGroupsProperties_lsvNonMembers_0.Text1" xml:space="preserve">
+    <value>Emërtimi</value>
+  </data>
+  <data name="frmStoreGroupsProperties_lsvNonMembers_1.Text" xml:space="preserve">
+    <value>I definuar në</value>
+  </data>
+  <data name="frmStoreGroupsProperties_lsvNonMembers_1.Text1" xml:space="preserve">
+    <value>I definuar në</value>
+  </data>
+  <data name="frmStoreGroupsProperties_Msg10" xml:space="preserve">
+    <value>Emri i Grupit të Store</value>
+  </data>
+  <data name="frmStoreGroupsProperties_tabGeneral.Text" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="frmStoreGroupsProperties_tabLdapQuery.Text" xml:space="preserve">
+    <value>Query LDAP</value>
+  </data>
+  <data name="frmStoreGroupsProperties_tabMembers.Text" xml:space="preserve">
+    <value>Pjestarët</value>
+  </data>
+  <data name="frmStoreGroupsProperties_tabNonMembers.Text" xml:space="preserve">
+    <value>Jo Pjestar</value>
+  </data>
+  <data name="frmStoreGroupsProperties_tabNonMembers.Text1" xml:space="preserve">
+    <value>Jo Pjestar</value>
+  </data>
+  <data name="frmStorePermissions.Text" xml:space="preserve">
+    <value>Permessi dello Store</value>
+  </data>
+  <data name="frmStorePermissions_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Anullo</value>
+  </data>
+  <data name="frmStorePermissions_btnOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmStorePermissions_lblDescription.Text" xml:space="preserve">
+    <value>Sql Login me lejime speciale.
+(Login-at duhet te shtohen ne menyre paraprake Rroleve SQL: "NetSqlAzMan_Managers", "NetSqlAzMan_Users", "NetSqlAzMan_Readers").
+Vetem login-at e seleksionuara do te autorizohen ne Rrolin per kete Store.</value>
+  </data>
+  <data name="frmStorePermissions_lblInfo.Text" xml:space="preserve">
+    <value>Permessi dello Store</value>
+  </data>
+  <data name="frmStoreProperties.Text" xml:space="preserve">
+    <value>Store e re</value>
+  </data>
+  <data name="frmStoreProperties_btnAttributes.Text" xml:space="preserve">
+    <value>A&amp;tributet</value>
+  </data>
+  <data name="frmStoreProperties_btnCancel.Text" xml:space="preserve">
+    <value>A&amp;nullo</value>
+  </data>
+  <data name="frmStoreProperties_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmStoreProperties_btnPermissions.Text" xml:space="preserve">
+    <value>&amp;Permessi</value>
+  </data>
+  <data name="frmStoreProperties_label1.Text" xml:space="preserve">
+    <value>Emërtimi:</value>
+  </data>
+  <data name="frmStoreProperties_label2.Text" xml:space="preserve">
+    <value>Përshkrim:</value>
+  </data>
+  <data name="frmStoreProperties_lblInfo.Text" xml:space="preserve">
+    <value>Krijo një Store të re</value>
+  </data>
+  <data name="frmStoreProperties_Msg10" xml:space="preserve">
+    <value>Karakteristikat e Store</value>
+  </data>
+  <data name="frmStoreProperties_Msg20" xml:space="preserve">
+    <value>Store e re</value>
+  </data>
+  <data name="frmStoreProperties_Msg30" xml:space="preserve">
+    <value>Emri i Store të kërkuar</value>
+  </data>
+  <data name="frmStoreProperties_Msg40" xml:space="preserve">
+    <value>Gabim duke krijuar Store</value>
+  </data>
+  <data name="frmStoreProperties_Msg50" xml:space="preserve">
+    <value>Gabim duke Azhornuar Store-in</value>
+  </data>
+  <data name="frmStoreProperties_Msg60" xml:space="preserve">
+    <value>Gabim në Azhornimin e Atributit</value>
+  </data>
+  <data name="ItemDefinitionsListView_Msg10" xml:space="preserve">
+    <value>Doni të Eliminoni Elementet e seleksionuar ?</value>
+  </data>
+  <data name="ItemDefinitionsListView_Tit20" xml:space="preserve">
+    <value>Gabim duke Eliminuar Elementin</value>
+  </data>
+  <data name="Language_Albanian" xml:space="preserve">
+    <value>Shqip</value>
+  </data>
+  <data name="Language_AlbanianDescription" xml:space="preserve">
+    <value>Gjuha Shqip</value>
+  </data>
+  <data name="Language_English" xml:space="preserve">
+    <value>Anglisht</value>
+  </data>
+  <data name="Language_EnglishDescription" xml:space="preserve">
+    <value>Gjuha Anglisht</value>
+  </data>
+  <data name="Language_Italian" xml:space="preserve">
+    <value>Italisht</value>
+  </data>
+  <data name="Language_ItalianDescription" xml:space="preserve">
+    <value>Gjuha Italisht</value>
+  </data>
+  <data name="Language_Msg10" xml:space="preserve">
+    <value>Gjuha</value>
+  </data>
+  <data name="Language_Spanish" xml:space="preserve">
+    <value>Spanjisht</value>
+  </data>
+  <data name="Language_SpanishDescription" xml:space="preserve">
+    <value>Gjuha Spanjisht</value>
+  </data>
+  <data name="Language_Tit10" xml:space="preserve">
+    <value>Seleksiono gjuhën e preferuar</value>
+  </data>
+  <data name="ListView_Msg10" xml:space="preserve">
+    <value>Pjestar të Grupit të Aplikacioneve</value>
+  </data>
+  <data name="ListView_Msg100" xml:space="preserve">
+    <value>Doni të Eliminoni Rrolin ?</value>
+  </data>
+  <data name="ListView_Msg110" xml:space="preserve">
+    <value>Elimino Aktivitet</value>
+  </data>
+  <data name="ListView_Msg120" xml:space="preserve">
+    <value>Doni të Eliminoni Aktivitetin ?</value>
+  </data>
+  <data name="ListView_Msg130" xml:space="preserve">
+    <value>Elimino Operacion</value>
+  </data>
+  <data name="ListView_Msg140" xml:space="preserve">
+    <value>Doni të Eliminoni Operacionin ?</value>
+  </data>
+  <data name="ListView_Msg150" xml:space="preserve">
+    <value>Pjestar të Grupit të Store</value>
+  </data>
+  <data name="ListView_Msg20" xml:space="preserve">
+    <value>Grupe Aplikacionesh</value>
+  </data>
+  <data name="ListView_Msg30" xml:space="preserve">
+    <value>Rrole</value>
+  </data>
+  <data name="ListView_Msg40" xml:space="preserve">
+    <value>Aktivitet</value>
+  </data>
+  <data name="ListView_Msg50" xml:space="preserve">
+    <value>Operacione</value>
+  </data>
+  <data name="ListView_Msg60" xml:space="preserve">
+    <value>Karakteristikat e Rrolit</value>
+  </data>
+  <data name="ListView_Msg70" xml:space="preserve">
+    <value>Karakteristikat e Aktivitetit</value>
+  </data>
+  <data name="ListView_Msg80" xml:space="preserve">
+    <value>Karakteristikat e Operacionit</value>
+  </data>
+  <data name="ListView_Msg90" xml:space="preserve">
+    <value>Elimino Rrol</value>
+  </data>
+  <data name="ListView_Tit60" xml:space="preserve">
+    <value>Menaxhim i Karakteristikave te Rrolit</value>
+  </data>
+  <data name="ListView_Tit70" xml:space="preserve">
+    <value>Menaxhim i Karakteristikave te Aktivitetit</value>
+  </data>
+  <data name="ListView_Tit80" xml:space="preserve">
+    <value>Menaxhim i Karakteristikave te Operacionit</value>
+  </data>
+  <data name="Menu_ItemsHierarchicalView" xml:space="preserve">
+    <value>Pamje Gjerarkike e elementare</value>
+  </data>
+  <data name="Menu_ItemsHierarchicalViewDescription" xml:space="preserve">
+    <value>Paraqit një pamje Gjerakike të Aplikacioneve të seleksionuara</value>
+  </data>
+  <data name="Menu_Msg10" xml:space="preserve">
+    <value>Eksporto Grupet e Aplicacionve të seleksionuara</value>
+  </data>
+  <data name="Menu_Msg100" xml:space="preserve">
+    <value>Doni të Eliminoni Aplikacionet e seleksionuara ?</value>
+  </data>
+  <data name="Menu_Msg110" xml:space="preserve">
+    <value>Eksporto Grupet e Store-ve të seleksionuara</value>
+  </data>
+  <data name="Menu_Msg120" xml:space="preserve">
+    <value>Elimino Grupet e Store të seleksionuara</value>
+  </data>
+  <data name="Menu_Msg130" xml:space="preserve">
+    <value>Eksporto Store-t e seleksionuara</value>
+  </data>
+  <data name="Menu_Msg140" xml:space="preserve">
+    <value>Elimino Store-at e seleksionuar</value>
+  </data>
+  <data name="Menu_Msg160" xml:space="preserve">
+    <value>Karakteristikat e Grupit te Aplikacioneve</value>
+  </data>
+  <data name="Menu_Msg170" xml:space="preserve">
+    <value>Eksporto Grupet e Programeve</value>
+  </data>
+  <data name="Menu_Msg180" xml:space="preserve">
+    <value>Elimino Grupet e Aplikacioneve</value>
+  </data>
+  <data name="Menu_Msg190" xml:space="preserve">
+    <value>Doni të Eliminoni Grupin e Aplikacionit ?</value>
+  </data>
+  <data name="Menu_Msg20" xml:space="preserve">
+    <value>Fshij Grupet e Applikacioneve të seleksionuara</value>
+  </data>
+  <data name="Menu_Msg210" xml:space="preserve">
+    <value>Grup Aplikacionesh i Ri</value>
+  </data>
+  <data name="Menu_Msg220" xml:space="preserve">
+    <value>Importo Grup Aplikacionesh .NET Sql Authorization Manager</value>
+  </data>
+  <data name="Menu_Msg230" xml:space="preserve">
+    <value>Karakteristikat e Aplikacionit</value>
+  </data>
+  <data name="Menu_Msg240" xml:space="preserve">
+    <value>Xhenero CheckAccessHelper</value>
+  </data>
+  <data name="Menu_Msg250" xml:space="preserve">
+    <value>Importo Grupe Aplikacionesh/Elementash .NET Sql Authorization Manager</value>
+  </data>
+  <data name="Menu_Msg260" xml:space="preserve">
+    <value>Eksporto Program</value>
+  </data>
+  <data name="Menu_Msg270" xml:space="preserve">
+    <value>Elimino Aplikacion</value>
+  </data>
+  <data name="Menu_Msg280" xml:space="preserve">
+    <value>Doni të Eliminoni Aplikacionin</value>
+  </data>
+  <data name="Menu_Msg290" xml:space="preserve">
+    <value>Gabim në Eliminimin e Aplikacionit</value>
+  </data>
+  <data name="Menu_Msg30" xml:space="preserve">
+    <value>Autorizime</value>
+  </data>
+  <data name="Menu_Msg300" xml:space="preserve">
+    <value>Importo Elemente</value>
+  </data>
+  <data name="Menu_Msg310" xml:space="preserve">
+    <value>Eksporto Element</value>
+  </data>
+  <data name="Menu_Msg320" xml:space="preserve">
+    <value>Operacion i Ri</value>
+  </data>
+  <data name="Menu_Msg330" xml:space="preserve">
+    <value>Rrol i ri</value>
+  </data>
+  <data name="Menu_Msg340" xml:space="preserve">
+    <value>Lidhje me Storage</value>
+  </data>
+  <data name="Menu_Msg350" xml:space="preserve">
+    <value>Opcione</value>
+  </data>
+  <data name="Menu_Msg360" xml:space="preserve">
+    <value>Store e re</value>
+  </data>
+  <data name="Menu_Msg370" xml:space="preserve">
+    <value>Importo Store</value>
+  </data>
+  <data name="Menu_Msg380" xml:space="preserve">
+    <value>Eksporto Store</value>
+  </data>
+  <data name="Menu_Msg390" xml:space="preserve">
+    <value>Importo Store nga MS AzMan</value>
+  </data>
+  <data name="Menu_Msg40" xml:space="preserve">
+    <value>Elimino</value>
+  </data>
+  <data name="Menu_Msg400" xml:space="preserve">
+    <value>Karakteristikat e Grupit të Store</value>
+  </data>
+  <data name="Menu_Msg410" xml:space="preserve">
+    <value>Eksporto Grupet e Store-ve</value>
+  </data>
+  <data name="Menu_Msg420" xml:space="preserve">
+    <value>Elimino Grupin e Store</value>
+  </data>
+  <data name="Menu_Msg430" xml:space="preserve">
+    <value>Doni të Eliminoni Grupin e Store ?</value>
+  </data>
+  <data name="Menu_Msg440" xml:space="preserve">
+    <value>Grup Store-sh i Ri</value>
+  </data>
+  <data name="Menu_Msg450" xml:space="preserve">
+    <value>Importo Grup Store-sh</value>
+  </data>
+  <data name="Menu_Msg460" xml:space="preserve">
+    <value>Importo Grupe Store-sh .NET Sql Authorization Manager</value>
+  </data>
+  <data name="Menu_Msg470" xml:space="preserve">
+    <value>Karakteristikat e Store</value>
+  </data>
+  <data name="Menu_Msg480" xml:space="preserve">
+    <value>Aplikacion i Ri</value>
+  </data>
+  <data name="Menu_Msg490" xml:space="preserve">
+    <value>Importo Grupe Store-sh/Aplikacionesh</value>
+  </data>
+  <data name="Menu_Msg50" xml:space="preserve">
+    <value>Doni të Eliminoni Autorizimet e seleksionuara ?</value>
+  </data>
+  <data name="Menu_Msg500" xml:space="preserve">
+    <value>Eksporto Store</value>
+  </data>
+  <data name="Menu_Msg510" xml:space="preserve">
+    <value>Elimino Store</value>
+  </data>
+  <data name="Menu_Msg520" xml:space="preserve">
+    <value>Doni të Eliminoni Store-in ?</value>
+  </data>
+  <data name="Menu_Msg530" xml:space="preserve">
+    <value>Aktivitet i Ri</value>
+  </data>
+  <data name="Menu_Msg540" xml:space="preserve">
+    <value>Kontrollim i Autorizimeve</value>
+  </data>
+  <data name="Menu_Msg550" xml:space="preserve">
+    <value>Modalità &amp;&amp; Logging</value>
+  </data>
+  <data name="Menu_Msg560" xml:space="preserve">
+    <value>Auditing</value>
+  </data>
+  <data name="Menu_Msg60" xml:space="preserve">
+    <value>Eksporto Elementet e seleksionuara</value>
+  </data>
+  <data name="Menu_Msg70" xml:space="preserve">
+    <value>Elimino Elementat e seleksionuar</value>
+  </data>
+  <data name="Menu_Msg80" xml:space="preserve">
+    <value>Eksporto Programet e seleksionuara</value>
+  </data>
+  <data name="Menu_Msg90" xml:space="preserve">
+    <value>Elimino Aplikacionet e seleksionuara</value>
+  </data>
+  <data name="Menu_Tit10" xml:space="preserve">
+    <value>Eksporto të dhënat e Aplikacioneve .NET Sql Authorization Manager</value>
+  </data>
+  <data name="Menu_Tit110" xml:space="preserve">
+    <value>Eksporto të dhënat e Grupeve të Store .NET Sql Authorization Manager</value>
+  </data>
+  <data name="Menu_Tit120" xml:space="preserve">
+    <value>Elimino Grupet e Store të seleksionuara</value>
+  </data>
+  <data name="Menu_Tit130" xml:space="preserve">
+    <value>Eksporto të dhënat e Store .NET Sql Authorization Manager</value>
+  </data>
+  <data name="Menu_Tit140" xml:space="preserve">
+    <value>Elimino Store-at e seleksionuar</value>
+  </data>
+  <data name="Menu_Tit150" xml:space="preserve">
+    <value>Gabim duke Eliminuar Store-in</value>
+  </data>
+  <data name="Menu_Tit160" xml:space="preserve">
+    <value>Menaxhim i Karakteristikave te Grupeve te Aplikacioneve</value>
+  </data>
+  <data name="Menu_Tit170" xml:space="preserve">
+    <value>Eksporto të dhënat e një Grupi të Aplikacioneve .NET Sql Authorization Manager</value>
+  </data>
+  <data name="Menu_Tit20" xml:space="preserve">
+    <value>Elimino Grupet e Aplikacioneve të seleksionuara</value>
+  </data>
+  <data name="Menu_Tit200" xml:space="preserve">
+    <value>Gabim duke eliminuar Grupin Aplikacioneve</value>
+  </data>
+  <data name="Menu_Tit210" xml:space="preserve">
+    <value>Krijo një Grup Aplikazionesh të ri</value>
+  </data>
+  <data name="Menu_Tit220" xml:space="preserve">
+    <value>Importo Grupe Aplikacionesh .NET Sql Authorization Manager</value>
+  </data>
+  <data name="Menu_Tit230" xml:space="preserve">
+    <value>Menaxhim i Karakteristikave te Aplikacionit</value>
+  </data>
+  <data name="Menu_Tit240" xml:space="preserve">
+    <value>Xhenero kode për Klasën CheckAccessHelper (C#/VB.NET).</value>
+  </data>
+  <data name="Menu_Tit250" xml:space="preserve">
+    <value>Importo Grupe Aplikacionesh/Elementash .NET Sql Authorization Manager</value>
+  </data>
+  <data name="Menu_Tit260" xml:space="preserve">
+    <value>Eksporto të dhënat e një Aplikacioni .NET Sql Authorization Manager</value>
+  </data>
+  <data name="Menu_Tit30" xml:space="preserve">
+    <value>Modifiko Autorizimet</value>
+  </data>
+  <data name="Menu_Tit300" xml:space="preserve">
+    <value>Importo Elemente .NET Sql Authorization Manager</value>
+  </data>
+  <data name="Menu_Tit310" xml:space="preserve">
+    <value>Eksporto të dhënat e Item .NET Sql Authorization Manager</value>
+  </data>
+  <data name="Menu_Tit320" xml:space="preserve">
+    <value>Krijo një Operacion të ri</value>
+  </data>
+  <data name="Menu_Tit330" xml:space="preserve">
+    <value>Krijo një Rrol të ri</value>
+  </data>
+  <data name="Menu_Tit340" xml:space="preserve">
+    <value>Imposta o Restituisce la connessione allo Storage Sql</value>
+  </data>
+  <data name="Menu_Tit350" xml:space="preserve">
+    <value>Opcione .NET Sql Authorization Manager.</value>
+  </data>
+  <data name="Menu_Tit360" xml:space="preserve">
+    <value>Krijo një Store të re në Storage</value>
+  </data>
+  <data name="Menu_Tit370" xml:space="preserve">
+    <value>Importo Store .NET Sql Authorization Manager</value>
+  </data>
+  <data name="Menu_Tit380" xml:space="preserve">
+    <value>Eksporto të dhënat e Store .NET Sql Authorization Manager</value>
+  </data>
+  <data name="Menu_Tit390" xml:space="preserve">
+    <value>Importo Store nga MS Authorization Manager (AzMan).</value>
+  </data>
+  <data name="Menu_Tit40" xml:space="preserve">
+    <value>Elimino Autorizimet e seleksionuara</value>
+  </data>
+  <data name="Menu_Tit400" xml:space="preserve">
+    <value>Menaxhim i Karakteristikave te Grupeve te Store</value>
+  </data>
+  <data name="Menu_Tit410" xml:space="preserve">
+    <value>Eksporto të dhënat e Grupeve të Store .NET Sql Authorization Manager</value>
+  </data>
+  <data name="Menu_Tit440" xml:space="preserve">
+    <value>Krijo një Grup Store-sh të ri</value>
+  </data>
+  <data name="Menu_Tit470" xml:space="preserve">
+    <value>Menaxhim i Karakteristikave te Store</value>
+  </data>
+  <data name="Menu_Tit480" xml:space="preserve">
+    <value>Krijo një Aplikacion Store-in e seleksionuar</value>
+  </data>
+  <data name="Menu_Tit490" xml:space="preserve">
+    <value>Importo Grupe Aplikacionesh/Aplikacionesh .NET Sql Authorization Manager</value>
+  </data>
+  <data name="Menu_Tit500" xml:space="preserve">
+    <value>Eksporto të dhënat e Store .NET Sql Authorization Manager</value>
+  </data>
+  <data name="Menu_Tit530" xml:space="preserve">
+    <value>Krijo një Aktivitet të ri</value>
+  </data>
+  <data name="Menu_Tit540" xml:space="preserve">
+    <value>Menaxhim i Autorizimeve te Elementave</value>
+  </data>
+  <data name="Menu_Tit550" xml:space="preserve">
+    <value>Modalità NetSqlAzMan e Logging</value>
+  </data>
+  <data name="Menu_Tit560" xml:space="preserve">
+    <value>Auditing tramite SQLAudit sullo Storage NetSqlAzMan</value>
+  </data>
+  <data name="Menu_Tit60" xml:space="preserve">
+    <value>Eksporto të dhënat e Item .NET Sql Authorization Manager</value>
+  </data>
+  <data name="Menu_Tit70" xml:space="preserve">
+    <value>Elimino Elementat e seleksionuar</value>
+  </data>
+  <data name="Menu_Tit80" xml:space="preserve">
+    <value>Eksporto të dhënat e Aplikacioneve .NET Sql Authorization Manager</value>
+  </data>
+  <data name="Menu_Tit90" xml:space="preserve">
+    <value>Doni të Eliminoni Aplikacionet e seleksionuara</value>
+  </data>
+  <data name="MMC_Msg10" xml:space="preserve">
+    <value>.NET SQL Authorization Manager Information (Hapje e Pare)</value>
+  </data>
+  <data name="MMC_Msg20" xml:space="preserve">
+    <value>Gabim NetSqlAzMan</value>
+  </data>
+  <data name="MMC_Msg30" xml:space="preserve">
+    <value>U verifikua një gabim gjatë karikimir të informacioneve për lidhjen me Database.\r\nGabimi: {0}</value>
+    <comment>don't delete place holders {x}</comment>
+  </data>
+  <data name="MMC_Tit10" xml:space="preserve">
+    <value>Bëni klik me tastin e djathtë mbi zërin NetSqlAzMan dhe seleksiono zërin 'Gjuha' për të seleksionuar gjuhën e preferuar.\r\n\r\n.Bëni klik me tastin e djathtë mbi zërin NetSqlAzMan dhe seleksiono zërin 'Lidhje me Storage' për të impostuar karakteristikat e lidhjes me Sql Server.\r\n\r\nNota:\r\n\r\nHerën e parë është e nevojshme të krijoni në mynyrë manuale një database Sql (NetSqlAzManStorage) dhe ekzekutoni skriptin e krijimit të objekteve (NetSqlAzMan_SqlServer.sql) në DB.\r\n\r\nPër më shumë informacione shikoni faqen web http://netsqlazman.sourceforge.net.\r\n</value>
+  </data>
+  <data name="MMC_Tit30" xml:space="preserve">
+    <value>Gabim gjatë Lidhjes</value>
+  </data>
+  <data name="RefreshComplete_Msg10" xml:space="preserve">
+    <value>Azhornim i Completuar</value>
+  </data>
+  <data name="Refreshing_Msg10" xml:space="preserve">
+    <value>Azhornim në punë e sipër ...</value>
+  </data>
+  <data name="rptDescription" xml:space="preserve">
+    <value>Raporte</value>
+  </data>
+  <data name="rptMsg10" xml:space="preserve">
+    <value>Gjerarkia e Item</value>
+  </data>
+  <data name="rptMsg20" xml:space="preserve">
+    <value>&amp;Autorizimet e Item</value>
+  </data>
+  <data name="rptTit10" xml:space="preserve">
+    <value>Raport i Gjerarkise se Item</value>
+  </data>
+  <data name="rptTit20" xml:space="preserve">
+    <value>Raport i Autorizimeve te Item</value>
+  </data>
+  <data name="rptTitle" xml:space="preserve">
+    <value>&amp;Raporte</value>
+  </data>
+  <data name="StorageScopeNode_Msg10" xml:space="preserve">
+    <value>Importimi nga MS AzMan dështoi</value>
+  </data>
+  <data name="StorageScopeNode_Msg20" xml:space="preserve">
+    <value>Është lëshuar një version i ri i NetSqlAzMan.\r\n\r\n.Versioni aktual: {0}\r\nVersioni i ri: {1}\r\nLink për skarikim: {2}\r\n\r\nDoni të skarikoni tani versionin e ri ?\r\n</value>
+    <comment>don't delete place holders {x}</comment>
+  </data>
+  <data name="StorageScopeNode_Msg30" xml:space="preserve">
+    <value>Krijove Database-in Sql 'NetSqlAzManStorage' ?\r\n(shiko dosjen e instalimit)</value>
+  </data>
+  <data name="StorageScopeNode_Tit20" xml:space="preserve">
+    <value>Version i Ri i NetSqlAzMan disponibël</value>
+  </data>
+  <data name="StorageScopeNode_Tit30" xml:space="preserve">
+    <value>Testi Dështoi</value>
+  </data>
+  <data name="StoreGroupsAndApplicationsListView_Msg10" xml:space="preserve">
+    <value>Gabim duke eliminuar Aplikacionin</value>
+  </data>
+  <data name="StoreGroupScopeNode_Msg10" xml:space="preserve">
+    <value>Gabim Karakteristike të Grupit të Store</value>
+  </data>
+  <data name="StoreGroupScopeNode_Msg20" xml:space="preserve">
+    <value>Fshij gabimin e Grupit të Store</value>
+  </data>
+  <data name="StoreGroupsListView_Msg10" xml:space="preserve">
+    <value>Doni të Eliminoni Grupet e Store te seleksionuara ?</value>
+  </data>
+  <data name="StoreGroupsListView_Tit20" xml:space="preserve">
+    <value>Gabim duke Eliminuar një Grup Store-sh</value>
+  </data>
+  <data name="StoreScopeNode_Msg10" xml:space="preserve">
+    <value>Gabim duke fshirë Store-in</value>
+  </data>
+  <data name="StoresListView_Msg10" xml:space="preserve">
+    <value>Doni të Eliminoni Store-t e seleksionuara ?</value>
+  </data>
+  <data name="UpdateError_Msg10" xml:space="preserve">
+    <value>Gabim duke Azhornuar</value>
+  </data>
+  <data name="WhereDefined_Application" xml:space="preserve">
+    <value>Aplikacion</value>
+  </data>
+  <data name="WhereDefined_DB" xml:space="preserve">
+    <value>Përdorues DB</value>
+  </data>
+  <data name="WhereDefined_LDAP" xml:space="preserve">
+    <value>Active Directory</value>
+  </data>
+  <data name="WhereDefined_Local" xml:space="preserve">
+    <value>Lokal</value>
+  </data>
+  <data name="WhereDefined_Store" xml:space="preserve">
+    <value>Store</value>
+  </data>
+  <data name="frmImportOptions_chkCreatesNewItemAuthorizations.Text" xml:space="preserve">
+    <value>Crea nuova autorizzazioni</value>
+  </data>
+  <data name="frmImportOptions_chkCreatesNewItems.Text" xml:space="preserve">
+    <value>Crea nuovi Elementi</value>
+  </data>
+  <data name="frmImportOptions_chkDeleteMissingItemAuthorizations.Text" xml:space="preserve">
+    <value>Cancella autorizzazioni mancanti</value>
+  </data>
+  <data name="frmImportOptions_chkDeleteMissingItems.Text" xml:space="preserve">
+    <value>Cancella Elementi mancanti</value>
+  </data>
+  <data name="frmImportOptions_chkOverwritesExistingItems.Text" xml:space="preserve">
+    <value>Sovrascrivi Elementi esistenti</value>
+  </data>
+  <data name="frmImportOptions_chkOverwritesItemAuthorizations.Text" xml:space="preserve">
+    <value>Sovrascrivi autorizzazioni esistenti</value>
+  </data>
+  <data name="frmImportOptions_groupBox1.Text" xml:space="preserve">
+    <value>Opzioni di importazione</value>
+  </data>
+  <data name="frmImportOptions_groupBox2.Text" xml:space="preserve">
+    <value>Opzioni di fusione</value>
+  </data>
+  <data name="Menu_Msg570" xml:space="preserve">
+    <value>Aggiorna WCF Cache Service</value>
+  </data>
+  <data name="Menu_Tit570" xml:space="preserve">
+    <value>Invoca il metodo InvalidateCache() del servizio WCF Storage Cache</value>
+  </data>
+  <data name="frmInvalidateWCFCacheService.Text" xml:space="preserve">
+    <value>Aggiorna WCF Cache Service</value>
+  </data>
+  <data name="frmInvalidateWCFCacheService_btnClose.Text" xml:space="preserve">
+    <value>&amp;Chiudi</value>
+  </data>
+  <data name="frmInvalidateWCFCacheService_btnInvalidateCache.Text" xml:space="preserve">
+    <value>&amp;InvalidateCache()</value>
+  </data>
+  <data name="frmInvalidateWCFCacheService_label1.Text" xml:space="preserve">
+    <value>WCF Cache Service EndPoint:</value>
+  </data>
+  <data name="frmInvalidateWCFCacheService_txtWCFCacheServiceEndPoint.Text" xml:space="preserve">
+    <value>net.tcp://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/</value>
+  </data>
+  <data name="Language_Russian" xml:space="preserve">
+    <value>Ruse</value>
+  </data>
+  <data name="Language_RussianDescription" xml:space="preserve">
+    <value>Gjuha Ruse</value>
+  </data>
+</root>

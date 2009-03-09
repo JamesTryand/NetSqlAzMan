@@ -1,0 +1,215 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CBDF2741-B771-4399-8996-77D08C3E8267}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NetSqlAzMan</RootNamespace>
+    <AssemblyName>NetSqlAzMan</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>NetSqlAzMan.pfx</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>NetSqlAzMan.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>NetSqlAzMan.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BizRuleSourceLanguage.cs" />
+    <Compile Include="Cache\ItemCheckAccessResult.cs" />
+    <Compile Include="Cache\StorageCache.cs" />
+    <Compile Include="Cache\UserPermissionCache.cs" />
+    <Compile Include="Cache\WindowsIdentityExtensions.cs" />
+    <Compile Include="CodeDom\CodeDomGenerator.cs" />
+    <Compile Include="CodeDom\CodeDomHelper.cs" />
+    <Compile Include="CodeDom\Language.cs" />
+    <Compile Include="ENS\IAzManENS.cs" />
+    <Compile Include="Interfaces\IAzManBizRule.cs" />
+    <Compile Include="Interfaces\IAzManDBUser.cs" />
+    <Compile Include="Interfaces\IAzManSecurable.cs" />
+    <Compile Include="LINQ\NetSqlAzManStorage.CustomCode.cs" />
+    <Compile Include="LINQ\NetSqlAzManStorage.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NetSqlAzManStorage.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="LINQ\NetSqlAzManStorageExtension.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SqlAzManAuthorizationAttribute.cs" />
+    <Compile Include="SqlAzManDBUser.cs" />
+    <Compile Include="SqlAzManItemAttribute.cs" />
+    <Compile Include="SqlAzManApplicationAttribute.cs" />
+    <Compile Include="SqlAzManMergeOptions.cs" />
+    <Compile Include="SqlAzManStoreAttribute.cs" />
+    <Compile Include="ENS\ENSDelegates.cs" />
+    <Compile Include="Interfaces\AuthorizationType.cs" />
+    <Compile Include="Interfaces\AzManIsolationLevel.cs" />
+    <Compile Include="Interfaces\RestrictedAuthorizationType.cs" />
+    <Compile Include="Interfaces\IAzManImport.cs" />
+    <Compile Include="Interfaces\GroupType.cs" />
+    <Compile Include="Interfaces\IAzManApplication.cs" />
+    <Compile Include="Interfaces\IAzManApplicationGroup.cs" />
+    <Compile Include="Interfaces\IAzManApplicationGroupMember.cs" />
+    <Compile Include="Interfaces\IAzManAuthorization.cs" />
+    <Compile Include="Interfaces\IAzManAttribute.cs" />
+    <Compile Include="Interfaces\IAzManExport.cs" />
+    <Compile Include="Interfaces\IAzManItem.cs" />
+    <Compile Include="Interfaces\IAzManSid.cs" />
+    <Compile Include="Interfaces\IAzManStorage.cs" />
+    <Compile Include="Interfaces\IAzManStore.cs" />
+    <Compile Include="Interfaces\IAzManStoreGroup.cs" />
+    <Compile Include="Interfaces\IAzManStoreGroupMember.cs" />
+    <Compile Include="Interfaces\IAzManTransactable.cs" />
+    <Compile Include="Interfaces\ItemType.cs" />
+    <Compile Include="Interfaces\MemberType.cs" />
+    <Compile Include="Interfaces\NetSqlAzManMode.cs" />
+    <Compile Include="Interfaces\WhereDefined.cs" />
+    <Compile Include="DirectoryServices\DirectoryServicesUtils.cs" />
+    <Compile Include="ENS\SqlAzManENS.cs" />
+    <Compile Include="Logging\LoggingUtility.cs" />
+    <Compile Include="SqlAzManSID.cs" />
+    <Compile Include="SqlAzManStorageException.cs" />
+    <Compile Include="SqlAzManApplicationGroupException.cs" />
+    <Compile Include="SqlAzManApplicationGroupMemberException.cs" />
+    <Compile Include="SqlAzManApplicationGroupMember.cs" />
+    <Compile Include="SqlAzManApplicationGroup.cs" />
+    <Compile Include="SqlAzManStorage.cs" />
+    <Compile Include="SqlAzManStoreGroupMemberException.cs" />
+    <Compile Include="SqlAzManStoreGroupMember.cs" />
+    <Compile Include="SqlAzManStoreGroupException.cs" />
+    <Compile Include="SqlAzManAuthorizationException.cs" />
+    <Compile Include="SqlAzManItemException.cs" />
+    <Compile Include="SqlAzManApplicationException.cs" />
+    <Compile Include="SqlAzManExceptionBase.cs" />
+    <Compile Include="SqlAzManStoreException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlAzManApplication.cs" />
+    <Compile Include="SqlAzManAuthorization.cs" />
+    <Compile Include="SqlAzManAttribute.cs" />
+    <Compile Include="SqlAzManItem.cs" />
+    <Compile Include="SqlAzManStore.cs" />
+    <Compile Include="SqlAzManStoreGroup.cs" />
+    <Compile Include="Utilities\HexEncoding.cs" />
+    <Compile Include="Providers\NetSqlAzManRoleProvider.cs" />
+    <Compile Include="Utilities\MergeUtilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NetSqlAzMan.cd" />
+    <None Include="NetSqlAzMan.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LINQ\NetSqlAzManStorage.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>NetSqlAzManStorage.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="LINQ\NetSqlAzManStorage.dbml.layout">
+      <DependentUpon>NetSqlAzManStorage.dbml</DependentUpon>
+    </None>
+    <None Include="LINQ\SqlMetal.bat" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

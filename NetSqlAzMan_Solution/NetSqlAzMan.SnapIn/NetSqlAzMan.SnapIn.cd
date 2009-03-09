@@ -1,0 +1,625 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker.DSOP_SCOPE_TYPE_FLAGS" Collapsed="true">
+    <Position X="40" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DirectoryServices\ADObjectPicker\StructsFlags.cs</FileName>
+      <HashCode>AAAAQAAAAAAAAgBAAAAAAABAEAAAAAAACAAgCAAAAAo=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker.DSOP_INIT_INFO_FLAGS" Collapsed="true">
+    <Position X="48.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DirectoryServices\ADObjectPicker\StructsFlags.cs</FileName>
+      <HashCode>AAAAAAAAAAAAABAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker.DSOP_SCOPE_INIT_INFO_FLAGS" Collapsed="true">
+    <Position X="50.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DirectoryServices\ADObjectPicker\StructsFlags.cs</FileName>
+      <HashCode>AAAACBkAAAAAAAAAAAAQAAAAAAAAAAUBCAAAAAAAACA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker.DSOP_FILTER_FLAGS_FLAGS" Collapsed="true">
+    <Position X="47" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DirectoryServices\ADObjectPicker\StructsFlags.cs</FileName>
+      <HashCode>AAAAAAAEAgAAAAAAAQIAASBAAAQAACAAAAAJBAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker.DSOP_DOWNLEVEL_FLAGS" Collapsed="true">
+    <Position X="45.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DirectoryServices\ADObjectPicker\StructsFlags.cs</FileName>
+      <HashCode>AABCAAAAAAAAQpIAAAEBAQAIAAAgACMAAYCEAAAABAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker.HRESULT" Collapsed="true">
+    <Position X="47" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DirectoryServices\ADObjectPicker\StructsFlags.cs</FileName>
+      <HashCode>AAAAAAEAAAAAAAAAAgAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker.CLIPBOARD_FORMAT" Collapsed="true">
+    <Position X="41.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DirectoryServices\ADObjectPicker\StructsFlags.cs</FileName>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.DirectoryServices.DirectoryServicesUtils" Collapsed="true">
+    <Position X="43.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DirectoryServices\DirectoryServicesUtils.cs</FileName>
+      <HashCode>AAAAAAAAAAABAAAAABAAAAAQQAAAAAAAAIAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmActiveDirectoryObjectsList" Collapsed="true">
+    <Position X="41.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmActiveDirectoryObjectsList.cs</FileName>
+      <HashCode>AAAAAIAQACAAABAADAyAECACAEAAAAAACIAAARBQAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmApplicationAttributes" Collapsed="true">
+    <Position X="43.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmApplicationAttributes.cs</FileName>
+      <HashCode>AwAJsAAAACAQMBEQRQSAGMACAIQEgEAAAQoIQRBVAMI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmApplicationGroupsList" Collapsed="true">
+    <Position X="45.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmApplicationGroupsList.cs</FileName>
+      <HashCode>EgAAEIAAACRAABEABASCEUASIAAABDAAAAgAARBQEIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmApplicationGroupsProperties" Collapsed="true">
+    <Position X="47" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmApplicationGroupsProperties.cs</FileName>
+      <HashCode>IsgQApIABHHIEBWgBGSS35ALUIIIhmEADK6gBVIVB8Q=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmApplicationProperties" Collapsed="true">
+    <Position X="48.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmApplicationProperties.cs</FileName>
+      <HashCode>AgAAEIAAQCAAABEABASQEEACAAAgBAABAAAABRAQEgQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmAttributeProperties" Collapsed="true">
+    <Position X="50.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmAttributeProperties.cs</FileName>
+      <HashCode>AgQAAAAABCAAABEABASEEMACAAAAAGAIAAACARBQAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmAuthorizationAttributes" Collapsed="true">
+    <Position X="40" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmAuthorizationAttributes.cs</FileName>
+      <HashCode>AwCBoAAAACAQMBEQRQSAGOACQAQAgECBAQoIARBVAMI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmBizRule" Collapsed="true">
+    <Position X="41.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmBizRule.cs</FileName>
+      <HashCode>CgACAAQAFCQAABAABESAMAACAAAAQAAAEJAAARBQAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmDBUsersList" Collapsed="true">
+    <Position X="43.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmDBUsersList.cs</FileName>
+      <HashCode>AwAAEIIABCQCABEABASAEEASAAAABCABAAwAgRRQAoA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmExport" Collapsed="true">
+    <Position X="45.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmExport.cs</FileName>
+      <HashCode>AAAAAAAAACAAgAAABBSAEAECAAAAAEAAAAAAAABRAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmExportOptions" Collapsed="true">
+    <Position X="47" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmExportOptions.cs</FileName>
+      <HashCode>BAAAkAAAACACAAEABBSAEFECAAAAgBAAAEAAARAVgAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmGenerateCheckAccessHelper" Collapsed="true">
+    <Position X="48.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmGenerateCheckAccessHelper.cs</FileName>
+      <HashCode>BghCEAgAFCABABABJUSAEEoiCAgIAAAAAIIAARARAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmImport" Collapsed="true">
+    <Position X="50.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmImport.cs</FileName>
+      <HashCode>EABAAAAAACAAAAAABASAEAECAAAAAAAAAAIACABRAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmImportFromAzMan" Collapsed="true">
+    <Position X="40" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmImportFromAzMan.cs</FileName>
+      <HashCode>IgAAAIAIECAAAFgABASAMAIiIAAAQAAAAKISIAARIAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmImportOptions" Collapsed="true">
+    <Position X="41.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmImportOptions.cs</FileName>
+      <HashCode>AAAQgACAACAIAAEABASAEFACAAAAgBAAAEAAARAVAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmItemAttributes" Collapsed="true">
+    <Position X="43.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmItemAttributes.cs</FileName>
+      <HashCode>AwABoAAAACwQMBEQRQSAGMACAAQAgEAAAQoIAZBVAMI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmItemAuthorizations" Collapsed="true">
+    <Position X="45.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmItemAuthorizations.cs</FileName>
+      <HashCode>ACAgAIAEWCIgUNFQhASPGeEGKAmwgUAQCUQAARAUIkA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmItemProperties" Collapsed="true">
+    <Position X="47" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmItemProperties.cs</FileName>
+      <HashCode>kogEEJIEQiGAEBkGBkSIGMjKCxIgZCAIBNiCDRAfBsU=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmItemsHierarchyView" Collapsed="true">
+    <Position X="48.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmItemsHierarchyView.cs</FileName>
+      <HashCode>IAAAEKgAICAAAAABhASAMAAKAQBIRAAAAMAQARASAgA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmItemsList" Collapsed="true">
+    <Position X="50.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmItemsList.cs</FileName>
+      <HashCode>kgAAGIAAQCAAAAECBASAGMACAAACBCAABKgCAQAZAog=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmNetSqlAzManBase" Collapsed="true">
+    <Position X="40" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmNetSqlAzManBase.cs</FileName>
+      <HashCode>AAAAAAgAACAAAAAABASAEAACAAAIAAAAAAAAAAAQAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmNewApplicationGroup" Collapsed="true">
+    <Position X="41.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmNewApplicationGroup.cs</FileName>
+      <HashCode>AgAAEIAAACAAABUABASCEAACAAAADAAAAAAABRhQAAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmNewStoreGroup" Collapsed="true">
+    <Position X="43.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmNewStoreGroup.cs</FileName>
+      <HashCode>AgAAAIAgACAAABUABASAEAACAAgADAABAABABRAQAgQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmOptions" Collapsed="true">
+    <Position X="45.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmOptions.cs</FileName>
+      <HashCode>EAAAAIAgACAAABmABESAEkACAAAABIAAAAAAAwBQAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmStorageConnection" Collapsed="true">
+    <Position X="47" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmStorageConnection.cs</FileName>
+      <HashCode>AghAAIgAFGAEKBEAjEbgHEICAAAIBAgAAAURBxA0hkA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmStoreAttributes" Collapsed="true">
+    <Position X="48.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmStoreAttributes.cs</FileName>
+      <HashCode>AwABoAgAACAQMBEQRQSAGMACAAQAgEABAQsIARBVAMI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmStoreGroupsList" Collapsed="true">
+    <Position X="50.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmStoreGroupsList.cs</FileName>
+      <HashCode>EgAAAIAgACAAQBEABISAEGgSAAAABCEBEAgAARBQAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmStoreGroupsProperties" Collapsed="true">
+    <Position X="40" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmStoreGroupsProperties.cs</FileName>
+      <HashCode>IsgQBJIgBHGIEBGgBGSQX5ALEIIIomEADK6gBVIVB8Q=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.frmStoreProperties" Collapsed="true">
+    <Position X="41.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\frmStoreProperties.cs</FileName>
+      <HashCode>AgAAAIQAUCAAIBEABASAEEACAAIgBAABAAACBRQQAgQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.GenericMember" Collapsed="true">
+    <Position X="43.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\GenericMember.cs</FileName>
+      <HashCode>AQAAAAAAAAAgAAQAAAAAAAQAIAAAAABAAAAAAAAgAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Forms.GenericMemberCollection" Collapsed="true">
+    <Position X="45.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Forms\GenericMemberCollection.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAEAAABIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ImageIndexes" Collapsed="true">
+    <Position X="48.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ImageIndexes.cs</FileName>
+      <HashCode>gCAAAABAEABEAAAAAghBABAgCAAQASBCBAQUBAAIAAg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.NetSqlAzManSnapIn" Collapsed="true">
+    <Position X="40" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>NetSqlAzManSnapIn.cs</FileName>
+      <HashCode>AAgEIEAQCIAAEzGADEZkEEhQtCQCCAAbACAHZgkyNI4=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.NetSqlAzManSnapInInstaller" Collapsed="true">
+    <Position X="41.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>NetSqlAzManSnapInInstaller.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ListViews.ApplicationGroupListView" Collapsed="true">
+    <Position X="7.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ListViews\ApplicationGroupListView.cs</FileName>
+      <HashCode>AAAAAAAAAABAAAAAAQAAAAAAAAACAAAAAAAQAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ListViews.ApplicationGroupsListView" Collapsed="true">
+    <Position X="9.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ListViews\ApplicationGroupsListView.cs</FileName>
+      <HashCode>AAAAAAAAAABAAAAAAQAAAAAgAAACAAAAQAAAAAACAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ListViews.AuthorizationsListView" Collapsed="true">
+    <Position X="11.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ListViews\AuthorizationsListView.cs</FileName>
+      <HashCode>AAAAAIAAAABAAAAAASAAAAAAQAACAIAAAAQIBBACAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ListViews.ItemDefinitionsListView" Collapsed="true">
+    <Position X="14" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ListViews\ItemDefinitionsListView.cs</FileName>
+      <HashCode>AgAAAAAAAABAAAAAAQAAAAAAAAACAAAAQAAAAAACAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ListViews.ItemMembersListView" Collapsed="true">
+    <Position X="16.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ListViews\ItemMembersListView.cs</FileName>
+      <HashCode>AAAAAAAAAABAAAAAAQAAAAAAACACAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ListViews.ListViewBase" Collapsed="true">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ListViews\ListViewBase.cs</FileName>
+      <HashCode>AQAAAAAAAABAAAAgBAQAEAAAAAACAAAAAAAAAAAUAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ListViews.StoreGroupListView" Collapsed="true">
+    <Position X="18.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ListViews\StoreGroupListView.cs</FileName>
+      <HashCode>AAAAAAAAAABQAAAAAQAAAAAAAAACAAAAAAAAAAACAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ListViews.StoreGroupsAndApplicationsListView" Collapsed="true">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ListViews\StoreGroupsAndApplicationsListView.cs</FileName>
+      <HashCode>AAAAAAAAAABAAAAAAQAAAAAABABCAAAAQAAAAAACAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ListViews.StoreGroupsListView" Collapsed="true">
+    <Position X="2.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ListViews\StoreGroupsListView.cs</FileName>
+      <HashCode>AAAAAAAAgABAAAAAAQAAAAAAAAACAAAAQAAAAAACAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ListViews.StoresListView" Collapsed="true">
+    <Position X="5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ListViews\StoresListView.cs</FileName>
+      <HashCode>AAAAAAQAAABAAAAAAQAAAAAAAAACAAAAQAAAAAACAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.MultiLingual.MultiLingual" Collapsed="true">
+    <Position X="50.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>MultiLingual\MultiLingual.cs</FileName>
+      <HashCode>EAAAAAAAAAAAAAAAAAAABgAAABIAAAAAAAAAAAkAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.MultiLingual.ResourcesManager" Collapsed="true">
+    <Position X="47" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>MultiLingual\ResourcesManager.cs</FileName>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Properties.Resources" Collapsed="true">
+    <Position X="45.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARgAEAgAKAgDAQgAAiIRmAAFAyAAoFABBgEIEAAiIMM=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.Properties.Settings" Collapsed="true">
+    <Position X="48.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAQAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ScopeNodes.ApplicationGroupScopeNode" Collapsed="true">
+    <Position X="30.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ScopeNodes\ApplicationGroupScopeNode.cs</FileName>
+      <HashCode>AAAAAAAAAAgAAAAAIYACAAAAAAAAgAAAQBAAAAAAgIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ScopeNodes.ApplicationGroupsScopeNode" Collapsed="true">
+    <Position X="35.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ScopeNodes\ApplicationGroupsScopeNode.cs</FileName>
+      <HashCode>AAAAEAAAABAAAAAAARAAAAIAAAAAAAAAABAAAAAAgoA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ScopeNodes.ApplicationScopeNode" Collapsed="true">
+    <Position X="37.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ScopeNodes\ApplicationScopeNode.cs</FileName>
+      <HashCode>AAAAEAAAABBAAAAAIQAAAAAABAAICAAAQFAAAAAAgoA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ScopeNodes.ItemAuthorizationScopeNode" Collapsed="true">
+    <Position X="1.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ScopeNodes\ItemAuthorizationScopeNode.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAQQAAAAEAAAAAAAgABEAAAAAgIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ScopeNodes.ItemAuthorizationsScopeNode" Collapsed="true">
+    <Position X="6" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ScopeNodes\ItemAuthorizationsScopeNode.cs</FileName>
+      <HashCode>AAAAEAAAABAAAAAAAQAAAAAAAAAAAAAAABAAABAAgIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ScopeNodes.ItemDefinitionScopeNode" Collapsed="true">
+    <Position X="10.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ScopeNodes\ItemDefinitionScopeNode.cs</FileName>
+      <HashCode>AgAAAAAAAAAAAABAIQQAAAAEAAAAAACAABAAAAAAgIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ScopeNodes.ItemDefinitionsScopeNode" Collapsed="true">
+    <Position X="15" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ScopeNodes\ItemDefinitionsScopeNode.cs</FileName>
+      <HashCode>AAAAEAAAABAAAAAAAQAAAAAIAAAACAAAQBAAAAAAgoA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ScopeNodes.OperationAuthorizationsScopeNode" Collapsed="true">
+    <Position X="19.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ScopeNodes\OperationAuthorizationsScopeNode.cs</FileName>
+      <HashCode>AAAAEAAAABAAAAAAAQAAAAAAAAAAAAAAABAAABAAgIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ScopeNodes.OperationDefinitionsScopeNode" Collapsed="true">
+    <Position X="24" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ScopeNodes\OperationDefinitionsScopeNode.cs</FileName>
+      <HashCode>AAAAEAAAABAAAABAAQAAAAAAAAAACAIAABAAAAAAgIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ScopeNodes.RoleAuthorizationsScopeNode" Collapsed="true">
+    <Position X="28.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ScopeNodes\RoleAuthorizationsScopeNode.cs</FileName>
+      <HashCode>AAAAEAAAABAAAAAAAQAAAAAAAAAAAAAAABAAABAAgIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ScopeNodes.RoleDefinitionsScopeNode" Collapsed="true">
+    <Position X="33" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ScopeNodes\RoleDefinitionsScopeNode.cs</FileName>
+      <HashCode>AAgAEAAAIBAAAAAAAQAAAAAAAAAACAAAABAAAAAAgIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ScopeNodes.ScopeNodeBase" Collapsed="true">
+    <Position X="19.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ScopeNodes\ScopeNodeBase.cs</FileName>
+      <HashCode>AAAAAAAAAAEAAAAABQQAFAAAAAAAAAAAABAAAAAQAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ScopeNodes.StorageScopeNode" Collapsed="true">
+    <Position X="3.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ScopeNodes\StorageScopeNode.cs</FileName>
+      <HashCode>BAAAgAAAAAAAAAAACQIAAAQAAAAACAAAQBAKggAghoA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ScopeNodes.StoreGroupScopeNode" Collapsed="true">
+    <Position X="8.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ScopeNodes\StoreGroupScopeNode.cs</FileName>
+      <HashCode>AiAAAAAgAAAAAAAAIQAAAAAAAACAAAAAQBAAAAAAgIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ScopeNodes.StoreGroupsScopeNode" Collapsed="true">
+    <Position X="12.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ScopeNodes\StoreGroupsScopeNode.cs</FileName>
+      <HashCode>AAAAAAABAAAAAAAAAQAAAIAAAAAAAAABABAAAQAAgoA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ScopeNodes.StoreScopeNode" Collapsed="true">
+    <Position X="17.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ScopeNodes\StoreScopeNode.cs</FileName>
+      <HashCode>AAQAAAAAAAAAAAAAIQAAAAAABAAAAAABQBAAAQFAgoA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ScopeNodes.TaskAuthorizationsScopeNode" Collapsed="true">
+    <Position X="21.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ScopeNodes\TaskAuthorizationsScopeNode.cs</FileName>
+      <HashCode>AAAAEAAAABAAAAAAAQAAAAAAAAAAAAAAABAAABAAgIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.ScopeNodes.TaskDefinitionsScopeNode" Collapsed="true">
+    <Position X="26.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ScopeNodes\TaskDefinitionsScopeNode.cs</FileName>
+      <HashCode>AAgAEAAAABAAAAAAAQAAACAAAAAACAAAABAAAAAAgIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.wsUpdate.NetSqlAzManUpdateService" Collapsed="true">
+    <Position X="43.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Web References\wsUpdate\Reference.cs</FileName>
+      <HashCode>IAIAAAQAACAAAAAAAAAAgAAAAAAAEAAACAAAAEAAEAE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SnapIn.wsUpdate.CheckForUpdateCompletedEventArgs" Collapsed="true">
+    <Position X="40" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Web References\wsUpdate\Reference.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker.ADObject" Collapsed="true">
+    <Position X="40" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DirectoryServices\ADObjectPicker\ADObject.cs</FileName>
+      <HashCode>AAAAAJAAAACQAAAAAAAEAAQAAAIEAAAAAAAAAgAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker.FORMATETC" Collapsed="true">
+    <Position X="40" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DirectoryServices\ADObjectPicker\StructsFlags.cs</FileName>
+      <HashCode>AAAAAAAAAABAABAAAgAAAAAAAAAAAEAAAAAAAAIAAAA=</HashCode>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker.STGMEDIUM" Collapsed="true">
+    <Position X="41.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DirectoryServices\ADObjectPicker\StructsFlags.cs</FileName>
+      <HashCode>AAAAAAAAAAAAABAAAEAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker.DSOP_INIT_INFO" Collapsed="true">
+    <Position X="47" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DirectoryServices\ADObjectPicker\StructsFlags.cs</FileName>
+      <HashCode>AAAAAAEAAAAAAIAEIAAAAAoAAAAAAAAAAAEAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker.DSOP_SCOPE_INIT_INFO" Collapsed="true">
+    <Position X="48.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DirectoryServices\ADObjectPicker\StructsFlags.cs</FileName>
+      <HashCode>CAAAAAEAAAAAAAAAAAAAAAAAABABAIAAAAAAABAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker.DSOP_UPLEVEL_FILTER_FLAGS" Collapsed="true">
+    <Position X="50.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DirectoryServices\ADObjectPicker\StructsFlags.cs</FileName>
+      <HashCode>AAAIAAAAAAAAAAACAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker.DSOP_FILTER_FLAGS" Collapsed="true">
+    <Position X="45.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DirectoryServices\ADObjectPicker\StructsFlags.cs</FileName>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker.DS_SELECTION" Collapsed="true">
+    <Position X="41.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DirectoryServices\ADObjectPicker\StructsFlags.cs</FileName>
+      <HashCode>AAAAABAEAAAAAAAgAAEAAAAAAAAAAAAAAAAAAEAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker.DS_SELECTION_LIST" Collapsed="true">
+    <Position X="43.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DirectoryServices\ADObjectPicker\StructsFlags.cs</FileName>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAACAAAAAAAABAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker.TYMED" Collapsed="true">
+    <Position X="41.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DirectoryServices\ADObjectPicker\StructsFlags.cs</FileName>
+      <HashCode>AAAAAAAQAAACAAAAAAAAgAAAgYAAAAAAAAAQAAAAAAE=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker.DVASPECT" Collapsed="true">
+    <Position X="40" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DirectoryServices\ADObjectPicker\StructsFlags.cs</FileName>
+      <HashCode>AAAABAAAAIAAAAAAAAAAAAAACAAIAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="NetSqlAzMan.SnapIn.ScopeNodes.ScopeNodeChangedHandler" Collapsed="true">
+    <Position X="41.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ScopeNodes\ScopeNodeChangedHandler.cs</FileName>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.SnapIn.wsUpdate.CheckForUpdateCompletedEventHandler" Collapsed="true">
+    <Position X="40" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Web References\wsUpdate\Reference.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAgAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+</ClassDiagram>

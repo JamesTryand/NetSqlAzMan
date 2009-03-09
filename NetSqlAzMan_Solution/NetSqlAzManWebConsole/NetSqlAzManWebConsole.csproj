@@ -1,0 +1,650 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FDA1F3A5-6403-45A9-AFBA-DAFF20D9308D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NetSqlAzManWebConsole</RootNamespace>
+    <AssemblyName>NetSqlAzManWebConsole</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>NetSqlAzManWebConsole.pfx</AssemblyOriginatorKeyFile>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Interop.Security.AzRoles, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
+      <HintPath>.\AzRoles\${Platform}\Microsoft.Interop.Security.AzRoles.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="SqlAudit, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0010b2b0864b0d6b, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions.Design, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Default\Style.css" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ADObjectPickerShowDialog.aspx.cs">
+      <DependentUpon>ADObjectPickerShowDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADObjectPickerShowDialog.aspx.designer.cs">
+      <DependentUpon>ADObjectPickerShowDialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgInvalidateWCFCacheService.aspx.cs">
+      <DependentUpon>dlgInvalidateWCFCacheService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgInvalidateWCFCacheService.aspx.designer.cs">
+      <DependentUpon>dlgInvalidateWCFCacheService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgActiveDirectorySearch.aspx.cs">
+      <DependentUpon>dlgActiveDirectorySearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgActiveDirectorySearch.aspx.designer.cs">
+      <DependentUpon>dlgActiveDirectorySearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgActiveDirectoryObjectPickUp.aspx.cs">
+      <DependentUpon>dlgActiveDirectoryObjectPickUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgActiveDirectoryObjectPickUp.aspx.designer.cs">
+      <DependentUpon>dlgActiveDirectoryObjectPickUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgActiveDirectoryObjectsList.aspx.cs">
+      <DependentUpon>dlgActiveDirectoryObjectsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgActiveDirectoryObjectsList.aspx.designer.cs">
+      <DependentUpon>dlgActiveDirectoryObjectsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgAuthorizationAttributes.aspx.cs">
+      <DependentUpon>dlgAuthorizationAttributes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgAuthorizationAttributes.aspx.designer.cs">
+      <DependentUpon>dlgAuthorizationAttributes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgItemAuthorizations.aspx.cs">
+      <DependentUpon>dlgItemAuthorizations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgItemAuthorizations.aspx.designer.cs">
+      <DependentUpon>dlgItemAuthorizations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgBizRule.aspx.cs">
+      <DependentUpon>dlgBizRule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgBizRule.aspx.designer.cs">
+      <DependentUpon>dlgBizRule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgItemAttributes.aspx.cs">
+      <DependentUpon>dlgItemAttributes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgItemAttributes.aspx.designer.cs">
+      <DependentUpon>dlgItemAttributes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgItemsList.aspx.cs">
+      <DependentUpon>dlgItemsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgItemsList.aspx.designer.cs">
+      <DependentUpon>dlgItemsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgItemProperties.aspx.cs">
+      <DependentUpon>dlgItemProperties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgItemProperties.aspx.designer.cs">
+      <DependentUpon>dlgItemProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgApplicationGroupsList.aspx.cs">
+      <DependentUpon>dlgApplicationGroupsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgApplicationGroupsList.aspx.designer.cs">
+      <DependentUpon>dlgApplicationGroupsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgApplicationGroupProperties.aspx.cs">
+      <DependentUpon>dlgApplicationGroupProperties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgApplicationGroupProperties.aspx.designer.cs">
+      <DependentUpon>dlgApplicationGroupProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgNewApplicationGroup.aspx.cs">
+      <DependentUpon>dlgNewApplicationGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgNewApplicationGroup.aspx.designer.cs">
+      <DependentUpon>dlgNewApplicationGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgCheckAccessTest.aspx.cs">
+      <DependentUpon>dlgCheckAccessTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgCheckAccessTest.aspx.designer.cs">
+      <DependentUpon>dlgCheckAccessTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgGenerateCheckAccessHelper.aspx.cs">
+      <DependentUpon>dlgGenerateCheckAccessHelper.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgGenerateCheckAccessHelper.aspx.designer.cs">
+      <DependentUpon>dlgGenerateCheckAccessHelper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgNewStoreGroup.aspx.cs">
+      <DependentUpon>dlgNewStoreGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgNewStoreGroup.aspx.designer.cs">
+      <DependentUpon>dlgNewStoreGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgDBUsersList.aspx.cs">
+      <DependentUpon>dlgDBUsersList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgDBUsersList.aspx.designer.cs">
+      <DependentUpon>dlgDBUsersList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgStoreGroupsList.aspx.cs">
+      <DependentUpon>dlgStoreGroupsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgStoreGroupsList.aspx.designer.cs">
+      <DependentUpon>dlgStoreGroupsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgBase.aspx.cs">
+      <DependentUpon>dlgBase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgBase.aspx.designer.cs">
+      <DependentUpon>dlgBase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgStoreGroupProperties.aspx.cs">
+      <DependentUpon>dlgStoreGroupProperties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgStoreGroupProperties.aspx.designer.cs">
+      <DependentUpon>dlgStoreGroupProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\ADObject.cs" />
+    <Compile Include="Objects\ADObjectState.cs" />
+    <Compile Include="Objects\ADObjectType.cs" />
+    <Compile Include="Objects\CookieProtectionHelperWrapper.cs" />
+    <Compile Include="Objects\GenericMember.cs" />
+    <Compile Include="Objects\GenericMemberCollection.cs" />
+    <Compile Include="Objects\HttpSecureCookie.cs" />
+    <Compile Include="Objects\MachineKeyCryptography.cs" />
+    <Compile Include="Objects\Utility.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="rptItemsAuthorizations.aspx.cs">
+      <DependentUpon>rptItemsAuthorizations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rptItemsAuthorizations.aspx.designer.cs">
+      <DependentUpon>rptItemsAuthorizations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="rptItemsHierarchy.aspx.cs">
+      <DependentUpon>rptItemsHierarchy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rptItemsHierarchy.aspx.designer.cs">
+      <DependentUpon>rptItemsHierarchy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgItemsHierarchyView.aspx.cs">
+      <DependentUpon>dlgItemsHierarchyView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgItemsHierarchyView.aspx.designer.cs">
+      <DependentUpon>dlgItemsHierarchyView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgApplicationPermissions.aspx.cs">
+      <DependentUpon>dlgApplicationPermissions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgApplicationPermissions.aspx.designer.cs">
+      <DependentUpon>dlgApplicationPermissions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgApplicationAttributes.aspx.cs">
+      <DependentUpon>dlgApplicationAttributes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgApplicationAttributes.aspx.designer.cs">
+      <DependentUpon>dlgApplicationAttributes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgApplicationProperties.aspx.cs">
+      <DependentUpon>dlgApplicationProperties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgApplicationProperties.aspx.designer.cs">
+      <DependentUpon>dlgApplicationProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgStorePermissions.aspx.cs">
+      <DependentUpon>dlgStorePermissions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgStorePermissions.aspx.designer.cs">
+      <DependentUpon>dlgStorePermissions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgStoreAttributes.aspx.cs">
+      <DependentUpon>dlgStoreAttributes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgStoreAttributes.aspx.designer.cs">
+      <DependentUpon>dlgStoreAttributes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\DirectoryServicesWebUtils.cs" />
+    <Compile Include="dlgImportFromAzMan.aspx.cs">
+      <DependentUpon>dlgImportFromAzMan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgImportFromAzMan.aspx.designer.cs">
+      <DependentUpon>dlgImportFromAzMan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgExport.aspx.cs">
+      <DependentUpon>dlgExport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgExport.aspx.designer.cs">
+      <DependentUpon>dlgExport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgImport.aspx.cs">
+      <DependentUpon>dlgImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgImport.aspx.designer.cs">
+      <DependentUpon>dlgImport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgAuditing.aspx.cs">
+      <DependentUpon>dlgAuditing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgAuditing.aspx.designer.cs">
+      <DependentUpon>dlgAuditing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgOptions.aspx.cs">
+      <DependentUpon>dlgOptions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dlgOptions.aspx.designer.cs">
+      <DependentUpon>dlgOptions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Enums.cs" />
+    <Compile Include="Objects\MenuInfo.cs" />
+    <Compile Include="Service References\wcf\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SQLAudit\StorageAuditGenerator.cs" />
+    <Compile Include="StorageConnection.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>StorageConnection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StorageConnection.aspx.designer.cs">
+      <DependentUpon>StorageConnection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ThemePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web References\wsUpdate\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="dlgPage.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>dlgPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgPage.aspx.designer.cs">
+      <DependentUpon>dlgPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialog.Master.cs">
+      <DependentUpon>ModalDialog.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModalDialog.Master.designer.cs">
+      <DependentUpon>ModalDialog.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialogHandler.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ModalDialogHandler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModalDialogHandler.aspx.designer.cs">
+      <DependentUpon>ModalDialogHandler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgStoreProperties.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>dlgStoreProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dlgStoreProperties.aspx.designer.cs">
+      <DependentUpon>dlgStoreProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Splash.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Splash.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Splash.aspx.designer.cs">
+      <DependentUpon>Splash.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebConsole.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>WebConsole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebConsole.aspx.designer.cs">
+      <DependentUpon>WebConsole.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\NetSqlAzMan.gif" />
+    <Content Include="WebConsole.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Default\Default.skin" />
+    <Content Include="Default.aspx" />
+    <Content Include="images\Application_16x16.gif" />
+    <Content Include="images\AuthorizationAttribute_16x16.gif" />
+    <Content Include="images\BizRule.gif" />
+    <Content Include="images\db.gif" />
+    <Content Include="images\DBUser_16x16.gif" />
+    <Content Include="images\Folder_16x16.gif" />
+    <Content Include="images\Hierarchy_16x16.gif" />
+    <Content Include="images\ItemAuthorization_16x16.gif" />
+    <Content Include="images\NetSqlAzMan_16x16.gif" />
+    <Content Include="images\Operation_16x16.gif" />
+    <Content Include="images\Options_16x16.gif" />
+    <Content Include="images\Role_16x16.gif" />
+    <Content Include="images\Separator.jpg" />
+    <Content Include="images\SIDNotFound_16x16.gif" />
+    <Content Include="images\SplashBitmap.jpg" />
+    <Content Include="images\StoreApplicationGroup_16x16.gif" />
+    <Content Include="images\Store_16x16.gif" />
+    <Content Include="images\Task_16x16.gif" />
+    <Content Include="images\WindowsBasicGroup_16x16.gif" />
+    <Content Include="images\WindowsQueryLDAPGroup_16x16.gif" />
+    <Content Include="images\WindowsUser_16x16.gif" />
+    <Content Include="images\WorkingSB.gif" />
+    <Content Include="javascript\common.js" />
+    <Content Include="Splash.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ADObjectPickerShowDialog.aspx" />
+    <Content Include="dlgActiveDirectorySearch.aspx" />
+    <Content Include="dlgActiveDirectoryObjectPickUp.aspx" />
+    <Content Include="dlgActiveDirectoryObjectsList.aspx" />
+    <Content Include="dlgAuthorizationAttributes.aspx" />
+    <Content Include="dlgItemAuthorizations.aspx" />
+    <Content Include="dlgBizRule.aspx" />
+    <Content Include="dlgItemAttributes.aspx" />
+    <Content Include="dlgItemsList.aspx" />
+    <Content Include="dlgItemProperties.aspx" />
+    <Content Include="dlgApplicationGroupsList.aspx" />
+    <Content Include="dlgApplicationGroupProperties.aspx" />
+    <Content Include="dlgNewApplicationGroup.aspx" />
+    <Content Include="dlgCheckAccessTest.aspx" />
+    <Content Include="dlgGenerateCheckAccessHelper.aspx" />
+    <Content Include="dlgNewStoreGroup.aspx" />
+    <Content Include="dlgDBUsersList.aspx" />
+    <Content Include="dlgStoreGroupsList.aspx" />
+    <Content Include="dlgBase.aspx" />
+    <Content Include="dlgStoreGroupProperties.aspx" />
+    <Content Include="errorStatus.htm" />
+    <Content Include="images\ActiveDirectory.gif" />
+    <Content Include="images\Allow.bmp" />
+    <Content Include="images\AllowForDelegation.bmp" />
+    <Content Include="images\azman.gif" />
+    <Content Include="images\blank.gif" />
+    <Content Include="images\breadcrumseparator.gif" />
+    <Content Include="images\CheckAccessTest.gif" />
+    <Content Include="images\CheckAccessTest_16x16.gif" />
+    <Content Include="images\Deny.bmp" />
+    <Content Include="images\export.gif" />
+    <Content Include="images\import.gif" />
+    <Content Include="images\logo.gif" />
+    <Content Include="images\logout.png" />
+    <Content Include="images\logout_over.png" />
+    <Content Include="images\Neutral.bmp" />
+    <Content Include="images\new.gif" />
+    <Content Include="images\print.gif" />
+    <Content Include="images\reload.png" />
+    <Content Include="images\reload_over.png" />
+    <Content Include="images\selectedtab.GIF" />
+    <Content Include="images\SqlAudit_16x16.gif" />
+    <Content Include="images\tabb.gif" />
+    <Content Include="images\textbox_bg.gif" />
+    <Content Include="images\vsnet_16x16.gif" />
+    <Content Include="images\unselectedtab.GIF" />
+    <Content Include="rptItemsAuthorizations.aspx" />
+    <Content Include="rptItemsHierarchy.aspx" />
+    <Content Include="dlgItemsHierarchyView.aspx" />
+    <Content Include="dlgApplicationPermissions.aspx" />
+    <Content Include="dlgApplicationAttributes.aspx" />
+    <Content Include="dlgApplicationProperties.aspx" />
+    <Content Include="dlgStorePermissions.aspx" />
+    <Content Include="dlgStoreAttributes.aspx" />
+    <Content Include="dlgImportFromAzMan.aspx" />
+    <Content Include="dlgExport.aspx" />
+    <Content Include="dlgImport.aspx" />
+    <Content Include="dlgAuditing.aspx" />
+    <Content Include="dlgOptions.aspx" />
+    <Content Include="dlgPage.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="images\Add.gif" />
+    <Content Include="images\Application_32x32.gif" />
+    <Content Include="images\AuthorizationAttribute_32x32.gif" />
+    <Content Include="images\bar_bg.gif" />
+    <Content Include="images\BuildDDLScript.bmp" />
+    <Content Include="images\DBUser_32x32.gif" />
+    <Content Include="images\delete.gif" />
+    <Content Include="images\edit.gif" />
+    <Content Include="images\ExclamationMark.gif" />
+    <Content Include="images\Folder_32x32.gif" />
+    <Content Include="images\header_bg.gif" />
+    <Content Include="images\Hierarchy_32x32.gif" />
+    <Content Include="images\hourglass.gif" />
+    <Content Include="images\ItemAuthorization_32x32.gif" />
+    <Content Include="images\Logins.bmp" />
+    <Content Include="images\NetSqlAzMan_32x32.gif" />
+    <Content Include="images\NetSqlAzMan_Managers.bmp" />
+    <Content Include="images\NetSqlAzMan_Readers.bmp" />
+    <Content Include="images\NetSqlAzMan_Users.bmp" />
+    <Content Include="images\Ok.gif" />
+    <Content Include="images\Operation_32x32.gif" />
+    <Content Include="images\Options_32x32.gif" />
+    <Content Include="images\refresh.gif" />
+    <Content Include="images\Role_32x32.gif" />
+    <Content Include="images\SIDNotFound_32x32.gif" />
+    <Content Include="images\SqlAudit.gif" />
+    <Content Include="images\StoreApplicationGroup_32x32.gif" />
+    <Content Include="images\Store_32x32.gif" />
+    <Content Include="images\Task_32x32.gif" />
+    <Content Include="images\undo.gif" />
+    <Content Include="images\WindowsBasicGroup_32x32.gif" />
+    <Content Include="images\WindowsQueryLDAPGroup_32x32.gif" />
+    <Content Include="images\WindowsUser_32x32.gif" />
+    <Content Include="ModalDialog.Master" />
+    <Content Include="ModalDialogHandler.aspx" />
+    <Content Include="dlgStoreProperties.aspx" />
+    <Content Include="StorageConnection.aspx" />
+    <None Include="Web References\wsUpdate\NetSqlAzManWebConsoleUpdateService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Green\Style.css" />
+    <Content Include="App_Themes\Yellow\Style.css" />
+    <Content Include="AzRoles\x64\Microsoft.Interop.Security.AzRoles.dll" />
+    <Content Include="AzRoles\x86\Microsoft.Interop.Security.AzRoles.dll" />
+    <Content Include="dlgInvalidateWCFCacheService.aspx" />
+    <Content Include="images\Cache_16x16.gif" />
+    <Content Include="images\Cache_32x32.gif" />
+    <Content Include="images\logo_1.gif" />
+    <Content Include="images\logo_2.gif" />
+    <Content Include="images\snow.gif" />
+    <Content Include="images\SplashBitmap2.jpg" />
+    <Content Include="images\textbox_bg_1.gif" />
+    <Content Include="images\header_bg_1.gif" />
+    <Content Include="images\header_bg_2.gif" />
+    <Content Include="images\textbox_bg_2.gif" />
+    <Content Include="images\vsplitter.gif" />
+    <Content Include="NetSqlAzManWebConsole.pfx" />
+    <Content Include="App_Themes\Green\Default.skin" />
+    <Content Include="App_Themes\Yellow\Default.skin" />
+    <Content Include="references\SqlAudit.dll" />
+    <Content Include="references\SqlAudit.XML" />
+    <None Include="Service References\wcf\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\wcf\configuration.svcinfo" />
+    <None Include="Service References\wcf\configuration91.svcinfo" />
+    <None Include="Service References\wcf\Arrays.xsd" />
+    <None Include="Service References\wcf\service.wsdl" />
+    <None Include="Service References\wcf\service.xsd" />
+    <None Include="Service References\wcf\service1.xsd" />
+    <None Include="Service References\wcf\ServiceModel.xsd" />
+    <None Include="Service References\wcf\System.Collections.Generic.xsd" />
+    <None Include="SQLAudit\SqlAudit.dll" />
+    <None Include="SQLAudit\SqlAudit.XML" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wsUpdate\NetSqlAzManWebConsoleUpdateService.wsdl" />
+    <None Include="Web References\wsUpdate\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://63.134.232.17/WebServices/UpdateServices/NetSqlAzManWebConsoleUpdateService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsUpdate\</RelPath>
+      <UpdateFromURL>http://63.134.232.17/WebServices/UpdateServices/NetSqlAzManWebConsoleUpdateService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>NetSqlAzManWebConsole_wsUpdate_NetSqlAzManWebConsoleUpdateService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NetSqlAzMan\NetSqlAzMan.csproj">
+      <Project>{CBDF2741-B771-4399-8996-77D08C3E8267}</Project>
+      <Name>NetSqlAzMan</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\wcf\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" Condition="" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56819</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/NetSqlAzManWebConsole</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

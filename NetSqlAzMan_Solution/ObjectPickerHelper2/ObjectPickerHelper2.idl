@@ -1,0 +1,107 @@
+// ObjectPickerHelper2.idl : IDL source for ObjectPickerHelper2
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ObjectPickerHelper2.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+dispinterface IADObjectInfo;
+
+[
+	object,
+	uuid(EEC4A2EE-A1EC-4A45-AAFC-218051CFC297),
+	dual,
+	nonextensible,
+	helpstring("IADObjectColl Interface"),
+	pointer_default(unique)
+]
+interface IADObjectColl : IDispatch{
+	[propget, id(1), helpstring("property Count")] HRESULT Count([out, retval] ULONG* pVal);
+	[id(DISPID_VALUE), helpstring("method Item")] HRESULT Item([in] long index, [out, retval] IADObjectInfo** pVal);
+	[propget, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+	[id(2), helpstring("method Add")] HRESULT Add([out,retval] IADObjectInfo** ppObjInfo);
+	[id(3), helpstring("method RemoveAll")] HRESULT RemoveAll(void);
+};
+[
+	object,
+	uuid(71D11196-76ED-49B7-BA10-112FE758B784),
+	dual,
+	nonextensible,
+	helpstring("IADObjectInfo Interface"),
+	pointer_default(unique)
+]
+interface IADObjectInfo : IDispatch{
+	[propget, id(1), helpstring("property Name")] HRESULT Name([out, retval] BSTR* pVal);
+	[propput, id(1), helpstring("property Name")] HRESULT Name([in] BSTR pVal);
+	[propget, id(2), helpstring("property Class")] HRESULT Class([out, retval] BSTR* pVal);
+	[propput, id(2), helpstring("property Class")] HRESULT Class([in] BSTR pVal);
+	[propget, id(3), helpstring("property ADPath")] HRESULT ADPath([out, retval] BSTR* pVal);
+	[propput, id(3), helpstring("property ADPath")] HRESULT ADPath([in] BSTR pVal);
+	[propget, id(4), helpstring("property UPN")] HRESULT UPN([out, retval] BSTR* pVal);
+	[propput, id(4), helpstring("property UPN")] HRESULT UPN([in] BSTR pVal);
+	[propget, id(5), helpstring("property ObjectSID")] HRESULT ObjectSID([out, retval] VARIANT* pVal);
+	[propput, id(5), helpstring("property ObjectSID")] HRESULT ObjectSID([in] VARIANT pVal);
+};
+[
+	object,
+	uuid(C07F5FFF-F08C-421C-AB3E-6514B345D91C),
+	dual,
+	nonextensible,
+	helpstring("IADObjectPicker Interface"),
+	pointer_default(unique)
+]
+interface IADObjectPicker : IDispatch{
+	[propget, id(1), helpstring("property ScopeTypeFlags")] HRESULT ScopeTypeFlags([out, retval] ULONG* pVal);
+	[propput, id(1), helpstring("property ScopeTypeFlags")] HRESULT ScopeTypeFlags([in] ULONG newVal);
+	[propget, id(2), helpstring("property ScopeFlags")] HRESULT ScopeFlags([out, retval] ULONG* pVal);
+	[propput, id(2), helpstring("property ScopeFlags")] HRESULT ScopeFlags([in] ULONG newVal);
+	[propget, id(3), helpstring("property UplevelFilterFlags_Both")] HRESULT UplevelFilterFlags_Both([out, retval] ULONG* pVal);
+	[propput, id(3), helpstring("property UplevelFilterFlags_Both")] HRESULT UplevelFilterFlags_Both([in] ULONG newVal);
+	[propget, id(4), helpstring("property UplevelFilterFlags_Mixed")] HRESULT UplevelFilterFlags_Mixed([out, retval] ULONG* pVal);
+	[propput, id(4), helpstring("property UplevelFilterFlags_Mixed")] HRESULT UplevelFilterFlags_Mixed([in] ULONG newVal);
+	[propget, id(5), helpstring("property UplevelFilterFlags_Native")] HRESULT UplevelFilterFlags_Native([out, retval] ULONG* pVal);
+	[propput, id(5), helpstring("property UplevelFilterFlags_Native")] HRESULT UplevelFilterFlags_Native([in] ULONG newVal);
+	[propget, id(6), helpstring("property DownLevelFilterFlags")] HRESULT DownLevelFilterFlags([out, retval] ULONG* pVal);
+	[propput, id(6), helpstring("property DownLevelFilterFlags")] HRESULT DownLevelFilterFlags([in] ULONG newVal);
+	[propget, id(7), helpstring("property ComputerName")] HRESULT ComputerName([out, retval] BSTR* pVal);
+	[propput, id(7), helpstring("property ComputerName")] HRESULT ComputerName([in] BSTR newVal);
+	[propget, id(8), helpstring("property InitInfo_OptionFlags")] HRESULT InitInfo_OptionFlags([out, retval] ULONG* pVal);
+	[propput, id(8), helpstring("property InitInfo_OptionFlags")] HRESULT InitInfo_OptionFlags([in] ULONG newVal);
+	[id(9), helpstring("method InvokeDialog")] HRESULT InvokeDialog([in] LONG hWnd);
+	[propget, id(10), helpstring("property ADObjects")] HRESULT ADObjectsColl([out, retval] IDispatch** pVal);
+};
+[
+	uuid(97449A73-B240-4AC1-BE9D-5B33DDC42C81),
+	version(1.0),
+	helpstring("ObjectPickerHelper2 1.0 Type Library")
+]
+library ObjectPickerHelper2Lib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(F61BCFA7-FA0C-4330-8361-74781433669E),
+		helpstring("ADObjectColl Class")
+	]
+	coclass ADObjectColl
+	{
+		[default] interface IADObjectColl;
+	};
+	[
+		uuid(BC1EE1D2-E351-4766-98B6-01F08BFD9780),
+		helpstring("ADObjectInfo Class")
+	]
+	coclass ADObjectInfo
+	{
+		[default] interface IADObjectInfo;
+	};
+	[
+		uuid(E064BB22-22CE-4E01-BB63-10EF4058CAF9),
+		helpstring("ADObjectPicker Class")
+	]
+	coclass ADObjectPicker
+	{
+		[default] interface IADObjectPicker;
+	};
+};

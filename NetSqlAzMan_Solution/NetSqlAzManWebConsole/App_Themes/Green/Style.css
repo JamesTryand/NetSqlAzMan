@@ -1,0 +1,310 @@
+body
+{
+	font-family: helvetica,tahoma, rial, courier new;
+	color: black;
+	font-size: 0.8em;
+	background-color: #f0ffc5;
+}
+h2
+{
+	font-size: 1.2em;
+}
+h3
+{
+	font-size: 1em;
+}
+h4
+{
+	font-size: 0.8em;
+}
+.headerPanel
+{
+	background-image: url(../../images/header_bg_1.gif);
+}
+input[type=submit]
+{
+	color: #333333;
+	background-color: #00cc99;
+	font-family: 'trebuchet ms',helvetica,sans-serif;
+	font-size: 84%;
+	font-weight: bold;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #999999;
+	border-left-color: #999999;
+	border-right-color: #666666;
+	border-bottom-color: #666666;
+}
+input[type=submit]:hover
+{
+	color: red;
+	font-weight: bold;
+	background-color: #ffff66;
+}
+input[type=button]
+{
+	color: #333333;
+	background-color: #00cc99;
+	font-family: 'trebuchet ms',helvetica,sans-serif;
+	font-size: 84%;
+	font-weight: bold;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #999999;
+	border-left-color: #999999;
+	border-right-color: #666666;
+	border-bottom-color: #666666;
+   
+}
+input[type=button]:hover
+{
+	color: red;
+	font-weight: bold;
+	background-color: #ffff66;
+}
+input[type=text], input[type=password]
+{
+	background-color: #f0ffc5;
+		background-image: url(../../images/textbox_bg_1.gif);
+}
+input[type=text]:hover, input[type=password]:hover
+{
+	background-color: #ccffcc;	
+	background-image: none;
+}
+input[type=text][readonly=readonly], input[type=text][readonly=readonly]:hover, input[type=password][readonly=readonly], input[type=password][readonly=readonly]:hover
+{
+	background-color: #ccffcc;	
+}
+input[type=text][disabled], input[type=text][disabled]:hover
+{
+	background-color: #f0ffc5;	
+}
+input[type=submit][disabled]
+{
+	color: gray;
+	cursor: default;	
+}
+.themeButton
+{
+	cursor: pointer;	
+}
+input[type=submit][disabled]:hover
+{
+	background-color: #00cc99;
+}
+textarea, select
+{
+	background-image: url(../../images/textbox_bg_1.gif);
+	background-color: #f0ffc5;
+	background-repeat:no-repeat;
+}
+textarea:hover, select:hover
+{
+	background-color: #ccffcc;	
+	background-image: none;
+}
+.updateWarning
+{
+	color:red;
+	font-weight: bold;
+	text-decoration: blink;	
+}
+#headerPanelLeft
+{
+	float: left;	
+}
+#headerRightPanelToolBar a:hover
+{
+	font-weight: bold;
+}
+#headerRightPanel
+{
+	margin-left: 330px;
+}
+.selectedNode
+{
+	font-weight: bold;
+}
+.rightPanel
+{
+	border-left: solid 1px blue;
+	background-color: #e0e0e0;
+}
+.footerPanel
+{
+	font-size: 0.8em;
+}
+#footerPanel a
+{
+	color: blue;	
+}
+#footerPanel a:hover
+{
+	color: blue;
+	font-weight: bold;
+}
+#footerPanel a:visited
+{
+	color: blue;	
+}
+#headerRightPanelToolBar
+{
+	position: absolute;
+	top:50px;
+	left: 340px;	
+}
+.toolBarPanelText
+{
+	color: white;
+}
+.detailsTable
+{
+	width: 96%;
+	font-size: 0.9em;
+	padding: 2px 2px 2px 2px;
+}
+.detailsTableRow
+{
+	vertical-align: baseline;
+}
+.detailsTableCell
+{
+	padding: 2px 2px 2px 2px;
+}
+.toolBarPanelLabel
+{
+	float: none;
+	margin-top: 1px;
+	color: #99ffff;
+	font-weight: normal;
+	font-size: 0.85em;
+	position: absolute;
+	right: 10px;
+	top: 8.6em;
+	width: 100%;
+	text-align: right;
+}
+.breadcrumbsPanel
+{
+	float: none;
+	margin-top: 1px;
+	font-weight: normal;
+	font-size: 0.85em;
+	position: absolute;
+	left: 16px;
+	top: 10em;	
+}
+.breadcrumbsPanel img
+{
+	border: 0px;
+	vertical-align: middle;
+}
+.breadcrumbsPanel a
+{
+	text-decoration: none;
+}
+.breadcrumbsPanel a:hover
+{
+	font-weight: bold;
+}
+.breadCrumLabel
+{
+	color: #99ffff;	
+}
+.breadCrum
+{
+	color: white;
+}
+.breadCrumLast
+{
+	color: white;
+	font-weight: bold;
+}
+.breadCrumSeparator
+{
+	color: white;
+}
+.detailsTableRowonMouseOver
+{
+	vertical-align: baseline;
+	background-color:#009999;
+	color: red;
+}
+.detailsTableRowonMouseOut
+{
+	vertical-align: baseline;
+	background-color: #f0ffc5; 
+	font-weight: normal; 
+}
+.detailsTableHeader
+{
+	font-weight: bold;
+	border: solid 1px blue;
+}
+.detailsTableHeader td
+{
+	background-color: palegreen;
+	color: blue;
+	border: solid 1px blue;
+	padding: 2px 2px 2px 2px;
+}
+.actionPane
+{
+	padding: 2px 2px 2px 2px;
+	font-size: 0.95em;
+	color: blue;
+	/*background-color: #e0e0e0;*/
+}
+legend
+{
+	font-size: 0.9em;
+	color: navy;
+}
+.imageColumn
+{
+	width: 60px; 
+	vertical-align: top;
+	text-align: center;
+}
+.modalDialogSingleLine
+{
+	width: 90%;	
+}
+.modalDialogMultiLine
+{
+	width: 90%;
+	height: 250px;
+}
+.modalDialogLabel
+{
+	font-family: Tahoma;
+	color: blue;
+	font-size: 0.9em;		
+	font-weight: bold;
+}
+.requiredImage
+{
+	height: 22px;
+}
+.detailHyperlink
+{
+	color: black;
+	text-decoration: none;	
+}
+.menuItem img
+{
+	padding: 0px 2px 0px 2px
+}

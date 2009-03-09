@@ -1,0 +1,1 @@
+﻿"C:\Program Files\Microsoft SDKs\Windows\v6.0A\bin\SqlMetal.exe" /server:(local) /database:NetSqlAzManStorage /views /functions /sprocs /language:cs /namespace:NetSqlAzMan.LINQ /context:NetSqlAzManStorageDataContext /provider:SQL2000 /dbml:"C:\Documenti\Visual Studio 2005\Projects\NetSqlAzMan_Solution\NetSqlAzMan\LINQ\NetSqlAzManStorage.dbml"

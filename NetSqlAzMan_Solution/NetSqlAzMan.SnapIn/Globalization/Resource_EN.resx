@@ -1,0 +1,2259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="frmActiveDirectoryObjectsList.Text" xml:space="preserve">
+    <value>LDAP Query result</value>
+  </data>
+  <data name="frmActiveDirectoryObjectsList_btnClose.Text" xml:space="preserve">
+    <value>&amp;Close</value>
+  </data>
+  <data name="frmActiveDirectoryObjectsList_label5.Text" xml:space="preserve">
+    <value>LDap Query Result</value>
+  </data>
+  <data name="frmActiveDirectoryObjectsList_lblInfo.Text" xml:space="preserve">
+    <value>LDap Query Result</value>
+  </data>
+  <data name="frmApplicationAttributes.Text" xml:space="preserve">
+    <value> Application Attributes</value>
+  </data>
+  <data name="frmApplicationAttributes_btnAdd.Text" xml:space="preserve">
+    <value>&amp;Add</value>
+  </data>
+  <data name="frmApplicationAttributes_btnApply.Text" xml:space="preserve">
+    <value>&amp;Apply</value>
+  </data>
+  <data name="frmApplicationAttributes_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmApplicationAttributes_btnEdit.Text" xml:space="preserve">
+    <value>&amp;Edit</value>
+  </data>
+  <data name="frmApplicationAttributes_btnOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmApplicationAttributes_btnRemove.Text" xml:space="preserve">
+    <value>&amp;Remove</value>
+  </data>
+  <data name="frmApplicationAttributes_label7.Text" xml:space="preserve">
+    <value>Application Attributes</value>
+  </data>
+  <data name="frmApplicationAttributes_lblInfo.Text" xml:space="preserve">
+    <value>Application Attributes</value>
+  </data>
+  <data name="frmApplicationAttributes_Msg10" xml:space="preserve">
+    <value>An Attribute with same Key already exists.\r\nCannot add duplicate Attribute Keys.</value>
+  </data>
+  <data name="frmApplicationAttributes_Msg20" xml:space="preserve">
+    <value>An Attribute with same Key is not confirmed for Removal.\r\nCannot add duplicate Attribute Keys.\r\nApply current changes, then try add this Attribute again.</value>
+  </data>
+  <data name="frmApplicationAttributes_Tit10" xml:space="preserve">
+    <value>Duplicate Attribute Key</value>
+  </data>
+  <data name="frmApplicationAttributes_Tit20" xml:space="preserve">
+    <value>Duplicate Attribute Key</value>
+  </data>
+  <data name="UpdateError_Msg10" xml:space="preserve">
+    <value>Update error</value>
+  </data>
+  <data name="frmApplicationGroupsList.Text" xml:space="preserve">
+    <value> Application Groups list</value>
+  </data>
+  <data name="frmApplicationGroupsList_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmApplicationGroupsList_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmApplicationGroupsList_label5.Text" xml:space="preserve">
+    <value>Application Groups list</value>
+  </data>
+  <data name="frmApplicationGroupsList_lblInfo.Text" xml:space="preserve">
+    <value>Application Group list</value>
+  </data>
+  <data name="frmApplicationGroupsList_Msg10" xml:space="preserve">
+    <value>Basic group</value>
+  </data>
+  <data name="frmApplicationGroupsList_Msg20" xml:space="preserve">
+    <value>LDAP Query group</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_Msg10" xml:space="preserve">
+    <value>LDAP Query</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_Tit20" xml:space="preserve">
+    <value>Application Group name required</value>
+  </data>
+  <data name="frmApplicationProperties.Text" xml:space="preserve">
+    <value>Application Properties</value>
+  </data>
+  <data name="frmApplicationProperties_btnAttributes.Text" xml:space="preserve">
+    <value>A&amp;ttributes</value>
+  </data>
+  <data name="frmApplicationProperties_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmApplicationProperties_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmApplicationProperties_label1.Text" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="frmApplicationProperties_label2.Text" xml:space="preserve">
+    <value>Description:</value>
+  </data>
+  <data name="frmApplicationProperties_lblInfo.Text" xml:space="preserve">
+    <value>Application Properties</value>
+  </data>
+  <data name="frmAttributeProperties.Text" xml:space="preserve">
+    <value>Attributes properties</value>
+  </data>
+  <data name="frmAttributeProperties_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmAttributeProperties_btnOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmAttributeProperties_label1.Text" xml:space="preserve">
+    <value>Key:</value>
+  </data>
+  <data name="frmAttributeProperties_label2.Text" xml:space="preserve">
+    <value>Value:</value>
+  </data>
+  <data name="frmAttributeProperties_label7.Text" xml:space="preserve">
+    <value>Attribute properties</value>
+  </data>
+  <data name="frmAttributeProperties_lblInfo.Text" xml:space="preserve">
+    <value>Attributes properties</value>
+  </data>
+  <data name="frmAuthorizationAttributes.Text" xml:space="preserve">
+    <value> Authorization Attributes</value>
+  </data>
+  <data name="frmAuthorizationAttributes_btnAdd.Text" xml:space="preserve">
+    <value>&amp;Add</value>
+  </data>
+  <data name="frmAuthorizationAttributes_btnApply.Text" xml:space="preserve">
+    <value>&amp;Apply</value>
+  </data>
+  <data name="frmAuthorizationAttributes_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmAuthorizationAttributes_btnEdit.Text" xml:space="preserve">
+    <value>&amp;Edit</value>
+  </data>
+  <data name="frmAuthorizationAttributes_btnOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmAuthorizationAttributes_btnRemove.Text" xml:space="preserve">
+    <value>&amp;Remove</value>
+  </data>
+  <data name="frmAuthorizationAttributes_label7.Text" xml:space="preserve">
+    <value>Authorization Attributes</value>
+  </data>
+  <data name="frmAuthorizationAttributes_lblInfo.Text" xml:space="preserve">
+    <value>Authorization Attributes</value>
+  </data>
+  <data name="frmBizRule.Text" xml:space="preserve">
+    <value>Biz Rule</value>
+  </data>
+  <data name="frmBizRule_btnClearBizRule.Text" xml:space="preserve">
+    <value>&amp;Clear rule from Store</value>
+  </data>
+  <data name="frmBizRule_btnClose.Text" xml:space="preserve">
+    <value>&amp;Close</value>
+  </data>
+  <data name="frmBizRule_btnNewFromTemplate.Text" xml:space="preserve">
+    <value>&amp;New Biz Rule</value>
+  </data>
+  <data name="frmBizRule_btnReloadBizRule.Text" xml:space="preserve">
+    <value>&amp;Reload rule into Store</value>
+  </data>
+  <data name="frmBizRule_label1.Text" xml:space="preserve">
+    <value>Source type:</value>
+  </data>
+  <data name="frmBizRule_label2.Text" xml:space="preserve">
+    <value>Source code:</value>
+  </data>
+  <data name="frmBizRule_label7.Text" xml:space="preserve">
+    <value>Biz Rule</value>
+  </data>
+  <data name="frmBizRule_lblInfo.Text" xml:space="preserve">
+    <value>Biz Rule</value>
+  </data>
+  <data name="frmDBUsersList.Text" xml:space="preserve">
+    <value> DB Users list</value>
+  </data>
+  <data name="frmDBUsersList_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmDBUsersList_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmDBUsersList_label5.Text" xml:space="preserve">
+    <value>DB Users list</value>
+  </data>
+  <data name="frmDBUsersList_lblInfo.Text" xml:space="preserve">
+    <value>DB Users list</value>
+  </data>
+  <data name="frmDBUsersList_lblNote.Text" xml:space="preserve">
+    <value>Note: to change DB Users list, modify "dbo.GetDBUsers" table-function on NetSqlAzManStorage DB.</value>
+  </data>
+  <data name="frmExport.Text" xml:space="preserve">
+    <value> Please wait ...</value>
+  </data>
+  <data name="frmExport_lblTitle.Text" xml:space="preserve">
+    <value>Exporting ... </value>
+  </data>
+  <data name="frmExportOptions.Text" xml:space="preserve">
+    <value> .NET Sql Authorization Manager Export Options</value>
+  </data>
+  <data name="frmExportOptions_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmExportOptions_btnNext.Text" xml:space="preserve">
+    <value>&amp;Next</value>
+  </data>
+  <data name="frmExportOptions_chkAuthorizations.Text" xml:space="preserve">
+    <value>Include Item Authorizations</value>
+  </data>
+  <data name="frmExportOptions_chkDBUsers.Text" xml:space="preserve">
+    <value>Include Database Users</value>
+  </data>
+  <data name="frmExportOptions_chkUsersAndGroups.Text" xml:space="preserve">
+    <value>Include Windows Users / Groups</value>
+  </data>
+  <data name="frmExportOptions_lblInfo.Text" xml:space="preserve">
+    <value>Export options</value>
+  </data>
+  <data name="frmExportOptions_lblTitle.Text" xml:space="preserve">
+    <value>Choose one or more Export options:</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper.Text" xml:space="preserve">
+    <value>Generate CheckAccessHelper Class</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_btnClose.Text" xml:space="preserve">
+    <value>&amp;Close</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_chkAllowOperations.Text" xml:space="preserve">
+    <value>Allow Operation Check Access</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_chkAllowRoles.Text" xml:space="preserve">
+    <value>Allow Role Check Access</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_chkAllowTasks.Text" xml:space="preserve">
+    <value>Allow Task Check Access</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_gbSourceCode.Text" xml:space="preserve">
+    <value>Source Code</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_label1.Text" xml:space="preserve">
+    <value>Class Name:</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_label2.Text" xml:space="preserve">
+    <value>Source Code Language:</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_label3.Text" xml:space="preserve">
+    <value>Namespace:</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_label4.Text" xml:space="preserve">
+    <value>Generate CheckAccessHelper Class:</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_lblInfo.Text" xml:space="preserve">
+    <value>Generate options</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_lblTitle.Text" xml:space="preserve">
+    <value>Choose one or more Export options:</value>
+  </data>
+  <data name="frmItemAttributes.Text" xml:space="preserve">
+    <value> Item Attributes</value>
+  </data>
+  <data name="frmItemAttributes_btnAdd.Text" xml:space="preserve">
+    <value>&amp;Add</value>
+  </data>
+  <data name="frmItemAttributes_btnApply.Text" xml:space="preserve">
+    <value>&amp;Apply</value>
+  </data>
+  <data name="frmItemAttributes_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmItemAttributes_btnEdit.Text" xml:space="preserve">
+    <value>&amp;Edit</value>
+  </data>
+  <data name="frmItemAttributes_btnOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmItemAttributes_btnRemove.Text" xml:space="preserve">
+    <value>&amp;Remove</value>
+  </data>
+  <data name="frmItemAttributes_label7.Text" xml:space="preserve">
+    <value>Item Attributes</value>
+  </data>
+  <data name="frmItemAttributes_lblInfo.Text" xml:space="preserve">
+    <value>Item Attributes</value>
+  </data>
+  <data name="frmItemsHierarchyView.Text" xml:space="preserve">
+    <value> Items Hierarchy View</value>
+  </data>
+  <data name="frmItemsHierarchyView_btnClose.Text" xml:space="preserve">
+    <value>&amp;Close</value>
+  </data>
+  <data name="frmItemsHierarchyView_lblInfo.Text" xml:space="preserve">
+    <value>Items Hierarchy View</value>
+  </data>
+  <data name="frmItemsHierarchyView_lblStatus.Text" xml:space="preserve">
+    <value>Building Hierarchy ...</value>
+  </data>
+  <data name="frmItemsList.Text" xml:space="preserve">
+    <value>Roles List</value>
+  </data>
+  <data name="frmItemsList_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmItemsList_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmItemsList_lblInfo1.Text" xml:space="preserve">
+    <value>Roles List</value>
+  </data>
+  <data name="frmItemsList_lblInfo2.Text" xml:space="preserve">
+    <value>Roles List</value>
+  </data>
+  <data name="frmNewApplicationGroup.Text" xml:space="preserve">
+    <value> New Application Group</value>
+  </data>
+  <data name="frmNewApplicationGroup_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmNewApplicationGroup_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmNewApplicationGroup_label1.Text" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="frmNewApplicationGroup_label2.Text" xml:space="preserve">
+    <value>Description:</value>
+  </data>
+  <data name="frmNewApplicationGroup_label3.Text" xml:space="preserve">
+    <value>Group Type:</value>
+  </data>
+  <data name="frmNewApplicationGroup_lblInfo.Text" xml:space="preserve">
+    <value>Create a new Application Group</value>
+  </data>
+  <data name="frmNewApplicationGroup_rbtBasic.Text" xml:space="preserve">
+    <value>&amp;Basic</value>
+  </data>
+  <data name="frmNewApplicationGroup_rbtLDAPQuery.Text" xml:space="preserve">
+    <value>&amp;LDAP Query</value>
+  </data>
+  <data name="frmNewStoreGroup.Text" xml:space="preserve">
+    <value> New Store Group</value>
+  </data>
+  <data name="frmNewStoreGroup_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmNewStoreGroup_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmNewStoreGroup_label1.Text" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="frmNewStoreGroup_label2.Text" xml:space="preserve">
+    <value>Description:</value>
+  </data>
+  <data name="frmNewStoreGroup_label3.Text" xml:space="preserve">
+    <value>Group Type:</value>
+  </data>
+  <data name="frmNewStoreGroup_lblInfo.Text" xml:space="preserve">
+    <value>Create a new Store Group</value>
+  </data>
+  <data name="frmNewStoreGroup_rbtBasic.Text" xml:space="preserve">
+    <value>&amp;Basic</value>
+  </data>
+  <data name="frmNewStoreGroup_rbtLDAPQuery.Text" xml:space="preserve">
+    <value>&amp;LDAP Query</value>
+  </data>
+  <data name="frmOptions.Text" xml:space="preserve">
+    <value> NetSqlAzMan Options</value>
+  </data>
+  <data name="frmOptions_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmOptions_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmOptions_label1.Text" xml:space="preserve">
+    <value>.NET Sql Authorization Manager mode:</value>
+  </data>
+  <data name="frmOptions_label10.Text" xml:space="preserve">
+    <value>MMC:</value>
+  </data>
+  <data name="frmOptions_label2.Text" xml:space="preserve">
+    <value>MMC:</value>
+  </data>
+  <data name="frmOptions_label3.Text" xml:space="preserve">
+    <value>In Developer mode, local Windows Users/Groups and Domain User/Groups authorizations are NOT skipped by CheckAccess methods.</value>
+  </data>
+  <data name="frmOptions_label4.Text" xml:space="preserve">
+    <value>In Administrator mode, local Windows Users/Groups and Operations are not visible.</value>
+  </data>
+  <data name="frmOptions_label5.Text" xml:space="preserve">
+    <value>In Administrator mode, local Windows Users/Groups authorizations are skipped by CheckAccess methods.</value>
+  </data>
+  <data name="frmOptions_label6.Text" xml:space="preserve">
+    <value>Run-Time:</value>
+  </data>
+  <data name="frmOptions_label8.Text" xml:space="preserve">
+    <value>Run-Time:</value>
+  </data>
+  <data name="frmOptions_label9.Text" xml:space="preserve">
+    <value>In Developer mode, users can see Domain/Local Windows Users/Groups and full control on Operations.</value>
+  </data>
+  <data name="Language_Msg10" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="frmOptions_rbAdministrator.Text" xml:space="preserve">
+    <value>Administrator mode:</value>
+  </data>
+  <data name="frmOptions_rbDeveloper.Text" xml:space="preserve">
+    <value>Developer mode:</value>
+  </data>
+  <data name="frmStorageConnection.Text" xml:space="preserve">
+    <value> Storage Connection</value>
+  </data>
+  <data name="frmStorageConnection_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmStorageConnection_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmStorageConnection_btnRefreshDatabases.Text" xml:space="preserve">
+    <value>Re&amp;fresh</value>
+  </data>
+  <data name="frmStorageConnection_btnRefreshDataSources.Text" xml:space="preserve">
+    <value>&amp;Refresh</value>
+  </data>
+  <data name="frmStorageConnection_btnTestConnection.Text" xml:space="preserve">
+    <value>&amp;Test</value>
+  </data>
+  <data name="frmStorageConnection_label1.Text" xml:space="preserve">
+    <value>Data Source:</value>
+  </data>
+  <data name="frmStorageConnection_label2.Text" xml:space="preserve">
+    <value>Authentication:</value>
+  </data>
+  <data name="frmStorageConnection_label3.Text" xml:space="preserve">
+    <value>User Id:</value>
+  </data>
+  <data name="frmStorageConnection_label4.Text" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="frmStorageConnection_label5.Text" xml:space="preserve">
+    <value>NetSqlAzMan DB:</value>
+  </data>
+  <data name="frmStorageConnection_label6.Text" xml:space="preserve">
+    <value>Other Settings:</value>
+  </data>
+  <data name="frmStorageConnection_lblInfo.Text" xml:space="preserve">
+    <value>Manage Authorization Manager Storage connection info.</value>
+  </data>
+  <data name="frmStorageConnection_rbIntegrated.Text" xml:space="preserve">
+    <value>Integrated</value>
+  </data>
+  <data name="frmStorageConnection_rbSql.Text" xml:space="preserve">
+    <value>Sql</value>
+  </data>
+  <data name="frmStoreAttributes.Text" xml:space="preserve">
+    <value> Store Attributes</value>
+  </data>
+  <data name="frmStoreAttributes_btnAdd.Text" xml:space="preserve">
+    <value>&amp;Add</value>
+  </data>
+  <data name="frmStoreAttributes_btnApply.Text" xml:space="preserve">
+    <value>&amp;Apply</value>
+  </data>
+  <data name="frmStoreAttributes_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmStoreAttributes_btnEdit.Text" xml:space="preserve">
+    <value>&amp;Edit</value>
+  </data>
+  <data name="frmStoreAttributes_btnOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmStoreAttributes_btnRemove.Text" xml:space="preserve">
+    <value>&amp;Remove</value>
+  </data>
+  <data name="frmStoreAttributes_label7.Text" xml:space="preserve">
+    <value>Store Attributes</value>
+  </data>
+  <data name="frmStoreAttributes_lblInfo.Text" xml:space="preserve">
+    <value>Store Attributes</value>
+  </data>
+  <data name="frmStoreGroupsList.Text" xml:space="preserve">
+    <value> Store Groups list</value>
+  </data>
+  <data name="frmStoreGroupsList_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmStoreGroupsList_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmStoreGroupsList_label5.Text" xml:space="preserve">
+    <value>Store Groups list</value>
+  </data>
+  <data name="frmStoreGroupsList_lblInfo.Text" xml:space="preserve">
+    <value>Store Group list</value>
+  </data>
+  <data name="frmStoreProperties.Text" xml:space="preserve">
+    <value>New Store</value>
+  </data>
+  <data name="frmStoreProperties_btnAttributes.Text" xml:space="preserve">
+    <value>A&amp;ttributes</value>
+  </data>
+  <data name="frmStoreProperties_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmStoreProperties_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmStoreProperties_label1.Text" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="frmStoreProperties_label2.Text" xml:space="preserve">
+    <value>Description:</value>
+  </data>
+  <data name="frmStoreProperties_lblInfo.Text" xml:space="preserve">
+    <value>Create a new Store</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_Msg20" xml:space="preserve">
+    <value>LDAP Query result</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_Tit30" xml:space="preserve">
+    <value>Execute LDAP Query error</value>
+  </data>
+  <data name="frmApplicationProperties_Msg10" xml:space="preserve">
+    <value>Application Properties</value>
+  </data>
+  <data name="frmApplicationProperties_Msg20" xml:space="preserve">
+    <value>New Application</value>
+  </data>
+  <data name="frmApplicationProperties_Msg30" xml:space="preserve">
+    <value>New Application error</value>
+  </data>
+  <data name="frmApplicationProperties_Msg40" xml:space="preserve">
+    <value>Application Update error</value>
+  </data>
+  <data name="frmApplicationProperties_Msg50" xml:space="preserve">
+    <value>Application name required</value>
+  </data>
+  <data name="frmBizRule_Msg10" xml:space="preserve">
+    <value>(Choose a .NET language and press 'New Biz Rule' button to compose a new Business Rule, \r\nthen press 'Reload rule into Store' to persist changes and compile Biz Rule.)</value>
+  </data>
+  <data name="frmBizRule_Msg20" xml:space="preserve">
+    <value>Biz Rule error</value>
+  </data>
+  <data name="frmBizRule_Msg30" xml:space="preserve">
+    <value>Insert your code here</value>
+  </data>
+  <data name="frmDBUsersList_Msg10" xml:space="preserve">
+    <value>Store or Application must be not null. Please contact Developer team</value>
+  </data>
+  <data name="frmDBUsersList_Msg20" xml:space="preserve">
+    <value>DB User</value>
+  </data>
+  <data name="frmExport_Msg10" xml:space="preserve">
+    <value>Exporting</value>
+  </data>
+  <data name="frmExport_Msg20" xml:space="preserve">
+    <value>Export finished</value>
+  </data>
+  <data name="frmExport_Msg30" xml:space="preserve">
+    <value>Export error</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_Msg10" xml:space="preserve">
+    <value>Generate Error</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_Msg20" xml:space="preserve">
+    <value>Class name required</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_Msg30" xml:space="preserve">
+    <value>Namespace required</value>
+  </data>
+  <data name="frmImport_Msg10" xml:space="preserve">
+    <value>The Xml file is not valid or wrong import position</value>
+  </data>
+  <data name="frmImport_Msg20" xml:space="preserve">
+    <value>Unable to find Storage reference. ObjectForImport type not supported.</value>
+  </data>
+  <data name="frmImportFromAzMan_Msg10" xml:space="preserve">
+    <value>Azroles.dll could not be installed. Please install Microsoft Authorization Manager components and try again.</value>
+  </data>
+  <data name="frmImportFromAzMan_Msg100" xml:space="preserve">
+    <value>Release AzMan Store ...</value>
+  </data>
+  <data name="Done_Msg10" xml:space="preserve">
+    <value>Done.</value>
+  </data>
+  <data name="frmImportFromAzMan_Msg20" xml:space="preserve">
+    <value>AzMan Store Path required</value>
+  </data>
+  <data name="frmImportFromAzMan_Msg30" xml:space="preserve">
+    <value>AzMan Store Path must start with MSXML:// or MSLDAP://</value>
+  </data>
+  <data name="frmImportFromAzMan_Msg40" xml:space="preserve">
+    <value>NetSqlAzMan Store name required</value>
+  </data>
+  <data name="frmImportFromAzMan_Msg50" xml:space="preserve">
+    <value>Begin Transaction ...</value>
+  </data>
+  <data name="frmImportFromAzMan_Msg60" xml:space="preserve">
+    <value>Store imported from AzMan Store:</value>
+  </data>
+  <data name="frmImportFromAzMan_Msg70" xml:space="preserve">
+    <value>Opening Store:</value>
+  </data>
+  <data name="frmImportFromAzMan_Msg80" xml:space="preserve">
+    <value>Commit Transaction ...</value>
+  </data>
+  <data name="frmImportFromAzMan_Msg90" xml:space="preserve">
+    <value>Rollback Transaction ...</value>
+  </data>
+  <data name="frmImportFromAzMan_Tit10" xml:space="preserve">
+    <value>Import from AzMan failed</value>
+  </data>
+  <data name="frmImportOptions_Msg10" xml:space="preserve">
+    <value>Import error</value>
+  </data>
+  <data name="frmItemAuthorizations_Msg10" xml:space="preserve">
+    <value>Item Authorizations error</value>
+  </data>
+  <data name="frmItemAuthorizations_Msg20" xml:space="preserve">
+    <value>VALIDTO field must be Greater or Equal to VALIDFROM field</value>
+  </data>
+  <data name="frmItemAuthorizations_Msg30" xml:space="preserve">
+    <value>One or more Authorizations rows has errors. Please correct before apply changes.</value>
+  </data>
+  <data name="frmItemAuthorizations_Msg40" xml:space="preserve">
+    <value>Changes must be applied before manage Authorization Attributes.\r\nApply changes now ?</value>
+  </data>
+  <data name="frmItemAuthorizations_Msg50" xml:space="preserve">
+    <value>Attributes Update error</value>
+  </data>
+  <data name="frmItemAuthorizations_Msg60" xml:space="preserve">
+    <value>Column value is not valid. Please check inserted DateTime value and try again. Column:</value>
+  </data>
+  <data name="frmItemAuthorizations_Tit40" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="frmItemProperties_Msg10" xml:space="preserve">
+    <value>Role Properties</value>
+  </data>
+  <data name="frmItemProperties_Msg100" xml:space="preserve">
+    <value>Create a new Task</value>
+  </data>
+  <data name="frmItemProperties_Msg110" xml:space="preserve">
+    <value>New Operation</value>
+  </data>
+  <data name="frmItemProperties_Msg120" xml:space="preserve">
+    <value>Create a new Operation</value>
+  </data>
+  <data name="frmItemProperties_Msg130" xml:space="preserve">
+    <value>Name required</value>
+  </data>
+  <data name="frmItemProperties_Msg140" xml:space="preserve">
+    <value>Item creation error</value>
+  </data>
+  <data name="frmItemProperties_Msg150" xml:space="preserve">
+    <value>Item update error</value>
+  </data>
+  <data name="frmItemProperties_Msg160" xml:space="preserve">
+    <value>Attributes Update error</value>
+  </data>
+  <data name="frmItemProperties_Msg170" xml:space="preserve">
+    <value>Biz Rule for item: </value>
+  </data>
+  <data name="frmItemProperties_Msg180" xml:space="preserve">
+    <value>BizRule error</value>
+  </data>
+  <data name="frmItemProperties_Msg20" xml:space="preserve">
+    <value>Role definition</value>
+  </data>
+  <data name="frmItemProperties_Msg30" xml:space="preserve">
+    <value>Task Properties</value>
+  </data>
+  <data name="frmItemProperties_Msg40" xml:space="preserve">
+    <value>Task definition</value>
+  </data>
+  <data name="frmItemProperties_Msg50" xml:space="preserve">
+    <value>Operation Properties</value>
+  </data>
+  <data name="frmItemProperties_Msg60" xml:space="preserve">
+    <value>Operation definition</value>
+  </data>
+  <data name="frmItemProperties_Msg70" xml:space="preserve">
+    <value>New Role</value>
+  </data>
+  <data name="frmItemProperties_Msg80" xml:space="preserve">
+    <value>Create a new Role</value>
+  </data>
+  <data name="frmItemProperties_Msg90" xml:space="preserve">
+    <value>New Task</value>
+  </data>
+  <data name="frmItemsHierarchyView_Msg10" xml:space="preserve">
+    <value>Items Hierarchy View error</value>
+  </data>
+  <data name="frmItemsList_Msg10" xml:space="preserve">
+    <value>Roles List</value>
+  </data>
+  <data name="frmItemsList_Msg20" xml:space="preserve">
+    <value>Tasks List</value>
+  </data>
+  <data name="frmItemsList_Msg30" xml:space="preserve">
+    <value>Operations List</value>
+  </data>
+  <data name="frmNewApplicationGroup_Msg10" xml:space="preserve">
+    <value>Application Group Name required</value>
+  </data>
+  <data name="frmNewApplicationGroup_Msg20" xml:space="preserve">
+    <value>Application Group creation error</value>
+  </data>
+  <data name="frmNewStoreGroup_Msg10" xml:space="preserve">
+    <value>Store Group Name required</value>
+  </data>
+  <data name="frmNewStoreGroup_Msg20" xml:space="preserve">
+    <value>Store Group creation error</value>
+  </data>
+  <data name="frmStorageConnection_Msg10" xml:space="preserve">
+    <value>Connection Error</value>
+  </data>
+  <data name="frmStorageConnection_Msg20" xml:space="preserve">
+    <value>Success !</value>
+  </data>
+  <data name="frmStorageConnection_Msg30" xml:space="preserve">
+    <value>Have you created the NetSqlAzManStorage Sql DataBase ?\r\n(see SQL Storage scripts folder)</value>
+  </data>
+  <data name="frmStorageConnection_Msg40" xml:space="preserve">
+    <value>Data Source not valid or not found</value>
+  </data>
+  <data name="frmStorageConnection_Msg50" xml:space="preserve">
+    <value>SQL Server Database not valid or not found.</value>
+  </data>
+  <data name="frmStorageConnection_Tit20" xml:space="preserve">
+    <value>Connection Test</value>
+  </data>
+  <data name="frmStorageConnection_Tit30" xml:space="preserve">
+    <value>Test failed</value>
+  </data>
+  <data name="frmStoreGroupsProperties_Msg10" xml:space="preserve">
+    <value>Store Group name required</value>
+  </data>
+  <data name="frmStoreProperties_Msg10" xml:space="preserve">
+    <value>Store Properties</value>
+  </data>
+  <data name="frmStoreProperties_Msg20" xml:space="preserve">
+    <value>New Store</value>
+  </data>
+  <data name="frmStoreProperties_Msg30" xml:space="preserve">
+    <value>Store name required</value>
+  </data>
+  <data name="frmStoreProperties_Msg40" xml:space="preserve">
+    <value>Store creation error</value>
+  </data>
+  <data name="frmStoreProperties_Msg50" xml:space="preserve">
+    <value>Store Update error</value>
+  </data>
+  <data name="frmStoreProperties_Msg60" xml:space="preserve">
+    <value>Attributes Update error</value>
+  </data>
+  <data name="Refreshing_Msg10" xml:space="preserve">
+    <value>Refreshing ...</value>
+  </data>
+  <data name="ApplicationGroupsListView_Msg10" xml:space="preserve">
+    <value>Delete selected Application Groups ?</value>
+  </data>
+  <data name="ApplicationGroupsListView_Msg20" xml:space="preserve">
+    <value>Application Groups delete error</value>
+  </data>
+  <data name="AuthorizationsListView_Tit10" xml:space="preserve">
+    <value>Authorizations change error</value>
+  </data>
+  <data name="AuthorizationsListView_Tit20" xml:space="preserve">
+    <value>Authorizations delete error</value>
+  </data>
+  <data name="ColumnHeader_ApplicationGroupName" xml:space="preserve">
+    <value>Application Group Name</value>
+  </data>
+  <data name="ColumnHeader_AuthorizationType" xml:space="preserve">
+    <value>Authorization Type</value>
+  </data>
+  <data name="ColumnHeader_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ColumnHeader_GroupType" xml:space="preserve">
+    <value>Group Type</value>
+  </data>
+  <data name="ColumnHeader_LDAPQuery" xml:space="preserve">
+    <value>LDAP Query</value>
+  </data>
+  <data name="ColumnHeader_MemberNonMember" xml:space="preserve">
+    <value>Member / Non Member</value>
+  </data>
+  <data name="ColumnHeader_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ColumnHeader_ObjectSID" xml:space="preserve">
+    <value>Object SID</value>
+  </data>
+  <data name="ColumnHeader_Owner" xml:space="preserve">
+    <value>Owner</value>
+  </data>
+  <data name="ColumnHeader_ValidFrom" xml:space="preserve">
+    <value>Valid From</value>
+  </data>
+  <data name="ColumnHeader_ValidTo" xml:space="preserve">
+    <value>Valid To</value>
+  </data>
+  <data name="ColumnHeader_WhereDefined" xml:space="preserve">
+    <value>Where defined</value>
+  </data>
+  <data name="Domain_Allow" xml:space="preserve">
+    <value>Allow</value>
+  </data>
+  <data name="Domain_AllowDescription" xml:space="preserve">
+    <value>Set Allow permission</value>
+  </data>
+  <data name="Domain_AllowWithDelegation" xml:space="preserve">
+    <value>Allow with Delegation</value>
+  </data>
+  <data name="Domain_AllowWithDelegationDescription" xml:space="preserve">
+    <value>Set Allow with Delegation permission</value>
+  </data>
+  <data name="Domain_Deny" xml:space="preserve">
+    <value>Deny</value>
+  </data>
+  <data name="Domain_DenyDescription" xml:space="preserve">
+    <value>Set Deny permission</value>
+  </data>
+  <data name="Domain_Member" xml:space="preserve">
+    <value>Member</value>
+  </data>
+  <data name="Domain_Neutral" xml:space="preserve">
+    <value>Neutral</value>
+  </data>
+  <data name="Domain_NeutralDescription" xml:space="preserve">
+    <value>Set Neutral permission</value>
+  </data>
+  <data name="Domain_NonMember" xml:space="preserve">
+    <value>Non Member</value>
+  </data>
+  <data name="Menu_Msg10" xml:space="preserve">
+    <value>Export selected Application Groups</value>
+  </data>
+  <data name="Menu_Msg20" xml:space="preserve">
+    <value>Delete selected Application Groups</value>
+  </data>
+  <data name="Menu_Msg30" xml:space="preserve">
+    <value>Authorizations</value>
+  </data>
+  <data name="Menu_Msg40" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Menu_Msg50" xml:space="preserve">
+    <value>Delete selected Authorizations ?</value>
+  </data>
+  <data name="Menu_Tit10" xml:space="preserve">
+    <value>Export .NET Sql Authorization Manager Application Groups data.</value>
+  </data>
+  <data name="Menu_Tit20" xml:space="preserve">
+    <value>Delete selected Application Groups</value>
+  </data>
+  <data name="Menu_Tit30" xml:space="preserve">
+    <value>Change Authorizations</value>
+  </data>
+  <data name="Menu_Tit40" xml:space="preserve">
+    <value>Delete selected Authorizations</value>
+  </data>
+  <data name="RefreshComplete_Msg10" xml:space="preserve">
+    <value>Refresh Completed</value>
+  </data>
+  <data name="ColumnHeader_ApplicationID" xml:space="preserve">
+    <value>Application ID</value>
+  </data>
+  <data name="ColumnHeader_ApplicationName" xml:space="preserve">
+    <value>Application Name</value>
+  </data>
+  <data name="ColumnHeader_ItemID" xml:space="preserve">
+    <value>Item ID</value>
+  </data>
+  <data name="ColumnHeader_ItemName" xml:space="preserve">
+    <value>Item Name</value>
+  </data>
+  <data name="ColumnHeader_MemberName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ColumnHeader_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="ItemDefinitionsListView_Msg10" xml:space="preserve">
+    <value>Delete selected Items ?</value>
+  </data>
+  <data name="ItemDefinitionsListView_Tit20" xml:space="preserve">
+    <value>Items delete error</value>
+  </data>
+  <data name="Menu_ItemsHierarchicalView" xml:space="preserve">
+    <value>Items Hierarchical View</value>
+  </data>
+  <data name="Menu_ItemsHierarchicalViewDescription" xml:space="preserve">
+    <value>Show a Hierarchical View of selected Application.</value>
+  </data>
+  <data name="Menu_Msg100" xml:space="preserve">
+    <value>Delete selected Applications ?</value>
+  </data>
+  <data name="Menu_Msg60" xml:space="preserve">
+    <value>Export selected Items</value>
+  </data>
+  <data name="Menu_Msg70" xml:space="preserve">
+    <value>Delete selected Items</value>
+  </data>
+  <data name="Menu_Msg80" xml:space="preserve">
+    <value>Export selected Applications</value>
+  </data>
+  <data name="Menu_Msg90" xml:space="preserve">
+    <value>Delete selected Applications</value>
+  </data>
+  <data name="Menu_Tit60" xml:space="preserve">
+    <value>Export .NET Sql Authorization Manager Items data.</value>
+  </data>
+  <data name="Menu_Tit70" xml:space="preserve">
+    <value>Delete the selected Items</value>
+  </data>
+  <data name="Menu_Tit80" xml:space="preserve">
+    <value>Export .NET Sql Authorization Manager Applications data.</value>
+  </data>
+  <data name="Menu_Tit90" xml:space="preserve">
+    <value>Delete the selected Applications</value>
+  </data>
+  <data name="StoreGroupsAndApplicationsListView_Msg10" xml:space="preserve">
+    <value>Applications delete Error</value>
+  </data>
+  <data name="ColumnHeader_StoreGroupName" xml:space="preserve">
+    <value>Store Group Name</value>
+  </data>
+  <data name="ColumnHeader_StoreID" xml:space="preserve">
+    <value>Store ID</value>
+  </data>
+  <data name="ColumnHeader_StoreName" xml:space="preserve">
+    <value>Store name</value>
+  </data>
+  <data name="Menu_Msg110" xml:space="preserve">
+    <value>Export selected Store Groups</value>
+  </data>
+  <data name="Menu_Msg120" xml:space="preserve">
+    <value>Delete selected Store Groups</value>
+  </data>
+  <data name="Menu_Msg130" xml:space="preserve">
+    <value>Export selected Stores</value>
+  </data>
+  <data name="Menu_Msg140" xml:space="preserve">
+    <value>Delete selected Stores</value>
+  </data>
+  <data name="Menu_Tit110" xml:space="preserve">
+    <value>Export .NET Sql Authorization Manager Store Groups data.</value>
+  </data>
+  <data name="Menu_Tit120" xml:space="preserve">
+    <value>Delete the selected Store Groups</value>
+  </data>
+  <data name="Menu_Tit130" xml:space="preserve">
+    <value>Export .NET Sql Authorization Manager Stores data.</value>
+  </data>
+  <data name="Menu_Tit140" xml:space="preserve">
+    <value>Delete the selected Stores</value>
+  </data>
+  <data name="Menu_Tit150" xml:space="preserve">
+    <value>Stores Delete Error</value>
+  </data>
+  <data name="StoreGroupsListView_Msg10" xml:space="preserve">
+    <value>Delete selected Store Groups ?</value>
+  </data>
+  <data name="StoreGroupsListView_Tit20" xml:space="preserve">
+    <value>Store Groups delete error</value>
+  </data>
+  <data name="StoresListView_Msg10" xml:space="preserve">
+    <value>Delete selected Stores ?</value>
+  </data>
+  <data name="Expanding_Msg10" xml:space="preserve">
+    <value>Expanding ...</value>
+  </data>
+  <data name="ListView_Msg10" xml:space="preserve">
+    <value>Application Group Members</value>
+  </data>
+  <data name="ApplicationGroupScopeNode_Msg10" xml:space="preserve">
+    <value>Application Group Properties error</value>
+  </data>
+  <data name="Menu_Msg160" xml:space="preserve">
+    <value>Application Group Properties</value>
+  </data>
+  <data name="Menu_Msg170" xml:space="preserve">
+    <value>Export Application Group</value>
+  </data>
+  <data name="Menu_Msg180" xml:space="preserve">
+    <value>Delete Application Group</value>
+  </data>
+  <data name="Menu_Msg190" xml:space="preserve">
+    <value>Delete Application Group ?</value>
+  </data>
+  <data name="Menu_Tit160" xml:space="preserve">
+    <value>Manage Application Group Properties</value>
+  </data>
+  <data name="Menu_Tit170" xml:space="preserve">
+    <value>Export .NET Sql Authorization Manager Application Group data.</value>
+  </data>
+  <data name="Menu_Tit200" xml:space="preserve">
+    <value>Delete Application Group Error</value>
+  </data>
+  <data name="ApplicationGroupsScopeNode_Msg10" xml:space="preserve">
+    <value>Import from ...</value>
+  </data>
+  <data name="Folder_Msg10" xml:space="preserve">
+    <value>Application Groups container</value>
+  </data>
+  <data name="ListView_Msg20" xml:space="preserve">
+    <value>Application Groups</value>
+  </data>
+  <data name="Menu_Msg210" xml:space="preserve">
+    <value>New Application Group</value>
+  </data>
+  <data name="Menu_Msg220" xml:space="preserve">
+    <value>Import Application Groups</value>
+  </data>
+  <data name="Menu_Tit210" xml:space="preserve">
+    <value>Create new Application Group</value>
+  </data>
+  <data name="Menu_Tit220" xml:space="preserve">
+    <value>Import .NET Sql Authorization Manager Application Groups data.</value>
+  </data>
+  <data name="Menu_Msg230" xml:space="preserve">
+    <value>Application Properties</value>
+  </data>
+  <data name="Menu_Msg240" xml:space="preserve">
+    <value>Generate CheckAccessHelper</value>
+  </data>
+  <data name="Menu_Msg250" xml:space="preserve">
+    <value>Import Application Groups/Items</value>
+  </data>
+  <data name="Menu_Msg260" xml:space="preserve">
+    <value>Export Application</value>
+  </data>
+  <data name="Menu_Msg270" xml:space="preserve">
+    <value>Delete Application</value>
+  </data>
+  <data name="Menu_Msg280" xml:space="preserve">
+    <value>Delete Application ?</value>
+  </data>
+  <data name="Menu_Msg290" xml:space="preserve">
+    <value>Application delete error</value>
+  </data>
+  <data name="Menu_Tit230" xml:space="preserve">
+    <value>Update Application properties</value>
+  </data>
+  <data name="Menu_Tit240" xml:space="preserve">
+    <value>Generate CheckAccessHelper source code class (C#/VB.NET).</value>
+  </data>
+  <data name="Menu_Tit250" xml:space="preserve">
+    <value>Import .NET Sql Authorization Manager Application Groups/Items data.</value>
+  </data>
+  <data name="Menu_Tit260" xml:space="preserve">
+    <value>Export .NET Sql Authorization Manager Application data.</value>
+  </data>
+  <data name="Folder_Msg20" xml:space="preserve">
+    <value>Item Authorizations</value>
+  </data>
+  <data name="Folder_Tit20" xml:space="preserve">
+    <value>Item Authorizations</value>
+  </data>
+  <data name="DeleteError_Msg10" xml:space="preserve">
+    <value>Delete error</value>
+  </data>
+  <data name="ListView_Msg100" xml:space="preserve">
+    <value>Delete Role ?</value>
+  </data>
+  <data name="ListView_Msg110" xml:space="preserve">
+    <value>Delete Task</value>
+  </data>
+  <data name="ListView_Msg120" xml:space="preserve">
+    <value>Delete Task ?</value>
+  </data>
+  <data name="ListView_Msg130" xml:space="preserve">
+    <value>Delete Operation</value>
+  </data>
+  <data name="ListView_Msg140" xml:space="preserve">
+    <value>Delete Operation ?</value>
+  </data>
+  <data name="ListView_Msg30" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="ListView_Msg40" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
+  <data name="ListView_Msg50" xml:space="preserve">
+    <value>Operations</value>
+  </data>
+  <data name="ListView_Msg60" xml:space="preserve">
+    <value>Role Properties</value>
+  </data>
+  <data name="ListView_Msg70" xml:space="preserve">
+    <value>Task Properties</value>
+  </data>
+  <data name="ListView_Msg80" xml:space="preserve">
+    <value>Operation Properties</value>
+  </data>
+  <data name="ListView_Msg90" xml:space="preserve">
+    <value>Delete Role</value>
+  </data>
+  <data name="ListView_Tit60" xml:space="preserve">
+    <value>Manage Role Properties</value>
+  </data>
+  <data name="ListView_Tit70" xml:space="preserve">
+    <value>Manage Task Properties</value>
+  </data>
+  <data name="ListView_Tit80" xml:space="preserve">
+    <value>Manage Operation Properties</value>
+  </data>
+  <data name="Folder_Msg100" xml:space="preserve">
+    <value>Store Groups &amp; Applications</value>
+  </data>
+  <data name="Folder_Msg110" xml:space="preserve">
+    <value>Task Authorizations</value>
+  </data>
+  <data name="Folder_Msg120" xml:space="preserve">
+    <value>Task Definitions</value>
+  </data>
+  <data name="Folder_Msg30" xml:space="preserve">
+    <value>Item Definitions</value>
+  </data>
+  <data name="Folder_Msg40" xml:space="preserve">
+    <value>Operation Authorizations</value>
+  </data>
+  <data name="Folder_Msg50" xml:space="preserve">
+    <value>Operation Definitions</value>
+  </data>
+  <data name="Folder_Msg60" xml:space="preserve">
+    <value>Roles Authorizations</value>
+  </data>
+  <data name="Folder_Msg70" xml:space="preserve">
+    <value>Role Definitions</value>
+  </data>
+  <data name="Folder_Msg80" xml:space="preserve">
+    <value>.NET SQL Authorization Manager (Stores View)</value>
+  </data>
+  <data name="Folder_Msg90" xml:space="preserve">
+    <value>Store Groups</value>
+  </data>
+  <data name="Folder_Tit110" xml:space="preserve">
+    <value>Task Authorizations container</value>
+  </data>
+  <data name="Folder_Tit120" xml:space="preserve">
+    <value>Task Definitions container</value>
+  </data>
+  <data name="Folder_Tit30" xml:space="preserve">
+    <value>Item Definitions container</value>
+  </data>
+  <data name="Folder_Tit40" xml:space="preserve">
+    <value>Operation Authorizations container</value>
+  </data>
+  <data name="Folder_Tit50" xml:space="preserve">
+    <value>Operation Definitions container</value>
+  </data>
+  <data name="Folder_Tit60" xml:space="preserve">
+    <value>Role Authorizations container</value>
+  </data>
+  <data name="Folder_Tit70" xml:space="preserve">
+    <value>Role Definitions container</value>
+  </data>
+  <data name="Folder_Tit90" xml:space="preserve">
+    <value>Store Groups container</value>
+  </data>
+  <data name="ListView_Msg150" xml:space="preserve">
+    <value>Store Group Members</value>
+  </data>
+  <data name="Menu_Msg300" xml:space="preserve">
+    <value>Import Items</value>
+  </data>
+  <data name="Menu_Msg310" xml:space="preserve">
+    <value>Export Item</value>
+  </data>
+  <data name="Menu_Msg320" xml:space="preserve">
+    <value>New Operation</value>
+  </data>
+  <data name="Menu_Msg330" xml:space="preserve">
+    <value>New Role</value>
+  </data>
+  <data name="Menu_Msg340" xml:space="preserve">
+    <value>Storage connection</value>
+  </data>
+  <data name="Menu_Msg350" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="Menu_Msg360" xml:space="preserve">
+    <value>New Store</value>
+  </data>
+  <data name="Menu_Msg370" xml:space="preserve">
+    <value>Import Stores</value>
+  </data>
+  <data name="Menu_Msg380" xml:space="preserve">
+    <value>Export Stores</value>
+  </data>
+  <data name="Menu_Msg390" xml:space="preserve">
+    <value>Import Store from AzMan</value>
+  </data>
+  <data name="Menu_Msg400" xml:space="preserve">
+    <value>Store Group Properties</value>
+  </data>
+  <data name="Menu_Msg410" xml:space="preserve">
+    <value>Export Store Group</value>
+  </data>
+  <data name="Menu_Msg420" xml:space="preserve">
+    <value>Delete Store Group</value>
+  </data>
+  <data name="Menu_Msg430" xml:space="preserve">
+    <value>Delete Store Group ?</value>
+  </data>
+  <data name="Menu_Msg440" xml:space="preserve">
+    <value>New Store Group</value>
+  </data>
+  <data name="Menu_Msg450" xml:space="preserve">
+    <value>Import Store Groups</value>
+  </data>
+  <data name="Menu_Msg460" xml:space="preserve">
+    <value>Import .NET Sql Authorization Manager Store Groups data.</value>
+  </data>
+  <data name="Menu_Msg470" xml:space="preserve">
+    <value>Store Properties</value>
+  </data>
+  <data name="Menu_Msg480" xml:space="preserve">
+    <value>New Application</value>
+  </data>
+  <data name="Menu_Msg490" xml:space="preserve">
+    <value>Import Store Groups/Applications</value>
+  </data>
+  <data name="Menu_Msg500" xml:space="preserve">
+    <value>Export Store</value>
+  </data>
+  <data name="Menu_Msg510" xml:space="preserve">
+    <value>Delete Store</value>
+  </data>
+  <data name="Menu_Msg520" xml:space="preserve">
+    <value>Delete Store ?</value>
+  </data>
+  <data name="Menu_Msg530" xml:space="preserve">
+    <value>New Task</value>
+  </data>
+  <data name="Menu_Tit300" xml:space="preserve">
+    <value>Import .NET Sql Authorization Manager Items data.</value>
+  </data>
+  <data name="Menu_Tit310" xml:space="preserve">
+    <value>Export .NET Sql Authorization Manager Item data.</value>
+  </data>
+  <data name="Menu_Tit320" xml:space="preserve">
+    <value>Create a new Operation</value>
+  </data>
+  <data name="Menu_Tit330" xml:space="preserve">
+    <value>Create a new Role</value>
+  </data>
+  <data name="Menu_Tit340" xml:space="preserve">
+    <value>Get or Set Sql Storage Connection settings.</value>
+  </data>
+  <data name="Menu_Tit350" xml:space="preserve">
+    <value>.NET Sql Authorization Manager options.</value>
+  </data>
+  <data name="Menu_Tit360" xml:space="preserve">
+    <value>Create a new Store in this Storage</value>
+  </data>
+  <data name="Menu_Tit370" xml:space="preserve">
+    <value>Import .NET Sql Authorization Manager Stores data.</value>
+  </data>
+  <data name="Menu_Tit380" xml:space="preserve">
+    <value>Export .NET Sql Authorization Manager Stores data.</value>
+  </data>
+  <data name="Menu_Tit390" xml:space="preserve">
+    <value>Import .NET Sql Authorization Manager Store data from Microsoft Authorization Manager (AzMan).</value>
+  </data>
+  <data name="Menu_Tit400" xml:space="preserve">
+    <value>Manage Store Group Properties</value>
+  </data>
+  <data name="Menu_Tit410" xml:space="preserve">
+    <value>Export .NET Sql Authorization Manager Store Group data.</value>
+  </data>
+  <data name="Menu_Tit440" xml:space="preserve">
+    <value>Create new Store Group</value>
+  </data>
+  <data name="Menu_Tit470" xml:space="preserve">
+    <value>Update Store properties</value>
+  </data>
+  <data name="Menu_Tit480" xml:space="preserve">
+    <value>Create a new Application in the selected Store</value>
+  </data>
+  <data name="Menu_Tit490" xml:space="preserve">
+    <value>Import .NET Sql Authorization Manager Store Groups/Applications data.</value>
+  </data>
+  <data name="Menu_Tit500" xml:space="preserve">
+    <value>Export .NET Sql Authorization Manager Store data.</value>
+  </data>
+  <data name="Menu_Tit530" xml:space="preserve">
+    <value>Create a new Task</value>
+  </data>
+  <data name="MMC_Msg10" xml:space="preserve">
+    <value>.NET SQL Authorization Manager Information (First Launch)</value>
+  </data>
+  <data name="MMC_Msg20" xml:space="preserve">
+    <value>NetSqlAzMan Error</value>
+  </data>
+  <data name="MMC_Tit10" xml:space="preserve">
+    <value>Right click on NetSqlAzMan node and choose 'Language' to choose preferred language.\r\n\r\nRight click on NetSqlAzMan node and choose 'Storage connection' to set up Sql Server connection properties.\r\n\r\nNotes:\r\n\r\nFirst, you must create manually a Sql database (NetSqlAzManStorage) and execute NetSqlAzMan_SqlServer.sql script (NetSqlAzMan installation folder).\r\n\r\nMore info at http://netsqlazman.sourceforge.net.\r\n</value>
+  </data>
+  <data name="StorageScopeNode_Msg10" xml:space="preserve">
+    <value>Import From AzMan failed</value>
+  </data>
+  <data name="StorageScopeNode_Msg20" xml:space="preserve">
+    <value>A new NetSqlAzMan version is available.\r\n\r\nYour version: {0}\r\nNew version: {1}\r\nDownload from: {2}\r\n\r\nDo you want to download new version now ?\r\n</value>
+    <comment>don't delete place holders {x}</comment>
+  </data>
+  <data name="StorageScopeNode_Msg30" xml:space="preserve">
+    <value>Have you created the NetSqlAzManStore Sql Database ?\r\n(see SQL Storage scripts folder)</value>
+  </data>
+  <data name="StorageScopeNode_Tit20" xml:space="preserve">
+    <value>New NetSqlAzMan version available</value>
+  </data>
+  <data name="StorageScopeNode_Tit30" xml:space="preserve">
+    <value>Test failed</value>
+  </data>
+  <data name="StoreGroupScopeNode_Msg10" xml:space="preserve">
+    <value>Store Group Properties error</value>
+  </data>
+  <data name="StoreGroupScopeNode_Msg20" xml:space="preserve">
+    <value>Delete Store Group Error</value>
+  </data>
+  <data name="StoreScopeNode_Msg10" xml:space="preserve">
+    <value>Store delete error</value>
+  </data>
+  <data name="MMC_Msg30" xml:space="preserve">
+    <value>An error has occurred while loading connection settings.\r\nError: {0}</value>
+    <comment>don't delete place holders {x}</comment>
+  </data>
+  <data name="MMC_Tit30" xml:space="preserve">
+    <value>Connection Error</value>
+  </data>
+  <data name="DGColumn_10" xml:space="preserve">
+    <value>Member Type</value>
+  </data>
+  <data name="DGColumn_20" xml:space="preserve">
+    <value>Owner</value>
+  </data>
+  <data name="DGColumn_30" xml:space="preserve">
+    <value>Owner SID</value>
+  </data>
+  <data name="DGColumn_40" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="DGColumn_50" xml:space="preserve">
+    <value>Object SID</value>
+  </data>
+  <data name="DGColumn_60" xml:space="preserve">
+    <value>Where Defined</value>
+  </data>
+  <data name="DGColumn_70" xml:space="preserve">
+    <value>Authorization Type</value>
+  </data>
+  <data name="DGColumn_80" xml:space="preserve">
+    <value>Valid From</value>
+  </data>
+  <data name="DGColumn_90" xml:space="preserve">
+    <value>Valid To</value>
+  </data>
+  <data name="frmItemAuthorizations.Text" xml:space="preserve">
+    <value>Item Authorizations</value>
+  </data>
+  <data name="frmItemAuthorizations_btnAddApplicationGroups.Text" xml:space="preserve">
+    <value>Add &amp;Application Groups</value>
+  </data>
+  <data name="frmItemAuthorizations_btnAddDBUsers.Text" xml:space="preserve">
+    <value>Add &amp;DB Users</value>
+  </data>
+  <data name="frmItemAuthorizations_btnAddStoreGroups.Text" xml:space="preserve">
+    <value>Add &amp;Store Groups</value>
+  </data>
+  <data name="frmItemAuthorizations_btnAddWindowsUsersAndGroups.Text" xml:space="preserve">
+    <value>Add &amp;Windows Users and Groups</value>
+  </data>
+  <data name="frmItemAuthorizations_btnApply.Text" xml:space="preserve">
+    <value>&amp;Apply</value>
+  </data>
+  <data name="frmItemAuthorizations_btnAttributes.Text" xml:space="preserve">
+    <value>A&amp;ttributes</value>
+  </data>
+  <data name="frmItemAuthorizations_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmItemAuthorizations_btnOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmItemAuthorizations_btnRemove.Text" xml:space="preserve">
+    <value>&amp;Remove</value>
+  </data>
+  <data name="frmItemAuthorizations_gbItemsHierarchyViews.Text" xml:space="preserve">
+    <value> Items Hierarchy </value>
+  </data>
+  <data name="frmItemAuthorizations_label5.Text" xml:space="preserve">
+    <value>Item Authorizations</value>
+  </data>
+  <data name="frmItemAuthorizations_lblInfo.Text" xml:space="preserve">
+    <value>Item Authorizations</value>
+  </data>
+  <data name="frmStorageConnection.Text1" xml:space="preserve">
+    <value> Storage Connection</value>
+  </data>
+  <data name="frmStorageConnection_btnCancel.Text1" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmStorageConnection_btnOk.Text1" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmStorageConnection_btnRefreshDatabases.Text1" xml:space="preserve">
+    <value>Re&amp;fresh</value>
+  </data>
+  <data name="frmStorageConnection_btnRefreshDataSources.Text1" xml:space="preserve">
+    <value>&amp;Refresh</value>
+  </data>
+  <data name="frmStorageConnection_btnTestConnection.Text1" xml:space="preserve">
+    <value>&amp;Test</value>
+  </data>
+  <data name="frmStorageConnection_label1.Text1" xml:space="preserve">
+    <value>Data Source:</value>
+  </data>
+  <data name="frmStorageConnection_label2.Text1" xml:space="preserve">
+    <value>Authentication:</value>
+  </data>
+  <data name="frmStorageConnection_label3.Text1" xml:space="preserve">
+    <value>User Id:</value>
+  </data>
+  <data name="frmStorageConnection_label4.Text1" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="frmStorageConnection_label5.Text1" xml:space="preserve">
+    <value>NetSqlAzMan DB:</value>
+  </data>
+  <data name="frmStorageConnection_label6.Text1" xml:space="preserve">
+    <value>Other Settings:</value>
+  </data>
+  <data name="frmStorageConnection_lblInfo.Text1" xml:space="preserve">
+    <value>Manage Authorization Manager Storage connection info</value>
+  </data>
+  <data name="frmStorageConnection_rbIntegrated.Text1" xml:space="preserve">
+    <value>Integrated</value>
+  </data>
+  <data name="frmStorageConnection_rbSql.Text1" xml:space="preserve">
+    <value>Sql</value>
+  </data>
+  <data name="frmExportOptions_Msg10" xml:space="preserve">
+    <value>Esporta To ...</value>
+  </data>
+  <data name="frmApplicationGroupsProperties.Text" xml:space="preserve">
+    <value> Application Group properties</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnApply.Text" xml:space="preserve">
+    <value>&amp;Apply</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnMembersAddApplicationGroups.Text" xml:space="preserve">
+    <value>Add &amp;Application Groups</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnMembersAddDBUsers.Text" xml:space="preserve">
+    <value>Add &amp;DB Users</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnMembersAddStoreGroups.Text" xml:space="preserve">
+    <value>Add &amp;Store Groups</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnMembersAddWindowsUsersAndGroups.Text" xml:space="preserve">
+    <value>Add &amp;Windows Users and Groups</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnMembersRemove.Text" xml:space="preserve">
+    <value>&amp;Remove</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnNonMembersAddApplicationGroup.Text" xml:space="preserve">
+    <value>Add &amp;Application Groups</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnNonMembersAddDBUsers.Text" xml:space="preserve">
+    <value>Add &amp;DB Users</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnNonMembersAddStoreGroups.Text" xml:space="preserve">
+    <value>Add &amp;Store Groups</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnNonMembersAddWindowsUsersAndGroup.Text" xml:space="preserve">
+    <value>Add &amp;Windows Users and Groups</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnNonMembersRemove.Text" xml:space="preserve">
+    <value>&amp;Remove</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_btnTestLDapQuery.Text" xml:space="preserve">
+    <value>Execute &amp;LDAP Query</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_label1.Text" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_label2.Text" xml:space="preserve">
+    <value>Description:</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_label3.Text" xml:space="preserve">
+    <value>Group Type:</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_label4.Text" xml:space="preserve">
+    <value>The &amp;LDAP Query that defines members of this group.</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_label5.Text" xml:space="preserve">
+    <value>Users and Groups that are members of this group.</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_label6.Text" xml:space="preserve">
+    <value>Users and Groups that are excluded from this group.</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_lblInfo.Text" xml:space="preserve">
+    <value>Application Group properties.</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_lsvMembers_0.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_lsvMembers_1.Text" xml:space="preserve">
+    <value>Where defined</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_lsvNonMembers_0.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_lsvNonMembers_1.Text" xml:space="preserve">
+    <value>Where defined</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_tabLdapQuery.Text" xml:space="preserve">
+    <value>LDAP Query</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_tabNonMembers.Text" xml:space="preserve">
+    <value>Non Members</value>
+  </data>
+  <data name="frmImport_lblTitle.Text" xml:space="preserve">
+    <value>Importing ...</value>
+  </data>
+  <data name="frmImportFromAzMan.Text" xml:space="preserve">
+    <value> Import Store from Microsoft Authorization Manager (AzMan)</value>
+  </data>
+  <data name="frmImportFromAzMan_btnClose.Text" xml:space="preserve">
+    <value>&amp;Close</value>
+  </data>
+  <data name="frmImportFromAzMan_btnImport.Text" xml:space="preserve">
+    <value>&amp;Import</value>
+  </data>
+  <data name="frmImportFromAzMan_groupBox1.Text" xml:space="preserve">
+    <value>AzMan - Source</value>
+  </data>
+  <data name="frmImportFromAzMan_groupBox2.Text" xml:space="preserve">
+    <value>NetSqlAzMan - Destination</value>
+  </data>
+  <data name="frmImportFromAzMan_label1.Text" xml:space="preserve">
+    <value>AzMan store path:</value>
+  </data>
+  <data name="frmImportFromAzMan_label2.Text" xml:space="preserve">
+    <value>(ex.: MSLDAP://myserver:389/DC=MyCompany, DC=org, DC=MyPartition)</value>
+  </data>
+  <data name="frmImportFromAzMan_label3.Text" xml:space="preserve">
+    <value>(ex.: MSXML://c:\MyFolder\MyAuthorizationManagerStore.xml)</value>
+  </data>
+  <data name="frmImportFromAzMan_label4.Text" xml:space="preserve">
+    <value>Note: Any of the Authorization Scripts will be imported.</value>
+  </data>
+  <data name="frmImportFromAzMan_label5.Text" xml:space="preserve">
+    <value>(The Store name that will be created after import process)</value>
+  </data>
+  <data name="frmImportFromAzMan_label6.Text" xml:space="preserve">
+    <value>NetSqlAzMan store name:</value>
+  </data>
+  <data name="frmImportOptions.Text" xml:space="preserve">
+    <value> .NET Sql Authorization Manager Import Options</value>
+  </data>
+  <data name="frmImportOptions_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmImportOptions_btnNext.Text" xml:space="preserve">
+    <value>&amp;Next</value>
+  </data>
+  <data name="frmImportOptions_chkAuthorizations.Text" xml:space="preserve">
+    <value>Include Item Authorizations</value>
+  </data>
+  <data name="frmImportOptions_chkDBUsers.Text" xml:space="preserve">
+    <value>Include Database Users</value>
+  </data>
+  <data name="frmImportOptions_chkUsersAndGroups.Text" xml:space="preserve">
+    <value>Include Windows Users / Groups</value>
+  </data>
+  <data name="frmImportOptions_lblInfo.Text" xml:space="preserve">
+    <value>Import options</value>
+  </data>
+  <data name="frmImportOptions_lblTitle.Text" xml:space="preserve">
+    <value>Choose one or more Import options:</value>
+  </data>
+  <data name="frmItemProperties.Text" xml:space="preserve">
+    <value>Proprietà del Ruolo</value>
+  </data>
+  <data name="frmItemProperties_btnAddOperation.Text" xml:space="preserve">
+    <value>A&amp;dd</value>
+  </data>
+  <data name="frmItemProperties_btnAddRole.Text" xml:space="preserve">
+    <value>A&amp;dd</value>
+  </data>
+  <data name="frmItemProperties_btnAddTask.Text" xml:space="preserve">
+    <value>A&amp;dd</value>
+  </data>
+  <data name="frmItemProperties_btnApply.Text" xml:space="preserve">
+    <value>&amp;Apply</value>
+  </data>
+  <data name="frmItemProperties_btnAttributes.Text" xml:space="preserve">
+    <value>A&amp;ttributes</value>
+  </data>
+  <data name="frmItemProperties_btnBizRule.Text" xml:space="preserve">
+    <value>&amp;Biz Rule</value>
+  </data>
+  <data name="frmItemProperties_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmItemProperties_btnOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmItemProperties_btnRemoveOperation.Text" xml:space="preserve">
+    <value>&amp;Remove</value>
+  </data>
+  <data name="frmItemProperties_btnRemoveRole.Text" xml:space="preserve">
+    <value>&amp;Remove</value>
+  </data>
+  <data name="frmItemProperties_btnRemoveTask.Text" xml:space="preserve">
+    <value>&amp;Remove</value>
+  </data>
+  <data name="frmItemProperties_gbItemsHierarchyViews.Text" xml:space="preserve">
+    <value> Items Hierarchy </value>
+  </data>
+  <data name="frmItemProperties_label1.Text" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="frmItemProperties_label2.Text" xml:space="preserve">
+    <value>Description:</value>
+  </data>
+  <data name="frmItemProperties_lblInfo.Text" xml:space="preserve">
+    <value>Proprietà del Ruolo</value>
+  </data>
+  <data name="frmItemProperties_lsvOperations_0.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="frmItemProperties_lsvOperations_1.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="frmItemProperties_lsvRoles_0.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="frmItemProperties_lsvRoles_1.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="frmItemProperties_lsvTasks_0.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="frmItemProperties_lsvTasks_1.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="frmItemProperties_TabOperations.Text" xml:space="preserve">
+    <value>Operations</value>
+  </data>
+  <data name="frmStoreGroupsProperties.Text" xml:space="preserve">
+    <value> Store Group properties</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnApply.Text" xml:space="preserve">
+    <value>&amp;Apply</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnMembersAddDBUsers.Text" xml:space="preserve">
+    <value>Add &amp;DB Users</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnMembersAddStoreGroup.Text" xml:space="preserve">
+    <value>Add &amp;Store Groups</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnMembersAddWindowsUsersAndGroups.Text" xml:space="preserve">
+    <value>Add &amp;Windows Users and Groups</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnMembersRemove.Text" xml:space="preserve">
+    <value>&amp;Remove</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnNonMembersAddDBUsers.Text" xml:space="preserve">
+    <value>Add &amp;DB Users</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnNonMembersAddStoreGroup.Text" xml:space="preserve">
+    <value>Add &amp;Store Groups</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnNonMembersAddWindowsUsersAndGroup.Text" xml:space="preserve">
+    <value>Add &amp;Windows Users and Groups</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnNonMembersRemove.Text" xml:space="preserve">
+    <value>&amp;Remove</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmStoreGroupsProperties_btnTestLDapQuery.Text" xml:space="preserve">
+    <value>Execute &amp;LDAP Query</value>
+  </data>
+  <data name="frmStoreGroupsProperties_label1.Text" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="frmStoreGroupsProperties_label2.Text" xml:space="preserve">
+    <value>Description:</value>
+  </data>
+  <data name="frmStoreGroupsProperties_label3.Text" xml:space="preserve">
+    <value>Group Type:</value>
+  </data>
+  <data name="frmStoreGroupsProperties_label4.Text" xml:space="preserve">
+    <value>The &amp;LDAP Query that defines members of this group.</value>
+  </data>
+  <data name="frmStoreGroupsProperties_label5.Text" xml:space="preserve">
+    <value>Users and Groups that are members of this group.</value>
+  </data>
+  <data name="frmStoreGroupsProperties_label6.Text" xml:space="preserve">
+    <value>Users and Groups that are excluded from this group.</value>
+  </data>
+  <data name="frmStoreGroupsProperties_lblInfo.Text" xml:space="preserve">
+    <value>Store Group properties.</value>
+  </data>
+  <data name="frmStoreGroupsProperties_lsvMembers_0.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="frmStoreGroupsProperties_lsvMembers_1.Text" xml:space="preserve">
+    <value>Where defined</value>
+  </data>
+  <data name="frmStoreGroupsProperties_lsvNonMembers_0.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="frmStoreGroupsProperties_lsvNonMembers_1.Text" xml:space="preserve">
+    <value>Where defined</value>
+  </data>
+  <data name="frmStoreGroupsProperties_tabLdapQuery.Text" xml:space="preserve">
+    <value>LDAP Query</value>
+  </data>
+  <data name="frmStoreGroupsProperties_tabNonMembers.Text" xml:space="preserve">
+    <value>Non Members</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_tabGeneral.Text" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_tabMembers.Text" xml:space="preserve">
+    <value>Members</value>
+  </data>
+  <data name="frmApplicationGroupsProperties_tabNonMembers.Text1" xml:space="preserve">
+    <value>Non Members</value>
+  </data>
+  <data name="frmImportFromAzMan_lblStatus.Text" xml:space="preserve">
+    <value>Status:</value>
+  </data>
+  <data name="frmItemAttributes_lsvAttributes_0.Text" xml:space="preserve">
+    <value>Key</value>
+  </data>
+  <data name="frmItemAttributes_lsvAttributes_1.Text" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="frmItemProperties_TabRoles.Text" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="frmItemProperties_TabTasks.Text" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
+  <data name="frmStoreGroupsProperties_tabGeneral.Text" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="frmStoreGroupsProperties_tabMembers.Text" xml:space="preserve">
+    <value>Members</value>
+  </data>
+  <data name="frmStoreGroupsProperties_tabNonMembers.Text1" xml:space="preserve">
+    <value>Non Members</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_btnCopy.Text" xml:space="preserve">
+    <value>&amp;Copy</value>
+  </data>
+  <data name="frmGenerateCheckAccessHelper_btnGenerate.Text" xml:space="preserve">
+    <value>&amp;Generate</value>
+  </data>
+  <data name="Language_English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Language_EnglishDescription" xml:space="preserve">
+    <value>English Language</value>
+  </data>
+  <data name="Language_Italian" xml:space="preserve">
+    <value>Italian</value>
+  </data>
+  <data name="Language_ItalianDescription" xml:space="preserve">
+    <value>Italian Langauge</value>
+  </data>
+  <data name="Language_Spanish" xml:space="preserve">
+    <value>Spanish</value>
+  </data>
+  <data name="Language_SpanishDescription" xml:space="preserve">
+    <value>Spanish Language</value>
+  </data>
+  <data name="Language_Tit10" xml:space="preserve">
+    <value>Select preferred UI Language</value>
+  </data>
+  <data name="WhereDefined_Application" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="WhereDefined_DB" xml:space="preserve">
+    <value>DB User</value>
+  </data>
+  <data name="WhereDefined_LDAP" xml:space="preserve">
+    <value>Active Directory</value>
+  </data>
+  <data name="WhereDefined_Local" xml:space="preserve">
+    <value>Local</value>
+  </data>
+  <data name="WhereDefined_Store" xml:space="preserve">
+    <value>Store</value>
+  </data>
+  <data name="frmApplicationGroupsList_lsvApplicationGroups_0.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="frmApplicationGroupsList_lsvApplicationGroups_1.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="frmApplicationGroupsList_lsvApplicationGroups_2.Text" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="frmAuthorizationAttributes_lsvAttributes_0.Text" xml:space="preserve">
+    <value>Key</value>
+  </data>
+  <data name="frmAuthorizationAttributes_lsvAttributes_1.Text" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="frmDBUsersList_lsvDBUsers_0.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="frmDBUsersList_lsvDBUsers_1.Text" xml:space="preserve">
+    <value>Custom Sid</value>
+  </data>
+  <data name="frmDBUsersList_lsvDBUsers_2.Text" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="frmStoreGroupsList_lsvStoreGroups_0.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="frmStoreGroupsList_lsvStoreGroups_1.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="frmStoreGroupsList_lsvStoreGroups_2.Text" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="frmStoreGroupsProperties_lsvMembers_0.Text1" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="frmStoreGroupsProperties_lsvMembers_1.Text1" xml:space="preserve">
+    <value>Where defined</value>
+  </data>
+  <data name="frmStoreGroupsProperties_lsvNonMembers_0.Text1" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="frmStoreGroupsProperties_lsvNonMembers_1.Text1" xml:space="preserve">
+    <value>Where defined</value>
+  </data>
+  <data name="Menu_Msg540" xml:space="preserve">
+    <value>Manage Authorizations</value>
+  </data>
+  <data name="Menu_Tit540" xml:space="preserve">
+    <value>Manage Item Authorizations</value>
+  </data>
+  <data name="frmItemsList_lsvItems_0.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="frmItemsList_lsvItems_1.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="frmStoreAttributes_lsvAttributes_0.Text" xml:space="preserve">
+    <value>Key</value>
+  </data>
+  <data name="frmStoreAttributes_lsvAttributes_0.Text1" xml:space="preserve">
+    <value>Key</value>
+  </data>
+  <data name="frmStoreAttributes_lsvAttributes_1.Text" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="frmStoreAttributes_lsvAttributes_1.Text1" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="frmImport.Text" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="Language_Albanian" xml:space="preserve">
+    <value>Albanian</value>
+  </data>
+  <data name="Language_AlbanianDescription" xml:space="preserve">
+    <value>Albanian Language</value>
+  </data>
+  <data name="Domain_Operation" xml:space="preserve">
+    <value>Operation</value>
+  </data>
+  <data name="Domain_Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="Domain_Task" xml:space="preserve">
+    <value>Task</value>
+  </data>
+  <data name="frmCheckAccessTest_btnCheckAccessTest.Text" xml:space="preserve">
+    <value>Start Check Access &amp;Test</value>
+  </data>
+  <data name="frmCheckAccessTest_btnClose.Text" xml:space="preserve">
+    <value>&amp;Close</value>
+  </data>
+  <data name="frmCheckAccessTest.Text" xml:space="preserve">
+    <value>Check Access Test</value>
+  </data>
+  <data name="frmCheckAccessTest_label1.Text" xml:space="preserve">
+    <value>Check Access Results:</value>
+  </data>
+  <data name="frmCheckAccessTest_label2.Text" xml:space="preserve">
+    <value>Details:</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg10" xml:space="preserve">
+    <value>Check Access Test Error</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg20" xml:space="preserve">
+    <value>Please select only one Windows User</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg30" xml:space="preserve">
+    <value>Check Access Test started at</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg40" xml:space="preserve">
+    <value>Building Items Hierarchy ...</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg50" xml:space="preserve">
+    <value>Check Access Test finished at</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg60" xml:space="preserve">
+    <value>Identity Details:</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg70" xml:space="preserve">
+    <value>Check Access Test on</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg80" xml:space="preserve">
+    <value>Please select only one DB User</value>
+  </data>
+  <data name="frmCheckAccessTest_rbDBUser.Text" xml:space="preserve">
+    <value>&amp;Database User:</value>
+  </data>
+  <data name="frmCheckAccessTest_rbWindowsUser.Text" xml:space="preserve">
+    <value>&amp;Windows User:</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg90" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="frmCheckAccessTest_lblProtocolTransitionWarning.Text" xml:space="preserve">
+    <value>Users rather then current can be selected only from a Windows Server 2003 machine in a Windows 2003 Native Domain (Kerberos Protocol Transition).</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg100" xml:space="preserve">
+    <value>Member of these Store Groups:</value>
+  </data>
+  <data name="frmCheckAccessTest_Msg110" xml:space="preserve">
+    <value>Member of these Application Groups:</value>
+  </data>
+  <data name="frmApplicationAttributes_lsvAttributes_0.Text" xml:space="preserve">
+    <value>Key</value>
+  </data>
+  <data name="frmApplicationAttributes_lsvAttributes_1.Text" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="frmActiveDirectoryObjectsList_lsvObjectsSid_0.Text" xml:space="preserve">
+    <value>sAMAccountName</value>
+  </data>
+  <data name="frmActiveDirectoryObjectsList_lsvObjectsSid_1.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="frmActiveDirectoryObjectsList_lsvObjectsSid_2.Text" xml:space="preserve">
+    <value>objectClass</value>
+  </data>
+  <data name="frmActiveDirectoryObjectsList_lsvObjectsSid_3.Text" xml:space="preserve">
+    <value>objectSid</value>
+  </data>
+  <data name="frmItemsHierarchyView_btnPrint.Text" xml:space="preserve">
+    <value>&amp;Print</value>
+  </data>
+  <data name="frmPrint.Text" xml:space="preserve">
+    <value>Print Options</value>
+  </data>
+  <data name="frmPrint_btnPageSetup.Text" xml:space="preserve">
+    <value>Page &amp;Setup</value>
+  </data>
+  <data name="frmPrint_btnPreview.Text" xml:space="preserve">
+    <value>Pre&amp;view</value>
+  </data>
+  <data name="frmPrint_btnPrint.Text" xml:space="preserve">
+    <value>&amp;Print</value>
+  </data>
+  <data name="rptDescription" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="rptMsg10" xml:space="preserve">
+    <value>Items &amp;Hierarchy</value>
+  </data>
+  <data name="rptMsg20" xml:space="preserve">
+    <value>Items &amp;Authorizations</value>
+  </data>
+  <data name="rptTit10" xml:space="preserve">
+    <value>Items Hierarchy Report</value>
+  </data>
+  <data name="rptTit20" xml:space="preserve">
+    <value>Items Authorizations Report</value>
+  </data>
+  <data name="rptTitle" xml:space="preserve">
+    <value>&amp;Reports</value>
+  </data>
+  <data name="frmOptions_chkErrors.Text" xml:space="preserve">
+    <value>Errors</value>
+  </data>
+  <data name="frmOptions_chkInformations.Text" xml:space="preserve">
+    <value>Informations</value>
+  </data>
+  <data name="frmOptions_chkWarnings.Text" xml:space="preserve">
+    <value>Warnings</value>
+  </data>
+  <data name="frmOptions_lblEventLog.Text" xml:space="preserve">
+    <value>Log Events:</value>
+  </data>
+  <data name="frmApplicationPermissions.Text" xml:space="preserve">
+    <value>Application Permissions</value>
+  </data>
+  <data name="frmApplicationPermissions_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmApplicationPermissions_btnOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmApplicationPermissions_lblDescription.Text" xml:space="preserve">
+    <value>Sql Logins with special permissions. 
+(Logins must be added before to Sql Roles: "NetSqlAzMan_Managers", "NetSqlAzMan_Users", "NetSqlAzMan_Readers").
+Only checked Logins will be granted for this Application.</value>
+  </data>
+  <data name="frmApplicationPermissions_lblInfo.Text" xml:space="preserve">
+    <value>Application Permissions</value>
+  </data>
+  <data name="frmApplicationProperties_btnPermissions.Text" xml:space="preserve">
+    <value>&amp;Permissions</value>
+  </data>
+  <data name="frmImportFromAzMan_label7.Text" xml:space="preserve">
+    <value>(ex.: mssql://&lt;connection string&gt;/&lt;database name&gt;/&lt;policy store name&gt;)</value>
+  </data>
+  <data name="frmStorePermissions.Text" xml:space="preserve">
+    <value>Store Permissions</value>
+  </data>
+  <data name="frmStorePermissions_btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="frmStorePermissions_btnOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="frmStorePermissions_lblDescription.Text" xml:space="preserve">
+    <value>Sql Logins with special permissions. 
+(Logins must be added before to Sql Roles: "NetSqlAzMan_Managers", "NetSqlAzMan_Users", "NetSqlAzMan_Readers").
+Only checked Logins will be granted for this Store.</value>
+  </data>
+  <data name="frmStorePermissions_lblInfo.Text" xml:space="preserve">
+    <value>Store Permissions</value>
+  </data>
+  <data name="frmStoreProperties_btnPermissions.Text" xml:space="preserve">
+    <value>&amp;Permissions</value>
+  </data>
+  <data name="frmOptions_chkLogOnDb.Text" xml:space="preserve">
+    <value>Log into &amp;Database</value>
+  </data>
+  <data name="frmOptions_chkLogOnEventLog.Text" xml:space="preserve">
+    <value>Log into E&amp;vent Log</value>
+  </data>
+  <data name="Menu_Msg550" xml:space="preserve">
+    <value>Mode &amp;&amp; Logging</value>
+  </data>
+  <data name="Menu_Msg560" xml:space="preserve">
+    <value>Auditing</value>
+  </data>
+  <data name="Menu_Tit550" xml:space="preserve">
+    <value>NetSqlAzMan Mode and Logging</value>
+  </data>
+  <data name="Menu_Tit560" xml:space="preserve">
+    <value>NetSqlAzMan Storage Auditing with SQLAudit</value>
+  </data>
+  <data name="frmImportOptions_chkCreatesNewItemAuthorizations.Text" xml:space="preserve">
+    <value>Creates new Item authorizations</value>
+  </data>
+  <data name="frmImportOptions_chkCreatesNewItems.Text" xml:space="preserve">
+    <value>Creates new Items</value>
+  </data>
+  <data name="frmImportOptions_chkDeleteMissingItemAuthorizations.Text" xml:space="preserve">
+    <value>Delete missing Item authorizations</value>
+  </data>
+  <data name="frmImportOptions_chkDeleteMissingItems.Text" xml:space="preserve">
+    <value>Delete missing Items</value>
+  </data>
+  <data name="frmImportOptions_chkOverwritesExistingItems.Text" xml:space="preserve">
+    <value>Overwrites existing Items</value>
+  </data>
+  <data name="frmImportOptions_chkOverwritesItemAuthorizations.Text" xml:space="preserve">
+    <value>Overwrites Item authorizations</value>
+  </data>
+  <data name="frmImportOptions_groupBox1.Text" xml:space="preserve">
+    <value>Import options</value>
+  </data>
+  <data name="frmImportOptions_groupBox2.Text" xml:space="preserve">
+    <value>Merge options</value>
+  </data>
+  <data name="Menu_Msg570" xml:space="preserve">
+    <value>Invalidate WCF Cache Service</value>
+  </data>
+  <data name="Menu_Tit570" xml:space="preserve">
+    <value>Invoke the InvalidateCache() method on the WCF Storage Cache Service</value>
+  </data>
+  <data name="frmInvalidateWCFCacheService.Text" xml:space="preserve">
+    <value>Invalidate WCF Cache Service</value>
+  </data>
+  <data name="frmInvalidateWCFCacheService_btnClose.Text" xml:space="preserve">
+    <value>&amp;Close</value>
+  </data>
+  <data name="frmInvalidateWCFCacheService_btnInvalidateCache.Text" xml:space="preserve">
+    <value>&amp;InvalidateCache()</value>
+  </data>
+  <data name="frmInvalidateWCFCacheService_label1.Text" xml:space="preserve">
+    <value>WCF Cache Service EndPoint:</value>
+  </data>
+  <data name="frmInvalidateWCFCacheService_txtWCFCacheServiceEndPoint.Text" xml:space="preserve">
+    <value>net.tcp://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/</value>
+  </data>
+  <data name="Language_Russian" xml:space="preserve">
+    <value>Russain</value>
+  </data>
+  <data name="Language_RussianDescription" xml:space="preserve">
+    <value>Russian Language</value>
+  </data>
+</root>

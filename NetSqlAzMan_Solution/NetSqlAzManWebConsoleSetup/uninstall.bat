@@ -1,0 +1,1 @@
+"%windir%\system32\Msiexec.exe" /x {82B85F9E-9AB8-4DBE-A28A-B6AF8694B701}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="48f06f5c-54cf-48ae-b4c7-c70b66e91277" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="e84ec335-0bfa-40ae-8a74-9e0c0209f0ac" SourceId="1" SourceUrl="http://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd3" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="8bf0b928-3b86-4d2c-a6e9-221e2235a4c4" SourceId="1" SourceUrl="http://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/?disco" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="d5c348d9-fc62-451d-a003-94b95ce38554" SourceId="1" SourceUrl="http://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd4" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="e8be1d15-334b-445a-9775-63f265686417" SourceId="1" SourceUrl="http://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd0" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="aa048050-0049-452f-b5c5-4f002a99d907" SourceId="1" SourceUrl="http://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd1" />
+    <MetadataFile FileName="CacheService.wsdl" MetadataType="Wsdl" ID="8d31273b-2d2c-44ba-b9ab-ef52514045a4" SourceId="1" SourceUrl="http://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/?wsdl" />
+    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="9ce54498-0d72-41d2-9d6d-5960ec7b184d" SourceId="1" SourceUrl="http://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

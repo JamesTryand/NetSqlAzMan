@@ -1,0 +1,1105 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SqlAudit</name>
+    </assembly>
+    <members>
+        <member name="T:SqlAudit.TriggerActions">
+            <summary>
+            Trigger Actions enum.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.TriggerActions.Insert">
+            <summary>
+            Trigger for INSERT
+            </summary>
+        </member>
+        <member name="F:SqlAudit.TriggerActions.Update">
+            <summary>
+            Trigger for UPDATE
+            </summary>
+        </member>
+        <member name="F:SqlAudit.TriggerActions.Delete">
+            <summary>
+            Trigger for DELETE
+            </summary>
+        </member>
+        <member name="T:SqlAudit.Design.IndexColumnTypeEditor">
+            <summary>
+            AuditColumnsTypeEditor class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.Design.IndexColumnTypeEditor.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.Design.ExcludedColumnCollectionTypeEditor"/> class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.Design.IndexColumnTypeEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Gets the editor style used by the <see cref="M:System.Drawing.Design.UITypeEditor.EditValue(System.IServiceProvider,System.Object)"></see> method.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext"></see> that can be used to gain additional context information.</param>
+            <returns>
+            A <see cref="T:System.Drawing.Design.UITypeEditorEditStyle"></see> value that indicates the style of editor used by the <see cref="M:System.Drawing.Design.UITypeEditor.EditValue(System.IServiceProvider,System.Object)"></see> method. If the <see cref="T:System.Drawing.Design.UITypeEditor"></see> does not support this method, then <see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle"></see> will return <see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None"></see>.
+            </returns>
+        </member>
+        <member name="M:SqlAudit.Design.IndexColumnTypeEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
+            <summary>
+            Edits the specified object's value using the editor style indicated by the <see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle"></see> method.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext"></see> that can be used to gain additional context information.</param>
+            <param name="provider">An <see cref="T:System.IServiceProvider"></see> that this editor can use to obtain services.</param>
+            <param name="value">The object to edit.</param>
+            <returns>
+            The new value of the object. If the value of the object has not changed, this should return the same object it was passed.
+            </returns>
+        </member>
+        <member name="T:SqlAudit.ScriptAction">
+            <summary>
+            Script Action
+            </summary>
+        </member>
+        <member name="F:SqlAudit.ScriptAction.CreateAllAuditTablesTriggersAndViews">
+            <summary>
+            CREATE Audit Tables, Indexes on Audit Tables, Triggers and Views for source Tables.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.ScriptAction.DropAllAuditTablesTriggersAndViews">
+            <summary>
+            DROP Audit Tables, Indexes on Audit Tables, Triggers and Views for source Tables.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.ScriptAction.CreateTriggersOnly">
+            <summary>
+            CREATE only Triggers for source Tables.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.ScriptAction.DropTriggersOnly">
+            <summary>
+            DROP only Triggers for source Tables.
+            </summary>
+        </member>
+        <member name="T:SqlAudit.PropertyChangedSignal">
+            <summary>
+            PropertyChangedSignal delegate
+            </summary>
+            <param name="sender">sender</param>
+            <param name="propertyName">propertyName</param>
+        </member>
+        <member name="T:SqlAudit.SqlAuditENS">
+            <summary>
+            SqlAuditENS (Event Notification System) class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.SqlAuditENS.Signal(System.Object,System.String)">
+            <summary>
+            Signals the specified sender.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="propertyName">Name of the property.</param>
+        </member>
+        <member name="E:SqlAudit.SqlAuditENS.PropertyChanged">
+            <summary>
+            PropertyChanged event;
+            </summary>
+        </member>
+        <member name="T:SqlAudit.IndexGenerateAction">
+            <summary>
+            IndexGeneration enum.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.IndexGenerateAction.Inherited">
+            <summary>
+            Same Action as parent Audit Settings
+            </summary>
+        </member>
+        <member name="F:SqlAudit.IndexGenerateAction.CreateIndex">
+            <summary>
+            Force Creation
+            </summary>
+        </member>
+        <member name="F:SqlAudit.IndexGenerateAction.SkipIndex">
+            <summary>
+            Forse Skipping
+            </summary>
+        </member>
+        <member name="T:SqlAudit.SqlAuditUtilities">
+            <summary>
+            Sql Audit Utilities
+            </summary>
+        </member>
+        <member name="M:SqlAudit.SqlAuditUtilities.EnclosedName(System.String)">
+            <summary>
+            Encloseds the name.
+            </summary>
+            <param name="name">The name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAudit.SqlAuditUtilities.UnEnclosedName(System.String)">
+            <summary>
+            Uns the name of the enclosed.
+            </summary>
+            <param name="name">The name.</param>
+            <returns></returns>
+        </member>
+        <member name="T:SqlAudit.AuditIndexCollection">
+            <summary>
+            AuditIndexCollection class.
+            </summary>
+        </member>
+        <member name="T:SqlAudit.SerializableDictionary`2">
+            <summary>
+            SerielizableDictionary class.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="M:SqlAudit.SerializableDictionary`2.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.SerializableDictionary`2"/> class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.SerializableDictionary`2.GetSchema">
+            <summary>
+            This property is reserved, apply the <see cref="T:System.Xml.Serialization.XmlSchemaProviderAttribute"></see> to the class instead.
+            </summary>
+            <returns>
+            An <see cref="T:System.Xml.Schema.XmlSchema"></see> that describes the XML representation of the object that is produced by the <see cref="M:System.Xml.Serialization.IXmlSerializable.WriteXml(System.Xml.XmlWriter)"></see> method and consumed by the <see cref="M:System.Xml.Serialization.IXmlSerializable.ReadXml(System.Xml.XmlReader)"></see> method.
+            </returns>
+        </member>
+        <member name="M:SqlAudit.SerializableDictionary`2.ReadXml(System.Xml.XmlReader)">
+            <summary>
+            Generates an object from its XML representation.
+            </summary>
+            <param name="reader">The <see cref="T:System.Xml.XmlReader"></see> stream from which the object is deserialized.</param>
+        </member>
+        <member name="M:SqlAudit.SerializableDictionary`2.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Converts an object into its XML representation.
+            </summary>
+            <param name="writer">The <see cref="T:System.Xml.XmlWriter"></see> stream to which the object is serialized.</param>
+        </member>
+        <member name="M:SqlAudit.AuditIndexCollection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.AuditIndexCollection"/> class.
+            </summary>
+        </member>
+        <member name="T:SqlAudit.CustomAuditColumn">
+            <summary>
+            Column Audit Column class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.CustomAuditColumn.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.CustomAuditColumn"/> class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.CustomAuditColumn.#ctor(System.String,SqlAudit.CustomColumnDataType,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.CustomAuditColumn"/> class.
+            </summary>
+            <param name="columnName">Name of the column.</param>
+            <param name="dataType">Name of the data type.</param>
+            <param name="expression">The expression.</param>
+        </member>
+        <member name="M:SqlAudit.CustomAuditColumn.#ctor(System.String,SqlAudit.CustomColumnDataType,System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.CustomAuditColumn"/> class.
+            </summary>
+            <param name="columnName">Name of the column.</param>
+            <param name="dataType">Name of the data type.</param>
+            <param name="columnSize">Size of the column.</param>
+            <param name="expression">The expression.</param>
+        </member>
+        <member name="M:SqlAudit.CustomAuditColumn.#ctor(System.String,SqlAudit.CustomColumnDataType,System.Int32,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.CustomAuditColumn"/> class.
+            </summary>
+            <param name="columnName">Name of the column.</param>
+            <param name="dataType">Name of the data type.</param>
+            <param name="columnSize">Size of the column.</param>
+            <param name="expression">The expression.</param>
+            <param name="defaultExpression">The default expression.</param>
+        </member>
+        <member name="M:SqlAudit.CustomAuditColumn.#ctor(System.String,SqlAudit.CustomColumnDataType,System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.CustomAuditColumn"/> class.
+            </summary>
+            <param name="columnName">Name of the column.</param>
+            <param name="dataType">Name of the data type.</param>
+            <param name="columnSize">Size of the column.</param>
+            <param name="numericPrecision">The numeric precision.</param>
+            <param name="numericScale">The numeric scale.</param>
+            <param name="expression">The expression.</param>
+            <param name="defaultExpression">The default expression.</param>
+        </member>
+        <member name="M:SqlAudit.CustomAuditColumn.Copy">
+            <summary>
+            Copies this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SqlAudit.CustomAuditColumn.DataType">
+            <summary>
+            Gets or sets the type of the data.
+            </summary>
+            <value>The type of the data.</value>
+        </member>
+        <member name="P:SqlAudit.CustomAuditColumn.ColumnName">
+            <summary>
+            Gets or sets the name of the column.
+            </summary>
+            <value>The name of the column.</value>
+        </member>
+        <member name="P:SqlAudit.CustomAuditColumn.ColumnSize">
+            <summary>
+            Gets or sets the size of the column.
+            </summary>
+            <value>The size of the column.</value>
+        </member>
+        <member name="P:SqlAudit.CustomAuditColumn.NumericPrecision">
+            <summary>
+            Gets or sets the numeric precision.
+            </summary>
+            <value>The numeric precision.</value>
+        </member>
+        <member name="P:SqlAudit.CustomAuditColumn.NumericScale">
+            <summary>
+            Gets or sets the numeric scale.
+            </summary>
+            <value>The numeric scale.</value>
+        </member>
+        <member name="P:SqlAudit.CustomAuditColumn.Expression">
+            <summary>
+            Gets or sets the expression.
+            </summary>
+            <value>The expression.</value>
+        </member>
+        <member name="P:SqlAudit.CustomAuditColumn.DefaultExpression">
+            <summary>
+            Gets or sets the default expression.
+            </summary>
+            <value>The default expression.</value>
+        </member>
+        <member name="T:SqlAudit.AuditIndex">
+            <summary>
+            AuditIndex class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.AuditIndex.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.AuditIndex"/> class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.AuditIndex.#ctor(System.String,System.Boolean,System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.AuditIndex"/> class.
+            </summary>
+            <param name="indexName">Name of the index.</param>
+            <param name="isPrimaryKey">if set to <c>true</c> [is primary key].</param>
+            <param name="columns">The columns.</param>
+        </member>
+        <member name="M:SqlAudit.AuditIndex.#ctor(System.String,System.Boolean,System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.AuditIndex"/> class.
+            </summary>
+            <param name="indexName">Name of the index.</param>
+            <param name="isPrimaryKey">if set to <c>true</c> [is primary key].</param>
+            <param name="columns">The columns.</param>
+        </member>
+        <member name="P:SqlAudit.AuditIndex.IndexName">
+            <summary>
+            Gets or sets the name of the index.
+            </summary>
+            <value>The name of the index.</value>
+        </member>
+        <member name="P:SqlAudit.AuditIndex.Columns">
+            <summary>
+            Gets or sets the columns.
+            </summary>
+            <value>The columns.</value>
+        </member>
+        <member name="P:SqlAudit.AuditIndex.IsPrimaryKey">
+            <summary>
+            Gets or sets a value indicating whether this instance is primary key.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is primary key; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:SqlAudit.AuditIndex.IndexGeneration">
+            <summary>
+            Gets or sets the index generation.
+            </summary>
+            <value>The index generation.</value>
+        </member>
+        <member name="T:SqlAudit.SqlAuditGenerator">
+            <summary>
+            SqlAuditGenerator class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.SqlAuditGenerator.#ctor(SqlAudit.SqlAuditSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.SqlAuditGenerator"/> class.
+            </summary>
+            <param name="auditSettings">The audit settings.</param>
+        </member>
+        <member name="M:SqlAudit.SqlAuditGenerator.buildAuditTable(SqlAudit.TableInfo)">
+            <summary>
+            Builds the audit table.
+            </summary>
+            <param name="tableInfo">The table info.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAudit.SqlAuditGenerator.buildTriggersForAudit(SqlAudit.TableInfo,SqlAudit.TableInfo)">
+            <summary>
+            Builds the triggers for audit.
+            </summary>
+            <param name="tableInfo">The table info.</param>
+            <param name="auditTableInfo">The audit table info.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAudit.SqlAuditGenerator.generateDDLScript(SqlAudit.TableInfo)">
+            <summary>
+            Generates the DDL script.
+            </summary>
+            <param name="tableInfo">The table info.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAudit.SqlAuditGenerator.GenerateDDLScriptForAuditTables(SqlAudit.TableInfoCollection)">
+            <summary>
+            Generates the DDL script for audit tables.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAudit.SqlAuditGenerator.generateDDLScriptForAuditTable(SqlAudit.TableInfo)">
+            <summary>
+            Generates the DDL script for audit table.
+            </summary>
+            <param name="tableInfo">The table info.</param>
+            <returns></returns>
+        </member>
+        <member name="E:SqlAudit.SqlAuditGenerator.TableScriptGenerated">
+            <summary>
+            TableScriptGenerated event.
+            </summary>
+        </member>
+        <member name="E:SqlAudit.SqlAuditGenerator.ProgressChange">
+            <summary>
+            ProgressChange event
+            </summary>
+        </member>
+        <member name="P:SqlAudit.SqlAuditGenerator.AuditSettings">
+            <summary>
+            Gets or sets the audit settings.
+            </summary>
+            <value>The audit settings.</value>
+        </member>
+        <member name="T:SqlAudit.SqlAuditGenerator.TableScriptGeneratedHandler">
+            <summary>
+            TableScriptGeneratedHandler delegate.
+            </summary>
+            <param name="tableInfo">The Table Info</param>
+            <param name="generatedScript">The generated script.</param>
+        </member>
+        <member name="T:SqlAudit.SqlAuditProject">
+            <summary>
+            SqlAudit Project class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.SqlAuditProject.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.SqlAuditProject"/> class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.SqlAuditProject.#ctor(SqlAudit.SqlAuditSettings,SqlAudit.TableInfoCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.SqlAuditProject"/> class.
+            </summary>
+            <param name="auditSettings">The audit settings.</param>
+            <param name="tablesInfo">The tables info.</param>
+        </member>
+        <member name="M:SqlAudit.SqlAuditProject.Save(System.String)">
+            <summary>
+            Saves the specified SqlAuditProject into an XML File.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+        </member>
+        <member name="M:SqlAudit.SqlAuditProject.Load(System.String)">
+            <summary>
+            Loads a SqlAuditProject from the specified XML file name.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <returns></returns>
+        </member>
+        <member name="E:SqlAudit.SqlAuditProject.ProgressChange">
+            <summary>
+            ProgressChange event
+            </summary>
+        </member>
+        <member name="P:SqlAudit.SqlAuditProject.AuditSettings">
+            <summary>
+            Gets or sets the audit settings.
+            </summary>
+            <value>The audit settings.</value>
+        </member>
+        <member name="P:SqlAudit.SqlAuditProject.TablesInfo">
+            <summary>
+            Gets or sets the tables info.
+            </summary>
+            <value>The tables info.</value>
+        </member>
+        <member name="P:SqlAudit.SqlAuditProject.Name">
+            <summary>
+            Gets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="T:SqlAudit.SchemaTablePair">
+            <summary>
+            Represents a Pair of SchemaName and TableName
+            </summary>
+        </member>
+        <member name="M:SqlAudit.SchemaTablePair.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.SchemaTablePair"/> class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.SchemaTablePair.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.SchemaTablePair"/> class.
+            </summary>
+            <param name="schemaName">Name of the schema.</param>
+            <param name="tableName">Name of the table.</param>
+        </member>
+        <member name="M:SqlAudit.SchemaTablePair.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"></see> is equal to the current <see cref="T:System.Object"></see>.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"></see> to compare with the current <see cref="T:System.Object"></see>.</param>
+            <returns>
+            true if the specified <see cref="T:System.Object"></see> is equal to the current <see cref="T:System.Object"></see>; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:SqlAudit.SchemaTablePair.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"></see> is suitable for use in hashing algorithms and data structures like a hash table.
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"></see>.
+            </returns>
+        </member>
+        <member name="M:SqlAudit.SchemaTablePair.CompareTo(System.Object)">
+            <summary>
+            Compares to.
+            </summary>
+            <param name="obj">An object to compare with this instance.</param>
+            <returns>
+            A 32-bit signed integer that indicates the relative order of the objects being compared. The return value has these meanings: Value Meaning Less than zero This instance is less than obj. Zero This instance is equal to obj. Greater than zero This instance is greater than obj.
+            </returns>
+            <exception cref="T:System.ArgumentException">obj is not the same type as this instance. </exception>
+        </member>
+        <member name="P:SqlAudit.SchemaTablePair.SchemaName">
+            <summary>
+            Gets the name of the schema.
+            </summary>
+            <value>The name of the schema.</value>
+        </member>
+        <member name="P:SqlAudit.SchemaTablePair.TableName">
+            <summary>
+            Gets the name of the table.
+            </summary>
+            <value>The name of the table.</value>
+        </member>
+        <member name="T:SqlAudit.IndexesAction">
+            <summary>
+            IndexesAction enum.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.IndexesAction.NoIndexes">
+            <summary>
+            No indexes will be created.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.IndexesAction.IndexesForSourcePrimaryKey">
+            <summary>
+            Create Indexes for source Primary Key only.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.IndexesAction.SameIndexesAsSourceTable">
+            <summary>
+            Create Same Indexes as source Table.
+            </summary>
+        </member>
+        <member name="T:SqlAudit.ProgressChangeDelegate">
+            <summary>
+            ProgressChangeDelegate delegate.
+            </summary>
+        </member>
+        <member name="T:SqlAudit.SqlAuditDiscovery">
+            <summary>
+            SqlAuditDiscovery class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.SqlAuditDiscovery.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.SqlAuditDiscovery"/> class.
+            </summary>
+            <param name="connectionString">The connection string.</param>
+        </member>
+        <member name="M:SqlAudit.SqlAuditDiscovery.GetTableInfo(System.String,System.String)">
+            <summary>
+            Gets the table info.
+            </summary>
+            <param name="schemaName">Name of the schema.</param>
+            <param name="tableName">Name of the table.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAudit.SqlAuditDiscovery.RefreshTableSchema(SqlAudit.TableInfo)">
+            <summary>
+            Refreshes the table schema.
+            </summary>
+            <param name="tableInfo">The table info.</param>
+        </member>
+        <member name="M:SqlAudit.SqlAuditDiscovery.GetAllTableInfo(SqlAudit.SqlAuditSettings,System.Collections.Generic.KeyValuePair{System.String,System.String}[])">
+            <summary>
+            Gets all table info.
+            </summary>
+            <param name="auditSettings">The audit settings.</param>
+            <param name="skipTables">The skip tables.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAudit.SqlAuditDiscovery.Refresh(SqlAudit.SqlAuditProject)">
+            <summary>
+            Refreshes the specified project.
+            </summary>
+            <param name="project">The project.</param>
+        </member>
+        <member name="E:SqlAudit.SqlAuditDiscovery.ProgressChange">
+            <summary>
+            ProgressChange event
+            </summary>
+        </member>
+        <member name="P:SqlAudit.SqlAuditDiscovery.ConnectionString">
+            <summary>
+            Gets or sets the connection string.
+            </summary>
+            <value>The connection string.</value>
+        </member>
+        <member name="T:SqlAudit.CustomAuditColumnList">
+            <summary>
+            CustomAuditColumnList class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.CustomAuditColumnList.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.CustomAuditColumnList"/> class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.CustomAuditColumnList.Add(SqlAudit.CustomAuditColumn)">
+            <summary>
+            Adds the specified custom audit column.
+            </summary>
+            <param name="customAuditColumn">The custom audit column.</param>
+        </member>
+        <member name="M:SqlAudit.CustomAuditColumnList.Contains(SqlAudit.CustomAuditColumn)">
+            <summary>
+            Determines whether [contains] [the specified custom audit column].
+            </summary>
+            <param name="customAuditColumn">The custom audit column.</param>
+            <returns>
+            	<c>true</c> if [contains] [the specified custom audit column]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:SqlAudit.CustomAuditColumnList.Remove(SqlAudit.CustomAuditColumn)">
+            <summary>
+            Removes the specified custom audit column.
+            </summary>
+            <param name="customAuditColumn">The custom audit column.</param>
+        </member>
+        <member name="P:SqlAudit.CustomAuditColumnList.Item(System.String)">
+            <summary>
+            Gets or sets the <see cref="T:SqlAudit.CustomAuditColumn"/> with the specified custom audit column name.
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:SqlAudit.Design.ExcludedColumnCollectionTypeEditor">
+            <summary>
+            ExcludedColumnCollectionTypeEditor class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.Design.ExcludedColumnCollectionTypeEditor.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.Design.ExcludedColumnCollectionTypeEditor"/> class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.Design.ExcludedColumnCollectionTypeEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Gets the editor style used by the <see cref="M:System.Drawing.Design.UITypeEditor.EditValue(System.IServiceProvider,System.Object)"></see> method.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext"></see> that can be used to gain additional context information.</param>
+            <returns>
+            A <see cref="T:System.Drawing.Design.UITypeEditorEditStyle"></see> value that indicates the style of editor used by the <see cref="M:System.Drawing.Design.UITypeEditor.EditValue(System.IServiceProvider,System.Object)"></see> method. If the <see cref="T:System.Drawing.Design.UITypeEditor"></see> does not support this method, then <see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle"></see> will return <see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None"></see>.
+            </returns>
+        </member>
+        <member name="M:SqlAudit.Design.ExcludedColumnCollectionTypeEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
+            <summary>
+            Edits the specified object's value using the editor style indicated by the <see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle"></see> method.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext"></see> that can be used to gain additional context information.</param>
+            <param name="provider">An <see cref="T:System.IServiceProvider"></see> that this editor can use to obtain services.</param>
+            <param name="value">The object to edit.</param>
+            <returns>
+            The new value of the object. If the value of the object has not changed, this should return the same object it was passed.
+            </returns>
+        </member>
+        <member name="T:SqlAudit.CustomColumnDataType">
+            <summary>
+            Sql Data Types
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.Bigint">
+            <summary>
+            Data Type.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.Binary">
+            <summary>
+            NVarChar Data Type.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.Bit">
+            <summary>
+            TinyInt Data Type.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.Char">
+            <summary>
+            DateTime Data Type.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.DateTime">
+            <summary>
+            Float Data Type.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.Decimal">
+            <summary>
+            Decimal Data Type.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.Float">
+            <summary>
+            Bit Data Type.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.Int">
+            <summary>
+            Bigint Data Type.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.Money">
+            <summary>
+            Money Data Type.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.NChar">
+            <summary>
+            VarChar Data Type.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.Numeric">
+            <summary>
+            Numeric Data Type.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.NVarChar">
+            <summary>
+            NChar Data Type.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.Real">
+            <summary>
+            Real Data Type.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.SmallDateTime">
+            <summary>
+            SmallDateTime Data Type.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.SmallInt">
+            <summary>
+            Int Data Type.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.SmallMoney">
+            <summary>
+            SmallMoney Data Type.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.TinyInt">
+            <summary>
+            SmallInt Data Type.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.UniqueIdentifier">
+            <summary>
+            VarBinary Data Type.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.VarBinary">
+            <summary>
+            Binary Data Type.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.VarChar">
+            <summary>
+            Char Data Type.
+            </summary>
+        </member>
+        <member name="F:SqlAudit.CustomColumnDataType.Xml">
+            <summary>
+            Xml Data Type [SQL 2005 Only].
+            </summary>
+        </member>
+        <member name="T:SqlAudit.TableInfo">
+            <summary>
+            TableInfo class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.TableInfo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.TableInfo"/> class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.TableInfo.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.TableInfo"/> class.
+            </summary>
+            <param name="schemaName">Name of the schema.</param>
+            <param name="tableName">Name of the table.</param>
+        </member>
+        <member name="M:SqlAudit.TableInfo.#ctor(System.String,System.String,System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.TableInfo"/> class.
+            </summary>
+            <param name="schemaName">Name of the schema.</param>
+            <param name="tableName">Name of the table.</param>
+            <param name="excludedColumns">The excluded columns.</param>
+        </member>
+        <member name="M:SqlAudit.TableInfo.#ctor(System.String,System.String,SqlAudit.ExcludedColumnCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.TableInfo"/> class.
+            </summary>
+            <param name="schemaName">Name of the schema.</param>
+            <param name="tableName">Name of the table.</param>
+            <param name="excludedColumns">The excluded columns.</param>
+        </member>
+        <member name="M:SqlAudit.TableInfo.GetEnclosedFullTableName">
+            <summary>
+            Gets the name of the enclosed full table.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAudit.TableInfo.RemoveColumns(System.Collections.Specialized.StringCollection)">
+            <summary>
+            Removes the columns.
+            </summary>
+            <param name="columns">The columns.</param>
+        </member>
+        <member name="M:SqlAudit.TableInfo.RemoveColumns(System.String[])">
+            <summary>
+            Removes the columns from table.
+            </summary>
+            <param name="columns">The columns.</param>
+        </member>
+        <member name="M:SqlAudit.TableInfo.Copy">
+            <summary>
+            Copies this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SqlAudit.TableInfo.SchemaName">
+            <summary>
+            Gets or sets the name of the schema.
+            </summary>
+            <value>The name of the schema.</value>
+        </member>
+        <member name="P:SqlAudit.TableInfo.TableName">
+            <summary>
+            Gets or sets the name of the table.
+            </summary>
+            <value>The name of the table.</value>
+        </member>
+        <member name="P:SqlAudit.TableInfo.ExcludedColumns">
+            <summary>
+            Gets or sets the excluded columns.
+            </summary>
+            <value>The excluded columns.</value>
+        </member>
+        <member name="P:SqlAudit.TableInfo.CustomAuditColumns">
+            <summary>
+            Gets or sets the custom audit columns.
+            </summary>
+            <value>The custom audit columns.</value>
+        </member>
+        <member name="P:SqlAudit.TableInfo.TableSchema">
+            <summary>
+            Gets or sets the table schema.
+            </summary>
+            <value>The table schema.</value>
+        </member>
+        <member name="P:SqlAudit.TableInfo.Indexes">
+            <summary>
+            Gets or sets the indexes.
+            </summary>
+            <value>The indexes.</value>
+        </member>
+        <member name="P:SqlAudit.TableInfo.Excluded">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SqlAudit.TableInfo"/> is excluded.
+            </summary>
+            <value><c>true</c> if excluded; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:SqlAudit.SqlAuditSettings">
+            <summary>
+            SqlAuditSettings class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.SqlAuditSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.SqlAuditSettings"/> class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.SqlAuditSettings.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.SqlAuditSettings"/> class.
+            </summary>
+            <param name="connectionString">The connection string.</param>
+        </member>
+        <member name="P:SqlAudit.SqlAuditSettings.ConnectionString">
+            <summary>
+            Gets or sets the connection string.
+            </summary>
+            <value>The connection string.</value>
+        </member>
+        <member name="P:SqlAudit.SqlAuditSettings.FireUpdateTriggerForDifferentValuesOnly">
+            <summary>
+            Gets or sets a value indicating whether [fire update trigger for different values only].
+            </summary>
+            <value>
+            	<c>true</c> if [fire update trigger for different values only]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:SqlAudit.SqlAuditSettings.AuditUpdatedColumnsOnly">
+            <summary>
+            Gets or sets a value indicating whether [audit updated columns only].
+            </summary>
+            <value>
+            	<c>true</c> if [audit updated columns only]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:SqlAudit.SqlAuditSettings.AuditColumns">
+            <summary>
+            Gets or sets the audit columns.
+            </summary>
+            <value>The audit columns.</value>
+        </member>
+        <member name="P:SqlAudit.SqlAuditSettings.AuditTablesSuffix">
+            <summary>
+            Gets or sets the audit table suffix.
+            </summary>
+            <value>The audit table suffix.</value>
+        </member>
+        <member name="P:SqlAudit.SqlAuditSettings.AuditColumnsPrefix">
+            <summary>
+            Gets or sets the audit columns prefix.
+            </summary>
+            <value>The audit columns prefix.</value>
+        </member>
+        <member name="P:SqlAudit.SqlAuditSettings.TransactionsAuditTableName">
+            <summary>
+            Gets or sets the name of the transactions audit table.
+            </summary>
+            <value>The name of the transactions audit table.</value>
+        </member>
+        <member name="P:SqlAudit.SqlAuditSettings.AuditTriggersSuffix">
+            <summary>
+            Gets or sets the audit trigger suffix.
+            </summary>
+            <value>The audit trigger suffix.</value>
+        </member>
+        <member name="P:SqlAudit.SqlAuditSettings.TriggersActions">
+            <summary>
+            Gets or sets the trigger actions.
+            </summary>
+            <value>The trigger actions.</value>
+        </member>
+        <member name="P:SqlAudit.SqlAuditSettings.ScriptAction">
+            <summary>
+            Gets or sets the script action.
+            </summary>
+            <value>The script action.</value>
+        </member>
+        <member name="P:SqlAudit.SqlAuditSettings.TablesFileGroupName">
+            <summary>
+            Gets or sets the name of the tables file group.
+            </summary>
+            <value>The name of the tables file group.</value>
+        </member>
+        <member name="P:SqlAudit.SqlAuditSettings.IndexesFileGroupName">
+            <summary>
+            Gets or sets the name of the indexes file group.
+            </summary>
+            <value>The name of the indexes file group.</value>
+        </member>
+        <member name="P:SqlAudit.SqlAuditSettings.PreAuditCreateScript">
+            <summary>
+            Gets or sets the pre audit create script.
+            </summary>
+            <value>The pre audit create script.</value>
+        </member>
+        <member name="P:SqlAudit.SqlAuditSettings.PostAuditCreateScript">
+            <summary>
+            Gets or sets the post audit create script.
+            </summary>
+            <value>The post audit create script.</value>
+        </member>
+        <member name="P:SqlAudit.SqlAuditSettings.PreAuditDropScript">
+            <summary>
+            Gets or sets the pre audit drop script.
+            </summary>
+            <value>The pre audit drop script.</value>
+        </member>
+        <member name="P:SqlAudit.SqlAuditSettings.PostAuditDropScript">
+            <summary>
+            Gets or sets the post audit drop script.
+            </summary>
+            <value>The post audit drop script.</value>
+        </member>
+        <member name="P:SqlAudit.SqlAuditSettings.IndexesAction">
+            <summary>
+            Gets or sets the index action.
+            </summary>
+            <value>The index action.</value>
+        </member>
+        <member name="P:SqlAudit.SqlAuditSettings.UseTableId">
+            <summary>
+            Gets or sets a value indicating whether use Table Id into the Main Transaction table and triggers.
+            </summary>
+            <value>
+            	<c>true</c> if [use Table Id]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:SqlAudit.ExcludedColumnCollection">
+            <summary>
+            ExcludedColumnCollection class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.ExcludedColumnCollection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.ExcludedColumnCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.ExcludedColumnCollection.Add(System.String)">
+            <summary>
+            Adds the specified column name.
+            </summary>
+            <param name="columnName">Name of the column.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAudit.ExcludedColumnCollection.Remove(System.String)">
+            <summary>
+            Removes the specified column name.
+            </summary>
+            <param name="columnName">Name of the column.</param>
+        </member>
+        <member name="P:SqlAudit.ExcludedColumnCollection.Item(System.Int32)">
+            <summary>
+            Gets or sets the <see cref="T:System.String"/> at the specified index.
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:SqlAudit.AuditColumns">
+            <summary>
+            Default Audit Columns
+            </summary>
+        </member>
+        <member name="F:SqlAudit.AuditColumns.None">
+            <summary>
+            No Audit Columns
+            </summary>
+        </member>
+        <member name="F:SqlAudit.AuditColumns.UserSID">
+            <summary>
+            The UserSID
+            </summary>
+        </member>
+        <member name="F:SqlAudit.AuditColumns.UserName">
+            <summary>
+            The UserName
+            </summary>
+        </member>
+        <member name="F:SqlAudit.AuditColumns.HostId">
+            <summary>
+            The Host ID
+            </summary>
+        </member>
+        <member name="F:SqlAudit.AuditColumns.ApplicationName">
+            <summary>
+            The Application Name
+            </summary>
+        </member>
+        <member name="F:SqlAudit.AuditColumns.HostName">
+            <summary>
+            The HostName
+            </summary>
+        </member>
+        <member name="F:SqlAudit.AuditColumns.AuditDateTime">
+            <summary>
+            The Audit DateTime
+            </summary>
+        </member>
+        <member name="T:SqlAudit.TableInfoCollection">
+            <summary>
+            Collection of TableInfo objects.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.TableInfoCollection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SqlAudit.TableInfoCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:SqlAudit.TableInfoCollection.ContainsKey(SqlAudit.SchemaTablePair)">
+            <summary>
+            Determines whether the specified schema table pair contains key.
+            </summary>
+            <param name="schemaTablePair">The schema table pair.</param>
+            <returns>
+            	<c>true</c> if the specified schema table pair contains key; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:SqlAudit.TableInfoCollection.ContainsValue(SqlAudit.TableInfo)">
+            <summary>
+            Determines whether the specified table info contains value.
+            </summary>
+            <param name="tableInfo">The table info.</param>
+            <returns>
+            	<c>true</c> if the specified table info contains value; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:SqlAudit.TableInfoCollection.Remove(SqlAudit.SchemaTablePair)">
+            <summary>
+            Removes the specified schema table pair.
+            </summary>
+            <param name="schemaTablePair">The schema table pair.</param>
+        </member>
+        <member name="P:SqlAudit.TableInfoCollection.Item(SqlAudit.SchemaTablePair)">
+            <summary>
+            Gets the <see cref="T:SqlAudit.TableInfo"/> with the specified schema table pair.
+            </summary>
+            <value></value>
+        </member>
+    </members>
+</doc>

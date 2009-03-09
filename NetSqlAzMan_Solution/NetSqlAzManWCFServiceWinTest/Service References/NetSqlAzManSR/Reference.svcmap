@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="867b6131-121d-4dc4-ba1c-dba01e7efe30" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="NetSqlAzManWCFService.disco" MetadataType="Disco" ID="7baea488-02e7-41db-9b93-0f16855aea02" SourceId="1" SourceUrl="http://eidosis4-afr/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc?disco" />
+    <MetadataFile FileName="NetSqlAzManWCFService.xsd" MetadataType="Schema" ID="71f95e80-9d5b-460c-9f20-7f1baa1f0618" SourceId="1" SourceUrl="http://eidosis4-afr/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc?xsd=xsd0" />
+    <MetadataFile FileName="NetSqlAzManWCFService.wsdl" MetadataType="Wsdl" ID="7c8b4040-0797-4c6f-8571-54a76ea04720" SourceId="1" SourceUrl="http://eidosis4-afr/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc?wsdl" />
+    <MetadataFile FileName="NetSqlAzManWCFService2.xsd" MetadataType="Schema" ID="f244cf5a-7064-4446-99e4-18d6785091ff" SourceId="1" SourceUrl="http://eidosis4-afr/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc?xsd=xsd2" />
+    <MetadataFile FileName="NetSqlAzManWCFService1.xsd" MetadataType="Schema" ID="f5561a48-0d1c-4164-b5c0-39c314193594" SourceId="1" SourceUrl="http://eidosis4-afr/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,27 @@
+HKCR
+{
+	ObjectPickerHelper2.ADObjectColl.1 = s 'ADObjectColl Class'
+	{
+		CLSID = s '{F61BCFA7-FA0C-4330-8361-74781433669E}'
+	}
+	ObjectPickerHelper2.ADObjectColl = s 'ADObjectColl Class'
+	{
+		CLSID = s '{F61BCFA7-FA0C-4330-8361-74781433669E}'
+		CurVer = s 'ObjectPickerHelper2.ADObjectColl.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F61BCFA7-FA0C-4330-8361-74781433669E} = s 'ADObjectColl Class'
+		{
+			ProgID = s 'ObjectPickerHelper2.ADObjectColl.1'
+			VersionIndependentProgID = s 'ObjectPickerHelper2.ADObjectColl'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{97449A73-B240-4AC1-BE9D-5B33DDC42C81}'
+		}
+	}
+}

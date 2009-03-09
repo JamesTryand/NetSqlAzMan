@@ -1,0 +1,360 @@
+CREATE PROCEDURE dbo.CheckAccess (@ITEMID INT, @USERSID VARBINARY(85), @VALIDFOR DATETIME, @LDAPPATH VARCHAR(8000), @AUTHORIZATION_TYPE TINYINT OUTPUT, @NETSQLAZMANMODE BIT) 
+AS
+---------------------------------------------------
+-- VARIABLES DECLARATION
+-- 0 - Neutral; 1 - Allow; 2 - Deny; 3 - AllowWithDelegation
+SET NOCOUNT ON
+DECLARE @PARENTITEMID INT
+DECLARE @PKID INT
+DECLARE @PARENTRESULT TINYINT
+DECLARE @APP VARBINARY(85)
+DECLARE @members_cur CURSOR
+DECLARE @OBJECTSID VARBINARY(85)
+DECLARE @ITEM_AUTHORIZATION_TYPE TINYINT
+---------------------------------------------------
+-- INITIALIZE VARIABLES
+SET @ITEM_AUTHORIZATION_TYPE = 0 -- Neutral
+SET @AUTHORIZATION_TYPE = 0 -- Neutral
+
+------------------------------------------------------
+-- CHECK ACCESS ON PARENTS
+-- Get Items Where I Am A Member
+DECLARE ItemsWhereIAmAMember_cur CURSOR LOCAL FAST_FORWARD FOR SELECT MemberOfItemId FROM dbo.ItemsHierarchyTable WHERE ItemId = @ITEMID
+OPEN ItemsWhereIAmAMember_cur
+FETCH NEXT FROM ItemsWhereIAmAMember_cur INTO @PARENTITEMID
+WHILE @@FETCH_STATUS = 0
+BEGIN
+	-- Recursive Call
+	EXEC dbo.CheckAccess @PARENTITEMID, @USERSID, @VALIDFOR, @LDAPPATH, @PARENTRESULT OUTPUT
+	SET @AUTHORIZATION_TYPE = (SELECT dbo.MergeAuthorizations(@AUTHORIZATION_TYPE, @PARENTRESULT))
+	FETCH NEXT FROM ItemsWhereIAmAMember_cur INTO @PARENTITEMID
+END
+CLOSE ItemsWhereIAmAMember_cur
+DEALLOCATE ItemsWhereIAmAMember_cur
+
+IF @AUTHORIZATION_TYPE = 3 
+BEGIN
+	SET @AUTHORIZATION_TYPE = 1 -- AllowWithDelegation becomes Just Allow (if comes from parents)
+END
+---------------------------------------------
+-- GET ITEM ATTRIBUTES
+---------------------------------------------
+INSERT INTO #ATTRIBUTES_TABLE SELECT AttributeKey, AttributeValue, @ITEMID FROM dbo.ItemAttributesTable WHERE ItemId = @ITEMID
+---------------------------------------------
+-- CHECK ACCESS ON ITEM
+	-- AuthorizationType can be:  0 - Neutral; 1 - Allow; 2 - Deny; 3 - AllowWithDelegation
+	-- objectSidWhereDefined can be:0 - Store; 1 - Application; 2 - LDAP; 3 - Local; 4 - Database
+DECLARE @PARTIAL_RESULT TINYINT
+--CHECK ACCESS FOR USER AUTHORIZATIONS
+--CHECK FOR DENY
+SELECT @PARTIAL_RESULT = AuthorizationType, @PKID = AuthorizationID
+FROM dbo.AuthorizationsTable WHERE 
+ItemId = @ITEMID AND
+objectSid = @USERSID AND
+(ValidFrom IS NULL AND ValidTo IS NULL OR
+ValidFrom IS NOT NULL AND @VALIDFOR >= ValidFrom  AND ValidTo IS NULL OR
+ValidTo IS NOT NULL AND @VALIDFOR <= ValidTo AND ValidFrom IS NULL OR
+ValidFrom IS NOT NULL AND ValidTo IS NOT NULL AND @VALIDFOR BETWEEN ValidFrom AND ValidTo) AND
+AuthorizationType = 2 AND
+((@NETSQLAZMANMODE = 0 AND objectSidWhereDefined=2) OR (@NETSQLAZMANMODE = 1 AND objectSidWhereDefined BETWEEN 2 AND 4)) -- if Mode = Administrator SKIP CHECK for local Authorizations
+
+IF @PARTIAL_RESULT IS NOT NULL
+BEGIN
+	SET @AUTHORIZATION_TYPE = (SELECT dbo.MergeAuthorizations(@AUTHORIZATION_TYPE, @PARTIAL_RESULT))
+	SET @ITEM_AUTHORIZATION_TYPE = (SELECT dbo.MergeAuthorizations(@ITEM_AUTHORIZATION_TYPE, @PARTIAL_RESULT))
+	IF @PKID IS NOT NULL 
+	BEGIN 
+		INSERT INTO #ATTRIBUTES_TABLE SELECT AttributeKey, AttributeValue, NULL FROM dbo.AuthorizationAttributesTable WHERE AuthorizationID = @PKID
+	END
+END
+ELSEBEGIN
+	SET @PARTIAL_RESULT = 0 -- NEUTRAL
+END
+
+--CHECK FOR ALLOW WITH DELEGATION
+IF @PARTIAL_RESULT IS NOT NULL AND @AUTHORIZATION_TYPE <> 2
+BEGIN
+	SELECT @PARTIAL_RESULT = AuthorizationType, @PKID = AuthorizationID
+	FROM dbo.AuthorizationsTable WHERE 
+	ItemId = @ITEMID AND
+	objectSid = @USERSID AND
+	(ValidFrom IS NULL AND ValidTo IS NULL OR
+	ValidFrom IS NOT NULL AND @VALIDFOR >= ValidFrom  AND ValidTo IS NULL OR
+	ValidTo IS NOT NULL AND @VALIDFOR <= ValidTo AND ValidFrom IS NULL OR
+	ValidFrom IS NOT NULL AND ValidTo IS NOT NULL AND @VALIDFOR BETWEEN ValidFrom AND ValidTo) AND
+	AuthorizationType = 3 AND
+	((@NETSQLAZMANMODE = 0 AND objectSidWhereDefined=2) OR (@NETSQLAZMANMODE = 1 AND objectSidWhereDefined BETWEEN 2 AND 4)) -- if Mode = Administrator SKIP CHECK for local Authorizations
+
+	SET @AUTHORIZATION_TYPE = (SELECT dbo.MergeAuthorizations(@AUTHORIZATION_TYPE, @PARTIAL_RESULT))
+	SET @ITEM_AUTHORIZATION_TYPE = (SELECT dbo.MergeAuthorizations(@ITEM_AUTHORIZATION_TYPE, @PARTIAL_RESULT))
+	IF @PKID IS NOT NULL 
+	BEGIN 
+		INSERT INTO #ATTRIBUTES_TABLE SELECT AttributeKey, AttributeValue, NULL FROM dbo.AuthorizationAttributesTable WHERE AuthorizationID = @PKID
+	END
+END
+ELSE
+BEGIN
+	SET @PARTIAL_RESULT = 0 -- NEUTRAL
+END
+
+--CHECK FOR ALLOW
+IF @PARTIAL_RESULT IS NOT NULL AND @AUTHORIZATION_TYPE <> 2
+BEGIN
+	SELECT @PARTIAL_RESULT = AuthorizationType, @PKID = AuthorizationID
+	FROM dbo.AuthorizationsTable WHERE 
+	ItemId = @ITEMID AND
+	objectSid = @USERSID AND
+	(ValidFrom IS NULL AND ValidTo IS NULL OR
+	ValidFrom IS NOT NULL AND @VALIDFOR >= ValidFrom  AND ValidTo IS NULL OR
+	ValidTo IS NOT NULL AND @VALIDFOR <= ValidTo AND ValidFrom IS NULL OR
+	ValidFrom IS NOT NULL AND ValidTo IS NOT NULL AND @VALIDFOR BETWEEN ValidFrom AND ValidTo) AND
+	AuthorizationType = 1 AND
+	((@NETSQLAZMANMODE = 0 AND objectSidWhereDefined=2) OR (@NETSQLAZMANMODE = 1 AND objectSidWhereDefined BETWEEN 2 AND 4)) -- if Mode = Administrator SKIP CHECK for local Authorizations
+
+	SET @AUTHORIZATION_TYPE = (SELECT dbo.MergeAuthorizations(@AUTHORIZATION_TYPE, @PARTIAL_RESULT))
+	SET @ITEM_AUTHORIZATION_TYPE = (SELECT dbo.MergeAuthorizations(@ITEM_AUTHORIZATION_TYPE, @PARTIAL_RESULT))
+	IF @PKID IS NOT NULL 
+	BEGIN 
+		INSERT INTO #ATTRIBUTES_TABLE SELECT AttributeKey, AttributeValue, NULL FROM dbo.AuthorizationAttributesTable WHERE AuthorizationID = @PKID
+	END
+END
+ELSE
+BEGIN
+	SET @PARTIAL_RESULT = 0 -- NEUTRAL
+END
+
+--CHECK ACCESS FOR USER GROUPS AUTHORIZATIONS
+--CHECK FOR DENY
+IF @PARTIAL_RESULT IS NOT NULL AND @AUTHORIZATION_TYPE <> 2
+BEGIN
+	SELECT @PARTIAL_RESULT = AuthorizationType, @PKID = AuthorizationID
+	FROM dbo.AuthorizationsTable Authorizations INNER JOIN #USERGROUPS usergroups
+	ON Authorizations.objectSid = usergroups.objectSid WHERE 
+	ItemId = @ITEMID AND
+	(ValidFrom IS NULL AND ValidTo IS NULL OR
+	ValidFrom IS NOT NULL AND @VALIDFOR >= ValidFrom  AND ValidTo IS NULL OR
+	ValidTo IS NOT NULL AND @VALIDFOR <= ValidTo AND ValidFrom IS NULL OR
+	ValidFrom IS NOT NULL AND ValidTo IS NOT NULL AND @VALIDFOR BETWEEN ValidFrom AND ValidTo) AND
+	AuthorizationType = 2 AND
+	((@NETSQLAZMANMODE = 0 AND objectSidWhereDefined=2) OR (@NETSQLAZMANMODE = 1 AND objectSidWhereDefined BETWEEN 2 AND 4)) -- if Mode = Administrator SKIP CHECK for local Authorizations
+
+	SET @AUTHORIZATION_TYPE = (SELECT dbo.MergeAuthorizations(@AUTHORIZATION_TYPE, @PARTIAL_RESULT))
+	SET @ITEM_AUTHORIZATION_TYPE = (SELECT dbo.MergeAuthorizations(@ITEM_AUTHORIZATION_TYPE, @PARTIAL_RESULT))
+	IF @PKID IS NOT NULL 
+	BEGIN 
+		INSERT INTO #ATTRIBUTES_TABLE SELECT AttributeKey, AttributeValue, NULL FROM dbo.AuthorizationAttributesTable WHERE AuthorizationID = @PKID
+	END
+END
+ELSE
+BEGIN
+	SET @PARTIAL_RESULT = 0 -- NEUTRAL
+END
+
+--CHECK FOR ALLOW WITH DELEGATION
+IF @PARTIAL_RESULT IS NOT NULL AND @AUTHORIZATION_TYPE <> 2
+BEGIN
+	SELECT @PARTIAL_RESULT = AuthorizationType, @PKID = AuthorizationID
+	FROM dbo.AuthorizationsTable Authorizations INNER JOIN #USERGROUPS usergroups
+	ON Authorizations.objectSid = usergroups.objectSid WHERE 
+	ItemId = @ITEMID AND
+	(ValidFrom IS NULL AND ValidTo IS NULL OR
+	ValidFrom IS NOT NULL AND @VALIDFOR >= ValidFrom  AND ValidTo IS NULL OR
+	ValidTo IS NOT NULL AND @VALIDFOR <= ValidTo AND ValidFrom IS NULL OR
+	ValidFrom IS NOT NULL AND ValidTo IS NOT NULL AND @VALIDFOR BETWEEN ValidFrom AND ValidTo) AND
+	AuthorizationType = 3 AND
+	((@NETSQLAZMANMODE = 0 AND objectSidWhereDefined=2) OR (@NETSQLAZMANMODE = 1 AND objectSidWhereDefined BETWEEN 2 AND 4)) -- if Mode = Administrator SKIP CHECK for local Authorizations
+
+	SET @AUTHORIZATION_TYPE = (SELECT dbo.MergeAuthorizations(@AUTHORIZATION_TYPE, @PARTIAL_RESULT))
+	SET @ITEM_AUTHORIZATION_TYPE = (SELECT dbo.MergeAuthorizations(@ITEM_AUTHORIZATION_TYPE, @PARTIAL_RESULT))
+	IF @PKID IS NOT NULL 
+	BEGIN 
+		INSERT INTO #ATTRIBUTES_TABLE SELECT AttributeKey, AttributeValue, NULL FROM dbo.AuthorizationAttributesTable WHERE AuthorizationID = @PKID
+	END
+END
+ELSE
+BEGIN	SET @PARTIAL_RESULT = 0 -- NEUTRAL
+END
+
+--CHECK FOR ALLOW
+IF @PARTIAL_RESULT IS NOT NULL AND @AUTHORIZATION_TYPE <> 2
+BEGIN
+	SELECT @PARTIAL_RESULT = AuthorizationType, @PKID = AuthorizationID
+	FROM dbo.AuthorizationsTable Authorizations INNER JOIN #USERGROUPS usergroups
+	ON Authorizations.objectSid = usergroups.objectSid WHERE 
+	ItemId = @ITEMID AND
+	(ValidFrom IS NULL AND ValidTo IS NULL OR
+	ValidFrom IS NOT NULL AND @VALIDFOR >= ValidFrom  AND ValidTo IS NULL OR
+	ValidTo IS NOT NULL AND @VALIDFOR <= ValidTo AND ValidFrom IS NULL OR
+	ValidFrom IS NOT NULL AND ValidTo IS NOT NULL AND @VALIDFOR BETWEEN ValidFrom AND ValidTo) AND
+	AuthorizationType = 1 AND
+	((@NETSQLAZMANMODE = 0 AND objectSidWhereDefined=2) OR (@NETSQLAZMANMODE = 1 AND objectSidWhereDefined BETWEEN 2 AND 4)) -- if Mode = Administrator SKIP CHECK for local Authorizations
+
+	SET @AUTHORIZATION_TYPE = (SELECT dbo.MergeAuthorizations(@AUTHORIZATION_TYPE, @PARTIAL_RESULT))
+	SET @ITEM_AUTHORIZATION_TYPE = (SELECT dbo.MergeAuthorizations(@ITEM_AUTHORIZATION_TYPE, @PARTIAL_RESULT))
+	IF @PKID IS NOT NULL 
+	BEGIN 
+		INSERT INTO #ATTRIBUTES_TABLE SELECT AttributeKey, AttributeValue, NULL FROM dbo.AuthorizationAttributesTable WHERE AuthorizationID = @PKID
+	END
+END
+ELSE
+BEGIN
+	SET @PARTIAL_RESULT = 0 -- NEUTRAL
+END
+
+--CHECK ACCESS FOR STORE/APPLICATION GROUPS AUTHORIZATIONS
+DECLARE @GROUPOBJECTSID VARBINARY(85)
+DECLARE @GROUPWHEREDEFINED TINYINT
+DECLARE @GROUPSIDMEMBERS table (objectSid VARBINARY(85))
+DECLARE @ISMEMBER BIT
+DECLARE @COUNT INT
+SET @ISMEMBER = 1
+SET @COUNT = 0
+DECLARE groups_authorizations_cur CURSOR LOCAL FAST_FORWARD
+FOR 	SELECT objectSid, objectSidWhereDefined, AuthorizationType, AuthorizationID FROM dbo.AuthorizationsTable
+	WHERE ItemId = @ITEMID AND objectSidWhereDefined BETWEEN 0 AND 1 AND
+	(ValidFrom IS NULL AND ValidTo IS NULL OR
+	ValidFrom IS NOT NULL AND @VALIDFOR >= ValidFrom  AND ValidTo IS NULL OR
+	ValidTo IS NOT NULL AND @VALIDFOR <= ValidTo AND ValidFrom IS NULL OR
+	ValidFrom IS NOT NULL AND ValidTo IS NOT NULL AND @VALIDFOR BETWEEN ValidFrom AND ValidTo)
+
+OPEN groups_authorizations_cur
+FETCH NEXT FROM groups_authorizations_cur INTO @GROUPOBJECTSID, @GROUPWHEREDEFINED, @PARTIAL_RESULT, @PKID
+WHILE @@FETCH_STATUS=0
+BEGIN
+SET @ISMEMBER = 1
+--check if user is a non-member
+IF @GROUPWHEREDEFINED = 0 -- store group members
+BEGIN
+--store groups members of type 'non-member'
+	DELETE FROM @GROUPSIDMEMBERS
+
+	EXEC dbo.GetStoreGroupSidMembers 0, @GROUPOBJECTSID, @NETSQLAZMANMODE, @LDAPPATH, @members_cur OUTPUT -- non-members
+	FETCH NEXT FROM @members_cur INTO @OBJECTSID
+	WHILE @@FETCH_STATUS=0
+	BEGIN
+		INSERT INTO @GROUPSIDMEMBERS VALUES (@OBJECTSID)
+		FETCH NEXT FROM @members_cur INTO @OBJECTSID
+	END
+	CLOSE @members_cur
+	DEALLOCATE @members_cur
+
+	SET @COUNT = (SELECT COUNT(*) FROM @GROUPSIDMEMBERS WHERE objectSid = @USERSID) 
+	SET @COUNT = @COUNT + (SELECT COUNT(*) FROM @GROUPSIDMEMBERS groupsidmembers INNER JOIN #USERGROUPS usergroups ON groupsidmembers.objectSid = usergroups.objectSid)
+	IF @COUNT > 0
+	BEGIN
+	-- user is a non-member
+	SET @ISMEMBER = 0
+	END
+	IF @ISMEMBER = 1
+	BEGIN
+		DELETE FROM @GROUPSIDMEMBERS
+
+		EXEC dbo.GetStoreGroupSidMembers 1, @GROUPOBJECTSID, @NETSQLAZMANMODE, @LDAPPATH, @members_cur OUTPUT -- members
+		FETCH NEXT FROM @members_cur INTO @OBJECTSID
+		WHILE @@FETCH_STATUS=0
+		BEGIN
+			INSERT INTO @GROUPSIDMEMBERS VALUES (@OBJECTSID)
+			FETCH NEXT FROM @members_cur INTO @OBJECTSID
+		END
+		CLOSE @members_cur
+		DEALLOCATE @members_cur
+
+		SET @COUNT = (SELECT COUNT(*) FROM @GROUPSIDMEMBERS WHERE objectSid = @USERSID)
+		SET @COUNT = @COUNT + (SELECT COUNT(*) FROM @GROUPSIDMEMBERS groupsidmembers INNER JOIN #USERGROUPS usergroups ON groupsidmembers.objectSid = usergroups.ObjectSId)
+		IF @COUNT > 0
+		BEGIN
+		-- user is a member
+		SET @ISMEMBER = 1
+		END
+		ELSE
+		BEGIN
+		-- user is not present
+		SET @ISMEMBER = 0
+		END
+	END
+	-- if a member ... get authorization
+	IF @ISMEMBER = 1
+	BEGIN
+		SET @AUTHORIZATION_TYPE = (SELECT dbo.MergeAuthorizations(@AUTHORIZATION_TYPE, @PARTIAL_RESULT))
+		SET @ITEM_AUTHORIZATION_TYPE = (SELECT dbo.MergeAuthorizations(@ITEM_AUTHORIZATION_TYPE, @PARTIAL_RESULT))
+		IF @PKID IS NOT NULL 
+		BEGIN 
+			INSERT INTO #ATTRIBUTES_TABLE SELECT AttributeKey, AttributeValue, NULL FROM dbo.AuthorizationAttributesTable WHERE AuthorizationID = @PKID
+		END
+	END
+END
+	ELSE
+IF @GROUPWHEREDEFINED = 1 -- application group members
+BEGIN
+	--application groups members of type 'non-member'
+	DELETE FROM @GROUPSIDMEMBERS
+
+	EXEC dbo.GetApplicationGroupSidMembers 0, @GROUPOBJECTSID, @NETSQLAZMANMODE, @LDAPPATH, @members_cur OUTPUT -- non-members
+	FETCH NEXT FROM @members_cur INTO @OBJECTSID
+	WHILE @@FETCH_STATUS=0
+	BEGIN
+		INSERT INTO @GROUPSIDMEMBERS VALUES (@OBJECTSID)
+		FETCH NEXT FROM @members_cur INTO @OBJECTSID
+	END
+	CLOSE @members_cur
+	DEALLOCATE @members_cur
+
+	SET @COUNT = (SELECT COUNT(*) FROM @GROUPSIDMEMBERS WHERE objectSid = @USERSID) 
+	SET @COUNT = @COUNT + (SELECT COUNT(*) FROM @GROUPSIDMEMBERS groupsidmembers INNER JOIN #USERGROUPS usergroups ON groupsidmembers.objectSid = usergroups.objectSid)
+	IF @COUNT > 0
+	BEGIN	-- user is a non-member
+	SET @ISMEMBER = 0
+	END
+	IF @ISMEMBER = 1 
+	BEGIN
+		DELETE FROM @GROUPSIDMEMBERS
+
+		EXEC dbo.GetApplicationGroupSidMembers 1, @GROUPOBJECTSID, @NETSQLAZMANMODE, @LDAPPATH, @members_cur OUTPUT -- members
+		FETCH NEXT FROM @members_cur INTO @OBJECTSID
+		WHILE @@FETCH_STATUS=0
+		BEGIN
+			INSERT INTO @GROUPSIDMEMBERS VALUES (@OBJECTSID)
+			FETCH NEXT FROM @members_cur INTO @OBJECTSID
+		END
+		CLOSE @members_cur
+		DEALLOCATE @members_cur
+
+		SET @COUNT = (SELECT COUNT(*) FROM @GROUPSIDMEMBERS WHERE objectSid = @USERSID)
+		SET @COUNT = @COUNT + (SELECT COUNT(*) FROM @GROUPSIDMEMBERS groupsidmembers INNER JOIN #USERGROUPS usergroups ON groupsidmembers.objectSid = usergroups.objectSid)
+		IF @COUNT > 0
+		BEGIN
+		-- user is a member
+		SET @ISMEMBER = 1
+		END
+		ELSE
+		BEGIN
+		-- user is not present
+		SET @ISMEMBER = 0
+		END
+	END
+	-- if a member ... get authorization
+	IF @ISMEMBER = 1
+	BEGIN
+		SET @AUTHORIZATION_TYPE = (SELECT dbo.MergeAuthorizations(@AUTHORIZATION_TYPE, @PARTIAL_RESULT))
+		SET @ITEM_AUTHORIZATION_TYPE = (SELECT dbo.MergeAuthorizations(@ITEM_AUTHORIZATION_TYPE, @PARTIAL_RESULT))
+		IF @PKID IS NOT NULL 
+		BEGIN 
+			INSERT INTO #ATTRIBUTES_TABLE SELECT AttributeKey, AttributeValue, NULL FROM dbo.AuthorizationAttributesTable WHERE AuthorizationID = @PKID
+		END
+	END
+END
+	FETCH NEXT FROM groups_authorizations_cur INTO @GROUPOBJECTSID, @GROUPWHEREDEFINED, @PARTIAL_RESULT, @PKID
+END
+CLOSE groups_authorizations_cur
+DEALLOCATE groups_authorizations_cur
+
+-- PREPARE RESULTSET FOR BIZ RULE CHECKING
+----------------------------------------------------------------------------------------
+INSERT INTO #PARTIAL_RESULTS_TABLE 
+SELECT     Items.ItemId, Items.Name, Items.ItemType, @ITEM_AUTHORIZATION_TYPE,BizRules.BizRuleId, BizRules.BizRuleSource, BizRules.BizRuleLanguage
+FROM         dbo.ItemsTable Items LEFT OUTER JOIN
+                      dbo.BizRulesTable BizRules ON Items.BizRuleId = BizRules.BizRuleId WHERE Items.ItemId = @ITEMID
+
+SET NOCOUNT OFF
+
+GO

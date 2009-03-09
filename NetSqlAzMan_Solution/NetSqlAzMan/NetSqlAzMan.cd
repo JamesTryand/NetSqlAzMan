@@ -1,0 +1,770 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="NetSqlAzMan.DirectoryServices.DirectoryServicesUtils" Collapsed="true">
+    <Position X="17.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DirectoryServices\DirectoryServicesUtils.cs</FileName>
+      <HashCode>AQAAAAAAAAABAAAAAAAAAAAQQAAgAAAAAIAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.ENS.SqlAzManENS" Collapsed="true">
+    <Position X="14" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\SqlAzManENS.cs</FileName>
+      <HashCode>AAFAQYQAAhwAJAKMAAEBhCACAAgB0ABQBBOAAiAAhCE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Logging.LoggingUtility" Collapsed="true">
+    <Position X="12.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Logging\LoggingUtility.cs</FileName>
+      <HashCode>AAIAAAAQAAAAAAAAQAAAAAAAAAAAABAAAAgAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManApplication" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>SqlAzManApplication.cs</FileName>
+      <HashCode>BoRAAAUAAiAgAEAMqCAAJAUAAAEEggBBARAAgQAAwAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManApplicationException" Collapsed="true">
+    <Position X="27" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>SqlAzManApplicationException.cs</FileName>
+      <HashCode>AAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManApplicationGroup" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>SqlAzManApplicationGroup.cs</FileName>
+      <HashCode>AAQAUhAACBhxESQEIAAABEQCAAUEABAAgAEQgCBAwIg=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManApplicationGroupException" Collapsed="true">
+    <Position X="0.5" Y="2" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>SqlAzManApplicationGroupException.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManApplicationGroupMember" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>SqlAzManApplicationGroupMember.cs</FileName>
+      <HashCode>QAAABAAAAAAAAAQEAAAChIAAAEGAgABAAIAAgABAQAQ=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManApplicationGroupMemberException" Collapsed="true">
+    <Position X="6.75" Y="2" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>SqlAzManApplicationGroupMemberException.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManAuthorization" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>SqlAzManAuthorization.cs</FileName>
+      <HashCode>AQQBQQGAQCAAhIQEAAQABAIEIAEAAiEAAaAAgARgQWE=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManAuthorizationAttribute" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>SqlAzManAuthorizationAttribute.cs</FileName>
+      <HashCode>AAQAAAAAACAAAAYEIAANBCgAAAkAACAAAIAgAAAAQAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManAuthorizationAttributeException" Collapsed="true">
+    <Position X="13.5" Y="2" Width="3" />
+    <TypeIdentifier>
+      <FileName>SqlAzManAuthorizationAttributeException.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManAuthorizationException" Collapsed="true">
+    <Position X="20.25" Y="2" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>SqlAzManAuthorizationException.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManExceptionBase" Collapsed="true">
+    <Position X="15.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>SqlAzManExceptionBase.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>SqlAzManItem.cs</FileName>
+      <HashCode>CAQAGIUAArigAgCEbAkAJQRAQQklkAAEAAQQgAAEwgA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManItemException" Collapsed="true">
+    <Position X="30" Y="2" Width="2" />
+    <TypeIdentifier>
+      <FileName>SqlAzManItemException.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManSID" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>SqlAzManSID.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAEgAEAAIAEAAAAAMAgAAAAAAAAAiA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManStorage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>SqlAzManStorage.cs</FileName>
+      <HashCode>BgAAAAgBILQAACCACAQABBAIAQCBSAAAACAIoIBAVAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManStorageException" Collapsed="true">
+    <Position X="4" Y="2" Width="2" />
+    <TypeIdentifier>
+      <FileName>SqlAzManStorageException.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManStore" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>SqlAzManStore.cs</FileName>
+      <HashCode>AARAAAQAASAgAAAFLAAABAQAQBEkAAAAACICwhAJwgg=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManStoreException" Collapsed="true">
+    <Position X="10.75" Y="2" Width="2" />
+    <TypeIdentifier>
+      <FileName>SqlAzManStoreException.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManStoreGroup" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>SqlAzManStoreGroup.cs</FileName>
+      <HashCode>AFQIAAEIAABlIAYEIAEABGQAAAUEAAARBACQgQNA4IA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManStoreGroupException" Collapsed="true">
+    <Position X="17.25" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>SqlAzManStoreGroupException.cs</FileName>
+      <HashCode>ACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManStoreGroupMember" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>SqlAzManStoreGroupMember.cs</FileName>
+      <HashCode>ACAAAAAgAAAAAAQEAIAABIAAAEmAAABAAIQAgABEQAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NetSqlAzMan.SqlAzManStoreGroupMemberException" Collapsed="true">
+    <Position X="23.5" Y="2" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>SqlAzManStoreGroupMemberException.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.NetSqlAzManStorageDataContext" Collapsed="true">
+    <Position X="21" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>oACQAIBAREBGgBQAhBAIAEMkkQAAIgAAQAKEEVUAZAE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.NetSqlAzManStorageDataSet" Collapsed="true">
+    <Position X="14" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RBASAAgCRzJICjrQBgCAbBCAISg2QD0FgAkYAw8KRLg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.Entities.ApplicationgroupmembersTable" Collapsed="true">
+    <Position X="10.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>AAQBAGAAABAIAAAEAAgAAIAAwAEAAABAURAAAEgAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.Entities.ApplicationgroupsTable" Collapsed="true">
+    <Position X="14" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>AAQABGCQABAoAAAEQQgQAAYAoAAIAABAQAAAgAoAIAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.Entities.ApplicationsTable" Collapsed="true">
+    <Position X="15.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>AAQAAECAAAAgAAAAUQAQEIYAgAAAAAEIQgAAAAgAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.Entities.AuthorizationattributesTable" Collapsed="true">
+    <Position X="17.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>AKwAAFAAQAACAAAAAAQAASAAgAACAAABAAAAAIAAIEA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.Entities.AuthorizationsTable" Collapsed="true">
+    <Position X="19.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>gAQAEGIQQAIAAAAAQA4ACQECggCQACEAGCBABAgAAIM=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.Entities.ItemsTable" Collapsed="true">
+    <Position X="10.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>AAwAAECABAIgAAAAQQAQAAYAoACAAAAAQAAAAAgAIAI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.Entities.ItemshierarchyTable" Collapsed="true">
+    <Position X="19.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>AAQAAEACAAIAAAAAAAABAAAAgACAAAAABABAAgAAAAI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.Entities.SettingsTable" Collapsed="true">
+    <Position X="15.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>AAQAAEEAAIAAAAAAAAAAAAAAhAAAAgAIAAAAAAAEAAI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.Entities.StoregroupmembersTable" Collapsed="true">
+    <Position X="14" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>AAQBAGAAwAEABAAAAAgAAIMAkAEAAABAQQAAAAgAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.Entities.StoregroupsTable" Collapsed="true">
+    <Position X="17.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>AAQABGAQAAEgBAAAQAwQEIYAgAAIAAAIAQAIgAoAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.Entities.StoresTable" Collapsed="true">
+    <Position X="19.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>AAYAAEAAEAAgAAAAQAAQEIYAgAAAAAAIAAAAAAgCAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.Entities.ApplicationgroupmembersviewView" Collapsed="true">
+    <Position X="12.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>AAAAACAACBIIAAAEAAgQAAQAQAAAAABAUQQAAEgAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.Entities.AuthorizationviewView" Collapsed="true">
+    <Position X="21" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>AAAAICCQQAIBAAAAAA4QAQUCAACQACEACCAAAAgAAUI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.Entities.ItemshierarchyviewView" Collapsed="true">
+    <Position X="21" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>QAAAAQCA4AIoAAQAQQAwAEYAAQCAAAAAQCAAABgAAAI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.Entities.StoregroupmembersviewView" Collapsed="true">
+    <Position X="15.75" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>AAAAACAAyAMABAAAAAgQAAUAAAAAAABAQQQAAAgAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.Programmability.CreateauthorizationattributeSP" Collapsed="true">
+    <Position X="10.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>AAAAAAAAQAAAAEAAABAAAECAgAAAAAABAAAAAAABEAI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.Programmability.CreatedelegateSP" Collapsed="true">
+    <Position X="12.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>AAACAIAAAAAACEAEABAABECAwAAAAAABAAACAABBAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.Programmability.DeleteauthorizationattributeSP" Collapsed="true">
+    <Position X="14" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAECAgAAAAAABAAAAAAABEAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.Programmability.DeletedelegateSP" Collapsed="true">
+    <Position X="15.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAEAEABAAAECAgAAAAAABAAAAAAABAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetSqlAzMan.Tdo.Programmability.UpdateauthorizationattributeSP" Collapsed="true">
+    <Position X="10.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Tdo\TdoNetSqlAzManStorage.cs</FileName>
+      <HashCode>AAAAAAAAQAAAAEAAAAAAAECAgAAAAAABAAAAAAABEAI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="NetSqlAzMan.Interfaces.IAzManApplication" Collapsed="true">
+    <Position X="8.5" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>Interfaces\IAzManApplication.cs</FileName>
+      <HashCode>AoRAAAAAAgAgAEAICSAAAAQAAAEEggBAABAAAQAAgAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NetSqlAzMan.Interfaces.IAzManApplicationGroup" Collapsed="true">
+    <Position X="8.25" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>Interfaces\IAzManApplicationGroup.cs</FileName>
+      <HashCode>AAQAQBAAABghESAAAAAAAEQCAAUAAAAAgAEAgCBAgAg=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NetSqlAzMan.Interfaces.IAzManApplicationGroupMember" Collapsed="true">
+    <Position X="10.5" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Interfaces\IAzManApplicationGroupMember.cs</FileName>
+      <HashCode>AAAABAAAAAAAAAAAAAAAgIAAAAEAgABAAIAAAABAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NetSqlAzMan.Interfaces.IAzManAuthorization" Collapsed="true">
+    <Position X="8.25" Y="8.75" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>Interfaces\IAzManAuthorization.cs</FileName>
+      <HashCode>AAQBQQGAQAAABIAAAAAAAAAEIAEAACEAAKAAAABAACE=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NetSqlAzMan.Interfaces.IAzManAuthorizationAttribute" Collapsed="true">
+    <Position X="14" Y="4.75" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>Interfaces\IAzManAuthorizationAttribute.cs</FileName>
+      <HashCode>AAQAAAAAAAAAAAYAIAABCAAAAAEAAAAAAAAgAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NetSqlAzMan.Interfaces.IAzManExport" Collapsed="true">
+    <Position X="8.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Interfaces\IAzManExport.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NetSqlAzMan.Interfaces.IAzManImport" Collapsed="true">
+    <Position X="5.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Interfaces\IAzManImport.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NetSqlAzMan.Interfaces.IAzManItem" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Interfaces\IAzManItem.cs</FileName>
+      <HashCode>CAQAAIAAAhggAgCAyAEAAQQAAQklkAAAAAQAAAAAggA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NetSqlAzMan.Interfaces.IAzManSid" Collapsed="true">
+    <Position X="12.25" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Interfaces\IAzManSid.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NetSqlAzMan.Interfaces.IAzManStorage" Collapsed="true">
+    <Position X="11.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Interfaces\IAzManStorage.cs</FileName>
+      <HashCode>AAAAAAABAJQAAAAACAAABBAIAQABQAAAACAAAAAABAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NetSqlAzMan.Interfaces.IAzManStore" Collapsed="true">
+    <Position X="5.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Interfaces\IAzManStore.cs</FileName>
+      <HashCode>AARAAAQAAQAgAAAEDAAAEAQAAAEgAAAAAAIAAhAIggA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NetSqlAzMan.Interfaces.IAzManStoreGroup" Collapsed="true">
+    <Position X="11.5" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>Interfaces\IAzManStoreGroup.cs</FileName>
+      <HashCode>ABQIAAEAAAAhIAAAAAEAAGQAAAUAAAAQBACAgQJAoAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NetSqlAzMan.Interfaces.IAzManStoreGroupMember" Collapsed="true">
+    <Position X="14" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Interfaces\IAzManStoreGroupMember.cs</FileName>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAIAAAAkAAABAAIQAAABAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NetSqlAzMan.Interfaces.IAzManTransactable" Collapsed="true">
+    <Position X="11.25" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>Interfaces\IAzManTransactable.cs</FileName>
+      <HashCode>AAAAAAABIAAAACAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="NetSqlAzMan.Interfaces.AuthorizationType" Collapsed="true">
+    <Position X="10.5" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Interfaces\AuthorizationType.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAIAAAAAEAAAAAAEA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="NetSqlAzMan.Interfaces.AzManIsolationLevel" Collapsed="true">
+    <Position X="12.25" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Interfaces\AzManIsolationLevel.cs</FileName>
+      <HashCode>AACAAAAAAAAgAAAAAAAAAAEAAAAAAAAAAAABAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="NetSqlAzMan.Interfaces.GroupType" Collapsed="true">
+    <Position X="14" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Interfaces\GroupType.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="NetSqlAzMan.Interfaces.MemberType" Collapsed="true">
+    <Position X="15.75" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Interfaces\MemberType.cs</FileName>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAFAAgAAAAAAAAAAAAAE=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="NetSqlAzMan.Interfaces.NetSqlAzManMode" Collapsed="true">
+    <Position X="17.5" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Interfaces\NetSqlAzManMode.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIEAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="NetSqlAzMan.Interfaces.WhereDefined" Collapsed="true">
+    <Position X="19.25" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Interfaces\WhereDefined.cs</FileName>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAABAAAAAAAAAAQQAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="NetSqlAzMan.ENS.ApplicationDeletedDelegate" Collapsed="true">
+    <Position X="12.25" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAQAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.ApplicationRenamedDelegate" Collapsed="true">
+    <Position X="15.75" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAACAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.ApplicationUpdatedDelegate" Collapsed="true">
+    <Position X="17.5" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAACAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.ApplicationGroupCreatedDelegate" Collapsed="true">
+    <Position X="14" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAQAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.ItemCreatedDelegate" Collapsed="true">
+    <Position X="21" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.ApplicationGroupDeletedDelegate" Collapsed="true">
+    <Position X="15.75" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAACAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.ApplicationGroupRenamedDelegate" Collapsed="true">
+    <Position X="10.5" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.ApplicationGroupUpdatedDelegate" Collapsed="true">
+    <Position X="12.25" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAGAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAACAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.ApplicationGroupLDAPQueryUpdatedDelegate" Collapsed="true">
+    <Position X="17.5" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.ApplicationGroupMemberCreatedDelegate" Collapsed="true">
+    <Position X="19.25" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAIAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.StoreGroupDeletedDelegate" Collapsed="true">
+    <Position X="14" Y="21.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAQAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.StoreGroupRenamedDelegate" Collapsed="true">
+    <Position X="21" Y="21.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAQAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.StoreGroupUpdatedDelegate" Collapsed="true">
+    <Position X="10.5" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAGAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.StoreGroupLDAPQueryUpdatedDelegate" Collapsed="true">
+    <Position X="15.75" Y="21.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAQAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.StoreGroupMemberCreatedDelegate" Collapsed="true">
+    <Position X="17.5" Y="21.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAQAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.AuthorizationDeletedDelegate" Collapsed="true">
+    <Position X="14" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAADAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.AuthorizationUpdatedDelegate" Collapsed="true">
+    <Position X="15.75" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAEAAAAAKCAAAAAAAAAAAAAAACAAAIACAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.AuthorizationAttributeCreatedDelegate" Collapsed="true">
+    <Position X="19.25" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.AuthorizationAttributeDeletedDelegate" Collapsed="true">
+    <Position X="21" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAEAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.AuthorizationAttributeUpdatedDelegate" Collapsed="true">
+    <Position X="10.5" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAACAAAIAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.ApplicationGroupMemberDeletedDelegate" Collapsed="true">
+    <Position X="21" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAACAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.StoreGroupMemberDeletedDelegate" Collapsed="true">
+    <Position X="19.25" Y="21.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.ItemDeletedDelegate" Collapsed="true">
+    <Position X="10.5" Y="21" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAACAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.ItemRenamedDelegate" Collapsed="true">
+    <Position X="12.25" Y="21" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.ItemUpdatedDelegate" Collapsed="true">
+    <Position X="14" Y="21" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.AuthorizationCreatedDelegate" Collapsed="true">
+    <Position X="12.25" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.DelegateCreatedDelegate" Collapsed="true">
+    <Position X="17.5" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.DelegateDeletedDelegate" Collapsed="true">
+    <Position X="19.25" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAADAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.MemberAddedDelegate" Collapsed="true">
+    <Position X="15.75" Y="21" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAIAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.MemberRemovedDelegate" Collapsed="true">
+    <Position X="17.5" Y="21" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAIAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.StoreCreatedDelegate" Collapsed="true">
+    <Position X="21" Y="21" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.StoreOpenedDelegate" Collapsed="true">
+    <Position X="12.25" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.TransactionBeginnedDelegate" Collapsed="true">
+    <Position X="17.5" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.TransactionTerminatedDelegate" Collapsed="true">
+    <Position X="19.25" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.NetSqlAzManModeChangeDelegate" Collapsed="true">
+    <Position X="19.25" Y="21" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAEAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.StoreDeletedDelegate" Collapsed="true">
+    <Position X="10.5" Y="21.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.StoreRenamedDelegate" Collapsed="true">
+    <Position X="14" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAQAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.StoreUpdatedDelegate" Collapsed="true">
+    <Position X="15.75" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAQAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.ApplicationCreatedDelegate" Collapsed="true">
+    <Position X="10.5" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAACAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.StoreGroupCreatedDelegate" Collapsed="true">
+    <Position X="12.25" Y="21.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAAAAQAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="NetSqlAzMan.ENS.ApplicationOpenedDelegate" Collapsed="true">
+    <Position X="14" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ENS\ENSDelegates.cs</FileName>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+</ClassDiagram>

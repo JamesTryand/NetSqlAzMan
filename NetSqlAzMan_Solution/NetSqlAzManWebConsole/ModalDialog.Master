@@ -1,0 +1,56 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ModalDialog.master.cs" Inherits="NetSqlAzManWebConsole.ModalDialog" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <base target="_self" />
+    <title>Modal Dialog</title>
+    <script type="text/javascript" src="javascript/common.js" language="javascript"></script>
+    <asp:Literal ID="litPostBack" runat="server" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table style="width: 99%">
+            <tr id="header">
+                <td colspan="2" style="background-color: #e0e0e0;">
+                    <asp:Image ID="imgLogo" runat="server" ImageUrl="~/images/NetSqlAzMan.gif" /></td>
+            </tr>
+            <tr>
+                <td class="imageColumn" style="width: 10%">
+                    <br />
+                    <asp:Image ID="imgIcon" runat="server" /></td>
+                <td style="width: 90%">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+            <td>&nbsp;</td>
+                <td>
+                <h3 style="text-align: right">
+            <asp:Label ID="lblDescription" runat="server" Text="Description"></asp:Label><br />
+            </h3>
+            <hr />
+                    </td>
+            </tr>
+            <tr>
+                <td style="height: 26px">
+                </td>
+                <td style="height: 26px;">
+                    <asp:Panel ID="Panel1" runat="server" Wrap="False" style="max-width: 680px;" HorizontalAlign="Right">
+                <asp:Button ID="internalBtnOk" runat="server" Text="OK" Width="60px" TabIndex="100" OnClientClick="javascript:doHourglass();" />
+                        <asp:Button ID="internalBtnCancel" runat="server" Text="Cancel" Width="60px" TabIndex="110" OnClientClick="javascript:closewindow(false)" />
+                        <asp:Button ID="internalBtnApply" runat="server" Text="Apply" Width="60px" TabIndex="120" Visible="False" OnClientClick="javascript:doHourglass();" /></asp:Panel>
+                    &nbsp; &nbsp;
+                </td>
+            </tr>
+        </table>
+            <!-- footer -->
+            <br />
+        <asp:Panel ID="footerPanel" runat="server" BackImageUrl="~/images/bar_bg.gif" Width="100%" Height="1.5em" HorizontalAlign="Center" CssClass="footerPanel">
+            .NET Sql Authorization Manager&nbsp;-&nbsp;Andrea Ferendeles - http://netsqlazman.sourceforge.net&nbsp;</asp:Panel>
+        <%-- Button used to do postback, postback done behalf of it --%>
+        <asp:Button ID="btnDummyToPostBack" runat="server" Visible="false"/>
+        <asp:Literal ID="litEnd" Mode="PassThrough" EnableViewState="false" runat="server" />
+    </form>
+</body>
+</html>
