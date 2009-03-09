@@ -207,7 +207,7 @@ namespace NetSqlAzMan.SnapIn.Forms
             this.lblSQLAuditDescription.Name = "lblSQLAuditDescription";
             this.lblSQLAuditDescription.Size = new System.Drawing.Size(725, 25);
             this.lblSQLAuditDescription.TabIndex = 52;
-            this.lblSQLAuditDescription.Text = "SQLAudit is open source project (LGPL) by Andrea Ferendeles.";
+            this.lblSQLAuditDescription.Text = "SQLAudit is open source project (Ms-PL) by Andrea Ferendeles.";
             this.lblSQLAuditDescription.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // frmSQLAudit

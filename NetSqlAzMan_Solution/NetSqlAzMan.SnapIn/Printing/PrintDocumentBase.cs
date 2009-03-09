@@ -304,7 +304,7 @@ namespace NetSqlAzMan.SnapIn.Printing
         {
             this.ItalicOn = true;
             string footerLeft = ".NET Sql Authorization Manager";
-            string footerRight = "http://netsqlazman.sourceforge.net";
+            string footerRight = "http://netsqlazman.codeplex.com";
             Rectangle rect = new Rectangle(new Point((int)this.left, (int)(this.bottom - Properties.Resources.NetSqlAzMan_16x16.Size.Height - 3)),  Properties.Resources.NetSqlAzMan_16x16.Size);
             e.Graphics.DrawLine(this.pen, this.left, this.bottom - rect.Height - 6, this.right, this.bottom - rect.Height - 6);
             e.Graphics.DrawImageUnscaled(Properties.Resources.NetSqlAzMan_16x16.ToBitmap(), rect);

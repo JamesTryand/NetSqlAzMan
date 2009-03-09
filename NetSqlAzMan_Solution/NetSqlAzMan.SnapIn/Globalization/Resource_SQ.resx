@@ -2121,7 +2121,7 @@ Vetem login-at e seleksionuara do te autorizohen ne Rrolin per kete Store.</valu
     <comment>don't delete place holders {x}</comment>
   </data>
   <data name="MMC_Tit10" xml:space="preserve">
-    <value>Bëni klik me tastin e djathtë mbi zërin NetSqlAzMan dhe seleksiono zërin 'Gjuha' për të seleksionuar gjuhën e preferuar.\r\n\r\n.Bëni klik me tastin e djathtë mbi zërin NetSqlAzMan dhe seleksiono zërin 'Lidhje me Storage' për të impostuar karakteristikat e lidhjes me Sql Server.\r\n\r\nNota:\r\n\r\nHerën e parë është e nevojshme të krijoni në mynyrë manuale një database Sql (NetSqlAzManStorage) dhe ekzekutoni skriptin e krijimit të objekteve (NetSqlAzMan_SqlServer.sql) në DB.\r\n\r\nPër më shumë informacione shikoni faqen web http://netsqlazman.sourceforge.net.\r\n</value>
+    <value>Bëni klik me tastin e djathtë mbi zërin NetSqlAzMan dhe seleksiono zërin 'Gjuha' për të seleksionuar gjuhën e preferuar.\r\n\r\n.Bëni klik me tastin e djathtë mbi zërin NetSqlAzMan dhe seleksiono zërin 'Lidhje me Storage' për të impostuar karakteristikat e lidhjes me Sql Server.\r\n\r\nNota:\r\n\r\nHerën e parë është e nevojshme të krijoni në mynyrë manuale një database Sql (NetSqlAzManStorage) dhe ekzekutoni skriptin e krijimit të objekteve (NetSqlAzMan_SqlServer.sql) në DB.\r\n\r\nPër më shumë informacione shikoni faqen web http://netsqlazman.codeplex.com.\r\n</value>
   </data>
   <data name="MMC_Tit30" xml:space="preserve">
     <value>Gabim gjatë Lidhjes</value>

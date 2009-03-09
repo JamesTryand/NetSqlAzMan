@@ -2124,7 +2124,7 @@ Solo le login spuntate saranno autorizzate nel Ruolo per questo Store.</value>
     <comment>don't delete place holders {x}</comment>
   </data>
   <data name="MMC_Tit10" xml:space="preserve">
-    <value>Fare click con il tasto destro sul nodo NetSqlAzMan e selezionare la voce 'Lingua' per selezionare la lingua preferita.\r\n\r\n.Fare click con il tasto destro sul nodo NetSqlAzMan e selezionare la voce 'Connessione allo Storage' per impostare le prprietà di connessione a Sql Server.\r\n\r\nNota:\r\n\r\nLa prima volta è necessario creare manualmente un database Sql (NetSqlAzManStorage) ed eseguire lo script di creazione degli oggetti (NetSqlAzMan_SqlServer.sql) sul DB.\r\n\r\nPer maggiori informazioni vedere il sito http://netsqlazman.sourceforge.net.\r\n</value>
+    <value>Fare click con il tasto destro sul nodo NetSqlAzMan e selezionare la voce 'Lingua' per selezionare la lingua preferita.\r\n\r\n.Fare click con il tasto destro sul nodo NetSqlAzMan e selezionare la voce 'Connessione allo Storage' per impostare le prprietà di connessione a Sql Server.\r\n\r\nNota:\r\n\r\nLa prima volta è necessario creare manualmente un database Sql (NetSqlAzManStorage) ed eseguire lo script di creazione degli oggetti (NetSqlAzMan_SqlServer.sql) sul DB.\r\n\r\nPer maggiori informazioni vedere il sito http://netsqlazman.codeplex.com.\r\n</value>
   </data>
   <data name="MMC_Tit30" xml:space="preserve">
     <value>Errore durante la Connessione</value>

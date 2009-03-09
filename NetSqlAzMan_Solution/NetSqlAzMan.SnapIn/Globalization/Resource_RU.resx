@@ -1423,7 +1423,7 @@
     <value>Ошибка NetSqlAzMan</value>
   </data>
   <data name="MMC_Tit10" xml:space="preserve">
-    <value>Кликните правой кнопкой мыши на узле NetSqlAzMan и выберите пункт меню  'Язык' для изменения языка интерфейса.\r\n\r\nКликните правой кнопкой мыши на узле NetSqlAzMan и выберите 'Соединение с базой', для настройки свойств соединения с SQL сервером.\r\n\r\nNotes:\r\n\r\nДля начала вы должны вручную создать базу данных (NetSqlAzManStorage) и выполнить скрипт NetSqlAzMan_SqlServer.sql, который вы найдете в инсталяционной директории NetSqlAzMan.\r\n\r\nДополнительная информация на сайте http://netsqlazman.sourceforge.net.\r\n</value>
+    <value>Кликните правой кнопкой мыши на узле NetSqlAzMan и выберите пункт меню  'Язык' для изменения языка интерфейса.\r\n\r\nКликните правой кнопкой мыши на узле NetSqlAzMan и выберите 'Соединение с базой', для настройки свойств соединения с SQL сервером.\r\n\r\nNotes:\r\n\r\nДля начала вы должны вручную создать базу данных (NetSqlAzManStorage) и выполнить скрипт NetSqlAzMan_SqlServer.sql, который вы найдете в инсталяционной директории NetSqlAzMan.\r\n\r\nДополнительная информация на сайте http://netsqlazman.codeplex.com.\r\n</value>
   </data>
   <data name="StorageScopeNode_Msg10" xml:space="preserve">
     <value>Импортирование из AzMan не удалось</value>

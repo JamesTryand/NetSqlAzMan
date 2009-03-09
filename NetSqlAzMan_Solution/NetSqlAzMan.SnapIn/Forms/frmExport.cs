@@ -87,9 +87,9 @@ namespace NetSqlAzMan.SnapIn.Forms
         protected void BeginExport(XmlWriter xmlWriter)
         {
             xmlWriter.WriteComment("*************************************");
-            xmlWriter.WriteComment(".NET SQL Authorization Manager (LGPL)");
+            xmlWriter.WriteComment(".NET SQL Authorization Manager (Ms-PL)");
             xmlWriter.WriteComment("*************************************");
-            xmlWriter.WriteComment("http://netsqlazman.sourceforge.net");
+            xmlWriter.WriteComment("http://netsqlazman.codeplex.com");
             xmlWriter.WriteComment("Andrea Ferendeles");
             xmlWriter.WriteComment("*************************************");
             xmlWriter.WriteComment(String.Format("Creation Date: {0}", DateTime.Now.ToString()));
@@ -103,7 +103,7 @@ namespace NetSqlAzMan.SnapIn.Forms
         {
             xmlWriter.WriteEndElement();
             xmlWriter.WriteComment("*************************************");
-            xmlWriter.WriteComment(".NET SQL Authorization Manager (LGPL)");
+            xmlWriter.WriteComment(".NET SQL Authorization Manager (Ms-PL)");
             xmlWriter.WriteComment("*************************************");
         }
 

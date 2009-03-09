@@ -111,7 +111,7 @@ namespace NetSqlAzMan.Providers
         {
             get
             {
-                return "Role Provider for .NET Sql Authorization Manager - http://netsqlazman.sourceforge.net - Andrea Ferendeles";
+                return "Role Provider for .NET Sql Authorization Manager - http://netsqlazman.codeplex.com - Andrea Ferendeles";
             }
         }
 

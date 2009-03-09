@@ -12,7 +12,7 @@ namespace NetSqlAzManCacheServiceInvalidateUtility
             Console.WriteLine();
             Console.WriteLine("-----------------------------------------------------------------");
             Console.WriteLine(".NET Sql Authorization Manager - Cache Service Invalidate Utility");
-            Console.WriteLine("Andrea Ferendeles - http://netsqlazman.sourceforge.net");
+            Console.WriteLine("Andrea Ferendeles - http://netsqlazman.codeplex.com");
             Console.WriteLine("-----------------------------------------------------------------");
             Console.WriteLine();
             Console.Write("1/3) Creating WCF Client ... ");

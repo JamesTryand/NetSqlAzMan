@@ -2121,7 +2121,7 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <comment>don't delete place holders {x}</comment>
   </data>
   <data name="MMC_Tit10" xml:space="preserve">
-    <value>Botón Derecho en el nodo NetSqlAzMan y seleccione 'Lenguaje' para seleccionar el idioma que prefiere.\r\n\r\nBotón Derecho en el nodo NetSqlAzMan y seleccione 'Conexión Almacenamiento' para configurar las propiedades de la conexión con Sql Server.\r\n\r\nNotas:Primero, debe crear manualmente la Base de Datos (NetSqlAzManStorage) y ejecutar el script NetSqlAzMan_SqlServer.sql (en NetSqlAzMan carpeta de instalación).\r\n\r\nMás información en http://netsqlazman.sourceforge.net.\r\n</value>
+    <value>Botón Derecho en el nodo NetSqlAzMan y seleccione 'Lenguaje' para seleccionar el idioma que prefiere.\r\n\r\nBotón Derecho en el nodo NetSqlAzMan y seleccione 'Conexión Almacenamiento' para configurar las propiedades de la conexión con Sql Server.\r\n\r\nNotas:Primero, debe crear manualmente la Base de Datos (NetSqlAzManStorage) y ejecutar el script NetSqlAzMan_SqlServer.sql (en NetSqlAzMan carpeta de instalación).\r\n\r\nMás información en http://netsqlazman.codeplex.com.\r\n</value>
   </data>
   <data name="MMC_Tit30" xml:space="preserve">
     <value>Error de Conexión</value>

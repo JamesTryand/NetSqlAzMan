@@ -1423,7 +1423,7 @@
     <value>NetSqlAzMan Error</value>
   </data>
   <data name="MMC_Tit10" xml:space="preserve">
-    <value>Right click on NetSqlAzMan node and choose 'Language' to choose preferred language.\r\n\r\nRight click on NetSqlAzMan node and choose 'Storage connection' to set up Sql Server connection properties.\r\n\r\nNotes:\r\n\r\nFirst, you must create manually a Sql database (NetSqlAzManStorage) and execute NetSqlAzMan_SqlServer.sql script (NetSqlAzMan installation folder).\r\n\r\nMore info at http://netsqlazman.sourceforge.net.\r\n</value>
+    <value>Right click on NetSqlAzMan node and choose 'Language' to choose preferred language.\r\n\r\nRight click on NetSqlAzMan node and choose 'Storage connection' to set up Sql Server connection properties.\r\n\r\nNotes:\r\n\r\nFirst, you must create manually a Sql database (NetSqlAzManStorage) and execute NetSqlAzMan_SqlServer.sql script (NetSqlAzMan installation folder).\r\n\r\nMore info at http://netsqlazman.codeplex.com.\r\n</value>
   </data>
   <data name="StorageScopeNode_Msg10" xml:space="preserve">
     <value>Import From AzMan failed</value>
