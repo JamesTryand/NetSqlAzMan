@@ -98,7 +98,7 @@
     </asp:Panel>
     <!-- footer -->
     <asp:Panel ID="footerPanel" runat="server" BackImageUrl="~/images/bar_bg.gif" Width="100%" Height="1.5em" HorizontalAlign="Center" CssClass="footerPanel">
-            Web Console version:&nbsp;<asp:Label ID="lblWebConsoleVersion" runat="server" Text="Label"></asp:Label>&nbsp;-&nbsp;NetSqlAzMan version:&nbsp;<asp:Label ID="lblNetSqlAzManVersion" runat="server" Text="Label"></asp:Label>&nbsp;-&nbsp;Storage version:&nbsp;<asp:Label ID="lblNetSqlAzManStorageVersion" runat="server" Text="Label"></asp:Label>&nbsp;-&nbsp;<a href="mailto:aferende@hotmail.com?subject=About NetSqlAzMan Web Console ..." title="">Andrea Ferendeles</a>&nbsp;-&nbsp;<a href="http://netsqlazman.sourceforge.net" target="_blank" title="">NetSqlAzMan Home Site</a>&nbsp;<asp:Label ID="lblUpdateWarning" runat="server" Text="Label" CssClass="updateWarning" Visible="false"> - New Version Available -</asp:Label>
+            Web Console version:&nbsp;<asp:Label ID="lblWebConsoleVersion" runat="server" Text="Label"></asp:Label>&nbsp;-&nbsp;NetSqlAzMan version:&nbsp;<asp:Label ID="lblNetSqlAzManVersion" runat="server" Text="Label"></asp:Label>&nbsp;-&nbsp;Storage version:&nbsp;<asp:Label ID="lblNetSqlAzManStorageVersion" runat="server" Text="Label"></asp:Label>&nbsp;-&nbsp;<a href="mailto:aferende@hotmail.com?subject=About NetSqlAzMan Web Console ..." title="">Andrea Ferendeles</a>&nbsp;-&nbsp;<a href="http://netsqlazman.codeplex.com" target="_blank" title="">NetSqlAzMan Home Site</a>&nbsp;<asp:Label ID="lblUpdateWarning" runat="server" Text="Label" CssClass="updateWarning" Visible="false"> - New Version Available -</asp:Label>
         </asp:Panel>
     </asp:Panel>
     </form>

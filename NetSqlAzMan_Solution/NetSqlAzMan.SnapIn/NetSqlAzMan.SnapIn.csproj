@@ -639,6 +639,7 @@
     <Content Include="Images\Neutral.bmp" />
     <Content Include="Images\RevokeAccess.bmp" />
     <Content Include="Images\SplashBitmap.bmp" />
+    <Content Include="Images\SplashBitmap.jpg" />
     <Content Include="Images\SplashBitmap2.bmp" />
     <Content Include="NetSqlAzMan.SnapIn.resources.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
