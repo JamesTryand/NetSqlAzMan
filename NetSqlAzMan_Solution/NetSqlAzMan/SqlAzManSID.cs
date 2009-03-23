@@ -96,10 +96,17 @@ namespace NetSqlAzMan
         /// <remarks>Valid only for SecurityIdentifier(s) and Guid(s)</remarks>
         public SqlAzManSID(byte[] binaryForm)
         {
-            if (binaryForm.Length == 16 && binaryForm[0]!=1)
-                this.guid = new Guid(binaryForm);
+            if (binaryForm == null)
+            {
+                this.guid = Guid.Empty;
+            }
             else
-                this.securityIdentifier = new SecurityIdentifier(binaryForm, 0);
+            {
+                if (binaryForm.Length == 16 && binaryForm[0] != 1)
+                    this.guid = new Guid(binaryForm);
+                else
+                    this.securityIdentifier = new SecurityIdentifier(binaryForm, 0);
+            }
         }
 
         /// <summary>

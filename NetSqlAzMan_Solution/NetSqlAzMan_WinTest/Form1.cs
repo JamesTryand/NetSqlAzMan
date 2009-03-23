@@ -157,15 +157,25 @@ namespace Prova.BizRules
             try
             {
                 IAzManStorage storage = new SqlAzManStorage("data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
-                SecurityIdentifier sid = (SecurityIdentifier)(new NTAccount("eidosis4-afr\\Andrea").Translate(typeof(SecurityIdentifier)));
-                //IAzManAuthorization del = storage["Store Stress test"]["Application0"]["Role0"].CreateDelegateAuthorization(WindowsIdentity.GetCurrent(), new SqlAzManSID(sid), RestrictedAuthorizationType.Allow, null, null);
-                storage["Store Stress test"]["Application0"]["Role0"].DeleteDelegateAuthorization(WindowsIdentity.GetCurrent(), new SqlAzManSID(sid), RestrictedAuthorizationType.Allow);
-                //del.CreateAttribute("cippa", "de cazzo");
+                IAzManDBUser dbUser1 = storage.GetDBUser(new SqlAzManSID(this.GetBytesFromInt32(1), true));
+                IAzManDBUser dbUser2 = storage.GetDBUser(new SqlAzManSID(this.GetBytesFromInt32(2), true));
+                AuthorizationType auth1 = storage.CheckAccess("Eidos", "DB Persone", "Accesso", dbUser1, DateTime.Now, false);
+                AuthorizationType auth2 = storage.CheckAccess("Eidos", "DB Persone", "Accesso", dbUser1, DateTime.Now, false);
+
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private byte[] GetBytesFromInt32(int n)
+        {
+            byte[] result = BitConverter.GetBytes(n);
+            if (BitConverter.IsLittleEndian)
+                Array.Reverse(result);
+            return result;
         }
 
         private void callBack(IAsyncResult ar)

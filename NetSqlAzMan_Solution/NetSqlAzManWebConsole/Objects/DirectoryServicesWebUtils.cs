@@ -206,9 +206,9 @@ namespace NetSqlAzManWebConsole
         /// <returns></returns>
         public static SearchResultCollection ExecuteLDAPQuery(string lDapQuery)
         {
-            DirectoryEntry root = Utility.NewDirectoryEntry("LDAP://" + SqlAzManStorage.RootDSEPath);
+            DirectoryEntry root = Utility.NewDirectoryEntry("LDAP://" + (NetSqlAzMan.DirectoryServices.DirectoryServicesUtils.GetRootDSEPart(lDapQuery) ?? SqlAzManStorage.RootDSEPath));
             root.RefreshCache();
-            DirectorySearcher searcher = new DirectorySearcher(root, lDapQuery, new string[] { "objectSid" });
+            DirectorySearcher searcher = new DirectorySearcher(root, NetSqlAzMan.DirectoryServices.DirectoryServicesUtils.GetLDAPQueryPart(lDapQuery), new string[] { "objectSid" });
             return searcher.FindAll();
         }
 

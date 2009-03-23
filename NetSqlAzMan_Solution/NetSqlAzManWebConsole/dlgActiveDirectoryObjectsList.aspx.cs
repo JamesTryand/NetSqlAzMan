@@ -96,7 +96,7 @@ namespace NetSqlAzManWebConsole
                 {
                     DirectoryEntry de = sr.GetDirectoryEntry();
                     DataRow dr = dtADList.NewRow();
-                    dr["sAMAccountName"] = (string)de.Properties["sAMAccountName"][0];
+                    dr["sAMAccountName"] = de.Properties["sAMAccountName"]!=null && de.Properties["sAMAccountName"].Count>0 ? (string)de.Properties["sAMAccountName"][0] : String.Empty;
                     dr["Name"] = (string)de.InvokeGet("displayname");
                     dr["objectClass"] = de.SchemaClassName;
                     dr["objectSid"] = new SqlAzManSID((byte[])de.Properties["objectSid"].Value).StringValue;

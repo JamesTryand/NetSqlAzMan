@@ -241,9 +241,9 @@ namespace NetSqlAzMan.DirectoryServices
         {
             try
             {
-                DirectoryEntry root = DirectoryServicesUtils.newDirectoryEntry("LDAP://" + SqlAzManStorage.RootDSEPath);
+                DirectoryEntry root = DirectoryServicesUtils.newDirectoryEntry("LDAP://" + (DirectoryServicesUtils.GetRootDSEPart(lDapQuery) ?? SqlAzManStorage.RootDSEPath));
                 root.RefreshCache();
-                DirectorySearcher searcher = new DirectorySearcher(root, lDapQuery, new string[] { "objectSid" });
+                DirectorySearcher searcher = new DirectorySearcher(root, DirectoryServicesUtils.GetLDAPQueryPart(lDapQuery), new string[] { "objectSid" });
                 return searcher.FindAll();
             }
             catch
@@ -264,15 +264,53 @@ namespace NetSqlAzMan.DirectoryServices
                     return true;
                 if (String.IsNullOrEmpty(lDapQuery.Trim()))
                     return true;
-                DirectoryEntry root = DirectoryServicesUtils.newDirectoryEntry("LDAP://" + SqlAzManStorage.RootDSEPath);
+                DirectoryEntry root = DirectoryServicesUtils.newDirectoryEntry("LDAP://" + (DirectoryServicesUtils.GetRootDSEPart(lDapQuery) ?? SqlAzManStorage.RootDSEPath));
                 root.RefreshCache();
-                DirectorySearcher searcher = new DirectorySearcher(root, lDapQuery, new string[] { "objectSid" });
+                DirectorySearcher searcher = new DirectorySearcher(root, DirectoryServicesUtils.GetLDAPQueryPart(lDapQuery), new string[] { "objectSid" });
                 searcher.FindOne();
                 return true;
             }
             catch
             {
                 return false;
+            }
+        }
+
+        /// <summary>
+        /// Gets the root DSE part.
+        /// </summary>
+        /// <param name="LDAPQuery">The LDAP query.</param>
+        /// <returns></returns>
+        public static string GetRootDSEPart(string LDAPQuery)
+        {
+            string rootDSEPrefix = "[RootDSE:";
+            if (!String.IsNullOrEmpty(LDAPQuery) && LDAPQuery.Trim().StartsWith(rootDSEPrefix, StringComparison.CurrentCultureIgnoreCase))
+            {
+                LDAPQuery = LDAPQuery.Substring(LDAPQuery.IndexOf(rootDSEPrefix, StringComparison.CurrentCultureIgnoreCase)+rootDSEPrefix.Length);
+                LDAPQuery = LDAPQuery.Substring(0, LDAPQuery.IndexOf(']'));
+                return LDAPQuery;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        /// <summary>
+        /// Return the LDAP Query portion of a NetSqlAzMan LDAPQuery
+        /// </summary>
+        /// <param name="LDAPQuery">The NetSqlAzMan LDAP Query</param>
+        /// <returns>the LDAP Query portion</returns>
+        public static string GetLDAPQueryPart(string LDAPQuery)
+        {
+            string rootDSEPrefix = "[RootDSE:";
+            if (!String.IsNullOrEmpty(LDAPQuery) && LDAPQuery.Trim().StartsWith(rootDSEPrefix, StringComparison.CurrentCultureIgnoreCase))
+            {
+                LDAPQuery = LDAPQuery.Substring(LDAPQuery.IndexOf(']')+1);
+                return LDAPQuery;
+            }
+            else
+            {
+                return LDAPQuery;
             }
         }
 

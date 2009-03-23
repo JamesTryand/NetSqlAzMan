@@ -17,7 +17,7 @@ function openDialog(page, offset)
 }
 function openDialogWithArguments(page, argumentName, argumentIdValue, offset)
 {
-    var url = page + '?' + argumentName + '=' + document.getElementById(argumentIdValue).value;
+    var url = page + '?' + argumentName + '=' + encodeURIComponent(document.getElementById(argumentIdValue).value);
     openDialog(url, 2);    
 
 }

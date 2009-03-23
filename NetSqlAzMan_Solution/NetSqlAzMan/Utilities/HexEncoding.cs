@@ -90,6 +90,8 @@ namespace NetSqlAzMan.Utilities
         public static string ToString(byte[] bytes)
         {
             string hexString = "";
+            if (bytes == null)
+                return hexString;
             for (int i = 0; i < bytes.Length; i++)
             {
                 hexString += bytes[i].ToString("X2");
