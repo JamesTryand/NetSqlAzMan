@@ -3750,7 +3750,7 @@ namespace NetSqlAzMan.LINQ
 		{
 		}
 		
-		[Column(Storage="_DBUserSid", DbType="VarBinary(85)")]
+		[Column(Storage="_DBUserSid", DbType="VarBinary(85)", CanBeNull=true)]
 		public System.Data.Linq.Binary DBUserSid
 		{
 			get
@@ -6493,7 +6493,7 @@ namespace NetSqlAzMan.LINQ
 			}
 		}
 		
-		[Column(Storage="_Password", DbType="VarBinary(50)")]
+		[Column(Storage="_Password", DbType="VarBinary(50)", CanBeNull=true)]
 		public System.Data.Linq.Binary Password
 		{
 			get
@@ -6703,7 +6703,7 @@ namespace NetSqlAzMan.LINQ
 			}
 		}
 		
-		[Column(Name="objectSid", Storage="_ObjectSid", DbType="VarBinary(85)")]
+		[Column(Name="objectSid", Storage="_ObjectSid", DbType="VarBinary(85)", CanBeNull=true)]
 		public System.Data.Linq.Binary ObjectSid
 		{
 			get
@@ -6805,7 +6805,7 @@ namespace NetSqlAzMan.LINQ
 			}
 		}
 		
-		[Column(Name="objectSid", Storage="_ObjectSid", DbType="VarBinary(85)")]
+		[Column(Name="objectSid", Storage="_ObjectSid", DbType="VarBinary(85)", CanBeNull=true)]
 		public System.Data.Linq.Binary ObjectSid
 		{
 			get
@@ -7201,7 +7201,7 @@ namespace NetSqlAzMan.LINQ
 			}
 		}
 		
-		[Column(Name="ownerSid", Storage="_OwnerSid", DbType="VarBinary(85)")]
+		[Column(Name="ownerSid", Storage="_OwnerSid", DbType="VarBinary(85)", CanBeNull=true)]
 		public System.Data.Linq.Binary OwnerSid
 		{
 			get
@@ -7233,7 +7233,7 @@ namespace NetSqlAzMan.LINQ
 			}
 		}
 		
-		[Column(Name="objectSid", Storage="_ObjectSid", DbType="VarBinary(85)")]
+		[Column(Name="objectSid", Storage="_ObjectSid", DbType="VarBinary(85)", CanBeNull=true)]
 		public System.Data.Linq.Binary ObjectSid
 		{
 			get
@@ -7377,7 +7377,7 @@ namespace NetSqlAzMan.LINQ
 			}
 		}
 		
-		[Column(Storage="_CompiledAssembly", DbType="Image")]
+		[Column(Storage="_CompiledAssembly", DbType="Image", CanBeNull=true)]
 		public System.Data.Linq.Binary CompiledAssembly
 		{
 			get
@@ -7511,7 +7511,7 @@ namespace NetSqlAzMan.LINQ
 		{
 		}
 		
-		[Column(Storage="_DBUserSid", DbType="VarBinary(85)")]
+		[Column(Storage="_DBUserSid", DbType="VarBinary(85)", CanBeNull=true)]
 		public System.Data.Linq.Binary DBUserSid
 		{
 			get
@@ -7913,7 +7913,7 @@ namespace NetSqlAzMan.LINQ
 			}
 		}
 		
-		[Column(Name="objectSid", Storage="_ObjectSid", DbType="VarBinary(85)")]
+		[Column(Name="objectSid", Storage="_ObjectSid", DbType="VarBinary(85)", CanBeNull=true)]
 		public System.Data.Linq.Binary ObjectSid
 		{
 			get
@@ -8015,7 +8015,7 @@ namespace NetSqlAzMan.LINQ
 			}
 		}
 		
-		[Column(Name="objectSid", Storage="_ObjectSid", DbType="VarBinary(85)")]
+		[Column(Name="objectSid", Storage="_ObjectSid", DbType="VarBinary(85)", CanBeNull=true)]
 		public System.Data.Linq.Binary ObjectSid
 		{
 			get

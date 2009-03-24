@@ -677,9 +677,13 @@ namespace NetSqlAzMan
                 throw new InvalidOperationException("Method not supported for Basic Groups");
             if (!String.IsNullOrEmpty(testLDapQuery.Trim()))
             {
-                string query = String.Format("(&(!(objectClass=computer))(&(|(objectClass=user)(objectClass=group)))({0}))", testLDapQuery);
-                //(&(msExchUserAccountControl=2)(!msExchMasterAccountSID=*))
-
+                string rootdse = DirectoryServicesUtils.GetRootDSEPart(testLDapQuery);
+                string ldapquery = DirectoryServicesUtils.GetLDAPQueryPart(testLDapQuery);
+                string query = String.Empty;
+                if (rootdse==null)
+                    query = String.Format("(&(!(objectClass=computer))(&(|(objectClass=user)(objectClass=group)))({0}))", ldapquery);
+                else
+                    query = String.Format("[RootDSE:{0}](&(!(objectClass=computer))(&(|(objectClass=user)(objectClass=group)))({1}))", rootdse, ldapquery);
                 return DirectoryServices.DirectoryServicesUtils.ExecuteLDAPQuery(query);
             }
             else
