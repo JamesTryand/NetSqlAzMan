@@ -15,8 +15,20 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_0444B2E2DF9B42798AE6E07EC61224E7"
-        "OwnerKey" = "8:_E818A7A6F07249B8929A44A9BD288722"
+        "MsmKey" = "8:_0BC15C9DA4074B1B8E93393335559EBF"
+        "OwnerKey" = "8:_4A41DAB3E9FD4EDF9614B94AC22D3F3B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0BC15C9DA4074B1B8E93393335559EBF"
+        "OwnerKey" = "8:_6EC20F3E25D0418B878637B7036972AC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0F32CCFCC88844B598487F80EC7BB542"
+        "OwnerKey" = "8:_0BC15C9DA4074B1B8E93393335559EBF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -76,6 +88,12 @@
         "Entry"
         {
         "MsmKey" = "8:_2EF6EB3FB980492AABD2E4803167C3D9"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_37DFD0ACB48A401E845626D976DEED60"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -143,6 +161,12 @@
         {
         "MsmKey" = "8:_5CEBB810B3764E2199BEDAFB962101FC"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5D7CCDCD030E4908A3FB885847D45BF9"
+        "OwnerKey" = "8:_90721753D5B84B4899C1527DD0F8AFC8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -237,6 +261,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_90721753D5B84B4899C1527DD0F8AFC8"
+        "OwnerKey" = "8:_4A41DAB3E9FD4EDF9614B94AC22D3F3B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_90721753D5B84B4899C1527DD0F8AFC8"
+        "OwnerKey" = "8:_6EC20F3E25D0418B878637B7036972AC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_90FB34E6CDB9466584CC83658BE3C910"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -293,18 +329,6 @@
         {
         "MsmKey" = "8:_B0D03AAF94F748359404A6136DA7B438"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B17038E6B8634D07BE48EA7D8B0FC935"
-        "OwnerKey" = "8:_4A41DAB3E9FD4EDF9614B94AC22D3F3B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B17038E6B8634D07BE48EA7D8B0FC935"
-        "OwnerKey" = "8:_6EC20F3E25D0418B878637B7036972AC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -381,18 +405,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E818A7A6F07249B8929A44A9BD288722"
-        "OwnerKey" = "8:_4A41DAB3E9FD4EDF9614B94AC22D3F3B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E818A7A6F07249B8929A44A9BD288722"
-        "OwnerKey" = "8:_6EC20F3E25D0418B878637B7036972AC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_E8CCDC12A91F4EFF9FA5029A86EEB7A2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -407,12 +419,6 @@
         {
         "MsmKey" = "8:_EECA611FD15748BB87F2B4B4C6B29B30"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F128A2F42C624B44BFDEBA73EF7D959D"
-        "OwnerKey" = "8:_B17038E6B8634D07BE48EA7D8B0FC935"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -808,6 +814,26 @@
             "Tag" = "8:"
             "Folder" = "8:_01CCD32AB77E4E569260D008FC107766"
             "Condition" = "8:CHKREFERENCE"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_37DFD0ACB48A401E845626D976DEED60"
+            {
+            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3520.sql"
+            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3520.sql"
+            "Tag" = "8:"
+            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
+            "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"
@@ -1760,7 +1786,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.5.2.0, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.5.2.1, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_F93F1688441E6723B7D992FB79D54A20"
@@ -2283,6 +2309,20 @@
             "Folder" = "8:_7089489F5CE74F1E93D9E26FD949FCFC"
             "WorkingFolder" = "8:_B4C19B5B6DF943938D3EEDA4ED57B659"
             "Icon" = "8:_66EBDADEEC4E42E58DC228E591531A3E"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_7CBDF952EED34DE0B4E26DCD2EA12E49"
+            {
+            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3520.sql"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_37DFD0ACB48A401E845626D976DEED60"
+            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
+            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
+            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_84AB7439C7FD4E7BA305CEC2EE81283D"
@@ -3459,21 +3499,7 @@
         }
         "MergeModule"
         {
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_0444B2E2DF9B42798AE6E07EC61224E7"
-            {
-            "UseDynamicProperties" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:microsoft_vc90_atl_x86.msm"
-                "Properties"
-                {
-                }
-            "LanguageId" = "3:0"
-            "Exclude" = "11:FALSE"
-            "Folder" = "8:"
-            "Feature" = "8:"
-            "IsolateTo" = "8:"
-            }
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_B17038E6B8634D07BE48EA7D8B0FC935"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_0BC15C9DA4074B1B8E93393335559EBF"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
@@ -3487,11 +3513,11 @@
             "Feature" = "8:"
             "IsolateTo" = "8:"
             }
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_E818A7A6F07249B8929A44A9BD288722"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_0F32CCFCC88844B598487F80EC7BB542"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:policy_9_0_Microsoft_VC90_ATL_x86.msm"
+            "SourcePath" = "8:microsoft_vc90_debugcrt_x86.msm"
                 "Properties"
                 {
                 }
@@ -3501,11 +3527,25 @@
             "Feature" = "8:"
             "IsolateTo" = "8:"
             }
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_F128A2F42C624B44BFDEBA73EF7D959D"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_5D7CCDCD030E4908A3FB885847D45BF9"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:microsoft_vc90_debugcrt_x86.msm"
+            "SourcePath" = "8:microsoft_vc90_atl_x86.msm"
+                "Properties"
+                {
+                }
+            "LanguageId" = "3:0"
+            "Exclude" = "11:FALSE"
+            "Folder" = "8:"
+            "Feature" = "8:"
+            "IsolateTo" = "8:"
+            }
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_90721753D5B84B4899C1527DD0F8AFC8"
+            {
+            "UseDynamicProperties" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "SourcePath" = "8:policy_9_0_Microsoft_VC90_ATL_x86.msm"
                 "Properties"
                 {
                 }
