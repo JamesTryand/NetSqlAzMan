@@ -309,6 +309,30 @@ namespace NetSqlAzMan
             return this.StringValue;
         }
 
+        #region Static Members
+        /// <summary>
+        /// Gets the bytes from int32.
+        /// </summary>
+        /// <param name="n">The n.</param>
+        /// <returns></returns>
+        public static byte[] GetBytesFromInt32(int n)
+        {
+            byte[] result = BitConverter.GetBytes(n);
+            if (BitConverter.IsLittleEndian)
+                Array.Reverse(result);
+            return result;
+        }
+
+        /// <summary>
+        /// SIDs to int32.
+        /// </summary>
+        /// <param name="n">The n.</param>
+        /// <returns></returns>
+        public static SqlAzManSID SIDToInt32(int n)
+        {
+            return new SqlAzManSID(SqlAzManSID.GetBytesFromInt32(n), true);
+        }
+        #endregion Static Members
         #region ISerializable Members
 
         /// <summary>
