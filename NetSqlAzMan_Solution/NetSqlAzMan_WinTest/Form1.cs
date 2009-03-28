@@ -447,7 +447,7 @@ namespace Prova.BizRules
             string cs = "data source=eidosis4-afr;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;";
             My_Application.Security.CheckAccessHelper helper = new My_Application.Security.CheckAccessHelper(cs, WindowsIdentity.GetCurrent());
             helper.OpenConnection();
-            bool result = helper.CheckAccess(My_Application.Security.CheckAccessHelper.Operation.Op1);
+            bool result = helper.CheckAccess(My_Application.Security.CheckAccessHelper.Operation.Op_1);
             helper.CloseConnection();
             //Use result for your biz
             if (result == true)

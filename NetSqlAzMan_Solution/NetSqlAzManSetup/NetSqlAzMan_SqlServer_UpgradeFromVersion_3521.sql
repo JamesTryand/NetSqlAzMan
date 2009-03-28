@@ -1,8 +1,28 @@
 --
--- Script To Update dbo.NetSqlAzMan_DBVersion Function In ..NetSqlAzMan_3500
--- Generated sabato, aprile 12, 2008, at 02.35 PM
+-- Please backup ..NetSqlAzManStorage before executing this script
 --
--- Please backup ..NetSqlAzMan_3500 before executing this script
+
+
+PRINT 'Creating dbo User'
+GO
+
+exec sp_revokedbaccess N''
+GO
+
+if not exists (select * from master.dbo.syslogins where loginname = N'sa')
+   exec sp_addlogin N'sa'
+GO
+
+exec sp_grantdbaccess N'sa', N'dbo'
+GO
+
+PRINT 'dbo User Updated Successfully'
+GO
+
+--
+-- Script To Update dbo.NetSqlAzMan_DBVersion Function In ..NetSqlAzMan
+--
+-- Please backup ... NetSqlAzManStorage before executing this script
 --
 
 
@@ -62,3 +82,6 @@ BEGIN
    PRINT 'Failed To Update dbo.NetSqlAzMan_DBVersion Function'
 END
 GO
+
+
+
