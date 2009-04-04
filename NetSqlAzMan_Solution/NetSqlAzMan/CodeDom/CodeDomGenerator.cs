@@ -97,24 +97,38 @@ namespace NetSqlAzMan.CodeDom
             windowsIdentityField.EndDirectives.Add(crdFieldsEnd);
             #endregion Fields
             #region Constructors
-            CodeConstructor constructor1 = new CodeConstructor();
-            netSqlAzManHelperClass.Members.Add(constructor1);
-            constructor1.StartDirectives.Add(new CodeRegionDirective(CodeRegionMode.Start, "Constructors"));
-            constructor1.Attributes = MemberAttributes.Public;
-            CodeDomHelper.AddXmlSummaryComment(constructor1, String.Format("Initializes a new instance of the <see cref=\"T:{0}\"/> class.", className));
-            constructor1.Comments.Add(new CodeCommentStatement("<param name=\"storageConnectionString\">The storage connection string.</param>", true));
-            constructor1.Comments.Add(new CodeCommentStatement("<param name=\"windowsIdentity\">The Windows Principal Identity.</param>", true));
-            constructor1.Parameters.Add(new CodeParameterDeclarationExpression(typeof(string), "storageConnectionString"));
-            constructor1.Parameters.Add(new CodeParameterDeclarationExpression(typeof(WindowsIdentity), "windowsIdentity"));
-            constructor1.Statements.Add(
-                new CodeAssignStatement(
-                    new CodeFieldReferenceExpression(new CodeThisReferenceExpression(), "mStorage"),
-                    new CodeObjectCreateExpression(typeof(NetSqlAzMan.SqlAzManStorage), new CodeVariableReferenceExpression("storageConnectionString"))));
-            constructor1.Statements.Add(
-                new CodeAssignStatement(
-                    new CodeFieldReferenceExpression(new CodeThisReferenceExpression(), "windowsIdentity"),
-                    new CodeVariableReferenceExpression("windowsIdentity")));
-            constructor1.EndDirectives.Add(new CodeRegionDirective(CodeRegionMode.End, "Constructors"));
+            {
+                CodeConstructor constructor1 = new CodeConstructor();
+                netSqlAzManHelperClass.Members.Add(constructor1);
+                constructor1.StartDirectives.Add(new CodeRegionDirective(CodeRegionMode.Start, "Constructors"));
+                constructor1.Attributes = MemberAttributes.Public;
+                CodeDomHelper.AddXmlSummaryComment(constructor1, String.Format("Initializes a new instance of the <see cref=\"T:{0}\"/> class [Windows Users ONLY].", className));
+                constructor1.Comments.Add(new CodeCommentStatement("<param name=\"storageConnectionString\">The storage connection string.</param>", true));
+                constructor1.Comments.Add(new CodeCommentStatement("<param name=\"windowsIdentity\">The Windows Principal Identity.</param>", true));
+                constructor1.Parameters.Add(new CodeParameterDeclarationExpression(typeof(string), "storageConnectionString"));
+                constructor1.Parameters.Add(new CodeParameterDeclarationExpression(typeof(WindowsIdentity), "windowsIdentity"));
+                constructor1.Statements.Add(
+                    new CodeAssignStatement(
+                        new CodeFieldReferenceExpression(new CodeThisReferenceExpression(), "mStorage"),
+                        new CodeObjectCreateExpression(typeof(NetSqlAzMan.SqlAzManStorage), new CodeVariableReferenceExpression("storageConnectionString"))));
+                constructor1.Statements.Add(
+                    new CodeAssignStatement(
+                        new CodeFieldReferenceExpression(new CodeThisReferenceExpression(), "windowsIdentity"),
+                        new CodeVariableReferenceExpression("windowsIdentity")));
+            }
+            {
+                CodeConstructor constructor2 = new CodeConstructor();
+                netSqlAzManHelperClass.Members.Add(constructor2);
+                constructor2.Attributes = MemberAttributes.Public;
+                CodeDomHelper.AddXmlSummaryComment(constructor2, String.Format("Initializes a new instance of the <see cref=\"T:{0}\"/> class [DB Users ONLY].", className));
+                constructor2.Comments.Add(new CodeCommentStatement("<param name=\"storageConnectionString\">The storage connection string.</param>", true));
+                constructor2.Parameters.Add(new CodeParameterDeclarationExpression(typeof(string), "storageConnectionString"));
+                constructor2.Statements.Add(
+                    new CodeAssignStatement(
+                        new CodeFieldReferenceExpression(new CodeThisReferenceExpression(), "mStorage"),
+                        new CodeObjectCreateExpression(typeof(NetSqlAzMan.SqlAzManStorage), new CodeVariableReferenceExpression("storageConnectionString"))));
+                constructor2.EndDirectives.Add(new CodeRegionDirective(CodeRegionMode.End, "Constructors"));
+            }
             #endregion Constructors
             #region Enums
             IAzManItem[] roles = application.GetItems(ItemType.Role);

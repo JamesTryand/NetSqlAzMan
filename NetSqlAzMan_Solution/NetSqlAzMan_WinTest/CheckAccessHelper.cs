@@ -71,6 +71,14 @@ namespace My_Application.Security
             this.mStorage = new NetSqlAzMan.SqlAzManStorage(storageConnectionString);
             this.windowsIdentity = windowsIdentity;
         }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:CheckAccessHelper"/> class [DB Users ONLY].
+        /// </summary>
+        /// <param name="storageConnectionString">The storage connection string.</param>
+        public CheckAccessHelper(string storageConnectionString)
+        {
+            this.mStorage = new NetSqlAzMan.SqlAzManStorage(storageConnectionString);
+        }
         #endregion
         #region Properties
         /// <summary>
