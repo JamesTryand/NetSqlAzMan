@@ -19,7 +19,13 @@ namespace NetSqlAzMan_WebTest2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.Label1.Text = WindowsIdentity.GetCurrent().Name;   
+            this.Label1.Text = WindowsIdentity.GetCurrent().Name;
+            NetSqlAzManAuthorizationContext ctx = new NetSqlAzManAuthorizationContext(
+                "data source=(local);Initial Catalog=NetSqlAzManStorage;User id=sa;password=",
+                "Eidos",
+                "DB Persone",
+                this.Request.LogonUserIdentity);
+            ctx.CheckSecurity(this);
         }
 
         protected void Button1_Click(object sender, EventArgs e)

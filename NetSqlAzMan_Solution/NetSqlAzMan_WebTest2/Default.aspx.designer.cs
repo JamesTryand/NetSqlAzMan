@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using NetSqlAzMan;
 namespace NetSqlAzMan_WebTest2 {
     
     
@@ -44,6 +45,7 @@ namespace NetSqlAzMan_WebTest2 {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+        [NetSqlAzManAuthorization("Accesso2", "Enabled", false)]
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
@@ -53,6 +55,7 @@ namespace NetSqlAzMan_WebTest2 {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+        [NetSqlAzManAuthorization("Accesso", "ReadOnly", true)]
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>

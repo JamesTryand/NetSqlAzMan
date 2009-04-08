@@ -79,6 +79,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthorizationAttributes\CheckAccessEventHandlers.cs" />
+    <Compile Include="AuthorizationAttributes\NetSqlAzManAuthorizationAttribute.cs" />
     <Compile Include="BizRuleSourceLanguage.cs" />
     <Compile Include="Cache\ItemCheckAccessResult.cs" />
     <Compile Include="Cache\StorageCache.cs" />
@@ -98,6 +100,7 @@
       <DependentUpon>NetSqlAzManStorage.dbml</DependentUpon>
     </Compile>
     <Compile Include="LINQ\NetSqlAzManStorageExtension.cs" />
+    <Compile Include="AuthorizationAttributes\NetSqlAzManAuthorizationContext.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
