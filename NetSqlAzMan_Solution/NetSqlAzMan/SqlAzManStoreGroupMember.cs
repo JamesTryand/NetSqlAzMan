@@ -101,27 +101,35 @@ namespace NetSqlAzMan
         /// <returns></returns>
         public MemberType GetMemberInfo(out string displayName)
         {
-            switch (this.whereDefined)
+            try
             {
-                case WhereDefined.Store:
-                    displayName = this.storeGroup.Store.GetStoreGroup(this.sid).Name;
-                    return MemberType.StoreGroup;
-                case WhereDefined.LDAP:
-                    bool isAnLdapGroup;
-                    bool isLocal;
-                    DirectoryServices.DirectoryServicesUtils.GetMemberInfo(this.sid.StringValue, out displayName, out isAnLdapGroup, out isLocal);
-                    return isAnLdapGroup ? MemberType.WindowsNTGroup : MemberType.WindowsNTUser;
-                case WhereDefined.Local:
-                    bool isALocalGroup;
-                    bool isLocal2;
-                    DirectoryServices.DirectoryServicesUtils.GetMemberInfo(this.sid.StringValue, out displayName, out isALocalGroup, out isLocal2);
-                    return isALocalGroup ? MemberType.WindowsNTGroup : MemberType.WindowsNTUser;
-                case WhereDefined.Database:
-                    displayName = this.storeGroup.Store.GetDBUser(this.sid).UserName;
-                    return MemberType.DatabaseUser;
+                switch (this.whereDefined)
+                {
+                    case WhereDefined.Store:
+                        displayName = this.storeGroup.Store.GetStoreGroup(this.sid).Name;
+                        return MemberType.StoreGroup;
+                    case WhereDefined.LDAP:
+                        bool isAnLdapGroup;
+                        bool isLocal;
+                        DirectoryServices.DirectoryServicesUtils.GetMemberInfo(this.sid.StringValue, out displayName, out isAnLdapGroup, out isLocal);
+                        return isAnLdapGroup ? MemberType.WindowsNTGroup : MemberType.WindowsNTUser;
+                    case WhereDefined.Local:
+                        bool isALocalGroup;
+                        bool isLocal2;
+                        DirectoryServices.DirectoryServicesUtils.GetMemberInfo(this.sid.StringValue, out displayName, out isALocalGroup, out isLocal2);
+                        return isALocalGroup ? MemberType.WindowsNTGroup : MemberType.WindowsNTUser;
+                    case WhereDefined.Database:
+                        displayName = this.storeGroup.Store.GetDBUser(this.sid).UserName;
+                        return MemberType.DatabaseUser;
+                }
+                displayName = this.sid.StringValue;
+                return MemberType.AnonymousSID;
             }
-            displayName = this.sid.StringValue;
-            return MemberType.AnonymousSID;
+            catch
+            {
+                displayName = this.sid.StringValue;
+                return MemberType.AnonymousSID;
+            }
         }
 
         /// <summary>

@@ -113,26 +113,32 @@ namespace NetSqlAzMan.SnapIn.Forms
         private ListViewItem CreateDBListViewItem(IAzManStoreGroupMember member)
         {
             ListViewItem lvi = new ListViewItem();
-            lvi.Tag = member;
-            string displayName;
-            member.GetMemberInfo(out displayName);
-            lvi.Text = displayName;
-            lvi.SubItems.Add(Globalization.MultilanguageResource.GetString("WhereDefined_DB"));
+            if (member != null)
+            {
+                lvi.Tag = member;
+                string displayName;
+                member.GetMemberInfo(out displayName);
+                lvi.Text = displayName;
+                lvi.SubItems.Add(Globalization.MultilanguageResource.GetString("WhereDefined_DB"));
+            }
             return lvi;
         }
 
         private ListViewItem CreateListViewItem(GenericMember member)
         {
             ListViewItem lvi = new ListViewItem();
-            lvi.Tag = member;
-            lvi.Text = member.Name;
-            switch (member.WhereDefined.ToString())
+            if (member != null)
             {
-                case "LDAP": lvi.SubItems.Add(Globalization.MultilanguageResource.GetString("WhereDefined_LDAP")); break;
-                case "Local": lvi.SubItems.Add(Globalization.MultilanguageResource.GetString("WhereDefined_Local")); break;
-                case "Database": lvi.SubItems.Add(Globalization.MultilanguageResource.GetString("WhereDefined_DB")); break;
-                case "Store": lvi.SubItems.Add(Globalization.MultilanguageResource.GetString("WhereDefined_Store")); break;
-                case "Application": lvi.SubItems.Add(Globalization.MultilanguageResource.GetString("WhereDefined_Application")); break;
+                lvi.Tag = member;
+                lvi.Text = member.Name;
+                switch (member.WhereDefined.ToString())
+                {
+                    case "LDAP": lvi.SubItems.Add(Globalization.MultilanguageResource.GetString("WhereDefined_LDAP")); break;
+                    case "Local": lvi.SubItems.Add(Globalization.MultilanguageResource.GetString("WhereDefined_Local")); break;
+                    case "Database": lvi.SubItems.Add(Globalization.MultilanguageResource.GetString("WhereDefined_DB")); break;
+                    case "Store": lvi.SubItems.Add(Globalization.MultilanguageResource.GetString("WhereDefined_Store")); break;
+                    case "Application": lvi.SubItems.Add(Globalization.MultilanguageResource.GetString("WhereDefined_Application")); break;
+                }
             }
             return lvi;
         }

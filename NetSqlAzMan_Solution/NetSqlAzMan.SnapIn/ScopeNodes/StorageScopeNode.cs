@@ -229,7 +229,16 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
                 this.ActionsPaneItems.Add(lineAction11);
                 //New Store - MMC.SyncAction
                 MMC.SyncAction createNewStoreAction = new MMC.SyncAction(Globalization.MultilanguageResource.GetString("Menu_Msg360"), Globalization.MultilanguageResource.GetString("Menu_Tit360"));
-                if (!this.storage.IAmAdmin)
+                bool imadmin;
+                try
+                {
+                    imadmin = this.storage.IAmAdmin;
+                }
+                catch
+                {
+                    imadmin = false;
+                }
+                if (!imadmin)
                     createNewStoreAction.Enabled = false;
                 createNewStoreAction.Triggered += new MMC.SyncAction.SyncActionEventHandler(this.newStoreAction_Triggered);
                 this.ActionsPaneItems.Add(createNewStoreAction);
@@ -238,7 +247,8 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
                 this.ActionsPaneItems.Add(lineAction2);
                 //Import - MMC.SyncAction
                 MMC.SyncAction importAction = new MMC.SyncAction(Globalization.MultilanguageResource.GetString("Menu_Msg370"), Globalization.MultilanguageResource.GetString("Menu_Tit370"));
-                if (!this.storage.IAmAdmin)
+                
+                if (!imadmin)
                     importAction.Enabled = false;
                 importAction.Triggered += new MMC.SyncAction.SyncActionEventHandler(importAction_Triggered);
                 this.ActionsPaneItems.Add(importAction);
@@ -248,7 +258,7 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
                 this.ActionsPaneItems.Add(exportAction);
                 //Import From Microsoft Authorization Manager - MMC.SyncAction
                 MMC.SyncAction importAzManAction = new MMC.SyncAction(Globalization.MultilanguageResource.GetString("Menu_Msg390"), Globalization.MultilanguageResource.GetString("Menu_Tit390"));
-                if (!this.storage.IAmAdmin)
+                if (!imadmin)
                     importAzManAction.Enabled = false;
                 importAzManAction.Triggered += new MMC.SyncAction.SyncActionEventHandler(importAzManAction_Triggered);
                 this.ActionsPaneItems.Add(importAzManAction);
@@ -338,14 +348,21 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
             {
                 if (this.storage != null)
                 {
-                    this.storage.OpenConnection();
-                    IAzManStore[] stores = this.storage.GetStores();
-                    List<StoreScopeNode> list = new List<StoreScopeNode>();
-                    for (int i = 0; i < stores.Length; i++)
+                    try
                     {
-                        list.Add(new StoreScopeNode(stores[i]));
+                        this.storage.OpenConnection();
+                        IAzManStore[] stores = this.storage.GetStores();
+                        List<StoreScopeNode> list = new List<StoreScopeNode>();
+                        for (int i = 0; i < stores.Length; i++)
+                        {
+                            list.Add(new StoreScopeNode(stores[i]));
+                        }
+                        this.Children.AddRange(list.ToArray());
                     }
-                    this.Children.AddRange(list.ToArray());
+                    catch (SqlException)
+                    {
+                        this.storage = null;
+                    }
                 }
             }
             finally

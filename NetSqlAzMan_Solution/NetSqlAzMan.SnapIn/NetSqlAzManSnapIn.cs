@@ -13,6 +13,7 @@ using NetSqlAzMan.SnapIn.Forms;
 using NetSqlAzMan.SnapIn.ListViews;
 using NetSqlAzMan.SnapIn.ScopeNodes;
 using System.Configuration;
+using System.Data.SqlClient;
 
 namespace NetSqlAzMan.SnapIn
 {
@@ -165,14 +166,37 @@ namespace NetSqlAzMan.SnapIn
                 }
                 else
                 {
-                    this.dataSource = connectionSettingsString.Split('\n')[0];
-                    this.initialCatalog = connectionSettingsString.Split('\n')[1];
-                    this.security = connectionSettingsString.Split('\n')[2];
-                    this.otherSettings = connectionSettingsString.Split('\n')[3];
-                    this.userId = connectionSettingsString.Split('\n')[4];
-                    this.password = connectionSettingsString.Split('\n')[5];
-                    this.storage = new SqlAzManStorage(frmStorageConnection.ConstructConnectionString(this.dataSource, this.initialCatalog, !(this.security == "Sql"), this.userId, this.password, this.otherSettings));
-                    this.UpdateRootNode();
+                    try
+                    {
+                        this.dataSource = connectionSettingsString.Split('\n')[0];
+                        this.initialCatalog = connectionSettingsString.Split('\n')[1];
+                        this.security = connectionSettingsString.Split('\n')[2];
+                        this.otherSettings = connectionSettingsString.Split('\n')[3];
+                        this.userId = connectionSettingsString.Split('\n')[4];
+                        this.password = connectionSettingsString.Split('\n')[5];
+                        this.storage = new SqlAzManStorage(frmStorageConnection.ConstructConnectionString(this.dataSource, this.initialCatalog, !(this.security == "Sql"), this.userId, this.password, this.otherSettings));
+                        this.UpdateRootNode();
+                    }
+                    catch (SqlException)
+                    {
+                        frmStorageConnection frm = new frmStorageConnection();
+                        DialogResult dr = this.Console.ShowDialog(frm);
+                        if (dr == DialogResult.OK)
+                        {
+                            this.dataSource = frm.dataSource;
+                            this.initialCatalog = frm.initialCatalog;
+                            this.security = frm.security;
+                            this.otherSettings = frm.otherSettings;
+                            this.userId = frm.userId;
+                            this.password = frm.password;
+                            this.storage = new SqlAzManStorage(frmStorageConnection.ConstructConnectionString(this.dataSource, this.initialCatalog, !(this.security == "Sql"), this.userId, this.password, this.otherSettings));
+                            this.UpdateRootNode();
+                        }
+                        else
+                        {
+                            this.storage = null;
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -198,14 +222,51 @@ namespace NetSqlAzMan.SnapIn
         private void UpdateRootNode()
         {
             StorageScopeNode ssn = ((StorageScopeNode)this.RootNode);
-            ssn.storage = this.storage;
-            ssn.dataSource = this.dataSource;
-            ssn.initialCatalog = this.initialCatalog;
-            ssn.security = this.security;
-            ssn.otherSettings = this.otherSettings;
-            ssn.userId = this.userId;
-            ssn.password = this.password;
-            ssn.internalRender();
+            do
+            {
+                try
+                {
+                    ssn.storage = this.storage;
+                    ssn.dataSource = this.dataSource;
+                    ssn.initialCatalog = this.initialCatalog;
+                    ssn.security = this.security;
+                    ssn.otherSettings = this.otherSettings;
+                    ssn.userId = this.userId;
+                    ssn.password = this.password;
+                    ssn.internalRender();
+                }
+                catch (SqlException)
+                {
+                    this.storage = null;
+                    ssn.storage = null;
+                }
+                if (ssn.storage == null)
+                {
+                    if (this.splash != null && this.splash.Visible)
+                    {
+                        System.Threading.Thread.Sleep(1000);
+                        this.splash.Close();
+                        this.splash.Dispose();
+                        Application.DoEvents();
+                    }
+                    frmStorageConnection frm = new frmStorageConnection();
+                    DialogResult dr = this.Console.ShowDialog(frm);
+                    if (dr == DialogResult.OK)
+                    {
+                        this.dataSource = frm.dataSource;
+                        this.initialCatalog = frm.initialCatalog;
+                        this.security = frm.security;
+                        this.otherSettings = frm.otherSettings;
+                        this.userId = frm.userId;
+                        this.password = frm.password;
+                        this.storage = new SqlAzManStorage(frmStorageConnection.ConstructConnectionString(this.dataSource, this.initialCatalog, !(this.security == "Sql"), this.userId, this.password, this.otherSettings));
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            } while (ssn.storage == null);
         }
 
         /// <summary>
