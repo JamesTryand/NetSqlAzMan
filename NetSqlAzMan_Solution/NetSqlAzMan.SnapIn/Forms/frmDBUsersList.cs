@@ -16,6 +16,8 @@ namespace NetSqlAzMan.SnapIn.Forms
         internal IAzManStore store;
         internal IAzManApplication application;
         internal IAzManDBUser[] selectedDBUsers;
+        private IAzManDBUser[] dbUsers = null;
+        private bool refreshing = false;
         public frmDBUsersList()
         {
             InitializeComponent();
@@ -28,7 +30,24 @@ namespace NetSqlAzMan.SnapIn.Forms
         {
             this.HourGlass(true);
             this.DialogResult = DialogResult.None;
-            this.RefreshApplicationList();
+            
+            //Filtering
+            this.cmbFieldName.Items.Clear();
+            this.cmbOperator.Items.Clear();
+            this.cmbOperator.Items.AddRange(
+                new[] {
+                    "Is", 
+                    "Is not", 
+                    "Starts with", 
+                    "Ends with", 
+                    "Does not start with", 
+                    "Does not end with",
+                    "Contains", 
+                    "Does not contain"
+                });
+            this.cmbOperator.SelectedIndex = 0;
+            this.txtFieldValue.Text = String.Empty;
+            this.RefreshDBUsersList();
             this.PreSortListView(this.lsvDBUsers);
             //PorkAround: http://lab.msdn.microsoft.com/ProductFeedback/viewFeedback.aspx?feedbackId=FDBK49664
             ImageList clonedImageList = new ImageList();
@@ -40,6 +59,7 @@ namespace NetSqlAzMan.SnapIn.Forms
             //PorkAround End
             /*Application.DoEvents();*/
             NetSqlAzMan.SnapIn.Globalization.ResourcesManager.CollectResources(this);
+            this.lblFilter.Text = "Filter";
         }
 
         private void PreSortListView(ListView lv)
@@ -55,28 +75,106 @@ namespace NetSqlAzMan.SnapIn.Forms
             lv.Sort();
         }
 
-        private void RefreshApplicationList()
+        private void RefreshDBUsersList()
         {
+            if (this.refreshing) return;
+            this.refreshing = true;
             this.HourGlass(true);
-            this.lsvDBUsers.Items.Clear();
-            IAzManDBUser[] dbUsers = null;
-            if (this.store != null)
-                dbUsers = this.store.GetDBUsers();
-            else if (this.application != null)
-                dbUsers = this.application.GetDBUsers();
-            else
-                throw new System.InvalidOperationException(Globalization.MultilanguageResource.GetString("frmDBUsersList_Msg10"));
-            foreach (IAzManDBUser dbUser in dbUsers)
+            this.lsvDBUsers.SuspendLayout();
+            try
             {
-                    ListViewItem lvi = new ListViewItem();
-                    lvi.Tag = dbUser;
-                    lvi.ImageIndex = 0;
-                    lvi.Text = dbUser.UserName;
-                    lvi.SubItems.Add(dbUser.CustomSid.StringValue);
-                    lvi.SubItems.Add(Globalization.MultilanguageResource.GetString("frmDBUsersList_Msg20"));
-                    this.lsvDBUsers.Items.Add(lvi);
+                this.lsvDBUsers.Items.Clear();
+
+                if (this.dbUsers == null)
+                {
+                    this.cmbFieldName.Items.Add("Name");
+                    this.cmbFieldName.Items.Add("Custom Sid");
+                    if (this.store != null)
+                        this.dbUsers = this.store.GetDBUsers();
+                    else if (this.application != null)
+                        this.dbUsers = this.application.GetDBUsers();
+                    else
+                        throw new System.InvalidOperationException(Globalization.MultilanguageResource.GetString("frmDBUsersList_Msg10"));
+
+                    if (this.dbUsers.Length > 0)
+                    {
+                        foreach (var customColumn in this.dbUsers[0].CustomColumns)
+                        {
+                            this.lsvDBUsers.Columns.Add(customColumn.Key);
+                            this.cmbFieldName.Items.Add(customColumn.Key);
+                        }
+                    }
+                    this.cmbFieldName.SelectedIndex = 0;
+                }
+                
+                foreach (IAzManDBUser dbUser in this.dbUsers)
+                {
+                    if (this.isInFilter(dbUser, this.cmbFieldName.SelectedItem.ToString(), this.cmbOperator.SelectedItem.ToString(), this.txtFieldValue.Text))
+                    {
+                        ListViewItem lvi = new ListViewItem();
+                        lvi.Tag = dbUser;
+                        lvi.ImageIndex = 0;
+                        lvi.Text = dbUser.UserName;
+                        lvi.SubItems.Add(dbUser.CustomSid.StringValue);
+                        lvi.SubItems.Add(Globalization.MultilanguageResource.GetString("frmDBUsersList_Msg20"));
+                        //Custom Columns
+                        foreach (var customColumns in dbUser.CustomColumns)
+                        {
+                            if (customColumns.Value == null && customColumns.Value == DBNull.Value)
+                            {
+                                lvi.SubItems.Add(String.Empty);
+                            }
+                            else
+                            {
+                                lvi.SubItems.Add(customColumns.Value.ToString());
+                            }
+                        }
+                        this.lsvDBUsers.Items.Add(lvi);
+                    }
+                }
             }
-            this.HourGlass(false);
+            finally
+            {
+                this.HourGlass(false);
+                this.lsvDBUsers.ResumeLayout(true);
+                this.refreshing = false;
+            }
+        }
+
+        private bool isInFilter(IAzManDBUser dbuser, string fieldName, string filterOperator, string fieldValue)
+        {
+            if (fieldValue.Trim() == String.Empty)
+                return true;
+            //Left Value
+            string leftValue = String.Empty;
+            if (String.Compare(fieldName, "Name", true) == 0)
+                leftValue = dbuser.UserName;
+            else if (String.Compare(fieldName, "Custom Sid", true) == 0)
+                leftValue = dbuser.CustomSid.StringValue;
+            else
+            {
+                foreach (var customColumn in dbuser.CustomColumns)
+                {
+                    if (String.Compare(fieldName, customColumn.Key, true) == 0)
+                    {
+                        leftValue = customColumn.Value.ToString();
+                        break;
+                    }
+                }
+            }
+            //Right Value
+            string rightValue = fieldValue.Trim();
+            //Operator
+            if (filterOperator == "Is" && String.Compare(leftValue, rightValue, true) == 0) return true;
+            if (filterOperator == "Is not" && String.Compare(leftValue, rightValue, true) != 0) return true;
+            if (filterOperator == "Starts with" && leftValue.StartsWith(rightValue, StringComparison.CurrentCultureIgnoreCase)) return true;
+            if (filterOperator == "Ends with" && leftValue.EndsWith(rightValue, StringComparison.CurrentCultureIgnoreCase)) return true;
+            if (filterOperator == "Does not start with" && !leftValue.StartsWith(rightValue, StringComparison.CurrentCultureIgnoreCase)) return true;
+            if (filterOperator == "Does not end with" && !leftValue.EndsWith(rightValue, StringComparison.CurrentCultureIgnoreCase)) return true;
+            if (filterOperator == "Contains" && leftValue.IndexOf(rightValue, StringComparison.CurrentCultureIgnoreCase)!=-1) return true;
+            if (filterOperator == "Does not contain" && leftValue.IndexOf(rightValue, StringComparison.CurrentCultureIgnoreCase) == -1) return true;
+            //otherwise
+            return false;
         }
 
         protected void HourGlass(bool switchOn)
@@ -132,6 +230,12 @@ namespace NetSqlAzMan.SnapIn.Forms
         private void frmDBUsersList_Activated(object sender, EventArgs e)
         {
             this.HourGlass(false);
+        }
+
+        private void Filters_Changed(object sender, EventArgs e)
+        {
+            if (this.txtFieldValue.Text.Trim()!=String.Empty)
+                this.RefreshDBUsersList();
         }
     }
 }

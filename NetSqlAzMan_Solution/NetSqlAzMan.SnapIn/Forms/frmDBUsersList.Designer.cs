@@ -43,6 +43,10 @@ namespace NetSqlAzMan.SnapIn.Forms
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblNote = new System.Windows.Forms.Label();
+            this.lblFilter = new System.Windows.Forms.Label();
+            this.cmbFieldName = new System.Windows.Forms.ComboBox();
+            this.cmbOperator = new System.Windows.Forms.ComboBox();
+            this.txtFieldValue = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +64,7 @@ namespace NetSqlAzMan.SnapIn.Forms
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.Location = new System.Drawing.Point(392, 298);
+            this.btnOk.Location = new System.Drawing.Point(530, 410);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 1;
@@ -72,7 +76,7 @@ namespace NetSqlAzMan.SnapIn.Forms
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(473, 298);
+            this.btnCancel.Location = new System.Drawing.Point(611, 410);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
@@ -85,18 +89,18 @@ namespace NetSqlAzMan.SnapIn.Forms
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(17, 290);
+            this.panel1.Location = new System.Drawing.Point(17, 402);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(531, 1);
+            this.panel1.Size = new System.Drawing.Size(669, 1);
             this.panel1.TabIndex = 27;
             // 
             // lblInfo
             // 
             this.lblInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblInfo.Location = new System.Drawing.Point(50, 271);
+            this.lblInfo.Location = new System.Drawing.Point(50, 372);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(493, 16);
+            this.lblInfo.Size = new System.Drawing.Size(631, 27);
             this.lblInfo.TabIndex = 28;
             this.lblInfo.Text = "DB Users list.";
             this.lblInfo.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -113,11 +117,11 @@ namespace NetSqlAzMan.SnapIn.Forms
             this.typeHeader1});
             this.lsvDBUsers.HideSelection = false;
             this.lsvDBUsers.LargeImageList = this.imageList1;
-            this.lsvDBUsers.Location = new System.Drawing.Point(50, 25);
+            this.lsvDBUsers.Location = new System.Drawing.Point(50, 50);
             this.lsvDBUsers.MultiSelect = false;
             this.lsvDBUsers.Name = "lsvDBUsers";
             this.lsvDBUsers.ShowGroups = false;
-            this.lsvDBUsers.Size = new System.Drawing.Size(493, 201);
+            this.lsvDBUsers.Size = new System.Drawing.Size(631, 288);
             this.lsvDBUsers.SmallImageList = this.imageList1;
             this.lsvDBUsers.TabIndex = 0;
             this.lsvDBUsers.UseCompatibleStateImageBehavior = false;
@@ -164,12 +168,58 @@ namespace NetSqlAzMan.SnapIn.Forms
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNote.ForeColor = System.Drawing.Color.Blue;
-            this.lblNote.Location = new System.Drawing.Point(47, 229);
+            this.lblNote.Location = new System.Drawing.Point(47, 341);
             this.lblNote.Name = "lblNote";
-            this.lblNote.Size = new System.Drawing.Size(496, 31);
+            this.lblNote.Size = new System.Drawing.Size(634, 31);
             this.lblNote.TabIndex = 33;
             this.lblNote.Text = "Note: to change DB Users list, modify \"dbo.GetDBUsers\" table-function on NetSqlAz" +
                 "ManStorage DB.";
+            // 
+            // lblFilter
+            // 
+            this.lblFilter.AutoSize = true;
+            this.lblFilter.Location = new System.Drawing.Point(50, 30);
+            this.lblFilter.Name = "lblFilter";
+            this.lblFilter.Size = new System.Drawing.Size(32, 13);
+            this.lblFilter.TabIndex = 34;
+            this.lblFilter.Text = "Filter:";
+            // 
+            // cmbFieldName
+            // 
+            this.cmbFieldName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFieldName.FormattingEnabled = true;
+            this.cmbFieldName.Location = new System.Drawing.Point(85, 23);
+            this.cmbFieldName.Name = "cmbFieldName";
+            this.cmbFieldName.Size = new System.Drawing.Size(143, 21);
+            this.cmbFieldName.TabIndex = 35;
+            this.cmbFieldName.SelectedIndexChanged += new System.EventHandler(this.Filters_Changed);
+            // 
+            // cmbOperator
+            // 
+            this.cmbOperator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbOperator.FormattingEnabled = true;
+            this.cmbOperator.Items.AddRange(new object[] {
+            "Equal to",
+            "Different from",
+            "Start with",
+            "End with",
+            "Not start with",
+            "Not end with"});
+            this.cmbOperator.Location = new System.Drawing.Point(234, 23);
+            this.cmbOperator.Name = "cmbOperator";
+            this.cmbOperator.Size = new System.Drawing.Size(103, 21);
+            this.cmbOperator.TabIndex = 36;
+            this.cmbOperator.SelectedIndexChanged += new System.EventHandler(this.Filters_Changed);
+            // 
+            // txtFieldValue
+            // 
+            this.txtFieldValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFieldValue.Location = new System.Drawing.Point(343, 23);
+            this.txtFieldValue.Name = "txtFieldValue";
+            this.txtFieldValue.Size = new System.Drawing.Size(338, 20);
+            this.txtFieldValue.TabIndex = 37;
+            this.txtFieldValue.TextChanged += new System.EventHandler(this.Filters_Changed);
             // 
             // frmDBUsersList
             // 
@@ -177,7 +227,11 @@ namespace NetSqlAzMan.SnapIn.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(558, 333);
+            this.ClientSize = new System.Drawing.Size(696, 445);
+            this.Controls.Add(this.txtFieldValue);
+            this.Controls.Add(this.cmbOperator);
+            this.Controls.Add(this.cmbFieldName);
+            this.Controls.Add(this.lblFilter);
             this.Controls.Add(this.lblNote);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lsvDBUsers);
@@ -190,9 +244,9 @@ namespace NetSqlAzMan.SnapIn.Forms
             this.MinimumSize = new System.Drawing.Size(187, 217);
             this.Name = "frmDBUsersList";
             this.Text = " DB Users list";
+            this.Load += new System.EventHandler(this.frmDBUsersList_Load);
             this.Activated += new System.EventHandler(this.frmDBUsersList_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDBUsersList_FormClosing);
-            this.Load += new System.EventHandler(this.frmDBUsersList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -215,6 +269,10 @@ namespace NetSqlAzMan.SnapIn.Forms
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblNote;
+        private System.Windows.Forms.Label lblFilter;
+        private System.Windows.Forms.TextBox txtFieldValue;
+        private System.Windows.Forms.ComboBox cmbOperator;
+        private System.Windows.Forms.ComboBox cmbFieldName;
 
     }
 }

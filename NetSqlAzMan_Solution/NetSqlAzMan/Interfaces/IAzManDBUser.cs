@@ -22,5 +22,11 @@ namespace NetSqlAzMan.Interfaces
         /// </summary>
         [DataMember]
         string UserName { get; }
+        /// <summary>
+        /// Gets the custom columns.
+        /// </summary>
+        /// <value>The custom columns.</value>
+        [DataMember]
+        Dictionary<string, object> CustomColumns { get; }
     }
 }

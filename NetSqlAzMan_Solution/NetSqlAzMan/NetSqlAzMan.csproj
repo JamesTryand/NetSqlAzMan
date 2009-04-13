@@ -93,6 +93,9 @@
     <Compile Include="Interfaces\IAzManBizRule.cs" />
     <Compile Include="Interfaces\IAzManDBUser.cs" />
     <Compile Include="Interfaces\IAzManSecurable.cs" />
+    <Compile Include="LINQ\NetSqlAzManStorage.cs">
+      <DependentUpon>NetSqlAzManStorage.dbml</DependentUpon>
+    </Compile>
     <Compile Include="LINQ\NetSqlAzManStorage.CustomCode.cs" />
     <Compile Include="LINQ\NetSqlAzManStorage.designer.cs">
       <AutoGen>True</AutoGen>
@@ -175,8 +178,8 @@
   <ItemGroup>
     <None Include="LINQ\NetSqlAzManStorage.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>NetSqlAzManStorage.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>NetSqlAzManStorage.designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

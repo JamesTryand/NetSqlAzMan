@@ -1186,15 +1186,15 @@ namespace NetSqlAzMan
         /// <returns></returns>
         public IAzManDBUser GetDBUser(string userName)
         {
-            var dtDBUsers = this.db.GetDBUsers(this.store.Name, this.name, null, userName);
+            var dtDBUsers = this.db.GetDBUsersEx(this.store.Name, this.name, null, userName);
             IAzManDBUser result;
-            if (dtDBUsers.Count() == 0)
+            if (dtDBUsers.Rows.Count == 0)
             {
                 result = null;
             }
             else
             {
-                result = new SqlAzManDBUser(new SqlAzManSID(dtDBUsers.First().DBUserSid.ToArray(),true), dtDBUsers.First().DBUserName);
+                result = new SqlAzManDBUser(dtDBUsers.Rows[0]);
             }
             return result;
         }
@@ -1204,12 +1204,12 @@ namespace NetSqlAzMan
         /// <returns></returns>
         public IAzManDBUser[] GetDBUsers()
         {
-            var dtDBUsers = this.db.GetDBUsers(this.store.Name, this.name, null, null);
-            IAzManDBUser[] result = new IAzManDBUser[dtDBUsers.Count()];
+            var dtDBUsers = this.db.GetDBUsersEx(this.store.Name, this.name, null, null);
+            IAzManDBUser[] result = new IAzManDBUser[dtDBUsers.Rows.Count];
             int i = 0;
-            foreach (var row in dtDBUsers)
+            foreach (DataRow row in dtDBUsers.Rows)
             {
-                result[i++] = new SqlAzManDBUser(new SqlAzManSID(row.DBUserSid.ToArray(),true), row.DBUserName);
+                result[i++] = new SqlAzManDBUser(row);
             }
             return result;
         }
