@@ -339,7 +339,7 @@ namespace NetSqlAzMan_WinTest
 
         #endregion
 
-        [NetSqlAzManAuthorization("Accesso", "Enabled", false)]
+        [NetSqlAzManAuthorization("Accesso", "Visible", false)] //If NOT CheckAccess(...) => button1.Visible = false
         private System.Windows.Forms.Button button1;
         [NetSqlAzManAuthorization("Crea Progetto", "Enabled", false)]
         private System.Windows.Forms.Button button2;
@@ -348,7 +348,7 @@ namespace NetSqlAzMan_WinTest
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
-        [NetSqlAzManAuthorization("Accesso", "Enabled", false)]
+        [NetSqlAzManAuthorization("Accesso", "Enabled", false)] //If NOT CheckAccess(...) => saveToolStripMenuItem.Enabled = false
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;

@@ -24,7 +24,8 @@ namespace NetSqlAzMan_WebTest2
                 "data source=(local);Initial Catalog=NetSqlAzManStorage;User id=sa;password=",
                 "Eidos",
                 "DB Persone",
-                this.Request.LogonUserIdentity);
+                this.Request.LogonUserIdentity,
+                false);
             ctx.CheckSecurity(this);
         }
 

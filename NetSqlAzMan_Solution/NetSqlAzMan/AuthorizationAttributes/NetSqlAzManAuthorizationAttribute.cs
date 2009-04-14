@@ -6,7 +6,7 @@ using System.Security.Principal;
 using NetSqlAzMan.Interfaces;
 using System.Reflection;
 using System.Collections;
-using System.ServiceModel;
+using NetSqlAzMan.Cache;
 
 namespace NetSqlAzMan
 {
@@ -76,21 +76,30 @@ namespace NetSqlAzMan
         {
             if (!String.IsNullOrEmpty(context._storageConnectionString))
             {
-                //Direct Access
-                using (SqlAzManStorage storage = new SqlAzManStorage(context._storageConnectionString))
+                if (context.storageCache != null)
                 {
+                    //Storage Cache
                     AuthorizationType auth = AuthorizationType.Neutral;
                     if (context._windowIdentity != null)
-                        auth = storage.CheckAccess(context.StoreName, context.ApplicationName, itemName, context._windowIdentity, ValidFor.HasValue ? ValidFor.Value : DateTime.Now, OperationsOnly, ContextParameters);
+                        auth = context.storageCache.CheckAccess(context.StoreName, context.ApplicationName, itemName, context._windowIdentity.GetUserBinarySSid(), context._windowIdentity.GetGroupsBinarySSid(), ValidFor.HasValue ? ValidFor.Value : DateTime.Now, OperationsOnly, ContextParameters);
                     else if (context._dbuserIdentity != null)
-                        auth = storage.CheckAccess(context.StoreName, context.ApplicationName, itemName, context._dbuserIdentity, ValidFor.HasValue ? ValidFor.Value : DateTime.Now, OperationsOnly, ContextParameters);
+                        auth = context.storageCache.CheckAccess(context.StoreName, context.ApplicationName, itemName, context._dbuserIdentity.CustomSid.StringValue, ValidFor.HasValue ? ValidFor.Value : DateTime.Now, OperationsOnly, ContextParameters);
                     return (auth == AuthorizationType.AllowWithDelegation) || (auth == AuthorizationType.Allow);
+                    
                 }
-            }
-            else if (context._WCFCacheServiceEndPoint != null)
-            { 
-                //WCF Cache Service
-                return false;
+                else
+                {
+                    //Direct Access
+                    using (SqlAzManStorage storage = new SqlAzManStorage(context._storageConnectionString))
+                    {
+                        AuthorizationType auth = AuthorizationType.Neutral;
+                        if (context._windowIdentity != null)
+                            auth = storage.CheckAccess(context.StoreName, context.ApplicationName, itemName, context._windowIdentity, ValidFor.HasValue ? ValidFor.Value : DateTime.Now, OperationsOnly, ContextParameters);
+                        else if (context._dbuserIdentity != null)
+                            auth = storage.CheckAccess(context.StoreName, context.ApplicationName, itemName, context._dbuserIdentity, ValidFor.HasValue ? ValidFor.Value : DateTime.Now, OperationsOnly, ContextParameters);
+                        return (auth == AuthorizationType.AllowWithDelegation) || (auth == AuthorizationType.Allow);
+                    }
+                }
             }
             else
             {

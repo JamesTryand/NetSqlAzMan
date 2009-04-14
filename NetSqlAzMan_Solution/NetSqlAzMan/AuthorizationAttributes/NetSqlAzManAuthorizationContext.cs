@@ -7,6 +7,7 @@ using NetSqlAzMan.Interfaces;
 using System.Reflection;
 using System.Collections;
 using System.ServiceModel;
+using NetSqlAzMan.Cache;
 
 namespace NetSqlAzMan
 {
@@ -27,7 +28,6 @@ namespace NetSqlAzMan
         #endregion Events
         #region Fields & Properties
         internal string _storageConnectionString;
-        internal EndpointAddress _WCFCacheServiceEndPoint;
         /// <summary>
         /// Gets or sets the name of the store.
         /// </summary>
@@ -39,8 +39,35 @@ namespace NetSqlAzMan
         /// <value>The name of the application.</value>
         public string ApplicationName { get; set; }
 
+        
+
         internal WindowsIdentity _windowIdentity;
         internal IAzManDBUser _dbuserIdentity;
+        internal StorageCache storageCache;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether [use storage cache].
+        /// </summary>
+        /// <value><c>true</c> if [use storage cache]; otherwise, <c>false</c>.</value>
+        public bool UseStorageCache
+        {
+            get
+            {
+                return this.storageCache != null;
+            }
+            set
+            {
+                if (!value)
+                {
+                    this.storageCache = null;
+                }
+                else if (this.storageCache == null)
+                {
+                    this.storageCache = new StorageCache(this.StorageConnectionString);
+                    this.storageCache.BuildStorageCache(this.StoreName, this.ApplicationName);
+                }
+            }
+        }
 
         /// <summary>
         /// Gets or sets the windows identity.
@@ -89,24 +116,6 @@ namespace NetSqlAzMan
             set
             {
                 this._storageConnectionString = value;
-                this._WCFCacheServiceEndPoint = null;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the WCF cache service URL.
-        /// </summary>
-        /// <value>The WCF cache service URL.</value>
-        public EndpointAddress WCFCacheServiceEndPoint
-        {
-            get
-            {
-                return this._WCFCacheServiceEndPoint;
-            }
-            set
-            {
-                this._WCFCacheServiceEndPoint = value;
-                this._storageConnectionString = null;
             }
         }
         #endregion Fields & Properties
@@ -118,12 +127,14 @@ namespace NetSqlAzMan
         /// <param name="storeName">Name of the store.</param>
         /// <param name="applicationName">Name of the application.</param>
         /// <param name="windowsIdentity">The windows identity.</param>
-        public NetSqlAzManAuthorizationContext(string storageConnectionString, string storeName, string applicationName, WindowsIdentity windowsIdentity)
+        /// <param name="useStorageCache">if set to <c>true</c> [use storage cache].</param>
+        public NetSqlAzManAuthorizationContext(string storageConnectionString, string storeName, string applicationName, WindowsIdentity windowsIdentity, bool useStorageCache)
         {
             this.StorageConnectionString = storageConnectionString;
             this.StoreName = storeName;
             this.ApplicationName = applicationName;
             this.WindowsIdentity = windowsIdentity;
+            this.UseStorageCache = useStorageCache;
         }
         /// <summary>
         /// Initializes the context.
@@ -132,40 +143,14 @@ namespace NetSqlAzMan
         /// <param name="storeName">Name of the store.</param>
         /// <param name="applicationName">Name of the application.</param>
         /// <param name="dbUserIdentity">The db user identity.</param>
-        public NetSqlAzManAuthorizationContext(string storageConnectionString, string storeName, string applicationName, IAzManDBUser dbUserIdentity)
+        /// <param name="useStorageCache">if set to <c>true</c> [use storage cache].</param>
+        public NetSqlAzManAuthorizationContext(string storageConnectionString, string storeName, string applicationName, IAzManDBUser dbUserIdentity, bool useStorageCache)
         {
             this.StorageConnectionString = storageConnectionString;
             this.StoreName = storeName;
             this.ApplicationName = applicationName;
             this.DBUserIdentity = dbUserIdentity;
-        }
-        /// <summary>
-        /// Initializes the context.
-        /// </summary>
-        /// <param name="WCFCacheServiceEndPoint">The WCF cache service end point.</param>
-        /// <param name="storeName">Name of the store.</param>
-        /// <param name="applicationName">Name of the application.</param>
-        /// <param name="windowsIdentity">The windows identity.</param>
-        public NetSqlAzManAuthorizationContext(EndpointAddress WCFCacheServiceEndPoint, string storeName, string applicationName, WindowsIdentity windowsIdentity)
-        {
-            this.WCFCacheServiceEndPoint = WCFCacheServiceEndPoint;
-            this.StoreName = storeName;
-            this.ApplicationName = applicationName;
-            this.WindowsIdentity = windowsIdentity;
-        }
-        /// <summary>
-        /// Initializes the context.
-        /// </summary>
-        /// <param name="WCFCacheServiceEndPoint">The WCF cache service end point.</param>
-        /// <param name="storeName">Name of the store.</param>
-        /// <param name="applicationName">Name of the application.</param>
-        /// <param name="dbUserIdentity">The db user identity.</param>
-        public NetSqlAzManAuthorizationContext(EndpointAddress WCFCacheServiceEndPoint, string storeName, string applicationName, IAzManDBUser dbUserIdentity)
-        {
-            this.WCFCacheServiceEndPoint = WCFCacheServiceEndPoint;
-            this.StoreName = storeName;
-            this.ApplicationName = applicationName;
-            this.DBUserIdentity = dbUserIdentity;
+            this.UseStorageCache = useStorageCache;
         }
         private void internalCheckSecurity(object o, List<int> processedControls)
         {
@@ -258,6 +243,19 @@ namespace NetSqlAzMan
         {
             this.internalCheckSecurity(o, new List<int>());
         }
+
+        /// <summary>
+        /// Invalidates the Storage Cache.
+        /// </summary>
+        public void InvalidateCache()
+        {
+            if (this.UseStorageCache)
+            {
+                this.UseStorageCache = false;
+                this.UseStorageCache = true;
+            }
+        }
+
         #endregion Methods
     }
 }
