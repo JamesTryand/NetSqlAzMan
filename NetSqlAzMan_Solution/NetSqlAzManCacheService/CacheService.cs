@@ -93,7 +93,7 @@ namespace NetSqlAzMan.Cache.Service
         public void InvalidateStoreApplicationCache(string storeName, string applicationName)
         {
             Debug.WriteLine(String.Format("InvalidateStoreApplicationCache called for Store '{0}' - Application '{1}'.", storeName, applicationName));
-            CacheService.startStorageBuildCache(storeName);
+            CacheService.startStorageBuildCache(storeName, applicationName);
         }
 
         public AuthorizationType CheckAccess(string storeName, string applicationName, string itemName, string userSSid, string[] groupsSSid, DateTime validFor, bool operationsOnly, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters)
