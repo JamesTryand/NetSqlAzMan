@@ -38,3 +38,4 @@ namespace NetSqlAzMan.LINQ
         }
     }
 }
+

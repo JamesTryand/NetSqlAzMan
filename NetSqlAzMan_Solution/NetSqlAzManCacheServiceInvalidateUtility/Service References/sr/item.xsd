@@ -97,31 +97,6 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="InvalidateStoreCache">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="storeName" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="InvalidateStoreCacheResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="InvalidateStoreApplicationCache">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="storeName" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="applicationName" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="InvalidateStoreApplicationCacheResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="GetItemNames">
     <xs:complexType>
       <xs:sequence>

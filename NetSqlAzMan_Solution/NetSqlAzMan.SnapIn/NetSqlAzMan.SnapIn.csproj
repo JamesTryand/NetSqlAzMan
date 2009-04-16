@@ -645,6 +645,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="ObjectPikerHelper2\ReadMe.txt" />
+    <None Include="app.config" />
     <None Include="Service References\wcf\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

@@ -68,18 +68,6 @@
   <wsdl:message name="ICacheService_InvalidateCache_OutputMessage">
     <wsdl:part name="parameters" element="tns:InvalidateCacheResponse" />
   </wsdl:message>
-  <wsdl:message name="ICacheService_InvalidateStoreCache_InputMessage">
-    <wsdl:part name="parameters" element="tns:InvalidateStoreCache" />
-  </wsdl:message>
-  <wsdl:message name="ICacheService_InvalidateStoreCache_OutputMessage">
-    <wsdl:part name="parameters" element="tns:InvalidateStoreCacheResponse" />
-  </wsdl:message>
-  <wsdl:message name="ICacheService_InvalidateStoreApplicationCache_InputMessage">
-    <wsdl:part name="parameters" element="tns:InvalidateStoreApplicationCache" />
-  </wsdl:message>
-  <wsdl:message name="ICacheService_InvalidateStoreApplicationCache_OutputMessage">
-    <wsdl:part name="parameters" element="tns:InvalidateStoreApplicationCacheResponse" />
-  </wsdl:message>
   <wsdl:message name="ICacheService_GetItemNames_InputMessage">
     <wsdl:part name="parameters" element="tns:GetItemNames" />
   </wsdl:message>
@@ -112,14 +100,6 @@
     <wsdl:operation name="InvalidateCache">
       <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/InvalidateCache" message="tns:ICacheService_InvalidateCache_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICacheService/InvalidateCacheResponse" message="tns:ICacheService_InvalidateCache_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="InvalidateStoreCache">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/InvalidateStoreCache" message="tns:ICacheService_InvalidateStoreCache_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICacheService/InvalidateStoreCacheResponse" message="tns:ICacheService_InvalidateStoreCache_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="InvalidateStoreApplicationCache">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/InvalidateStoreApplicationCache" message="tns:ICacheService_InvalidateStoreApplicationCache_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICacheService/InvalidateStoreApplicationCacheResponse" message="tns:ICacheService_InvalidateStoreApplicationCache_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetItemNames">
       <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/GetItemNames" message="tns:ICacheService_GetItemNames_InputMessage" />
@@ -171,24 +151,6 @@
     </wsdl:operation>
     <wsdl:operation name="InvalidateCache">
       <soap12:operation soapAction="http://tempuri.org/ICacheService/InvalidateCache" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="InvalidateStoreCache">
-      <soap12:operation soapAction="http://tempuri.org/ICacheService/InvalidateStoreCache" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="InvalidateStoreApplicationCache">
-      <soap12:operation soapAction="http://tempuri.org/ICacheService/InvalidateStoreApplicationCache" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

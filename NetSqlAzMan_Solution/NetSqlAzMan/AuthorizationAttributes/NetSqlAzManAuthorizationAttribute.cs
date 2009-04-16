@@ -76,14 +76,14 @@ namespace NetSqlAzMan
         {
             if (!String.IsNullOrEmpty(context._storageConnectionString))
             {
-                if (context.storageCache != null)
+                if (context.StorageCache != null)
                 {
                     //Storage Cache
                     AuthorizationType auth = AuthorizationType.Neutral;
                     if (context._windowIdentity != null)
-                        auth = context.storageCache.CheckAccess(context.StoreName, context.ApplicationName, itemName, context._windowIdentity.GetUserBinarySSid(), context._windowIdentity.GetGroupsBinarySSid(), ValidFor.HasValue ? ValidFor.Value : DateTime.Now, OperationsOnly, ContextParameters);
+                        auth = context.StorageCache.CheckAccess(context.StoreName, context.ApplicationName, itemName, context._windowIdentity.GetUserBinarySSid(), context._windowIdentity.GetGroupsBinarySSid(), ValidFor.HasValue ? ValidFor.Value : DateTime.Now, OperationsOnly, ContextParameters);
                     else if (context._dbuserIdentity != null)
-                        auth = context.storageCache.CheckAccess(context.StoreName, context.ApplicationName, itemName, context._dbuserIdentity.CustomSid.StringValue, ValidFor.HasValue ? ValidFor.Value : DateTime.Now, OperationsOnly, ContextParameters);
+                        auth = context.StorageCache.CheckAccess(context.StoreName, context.ApplicationName, itemName, context._dbuserIdentity.CustomSid.StringValue, ValidFor.HasValue ? ValidFor.Value : DateTime.Now, OperationsOnly, ContextParameters);
                     return (auth == AuthorizationType.AllowWithDelegation) || (auth == AuthorizationType.Allow);
                     
                 }

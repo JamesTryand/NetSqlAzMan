@@ -28,6 +28,8 @@ namespace NetSqlAzMan
         #endregion Events
         #region Fields & Properties
         internal string _storageConnectionString;
+        internal WindowsIdentity _windowIdentity;
+        internal IAzManDBUser _dbuserIdentity;
         /// <summary>
         /// Gets or sets the name of the store.
         /// </summary>
@@ -38,13 +40,11 @@ namespace NetSqlAzMan
         /// </summary>
         /// <value>The name of the application.</value>
         public string ApplicationName { get; set; }
-
-        
-
-        internal WindowsIdentity _windowIdentity;
-        internal IAzManDBUser _dbuserIdentity;
-        internal StorageCache storageCache;
-
+        /// <summary>
+        /// Gets or sets the storage cache.
+        /// </summary>
+        /// <value>The storage cache.</value>
+        public StorageCache StorageCache { get; set; }
         /// <summary>
         /// Gets or sets a value indicating whether [use storage cache].
         /// </summary>
@@ -53,18 +53,18 @@ namespace NetSqlAzMan
         {
             get
             {
-                return this.storageCache != null;
+                return this.StorageCache != null;
             }
             set
             {
                 if (!value)
                 {
-                    this.storageCache = null;
+                    this.StorageCache = null;
                 }
-                else if (this.storageCache == null)
+                else if (this.StorageCache == null)
                 {
-                    this.storageCache = new StorageCache(this.StorageConnectionString);
-                    this.storageCache.BuildStorageCache(this.StoreName, this.ApplicationName);
+                    this.StorageCache = new StorageCache(this.StorageConnectionString);
+                    this.StorageCache.BuildStorageCache(this.StoreName, this.ApplicationName);
                 }
             }
         }
@@ -238,7 +238,7 @@ namespace NetSqlAzMan
         /// <summary>
         /// Checks the security.
         /// </summary>
-        /// <param name="o">The o.</param>
+        /// <param name="o">The Object containing fields marked with the NetSqlAzManAuthorization Attributes.</param>
         public void CheckSecurity(object o)
         {
             this.internalCheckSecurity(o, new List<int>());
