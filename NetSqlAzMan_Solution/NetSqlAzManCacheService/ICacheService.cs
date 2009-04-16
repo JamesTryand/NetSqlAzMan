@@ -24,9 +24,9 @@ namespace NetSqlAzMan.Cache.Service
         AuthorizationType CheckAccess(string storeName, string applicationName, string itemName, string DBuserSSid, DateTime validFor, bool operationsOnly, params KeyValuePair<string, object>[] contextParameters);
         [OperationContract(Name = "InvalidateCache")]
         void InvalidateCache();
-        [OperationContract(Name = "InvalidateStoreCache")]
+        //[OperationContract(Name = "InvalidateStoreCache")]
         void InvalidateStoreCache(string storeName);
-        [OperationContract(Name = "InvalidateStoreApplicationCache")]
+        //[OperationContract(Name = "InvalidateStoreApplicationCache")]
         void InvalidateStoreApplicationCache(string storeName, string applicationName);
         [OperationContract()]
         string[] GetItemNames(string storeName, string applicationName, ItemType type);

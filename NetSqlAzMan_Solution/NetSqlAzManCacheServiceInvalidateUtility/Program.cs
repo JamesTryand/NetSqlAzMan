@@ -22,12 +22,12 @@ namespace NetSqlAzManCacheServiceInvalidateUtility
             Console.WriteLine("2/3) NetSqlAzManCacheService found at: {0}", csc.Endpoint.ListenUri.ToString());
             try
             {
-                Console.Write("3/3) InvalidateCache invoke ... ");
-                if (args.Length == 2)
-                    csc.InvalidateStoreApplicationCache(args[0], args[1]);
-                else if (args.Length == 1)
-                    csc.InvalidateStoreCache(args[0]);
-                else
+                //Console.Write("3/3) InvalidateCache invoke ... ");
+                //if (args.Length == 2)
+                //    csc.InvalidateStoreApplicationCache(args[0], args[1]);
+                //else if (args.Length == 1)
+                //    csc.InvalidateStoreCache(args[0]);
+                //else
                     csc.InvalidateCache();
                 Console.WriteLine("done.");
                 Console.WriteLine();
