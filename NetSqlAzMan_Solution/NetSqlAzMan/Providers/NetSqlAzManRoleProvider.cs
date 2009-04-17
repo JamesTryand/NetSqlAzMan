@@ -320,11 +320,12 @@ namespace NetSqlAzMan.Providers
             if (this.userLookupType=="LDAP")
             {
                 WindowsIdentity wid = null;
-                if (System.Web.HttpContext.Current != null && System.Web.HttpContext.Current.User.Identity as WindowsIdentity != null && String.Compare(this.getFQUN(username), System.Web.HttpContext.Current.User.Identity.Name, true) == 0)
-                {
-                    wid = (WindowsIdentity)System.Web.HttpContext.Current.User.Identity;
-                }
-                else if (String.Compare(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).Name, this.getFQUN(username), true) == 0)
+                //if (System.Web.HttpContext.Current != null && System.Web.HttpContext.Current.User.Identity as WindowsIdentity != null && String.Compare(this.getFQUN(username), System.Web.HttpContext.Current.User.Identity.Name, true) == 0)
+                //{
+                //    wid = (WindowsIdentity)System.Web.HttpContext.Current.User.Identity;
+                //}
+                //else 
+                if (String.Compare(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).Name, this.getFQUN(username), true) == 0)
                 {
                     wid = ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent());
                 }
@@ -412,11 +413,12 @@ namespace NetSqlAzMan.Providers
             if (this.userLookupType=="LDAP")
             {
                 WindowsIdentity wid = null;
-                if (System.Web.HttpContext.Current != null && System.Web.HttpContext.Current.User.Identity as WindowsIdentity != null && String.Compare(this.getFQUN(username), System.Web.HttpContext.Current.User.Identity.Name, true) == 0)
-                {
-                    wid = (WindowsIdentity)System.Web.HttpContext.Current.User.Identity;
-                }
-                else if (String.Compare(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).Name, this.getFQUN(username), true) == 0)
+                //if (System.Web.HttpContext.Current != null && System.Web.HttpContext.Current.User.Identity as WindowsIdentity != null && String.Compare(this.getFQUN(username), System.Web.HttpContext.Current.User.Identity.Name, true) == 0)
+                //{
+                //    wid = (WindowsIdentity)System.Web.HttpContext.Current.User.Identity;
+                //}
+                //else 
+                if (String.Compare(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).Name, this.getFQUN(username), true) == 0)
                 {
                     wid = ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent());
                 }
