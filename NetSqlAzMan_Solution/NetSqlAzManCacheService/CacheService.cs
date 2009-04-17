@@ -38,7 +38,7 @@ namespace NetSqlAzMan.Cache.Service
             {
                 CacheService.buildingCache = true;
                 if (String.IsNullOrEmpty(storeName) && String.IsNullOrEmpty(applicationName))
-                    WindowsCacheService.writeEvent(String.Format("Invalidate Cache invoked from user '{0}'. Store: '{1}' - Application: '{2}'.", WindowsIdentity.GetCurrent().Name, storeName, applicationName), System.Diagnostics.EventLogEntryType.Information);
+                    WindowsCacheService.writeEvent(String.Format("Invalidate Cache invoked from user '{0}'. Store: '{1}' - Application: '{2}'.", ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).Name, storeName, applicationName), System.Diagnostics.EventLogEntryType.Information);
 
                 System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(o =>
                     {

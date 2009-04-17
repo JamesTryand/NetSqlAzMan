@@ -12,6 +12,7 @@ using NetSqlAzMan.Interfaces;
 using NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker;
 using NetSqlAzMan.SnapIn.DirectoryServices;
 using NetSqlAzMan;
+using System.Security.Principal;
 
 namespace NetSqlAzMan.SnapIn.Forms
 {
@@ -20,8 +21,8 @@ namespace NetSqlAzMan.SnapIn.Forms
         internal IAzManItem item = null;
         private DataTable dtAuthorizations;
         private bool modified;
-        private string currentOwnerName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-        private IAzManSid currentOwnerSid = new SqlAzManSID(System.Security.Principal.WindowsIdentity.GetCurrent().User.Value);
+        private string currentOwnerName = ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).Name;
+        private IAzManSid currentOwnerSid = new SqlAzManSID(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).User.Value);
         private WhereDefined currentOwnerSidWhereDefined;
         public frmItemAuthorizations()
         {

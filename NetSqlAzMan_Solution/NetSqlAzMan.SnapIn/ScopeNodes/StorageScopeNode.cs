@@ -16,6 +16,7 @@ using Microsoft.ManagementConsole.Advanced;
 using NetSqlAzMan.SnapIn.ListViews;
 using NetSqlAzMan.SnapIn.Forms;
 using System.Configuration;
+using System.Security.Principal;
 
 namespace NetSqlAzMan.SnapIn.ScopeNodes
 {
@@ -126,7 +127,7 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
             {
                 SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder(this.storage.ConnectionString);
                 if (csb.IntegratedSecurity)
-                    connectedUserName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Trim();
+                    connectedUserName = ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).Name.Trim();
                 else
                     connectedUserName = csb.UserID.Trim();
             }

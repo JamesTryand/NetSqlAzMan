@@ -70,7 +70,7 @@ namespace NetSqlAzMan_Test
                 try
                 {
                     KeyValuePair<string, string>[] kvp;
-                    sr.AuthorizationType result = csc.CheckAccessForWindowsUsersWithAttributesRetrieve(out kvp, "Italferr", "CartaDeiServizi", "Visualizza Dettagli Richiesta", WindowsIdentity.GetCurrent().GetUserBinarySSid(), WindowsIdentity.GetCurrent().GetGroupsBinarySSid(), DateTime.Now, false, null);
+                    sr.AuthorizationType result = csc.CheckAccessForWindowsUsersWithAttributesRetrieve(out kvp, "Italferr", "CartaDeiServizi", "Visualizza Dettagli Richiesta", ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).GetUserBinarySSid(), ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).GetGroupsBinarySSid(), DateTime.Now, false, null);
                     Debug.WriteLine(result);
                 }
                 finally

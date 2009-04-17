@@ -41,7 +41,7 @@ namespace NetSqlAzMan.SnapIn.Forms
             /*Application.DoEvents();*/
             NetSqlAzMan.SnapIn.Globalization.ResourcesManager.CollectResources(this);
             this.lblUPNUser.Text = "(otheruser@domain.ext)";
-            this.wid = WindowsIdentity.GetCurrent();
+            this.wid = ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent());
             NTAccount nta = (NTAccount)this.wid.User.Translate(typeof(NTAccount));
             string currentUpnName = nta.Value;
             if (currentUpnName.IndexOf('\\') != -1)
@@ -184,7 +184,7 @@ namespace NetSqlAzMan.SnapIn.Forms
         {
             try
             {
-                NTAccount nta = (NTAccount)(WindowsIdentity.GetCurrent().User.Translate(typeof(NTAccount)));
+                NTAccount nta = (NTAccount)(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).User.Translate(typeof(NTAccount)));
                 string currentUpnName = nta.Value;
                 if (currentUpnName.IndexOf('\\') != -1)
                 {
@@ -196,7 +196,7 @@ namespace NetSqlAzMan.SnapIn.Forms
                     if (this.txtWindowsUser.Text == currentUpnName)
                     {
                         //Current Windows User
-                        this.wid = WindowsIdentity.GetCurrent();
+                        this.wid = ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent());
                     }
                     else
                     {

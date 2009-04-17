@@ -394,7 +394,7 @@ namespace NetSqlAzMan
         {
             if (System.Security.Principal.WindowsIdentity.GetCurrent().User.Value == this.owner.StringValue)
             {
-                displayName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+                displayName = ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).Name;
                 return MemberType.WindowsNTUser;
             }
             if (this.ownerSidWhereDefined == WhereDefined.Database)

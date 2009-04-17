@@ -10,13 +10,14 @@ using NetSqlAzMan;
 using NetSqlAzMan.SnapIn.DirectoryServices;
 using System.DirectoryServices;
 using Microsoft.Interop.Security.AzRoles;
+using System.Security.Principal;
 
 namespace NetSqlAzMan.SnapIn.Forms
 {
     public partial class frmImportFromAzMan : frmBase
     {
         internal IAzManStorage storage;
-        private IAzManSid currentOwnerSid = new SqlAzManSID(System.Security.Principal.WindowsIdentity.GetCurrent().User.Value);
+        private IAzManSid currentOwnerSid = new SqlAzManSID(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).User.Value);
         private WhereDefined currentOwnerSidWhereDefined;
         public frmImportFromAzMan()
         {

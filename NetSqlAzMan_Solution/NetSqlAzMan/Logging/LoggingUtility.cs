@@ -75,7 +75,7 @@ namespace NetSqlAzMan.Logging
                         default:
                             logType = "I"; break;
                     }
-                    NTAccount nta = new NTAccount(WindowsIdentity.GetCurrent().Name);
+                    NTAccount nta = new NTAccount(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).Name);
                     SecurityIdentifier sid = (SecurityIdentifier)nta.Translate(typeof(SecurityIdentifier));
                     string winIdentity = String.Format("{0} ({1}", nta.Value, sid.Value);
                     NetSqlAzManStorageDataContext db = new NetSqlAzManStorageDataContext(connectionString);

@@ -216,7 +216,7 @@ namespace NetSqlAzMan.Providers
 
                     foreach (string username in usernames)
                     {
-                        IAzManSid owner = new SqlAzManSID(WindowsIdentity.GetCurrent().User);
+                        IAzManSid owner = new SqlAzManSID(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).User);
                         WhereDefined whereDefined = WhereDefined.LDAP;
                         if (this.userLookupType=="LDAP")
                         {
@@ -324,9 +324,9 @@ namespace NetSqlAzMan.Providers
                 {
                     wid = (WindowsIdentity)System.Web.HttpContext.Current.User.Identity;
                 }
-                else if (String.Compare(WindowsIdentity.GetCurrent().Name, this.getFQUN(username), true) == 0)
+                else if (String.Compare(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).Name, this.getFQUN(username), true) == 0)
                 {
-                    wid = WindowsIdentity.GetCurrent();
+                    wid = ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent());
                 }
                 if (wid == null)
                 {
@@ -416,9 +416,9 @@ namespace NetSqlAzMan.Providers
                 {
                     wid = (WindowsIdentity)System.Web.HttpContext.Current.User.Identity;
                 }
-                else if (String.Compare(WindowsIdentity.GetCurrent().Name, this.getFQUN(username), true) == 0)
+                else if (String.Compare(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).Name, this.getFQUN(username), true) == 0)
                 {
-                    wid = WindowsIdentity.GetCurrent();
+                    wid = ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent());
                 }
                 if (wid == null)
                 {

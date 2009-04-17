@@ -131,7 +131,7 @@ namespace NetSqlAzMan
             this.storeId = storeId;
             this.name = name;
             this.description = description;
-            this.currentSid = new SqlAzManSID(WindowsIdentity.GetCurrent().User).BinaryValue;
+            this.currentSid = new SqlAzManSID(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).User).BinaryValue;
             this.netsqlazmanFixedServerRole = netsqlazmanFixedServerRole;
             this.ens = ens;
         }
