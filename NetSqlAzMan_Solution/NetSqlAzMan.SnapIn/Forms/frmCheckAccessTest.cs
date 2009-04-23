@@ -363,7 +363,7 @@ namespace NetSqlAzMan.SnapIn.Forms
                     else if (this.chkStorageCache.Checked)
                     { 
                         IAzManItem item = (IAzManItem)tn.Tag;
-                        auth = this.storageCache.CheckAccess(item.Application.Store.Name, item.Application.Name, item.Name, this.wid.GetUserBinarySSid(), this.wid.GetGroupsBinarySSid(), this.dtValidFor.Checked ? this.dtValidFor.Value : DateTime.Now, false);
+                        auth = this.storageCache.CheckAccess(item.Application.Store.Name, item.Application.Name, item.Name, this.wid.GetUserBinarySSid(), this.wid.GetGroupsBinarySSid(), this.dtValidFor.Checked ? this.dtValidFor.Value : DateTime.Now, false, out attributes);
                     }
                     else
                     {

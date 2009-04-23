@@ -646,7 +646,58 @@ namespace NetSqlAzMan.Cache
             if (authorizationType == AuthorizationType.AllowWithDelegation)
                 authorizationType = AuthorizationType.Allow; //AllowWithDelegation becomes Just Allow (if comes from parents)
             #endregion RECURSIVE CALL
+            #region BIZ RULE CHECK
+            if (!String.IsNullOrEmpty(item.BizRuleSource))
+            {
+                try
+                {
+                    AuthorizationType forcedCheckAccessResult = authorizationType;
+                    Hashtable ctxParameters = new Hashtable();
+                    if (contextParameters != null)
+                    {
+                        foreach (KeyValuePair<string, object> kv in contextParameters)
+                        {
+                            ctxParameters.Add(kv.Key, kv.Value);
+                        }
+                    }
+                    bool bizRuleResult = this.storage.executeBizRule(item, new SqlAzManSID(userSSid), ctxParameters, ref forcedCheckAccessResult);
+                    if (bizRuleResult == true)
+                    {
+                        authorizationType = SqlAzManItem.mergeAuthorizations(authorizationType, forcedCheckAccessResult);
+                    }
+                    else
+                    {
+                        return authorizationType;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    string msg = String.Format("Business Rule Error:{0}\r\nItem Name:{1}, Application Name: {2}, Store Name: {3}", ex.Message, itemName, application.Name, storeName);
+                    throw new Exception(msg, ex);
+                }
+            }
+            #endregion BIZ RULE CHECK
             #region CHECK ACCESS ON ITEM
+            //Store Attributes
+            if (retrieveAttributes)
+            {
+                foreach (IAzManAttribute<IAzManStore> storeAttribute in item.Application.Store.Attributes.Values)
+                {
+                    KeyValuePair<string, string> attr = new KeyValuePair<string, string>(storeAttribute.Key, storeAttribute.Value);
+                    if (!attributes.Contains(attr))
+                        attributes.Add(attr);
+                }
+            }
+            //Application Attributes
+            if (retrieveAttributes)
+            {
+                foreach (IAzManAttribute<IAzManApplication> applicationAttribute in item.Application.Attributes.Values)
+                {
+                    KeyValuePair<string, string> attr = new KeyValuePair<string, string>(applicationAttribute.Key, applicationAttribute.Value);
+                    if (!attributes.Contains(attr))
+                        attributes.Add(attr);
+                }
+            }
             //Item Attributes
             if (retrieveAttributes)
             {
@@ -814,35 +865,7 @@ namespace NetSqlAzMan.Cache
                 }
             }
             #endregion CHECK ACCESS FOR STORE/APPLICATION GROUPS AUTHORIZATIONS
-            #region BIZ RULE CHECK
-            if (!String.IsNullOrEmpty(item.BizRuleSource))
-            {
-                try
-                {
-                    AuthorizationType forcedCheckAccessResult = authorizationType;
-                    Hashtable ctxParameters = new Hashtable();
-                    foreach (KeyValuePair<string, object> kv in contextParameters)
-                    {
-                        ctxParameters.Add(kv.Key, kv.Value);
-                    }
-                    bool bizRuleResult = this.storage.executeBizRule(item, new SqlAzManSID(userSSid), ctxParameters, ref forcedCheckAccessResult);
-                    if (bizRuleResult == true)
-                    {
-                        authorizationType = forcedCheckAccessResult;
-                    }
-                    else
-                    {
-                        authorizationType = AuthorizationType.Neutral;
-                        attributes.Clear(); //biz rule fault ? No Party ! (no attributes !)
-                    }
-                }
-                catch (Exception ex)
-                {
-                    string msg = String.Format("Business Rule Error:{0}\r\nItem Name:{1}, Application Name: {2}, Store Name: {3}", ex.Message, itemName, application.Name, storeName);
-                    throw new Exception(msg, ex);
-                }
-            }
-            #endregion BIZ RULE CHECK
+
             return authorizationType;
         }
         #endregion Public Methods

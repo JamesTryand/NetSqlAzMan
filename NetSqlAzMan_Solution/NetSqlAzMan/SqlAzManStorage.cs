@@ -608,9 +608,12 @@ namespace NetSqlAzMan
                 ItemNode itemNode = this.buildTreeOfNodes(application, checkAccessPartialResultsDataTable, ItemName);
                 //Execute Biz Rules and Cut Nodes that returns false
                 Hashtable ctxParameters = new Hashtable();
-                foreach (KeyValuePair<string, object> kv in contextParameters)
+                if (contextParameters != null)
                 {
-                    ctxParameters.Add(kv.Key, kv.Value);
+                    foreach (KeyValuePair<string, object> kv in contextParameters)
+                    {
+                        ctxParameters.Add(kv.Key, kv.Value);
+                    }
                 }
                 itemNode = this.executeBizRules(itemNode, new SqlAzManSID(windowsIdentity.User), ctxParameters);
                 //Compute final CheckAccess authorizationType
@@ -720,9 +723,12 @@ namespace NetSqlAzMan
                 ItemNode itemNode = this.buildTreeOfNodes(application, checkAccessPartialResultsDataTable, ItemName);
                 //Execute Biz Rules and Cut Nodes that returns false
                 Hashtable ctxParameters = new Hashtable();
-                foreach (KeyValuePair<string, object> kv in contextParameters)
+                if (contextParameters != null)
                 {
-                    ctxParameters.Add(kv.Key, kv.Value);
+                    foreach (KeyValuePair<string, object> kv in contextParameters)
+                    {
+                        ctxParameters.Add(kv.Key, kv.Value);
+                    }
                 }
                 itemNode = this.executeBizRules(itemNode, dbUser.CustomSid, ctxParameters);
                 //Compute final CheckAccess authorizationType

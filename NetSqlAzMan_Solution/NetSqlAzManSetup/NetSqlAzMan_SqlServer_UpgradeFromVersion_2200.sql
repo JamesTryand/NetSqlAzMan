@@ -1670,7 +1670,7 @@ GO
 exec('ALTER FUNCTION dbo.NetSqlAzMan_DBVersion ()  
 RETURNS nvarchar(200) AS  
 BEGIN 
-	return ''3.5.3.0''
+	return ''3.5.3.1''
 END')
 GO
 

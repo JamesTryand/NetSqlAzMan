@@ -54,7 +54,7 @@ GO
 CREATE FUNCTION [dbo].[NetSqlAzMan_DBVersion] ()  
 RETURNS nvarchar(200) AS  
 BEGIN 
-	return '3.5.3.0'
+	return '3.5.3.1'
 END
 GO
 SET ANSI_NULLS OFF
@@ -1958,8 +1958,8 @@ GO
 CREATE PROCEDURE [dbo].[CreateDelegate](@ITEMID INT, @OWNERSID VARBINARY(85), @OWNERSIDWHEREDEFINED TINYINT, @DELEGATEDUSERSID VARBINARY(85), @SIDWHEREDEFINED TINYINT, @AUTHORIZATIONTYPE TINYINT, @VALIDFROM DATETIME, @VALIDTO DATETIME, @AUTHORIZATIONID INT OUTPUT)
 AS
 DECLARE @APPLICATIONID int
-SELECT @APPLICATIONID = ApplicationId FROM dbo.Items() WHERE ItemId = @ItemId
-IF @APPLICATIONID IS NOT NULL AND dbo.CheckApplicationPermissions(@ApplicationId, 1) = 1
+SELECT @APPLICATIONID = ApplicationId FROM dbo.Items() WHERE ItemId = @ITEMID
+IF @APPLICATIONID IS NOT NULL AND dbo.CheckApplicationPermissions(@APPLICATIONID, 1) = 1
 BEGIN
 	INSERT INTO dbo.AuthorizationsTable (ItemId, ownerSid, ownerSidWhereDefined, objectSid, objectSidWhereDefined, AuthorizationType, ValidFrom, ValidTo)
 		VALUES (@ITEMID, @OWNERSID, @OWNERSIDWHEREDEFINED, @DELEGATEDUSERSID, @SIDWHEREDEFINED, @AUTHORIZATIONTYPE, @VALIDFROM, @VALIDTO)
@@ -2397,7 +2397,7 @@ CREATE PROCEDURE [dbo].[DeleteDelegate](@AUTHORIZATIONID INT, @OWNERSID VARBINAR
 AS
 DECLARE @APPLICATIONID int
 SELECT @APPLICATIONID = Items.ApplicationId FROM dbo.Items() Items INNER JOIN dbo.Authorizations() Authorizations ON Items.ItemId = Authorizations.ItemId WHERE Authorizations.AuthorizationId = @AUTHORIZATIONID
-IF @APPLICATIONID IS NOT NULL AND dbo.CheckApplicationPermissions(@ApplicationId, 1) = 1
+IF @APPLICATIONID IS NOT NULL AND dbo.CheckApplicationPermissions(@APPLICATIONID, 1) = 1
 	DELETE FROM dbo.AuthorizationsTable WHERE AuthorizationId = @AUTHORIZATIONID AND ownerSid = @OWNERSID
 ELSE
 	RAISERROR ('Item NOT Found or Application permission denied.', 16, 1)
