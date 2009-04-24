@@ -632,13 +632,66 @@ namespace NetSqlAzMan
                     KeyValuePair<string, string> kvp = new KeyValuePair<string, string>((string)dr[0], (string)dr[1]);
                     if (!attributes.Contains(kvp))
                     {
-                        attributes.Add(kvp);
+                        if (dr["ItemId"] == DBNull.Value)
+                        {
+                            attributes.Add(kvp);
+                        }
+                        else if (dr["ItemId"]!=DBNull.Value)
+                        {
+                            int itemId = (int)dr["ItemId"];
+                            DataRow[] drItems = checkAccessPartialResultsDataTable.Select("ItemId=" + itemId.ToString());
+                            if (drItems.Length>0)
+                            {
+                                DataRow drItem = drItems[0];
+                                AuthorizationType auth = (AuthorizationType)drItem["AuthorizationType"];
+                                if (auth== AuthorizationType.Allow || auth == AuthorizationType.AllowWithDelegation)
+                                {
+                                    attributes.Add(kvp);
+                                }
+                                else if (auth == AuthorizationType.Neutral)
+                                {
+                                    AuthorizationType authParent = this.getParentResult(drItem, checkAccessPartialResultsDataTable, this.Stores[StoreName][ApplicationName].Items.Values.ToArray());
+                                    if (authParent == AuthorizationType.Allow || authParent == AuthorizationType.AllowWithDelegation)
+                                    {
+                                        attributes.Add(kvp);
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
             else
             {
                 attributes = new List<KeyValuePair<string, string>>();
+            }
+            return result;
+        }
+
+        private AuthorizationType getParentResult(DataRow drItem, DataTable checkAccessPartialResultsDataTable, IAzManItem[] items)
+        {
+            AuthorizationType result = AuthorizationType.Neutral;
+            DataRow[] drItems = checkAccessPartialResultsDataTable.Select("ItemId=" + drItem["ItemId"].ToString());
+            if (drItems.Length > 0)
+            {
+                result = (AuthorizationType)drItems[0]["AuthorizationType"];
+                string itemName = (string)drItem["ItemName"];
+                foreach (var item in items)
+                {
+                    foreach (var member in item.Members.Values)
+                    {
+                        if (member.Name == itemName)
+                        {
+                            DataRow[] drParentItems = checkAccessPartialResultsDataTable.Select("ItemId="+item.ItemId.ToString());
+                            if (drParentItems.Length>0)
+                            {
+                                DataRow drParentItem = drParentItems[0];
+                                result = SqlAzManItem.mergeAuthorizations(result, this.getParentResult(drParentItem, checkAccessPartialResultsDataTable, items));
+                            }
+                            break;
+                        }
+                    }
+                }
             }
             return result;
         }

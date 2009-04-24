@@ -164,16 +164,16 @@ namespace Prova.BizRules
                 StorageCache sc = new StorageCache("data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
                 sc.BuildStorageCache();
                 List<KeyValuePair<string, string>> attributes;
-                AuthorizationType auth = sc.CheckAccess("ETC Test Store", "ETC Test Application 1", "ReadOnlyPage1.aspx", WindowsIdentity.GetCurrent().GetUserBinarySSid(), WindowsIdentity.GetCurrent().GetGroupsBinarySSid(), DateTime.Now, false, out attributes, new KeyValuePair<string, object>("Value1", "111"), new KeyValuePair<string, object>("Value2", "222"));
+                AuthorizationType auth = sc.CheckAccess("ETC Test Store", "ETC Test Application 1", "Viewers", WindowsIdentity.GetCurrent().GetUserBinarySSid(), WindowsIdentity.GetCurrent().GetGroupsBinarySSid(), DateTime.Now, false, out attributes, new KeyValuePair<string, object>("Value1", "111"), new KeyValuePair<string, object>("Value2", "222"));
                 MessageBox.Show(auth.ToString());
 
                 IAzManStorage storage = new SqlAzManStorage("data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
                 attributes = null;
-                auth = storage.CheckAccess("ETC Test Store", "ETC Test Application 1", "ReadOnlyPage1.aspx", WindowsIdentity.GetCurrent(), DateTime.Now, false, out attributes, new KeyValuePair<string, object>("Value1", "111"), new KeyValuePair<string, object>("Value2", "222"));
+                auth = storage.CheckAccess("ETC Test Store", "ETC Test Application 1", "Viewers", WindowsIdentity.GetCurrent(), DateTime.Now, false, out attributes, new KeyValuePair<string, object>("Value1", "111"), new KeyValuePair<string, object>("Value2", "222"));
                 MessageBox.Show(auth.ToString());
 
                 UserPermissionCache upc = new UserPermissionCache(storage, "ETC Test Store", "ETC Test Application 1", WindowsIdentity.GetCurrent(), true, false, new KeyValuePair<string, object>("Value1", "111"), new KeyValuePair<string, object>("Value2", "222"));
-                auth = upc.CheckAccess("ReadOnlyPage1.aspx", DateTime.Now, out attributes);
+                auth = upc.CheckAccess("Viewers", DateTime.Now, out attributes);
                 MessageBox.Show(auth.ToString());
 
 

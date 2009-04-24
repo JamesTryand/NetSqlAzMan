@@ -639,7 +639,7 @@ namespace NetSqlAzMan.Cache
             {
                 List<KeyValuePair<string, string>> localAttributes;
                 AuthorizationType parentAuthorizationType = this.internalCheckAccess(storeName, applicationName, parentItem.Name, userSSid, groupsSSid, validFor, operationsOnly, retrieveAttributes, out localAttributes, contextParameters);
-                if (retrieveAttributes)
+                if (retrieveAttributes && (parentAuthorizationType == AuthorizationType.Allow || parentAuthorizationType == AuthorizationType.AllowWithDelegation))
                     attributes.AddRange(localAttributes);
                 authorizationType = SqlAzManItem.mergeAuthorizations(authorizationType, parentAuthorizationType);
             }
