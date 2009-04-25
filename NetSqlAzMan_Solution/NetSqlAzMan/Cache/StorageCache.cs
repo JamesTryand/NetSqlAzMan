@@ -678,34 +678,7 @@ namespace NetSqlAzMan.Cache
             }
             #endregion BIZ RULE CHECK
             #region CHECK ACCESS ON ITEM
-            //Store Attributes
-            if (retrieveAttributes)
-            {
-                foreach (IAzManAttribute<IAzManStore> storeAttribute in item.Application.Store.Attributes.Values)
-                {
-                    KeyValuePair<string, string> attr = new KeyValuePair<string, string>(storeAttribute.Key, storeAttribute.Value);
-                    if (!attributes.Contains(attr))
-                        attributes.Add(attr);
-                }
-            }
-            //Application Attributes
-            if (retrieveAttributes)
-            {
-                foreach (IAzManAttribute<IAzManApplication> applicationAttribute in item.Application.Attributes.Values)
-                {
-                    KeyValuePair<string, string> attr = new KeyValuePair<string, string>(applicationAttribute.Key, applicationAttribute.Value);
-                    if (!attributes.Contains(attr))
-                        attributes.Add(attr);
-                }
-            }
-            //Item Attributes
-            if (retrieveAttributes)
-            {
-                foreach (IAzManAttribute<IAzManItem> itemAttribute in item.Attributes.Values)
-                {
-                    attributes.Add(new KeyValuePair<string, string>(itemAttribute.Key, itemAttribute.Value));
-                }
-            }
+            
             //memo: WhereDefined can be:0 - Store; 1 - Application; 2 - LDAP; 3 - Local; 4 - Database
             var authz = from a in item.Authorizations
                         where a.Item.ItemId == item.ItemId &&
@@ -724,9 +697,12 @@ namespace NetSqlAzMan.Cache
                 //Authorization Attributes
                 if (retrieveAttributes)
                 {
-                    foreach (IAzManAttribute<IAzManAuthorization> authorizationAttribute in auth.Attributes.Values)
+                    if (authorizationType == AuthorizationType.Allow || authorizationType == AuthorizationType.AllowWithDelegation)
                     {
-                        attributes.Add(new KeyValuePair<string, string>(authorizationAttribute.Key, authorizationAttribute.Value));
+                        foreach (IAzManAttribute<IAzManAuthorization> authorizationAttribute in auth.Attributes.Values)
+                        {
+                            attributes.Add(new KeyValuePair<string, string>(authorizationAttribute.Key, authorizationAttribute.Value));
+                        }
                     }
                 }
             }
@@ -750,9 +726,12 @@ namespace NetSqlAzMan.Cache
                 //Authorization Attributes
                 if (retrieveAttributes)
                 {
-                    foreach (IAzManAttribute<IAzManAuthorization> authorizationAttribute in auth.Attributes.Values)
+                    if (authorizationType == AuthorizationType.Allow || authorizationType == AuthorizationType.AllowWithDelegation)
                     {
-                        attributes.Add(new KeyValuePair<string, string>(authorizationAttribute.Key, authorizationAttribute.Value));
+                        foreach (IAzManAttribute<IAzManAuthorization> authorizationAttribute in auth.Attributes.Values)
+                        {
+                            attributes.Add(new KeyValuePair<string, string>(authorizationAttribute.Key, authorizationAttribute.Value));
+                        }
                     }
                 }
             }
@@ -811,9 +790,12 @@ namespace NetSqlAzMan.Cache
                         authorizationType = SqlAzManItem.mergeAuthorizations(authorizationType, auth.AuthorizationType);
                         if (retrieveAttributes)
                         {
-                            foreach (var attr in auth.Attributes.Values)
+                            if (authorizationType == AuthorizationType.Allow || authorizationType == AuthorizationType.AllowWithDelegation)
                             {
-                                attributes.Add(new KeyValuePair<string, string>(attr.Key, attr.Value));
+                                foreach (var attr in auth.Attributes.Values)
+                                {
+                                    attributes.Add(new KeyValuePair<string, string>(attr.Key, attr.Value));
+                                }
                             }
                         }
                     }
@@ -856,16 +838,55 @@ namespace NetSqlAzMan.Cache
                         //Authorization Attributes
                         if (retrieveAttributes)
                         {
-                            foreach (var attr in auth.Attributes.Values)
+                            if (authorizationType == AuthorizationType.Allow || authorizationType == AuthorizationType.AllowWithDelegation)
                             {
-                                attributes.Add(new KeyValuePair<string, string>(attr.Key, attr.Value));
+                                foreach (var attr in auth.Attributes.Values)
+                                {
+                                    attributes.Add(new KeyValuePair<string, string>(attr.Key, attr.Value));
+                                }
                             }
                         }
                     }
                 }
             }
             #endregion CHECK ACCESS FOR STORE/APPLICATION GROUPS AUTHORIZATIONS
-
+            //Store Attributes
+            if (retrieveAttributes)
+            {
+                if (authorizationType == AuthorizationType.Allow || authorizationType == AuthorizationType.AllowWithDelegation)
+                {
+                    foreach (IAzManAttribute<IAzManStore> storeAttribute in item.Application.Store.Attributes.Values)
+                    {
+                        KeyValuePair<string, string> attr = new KeyValuePair<string, string>(storeAttribute.Key, storeAttribute.Value);
+                        if (!attributes.Contains(attr))
+                            attributes.Add(attr);
+                    }
+                }
+            }
+            //Application Attributes
+            if (retrieveAttributes)
+            {
+                if (authorizationType == AuthorizationType.Allow || authorizationType == AuthorizationType.AllowWithDelegation)
+                {
+                    foreach (IAzManAttribute<IAzManApplication> applicationAttribute in item.Application.Attributes.Values)
+                    {
+                        KeyValuePair<string, string> attr = new KeyValuePair<string, string>(applicationAttribute.Key, applicationAttribute.Value);
+                        if (!attributes.Contains(attr))
+                            attributes.Add(attr);
+                    }
+                }
+            }
+            //Item Attributes
+            if (retrieveAttributes)
+            {
+                if (authorizationType == AuthorizationType.Allow || authorizationType == AuthorizationType.AllowWithDelegation)
+                {
+                    foreach (IAzManAttribute<IAzManItem> itemAttribute in item.Attributes.Values)
+                    {
+                        attributes.Add(new KeyValuePair<string, string>(itemAttribute.Key, itemAttribute.Value));
+                    }
+                }
+            }
             return authorizationType;
         }
         #endregion Public Methods

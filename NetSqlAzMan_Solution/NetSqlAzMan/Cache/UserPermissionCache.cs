@@ -31,6 +31,7 @@ namespace NetSqlAzMan.Cache
         private IAzManDBUser dbUser;
         private ItemCheckAccessResult[] checkAccessTimeSlice;
         private KeyValuePair<string, object>[] contextParameters;
+        private Dictionary<string, List<KeyValuePair<string, string>>> itemAttributes;
         private bool retrieveAttributes;
         private string[] items;
         private DataTable dtHierarchy;
@@ -98,6 +99,14 @@ namespace NetSqlAzMan.Cache
             {
                 return this.items;
             }
+        }
+        /// <summary>
+        /// Gets the item attributes.
+        /// </summary>
+        /// <value>The item attributes.</value>
+        public Dictionary<string, List<KeyValuePair<string, string>>> ItemAttributes
+        {
+            get { return this.itemAttributes; }
         }
         #endregion Properties
         #region Methods
@@ -229,7 +238,14 @@ namespace NetSqlAzMan.Cache
             }
             this.dtHierarchy.AcceptChanges();
             this.items = new string[items.Count];
-            items.CopyTo(this.items, 0); 
+            items.CopyTo(this.items, 0);
+            //Item Owned Attributes
+            this.itemAttributes = new Dictionary<string, List<KeyValuePair<string, string>>>();
+            foreach (var item in this.storage[this.storeName][this.applicationName].Items)
+            { 
+                var ownedAttributes = (from t in item.Value.Attributes.Values select new KeyValuePair<string, string>(t.Key, t.Value)).ToList();
+                this.itemAttributes.Add(item.Key, ownedAttributes);
+            }
         }
         private void buildApplicationCache()
         {
@@ -280,7 +296,20 @@ namespace NetSqlAzMan.Cache
             foreach (DataRow member in this.dtHierarchy.Select(String.Format("ParentItemName='{0}'", itemName.Replace("'", "''"))))
             {
                 string memberName = (string)member["ItemName"];
-                results.Add(result.ClonedForItem(memberName));
+                ItemCheckAccessResult memberItemCheckAccessResult = result.ClonedForItem(memberName);
+                results.Add(memberItemCheckAccessResult);
+                if (result.AuthorizationType == AuthorizationType.Allow || result.AuthorizationType == AuthorizationType.AllowWithDelegation)
+                { 
+                    //Add my attributes to my members
+                    var itemAttributes = result.Attributes;
+                    foreach (var itemAttribute in itemAttributes)
+                    {
+                        if (!memberItemCheckAccessResult.Attributes.Contains(itemAttribute))
+                        {
+                            memberItemCheckAccessResult.Attributes.Add(itemAttribute);
+                        }
+                    }
+                }
                 this.extendResultToMembers(memberName, result, results);
             }
         }
@@ -305,9 +334,21 @@ namespace NetSqlAzMan.Cache
                         if (ca.AuthorizationType == AuthorizationType.AllowWithDelegation && !ca.Inherited)
                             allowBecomesAllowWithDelegation = true;
                         result = SqlAzManItem.mergeAuthorizations(result, ca.AuthorizationType);
+                        //Inherited Attributes
                         if (this.retrieveAttributes)
                         {
                             foreach (KeyValuePair<string, string> kvp in ca.Attributes)
+                            {
+                                if (!attributes.Contains(new KeyValuePair<string, string>(kvp.Key, kvp.Value)))
+                                {
+                                    attributes.Add(kvp);
+                                }
+                            }
+                        }
+                        //Owner Attributes
+                        if (this.retrieveAttributes && (result == AuthorizationType.AllowWithDelegation || result == AuthorizationType.Allow))
+                        {
+                            foreach (KeyValuePair<string, string> kvp in this.itemAttributes[itemName])
                             {
                                 if (!attributes.Contains(new KeyValuePair<string, string>(kvp.Key, kvp.Value)))
                                 {

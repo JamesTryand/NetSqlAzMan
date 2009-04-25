@@ -22,6 +22,7 @@ using System.Security.Principal;
 using NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker;
 using CheckAccessNamespace;
 using NetSqlAzMan.Cache;
+using System.Linq;
 
 namespace NetSqlAzMan_WinTest
 {
@@ -161,27 +162,62 @@ namespace Prova.BizRules
                 //IAzManDBUser dbUser2 = storage.GetDBUser(new SqlAzManSID(this.GetBytesFromInt32(2), true));
                 //AuthorizationType auth1 = storage.CheckAccess("Eidos", "DB Persone", "Accesso", dbUser1, DateTime.Now, false);
                 //AuthorizationType auth2 = storage.CheckAccess("Eidos", "DB Persone", "Accesso", dbUser1, DateTime.Now, false);
-                StorageCache sc = new StorageCache("data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
+                string cs = "data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;";
+                var ctx = new[] { new KeyValuePair<string, object>("Value1", "111"), new KeyValuePair<string, object>("Value2", "222") };
+                IAzManStorage storage = new SqlAzManStorage(cs);
+                StorageCache sc = new StorageCache(cs);
                 sc.BuildStorageCache();
-                List<KeyValuePair<string, string>> attributes;
-                AuthorizationType auth = sc.CheckAccess("ETC Test Store", "ETC Test Application 1", "Viewers", WindowsIdentity.GetCurrent().GetUserBinarySSid(), WindowsIdentity.GetCurrent().GetGroupsBinarySSid(), DateTime.Now, false, out attributes, new KeyValuePair<string, object>("Value1", "111"), new KeyValuePair<string, object>("Value2", "222"));
-                MessageBox.Show(auth.ToString());
+                List<KeyValuePair<string, string>> attributes1;
+                List<KeyValuePair<string, string>> attributes2;
+                List<KeyValuePair<string, string>> attributes3;
 
-                IAzManStorage storage = new SqlAzManStorage("data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
-                attributes = null;
-                auth = storage.CheckAccess("ETC Test Store", "ETC Test Application 1", "Viewers", WindowsIdentity.GetCurrent(), DateTime.Now, false, out attributes, new KeyValuePair<string, object>("Value1", "111"), new KeyValuePair<string, object>("Value2", "222"));
-                MessageBox.Show(auth.ToString());
+                foreach (var store in storage.Stores)
+                {
+                    foreach (var application in store.Value.Applications)
+                    {
+                        UserPermissionCache upc = new UserPermissionCache(storage, store.Value.Name, application.Value.Name, WindowsIdentity.GetCurrent(), true, false, ctx);
+                        foreach (var item in application.Value.Items)
+                        {
+                            AuthorizationType auth1 = sc.CheckAccess(store.Value.Name, application.Value.Name, item.Value.Name, WindowsIdentity.GetCurrent().GetUserBinarySSid(), WindowsIdentity.GetCurrent().GetGroupsBinarySSid(), DateTime.Now, false, out attributes1, ctx);
+                            AuthorizationType auth2 = storage.CheckAccess(store.Value.Name, application.Value.Name, item.Value.Name, WindowsIdentity.GetCurrent(), DateTime.Now, false, out attributes2, ctx);
+                            AuthorizationType auth3 = upc.CheckAccess(item.Value.Name, DateTime.Now, out attributes3);
+                            this.detectedDifferences(auth1, attributes1, auth2, attributes2);
+                            this.detectedDifferences(auth2, attributes2, auth3, attributes3);
+                            this.detectedDifferences(auth1, attributes1, auth3, attributes3);
 
-                UserPermissionCache upc = new UserPermissionCache(storage, "ETC Test Store", "ETC Test Application 1", WindowsIdentity.GetCurrent(), true, false, new KeyValuePair<string, object>("Value1", "111"), new KeyValuePair<string, object>("Value2", "222"));
-                auth = upc.CheckAccess("Viewers", DateTime.Now, out attributes);
-                MessageBox.Show(auth.ToString());
-
-
-
+                        }
+                    }
+                }
+                MessageBox.Show("Done");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void detectedDifferences(
+            AuthorizationType auth1,
+            List<KeyValuePair<string, string>> attrs1,
+            AuthorizationType auth2,
+            List<KeyValuePair<string, string>> attrs2)
+        {
+            if (auth1 != auth2)
+                throw new Exception("Auth1 <> Auth2");
+            if (attrs1.Count == attrs2.Count)
+            {
+                var t = (from t1 in attrs1
+                         join t2 in attrs2 on new { K = t1.Key, V = t1.Value } equals new { K = t2.Key, V = t2.Value }
+                         select t1).Count();
+                if (t != attrs2.Count)
+                {
+                    throw new Exception("attrs1 <> attrs2");
+                }
+            }
+            else
+            {
+                throw new Exception("attrs1 <> attrs2");
+            
             }
         }
 

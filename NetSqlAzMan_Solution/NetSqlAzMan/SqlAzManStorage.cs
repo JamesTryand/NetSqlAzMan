@@ -634,7 +634,8 @@ namespace NetSqlAzMan
                     {
                         if (dr["ItemId"] == DBNull.Value)
                         {
-                            attributes.Add(kvp);
+                            if (result == AuthorizationType.Allow || result == AuthorizationType.AllowWithDelegation)
+                                attributes.Add(kvp);
                         }
                         else if (dr["ItemId"]!=DBNull.Value)
                         {
