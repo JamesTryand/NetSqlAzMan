@@ -328,9 +328,9 @@ namespace NetSqlAzMan
             catch (System.Data.SqlClient.SqlException sqlex)
             {
                 if (sqlex.Number == 2601) //Index Duplicate Error
-                    throw new SqlAzManAuthorizationException(this, "An Authorization Attribute with the same Key name already exists.");
+                    throw SqlAzManException.AttributeDuplicateException(key, this, sqlex);
                 else
-                    throw sqlex;
+                    throw SqlAzManException.GenericException(sqlex);
             }
         }
         #endregion

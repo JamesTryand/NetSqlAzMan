@@ -427,7 +427,7 @@ namespace NetSqlAzMan
             }
             else
             {
-                throw new SqlAzManStorageException(this, String.Format("Store {0} not found or deleted", storeName));
+                throw SqlAzManException.StoreNotFoundException(storeName,null);
             }
         }
 
@@ -509,9 +509,9 @@ namespace NetSqlAzMan
             catch (System.Data.SqlClient.SqlException sqlex)
             {
                 if (sqlex.Number == 2601) //Index Duplicate Error
-                    throw new SqlAzManStorageException(this, "A Store with the same name already exists.");
+                    throw SqlAzManException.StoreDuplicateException(storeName, sqlex);
                 else
-                    throw sqlex;
+                    throw SqlAzManException.GenericException(sqlex);
             }
         }
         /// <summary>
@@ -588,6 +588,25 @@ namespace NetSqlAzMan
             try
             {
                 checkAccessPartialResultsDataAdapter.Fill(checkAccessResults);
+            }
+            catch (SqlException sqlex)
+            {
+                if (sqlex.Message.StartsWith("Store not found", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    throw SqlAzManException.StoreNotFoundException(StoreName, sqlex);
+                }
+                else if (sqlex.Message.StartsWith("Application not found", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    throw SqlAzManException.ApplicationNotFoundException(ApplicationName, StoreName, sqlex);
+                }
+                else if (sqlex.Message.StartsWith("Item not found", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    throw SqlAzManException.ItemNotFoundException(ItemName, StoreName, ApplicationName, sqlex);
+                }
+                else
+                {
+                    throw SqlAzManException.GenericException(sqlex);
+                }
             }
             finally
             {
@@ -758,6 +777,25 @@ namespace NetSqlAzMan
             {
                 checkAccessPartialResultsDataAdapter.Fill(checkAccessResults);
             }
+            catch (SqlException sqlex)
+            {
+                if (sqlex.Message.StartsWith("Store not found", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    throw SqlAzManException.StoreNotFoundException(StoreName, sqlex);
+                }
+                else if (sqlex.Message.StartsWith("Application not found", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    throw SqlAzManException.ApplicationNotFoundException(ApplicationName, StoreName, sqlex);
+                }
+                else if (sqlex.Message.StartsWith("Item not found", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    throw SqlAzManException.ItemNotFoundException(ItemName, StoreName, ApplicationName, sqlex);
+                }
+                else
+                {
+                    throw SqlAzManException.GenericException(sqlex);
+                }
+            }
             finally
             {
                 conn.Close();
@@ -840,7 +878,7 @@ namespace NetSqlAzMan
             catch (Exception ex)
             {
                 string msg = String.Format("Business Rule Error:{0}\r\nItem Name:{1}, Application Name: {2}, Store Name: {3}", ex.Message, item.Name, item.Application.Name, item.Application.Store.Name);
-                throw new Exception(msg, ex);
+                throw new SqlAzManException(msg, ex);
             }
         }
 
@@ -896,7 +934,7 @@ namespace NetSqlAzMan
                 catch (Exception ex)
                 {
                     string msg = String.Format("Business Rule Error:{0}\r\nItem Name:{1}, Application Name: {2}, Store Name: {3}", ex.Message, itemNode.azmanItem.Name, itemNode.azmanItem.Application.Name, itemNode.azmanItem.Application.Store.Name);
-                    throw new Exception(msg, ex);
+                    throw new SqlAzManException(msg, ex);
                 }
             }
             //Cut if false

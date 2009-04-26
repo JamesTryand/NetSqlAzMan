@@ -346,7 +346,7 @@ namespace NetSqlAzMan.Providers
             {
                 IAzManDBUser dbUser = this.application.GetDBUser(username);
                 if (dbUser == null)
-                    throw new Exception(String.Format("DBUser '{0}' not found.", username));
+                    throw SqlAzManException.DBUserNotFoundException(username, null);
                 IAzManSid sid = dbUser.CustomSid;
                 foreach (IAzManItem role in allRoles)
                 {

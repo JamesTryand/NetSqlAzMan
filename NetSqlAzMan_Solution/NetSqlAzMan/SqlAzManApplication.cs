@@ -260,9 +260,9 @@ namespace NetSqlAzMan
                 catch (System.Data.SqlClient.SqlException sqlex)
                 {
                     if (sqlex.Number == 2601) //Index Duplicate Error
-                        throw new SqlAzManApplicationException(this, "An Application with the same name already exists.");
+                        throw SqlAzManException.ApplicationDuplicateException(newApplicationName, this.store, sqlex);
                     else
-                        throw sqlex;
+                        throw SqlAzManException.GenericException(sqlex);
                 }
             }
         }
@@ -298,9 +298,10 @@ namespace NetSqlAzMan
             catch (System.Data.SqlClient.SqlException sqlex)
             {
                 if (sqlex.Number == 2601) //Index Duplicate Error
-                    throw new SqlAzManApplicationException(this, "An Item with the same name already exists.");
+                    throw SqlAzManException.ItemDuplicateException(itemName, this,sqlex);
                 else
-                    throw sqlex;
+                    throw SqlAzManException.GenericException(sqlex);
+
             }
         }
 
@@ -468,9 +469,10 @@ namespace NetSqlAzMan
             catch (System.Data.SqlClient.SqlException sqlex)
             {
                 if (sqlex.Number == 2601) //Index Duplicate Error
-                    throw new SqlAzManApplicationException(this, "An Application Group with the same name already exists.");
+                    throw SqlAzManException.ApplicationGroupDuplicateException(name, this, sqlex);
                 else
-                    throw sqlex;
+                    throw SqlAzManException.GenericException(sqlex);
+
             }
         }
 
@@ -612,9 +614,9 @@ namespace NetSqlAzMan
             catch (System.Data.SqlClient.SqlException sqlex)
             {
                 if (sqlex.Number == 2601) //Index Duplicate Error
-                    throw new SqlAzManApplicationException(this, "An Application Attribute with the same Key name already exists.");
+                    throw SqlAzManException.AttributeDuplicateException(key, this, sqlex);
                 else
-                    throw sqlex;
+                    throw SqlAzManException.GenericException(sqlex);
             }
         }
         /// <summary>
@@ -958,7 +960,7 @@ namespace NetSqlAzMan
                         case "Task": itemType = ItemType.Task; break;
                         case "Operation": itemType = ItemType.Operation; break;
                         default:
-                            throw new InvalidOperationException("Invalid ItemType on xml node: " + node.InnerXml);
+                            throw new SerializationException("Invalid ItemType on xml node: " + node.InnerXml);
                     }
                     IAzManItem item = this.Items.ContainsKey(node.Attributes["Name"].Value) ? this.Items[node.Attributes["Name"].Value] : null;
                     if (item == null && MergeUtilities.IsOn(mergeOptions, SqlAzManMergeOptions.CreatesNewItems))
@@ -995,7 +997,7 @@ namespace NetSqlAzMan
                                 case "Task": childItemType = ItemType.Task; break;
                                 case "Operation": childItemType = ItemType.Operation; break;
                                 default:
-                                    throw new InvalidOperationException("Invalid ItemType on xml node: " + childNode.InnerXml);
+                                    throw new SerializationException("Invalid ItemType on xml node: " + childNode.InnerXml);
                             }
                             IAzManItem newItem = this.Items.ContainsKey(childNode.Attributes["Name"].Value) ? this.Items[childNode.Attributes["Name"].Value] : null;
                             if (newItem == null && MergeUtilities.IsOn(mergeOptions, SqlAzManMergeOptions.CreatesNewItems))

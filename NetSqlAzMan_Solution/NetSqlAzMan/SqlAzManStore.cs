@@ -279,9 +279,9 @@ namespace NetSqlAzMan
             catch (System.Data.SqlClient.SqlException sqlex)
             {
                 if (sqlex.Number == 2601) //Index Duplicate Error
-                    throw new SqlAzManStoreException(this, "A Store with the same name already exists.");
+                    throw SqlAzManException.StoreDuplicateException(newStoreName, sqlex);
                 else
-                    throw sqlex;
+                    throw SqlAzManException.GenericException(sqlex);
             }
         }
 
@@ -315,9 +315,9 @@ namespace NetSqlAzMan
             catch (System.Data.SqlClient.SqlException sqlex)
             {
                 if (sqlex.Number == 2601) //Index Duplicate Error
-                    throw new SqlAzManStoreException(this, "An Application with the same name already exists.");
+                    throw SqlAzManException.ApplicationDuplicateException(applicationName, this, sqlex);
                 else
-                    throw sqlex;
+                    throw SqlAzManException.GenericException(sqlex);
             }
         }
 
@@ -352,7 +352,7 @@ namespace NetSqlAzMan
             }
             else
             {
-                return null;
+                throw SqlAzManException.ApplicationNotFoundException(applicationName, this, null);
             }
         }
 
@@ -421,9 +421,9 @@ namespace NetSqlAzMan
             catch (System.Data.SqlClient.SqlException sqlex)
             {
                 if (sqlex.Number == 2601) //Index Duplicate Error
-                    throw new SqlAzManStoreException(this, "A Store Group with the same name already exists.");
+                    throw SqlAzManException.StoreGroupDuplicateException(name, this, sqlex);
                 else
-                    throw sqlex;
+                    throw SqlAzManException.GenericException(sqlex);
             }
         }
 
@@ -570,9 +570,9 @@ namespace NetSqlAzMan
             catch (System.Data.SqlClient.SqlException sqlex)
             {
                 if (sqlex.Number == 2601) //Index Duplicate Error
-                    throw new SqlAzManStoreException(this, "A Store Attribute with the same Key name already exists.");
+                    throw SqlAzManException.AttributeDuplicateException(key, this, sqlex);
                 else
-                    throw sqlex;
+                    throw SqlAzManException.GenericException(sqlex);
             }
         }
         /// <summary>

@@ -42,7 +42,9 @@ namespace NetSqlAzMan.Cache
         private UserPermissionCache(IAzManStorage storage, string storeName, string applicationName, bool retrieveAttributes, params KeyValuePair<string, object>[] contextParameters)
         {
             this.storage = storage;
+            IAzManStore iStore = this.storage.GetStore(storeName);
             this.storeName = storeName;
+            IAzManApplication iApp = iStore.GetApplication(applicationName);
             this.applicationName = applicationName;
             this.contextParameters = contextParameters;
             this.retrieveAttributes = retrieveAttributes;
@@ -322,6 +324,12 @@ namespace NetSqlAzMan.Cache
         /// <returns></returns>
         public AuthorizationType CheckAccess(string itemName, DateTime validFor, out List<KeyValuePair<string, string>> attributes)
         {
+            if ((from t in this.items
+                 where String.Compare(t, itemName, true) == 0
+                 select t).FirstOrDefault() == null)
+            {
+                throw SqlAzManException.ItemNotFoundException(itemName, this.storeName, this.applicationName, null);
+            }
             AuthorizationType result = AuthorizationType.Neutral;
             attributes = new List<KeyValuePair<string,string>>();
             bool allowBecomesAllowWithDelegation = false;

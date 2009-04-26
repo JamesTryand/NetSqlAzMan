@@ -165,8 +165,16 @@ namespace Prova.BizRules
                 string cs = "data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;";
                 var ctx = new[] { new KeyValuePair<string, object>("Value1", "111"), new KeyValuePair<string, object>("Value2", "222") };
                 IAzManStorage storage = new SqlAzManStorage(cs);
+
+                storage.CheckAccess("Eidos", "DB Persone", "ItemNF", WindowsIdentity.GetCurrent(), DateTime.Now, false);
+
                 StorageCache sc = new StorageCache(cs);
                 sc.BuildStorageCache();
+                //sc.CheckAccess("Eidos", "DB Persone", "ZZZ", WindowsIdentity.GetCurrent().GetUserBinarySSid(), WindowsIdentity.GetCurrent().GetGroupsBinarySSid(), DateTime.Now, false);
+
+                //UserPermissionCache upcTest = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, false, ctx);
+                //upcTest.CheckAccess("Accesso", DateTime.Now);
+
                 List<KeyValuePair<string, string>> attributes1;
                 List<KeyValuePair<string, string>> attributes2;
                 List<KeyValuePair<string, string>> attributes3;

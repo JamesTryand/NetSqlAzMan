@@ -435,10 +435,10 @@ namespace NetSqlAzMan
         {
             //Membership type check
             if (!SqlAzManItem.MembershipAllowed(this, member))
-                throw new SqlAzManItemException(this, String.Format("Membership not allowed. Cannot add an item of type {0} to an item of type {1}.", member.ItemType, this.itemType));
+                throw new SqlAzManException(String.Format("Membership not allowed. Cannot add an item of type {0} to an item of type {1}.", member.ItemType, this.itemType));
             //Loop detection
             if (this.detectLoop(member))
-                throw new SqlAzManItemException(this, String.Format("Cannot add '{0}' as a member. A loop has been detected.", member.Name));
+                throw new SqlAzManException(String.Format("Cannot add '{0}' as a member. A loop has been detected.", member.Name));
             this.db.ItemsHierarchyInsert(member.ItemId, this.itemId, this.application.ApplicationId);
             //Update cached item members
             if (this.members!=null && !this.members.ContainsKey(member.Name))
@@ -454,7 +454,7 @@ namespace NetSqlAzMan
         {
             //Membership type check
             if (!SqlAzManItem.MembershipAllowed(this, member))
-                throw new SqlAzManItemException(this, String.Format("Membership not allowed. Cannot add an item of type {0} to an item of type {1}.", member.ItemType, this.itemType));
+                throw new SqlAzManException(String.Format("Membership not allowed. Cannot add an item of type {0} to an item of type {1}.", member.ItemType, this.itemType));
             if (this.db.ItemsHierarchy().Any(r=>r.ItemId == member.ItemId && r.MemberOfItemId == this.itemId))
             {
                 this.db.ItemsHierarchyDelete(member.ItemId, this.itemId, this.application.ApplicationId);
@@ -527,9 +527,9 @@ namespace NetSqlAzMan
             catch (System.Data.SqlClient.SqlException sqlex)
             {
                 if (sqlex.Number == 2601) //Index Duplicate Error
-                    throw new SqlAzManItemException(this, "An Item with the same name already exists.");
+                    throw SqlAzManException.ItemDuplicateException(newItemName, this.application, sqlex);
                 else
-                    throw sqlex;
+                    throw SqlAzManException.GenericException(sqlex);
             }
         }
 
@@ -660,7 +660,7 @@ namespace NetSqlAzMan
                 cr = provider.CompileAssemblyFromSource(cp, bizRule);
                 if (cr.Errors.Count > 0)
                 {
-                    throw new Exception("Compiler Error");
+                    throw SqlAzManException.GenericException("BizRule Compiler Error.", null);
                 }
                 compiledAssembly = cr.CompiledAssembly;
                 int implementsIAzManBizRuleInterfaceCount = 0;
@@ -678,11 +678,11 @@ namespace NetSqlAzMan
                 }
                 if (implementsIAzManBizRuleInterfaceCount==0)
                 { 
-                    throw new Exception("There must be at least a type that implements NetSqlAzMan.Interfaces.IAzManBizRule interface");
+                    throw SqlAzManException.GenericException("There must be at least a type that implements NetSqlAzMan.Interfaces.IAzManBizRule interface", null);
                 }
                 else if (implementsIAzManBizRuleInterfaceCount > 1)
                 {
-                    throw new Exception("Too many types that implements NetSqlAzMan.Interfaces.IAzManBizRule interface. Maximum allowed is 1.");
+                    throw SqlAzManException.GenericException("Too many types that implements NetSqlAzMan.Interfaces.IAzManBizRule interface. Maximum allowed is 1.", null);
                 }
                 string fullPathAssembly = compiledAssembly.Location;
                 FileStream file = File.OpenRead(fullPathAssembly);
@@ -700,7 +700,7 @@ namespace NetSqlAzMan
                 {
                     outputMessages = outputMessages.AppendFormat("{0}\r\n", msg);
                 }
-                throw new Exception(String.Format("Biz Rule compile exception.\r\n{0}\r\nOutput:{1}\r\n", ex.Message, outputMessages), ex);
+                throw SqlAzManException.GenericException(String.Format("Biz Rule compile exception.\r\n{0}\r\nOutput:{1}\r\n", ex.Message, outputMessages), ex);
             }
             finally
             {
@@ -789,7 +789,7 @@ namespace NetSqlAzMan
             }
             if (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && sidWhereDefined == WhereDefined.Local)
             {
-                throw new SqlAzManItemException(this, "Cannot create an Authorization on members defined on local in Administrator Mode");
+                throw new SqlAzManException("Cannot create an Authorization on members defined on local in Administrator Mode");
             }
             var existing = (from aut in this.db.Authorizations()
                            where aut.ItemId == this.itemId && aut.OwnerSid == owner.BinaryValue && aut.OwnerSidWhereDefined == (byte)ownerSidWhereDefined && aut.ObjectSid == sid.BinaryValue && aut.AuthorizationType == (byte)authorizationType && aut.ValidFrom == validFrom && aut.ValidTo == validTo
@@ -1177,12 +1177,12 @@ namespace NetSqlAzMan
             if (this.CheckAccess(delegatingUser, DateTime.Now) != AuthorizationType.AllowWithDelegation)
             {
                 string msg = String.Format("Create Delegate permission deny for user '{0}' ({1}) to user '{2}' ({3}).", delegatingUser.Name, delegatingUser.User.Value, delegatedName, delegateUser.StringValue);
-                throw new SqlAzManItemException(this, msg);
+                throw new SqlAzManException(msg);
             }
             WhereDefined sidWhereDefined = isLocal ? WhereDefined.Local : WhereDefined.LDAP;
             if (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && sidWhereDefined == WhereDefined.Local)
             {
-                throw new SqlAzManItemException(this, "Cannot create a Delegate defined on local in Administrator Mode");
+                throw new SqlAzManException("Cannot create a Delegate defined on local in Administrator Mode");
             }
             IAzManSid owner = new SqlAzManSID(delegatingUser.User.Value);
             string ownerName;
@@ -1221,12 +1221,12 @@ namespace NetSqlAzMan
             if (this.CheckAccess(delegatingUser, DateTime.Now) != AuthorizationType.AllowWithDelegation)
             {
                 string msg = String.Format("Create Delegate permission deny for user '{0}' ({1}) to user '{2}' ({3}).", delegatingUser.UserName, delegatingUser.CustomSid.StringValue, delegatedName, delegateUser.StringValue);
-                throw new SqlAzManItemException(this, msg);
+                throw new SqlAzManException(msg);
             }
             WhereDefined sidWhereDefined = isLocal ? WhereDefined.Local : WhereDefined.LDAP;
             if (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && sidWhereDefined == WhereDefined.Local)
             {
-                throw new SqlAzManItemException(this, "Cannot create a Delegate defined on local in Administrator Mode");
+                throw new SqlAzManException("Cannot create a Delegate defined on local in Administrator Mode");
             }
             IAzManSid owner = delegatingUser.CustomSid;
             string ownerName = delegatingUser.UserName;
@@ -1255,12 +1255,12 @@ namespace NetSqlAzMan
             if (this.CheckAccess(delegatingUser, DateTime.Now) != AuthorizationType.AllowWithDelegation)
             {
                 string msg = String.Format("Remove Delegate permission deny for user '{0}' ({1}) to user '{2}' ({3}).", delegatingUser.Name, delegatingUser.User.Value, delegatedName, delegateUser.StringValue);
-                throw new SqlAzManItemException(this, msg);
+                throw new SqlAzManException(msg);
             }
             WhereDefined memberWhereDefined = isLocal ? WhereDefined.Local : WhereDefined.LDAP;
             if (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && memberWhereDefined == WhereDefined.Local)
             {
-                throw new SqlAzManItemException(this, "Cannot remove Delegates defined on local in Administrator Mode");
+                throw new SqlAzManException("Cannot remove Delegates defined on local in Administrator Mode");
             }
             IAzManSid owner = new SqlAzManSID(delegatingUser.User.Value);
             string ownerName;
@@ -1294,12 +1294,12 @@ namespace NetSqlAzMan
             if (this.CheckAccess(delegatingUser, DateTime.Now) != AuthorizationType.AllowWithDelegation)
             {
                 string msg = String.Format("Remove Delegate permission deny for user '{0}' ({1}) to user '{2}' ({3}).", delegatingUser.UserName, delegatingUser.CustomSid.StringValue, delegatedName, delegateUser.StringValue);
-                throw new SqlAzManItemException(this, msg);
+                throw new SqlAzManException(msg);
             }
             WhereDefined memberWhereDefined = isLocal ? WhereDefined.Local : WhereDefined.LDAP;
             if (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && memberWhereDefined == WhereDefined.Local)
             {
-                throw new SqlAzManItemException(this, "Cannot remove Delegates defined on local in Administrator Mode");
+                throw new SqlAzManException("Cannot remove Delegates defined on local in Administrator Mode");
             }
             IAzManSid owner = delegatingUser.CustomSid;
             string ownerName = delegatingUser.UserName;
@@ -1385,9 +1385,9 @@ namespace NetSqlAzMan
             catch (System.Data.SqlClient.SqlException sqlex)
             {
                 if (sqlex.Number == 2601) //Index Duplicate Error
-                    throw new SqlAzManItemException(this, "An Item Attribute with the same Key name already exists.");
+                    throw SqlAzManException.AttributeDuplicateException(key, this, sqlex);
                 else
-                    throw sqlex;
+                    throw SqlAzManException.GenericException(sqlex);
             }
         }
         internal static AuthorizationType mergeAuthorizations(AuthorizationType auth1, AuthorizationType auth2)

@@ -264,9 +264,9 @@ namespace NetSqlAzMan
                 catch (System.Data.SqlClient.SqlException sqlex)
                 {
                     if (sqlex.Number == 2601) //Index Duplicate Error
-                        throw new SqlAzManApplicationGroupException(this, "An Application Group with the same name already exists.");
+                        throw SqlAzManException.ApplicationGroupDuplicateException(newName, this.application, sqlex);
                     else
-                        throw sqlex;
+                        throw SqlAzManException.GenericException(sqlex);
                 }
             }
         }
@@ -319,14 +319,14 @@ namespace NetSqlAzMan
             
             if (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && whereDefined == WhereDefined.Local)
             {
-                throw new SqlAzManApplicationGroupException(this, "Cannot create Application Group members defined on local in Administrator Mode");
+                throw new SqlAzManException("Cannot create Application Group members defined on local in Administrator Mode");
             }
             //Loop detection
             if (whereDefined == WhereDefined.Application)
             {
                 IAzManApplicationGroup applicationGroupToAdd = this.application.GetApplicationGroup(sid);
                 if (this.detectLoop(applicationGroupToAdd))
-                    throw new SqlAzManApplicationGroupException(this, String.Format("Cannot add '{0}'. A loop has been detected.", applicationGroupToAdd.Name));
+                    throw new SqlAzManException(String.Format("Cannot add '{0}'. A loop has been detected.", applicationGroupToAdd.Name));
             }
             int retV = this.db.ApplicationGroupMemberInsert(this.applicationGroupId, sid.BinaryValue, (byte)whereDefined, isMember, this.application.ApplicationId);
             IAzManApplicationGroupMember result = new SqlAzManApplicationGroupMember(this.db, this, retV, sid, whereDefined, isMember, this.ens);

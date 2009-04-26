@@ -267,9 +267,9 @@ namespace NetSqlAzMan
             catch (System.Data.SqlClient.SqlException sqlex)
             {
                 if (sqlex.Number == 2601) //Index Duplicate Error
-                    throw new SqlAzManStoreGroupException(this, "A Store Group with the same name already exists.");
+                    throw SqlAzManException.StoreGroupDuplicateException(newName, this.store, sqlex);
                 else
-                    throw sqlex;
+                    throw SqlAzManException.GenericException(sqlex);
             }
         }
 
@@ -323,14 +323,14 @@ namespace NetSqlAzMan
             
             if (this.store.Storage.Mode == NetSqlAzManMode.Administrator && whereDefined == WhereDefined.Local)
             {
-                throw new SqlAzManStoreGroupException(this, "Cannot create Store Group members defined on local in Administrator Mode");
+                throw new SqlAzManException("Cannot create Store Group members defined on local in Administrator Mode");
             }
             //Loop detection
             if (whereDefined == WhereDefined.Store)
             {
                 IAzManStoreGroup storeGroupToAdd = this.store.GetStoreGroup(sid);
                 if (this.detectLoop(storeGroupToAdd))
-                    throw new SqlAzManStoreGroupException(this, String.Format("Cannot add '{0}'. A loop has been detected.", storeGroupToAdd.Name));
+                    throw new SqlAzManException(String.Format("Cannot add '{0}'. A loop has been detected.", storeGroupToAdd.Name));
             }
             int retV = this.db.StoreGroupMemberInsert(this.store.StoreId, this.storeGroupId, sid.BinaryValue, (byte)whereDefined, isMember);
             IAzManStoreGroupMember result = new SqlAzManStoreGroupMember(this.db, this, retV, sid, whereDefined, isMember, this.ens);

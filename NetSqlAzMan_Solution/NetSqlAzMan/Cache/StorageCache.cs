@@ -620,15 +620,15 @@ namespace NetSqlAzMan.Cache
             var store = (from s in this.storage.Stores.Values
                          where String.Compare(s.Name, storeName, true) == 0
                          select s).FirstOrDefault();
-            if (store == null) throw new ArgumentOutOfRangeException("storeName", "Store not found or Store permission denied.");
+            if (store == null) throw SqlAzManException.StoreNotFoundException(storeName, null);
             var application = (from a in store.Applications.Values
                                where String.Compare(a.Name, applicationName, true) == 0
                                select a).FirstOrDefault();
-            if (application == null) throw new ArgumentOutOfRangeException("applicationName", "Application not found or Application permission denied.");
+            if (application == null) throw SqlAzManException.ApplicationNotFoundException(applicationName, store, null);
             var item = (from a in application.Items.Values
                         where String.Compare(a.Name, itemName, true) == 0
                         select a).FirstOrDefault();
-            if (item == null) throw new ArgumentOutOfRangeException("itemName", "Item not found.");
+            if (item == null) throw SqlAzManException.ItemNotFoundException(itemName, application, null);
             #endregion NAMES VALIDATION
             #region RECURSIVE CALL
             var parentItems = from it in application.Items.Values
@@ -672,8 +672,7 @@ namespace NetSqlAzMan.Cache
                 }
                 catch (Exception ex)
                 {
-                    string msg = String.Format("Business Rule Error:{0}\r\nItem Name:{1}, Application Name: {2}, Store Name: {3}", ex.Message, itemName, application.Name, storeName);
-                    throw new Exception(msg, ex);
+                    throw SqlAzManException.BizRuleException(item, ex);
                 }
             }
             #endregion BIZ RULE CHECK
