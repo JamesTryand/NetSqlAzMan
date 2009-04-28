@@ -31,6 +31,7 @@ namespace NetSqlAzMan
             if (sddlForm.StartsWith("S-1"))
                 this.securityIdentifier = new SecurityIdentifier(sddlForm);
             else
+
                 guid = new Guid(sddlForm);
         }
 
@@ -61,7 +62,11 @@ namespace NetSqlAzMan
             if (customSid)
             {
                 Guid g;
-                if (IsGuid(sddlForm, out g))
+                if (sddlForm.StartsWith("S-1"))
+                {
+                    this.securityIdentifier = new SecurityIdentifier(sddlForm);
+                }
+                else if (IsGuid(sddlForm, out g))
                 {
                     this.customSid = g.ToByteArray();
                 }

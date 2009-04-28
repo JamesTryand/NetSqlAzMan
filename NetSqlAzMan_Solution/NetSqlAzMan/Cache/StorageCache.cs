@@ -660,7 +660,7 @@ namespace NetSqlAzMan.Cache
                             ctxParameters.Add(kv.Key, kv.Value);
                         }
                     }
-                    bool bizRuleResult = this.storage.executeBizRule(item, new SqlAzManSID(userSSid), ctxParameters, ref forcedCheckAccessResult);
+                    bool bizRuleResult = this.storage.executeBizRule(item, new SqlAzManSID(userSSid, true), ctxParameters, ref forcedCheckAccessResult);
                     if (bizRuleResult == true)
                     {
                         authorizationType = SqlAzManItem.mergeAuthorizations(authorizationType, forcedCheckAccessResult);

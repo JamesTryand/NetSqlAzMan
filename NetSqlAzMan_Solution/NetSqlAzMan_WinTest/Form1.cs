@@ -166,7 +166,7 @@ namespace Prova.BizRules
                 var ctx = new[] { new KeyValuePair<string, object>("Value1", "111"), new KeyValuePair<string, object>("Value2", "222") };
                 IAzManStorage storage = new SqlAzManStorage(cs);
 
-                storage.CheckAccess("Eidos", "DB Persone", "ItemNF", WindowsIdentity.GetCurrent(), DateTime.Now, false);
+                //storage.CheckAccess("Eidos", "DB Persone", "ItemNF", WindowsIdentity.GetCurrent(), DateTime.Now, false);
 
                 StorageCache sc = new StorageCache(cs);
                 sc.BuildStorageCache();
