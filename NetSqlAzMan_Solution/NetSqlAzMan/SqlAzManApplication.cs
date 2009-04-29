@@ -289,7 +289,8 @@ namespace NetSqlAzMan
                 int id = this.db.ItemInsert(itemName, itemDescription, (byte)itemType, null, this.applicationId);
                 IAzManItem itemCreated = new SqlAzManItem(this.db, this, id, itemName, itemDescription, itemType, String.Empty, null, this.ens);
                 this.raiseItemCreated(this, itemCreated);
-                this.ens.AddPublisher(itemCreated);
+                if (this.ens != null)
+                    this.ens.AddPublisher(itemCreated);
                 //Update cached items
                 if (this.items!=null && !this.items.ContainsKey(itemCreated.Name))
                     this.items.Add(itemCreated.Name, itemCreated);
@@ -329,7 +330,8 @@ namespace NetSqlAzMan
                     bizRuleScriptLanguage = (NetSqlAzMan.BizRuleSourceLanguage)bizrule.BizRuleLanguage.Value;
                 }
                 IAzManItem result = new SqlAzManItem(this.db, this, itemId, name, description, itemType, bizRule, bizRuleScriptLanguage, this.ens);
-                this.ens.AddPublisher(result);
+                if (this.ens != null)
+                    this.ens.AddPublisher(result);
                 return result;
             }
             else
@@ -380,7 +382,8 @@ namespace NetSqlAzMan
                 }
                 items[index] = new SqlAzManItem(this.db, this, row.ItemId.Value, row.Name, row.Description, (ItemType)row.ItemType.Value, bizRule, bizRuleScriptLanguage, this.ens);
                 this.items.Add(items[index].Name, items[index]);
-                this.ens.AddPublisher(items[index]);
+                if (this.ens != null)
+                    this.ens.AddPublisher(items[index]);
                 index++;
             }
             //Members
@@ -434,7 +437,8 @@ namespace NetSqlAzMan
                     bizRuleScriptLanguage = (NetSqlAzMan.BizRuleSourceLanguage)bizrule.BizRuleLanguage.Value;
                 }
                 items[index] = new SqlAzManItem(this.db, this, row.ItemId.Value, row.Name, row.Description, (ItemType)row.ItemType, bizRule, bizRuleScriptLanguage, this.ens);
-                this.ens.AddPublisher(items[index]);
+                if (this.ens != null)
+                    this.ens.AddPublisher(items[index]);
                 index++;
             }
             return items;
@@ -457,7 +461,8 @@ namespace NetSqlAzMan
                     this.db.ApplicationGroupInsert(this.applicationId, sid.BinaryValue, name, description, lDapQuery, (byte)groupType);
                     IAzManApplicationGroup applicationGroupCreated = this.GetApplicationGroup(name);
                     this.raiseApplicationGroupCreated(this, applicationGroupCreated);
-                    this.ens.AddPublisher(applicationGroupCreated);
+                    if (this.ens != null)
+                        this.ens.AddPublisher(applicationGroupCreated);
                     this.applicationGroups = null; //Force cache refresh
                     return applicationGroupCreated;
                 }
@@ -503,7 +508,8 @@ namespace NetSqlAzMan
             foreach (var row in ds)
             {
                 applicationGroups[index] = new SqlAzManApplicationGroup(this.db, this, row.ApplicationGroupId.Value, new SqlAzManSID(row.ObjectSid.ToArray()), row.Name, row.Description, row.LDapQuery, (GroupType)row.GroupType.Value, this.ens);
-                this.ens.AddPublisher(applicationGroups[index]);
+                if (this.ens != null)
+                    this.ens.AddPublisher(applicationGroups[index]);
                 index++;
             }
             return applicationGroups;
@@ -526,7 +532,8 @@ namespace NetSqlAzMan
                 GroupType groupType = (GroupType)agr.GroupType.Value;
 
                 IAzManApplicationGroup result = new SqlAzManApplicationGroup(this.db, this, applicationGroupid, objectSid, name, description, lDapQuery, groupType, this.ens);
-                this.ens.AddPublisher(result);
+                if (this.ens != null)
+                    this.ens.AddPublisher(result);
                 return result;
             }
             else
@@ -545,7 +552,8 @@ namespace NetSqlAzMan
             if ((agr = (from t in this.db.ApplicationGroups() where t.ObjectSid == sid.BinaryValue && t.ApplicationId == this.applicationId select t).FirstOrDefault())!=null)
             {
                 IAzManApplicationGroup result = this.GetApplicationGroup(agr.Name);
-                this.ens.AddPublisher(result);
+                if (this.ens != null) 
+                    this.ens.AddPublisher(result);
                 return result;
             }
             else
@@ -569,7 +577,8 @@ namespace NetSqlAzMan
             foreach (var row in ds)
             {
                 attributes[index] = new SqlAzManApplicationAttribute(this.db, this, row.ApplicationAttributeId.Value, row.AttributeKey, row.AttributeValue, this.ens);
-                this.ens.AddPublisher(attributes[index]);
+                if (this.ens != null) 
+                    this.ens.AddPublisher(attributes[index]);
                 index++;
             }
             return attributes;
@@ -586,7 +595,8 @@ namespace NetSqlAzMan
             if ((aa = (from t in this.db.ApplicationAttributes() where t.ApplicationId == this.applicationId && t.AttributeKey == key select t).FirstOrDefault())!=null)
             {
                 IAzManAttribute<IAzManApplication> result = new SqlAzManApplicationAttribute(this.db, this, aa.ApplicationAttributeId.Value, aa.AttributeKey, aa.AttributeValue, this.ens);
-                this.ens.AddPublisher(result);
+                if (this.ens != null) 
+                    this.ens.AddPublisher(result);
                 return result;
             }
             else
@@ -608,7 +618,8 @@ namespace NetSqlAzMan
                 int applicationAttributeId = this.db.ApplicationAttributeInsert(this.applicationId, key, value);
                 IAzManAttribute<IAzManApplication> result = new SqlAzManApplicationAttribute(this.db, this, applicationAttributeId, key, value, this.ens);
                 this.raiseApplicationAttributeCreated(this, result);
-                this.ens.AddPublisher(result);
+                if (this.ens != null) 
+                    this.ens.AddPublisher(result);
                 return result;
             }
             catch (System.Data.SqlClient.SqlException sqlex)

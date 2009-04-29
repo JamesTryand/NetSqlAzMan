@@ -128,7 +128,7 @@ namespace NetSqlAzMan.Cache
 
                 foreach (var drAuthorization in this.dtAuthorizations)
                 {
-                    
+
                     ManualResetEvent waitHandle = new ManualResetEvent(false);
                     waitHandles.Add(waitHandle);
                     //New Thread Pool
@@ -146,7 +146,7 @@ namespace NetSqlAzMan.Cache
                                 clonedStorage.OpenConnection();
                                 ItemCheckAccessResult result = new ItemCheckAccessResult(itemName);
                                 result.ValidFrom = localAuth.ValidFrom.HasValue ? localAuth.ValidFrom.Value : DateTime.MinValue;
-                                result.ValidTo = localAuth.ValidTo.HasValue? localAuth.ValidTo.Value : DateTime.MaxValue;
+                                result.ValidTo = localAuth.ValidTo.HasValue ? localAuth.ValidTo.Value : DateTime.MaxValue;
                                 List<KeyValuePair<string, string>> attributes = null;
                                 DateTime validFor = localAuth.ValidFrom.HasValue ? localAuth.ValidFrom.Value : now;
                                 if (this.windowsIdentity != null)
@@ -202,7 +202,7 @@ namespace NetSqlAzMan.Cache
                 }
                 //Extends all results
                 index = 0;
-                for (int i=0;i<count;i++)
+                for (int i = 0; i < count; i++)
                 {
                     object[] values = (object[])allResult[index++];
                     string itemName = (string)((object[])values)[0];
@@ -244,7 +244,7 @@ namespace NetSqlAzMan.Cache
             //Item Owned Attributes
             this.itemAttributes = new Dictionary<string, List<KeyValuePair<string, string>>>();
             foreach (var item in this.storage[this.storeName][this.applicationName].Items)
-            { 
+            {
                 var ownedAttributes = (from t in item.Value.Attributes.Values select new KeyValuePair<string, string>(t.Key, t.Value)).ToList();
                 this.itemAttributes.Add(item.Key, ownedAttributes);
             }
@@ -266,11 +266,40 @@ namespace NetSqlAzMan.Cache
                     result.ValidFrom = drAuthorization.ValidFrom.HasValue ? drAuthorization.ValidFrom.Value : DateTime.MinValue;
                     result.ValidTo = drAuthorization.ValidTo.HasValue ? drAuthorization.ValidTo.Value : DateTime.MaxValue;
                     List<KeyValuePair<string, string>> attributes = null;
-                    DateTime validFor = drAuthorization.ValidFrom.HasValue ? drAuthorization.ValidFrom.Value : now;
+                    DateTime validFor = DateTime.Now;
+                    if (drAuthorization.ValidFrom.HasValue)
+                    {
+                        validFor = drAuthorization.ValidFrom.Value;
+                    }
+                    else if (drAuthorization.ValidTo.HasValue)
+                    {
+                        validFor = drAuthorization.ValidTo.Value;
+                    }
+                    else
+                    {
+                        var mindt = (from t in this.dtAuthorizations
+                                          where t.ValidFrom.HasValue
+                                          select t.ValidFrom).Min();
+                        if (mindt.HasValue && mindt.Value!=DateTime.MinValue)
+                        {
+                            validFor = mindt.Value.AddSeconds(-1);
+                        }
+                        else
+                        {
+                            var maxdt = (from t in this.dtAuthorizations
+                                              where t.ValidTo.HasValue
+                                              select t.ValidTo).Max();
+                            if (maxdt.HasValue && maxdt.Value != DateTime.MaxValue)
+                            {
+                                validFor = maxdt.Value.AddSeconds(1);
+                            }
+                        }
+                    }
+
                     if (this.windowsIdentity != null)
                     {
                         if (this.retrieveAttributes)
-                            result.AuthorizationType = this.storage.CheckAccess(this.storeName, this.applicationName, itemName, this.windowsIdentity, validFor, false,  out attributes, this.contextParameters);
+                            result.AuthorizationType = this.storage.CheckAccess(this.storeName, this.applicationName, itemName, this.windowsIdentity, validFor, false, out attributes, this.contextParameters);
                         else
                             result.AuthorizationType = this.storage.CheckAccess(this.storeName, this.applicationName, itemName, this.windowsIdentity, validFor, false, this.contextParameters);
                     }
@@ -301,7 +330,7 @@ namespace NetSqlAzMan.Cache
                 ItemCheckAccessResult memberItemCheckAccessResult = result.ClonedForItem(memberName);
                 results.Add(memberItemCheckAccessResult);
                 if (result.AuthorizationType == AuthorizationType.Allow || result.AuthorizationType == AuthorizationType.AllowWithDelegation)
-                { 
+                {
                     //Add my attributes to my members
                     var itemAttributes = result.Attributes;
                     foreach (var itemAttribute in itemAttributes)
@@ -331,11 +360,11 @@ namespace NetSqlAzMan.Cache
                 throw SqlAzManException.ItemNotFoundException(itemName, this.storeName, this.applicationName, null);
             }
             AuthorizationType result = AuthorizationType.Neutral;
-            attributes = new List<KeyValuePair<string,string>>();
+            attributes = new List<KeyValuePair<string, string>>();
             bool allowBecomesAllowWithDelegation = false;
             foreach (ItemCheckAccessResult ca in this.checkAccessTimeSlice)
             {
-                if (String.Compare(ca.ItemName,itemName, true)==0)
+                if (String.Compare(ca.ItemName, itemName, true) == 0)
                 {
                     if (validFor >= ca.ValidFrom && validFor <= ca.ValidTo)
                     {
@@ -356,7 +385,7 @@ namespace NetSqlAzMan.Cache
                         //Owner Attributes
                         if (this.retrieveAttributes && (result == AuthorizationType.AllowWithDelegation || result == AuthorizationType.Allow))
                         {
-                            foreach (KeyValuePair<string, string> kvp in this.itemAttributes[itemName])
+                            foreach (KeyValuePair<string, string> kvp in this.itemAttributes[ca.ItemName])
                             {
                                 if (!attributes.Contains(new KeyValuePair<string, string>(kvp.Key, kvp.Value)))
                                 {

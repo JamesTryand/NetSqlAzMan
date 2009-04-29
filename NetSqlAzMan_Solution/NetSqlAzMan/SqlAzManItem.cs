@@ -799,7 +799,8 @@ namespace NetSqlAzMan
                 int id = this.db.AuthorizationInsert(this.itemId, owner.BinaryValue, (byte)ownerSidWhereDefined, sid.BinaryValue, (byte)sidWhereDefined, (byte)authorizationType, (validFrom.HasValue ? validFrom.Value : new DateTime?()), (validTo.HasValue ? validTo.Value : new DateTime?()), this.application.ApplicationId);
                 IAzManAuthorization result = new SqlAzManAuthorization(this.db, this, id, owner, ownerSidWhereDefined, sid, sidWhereDefined, authorizationType, validFrom, validTo, this.ens);
                 this.raiseAuthorizationCreated(this, result);
-                this.ens.AddPublisher(result);
+                if (this.ens != null)
+                    this.ens.AddPublisher(result);
                 this.authorizations = null; //Force cache refresh
                 return result;
             }
@@ -831,7 +832,8 @@ namespace NetSqlAzMan
             foreach (var row in auths)
             {
                 authorizations[index] = new SqlAzManAuthorization(this.db, this, row.AuthorizationId.Value, new SqlAzManSID(row.OwnerSid.ToArray(), row.OwnerSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.OwnerSidWhereDefined, new SqlAzManSID(row.ObjectSid.ToArray(), row.ObjectSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.ObjectSidWhereDefined, (AuthorizationType)row.AuthorizationType, (row.ValidFrom.HasValue ? row.ValidFrom : new DateTime?()), (row.ValidTo.HasValue ? row.ValidTo : new DateTime?()), this.ens);
-                this.ens.AddPublisher(authorizations[index]);
+                if (this.ens != null)
+                    this.ens.AddPublisher(authorizations[index]);
                 index++;
             }
             return authorizations;
@@ -856,7 +858,8 @@ namespace NetSqlAzMan
             foreach (var row in auths)
             {
                 authorizations[index] = new SqlAzManAuthorization(this.db, this, row.AuthorizationId.Value, new SqlAzManSID(row.OwnerSid.ToArray(), row.OwnerSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.OwnerSidWhereDefined, new SqlAzManSID(row.ObjectSid.ToArray(), row.ObjectSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.ObjectSidWhereDefined, (AuthorizationType)row.AuthorizationType, row.ValidFrom, row.ValidTo, this.ens);
-                this.ens.AddPublisher(authorizations[index]);
+                if (this.ens != null)
+                    this.ens.AddPublisher(authorizations[index]);
                 index++;
             }
             return authorizations;
@@ -883,7 +886,8 @@ namespace NetSqlAzMan
             foreach (var row in auths)
             {
                 authorizations[index] = new SqlAzManAuthorization(this.db, this, row.AuthorizationId.Value, new SqlAzManSID(row.OwnerSid.ToArray(), row.OwnerSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.OwnerSidWhereDefined, new SqlAzManSID(row.ObjectSid.ToArray(), row.ObjectSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.ObjectSidWhereDefined, (AuthorizationType)row.AuthorizationType, row.ValidFrom, row.ValidTo, this.ens);
-                this.ens.AddPublisher(authorizations[index]);
+                if (this.ens != null)
+                    this.ens.AddPublisher(authorizations[index]);
                 index++;
             }
             return authorizations;
@@ -909,7 +913,8 @@ namespace NetSqlAzMan
             foreach (var row in aom)
             {
                 authorizations[index] = new SqlAzManAuthorization(this.db, this, row.AuthorizationId.Value, new SqlAzManSID(row.OwnerSid.ToArray(), row.OwnerSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.OwnerSidWhereDefined, new SqlAzManSID(row.ObjectSid.ToArray(), row.ObjectSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.ObjectSidWhereDefined, (AuthorizationType)row.AuthorizationType, row.ValidFrom, row.ValidTo, this.ens);
-                this.ens.AddPublisher(authorizations[index]);
+                if (this.ens != null)
+                    this.ens.AddPublisher(authorizations[index]);
                 index++;
             }
             return authorizations;
@@ -935,7 +940,8 @@ namespace NetSqlAzMan
             foreach (var row in auths)
             {
                 authorizations[index] = new SqlAzManAuthorization(this.db, this, row.AuthorizationId.Value, new SqlAzManSID(row.OwnerSid.ToArray(), row.OwnerSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.OwnerSidWhereDefined, new SqlAzManSID(row.ObjectSid.ToArray(), row.ObjectSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.ObjectSidWhereDefined, (AuthorizationType)row.AuthorizationType, row.ValidFrom, row.ValidTo, this.ens);
-                this.ens.AddPublisher(authorizations[index]);
+                if (this.ens != null)
+                    this.ens.AddPublisher(authorizations[index]);
                 index++;
             }
             return authorizations;
@@ -958,7 +964,8 @@ namespace NetSqlAzMan
                 else
                 {
                     IAzManAuthorization result = new SqlAzManAuthorization(this.db, this, ar.AuthorizationId.Value, new SqlAzManSID(ar.OwnerSid.ToArray(), ar.OwnerSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)ar.OwnerSidWhereDefined, new SqlAzManSID(ar.ObjectSid.ToArray(), ar.ObjectSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)(ar.ObjectSidWhereDefined), (AuthorizationType)ar.AuthorizationType, ar.ValidFrom, ar.ValidTo, this.ens);
-                    this.ens.AddPublisher(result);
+                    if (this.ens != null)
+                        this.ens.AddPublisher(result);
                     return result;
                 }
             }
@@ -1194,7 +1201,8 @@ namespace NetSqlAzMan
             this.db.CreateDelegate(this.itemId, owner.BinaryValue, (byte)ownerSidWhereDefined, delegateUser.BinaryValue, (byte)sidWhereDefined, (byte)authorizationType, (validFrom.HasValue ? validFrom.Value : new DateTime?() ), (validTo.HasValue ? validTo.Value : new DateTime?() ), ref authorizationId);
             IAzManAuthorization result = new SqlAzManAuthorization(this.db, this, authorizationId.Value, owner, ownerSidWhereDefined, delegateUser, sidWhereDefined, (AuthorizationType)authorizationType, validFrom, validTo, this.ens);
             this.raiseDelegateCreated(this, result);
-            this.ens.AddPublisher(result);
+            if (this.ens!=null)
+                this.ens.AddPublisher(result);
             return result;
         }
         /// <summary>
@@ -1236,7 +1244,8 @@ namespace NetSqlAzMan
             this.db.CreateDelegate(this.itemId, owner.BinaryValue, (byte)ownerSidWhereDefined, delegateUser.BinaryValue, (byte)sidWhereDefined, (byte)authorizationType, (validFrom.HasValue ? validFrom.Value : new DateTime?() ), (validTo.HasValue ? validTo.Value : new DateTime?() ), ref authorizationId);
             IAzManAuthorization result = new SqlAzManAuthorization(this.db, this, authorizationId.Value, owner, ownerSidWhereDefined, delegateUser, sidWhereDefined, (AuthorizationType)authorizationType, validFrom, validTo, this.ens);
             this.raiseDelegateCreated(this, result);
-            this.ens.AddPublisher(result);
+            if (this.ens != null)
+                this.ens.AddPublisher(result);
             return result;
         }
         /// <summary>
@@ -1340,7 +1349,8 @@ namespace NetSqlAzMan
             foreach (var row in ia)
             {
                 attributes[index] = new SqlAzManItemAttribute(this.db, this, row.ItemAttributeId.Value, row.AttributeKey, row.AttributeValue, this.ens);
-                this.ens.AddPublisher(attributes[index]);
+                if (this.ens != null)
+                    this.ens.AddPublisher(attributes[index]);
                 index++;
             }
             return attributes;
@@ -1357,7 +1367,8 @@ namespace NetSqlAzMan
             if ((iar = (from t in this.db.ItemAttributes() where t.ItemId == this.itemId && t.AttributeKey == key select t).FirstOrDefault())!=null)
             {
                 IAzManAttribute<IAzManItem> result = new SqlAzManItemAttribute(this.db, this, iar.ItemAttributeId.Value, iar.AttributeKey, iar.AttributeValue, this.ens);
-                this.ens.AddPublisher(result);
+                if (this.ens != null)
+                    this.ens.AddPublisher(result);
                 return result;
             }
             else
@@ -1379,7 +1390,8 @@ namespace NetSqlAzMan
                 int itemAttributeId = this.db.ItemAttributeInsert(this.itemId, key, value, this.application.ApplicationId);
                 IAzManAttribute<IAzManItem> result = new SqlAzManItemAttribute(this.db, this, itemAttributeId, key, value, this.ens);
                 this.raiseItemAttributeCreated(this, result);
-                this.ens.AddPublisher(result);
+                if (this.ens != null)
+                    this.ens.AddPublisher(result);
                 return result;
             }
             catch (System.Data.SqlClient.SqlException sqlex)
