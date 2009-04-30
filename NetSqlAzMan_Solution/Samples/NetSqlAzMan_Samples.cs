@@ -151,7 +151,7 @@ namespace NetSqlAzMan_CSharp_Samples
             IAzManApplication myapp = mystore.GetApplication("My Application");
             IAzManItem myop = myapp.GetItem("My Operation");
             //Retrieve current user identity (delegating user)
-            WindowsIdentity userIdentity = WindowsIdentity.GetCurrent(); //for Windows Applications 
+            WindowsIdentity userIdentity = ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()); //for Windows Applications 
             //WindowsIdentity userIdentity = this.Request.LogonUserIdentity; //for ASP.NET Applications
             //Retrieve delegate user Login
             NTAccount delegateUserLogin = new NTAccount("DOMAIN","delegateuseraccount");
@@ -181,7 +181,7 @@ namespace NetSqlAzMan_CSharp_Samples
             IAzManApplication myapp = mystore.GetApplication("My Application");
             IAzManItem myop = myapp.GetItem("My Operation");
             //Retrieve current user identity (delegating user)
-            WindowsIdentity userIdentity = WindowsIdentity.GetCurrent(); //for Windows Applications 
+            WindowsIdentity userIdentity = ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()); //for Windows Applications 
             //WindowsIdentity userIdentity = this.Request.LogonUserIdentity; //for ASP.NET Applications
             //Retrieve delegate user Login
             NTAccount delegateUserLogin = new NTAccount("DOMAIN", "delegateuseraccount");
@@ -213,7 +213,7 @@ namespace NetSqlAzMan_CSharp_Samples
             //Create a new Basic StoreGroup
             IAzManStoreGroup newStoreGroup = newStore.CreateStoreGroup(SqlAzManSID.NewSqlAzManSid(), "My Store Group", "Store Group Description", String.Empty, GroupType.Basic);
             //Retrieve current user SID
-            IAzManSid mySid = new SqlAzManSID(WindowsIdentity.GetCurrent().User);
+            IAzManSid mySid = new SqlAzManSID(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).User);
             //Add myself as sid of "My Store Group"
             IAzManStoreGroupMember storeGroupMember = newStoreGroup.CreateStoreGroupMember(mySid, WhereDefined.Local, true);
             //Create a new Application
