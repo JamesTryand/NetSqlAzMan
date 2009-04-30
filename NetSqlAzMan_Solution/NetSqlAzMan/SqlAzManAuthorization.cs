@@ -280,7 +280,7 @@ namespace NetSqlAzMan
             foreach (var row in attrs)
             {
                 attributes[index] = new SqlAzManAuthorizationAttribute(this.db, this, row.AuthorizationAttributeId.Value, row.AttributeKey, row.AttributeValue, this.ens);
-                this.ens.AddPublisher(attributes[index]);
+                if (this.ens != null) this.ens.AddPublisher(attributes[index]);
                 index++;
             }
             return attributes;
@@ -297,7 +297,7 @@ namespace NetSqlAzMan
             if ((attr = (from t in this.db.AuthorizationAttributes() where t.AuthorizationId == this.authorizationId && t.AttributeKey == key select t).FirstOrDefault()) != null)
             {
                 IAzManAttribute<IAzManAuthorization> result = new SqlAzManAuthorizationAttribute(this.db, this, attr.AuthorizationAttributeId.Value, attr.AttributeKey, attr.AttributeValue, this.ens);
-                this.ens.AddPublisher(result);
+                if (this.ens != null) this.ens.AddPublisher(result);
                 return result;
             }
             else
@@ -322,7 +322,7 @@ namespace NetSqlAzMan
                 this.db.SubmitChanges();
                 IAzManAttribute<IAzManAuthorization> result = new SqlAzManAuthorizationAttribute(this.db, this, authorizationAttributeId, key, value, this.ens);
                 this.raiseAuthorizationAttributeCreated(this, result);
-                this.ens.AddPublisher(result);
+                if (this.ens != null) this.ens.AddPublisher(result);
                 return result;
             }
             catch (System.Data.SqlClient.SqlException sqlex)

@@ -335,7 +335,7 @@ namespace NetSqlAzMan
             int retV = this.db.StoreGroupMemberInsert(this.store.StoreId, this.storeGroupId, sid.BinaryValue, (byte)whereDefined, isMember);
             IAzManStoreGroupMember result = new SqlAzManStoreGroupMember(this.db, this, retV, sid, whereDefined, isMember, this.ens);
             this.raiseStoreGroupMemberCreated(this, result);
-            this.ens.AddPublisher(result);
+            if (this.ens != null) this.ens.AddPublisher(result);
             return result;
         }
         /// <summary>
@@ -358,7 +358,7 @@ namespace NetSqlAzMan
             foreach (var row in sgm)
             {
                 storeGroupAllMembers[index] = new SqlAzManStoreGroupMember(this.db, this, row.StoreGroupMemberId.Value, new SqlAzManSID(row.ObjectSid.ToArray(), row.WhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.WhereDefined, row.IsMember.Value, this.ens);
-                this.ens.AddPublisher(storeGroupAllMembers[index]);
+                if (this.ens != null) this.ens.AddPublisher(storeGroupAllMembers[index]);
                 index++;
             }
             return storeGroupAllMembers;
@@ -385,7 +385,7 @@ namespace NetSqlAzMan
             foreach (var row in sgm)
             {
                 storeGroupMembers[index] = new SqlAzManStoreGroupMember(this.db, this, row.StoreGroupMemberId.Value, new SqlAzManSID(row.ObjectSid.ToArray(), row.WhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.WhereDefined, row.IsMember.Value, this.ens);
-                this.ens.AddPublisher(storeGroupMembers[index]);
+                if (this.ens != null) this.ens.AddPublisher(storeGroupMembers[index]);
                 index++;
             }
             return storeGroupMembers;
@@ -410,7 +410,7 @@ namespace NetSqlAzMan
                 else
                 {
                     IAzManStoreGroupMember result = new SqlAzManStoreGroupMember(this.db, this, sgm.StoreGroupMemberId.Value, new SqlAzManSID(sgm.ObjectSid.ToArray(), sgm.WhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)(sgm.WhereDefined), sgm.IsMember.Value, this.ens);
-                    this.ens.AddPublisher(result);
+                    if (this.ens != null) this.ens.AddPublisher(result);
                     return result;
                 }
             }
@@ -442,7 +442,7 @@ namespace NetSqlAzMan
             foreach (var row in sgnm)
             {
                 storeGroupNonMembers[index] = new SqlAzManStoreGroupMember(this.db, this, row.StoreGroupMemberId.Value, new SqlAzManSID(row.ObjectSid.ToArray(), row.WhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.WhereDefined, row.IsMember.Value, this.ens);
-                this.ens.AddPublisher(storeGroupNonMembers[index]);
+                if (this.ens != null) this.ens.AddPublisher(storeGroupNonMembers[index]);
                 index++;
             }
             return storeGroupNonMembers;

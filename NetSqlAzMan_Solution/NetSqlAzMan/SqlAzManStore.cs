@@ -347,7 +347,8 @@ namespace NetSqlAzMan
                 }
                 IAzManApplication application = new SqlAzManApplication(this.db, this, app.ApplicationId.Value, applicationName, app.Description, netsqlazmanFixedServerRole, this.ens);
                 this.raiseApplicationOpened(application);
-                this.ens.AddPublisher(application);
+                if (this.ens != null)
+                    this.ens.AddPublisher(application);
                 return application;
             }
             else
@@ -409,7 +410,7 @@ namespace NetSqlAzMan
                     this.db.StoreGroupInsert(this.storeId, sid.BinaryValue, name, description, lDapQuery, (byte)groupType);
                     IAzManStoreGroup result = this.GetStoreGroup(name);
                     this.raiseStoreGroupCreated(this, result);
-                    this.ens.AddPublisher(result);
+                    if (this.ens != null) this.ens.AddPublisher(result);
                     this.storeGroups = null; //Force cache refresh
                     return result;
                 }
@@ -453,7 +454,7 @@ namespace NetSqlAzMan
             foreach (var row in ds)
             {
                 storeGroups[index] = new SqlAzManStoreGroup(this.db, this, row.StoreGroupId.Value, new SqlAzManSID(row.ObjectSid.ToArray()), row.Name, row.Description, row.LDapQuery, (GroupType)row.GroupType.Value, this.ens);
-                this.ens.AddPublisher(storeGroups[index]);
+                if (this.ens != null) this.ens.AddPublisher(storeGroups[index]);
                 index++;
             }
             return storeGroups;
@@ -475,7 +476,7 @@ namespace NetSqlAzMan
                 string lDapQuery = sgr.LDapQuery;
                 GroupType groupType = (GroupType)sgr.GroupType.Value;
                 IAzManStoreGroup result = new SqlAzManStoreGroup(this.db, this, storeGroupid, objectSid, name, description, lDapQuery , groupType, this.ens);
-                this.ens.AddPublisher(result);
+                if (this.ens != null) this.ens.AddPublisher(result);
                 return result;
             }
             else
@@ -494,7 +495,7 @@ namespace NetSqlAzMan
             if ((sgr = (from t in this.db.StoreGroups() where t.ObjectSid == sid.BinaryValue && t.StoreId == this.storeId select t).FirstOrDefault()) != null)
             {
                 IAzManStoreGroup result = this.GetStoreGroup(sgr.Name);
-                this.ens.AddPublisher(result);
+                if (this.ens != null) this.ens.AddPublisher(result);
                 return result;
             }
             else
@@ -525,7 +526,7 @@ namespace NetSqlAzMan
             foreach (var row in ds)
             {
                 attributes[index] = new SqlAzManStoreAttribute(this.db, this, row.StoreAttributeId.Value, row.AttributeKey, row.AttributeValue, this.ens);
-                this.ens.AddPublisher(attributes[index]);
+                if (this.ens != null) this.ens.AddPublisher(attributes[index]);
                 index++;
             }
             return attributes;
@@ -542,7 +543,7 @@ namespace NetSqlAzMan
             if ((sar = (from t in this.db.StoreAttributes() where t.StoreId == this.storeId && t.AttributeKey == key select t).FirstOrDefault()) != null)
             {
                 IAzManAttribute<IAzManStore> result = new SqlAzManStoreAttribute(this.db, this, sar.StoreAttributeId.Value, sar.AttributeKey, sar.AttributeValue, this.ens);
-                this.ens.AddPublisher(result);
+                if (this.ens != null) this.ens.AddPublisher(result);
                 return result;
             }
             else
@@ -564,7 +565,7 @@ namespace NetSqlAzMan
                 int storeAttributeId = this.db.StoreAttributeInsert(this.storeId, key, value);
                 IAzManAttribute<IAzManStore> result = new SqlAzManStoreAttribute(this.db, this, storeAttributeId, key, value, this.ens);
                 this.raiseStoreAttributeCreated(this, result);
-                this.ens.AddPublisher(result);
+                if (this.ens != null) this.ens.AddPublisher(result);
                 return result;
             }
             catch (System.Data.SqlClient.SqlException sqlex)

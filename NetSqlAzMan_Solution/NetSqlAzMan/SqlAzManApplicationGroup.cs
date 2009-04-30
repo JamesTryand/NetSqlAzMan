@@ -331,7 +331,7 @@ namespace NetSqlAzMan
             int retV = this.db.ApplicationGroupMemberInsert(this.applicationGroupId, sid.BinaryValue, (byte)whereDefined, isMember, this.application.ApplicationId);
             IAzManApplicationGroupMember result = new SqlAzManApplicationGroupMember(this.db, this, retV, sid, whereDefined, isMember, this.ens);
             this.raiseApplicationGroupMemberCreated(this, result);
-            this.ens.AddPublisher(result);
+            if (this.ens!=null) this.ens.AddPublisher(result);
             return result;
         }
         /// <summary>
@@ -357,7 +357,7 @@ namespace NetSqlAzMan
             foreach (var row in agm)
             {
                 applicationGroupMembers[index] = new SqlAzManApplicationGroupMember(this.db, this, row.ApplicationGroupMemberId.Value, new SqlAzManSID(row.ObjectSid.ToArray(), row.WhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.WhereDefined, row.IsMember.Value, this.ens);
-                this.ens.AddPublisher(applicationGroupMembers[index]);
+                if (this.ens != null) this.ens.AddPublisher(applicationGroupMembers[index]);
                 index++;
             }
             return applicationGroupMembers;
@@ -382,7 +382,7 @@ namespace NetSqlAzMan
                 else
                 {
                     IAzManApplicationGroupMember result = new SqlAzManApplicationGroupMember(this.db, this, agm.ApplicationGroupMemberId.Value, new SqlAzManSID(agm.ObjectSid.ToArray(), agm.WhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)(agm.WhereDefined), agm.IsMember.Value, this.ens);
-                    this.ens.AddPublisher(result);
+                    if (this.ens != null) this.ens.AddPublisher(result);
                     return result;
                 }
             }
@@ -413,7 +413,7 @@ namespace NetSqlAzMan
             foreach (var row in agnm)
             {
                 applicationGroupNonMembers[index] = new SqlAzManApplicationGroupMember(this.db, this, row.ApplicationGroupMemberId.Value, new SqlAzManSID(row.ObjectSid.ToArray(), row.WhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.WhereDefined, row.IsMember.Value, this.ens);
-                this.ens.AddPublisher(applicationGroupNonMembers[index]);
+                if (this.ens != null) this.ens.AddPublisher(applicationGroupNonMembers[index]);
                 index++;
             }
             return applicationGroupNonMembers;
@@ -440,7 +440,7 @@ namespace NetSqlAzMan
             foreach (var row in agam)
             {
                 applicationGroupAllMembers[index] = new SqlAzManApplicationGroupMember(this.db, this, row.ApplicationGroupMemberId.Value, new SqlAzManSID(row.ObjectSid.ToArray(), row.WhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.WhereDefined, row.IsMember.Value, this.ens);
-                this.ens.AddPublisher(applicationGroupAllMembers[index]);
+                if (this.ens != null) this.ens.AddPublisher(applicationGroupAllMembers[index]);
                 index++;
             }
             return applicationGroupAllMembers;
