@@ -33,6 +33,7 @@ namespace NetSqlAzMan.LINQ
             da.SelectCommand.Parameters.Add(pDBUserSID);
             da.SelectCommand.Parameters.Add(pDBUserName);
             DataTable result = new DataTable("DBUsers");
+            da.SelectCommand.Transaction = this.Transaction as SqlTransaction;
             da.Fill(result);
             return result;
         }

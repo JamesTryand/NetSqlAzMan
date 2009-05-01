@@ -25,6 +25,8 @@ public partial class _Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         string storeName = ((NetSqlAzMan.Providers.NetSqlAzManRoleProvider)Roles.Provider).Store.Name;
+        //var provider = ((NetSqlAzMan.Providers.NetSqlAzManRoleProvider)Roles.Provider);
+        //provider.AddUsersToRoles(new[] { "John" }, new[] { "Gestore" });
         //Dim storeName as String = Ctype(NetSqlAzMan.Providers.NetSqlAzManRoleProvider, Roles.Provider).Store.Name
         this.lblIM.Text = WindowsIdentity.GetCurrent().Name;
     }

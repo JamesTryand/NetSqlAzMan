@@ -333,11 +333,14 @@ namespace NetSqlAzMan.Cache
                 {
                     //Add my attributes to my members
                     var itemAttributes = result.Attributes;
-                    foreach (var itemAttribute in itemAttributes)
+                    if (itemAttributes != null)
                     {
-                        if (!memberItemCheckAccessResult.Attributes.Contains(itemAttribute))
+                        foreach (var itemAttribute in itemAttributes)
                         {
-                            memberItemCheckAccessResult.Attributes.Add(itemAttribute);
+                            if (!memberItemCheckAccessResult.Attributes.Contains(itemAttribute))
+                            {
+                                memberItemCheckAccessResult.Attributes.Add(itemAttribute);
+                            }
                         }
                     }
                 }
@@ -385,11 +388,15 @@ namespace NetSqlAzMan.Cache
                         //Owner Attributes
                         if (this.retrieveAttributes && (result == AuthorizationType.AllowWithDelegation || result == AuthorizationType.Allow))
                         {
-                            foreach (KeyValuePair<string, string> kvp in this.itemAttributes[ca.ItemName])
+                            var ia = this.itemAttributes[ca.ItemName];
+                            if (ia != null)
                             {
-                                if (!attributes.Contains(new KeyValuePair<string, string>(kvp.Key, kvp.Value)))
+                                foreach (KeyValuePair<string, string> kvp in ia)
                                 {
-                                    attributes.Add(kvp);
+                                    if (!attributes.Contains(new KeyValuePair<string, string>(kvp.Key, kvp.Value)))
+                                    {
+                                        attributes.Add(kvp);
+                                    }
                                 }
                             }
                         }

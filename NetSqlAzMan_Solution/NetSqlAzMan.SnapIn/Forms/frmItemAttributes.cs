@@ -98,17 +98,20 @@ namespace NetSqlAzMan.SnapIn.Forms
             this.HourGlass(true);
             this.lsvAttributes.Items.Clear();
             IAzManAttribute<IAzManItem>[] itemAttributes = this.item.GetAttributes();
-            foreach (IAzManAttribute<IAzManItem> itemAttribute in itemAttributes)
+            if (itemAttributes != null)
             {
+                foreach (IAzManAttribute<IAzManItem> itemAttribute in itemAttributes)
+                {
 
-                KeyValuePair<string, string> attrToUpdate = ((KeyValuePair<string, string>)this.FindAttribute(this.attributesToUpdate, itemAttribute.Key));
-                if (attrToUpdate.Key == null)
-                {
-                    this.lsvAttributes.Items.Add(this.CreateItemAttributeListViewItem(itemAttribute));
-                }
-                else
-                {
-                    this.lsvAttributes.Items.Add(this.CreateItemAttributeListViewItem(attrToUpdate));
+                    KeyValuePair<string, string> attrToUpdate = ((KeyValuePair<string, string>)this.FindAttribute(this.attributesToUpdate, itemAttribute.Key));
+                    if (attrToUpdate.Key == null)
+                    {
+                        this.lsvAttributes.Items.Add(this.CreateItemAttributeListViewItem(itemAttribute));
+                    }
+                    else
+                    {
+                        this.lsvAttributes.Items.Add(this.CreateItemAttributeListViewItem(attrToUpdate));
+                    }
                 }
             }
             //Add uncommitted sids 
