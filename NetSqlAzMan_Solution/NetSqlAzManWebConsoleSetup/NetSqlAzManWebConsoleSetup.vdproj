@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_095E1D6BA8934E038332B58190D0AEAF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_28DF37627724C71EED52D5400F620C7F"
         "OwnerKey" = "8:_75DA5F419AFD4ACBB6EA746817FD7419"
         "MsmSig" = "8:_UNDEFINED"
@@ -258,6 +264,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_095E1D6BA8934E038332B58190D0AEAF"
+            {
+            "SourcePath" = "8:NetSqlAzMan Web Site.url"
+            "TargetName" = "8:NetSqlAzMan Web Site.url"
+            "Tag" = "8:"
+            "Folder" = "8:_63E970B5024E455CA03F3010DC4FB7CC"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_28DF37627724C71EED52D5400F620C7F"
             {
             "AssemblyRegister" = "3:1"
@@ -564,7 +590,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.5.2.0, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.5.4.1, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_DA74BEBF24EE413F5036D46B0334146C"
@@ -856,6 +882,20 @@
             "Folder" = "8:_B0D58DFB15E94B7AB1FE44805C625976"
             "WorkingFolder" = "8:_932042A77809407689DDD3D7797DAA72"
             "Icon" = "8:_CF0FB35B5FAE4410A890110B93D7B196"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_4AF3624C2C7443348068D90E969AF7D3"
+            {
+            "Name" = "8:NetSqlAzMan Web Site"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_095E1D6BA8934E038332B58190D0AEAF"
+            "Folder" = "8:_B0D58DFB15E94B7AB1FE44805C625976"
+            "WorkingFolder" = "8:_63E970B5024E455CA03F3010DC4FB7CC"
+            "Icon" = "8:_B02631EFB618412CBA03CBE8D5AA1300"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_4B21CCF2388146868945C0CCD053CF31"

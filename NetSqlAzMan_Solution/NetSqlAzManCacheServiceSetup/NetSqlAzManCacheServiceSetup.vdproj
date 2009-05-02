@@ -45,6 +45,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_639B088B25454299A45898E3262776A8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_69FBDE0B0A494894A6AAC5893B242E4C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -64,6 +70,18 @@
         "Entry"
         {
         "MsmKey" = "8:_7D2A07D7182649EB8F38F38E3E4E8061"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_895BC1F5AD45429EBB60422E28CD8CBA"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A3A2CCFB44944F35B7BF8ACEA7E7EBE5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -414,6 +432,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_639B088B25454299A45898E3262776A8"
+            {
+            "SourcePath" = "8:Restart Service.bat"
+            "TargetName" = "8:Restart Service.bat"
+            "Tag" = "8:"
+            "Folder" = "8:_D53D34AB292B42AB9E4E4E3ADE36E49F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_69FBDE0B0A494894A6AAC5893B242E4C"
             {
             "SourcePath" = "8:Stop Service.bat"
@@ -494,6 +532,46 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_895BC1F5AD45429EBB60422E28CD8CBA"
+            {
+            "SourcePath" = "8:NetSqlAzMan Web Site.url"
+            "TargetName" = "8:NetSqlAzMan Web Site.url"
+            "Tag" = "8:"
+            "Folder" = "8:_D53D34AB292B42AB9E4E4E3ADE36E49F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A3A2CCFB44944F35B7BF8ACEA7E7EBE5"
+            {
+            "SourcePath" = "8:Web.ico"
+            "TargetName" = "8:Web.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_D53D34AB292B42AB9E4E4E3ADE36E49F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B86F23B34D3C44F9AF683AE64A8202D7"
             {
             "SourcePath" = "8:help.ico"
@@ -518,7 +596,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.5.2.0, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.5.4.1, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_C93CD1F5A2108054387FCCD8E5E87DAE"
@@ -924,6 +1002,20 @@
             "Icon" = "8:_7D2A07D7182649EB8F38F38E3E4E8061"
             "Feature" = "8:"
             }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_ACD5C4F386D0446FB1DC747726D84EF8"
+            {
+            "Name" = "8:NetSqlAzMan Web Site"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_895BC1F5AD45429EBB60422E28CD8CBA"
+            "Folder" = "8:_ECCD54045A4744278DDB52889B27E175"
+            "WorkingFolder" = "8:_D53D34AB292B42AB9E4E4E3ADE36E49F"
+            "Icon" = "8:_A3A2CCFB44944F35B7BF8ACEA7E7EBE5"
+            "Feature" = "8:"
+            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B88C9EC204FB4885922E9314263E3183"
             {
             "Name" = "8:Edit Service Configuration"
@@ -936,6 +1028,20 @@
             "Folder" = "8:_ECCD54045A4744278DDB52889B27E175"
             "WorkingFolder" = "8:_D53D34AB292B42AB9E4E4E3ADE36E49F"
             "Icon" = "8:_21FB08FA21EA49B8A8D59284CD5270C4"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_BB3DBB35EEDA43B39E37A3A763ABE54A"
+            {
+            "Name" = "8:Restart Service"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_639B088B25454299A45898E3262776A8"
+            "Folder" = "8:_ECCD54045A4744278DDB52889B27E175"
+            "WorkingFolder" = "8:_D53D34AB292B42AB9E4E4E3ADE36E49F"
+            "Icon" = "8:_EB9A619C49504F12928A17AD3AD38E55"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_DAF803DF5E024B09BA402DFC10E4A3F9"
