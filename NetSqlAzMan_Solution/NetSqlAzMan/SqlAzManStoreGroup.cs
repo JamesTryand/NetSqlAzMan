@@ -456,6 +456,8 @@ namespace NetSqlAzMan
         /// </returns>
         public bool IsInGroup(WindowsIdentity windowsIdentity)
         {
+            if (windowsIdentity == null)
+                throw new ArgumentNullException("windowsIdentity");
             List<byte> token = new List<byte>();
             int userGroupsCount = windowsIdentity.Groups.Count;
             if (userGroupsCount > 0)
@@ -483,6 +485,8 @@ namespace NetSqlAzMan
         /// </returns>
         public bool IsInGroup(IAzManDBUser dbUser)
         {
+            if (dbUser == null)
+                throw new ArgumentNullException("dbUser");
             return this.isAMemberOfGroup(false, this.sid.BinaryValue, this.Store.Storage.Mode == NetSqlAzManMode.Developer, DirectoryServicesUtils.rootDsePath, dbUser.CustomSid.BinaryValue, 0);
         }
         /// <summary>
