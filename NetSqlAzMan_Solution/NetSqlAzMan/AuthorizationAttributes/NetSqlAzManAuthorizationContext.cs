@@ -30,6 +30,7 @@ namespace NetSqlAzMan
         internal string _storageConnectionString;
         internal WindowsIdentity _windowIdentity;
         internal IAzManDBUser _dbuserIdentity;
+        internal IAzManStorage _storage;
         /// <summary>
         /// Gets or sets the name of the store.
         /// </summary>
@@ -45,6 +46,28 @@ namespace NetSqlAzMan
         /// </summary>
         /// <value>The storage cache.</value>
         public StorageCache StorageCache { get; set; }
+
+        /// <summary>
+        /// Gets the storage.
+        /// </summary>
+        /// <value>The storage.</value>
+        public IAzManStorage Storage
+        {
+            get
+            {
+                if (this.UseStorageCache)
+                    return null;
+                else
+                {
+                    if (this._storage == null)
+                    {
+                        this._storage = new SqlAzManStorage(this._storageConnectionString);
+                    }
+                    return this._storage;
+                }
+            }
+        }
+
         /// <summary>
         /// Gets or sets a value indicating whether [use storage cache].
         /// </summary>
