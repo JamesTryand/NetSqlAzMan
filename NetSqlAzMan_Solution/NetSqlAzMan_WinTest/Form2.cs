@@ -28,6 +28,8 @@ namespace NetSqlAzMan_WinTest
                 WindowsIdentity.GetCurrent(),
                 true);
 
+            var auth = ctx.StorageCache.CheckAccess("Eidos", "DB Persone", "Gestore", ctx.Storage.GetDBUser("John").CustomSid.StringValue, DateTime.Now, false);
+            MessageBox.Show(auth.ToString());
             //Optionally you can intercept events before and after the Access Check
             //ctx.BeforeCheckAccess += new BeforeCheckAccessHandler(NetSqlAzManAuthorizationContext_BeforeCheckAccess);
             //ctx.AfterCheckAccess += new AfterCheckAccessHandler(NetSqlAzManAuthorizationContext_AfterCheckAccess);
@@ -36,6 +38,8 @@ namespace NetSqlAzMan_WinTest
             //ctx.InvalidateCache();
 
             ctx.CheckSecurity(this);
+            auth = ctx.Storage.CheckAccess("Eidos", "DB Persone", "Gestore", WindowsIdentity.GetCurrent(), DateTime.Now, false);
+            MessageBox.Show(auth.ToString());
         }
 
         //void NetSqlAzManAuthorizationContext_AfterCheckAccess(NetSqlAzManAuthorizationContext context, NetSqlAzManAuthorizationAttribute attribute, ref bool partialResult)

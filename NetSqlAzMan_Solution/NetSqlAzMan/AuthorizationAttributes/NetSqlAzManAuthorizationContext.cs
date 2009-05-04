@@ -56,7 +56,9 @@ namespace NetSqlAzMan
             get
             {
                 if (this.UseStorageCache)
-                    return null;
+                {
+                    return this.StorageCache.Storage;
+                }
                 else
                 {
                     if (this._storage == null)
