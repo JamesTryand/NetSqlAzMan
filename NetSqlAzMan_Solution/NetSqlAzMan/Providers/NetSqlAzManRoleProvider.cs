@@ -220,12 +220,19 @@ namespace NetSqlAzMan.Providers
                         WhereDefined whereDefined = WhereDefined.LDAP;
                         if (this.userLookupType=="LDAP")
                         {
-                            IAzManSid sid = new SqlAzManSID(((SecurityIdentifier)(new NTAccount(this.getFQUN(username)).Translate(typeof(SecurityIdentifier)))));
+                            string fqun = this.getFQUN(username);
+                            NTAccount ntaccount = new NTAccount(fqun);
+                            if (ntaccount == null)
+                                throw SqlAzManException.UserNotFoundException(username, null);
+                            IAzManSid sid = new SqlAzManSID(((SecurityIdentifier)(ntaccount.Translate(typeof(SecurityIdentifier)))));
+                            if (sid == null)
+                                throw SqlAzManException.UserNotFoundException(username, null);
                             role.CreateAuthorization(owner, whereDefined, sid, WhereDefined.LDAP, AuthorizationType.Allow, null, null);
                         }
                         else
                         {
-                            IAzManSid sid = this.application.GetDBUser(username).CustomSid;
+                            var dbuser = this.application.GetDBUser(username);
+                            IAzManSid sid = dbuser.CustomSid;
                             role.CreateAuthorization(owner, whereDefined, sid, WhereDefined.Database, AuthorizationType.Allow, null, null);
                         }
                     }

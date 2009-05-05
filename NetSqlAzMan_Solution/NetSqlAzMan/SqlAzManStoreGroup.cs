@@ -405,7 +405,7 @@ namespace NetSqlAzMan
             {
                 if (this.store.Storage.Mode == NetSqlAzManMode.Administrator && sgm.WhereDefined == (byte)WhereDefined.Local)
                 {
-                    return null;
+                    throw SqlAzManException.StoreGroupMemberNotFoundException(sid.StringValue, this, null);
                 }
                 else
                 {
@@ -416,7 +416,7 @@ namespace NetSqlAzMan
             }
             else
             {
-                return null;
+                throw SqlAzManException.StoreGroupMemberNotFoundException(sid.StringValue, this, null);
             }
         }
 

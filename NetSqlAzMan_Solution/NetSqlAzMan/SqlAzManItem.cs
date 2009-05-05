@@ -959,7 +959,7 @@ namespace NetSqlAzMan
             {
                 if (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && ar.ObjectSidWhereDefined == (byte)WhereDefined.Local)
                 {
-                    return null;
+                    throw SqlAzManException.AuthorizationNotFoundException(authorizationId, this, null);
                 }
                 else
                 {
@@ -971,7 +971,7 @@ namespace NetSqlAzMan
             }
             else
             {
-                return null;
+                throw SqlAzManException.AuthorizationNotFoundException(authorizationId, this, null);
             }
         }
 
@@ -1373,7 +1373,7 @@ namespace NetSqlAzMan
             }
             else
             {
-                return null;
+                throw SqlAzManException.AttributeNotFoundException(key, this.application.Store.Name, this.application.Name, this.name, null);
             }
         }
 

@@ -336,7 +336,7 @@ namespace NetSqlAzMan
             }
             else
             {
-                return null;
+                throw SqlAzManException.ItemNotFoundException(itemName, this, null);
             }
         }
 
@@ -446,19 +446,19 @@ namespace NetSqlAzMan
         /// <summary>
         /// Creates the application group.
         /// </summary>
-        /// <param name="sid">The object owner.</param>
+        /// <param name="applicationGroupSid">The application group sid.</param>
         /// <param name="name">The name.</param>
         /// <param name="description">The description.</param>
         /// <param name="lDapQuery">The ldap query.</param>
         /// <param name="groupType">Type of the group.</param>
         /// <returns></returns>
-        public IAzManApplicationGroup CreateApplicationGroup(IAzManSid sid, string name, string description, string lDapQuery, GroupType groupType)
+        public IAzManApplicationGroup CreateApplicationGroup(IAzManSid applicationGroupSid, string name, string description, string lDapQuery, GroupType groupType)
         {
            try
             {
                 if (DirectoryServices.DirectoryServicesUtils.TestLDAPQuery(lDapQuery))
                 {
-                    this.db.ApplicationGroupInsert(this.applicationId, sid.BinaryValue, name, description, lDapQuery, (byte)groupType);
+                    this.db.ApplicationGroupInsert(this.applicationId, applicationGroupSid.BinaryValue, name, description, lDapQuery, (byte)groupType);
                     IAzManApplicationGroup applicationGroupCreated = this.GetApplicationGroup(name);
                     this.raiseApplicationGroupCreated(this, applicationGroupCreated);
                     if (this.ens != null)
@@ -538,7 +538,7 @@ namespace NetSqlAzMan
             }
             else
             {
-                return null;
+                throw SqlAzManException.ApplicationGroupNotFoundException(name, this, null);
             }
         }
         /// <summary>
@@ -558,7 +558,7 @@ namespace NetSqlAzMan
             }
             else
             {
-                return null;
+                throw SqlAzManException.ApplicationGroupNotFoundException(sid.StringValue, this, null);
             }
         }
         /// <summary>
@@ -601,7 +601,7 @@ namespace NetSqlAzMan
             }
             else
             {
-                return null;
+                throw SqlAzManException.AttributeNotFoundException(key, this.store.Name, this.name, null);
             }
         }
 
@@ -1183,8 +1183,7 @@ namespace NetSqlAzMan
             IAzManDBUser result;
             if (dtDBUsers.Count() == 0)
             {
-                //result = new SqlAzManDBUser(new SqlAzManSID(customSid.BinaryValue, true), customSid.StringValue);
-                result = null;
+                throw SqlAzManException.DBUserNotFoundException(customSid.StringValue, null);
             }
             else
             {
@@ -1203,7 +1202,7 @@ namespace NetSqlAzMan
             IAzManDBUser result;
             if (dtDBUsers.Rows.Count == 0)
             {
-                result = null;
+                throw SqlAzManException.DBUserNotFoundException(userName, null);
             }
             else
             {

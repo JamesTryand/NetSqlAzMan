@@ -1530,8 +1530,7 @@ namespace NetSqlAzMan
             IAzManDBUser result;
             if (dtDBUsers.Count() == 0)
             {
-                //result = new SqlAzManDBUser(new SqlAzManSID(customSid.BinaryValue, true), customSid.StringValue);
-                result = null;
+                throw SqlAzManException.DBUserNotFoundException(customSid.StringValue, null);
             }
             else
             {
@@ -1550,7 +1549,7 @@ namespace NetSqlAzMan
             IAzManDBUser result;
             if (dtDBUsers.Rows.Count == 0)
             {
-                result = null;
+                throw SqlAzManException.DBUserNotFoundException(userName, null);
             }
             else
             {

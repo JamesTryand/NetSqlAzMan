@@ -377,7 +377,7 @@ namespace NetSqlAzMan
             {
                 if (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && agm.WhereDefined == (byte)WhereDefined.Local)
                 {
-                    return null;
+                    throw SqlAzManException.ApplicationGroupMemberNotFoundException(sid.StringValue, this, null);
                 }
                 else
                 {
@@ -388,7 +388,7 @@ namespace NetSqlAzMan
             }
             else
             {
-                return null;
+                throw SqlAzManException.ApplicationGroupMemberNotFoundException(sid.StringValue, this, null);
             }
         }
 

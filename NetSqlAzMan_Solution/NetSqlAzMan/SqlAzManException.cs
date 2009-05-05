@@ -83,6 +83,13 @@ namespace NetSqlAzMan
             addParameter(ex, "Store name", storeName);
             return ex;
         }
+        internal static SqlAzManException StoreGroupNotFoundException(string group, IAzManStore store, Exception innerException)
+        {
+            SqlAzManException ex = new SqlAzManException(String.Format("Store Group '{0}' not found. Store '{1}'.", group, store.Name), innerException);
+            addParameter(ex, "Store Group", group);
+            addParameter(ex, store);
+            return ex;
+        }
         internal static SqlAzManException StoreGroupDuplicateException(string storeGroupName, IAzManStore store, Exception innerException)
         {
             SqlAzManException ex =  new SqlAzManException(String.Format("A Store Group with the same name already exists: '{0}'. Store '{1}'.", storeGroupName, store.Name), innerException);
@@ -111,11 +118,70 @@ namespace NetSqlAzMan
             addParameter(ex, store);
             return ex;
         }
+        internal static SqlAzManException ApplicationGroupNotFoundException(string group, IAzManApplication application, Exception innerException)
+        {
+            SqlAzManException ex = new SqlAzManException(String.Format("Application Group '{0}' not found. Store '{1}', Application '{2}'.", group, application.Store.Name, application.Name), innerException);
+            addParameter(ex, "Application Group", group);
+            addParameter(ex, application);
+            return ex;
+        }
+        internal static SqlAzManException ApplicationGroupMemberNotFoundException(string memberName, IAzManApplicationGroup applicationGroup, Exception innerException)
+        {
+            SqlAzManException ex = new SqlAzManException(String.Format("Application Group Member '{0}' not found. Store '{1}', Application '{2}', Application Group '{3}'.", memberName, applicationGroup.Application.Store.Name, applicationGroup.Application.Name, applicationGroup.Name), innerException);
+            addParameter(ex, "Store name", applicationGroup.Application.Store.Name);
+            addParameter(ex, "Application name", applicationGroup.Application.Name);
+            addParameter(ex, "Application Group name", applicationGroup.Name);
+            addParameter(ex, "Member name", memberName);
+            return ex;
+        }
+        internal static SqlAzManException StoreGroupMemberNotFoundException(string memberName, IAzManStoreGroup storeGroup, Exception innerException)
+        {
+            SqlAzManException ex = new SqlAzManException(String.Format("Store Group Member '{0}' not found. Store '{1}', Store Group '{2}'.", memberName, storeGroup.Store.Name, storeGroup.Name), innerException);
+            addParameter(ex, "Store name", storeGroup.Store.Name);
+            addParameter(ex, "Store Group name", storeGroup.Name);
+            addParameter(ex, "Member name", memberName);
+            return ex;
+        }
         internal static SqlAzManException ApplicationGroupDuplicateException(string applicationGroupName, IAzManApplication application, Exception innerException)
         {
             SqlAzManException ex =  new SqlAzManException(String.Format("An Application Group with the same name already exists: '{0}'. Store '{1}', Application '{2}'.", applicationGroupName, application.Store.Name, application.Name), innerException);
             addParameter(ex, "Application Group name", applicationGroupName);
             addParameter(ex, application);
+            return ex;
+        }
+        internal static SqlAzManException AttributeNotFoundException(string key, IAzManAuthorization authorization, Exception innerException)
+        {
+            SqlAzManException ex = new SqlAzManException(String.Format("Attribute '{0}' not found. Store '{1}', Application '{2}', Item '{3}', Authorization SID '{4}'.",
+                key, authorization.Item.Application.Store.Name, authorization.Item.Application.Name, authorization.Item.Name, authorization.SID.StringValue), innerException);
+            addParameter(ex, "Store name", authorization.Item.Application.Store.Name);
+            addParameter(ex, "Application name", authorization.Item.Application.Name);
+            addParameter(ex, "Item name", authorization.Item.Name);
+            addParameter(ex, "Authorization SID", authorization.SID.StringValue);
+            
+            return ex;
+        }
+        internal static SqlAzManException AttributeNotFoundException(string key, string storeName, string applicationName, Exception innerException)
+        {
+            SqlAzManException ex = new SqlAzManException(String.Format("Attribute '{0}' not found. Store '{1}', Application '{2}'.", key, storeName, applicationName), innerException);
+            addParameter(ex, "Store name", storeName);
+            addParameter(ex, "Application name", applicationName);
+            addParameter(ex, "Attribute key", key);
+            return ex;
+        }
+        internal static SqlAzManException AttributeNotFoundException(string key, string storeName, string applicationName, string itemName, Exception innerException)
+        {
+            SqlAzManException ex = new SqlAzManException(String.Format("Attribute '{0}' not found. Store '{1}', Application '{2}', Item '{3}'.", key, storeName, applicationName, itemName), innerException);
+            addParameter(ex, "Store name", storeName);
+            addParameter(ex, "Application name", applicationName);
+            addParameter(ex, "Item name", itemName);
+            addParameter(ex, "Attribute key", key);
+            return ex;
+        }
+        internal static SqlAzManException AttributeNotFoundException(string key, string storeName, Exception innerException)
+        {
+            SqlAzManException ex = new SqlAzManException(String.Format("Attribute '{0}' not found. Store '{1}'.", key, storeName), innerException);
+            addParameter(ex, "Store name", storeName);
+            addParameter(ex, "Attribute key", key);
             return ex;
         }
         internal static SqlAzManException AttributeDuplicateException(string attributeKey, IAzManApplication application, Exception innerException)
@@ -146,11 +212,26 @@ namespace NetSqlAzMan
             addParameter(ex, item);
             return ex;
         }
+        internal static SqlAzManException UserNotFoundException(string user, Exception innerException)
+        {
+            SqlAzManException ex = new SqlAzManException(String.Format("User '{0}' not found.", user), innerException);
+            addParameter(ex, "User", user);
+            return ex;
+        }
         internal static SqlAzManException ItemNotFoundException(string itemName, IAzManApplication application, Exception innerException)
         {
             SqlAzManException ex =  new SqlAzManException(String.Format("Item '{0}' not found. Store '{1}', Application '{2}'.", itemName, application.Store.Name, application.Name), innerException);
             addParameter(ex, "Item name", itemName);
             addParameter(ex, application);
+            return ex;
+        }
+        internal static SqlAzManException AuthorizationNotFoundException(int authorizationId, IAzManItem item, Exception innerException)
+        {
+            SqlAzManException ex = new SqlAzManException(String.Format("Authorization {0} not found. Store '{1}', Application '{2}', Item '{3}'.", authorizationId, item.Application.Store.Name, item.Application.Name, item.Name), innerException);
+            addParameter(ex, "Store name", item.Application.Store.Name);
+            addParameter(ex, "Application name", item.Application.Name);
+            addParameter(ex, "Item name", item.Name);
+            addParameter(ex, "Authorization id", authorizationId);
             return ex;
         }
         internal static SqlAzManException DBUserNotFoundException(string dbUserName, IAzManApplication application, Exception innerException)

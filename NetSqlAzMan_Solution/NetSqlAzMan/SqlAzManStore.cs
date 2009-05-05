@@ -395,19 +395,19 @@ namespace NetSqlAzMan
         /// <summary>
         /// Creates the store group.
         /// </summary>
-        /// <param name="sid">The object owner.</param>
+        /// <param name="storeGroupSid">The store group sid.</param>
         /// <param name="name">The name.</param>
         /// <param name="description">The description.</param>
         /// <param name="lDapQuery">The ldap query.</param>
         /// <param name="groupType">Type of the group.</param>
         /// <returns></returns>
-        public IAzManStoreGroup CreateStoreGroup(IAzManSid sid, string name, string description, string lDapQuery, GroupType groupType)
+        public IAzManStoreGroup CreateStoreGroup(IAzManSid storeGroupSid, string name, string description, string lDapQuery, GroupType groupType)
         {
             try
             {
                 if (DirectoryServices.DirectoryServicesUtils.TestLDAPQuery(lDapQuery))
                 {
-                    this.db.StoreGroupInsert(this.storeId, sid.BinaryValue, name, description, lDapQuery, (byte)groupType);
+                    this.db.StoreGroupInsert(this.storeId, storeGroupSid.BinaryValue, name, description, lDapQuery, (byte)groupType);
                     IAzManStoreGroup result = this.GetStoreGroup(name);
                     this.raiseStoreGroupCreated(this, result);
                     if (this.ens != null) this.ens.AddPublisher(result);
@@ -481,7 +481,7 @@ namespace NetSqlAzMan
             }
             else
             {
-                return null;
+                throw SqlAzManException.StoreGroupNotFoundException(name, this, null);
             }
         }
         /// <summary>
@@ -500,7 +500,7 @@ namespace NetSqlAzMan
             }
             else
             {
-                return null;
+                throw SqlAzManException.StoreGroupNotFoundException(sid.StringValue, this, null);
             }
         }
         /// <summary>
@@ -548,7 +548,7 @@ namespace NetSqlAzMan
             }
             else
             {
-                return null;
+                throw SqlAzManException.AttributeNotFoundException(key, this.name, null);
             }
         }
 
@@ -918,7 +918,7 @@ namespace NetSqlAzMan
             IAzManDBUser result;
             if (dtDBUsers.Rows.Count == 0)
             {
-                result = null;
+                throw SqlAzManException.DBUserNotFoundException(customSid.StringValue, null);
             }
             else
             {
@@ -937,7 +937,7 @@ namespace NetSqlAzMan
             IAzManDBUser result;
             if (dtDBUsers.Rows.Count == 0)
             {
-                result = null;
+                throw SqlAzManException.DBUserNotFoundException(userName, null);
             }
             else
             {

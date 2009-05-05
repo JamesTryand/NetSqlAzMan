@@ -554,11 +554,21 @@ namespace Prova.BizRules
 
         private void btnCheckAccessTest_Click(object sender, EventArgs e)
         {
-            frmCheckAccessTest frm = new frmCheckAccessTest();
             IAzManStorage storage = new SqlAzManStorage("data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
-            IAzManStore store = storage.GetStore("Italferr");
-            frm.application = store.GetApplication("CartaDeiServizi");
-            frm.ShowDialog();
+            IAzManApplication app = storage["Test"]["Test"];
+            app.CreateApplicationGroup(SqlAzManSID.NewSqlAzManSid(), "g1", String.Empty, String.Empty, GroupType.Basic);
+            app.CreateApplicationGroup(SqlAzManSID.NewSqlAzManSid(), "g2", String.Empty, String.Empty, GroupType.Basic);
+            IAzManApplicationGroup g1 = app.GetApplicationGroup("g1");
+            g1.CreateApplicationGroupMember(new SqlAzManSID(WindowsIdentity.GetCurrent().User), WhereDefined.Local, true);
+            bool isMember = g1.IsInGroup(WindowsIdentity.GetCurrent()); //result is true
+
+
+            return;
+            //frmCheckAccessTest frm = new frmCheckAccessTest();
+            //IAzManStorage storage = new SqlAzManStorage("data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
+            //IAzManStore store = storage.GetStore("Italferr");
+            //frm.application = store.GetApplication("CartaDeiServizi");
+            //frm.ShowDialog();
         }
 
         private void btnIsAMemberOf_Click(object sender, EventArgs e)

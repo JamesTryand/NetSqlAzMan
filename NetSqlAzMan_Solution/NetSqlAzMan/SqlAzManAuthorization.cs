@@ -302,7 +302,7 @@ namespace NetSqlAzMan
             }
             else
             {
-                return null;
+                throw SqlAzManException.AttributeNotFoundException(key, this, null);
             }
         }
 

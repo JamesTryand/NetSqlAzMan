@@ -54,7 +54,7 @@ GO
 CREATE FUNCTION [dbo].[NetSqlAzMan_DBVersion] ()  
 RETURNS nvarchar(200) AS  
 BEGIN 
-	return '3.5.4.1'
+	return '3.5.4.2'
 END
 GO
 SET ANSI_NULLS OFF
