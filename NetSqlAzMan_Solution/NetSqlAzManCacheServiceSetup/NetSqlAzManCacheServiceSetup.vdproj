@@ -596,7 +596,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.5.4.1, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.5.4.2, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_C93CD1F5A2108054387FCCD8E5E87DAE"
@@ -790,6 +790,28 @@
                             "Property" = "8:_C980390A2A8A40B391C6F7871280382B"
                                 "Folders"
                                 {
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_41B12398D1EF4EDD9074E7A9A99BD387"
+                                    {
+                                    "Name" = "8:Service management"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "Property" = "8:_A1BD6E0400E041C284C5827694EBD524"
+                                        "Folders"
+                                        {
+                                        }
+                                    }
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_A7B78785CCB54485B867FD90EEF6FAF3"
+                                    {
+                                    "Name" = "8:Documentation"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "Property" = "8:_EC1E2EE369E5402E8A0DF0BA02C370A0"
+                                        "Folders"
+                                        {
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -941,7 +963,7 @@
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
             "Target" = "8:_69FBDE0B0A494894A6AAC5893B242E4C"
-            "Folder" = "8:_ECCD54045A4744278DDB52889B27E175"
+            "Folder" = "8:_41B12398D1EF4EDD9074E7A9A99BD387"
             "WorkingFolder" = "8:_D53D34AB292B42AB9E4E4E3ADE36E49F"
             "Icon" = "8:_EB9A619C49504F12928A17AD3AD38E55"
             "Feature" = "8:"
@@ -962,7 +984,7 @@
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_7D06D27B01814D39813CAA7517891461"
             {
-            "Name" = "8:NetSqlAzManCacheServiceInvalidateUtility.exe"
+            "Name" = "8:Cache Service Invalidate Utility"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -983,21 +1005,21 @@
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
             "Target" = "8:_0904A03CAB074E0CBA3D39D69E01064F"
-            "Folder" = "8:_ECCD54045A4744278DDB52889B27E175"
+            "Folder" = "8:_41B12398D1EF4EDD9074E7A9A99BD387"
             "WorkingFolder" = "8:_D53D34AB292B42AB9E4E4E3ADE36E49F"
             "Icon" = "8:_EB9A619C49504F12928A17AD3AD38E55"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_A2D26BA06FFC43F7A685112E4B1352A5"
             {
-            "Name" = "8:GNU Lesser General Public License"
+            "Name" = "8:License"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
             "Target" = "8:_D6CBCCD02C18433598A8AC2D1B0C3544"
-            "Folder" = "8:_ECCD54045A4744278DDB52889B27E175"
+            "Folder" = "8:_A7B78785CCB54485B867FD90EEF6FAF3"
             "WorkingFolder" = "8:_D53D34AB292B42AB9E4E4E3ADE36E49F"
             "Icon" = "8:_7D2A07D7182649EB8F38F38E3E4E8061"
             "Feature" = "8:"
@@ -1011,7 +1033,7 @@
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
             "Target" = "8:_895BC1F5AD45429EBB60422E28CD8CBA"
-            "Folder" = "8:_ECCD54045A4744278DDB52889B27E175"
+            "Folder" = "8:_A7B78785CCB54485B867FD90EEF6FAF3"
             "WorkingFolder" = "8:_D53D34AB292B42AB9E4E4E3ADE36E49F"
             "Icon" = "8:_A3A2CCFB44944F35B7BF8ACEA7E7EBE5"
             "Feature" = "8:"
@@ -1039,7 +1061,7 @@
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
             "Target" = "8:_639B088B25454299A45898E3262776A8"
-            "Folder" = "8:_ECCD54045A4744278DDB52889B27E175"
+            "Folder" = "8:_41B12398D1EF4EDD9074E7A9A99BD387"
             "WorkingFolder" = "8:_D53D34AB292B42AB9E4E4E3ADE36E49F"
             "Icon" = "8:_EB9A619C49504F12928A17AD3AD38E55"
             "Feature" = "8:"
@@ -1053,7 +1075,7 @@
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
             "Target" = "8:_2868CD0B811D4F7BB582A33695FA780F"
-            "Folder" = "8:_ECCD54045A4744278DDB52889B27E175"
+            "Folder" = "8:_A7B78785CCB54485B867FD90EEF6FAF3"
             "WorkingFolder" = "8:_D53D34AB292B42AB9E4E4E3ADE36E49F"
             "Icon" = "8:_03196EEB6E6C413892230D9EB1AE884B"
             "Feature" = "8:"

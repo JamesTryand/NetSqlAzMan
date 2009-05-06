@@ -590,7 +590,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.5.4.1, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.5.4.2, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_DA74BEBF24EE413F5036D46B0334146C"
@@ -928,7 +928,7 @@
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_BF953C4ECAEC4524BED7D894A2BD1B4D"
             {
-            "Name" = "8:GNU Lesser General Public License"
+            "Name" = "8:License"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
