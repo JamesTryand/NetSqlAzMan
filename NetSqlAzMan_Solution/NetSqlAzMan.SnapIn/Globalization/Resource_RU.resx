@@ -2257,4 +2257,10 @@
   <data name="frmInvalidateWCFCacheService_txtWCFCacheServiceEndPoint.Text" xml:space="preserve">
     <value>net.tcp://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/</value>
   </data>
+  <data name="rptMsg30" xml:space="preserve">
+    <value>Эффективное разрешение</value>
+  </data>
+  <data name="rptTit30" xml:space="preserve">
+    <value>Действующие разрешения доклад</value>
+  </data>
 </root>

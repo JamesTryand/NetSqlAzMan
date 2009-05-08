@@ -121,6 +121,10 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
             MMC.SyncAction AuthorizationsReportAction = new MMC.SyncAction(Globalization.MultilanguageResource.GetString("rptMsg20"), Globalization.MultilanguageResource.GetString("rptTit20"));
             AuthorizationsReportAction.Triggered += new MMC.SyncAction.SyncActionEventHandler(AuthorizationsReportAction_Triggered);
             reportAction.Items.Add(AuthorizationsReportAction);
+            //Effective Permissions Report - MMC.SyncAction
+            MMC.SyncAction EffectivePermissionsReportAction = new MMC.SyncAction(Globalization.MultilanguageResource.GetString("rptMsg30"), Globalization.MultilanguageResource.GetString("rptTit30"));
+            EffectivePermissionsReportAction.Triggered += new MMC.SyncAction.SyncActionEventHandler(EffectivePermissionsReportAction_Triggered);
+            reportAction.Items.Add(EffectivePermissionsReportAction);
             //Line MMC.SyncAction
             MMC.ActionSeparator lineAction5 = new MMC.ActionSeparator();
             this.ActionsPaneItems.Add(lineAction5);
@@ -154,6 +158,14 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
             this.SnapIn.Console.ShowDialog(frm);
         }
 
+        void EffectivePermissionsReportAction_Triggered(object sender, MMC.SyncActionEventArgs e)
+        {
+            frmPrint frm = new frmPrint();
+            ptEffectivePermissions rep = new ptEffectivePermissions();
+            rep.Applications = this.store.GetApplications();
+            frm.document = rep;
+            this.SnapIn.Console.ShowDialog(frm);
+        }
         void ItemsHVAction_Triggered(object sender, MMC.SyncActionEventArgs e)
         {
             frmItemsHierarchyView frm = new frmItemsHierarchyView();

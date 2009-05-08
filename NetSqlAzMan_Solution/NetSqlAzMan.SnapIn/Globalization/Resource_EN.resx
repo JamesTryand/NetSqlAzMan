@@ -2256,4 +2256,10 @@ Only checked Logins will be granted for this Store.</value>
   <data name="Language_RussianDescription" xml:space="preserve">
     <value>Russian Language</value>
   </data>
+  <data name="rptMsg30" xml:space="preserve">
+    <value>Effective &amp;Permissions</value>
+  </data>
+  <data name="rptTit30" xml:space="preserve">
+    <value>Effective Permissions Report</value>
+  </data>
 </root>

@@ -5,9 +5,10 @@ using System.Collections.Specialized;
 using System.DirectoryServices;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Linq;
 using System.Security.Principal;
 using NetSqlAzMan.Logging;
+using System.Collections;
 
 namespace NetSqlAzMan.DirectoryServices
 {
@@ -336,6 +337,83 @@ namespace NetSqlAzMan.DirectoryServices
                 return new DirectoryEntry(path, DirectoryServicesUtils.userName, DirectoryServicesUtils.password);
             else
                 return new DirectoryEntry(path);
+        }
+
+        /// <summary>
+        /// Attributes the values multi string.
+        /// </summary>
+        /// <param name="attributeName">Name of the attribute.</param>
+        /// <param name="objectDn">The object dn.</param>
+        /// <param name="valuesCollection">The values collection.</param>
+        /// <param name="recursive">if set to <c>true</c> [recursive].</param>
+        /// <returns></returns>
+        public static ArrayList AttributeValuesMultiString(string attributeName, string objectDn, ArrayList valuesCollection, bool recursive)
+        {
+            DirectoryEntry ent = new DirectoryEntry(objectDn);
+            PropertyValueCollection ValueCollection = ent.Properties[attributeName];
+            IEnumerator en = ValueCollection.GetEnumerator();
+
+            while (en.MoveNext())
+            {
+                if (en.Current != null)
+                {
+                    if (!valuesCollection.Contains(en.Current.ToString()))
+                    {
+                        valuesCollection.Add(en.Current.ToString());
+                        if (recursive)
+                        {
+                            AttributeValuesMultiString(attributeName, "LDAP://" +
+                            en.Current.ToString(), valuesCollection, true);
+                        }
+                    }
+                }
+            }
+            ent.Close();
+            ent.Dispose();
+            return valuesCollection;
+        }
+
+        /// <summary>
+        /// Groupses the specified user dn.
+        /// </summary>
+        /// <param name="userDn">The user dn.</param>
+        /// <param name="recursive">if set to <c>true</c> [recursive].</param>
+        /// <returns></returns>
+        public static ArrayList Groups(string userDn, bool recursive)
+        {
+            ArrayList groupMemberships = new ArrayList();
+            return AttributeValuesMultiString("memberOf", userDn, groupMemberships, recursive);
+        }
+
+        /// <summary>
+        /// Gets all domain users.
+        /// </summary>
+        /// <returns></returns>
+        public static string[] GetAllDomainUsers()
+        {
+            try
+            {
+                List<string> upns = new List<string>();
+                DirectoryEntry root = DirectoryServicesUtils.newDirectoryEntry("LDAP://" + SqlAzManStorage.RootDSEPath);
+                root.RefreshCache();
+                DirectorySearcher ds = new DirectorySearcher(root, String.Format("(&(objectClass={0}))", "user"));
+                ds.PropertiesToLoad.Add("userPrincipalName");
+                SearchResultCollection src = ds.FindAll();
+                foreach (SearchResult sr in src)
+                {
+                    if (sr.Properties["userPrincipalName"] != null && sr.Properties["userPrincipalName"].Count > 0)
+                    {
+                        string upn = sr.Properties["userPrincipalName"][0].ToString();
+                        upns.Add(upn);
+                    }
+                }
+                upns.Sort();
+                return upns.ToArray();
+            }
+            catch
+            {
+                return new string[0];
+            }
         }
     }
 }

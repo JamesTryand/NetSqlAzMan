@@ -2256,4 +2256,10 @@ Vetem login-at e seleksionuara do te autorizohen ne Rrolin per kete Store.</valu
   <data name="Language_RussianDescription" xml:space="preserve">
     <value>Gjuha Ruse</value>
   </data>
+  <data name="rptMsg30" xml:space="preserve">
+    <value>Efektiv &amp;Permissions</value>
+  </data>
+  <data name="rptTit30" xml:space="preserve">
+    <value>Raporti efektiv Permissions</value>
+  </data>
 </root>

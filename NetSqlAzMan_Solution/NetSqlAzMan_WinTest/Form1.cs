@@ -157,6 +157,9 @@ namespace Prova.BizRules
         {
             try
             {
+                string[] users = DirectoryServicesUtils.GetAllDomainUsers();
+
+
                 //IAzManStorage storage = new SqlAzManStorage("data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
                 //IAzManDBUser dbUser1 = storage.GetDBUser(new SqlAzManSID(this.GetBytesFromInt32(1), true));
                 //IAzManDBUser dbUser2 = storage.GetDBUser(new SqlAzManSID(this.GetBytesFromInt32(2), true));
@@ -174,7 +177,14 @@ namespace Prova.BizRules
                 //return;
                 StorageCache sc = new StorageCache(cs);
                 sc.BuildStorageCache();
-                //sc.CheckAccess("Eidos", "DB Persone", "ZZZ", WindowsIdentity.GetCurrent().GetUserBinarySSid(), WindowsIdentity.GetCurrent().GetGroupsBinarySSid(), DateTime.Now, false);
+                DateTime dt = DateTime.Now;
+                foreach (string user in users)
+                {
+                    WindowsIdentity win = new WindowsIdentity(user);
+                    sc.CheckAccess("Eidos", "DB Persone", "Gestore", win.GetUserBinarySSid(), win.GetGroupsBinarySSid(), DateTime.Now, false);
+                }
+                TimeSpan ts = DateTime.Now.Subtract(dt);
+                var seconds = ts.TotalSeconds;
 
                 //
                 //upcTest.CheckAccess("Accesso", DateTime.Now);
@@ -577,11 +587,25 @@ namespace Prova.BizRules
 
         private void btnIHV_Click(object sender, EventArgs e)
         {
+            //IAzManStorage storage = new SqlAzManStorage("data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
+            //IAzManStore store = storage.GetStore("Store Stress Test");
+            //NetSqlAzMan.SnapIn.Printing.ptItemAuthorizations doc = new NetSqlAzMan.SnapIn.Printing.ptItemAuthorizations();
+            //doc.Applications = new IAzManApplication[] { 
+            //    store.GetApplication("Application0")
+            //    //,store.GetApplication("Application1"),
+            //    //store.GetApplication("Application2"),
+            //    //store.GetApplication("Application3"),
+            //    //store.GetApplication("Application4")
+            //};
+            //frmPrint frm = new frmPrint();
+            //frm.Document = doc;
+            //frm.ShowDialog(this);
+
             IAzManStorage storage = new SqlAzManStorage("data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
-            IAzManStore store = storage.GetStore("Store Stress Test");
-            NetSqlAzMan.SnapIn.Printing.ptItemAuthorizations doc = new NetSqlAzMan.SnapIn.Printing.ptItemAuthorizations();
+            IAzManStore store = storage.GetStore("Eidos");
+            NetSqlAzMan.SnapIn.Printing.ptEffectivePermissions doc = new NetSqlAzMan.SnapIn.Printing.ptEffectivePermissions();
             doc.Applications = new IAzManApplication[] { 
-                store.GetApplication("Application0")
+                store.GetApplication("DB Persone")
                 //,store.GetApplication("Application1"),
                 //store.GetApplication("Application2"),
                 //store.GetApplication("Application3"),

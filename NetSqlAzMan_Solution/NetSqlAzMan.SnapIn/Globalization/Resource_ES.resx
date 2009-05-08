@@ -2256,4 +2256,10 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
   <data name="Language_RussianDescription" xml:space="preserve">
     <value>Idioma Ruso</value>
   </data>
+  <data name="rptMsg30" xml:space="preserve">
+    <value>&amp;Permisos efectivos</value>
+  </data>
+  <data name="rptTit30" xml:space="preserve">
+    <value>Permisos efectivos Informe</value>
+  </data>
 </root>

@@ -253,6 +253,9 @@
     <Compile Include="ListViews\StoreGroupsAndApplicationsListView.cs" />
     <Compile Include="Globalization\MultilanguageResource.cs" />
     <Compile Include="Globalization\ResourcesManager.cs" />
+    <Compile Include="Printing\ptEffectivePermissions.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Printing\PrintDocumentBase.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -80,6 +80,10 @@ namespace NetSqlAzMan.SnapIn.ListViews
                     MMC.SyncAction AuthorizationsReportAction = new MMC.SyncAction(Globalization.MultilanguageResource.GetString("rptMsg20"), Globalization.MultilanguageResource.GetString("rptTit20"));
                     AuthorizationsReportAction.Triggered += new MMC.SyncAction.SyncActionEventHandler(AuthorizationsReportAction_Triggered);
                     reportAction.Items.Add(AuthorizationsReportAction);
+                    //Effective Permissions Report Report - MMC.SyncAction
+                    MMC.SyncAction EffectivePermissionsReportAction = new MMC.SyncAction(Globalization.MultilanguageResource.GetString("rptMsg30"), Globalization.MultilanguageResource.GetString("rptTit30"));
+                    EffectivePermissionsReportAction.Triggered += new MMC.SyncAction.SyncActionEventHandler(EffectivePermissionsReportAction_Triggered);
+                    reportAction.Items.Add(EffectivePermissionsReportAction);
                     //Line MMC.SyncAction
                     MMC.ActionSeparator lineAction5 = new MMC.ActionSeparator();
                     this.SelectionData.ActionsPaneItems.Add(lineAction5);
@@ -129,7 +133,20 @@ namespace NetSqlAzMan.SnapIn.ListViews
             frm.document = rep;
             this.SnapIn.Console.ShowDialog(frm);
         }
-
+        void EffectivePermissionsReportAction_Triggered(object sender, MMC.SyncActionEventArgs e)
+        {
+            IAzManApplication[] applications = new IAzManApplication[this.SelectedNodes.Count];
+            int index = 0;
+            foreach (ApplicationScopeNode applicationScopeNode in this.SelectedNodes)
+            {
+                applications[index++] = applicationScopeNode.Application;
+            }
+            frmPrint frm = new frmPrint();
+            ptEffectivePermissions rep = new ptEffectivePermissions();
+            rep.Applications = applications;
+            frm.document = rep;
+            this.SnapIn.Console.ShowDialog(frm);
+        }
         void ItemsHVAction_Triggered(object sender, MMC.SyncActionEventArgs e)
         {
             IAzManApplication[] applications = new IAzManApplication[this.SelectedNodes.Count];

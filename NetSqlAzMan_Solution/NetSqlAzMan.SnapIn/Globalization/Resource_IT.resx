@@ -2259,4 +2259,10 @@ Solo le login spuntate saranno autorizzate nel Ruolo per questo Store.</value>
   <data name="Language_RussianDescription" xml:space="preserve">
     <value>Lingua Russa</value>
   </data>
+  <data name="rptMsg30" xml:space="preserve">
+    <value>&amp;Permessi effettivi</value>
+  </data>
+  <data name="rptTit30" xml:space="preserve">
+    <value>Stampa il report con i permessi effettivi</value>
+  </data>
 </root>
