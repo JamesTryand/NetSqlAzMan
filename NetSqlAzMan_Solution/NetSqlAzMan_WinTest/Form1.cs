@@ -157,7 +157,7 @@ namespace Prova.BizRules
         {
             try
             {
-                string[] users = DirectoryServicesUtils.GetAllDomainUsers();
+                //string[] users = DirectoryServicesUtils.GetAllDomainUsers();
 
 
                 //IAzManStorage storage = new SqlAzManStorage("data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
@@ -165,7 +165,7 @@ namespace Prova.BizRules
                 //IAzManDBUser dbUser2 = storage.GetDBUser(new SqlAzManSID(this.GetBytesFromInt32(2), true));
                 //AuthorizationType auth1 = storage.CheckAccess("Eidos", "DB Persone", "Accesso", dbUser1, DateTime.Now, false);
                 //AuthorizationType auth2 = storage.CheckAccess("Eidos", "DB Persone", "Accesso", dbUser1, DateTime.Now, false);
-                string cs = "data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;";
+                string cs = "data source=.;Initial Catalog=NetSqlAzManStorage;user id=testuser;password=;";
                 var ctx = new[] { new KeyValuePair<string, object>("Value1", "111"), new KeyValuePair<string, object>("Value2", "222") };
                 IAzManStorage storage = new SqlAzManStorage(cs);
                 //DateTime dt = new DateTime(2009, 05, 01);
@@ -174,17 +174,17 @@ namespace Prova.BizRules
                 //authz = upcTest.CheckAccess("Super utente senza dati retributivi", dt);
                 //MessageBox.Show(authz.ToString());
 
-                //return;
+                ////return;
                 StorageCache sc = new StorageCache(cs);
                 sc.BuildStorageCache();
-                DateTime dt = DateTime.Now;
-                foreach (string user in users)
-                {
-                    WindowsIdentity win = new WindowsIdentity(user);
-                    sc.CheckAccess("Eidos", "DB Persone", "Gestore", win.GetUserBinarySSid(), win.GetGroupsBinarySSid(), DateTime.Now, false);
-                }
-                TimeSpan ts = DateTime.Now.Subtract(dt);
-                var seconds = ts.TotalSeconds;
+                //DateTime dt = DateTime.Now;
+                //foreach (string user in users)
+                //{
+                //    WindowsIdentity win = new WindowsIdentity(user);
+                //    sc.CheckAccess("Eidos", "DB Persone", "Gestore", win.GetUserBinarySSid(), win.GetGroupsBinarySSid(), DateTime.Now, false);
+                //}
+                //TimeSpan ts = DateTime.Now.Subtract(dt);
+                //var seconds = ts.TotalSeconds;
 
                 //
                 //upcTest.CheckAccess("Accesso", DateTime.Now);

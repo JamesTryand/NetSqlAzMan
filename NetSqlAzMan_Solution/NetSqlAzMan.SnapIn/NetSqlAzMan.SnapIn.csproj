@@ -719,6 +719,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\wcf\" />
+  </ItemGroup>
+  <ItemGroup>
     <COMReference Include="ObjectPickerHelper2Lib">
       <Guid>{97449A73-B240-4AC1-BE9D-5B33DDC42C81}</Guid>
       <VersionMajor>1</VersionMajor>
@@ -727,12 +733,6 @@
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\wcf\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
