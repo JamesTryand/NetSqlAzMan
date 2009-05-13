@@ -173,10 +173,57 @@ namespace Prova.BizRules
                 //UserPermissionCache upcTest = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, false, ctx);
                 //authz = upcTest.CheckAccess("Super utente senza dati retributivi", dt);
                 //MessageBox.Show(authz.ToString());
-
+                DateTime t1, t2;
                 ////return;
+                t1 = DateTime.Now;
                 StorageCache sc = new StorageCache(cs);
                 sc.BuildStorageCache();
+                t2 = DateTime.Now;
+                //MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
+                t1 = DateTime.Now;
+                UserPermissionCache uupc = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, true);
+                t2 = DateTime.Now;
+                //MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
+
+                t1 = DateTime.Now;
+                for (int i = 0; i < 1000; i++)
+                {
+                    uupc.CheckAccess("Accesso", DateTime.Now);
+                }
+                t2 = DateTime.Now;
+                MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
+
+                string ssid = WindowsIdentity.GetCurrent().GetUserBinarySSid();
+                string[] gsid = WindowsIdentity.GetCurrent().GetGroupsBinarySSid();
+                t1 = DateTime.Now;
+                for (int i = 0; i < 1000; i++)
+                {
+                    sc.CheckAccess("Eidos", "DB Persone", "Accesso", ssid, gsid, DateTime.Now, false);
+                }
+                t2 = DateTime.Now;
+                MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
+
+                sr.CacheServiceClient csc = new NetSqlAzMan_WinTest.sr.CacheServiceClient();
+                csc.Open();
+                t1 = DateTime.Now;
+                for (int i = 0; i < 1000; i++)
+                {
+                    csc.CheckAccessForWindowsUsersWithoutAttributesRetrieve("Eidos", "DB Persone", "Accesso", ssid, gsid, DateTime.Now, false, null);
+                }
+                t2 = DateTime.Now;
+                MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
+                csc.Close();
+
+
+                //t1 = DateTime.Now;
+                //for (int i = 0; i < 1000; i++)
+                //{
+                //    storage.CheckAccess("Eidos", "DB Persone", "Accesso", WindowsIdentity.GetCurrent(), DateTime.Now, false);
+                //}
+                //t2 = DateTime.Now;
+                //MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
+                return;
+
                 //DateTime dt = DateTime.Now;
                 //foreach (string user in users)
                 //{

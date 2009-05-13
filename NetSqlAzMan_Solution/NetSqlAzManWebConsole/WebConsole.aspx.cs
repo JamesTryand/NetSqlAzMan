@@ -573,7 +573,10 @@ namespace NetSqlAzManWebConsole
                         new MenuInfo("-"),
                         new MenuInfo("Items Hierarchical View", "Show a Hierarchical view of the selected Store"),
                         new MenuInfo("-"),
-                        new MenuInfo("Reports", "Reports", new MenuInfo("Items Hierarchy", "Items Hierarchy Report", "rptItemsHierarchy.aspx"), new MenuInfo("Items Authorizations", "Items Authorizations Report", "rptItemsAuthorizations.aspx")),
+                        new MenuInfo("Reports", "Reports", 
+                            new MenuInfo("Items Hierarchy", "Items Hierarchy Report", "rptItemsHierarchy.aspx"), 
+                            new MenuInfo("Items Authorizations", "Items Authorizations Report", "rptItemsAuthorizations.aspx"),
+                            new MenuInfo("Effective Permissions", "Effective Permissions Report", "rptEffectivePermissions.aspx")),
                         new MenuInfo("-"),
                         new MenuInfo("Import Store Groups/Application", "Import .NET Sql Authorization Manager Store Groups/Application data", store.IAmManager),
                         new MenuInfo("Export Store", "Export .NET Sql Authorization Manager Store data"),
@@ -660,7 +663,10 @@ namespace NetSqlAzManWebConsole
                             new MenuInfo("Generate CheckAccessHelper", "Generate CheckAccessHelper source code class (C#/VB.NET)"),
                             new MenuInfo("Check Access Test", "Check Access Test"),
                             new MenuInfo("-"),
-                            new MenuInfo("Reports", "Reports", new MenuInfo("Items Hierarchy", "Items Hierarchy Report", "rptItemsHierarchy.aspx"), new MenuInfo("Items Authorizations", "Items Authorizations Report", "rptItemsAuthorizations.aspx")),
+                            new MenuInfo("Reports", "Reports", 
+                                new MenuInfo("Items Hierarchy", "Items Hierarchy Report", "rptItemsHierarchy.aspx"), 
+                                new MenuInfo("Items Authorizations", "Items Authorizations Report", "rptItemsAuthorizations.aspx"),
+                                new MenuInfo("Effective Permissions", "Effective Permissions Report", "rptEffectivePermissions.aspx")),
                             new MenuInfo("-"),
                             new MenuInfo("Import Application Groups/Items", "Import .NET Sql Authorization Manager Application Groups/Items data", application.IAmManager),
                             new MenuInfo("Export Application", "Export .NET Sql Authorization Manager Application data"),
@@ -675,7 +681,10 @@ namespace NetSqlAzManWebConsole
                                 new MenuInfo("-"),
                                 new MenuInfo("Items Hierarchical View", "Show a Hierarchical view of the selected Application"),
                                 new MenuInfo("-"),
-                                new MenuInfo("Reports", "Reports", new MenuInfo("Items Hierarchy", "Items Hierarchy Report", "rptItemsHierarchy.aspx"), new MenuInfo("Items Authorizations", "Items Authorizations Report", "rptItemsAuthorizations.aspx")),
+                                new MenuInfo("Reports", "Reports", 
+                                    new MenuInfo("Items Hierarchy", "Items Hierarchy Report", "rptItemsHierarchy.aspx"), 
+                                    new MenuInfo("Items Authorizations", "Items Authorizations Report", "rptItemsAuthorizations.aspx"),
+                                    new MenuInfo("Effective Permissions", "Effective Permissions Report", "rptEffectivePermissions.aspx")),
                                 new MenuInfo("-"),
                                 new MenuInfo("Import Application Groups/Items", "Import .NET Sql Authorization Manager Application Groups/Items data", application.IAmManager),
                                 new MenuInfo("Export Application", "Export .NET Sql Authorization Manager Application data"),
@@ -1270,6 +1279,7 @@ namespace NetSqlAzManWebConsole
                             case "Role Properties": mi.ImageUrl = this.getImageUrl("Role_16x16.gif"); break;
                             case "Task Properties": mi.ImageUrl = this.getImageUrl("Task_16x16.gif"); break;
                             case "Operation Properties": mi.ImageUrl = this.getImageUrl("Operation_16x16.gif"); break;
+                            case "Effective Permissions": mi.ImageUrl = this.getImageUrl("EffectivePermissions_16x16.gif"); break;
                             case "Manage Authorizations": mi.ImageUrl = this.getImageUrl("ItemAuthorization_16x16.gif"); break;
                             default: mi.ImageUrl = this.getImageUrl("blank.gif"); break;
                         }

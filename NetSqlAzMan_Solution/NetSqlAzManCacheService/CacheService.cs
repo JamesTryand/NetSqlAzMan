@@ -24,7 +24,7 @@ namespace NetSqlAzMan.Cache.Service
 
         internal static void startStorageBuildCache()
         {
-            CacheService.startStorageBuildCache(ConfigurationManager.AppSettings["StoreFilterName"], ConfigurationManager.AppSettings["ApplicationFilterName"]);
+            CacheService.startStorageBuildCache(ConfigurationManager.AppSettings["StoreNameFilter"], ConfigurationManager.AppSettings["ApplicationNameFilter"]);
         }
         
         internal static void startStorageBuildCache(string storeName)
@@ -34,12 +34,13 @@ namespace NetSqlAzMan.Cache.Service
 
         internal static void startStorageBuildCache(string storeName, string applicationName)
         {
+            //Design Feature 1: If Not already building cache ... ignore new InvalidateCache
             if (!CacheService.buildingCache)
             {
                 CacheService.buildingCache = true;
-                if (String.IsNullOrEmpty(storeName) && String.IsNullOrEmpty(applicationName))
-                    WindowsCacheService.writeEvent(String.Format("Invalidate Cache invoked from user '{0}'. Store: '{1}' - Application: '{2}'.", ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).Name, storeName, applicationName), System.Diagnostics.EventLogEntryType.Information);
+                WindowsCacheService.writeEvent(String.Format("Invalidate Cache invoked from user '{0}'. Store: '{1}' - Application: '{2}'.", ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).Name, storeName ?? String.Empty, applicationName ?? String.Empty), System.Diagnostics.EventLogEntryType.Information);
 
+                //Design Feature 2: Async Cache Building
                 System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(o =>
                     {
                         try
@@ -48,6 +49,9 @@ namespace NetSqlAzMan.Cache.Service
                             sc.BuildStorageCache(storeName, applicationName);
                             if (CacheService.storageCache != null)
                             {
+                                //Design Feature 3: When Build ... replace the old cache with new one
+                                //3.1) This means that while building ... User can invoke CheckAccess on the OLD cache
+                                //3.2) Replacement is thread safe
                                 lock (CacheService.storageCache)
                                 {
                                     CacheService.storageCache = sc;
@@ -67,7 +71,6 @@ namespace NetSqlAzMan.Cache.Service
                         {
                             CacheService.buildingCache = false;
                         }
-
                     }
                         ));
             }

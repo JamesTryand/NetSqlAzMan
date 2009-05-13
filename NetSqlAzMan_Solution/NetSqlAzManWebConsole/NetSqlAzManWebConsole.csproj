@@ -86,6 +86,13 @@
     <Compile Include="ADObjectPickerShowDialog.aspx.designer.cs">
       <DependentUpon>ADObjectPickerShowDialog.aspx</DependentUpon>
     </Compile>
+    <Compile Include="rptEffectivePermissions.aspx.cs">
+      <DependentUpon>rptEffectivePermissions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rptEffectivePermissions.aspx.designer.cs">
+      <DependentUpon>rptEffectivePermissions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="dlgInvalidateWCFCacheService.aspx.cs">
       <DependentUpon>dlgInvalidateWCFCacheService.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -551,6 +558,9 @@
     <Content Include="App_Themes\Yellow\Style.css" />
     <Content Include="AzRoles\x64\Microsoft.Interop.Security.AzRoles.dll" />
     <Content Include="AzRoles\x86\Microsoft.Interop.Security.AzRoles.dll" />
+    <Content Include="images\EffectivePermissions_16x16.gif" />
+    <Content Include="images\EffectivePermissions_32x32.gif" />
+    <Content Include="rptEffectivePermissions.aspx" />
     <Content Include="dlgInvalidateWCFCacheService.aspx" />
     <Content Include="images\Cache_16x16.gif" />
     <Content Include="images\Cache_32x32.gif" />
