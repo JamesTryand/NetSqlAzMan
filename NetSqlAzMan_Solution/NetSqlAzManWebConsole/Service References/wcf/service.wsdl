@@ -35,11 +35,11 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
-      <xsd:import schemaLocation="" namespace="http://NetSqlAzMan/ServiceModel" />
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+      <xsd:import namespace="http://NetSqlAzMan/ServiceModel" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ICacheService_CheckAccessForWindowsUsersWithAttributesRetrieve_InputMessage">
@@ -71,6 +71,12 @@
   </wsdl:message>
   <wsdl:message name="ICacheService_InvalidateCache_OutputMessage">
     <wsdl:part name="parameters" element="tns:InvalidateCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_InvalidateCacheOnServicePartners_InputMessage">
+    <wsdl:part name="parameters" element="tns:InvalidateCacheOnServicePartners" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_InvalidateCacheOnServicePartners_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InvalidateCacheOnServicePartnersResponse" />
   </wsdl:message>
   <wsdl:message name="ICacheService_GetItemNames_InputMessage">
     <wsdl:part name="parameters" element="tns:GetItemNames" />
@@ -104,6 +110,10 @@
     <wsdl:operation name="InvalidateCache">
       <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/InvalidateCache" message="tns:ICacheService_InvalidateCache_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICacheService/InvalidateCacheResponse" message="tns:ICacheService_InvalidateCache_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InvalidateCacheOnServicePartners">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/InvalidateCacheOnServicePartners" message="tns:ICacheService_InvalidateCacheOnServicePartners_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICacheService/InvalidateCacheOnServicePartnersResponse" message="tns:ICacheService_InvalidateCacheOnServicePartners_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetItemNames">
       <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/GetItemNames" message="tns:ICacheService_GetItemNames_InputMessage" />
@@ -156,6 +166,15 @@
     </wsdl:operation>
     <wsdl:operation name="InvalidateCache">
       <soap12:operation soapAction="http://tempuri.org/ICacheService/InvalidateCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InvalidateCacheOnServicePartners">
+      <soap12:operation soapAction="http://tempuri.org/ICacheService/InvalidateCacheOnServicePartners" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

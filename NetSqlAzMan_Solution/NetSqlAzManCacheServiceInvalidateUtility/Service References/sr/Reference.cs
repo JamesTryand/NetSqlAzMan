@@ -70,6 +70,9 @@ namespace NetSqlAzManCacheServiceInvalidateUtility.sr {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICacheService/InvalidateCache", ReplyAction="http://tempuri.org/ICacheService/InvalidateCacheResponse")]
         void InvalidateCache();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICacheService/InvalidateCacheOnServicePartners", ReplyAction="http://tempuri.org/ICacheService/InvalidateCacheOnServicePartnersResponse")]
+        void InvalidateCacheOnServicePartners([System.ServiceModel.MessageParameterAttribute(Name="invalidateCacheOnServicePartners")] bool invalidateCacheOnServicePartners1);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICacheService/GetItemNames", ReplyAction="http://tempuri.org/ICacheService/GetItemNamesResponse")]
         string[] GetItemNames(string storeName, string applicationName, NetSqlAzManCacheServiceInvalidateUtility.sr.ItemType type);
         
@@ -122,6 +125,10 @@ namespace NetSqlAzManCacheServiceInvalidateUtility.sr {
         
         public void InvalidateCache() {
             base.Channel.InvalidateCache();
+        }
+        
+        public void InvalidateCacheOnServicePartners(bool invalidateCacheOnServicePartners1) {
+            base.Channel.InvalidateCacheOnServicePartners(invalidateCacheOnServicePartners1);
         }
         
         public string[] GetItemNames(string storeName, string applicationName, NetSqlAzManCacheServiceInvalidateUtility.sr.ItemType type) {

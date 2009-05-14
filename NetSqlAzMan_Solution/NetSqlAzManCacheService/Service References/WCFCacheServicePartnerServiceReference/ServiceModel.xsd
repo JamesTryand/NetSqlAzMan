@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://NetSqlAzMan/ServiceModel" elementFormDefault="qualified" targetNamespace="http://NetSqlAzMan/ServiceModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="AuthorizationType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Neutral" />
+      <xs:enumeration value="Allow" />
+      <xs:enumeration value="Deny" />
+      <xs:enumeration value="AllowWithDelegation" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AuthorizationType" nillable="true" type="tns:AuthorizationType" />
+  <xs:simpleType name="ItemType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Role" />
+      <xs:enumeration value="Task" />
+      <xs:enumeration value="Operation" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ItemType" nillable="true" type="tns:ItemType" />
+</xs:schema>

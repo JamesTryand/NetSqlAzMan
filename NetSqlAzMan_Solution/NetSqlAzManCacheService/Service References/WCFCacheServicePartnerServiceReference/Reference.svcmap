@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cb1ebb90-7971-40da-b831-6301de63233e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="1d02a586-01c3-41c1-bdb7-d95b67f9d0f1" SourceId="1" SourceUrl="net.tcp://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="7b81c957-f39e-44f7-bf83-10d580df8086" SourceId="1" SourceUrl="net.tcp://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="93e7b714-4b3b-4939-919b-f0b2231b6baa" SourceId="1" SourceUrl="net.tcp://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="70b17b61-43f9-4a0a-b31f-5e8161f5cd50" SourceId="1" SourceUrl="net.tcp://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/mex" />
+    <MetadataFile FileName="System.Collections.Generic.xsd" MetadataType="Schema" ID="3cb547f7-0877-44e5-8115-ef92179ac4ae" SourceId="1" SourceUrl="net.tcp://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/mex" />
+    <MetadataFile FileName="ServiceModel.xsd" MetadataType="Schema" ID="4cc7370b-6964-478b-8376-15977ad539e8" SourceId="1" SourceUrl="net.tcp://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

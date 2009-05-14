@@ -92,6 +92,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Service References\WCFCacheServicePartnerServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="WindowsCacheService.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -109,6 +114,12 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Service References\WCFCacheServicePartnerServiceReference\Arrays.xsd" />
+    <None Include="Service References\WCFCacheServicePartnerServiceReference\service.wsdl" />
+    <None Include="Service References\WCFCacheServicePartnerServiceReference\service.xsd" />
+    <None Include="Service References\WCFCacheServicePartnerServiceReference\service1.xsd" />
+    <None Include="Service References\WCFCacheServicePartnerServiceReference\ServiceModel.xsd" />
+    <None Include="Service References\WCFCacheServicePartnerServiceReference\System.Collections.Generic.xsd" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ProjectInstaller.resx">
@@ -147,6 +158,24 @@
       <Project>{CBDF2741-B771-4399-8996-77D08C3E8267}</Project>
       <Name>NetSqlAzMan</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WCFCacheServicePartnerServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WCFCacheServicePartnerServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WCFCacheServicePartnerServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WCFCacheServicePartnerServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

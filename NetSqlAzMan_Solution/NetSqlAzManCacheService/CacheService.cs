@@ -83,45 +83,72 @@ namespace NetSqlAzMan.Cache.Service
 
         public void InvalidateCache()
         {
-            Debug.WriteLine("InvalidateCache called.");
+            this.InvalidateCache(true);
+        }
+
+        public void InvalidateCache(bool invalidateCacheOnServicePartners)
+        {
+            Debug.WriteLine("InvalidateCache invoked.");
+            if (invalidateCacheOnServicePartners)
+            {
+                System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(
+                    delegate(object o)
+                    {
+                        string[] partnerEndpoints = (string[])o;
+                        foreach (string partnerEndpoint in partnerEndpoints)
+                        {
+                            try
+                            {
+                                using (WCFCacheServicePartnerServiceReference.CacheServiceClient csc = new NetSqlAzMan.Cache.Service.WCFCacheServicePartnerServiceReference.CacheServiceClient())
+                                {
+                                    csc.Endpoint.Address = new EndpointAddress(partnerEndpoint);
+                                    csc.Open();
+                                    csc.BeginInvalidateCacheOnServicePartners(false, null, null);
+                                    WindowsCacheService.writeEvent(String.Format("Invalidate Cache invoked on WCF Cache Service Partner: '{0}'.", partnerEndpoint), System.Diagnostics.EventLogEntryType.Information);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                WindowsCacheService.writeEvent(String.Format("WCF Cache Service Partner error.\r\n Endpoint: '{0}'\r\nError: {1}.", partnerEndpoint, ex.Message), System.Diagnostics.EventLogEntryType.Warning);
+                            }
+                        }
+
+                    }
+
+                ), ConfigurationManager.AppSettings["WCFCacheServicePartners"].Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries));
+            }
             CacheService.startStorageBuildCache();
         }
 
         public void InvalidateStoreCache(string storeName)
         {
-            Debug.WriteLine(String.Format("InvalidateStoreCache called for Store '{0}'.", storeName));
+            Debug.WriteLine(String.Format("InvalidateStoreCache invoked for Store '{0}'.", storeName));
             CacheService.startStorageBuildCache(storeName);
         }
 
         public void InvalidateStoreApplicationCache(string storeName, string applicationName)
         {
-            Debug.WriteLine(String.Format("InvalidateStoreApplicationCache called for Store '{0}' - Application '{1}'.", storeName, applicationName));
+            Debug.WriteLine(String.Format("InvalidateStoreApplicationCache invoked for Store '{0}' - Application '{1}'.", storeName, applicationName));
             CacheService.startStorageBuildCache(storeName, applicationName);
         }
 
         public AuthorizationType CheckAccess(string storeName, string applicationName, string itemName, string userSSid, string[] groupsSSid, DateTime validFor, bool operationsOnly, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters)
         {
-            //Debug.WriteLine("CheckAccessForWindowsUsersWithAttributesRetrieve called.");
-            //WindowsCacheService.writeEvent(String.Format("CheckAccessForWindowsUsersWithAttributesRetrieve called for\r\nUser:\r\n{0}\r\nGroups:{1}", userSSid, String.Join("\r\n", groupsSSid)), EventLogEntryType.Information);
             return CacheService.storageCache.CheckAccess(storeName, applicationName, itemName, userSSid, groupsSSid, validFor, operationsOnly, out attributes, contextParameters);
         }
 
         public AuthorizationType CheckAccess(string storeName, string applicationName, string itemName, string userSSid, string[] groupsSSid, DateTime validFor, bool operationsOnly, params KeyValuePair<string, object>[] contextParameters)
         {
-            //Debug.WriteLine("CheckAccessForWindowsUsersWithoutAttributesRetrieve called.");
-            //WindowsCacheService.writeEvent(String.Format("CheckAccessForWindowsUsersWithoutAttributesRetrieve called for\r\nUser:\r\n{0}\r\nGroups:{1}", userSSid, String.Join("\r\n", groupsSSid)), EventLogEntryType.Information);
             return CacheService.storageCache.CheckAccess(storeName, applicationName, itemName, userSSid, groupsSSid, validFor, operationsOnly, contextParameters);
         }
 
         public AuthorizationType CheckAccess(string storeName, string applicationName, string itemName, string DBuserSSid, DateTime validFor, bool operationsOnly, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters)
         {
-            //Debug.WriteLine("CheckAccessForDatabaseUsersWithAttributesRetrieve called.");
             return CacheService.storageCache.CheckAccess(storeName, applicationName, itemName, DBuserSSid, validFor, operationsOnly, out attributes, contextParameters);
         }
 
         public AuthorizationType CheckAccess(string storeName, string applicationName, string itemName, string DBuserSSid, DateTime validFor, bool operationsOnly, params KeyValuePair<string, object>[] contextParameters)
         {
-            //Debug.WriteLine("CheckAccessForDatabaseUsersWithoutAttributesRetrieve called.");
             return CacheService.storageCache.CheckAccess(storeName, applicationName, itemName, DBuserSSid, validFor, operationsOnly, contextParameters);
         }
 
