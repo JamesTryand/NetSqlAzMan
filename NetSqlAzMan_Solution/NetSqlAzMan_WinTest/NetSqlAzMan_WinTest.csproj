@@ -93,6 +93,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmWCFCacheServiceStressTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWCFCacheServiceStressTest.Designer.cs">
+      <DependentUpon>frmWCFCacheServiceStressTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWCFCacheServiceStressTest.resx">
+      <DependentUpon>frmWCFCacheServiceStressTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -117,7 +126,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Service References\sr\item.xsd" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -170,14 +178,6 @@
     <WCFMetadataStorage Include="Service References\sr\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\sr\CacheService.wsdl" />
-    <None Include="Service References\sr\item.disco" />
-    <None Include="Service References\sr\item1.xsd" />
-    <None Include="Service References\sr\item2.xsd" />
-    <None Include="Service References\sr\item3.xsd" />
-    <None Include="Service References\sr\item4.xsd" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\sr\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +185,15 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\sr\Arrays1.xsd" />
+    <None Include="Service References\sr\configuration911.svcinfo" />
+    <None Include="Service References\sr\service1.wsdl" />
+    <None Include="Service References\sr\service2.xsd" />
+    <None Include="Service References\sr\service3.xsd" />
+    <None Include="Service References\sr\ServiceModel1.xsd" />
+    <None Include="Service References\sr\System.Collections.Generic1.xsd" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

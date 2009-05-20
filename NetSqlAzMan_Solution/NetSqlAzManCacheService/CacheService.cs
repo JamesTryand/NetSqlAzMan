@@ -17,6 +17,7 @@ namespace NetSqlAzMan.Cache.Service
     {
         internal static StorageCache storageCache;
         internal volatile static bool buildingCache;
+        internal static Object locker = new Object();
         public CacheService()
         {
             CacheService.buildingCache = false;
@@ -35,48 +36,54 @@ namespace NetSqlAzMan.Cache.Service
         internal static void startStorageBuildCache(string storeName, string applicationName)
         {
             //Design Feature 1: If Not already building cache ... ignore new InvalidateCache
-            if (!CacheService.buildingCache)
+            lock (CacheService.locker)
             {
-                CacheService.buildingCache = true;
-                WindowsCacheService.writeEvent(String.Format("Invalidate Cache invoked from user '{0}'. Store: '{1}' - Application: '{2}'.", ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).Name, storeName ?? String.Empty, applicationName ?? String.Empty), System.Diagnostics.EventLogEntryType.Information);
+                if (!CacheService.buildingCache)
+                {
+                    CacheService.buildingCache = true;
+                    WindowsCacheService.writeEvent(String.Format("Invalidate Cache invoked from user '{0}'. Store: '{1}' - Application: '{2}'.", ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).Name, storeName ?? String.Empty, applicationName ?? String.Empty), System.Diagnostics.EventLogEntryType.Information);
 
-                //Design Feature 2: Async Cache Building
-                System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(o =>
-                    {
-                        try
+                    //Design Feature 2: Async Cache Building
+                    System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(o =>
                         {
-                            StorageCache sc = new StorageCache(Properties.Settings.Default.NetSqlAzManStorageCacheConnectionString);
-                            sc.BuildStorageCache(storeName, applicationName);
-                            if (CacheService.storageCache != null)
+                            try
                             {
-                                //Design Feature 3: When Build ... replace the old cache with new one
-                                //3.1) This means that while building ... User can invoke CheckAccess on the OLD cache
-                                //3.2) Replacement is thread safe
-                                lock (CacheService.storageCache)
+                                StorageCache sc = new StorageCache(Properties.Settings.Default.NetSqlAzManStorageCacheConnectionString);
+                                sc.BuildStorageCache(storeName, applicationName);
+                                if (CacheService.storageCache != null)
+                                {
+                                    //Design Feature 3: When Build ... replace the old cache with new one
+                                    //3.1) This means that while building ... User can invoke CheckAccess on the OLD cache
+                                    //3.2) Replacement is thread safe
+                                    lock (CacheService.storageCache)
+                                    {
+                                        CacheService.storageCache = sc;
+                                    }
+                                }
+                                else
                                 {
                                     CacheService.storageCache = sc;
                                 }
+                                WindowsCacheService.writeEvent("Cache Built.", System.Diagnostics.EventLogEntryType.Information);
                             }
-                            else
+                            catch (Exception ex)
                             {
-                                CacheService.storageCache = sc;
+                                WindowsCacheService.writeEvent(String.Format("Cache building error:\r\n{0}\r\n\r\nStack Track:\r\n{1}", ex.Message, ex.StackTrace), System.Diagnostics.EventLogEntryType.Error);
                             }
-                            WindowsCacheService.writeEvent("Cache Built.", System.Diagnostics.EventLogEntryType.Information);
+                            finally
+                            {
+                                lock (CacheService.locker)
+                                {
+                                    CacheService.buildingCache = false;
+                                }
+                            }
                         }
-                        catch (Exception ex)
-                        {
-                            WindowsCacheService.writeEvent(String.Format("Cache building error:\r\n{0}\r\n\r\nStack Track:\r\n{1}", ex.Message, ex.StackTrace), System.Diagnostics.EventLogEntryType.Error);
-                        }
-                        finally
-                        {
-                            CacheService.buildingCache = false;
-                        }
-                    }
-                        ));
-            }
-            else
-            {
-                WindowsCacheService.writeEvent("Invalidate Cache invoked while building cache. Command ignored.", System.Diagnostics.EventLogEntryType.Warning);
+                            ));
+                }
+                else
+                {
+                    WindowsCacheService.writeEvent("Invalidate Cache invoked while building cache. Command ignored.", System.Diagnostics.EventLogEntryType.Warning);
+                }
             }
         }
         #region ICacheService Members

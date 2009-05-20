@@ -279,6 +279,13 @@ namespace NetSqlAzMan.Cache
         {
             System.Diagnostics.Debug.WriteLine(String.Format("Cache Building started at {0}", DateTime.Now));
             SqlAzManStorage newStorage = new SqlAzManStorage(this.storage.ConnectionString);
+            var dummy1 = newStorage.Mode;
+            var dummy2 = newStorage.LogInformations;
+            var dummy3 = newStorage.LogOnDb;
+            var dummy4 = newStorage.LogOnEventLog;
+            var dummy5 = newStorage.LogWarnings;
+            var dummy6 = newStorage.IAmAdmin;
+            var dummy7 = newStorage.LogErrors;
             SqlAzManItem.ClearBizRuleAssemblyCache();
             var db = newStorage.db;
             //Just iterate over all collections to cache all values
