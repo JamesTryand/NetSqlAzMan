@@ -170,7 +170,7 @@ namespace Prova.BizRules
                 IAzManStorage storage = new SqlAzManStorage(cs);
                 //DateTime dt = new DateTime(2009, 05, 01);
                 //AuthorizationType authz = storage.CheckAccess("Eidos", "DB Persone", "Super utente senza dati retributivi", WindowsIdentity.GetCurrent(), dt, false);
-                //UserPermissionCache upcTest = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, false, ctx);
+                UserPermissionCache upcTest = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, false, ctx);
                 //authz = upcTest.CheckAccess("Super utente senza dati retributivi", dt);
                 //MessageBox.Show(authz.ToString());
                 DateTime t1, t2;
@@ -178,17 +178,17 @@ namespace Prova.BizRules
                 t1 = DateTime.Now;
                 StorageCache sc = new StorageCache(cs);
                 sc.BuildStorageCache();
-                t2 = DateTime.Now;
-                //MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
-                t1 = DateTime.Now;
-                UserPermissionCache uupc = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, true);
-                t2 = DateTime.Now;
-                //MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
+                //t2 = DateTime.Now;
+                ////MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
+                //t1 = DateTime.Now;
+                //UserPermissionCache uupc = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, true);
+                //t2 = DateTime.Now;
+                ////MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
 
                 t1 = DateTime.Now;
                 for (int i = 0; i < 1000; i++)
                 {
-                    uupc.CheckAccess("Accesso", DateTime.Now);
+                    upcTest.CheckAccess("Accesso", DateTime.Now);
                 }
                 t2 = DateTime.Now;
                 MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
@@ -203,16 +203,16 @@ namespace Prova.BizRules
                 t2 = DateTime.Now;
                 MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
 
-                sr.CacheServiceClient csc = new NetSqlAzMan_WinTest.sr.CacheServiceClient();
-                csc.Open();
-                t1 = DateTime.Now;
-                for (int i = 0; i < 1000; i++)
-                {
-                    csc.CheckAccessForWindowsUsersWithoutAttributesRetrieve("Eidos", "DB Persone", "Accesso", ssid, gsid, DateTime.Now, false, null);
-                }
-                t2 = DateTime.Now;
-                MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
-                csc.Close();
+                //sr.CacheServiceClient csc = new NetSqlAzMan_WinTest.sr.CacheServiceClient();
+                //csc.Open();
+                //t1 = DateTime.Now;
+                //for (int i = 0; i < 1000; i++)
+                //{
+                //    csc.CheckAccessForWindowsUsersWithoutAttributesRetrieve("Eidos", "DB Persone", "Accesso", ssid, gsid, DateTime.Now, false, null);
+                //}
+                //t2 = DateTime.Now;
+                //MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
+                //csc.Close();
 
 
                 //t1 = DateTime.Now;

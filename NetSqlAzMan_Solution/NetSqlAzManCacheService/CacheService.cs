@@ -162,11 +162,10 @@ namespace NetSqlAzMan.Cache.Service
         public string[] GetItemNames(string storeName, string applicationName, ItemType type)
         { 
             List<string> items = new List<string>();
-            foreach (var item in CacheService.storageCache.Storage[storeName][applicationName].Items)
-            {
-                items.Add(item.Value.Name);
-            }
-            return items.ToArray();
+            var itemsOfType = (from t in CacheService.storageCache.Storage[storeName][applicationName].Items
+                              where t.Value.ItemType == type
+                               select t.Value.Name).ToList();
+            return itemsOfType.ToArray();
         }
 
         public KeyValuePair<string, ItemType>[] GetAllItems(string storeName, string applicationName)

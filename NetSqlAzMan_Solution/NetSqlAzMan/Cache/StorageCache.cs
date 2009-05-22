@@ -625,15 +625,15 @@ namespace NetSqlAzMan.Cache
             applicationName = applicationName.Trim();
             itemName = itemName.Trim();
             var store = (from s in this.storage.Stores.Values
-                         where String.Compare(s.Name, storeName, true) == 0
+                         where String.Equals(s.Name, storeName, StringComparison.OrdinalIgnoreCase)
                          select s).FirstOrDefault();
             if (store == null) throw SqlAzManException.StoreNotFoundException(storeName, null);
             var application = (from a in store.Applications.Values
-                               where String.Compare(a.Name, applicationName, true) == 0
+                               where String.Equals(a.Name, applicationName, StringComparison.OrdinalIgnoreCase)
                                select a).FirstOrDefault();
             if (application == null) throw SqlAzManException.ApplicationNotFoundException(applicationName, store, null);
             var item = (from a in application.Items.Values
-                        where String.Compare(a.Name, itemName, true) == 0
+                        where String.Equals(a.Name, itemName, StringComparison.OrdinalIgnoreCase)
                         select a).FirstOrDefault();
             if (item == null) throw SqlAzManException.ItemNotFoundException(itemName, application, null);
             #endregion NAMES VALIDATION
@@ -688,7 +688,7 @@ namespace NetSqlAzMan.Cache
             //memo: WhereDefined can be:0 - Store; 1 - Application; 2 - LDAP; 3 - Local; 4 - Database
             var authz = from a in item.Authorizations
                         where a.Item.ItemId == item.ItemId &&
-                        a.SID.StringValue == userSSid &&
+                        String.Equals(a.SID.StringValue, userSSid, StringComparison.OrdinalIgnoreCase) &&
                         (a.ValidFrom == null && a.ValidTo == null ||
                         validFor >= a.ValidFrom && a.ValidTo == null ||
                         validFor <= a.ValidTo && a.ValidFrom == null ||
@@ -717,7 +717,7 @@ namespace NetSqlAzMan.Cache
             authz = from a in item.Authorizations
                     from g in groupsSSid
                     where String.Compare(a.Item.Name, itemName, true) == 0 &&
-                    g == a.SID.StringValue &&
+                    String.Equals(g, a.SID.StringValue, StringComparison.OrdinalIgnoreCase) &&
                     (a.ValidFrom == null && a.ValidTo == null ||
                     validFor >= a.ValidFrom.Value && a.ValidTo == null ||
                     validFor <= a.ValidTo.Value && a.ValidFrom == null ||
@@ -745,7 +745,7 @@ namespace NetSqlAzMan.Cache
             #region CHECK ACCESS FOR STORE/APPLICATION GROUPS AUTHORIZATIONS
             bool isMember = true;
             authz = from a in item.Authorizations
-                    where String.Compare(a.Item.Name, itemName, true) == 0 &&
+                    where String.Equals(a.Item.Name, itemName, StringComparison.OrdinalIgnoreCase) &&
                     (a.SidWhereDefined == WhereDefined.Store || a.SidWhereDefined == WhereDefined.Application) &&
                     (a.ValidFrom == null && a.ValidTo == null ||
                     validFor >= a.ValidFrom.Value && a.ValidTo == null ||
@@ -763,11 +763,11 @@ namespace NetSqlAzMan.Cache
                     //check if user is a non-member
                     //non members
                     var nonMembers = this.getStoreGroupSidMembers(store, false, auth.SID);
-                    if (nonMembers.Count(m => m.StringValue == userSSid) > 0
+                    if (nonMembers.Count(m => String.Equals(m.StringValue, userSSid, StringComparison.OrdinalIgnoreCase)) > 0
                         ||
                         (from m in nonMembers
                          from g in groupsSSid
-                         where m.StringValue == g
+                         where String.Equals(m.StringValue, g, StringComparison.OrdinalIgnoreCase)
                          select g).Count() > 0)
                     {
                         isMember = false;
@@ -776,11 +776,11 @@ namespace NetSqlAzMan.Cache
                     {
                         //members
                         var members = this.getStoreGroupSidMembers(store, true, auth.SID);
-                        if (members.Count(m => m.StringValue == userSSid) > 0
+                        if (members.Count(m => String.Equals(m.StringValue, userSSid, StringComparison.OrdinalIgnoreCase)) > 0
                             ||
                             (from m in members
                              from g in groupsSSid
-                             where m.StringValue == g
+                             where String.Equals(m.StringValue, g, StringComparison.OrdinalIgnoreCase)
                              select g).Count() > 0)
                         {
                             isMember = true;
@@ -810,11 +810,11 @@ namespace NetSqlAzMan.Cache
                 {
                     //application group members
                     var nonMembers = this.getApplicationGroupSidMembers(auth.Item.Application, false, auth.SID);
-                    if (nonMembers.Count(m => m.StringValue == userSSid) > 0
+                    if (nonMembers.Count(m => String.Equals(m.StringValue, userSSid, StringComparison.OrdinalIgnoreCase)) > 0
                         ||
                         (from m in nonMembers
                          from g in groupsSSid
-                         where m.StringValue == g
+                         where String.Equals(m.StringValue ,g, StringComparison.OrdinalIgnoreCase)
                          select g).Count() > 0)
                     {
                         isMember = false;
@@ -823,11 +823,11 @@ namespace NetSqlAzMan.Cache
                     {
                         //members
                         var members = this.getApplicationGroupSidMembers(auth.Item.Application, true, auth.SID);
-                        if (members.Count(m => m.StringValue == userSSid) > 0
+                        if (members.Count(m => String.Equals(m.StringValue, userSSid, StringComparison.OrdinalIgnoreCase)) > 0
                             ||
                             (from m in members
                              from g in groupsSSid
-                             where m.StringValue == g
+                             where String.Equals(m.StringValue, g, StringComparison.OrdinalIgnoreCase)
                              select g).Count() > 0)
                         {
                             isMember = true;

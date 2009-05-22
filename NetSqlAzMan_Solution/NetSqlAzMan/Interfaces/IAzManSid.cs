@@ -24,5 +24,11 @@ namespace NetSqlAzMan.Interfaces
         /// <value>The string value.</value>
         [DataMember]
         string StringValue { get; }
+        /// <summary>
+        /// Equalses the specified sid.
+        /// </summary>
+        /// <param name="sid">The sid.</param>
+        /// <returns></returns>
+        bool Equals(IAzManSid sid);
     }
 }

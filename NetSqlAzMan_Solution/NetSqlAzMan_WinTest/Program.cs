@@ -14,7 +14,7 @@ namespace NetSqlAzMan_WinTest
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmWCFCacheServiceStressTest());
+            Application.Run(new Form1());
         }
     }
 }

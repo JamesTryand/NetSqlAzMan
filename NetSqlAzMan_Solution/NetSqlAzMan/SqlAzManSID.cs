@@ -273,6 +273,44 @@ namespace NetSqlAzMan
         }
 
         /// <summary>
+        /// Equalses the specified sqlazman sid.
+        /// </summary>
+        /// <param name="sqlazmanSid">The sqlazman sid.</param>
+        /// <returns></returns>
+        public bool Equals(SqlAzManSID sqlazmanSid)
+        {
+            if (this.securityIdentifier != null)
+                return this.securityIdentifier.Equals(sqlazmanSid.securityIdentifier);
+            else if (this.guid != Guid.Empty)
+                return this.guid.Equals(sqlazmanSid.guid);
+            else
+            {
+                if (this.customSid.Length != sqlazmanSid.customSid.Length)
+                    return false;
+                for (int i = 0; i < this.customSid.Length; i++)
+                {
+                    if (this.customSid[i] != sqlazmanSid.customSid[i])
+                        return false;
+                }
+                return true;
+            }
+        }
+
+        /// <summary>
+        /// Equalses the specified sid.
+        /// </summary>
+        /// <param name="sid">The sid.</param>
+        /// <returns></returns>
+        public bool Equals(IAzManSid sid)
+        {
+            SqlAzManSID sqlazmansid = sid as SqlAzManSID;
+            if (sqlazmansid != null)
+                return this.Equals(sqlazmansid);
+            else
+                return this.GetHashCode() == sid.GetHashCode();
+        }
+
+        /// <summary>
         /// Equalses the specified sid.
         /// </summary>
         /// <param name="sid">The sid.</param>
