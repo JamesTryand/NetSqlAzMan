@@ -198,27 +198,27 @@ namespace Prova.BizRules
                 t1 = DateTime.Now;
                 for (int i = 0; i < 1000; i++)
                 {
-                    sc.CheckAccess("Eidos", "DB Persone", "Accesso", ssid, gsid, DateTime.Now, false);
+                    var auttt = sc.CheckAccess("Eidos", "DB Persone", "Accesso", ssid, gsid, DateTime.Now, false);
                 }
                 t2 = DateTime.Now;
                 MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
 
-                //sr.CacheServiceClient csc = new NetSqlAzMan_WinTest.sr.CacheServiceClient();
-                //csc.Open();
-                //t1 = DateTime.Now;
-                //for (int i = 0; i < 1000; i++)
-                //{
-                //    csc.CheckAccessForWindowsUsersWithoutAttributesRetrieve("Eidos", "DB Persone", "Accesso", ssid, gsid, DateTime.Now, false, null);
-                //}
-                //t2 = DateTime.Now;
-                //MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
-                //csc.Close();
+                sr.CacheServiceClient csc = new NetSqlAzMan_WinTest.sr.CacheServiceClient();
+                csc.Open();
+                t1 = DateTime.Now;
+                for (int i = 0; i < 1000; i++)
+                {
+                    csc.CheckAccessForWindowsUsersWithoutAttributesRetrieve("Eidos", "DB Persone", "Accesso", ssid, gsid, DateTime.Now, false, null);
+                }
+                t2 = DateTime.Now;
+                MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
+                csc.Close();
 
 
                 //t1 = DateTime.Now;
                 //for (int i = 0; i < 1000; i++)
                 //{
-                //    storage.CheckAccess("Eidos", "DB Persone", "Accesso", WindowsIdentity.GetCurrent(), DateTime.Now, false);
+                //    storage.CheckAccess("Eidos", "DB Persone", "Gestore", WindowsIdentity.GetCurrent(), DateTime.Now, false);
                 //}
                 //t2 = DateTime.Now;
                 //MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());

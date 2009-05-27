@@ -714,11 +714,23 @@ namespace NetSqlAzMan.Cache
             }
             #endregion CHECK ACCESS ON ITEM
             #region CHECK ACCESS FOR USER GROUPS AUTHORIZATIONS
+            //authz = from a in item.Authorizations
+            //        from g in groupsSSid
+            //        where String.Equals(a.Item.Name, itemName, StringComparison.OrdinalIgnoreCase) &&
+            //        String.Equals(g, a.SID.StringValue, StringComparison.OrdinalIgnoreCase) &&
+            //        (a.ValidFrom == null && a.ValidTo == null ||
+            //        validFor >= a.ValidFrom.Value && a.ValidTo == null ||
+            //        validFor <= a.ValidTo.Value && a.ValidFrom == null ||
+            //        validFor >= a.ValidFrom && validFor <= a.ValidTo.Value) &&
+            //        a.AuthorizationType != AuthorizationType.Neutral &&
+            //        ((this.storage.Mode == NetSqlAzManMode.Administrator && (a.SidWhereDefined == WhereDefined.LDAP || a.SidWhereDefined == WhereDefined.Database)) ||
+            //        (this.storage.Mode == NetSqlAzManMode.Developer && a.SidWhereDefined >= WhereDefined.LDAP && a.SidWhereDefined <= WhereDefined.Database))
+            //        select a;
             authz = from a in item.Authorizations
-                    from g in groupsSSid
-                    where String.Compare(a.Item.Name, itemName, true) == 0 &&
-                    String.Equals(g, a.SID.StringValue, StringComparison.OrdinalIgnoreCase) &&
-                    (a.ValidFrom == null && a.ValidTo == null ||
+                    join g in groupsSSid on a.SID.StringValue equals g
+                    where String.Equals(a.Item.Name, itemName, StringComparison.OrdinalIgnoreCase)
+                    //&& String.Equals(g, a.SID.StringValue, StringComparison.OrdinalIgnoreCase) &&
+                    && (a.ValidFrom == null && a.ValidTo == null ||
                     validFor >= a.ValidFrom.Value && a.ValidTo == null ||
                     validFor <= a.ValidTo.Value && a.ValidFrom == null ||
                     validFor >= a.ValidFrom && validFor <= a.ValidTo.Value) &&
