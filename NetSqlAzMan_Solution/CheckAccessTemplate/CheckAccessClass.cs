@@ -120,7 +120,7 @@ namespace CheckAccessNamespace
                 case Role.Amministratore : return "AMMINISTRATORE";
                 case Role.ResponsabileUo : return "RESPONSABILEUO";
                 default:
-                    throw new ArgumentException("Unknow Role name", "role");
+                    throw new ArgumentException("Unknown Role name", "role");
             }
         }
         /// <summary>
@@ -131,7 +131,7 @@ namespace CheckAccessNamespace
         public string ItemName(Task task)
         {
             if (task == Task.Attività_Deleganti) return "Attività Deleganti";
-            else throw new ArgumentException("Unknow Task name", "task");
+            else throw new ArgumentException("Unknown Task name", "task");
         }
         /// <summary>
         /// Retrieve Item name from an Operation Enum.
@@ -144,7 +144,7 @@ namespace CheckAccessNamespace
             {
                 case Operation.Delega: return "Delega";
                 default:
-                    throw new ArgumentException("Unknow Operation name", "operation");
+                    throw new ArgumentException("Unknown Operation name", "operation");
             }
         }
         /// <summary>

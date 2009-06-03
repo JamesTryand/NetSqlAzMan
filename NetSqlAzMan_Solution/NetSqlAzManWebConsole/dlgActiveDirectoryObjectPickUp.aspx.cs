@@ -46,7 +46,7 @@ namespace NetSqlAzManWebConsole
             {
                 if (adoToResolve.state == ADObjectState.NotFound)
                 {
-                    this.lblMessage.Text = "Unknow Windows User/Group:";
+                    this.lblMessage.Text = "Unknown Windows User/Group:";
                     this.Text = "Unable to find: " + adoToResolve.Name;
                     this.txtUnknow.Text = HttpUtility.HtmlEncode(this.adoToResolve.Name);
                     this.txtUnknow.Focus();

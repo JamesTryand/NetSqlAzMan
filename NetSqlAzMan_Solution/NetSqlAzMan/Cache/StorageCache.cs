@@ -21,6 +21,7 @@ namespace NetSqlAzMan.Cache
         #region Fields
         private SqlAzManStorage storage;
         private Hashtable ldapQueryResults;
+        private Hashtable itemResultCache;
         #endregion Fields
         #region Properties
         /// <summary>
@@ -205,7 +206,7 @@ namespace NetSqlAzMan.Cache
                         else
                             nonMemberType = false;
                     }
-                    var subMembersResult = this.getStoreGroupSidMembers(application.Store, nonMemberType, subMember.SID);
+                    var subMembersResult = this.getApplicationGroupSidMembers(application, nonMemberType, subMember.SID);
                     result = result.Union(subMembersResult);
                 }
                 return result;
@@ -561,7 +562,12 @@ namespace NetSqlAzMan.Cache
         /// <returns></returns>
         public AuthorizationType CheckAccess(string storeName, string applicationName, string itemName, string userSSid, string[] groupsSSid, DateTime validFor, bool operationsOnly, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters)
         {
-            return this.internalCheckAccess(storeName, applicationName, itemName, userSSid, groupsSSid, validFor, operationsOnly, true, out attributes, contextParameters);
+            IAzManStore store;
+            IAzManApplication application;
+            IAzManItem item;
+            IEnumerable<IAzManItem> allItems;
+            this.storeApplicationItemValidation(storeName, applicationName, itemName, out store, out application, out item, out allItems);
+            return this.internalCheckAccess(store, application, item, allItems, userSSid, groupsSSid, validFor, operationsOnly, true, out attributes, contextParameters);
         }
 
         /// <summary>
@@ -579,7 +585,12 @@ namespace NetSqlAzMan.Cache
         public AuthorizationType CheckAccess(string storeName, string applicationName, string itemName, string userSSid, string[] groupsSSid, DateTime validFor, bool operationsOnly, params KeyValuePair<string, object>[] contextParameters)
         {
             List<KeyValuePair<string, string>> attributes;
-            return this.internalCheckAccess(storeName, applicationName, itemName, userSSid, groupsSSid, validFor, operationsOnly, false, out attributes, contextParameters);
+            IAzManStore store;
+            IAzManApplication application;
+            IAzManItem item;
+            IEnumerable<IAzManItem> allItems;
+            this.storeApplicationItemValidation(storeName, applicationName, itemName, out store, out application, out item, out allItems);
+            return this.internalCheckAccess(store, application, item, allItems, userSSid, groupsSSid, validFor, operationsOnly, false, out attributes, contextParameters);
         }
 
         /// <summary>
@@ -596,7 +607,12 @@ namespace NetSqlAzMan.Cache
         /// <returns></returns>
         public AuthorizationType CheckAccess(string storeName, string applicationName, string itemName, string DBuserSSid, DateTime validFor, bool operationsOnly, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters)
         {
-            return this.internalCheckAccess(storeName, applicationName, itemName, DBuserSSid, new string[0], validFor, operationsOnly, true, out attributes, contextParameters);
+            IAzManStore store;
+            IAzManApplication application;
+            IAzManItem item;
+            IEnumerable<IAzManItem> allItems;
+            this.storeApplicationItemValidation(storeName, applicationName, itemName, out store, out application, out item, out allItems);
+            return this.internalCheckAccess(store, application, item, allItems, DBuserSSid, new string[0], validFor, operationsOnly, true, out attributes, contextParameters);
         }
 
         /// <summary>
@@ -613,41 +629,58 @@ namespace NetSqlAzMan.Cache
         public AuthorizationType CheckAccess(string storeName, string applicationName, string itemName, string DBuserSSid, DateTime validFor, bool operationsOnly, params KeyValuePair<string, object>[] contextParameters)
         {
             List<KeyValuePair<string, string>> attributes;
-            return this.internalCheckAccess(storeName, applicationName, itemName, DBuserSSid, new string[0], validFor, operationsOnly, false, out attributes, contextParameters);
+            IAzManStore store;
+            IAzManApplication application;
+            IAzManItem item;
+            IEnumerable<IAzManItem> allItems;
+            this.storeApplicationItemValidation(storeName, applicationName, itemName, out store, out application, out item, out allItems);
+            return this.internalCheckAccess(store, application, item, allItems, DBuserSSid, new string[0], validFor, operationsOnly, false, out attributes, contextParameters);
         }
 
-        internal AuthorizationType internalCheckAccess(string storeName, string applicationName, string itemName, string userSSid, string[] groupsSSid, DateTime validFor, bool operationsOnly, bool retrieveAttributes, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters)
+        private void storeApplicationItemValidation(string storeName, string applicationName, string itemName, out IAzManStore store, out IAzManApplication application, out IAzManItem item, out IEnumerable<IAzManItem> allItems)
         {
-            AuthorizationType authorizationType = AuthorizationType.Neutral;
-            attributes = new List<KeyValuePair<string, string>>();
-            #region NAMES VALIDATION
+            this.itemResultCache = new Hashtable();
             storeName = storeName.Trim();
             applicationName = applicationName.Trim();
             itemName = itemName.Trim();
-            var store = (from s in this.storage.Stores.Values
-                         where String.Equals(s.Name, storeName, StringComparison.OrdinalIgnoreCase)
-                         select s).FirstOrDefault();
+            store = (from s in this.storage.Stores.Values
+                     where String.Equals(s.Name, storeName, StringComparison.OrdinalIgnoreCase)
+                     select s).FirstOrDefault();
             if (store == null) throw SqlAzManException.StoreNotFoundException(storeName, null);
-            var application = (from a in store.Applications.Values
-                               where String.Equals(a.Name, applicationName, StringComparison.OrdinalIgnoreCase)
-                               select a).FirstOrDefault();
+            application = (from a in store.Applications.Values
+                           where String.Equals(a.Name, applicationName, StringComparison.OrdinalIgnoreCase)
+                           select a).FirstOrDefault();
             if (application == null) throw SqlAzManException.ApplicationNotFoundException(applicationName, store, null);
-            var item = (from a in application.Items.Values
-                        where String.Equals(a.Name, itemName, StringComparison.OrdinalIgnoreCase)
-                        select a).FirstOrDefault();
+            item = (from a in application.Items.Values
+                    where String.Equals(a.Name, itemName, StringComparison.OrdinalIgnoreCase)
+                    select a).FirstOrDefault();
             if (item == null) throw SqlAzManException.ItemNotFoundException(itemName, application, null);
-            #endregion NAMES VALIDATION
+            allItems = from t in item.Application.Items.Values
+                       select t;
+        }
+
+        internal AuthorizationType internalCheckAccess(IAzManStore store, IAzManApplication application, IAzManItem item, IEnumerable<IAzManItem> allItems, string userSSid, string[] groupsSSid, DateTime validFor, bool operationsOnly, bool retrieveAttributes, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters)
+        {
+            AuthorizationType authorizationType = AuthorizationType.Neutral;
+            attributes = new List<KeyValuePair<string, string>>();
             #region RECURSIVE CALL
-            var parentItems = from it in application.Items.Values
-                              from m in it.Members.Values
-                              where m.ItemId == item.ItemId
-                              select it;
+            var parentItems = from t in allItems
+                              where t.Members.ContainsKey(item.Name)
+                              select t;
             foreach (var parentItem in parentItems)
             {
-                List<KeyValuePair<string, string>> localAttributes;
-                AuthorizationType parentAuthorizationType = this.internalCheckAccess(storeName, applicationName, parentItem.Name, userSSid, groupsSSid, validFor, operationsOnly, retrieveAttributes, out localAttributes, contextParameters);
-                if (retrieveAttributes && (parentAuthorizationType == AuthorizationType.Allow || parentAuthorizationType == AuthorizationType.AllowWithDelegation))
-                    attributes.AddRange(localAttributes);
+                AuthorizationType parentAuthorizationType;
+                if (!this.itemResultCache.ContainsKey(parentItem.Name))
+                {
+                    List<KeyValuePair<string, string>> localAttributes;
+                    parentAuthorizationType = this.internalCheckAccess(store, application, parentItem, allItems, userSSid, groupsSSid, validFor, operationsOnly, retrieveAttributes, out localAttributes, contextParameters);
+                    if (retrieveAttributes && (parentAuthorizationType == AuthorizationType.Allow || parentAuthorizationType == AuthorizationType.AllowWithDelegation))
+                        attributes.AddRange(localAttributes);
+                }
+                else
+                {
+                    parentAuthorizationType = (AuthorizationType)this.itemResultCache[parentItem.Name];
+                }
                 authorizationType = SqlAzManItem.mergeAuthorizations(authorizationType, parentAuthorizationType);
             }
             if (authorizationType == AuthorizationType.AllowWithDelegation)
@@ -684,7 +717,6 @@ namespace NetSqlAzMan.Cache
             }
             #endregion BIZ RULE CHECK
             #region CHECK ACCESS ON ITEM
-            
             //memo: WhereDefined can be:0 - Store; 1 - Application; 2 - LDAP; 3 - Local; 4 - Database
             var authz = from a in item.Authorizations
                         where a.Item.ItemId == item.ItemId &&
@@ -714,22 +746,9 @@ namespace NetSqlAzMan.Cache
             }
             #endregion CHECK ACCESS ON ITEM
             #region CHECK ACCESS FOR USER GROUPS AUTHORIZATIONS
-            //authz = from a in item.Authorizations
-            //        from g in groupsSSid
-            //        where String.Equals(a.Item.Name, itemName, StringComparison.OrdinalIgnoreCase) &&
-            //        String.Equals(g, a.SID.StringValue, StringComparison.OrdinalIgnoreCase) &&
-            //        (a.ValidFrom == null && a.ValidTo == null ||
-            //        validFor >= a.ValidFrom.Value && a.ValidTo == null ||
-            //        validFor <= a.ValidTo.Value && a.ValidFrom == null ||
-            //        validFor >= a.ValidFrom && validFor <= a.ValidTo.Value) &&
-            //        a.AuthorizationType != AuthorizationType.Neutral &&
-            //        ((this.storage.Mode == NetSqlAzManMode.Administrator && (a.SidWhereDefined == WhereDefined.LDAP || a.SidWhereDefined == WhereDefined.Database)) ||
-            //        (this.storage.Mode == NetSqlAzManMode.Developer && a.SidWhereDefined >= WhereDefined.LDAP && a.SidWhereDefined <= WhereDefined.Database))
-            //        select a;
             authz = from a in item.Authorizations
                     join g in groupsSSid on a.SID.StringValue equals g
-                    where String.Equals(a.Item.Name, itemName, StringComparison.OrdinalIgnoreCase)
-                    //&& String.Equals(g, a.SID.StringValue, StringComparison.OrdinalIgnoreCase) &&
+                    where String.Equals(a.Item.Name, item.Name, StringComparison.OrdinalIgnoreCase)
                     && (a.ValidFrom == null && a.ValidTo == null ||
                     validFor >= a.ValidFrom.Value && a.ValidTo == null ||
                     validFor <= a.ValidTo.Value && a.ValidFrom == null ||
@@ -757,7 +776,7 @@ namespace NetSqlAzMan.Cache
             #region CHECK ACCESS FOR STORE/APPLICATION GROUPS AUTHORIZATIONS
             bool isMember = true;
             authz = from a in item.Authorizations
-                    where String.Equals(a.Item.Name, itemName, StringComparison.OrdinalIgnoreCase) &&
+                    where String.Equals(a.Item.Name, item.Name, StringComparison.OrdinalIgnoreCase) &&
                     (a.SidWhereDefined == WhereDefined.Store || a.SidWhereDefined == WhereDefined.Application) &&
                     (a.ValidFrom == null && a.ValidTo == null ||
                     validFor >= a.ValidFrom.Value && a.ValidTo == null ||
@@ -775,12 +794,12 @@ namespace NetSqlAzMan.Cache
                     //check if user is a non-member
                     //non members
                     var nonMembers = this.getStoreGroupSidMembers(store, false, auth.SID);
-                    if (nonMembers.Count(m => String.Equals(m.StringValue, userSSid, StringComparison.OrdinalIgnoreCase)) > 0
+                    if (nonMembers.FirstOrDefault(m => String.Equals(m.StringValue, userSSid, StringComparison.OrdinalIgnoreCase)) != null
                         ||
                         (from m in nonMembers
-                         from g in groupsSSid
-                         where String.Equals(m.StringValue, g, StringComparison.OrdinalIgnoreCase)
-                         select g).Count() > 0)
+                         join g in groupsSSid on m.StringValue equals g
+                         //where String.Equals(m.StringValue, g, StringComparison.OrdinalIgnoreCase)
+                         select g).FirstOrDefault() != null)
                     {
                         isMember = false;
                     }
@@ -788,12 +807,12 @@ namespace NetSqlAzMan.Cache
                     {
                         //members
                         var members = this.getStoreGroupSidMembers(store, true, auth.SID);
-                        if (members.Count(m => String.Equals(m.StringValue, userSSid, StringComparison.OrdinalIgnoreCase)) > 0
+                        if (members.FirstOrDefault(m => String.Equals(m.StringValue, userSSid, StringComparison.OrdinalIgnoreCase)) != null
                             ||
                             (from m in members
-                             from g in groupsSSid
-                             where String.Equals(m.StringValue, g, StringComparison.OrdinalIgnoreCase)
-                             select g).Count() > 0)
+                             join g in groupsSSid on m.StringValue equals g
+                             //where String.Equals(m.StringValue, g, StringComparison.OrdinalIgnoreCase)
+                             select g).FirstOrDefault() != null)
                         {
                             isMember = true;
                         }
@@ -825,9 +844,9 @@ namespace NetSqlAzMan.Cache
                     if (nonMembers.Count(m => String.Equals(m.StringValue, userSSid, StringComparison.OrdinalIgnoreCase)) > 0
                         ||
                         (from m in nonMembers
-                         from g in groupsSSid
-                         where String.Equals(m.StringValue ,g, StringComparison.OrdinalIgnoreCase)
-                         select g).Count() > 0)
+                         join g in groupsSSid on m.StringValue equals g
+                         //where String.Equals(m.StringValue ,g, StringComparison.OrdinalIgnoreCase)
+                         select g).FirstOrDefault() != null)
                     {
                         isMember = false;
                     }
@@ -838,9 +857,9 @@ namespace NetSqlAzMan.Cache
                         if (members.Count(m => String.Equals(m.StringValue, userSSid, StringComparison.OrdinalIgnoreCase)) > 0
                             ||
                             (from m in members
-                             from g in groupsSSid
-                             where String.Equals(m.StringValue, g, StringComparison.OrdinalIgnoreCase)
-                             select g).Count() > 0)
+                             join g in groupsSSid on m.StringValue equals g
+                             //where String.Equals(m.StringValue, g, StringComparison.OrdinalIgnoreCase)
+                             select g).FirstOrDefault() != null)
                         {
                             isMember = true;
                         }
@@ -905,6 +924,8 @@ namespace NetSqlAzMan.Cache
                     }
                 }
             }
+            //Cache temporarly the result
+            this.itemResultCache.Add(item.Name, authorizationType);
             return authorizationType;
         }
         #endregion Public Methods

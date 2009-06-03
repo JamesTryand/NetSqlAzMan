@@ -105,7 +105,7 @@ Namespace My_Application.Security
             If (role = Role.My_Role) Then
                 Return "My Role"
             End If
-            Throw New System.ArgumentException("Unknow Role name", "role")
+            Throw New System.ArgumentException("Unknown Role name", "role")
         End Function
         '''<summary>
         '''Retrieve Item name from a Task Enum.
@@ -119,7 +119,7 @@ Namespace My_Application.Security
             If (task = Task.OtherTask) Then
                 Return "OtherTask"
             End If
-            Throw New System.ArgumentException("Unknow Task name", "task")
+            Throw New System.ArgumentException("Unknown Task name", "task")
         End Function
         '''<summary>
         '''Retrieve Item name from a Operation Enum.
@@ -133,7 +133,7 @@ Namespace My_Application.Security
             If (operation = Operation.Other_Operation) Then
                 Return "Other Operation"
             End If
-            Throw New System.ArgumentException("Unknow Operation name", "operation")
+            Throw New System.ArgumentException("Unknown Operation name", "operation")
         End Function
         '''<summary>
         '''Checks the access [FOR Windows Users ONLY].

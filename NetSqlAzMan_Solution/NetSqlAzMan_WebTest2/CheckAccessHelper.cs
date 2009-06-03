@@ -186,7 +186,7 @@ namespace Application0.Security
             {
                 return "Role9";
             }
-            throw new System.ArgumentException("Unknow Role name", "role");
+            throw new System.ArgumentException("Unknown Role name", "role");
         }
         /// <summary>
         /// Retrieve Item name from a Task Enum.
@@ -275,7 +275,7 @@ namespace Application0.Security
             {
                 return "Task9";
             }
-            throw new System.ArgumentException("Unknow Task name", "task");
+            throw new System.ArgumentException("Unknown Task name", "task");
         }
         /// <summary>
         /// Retrieve Item name from a Operation Enum.
@@ -364,7 +364,7 @@ namespace Application0.Security
             {
                 return "Operation9";
             }
-            throw new System.ArgumentException("Unknow Operation name", "operation");
+            throw new System.ArgumentException("Unknown Operation name", "operation");
         }
         /// <summary>
         /// Checks the access [FOR Windows Users ONLY].

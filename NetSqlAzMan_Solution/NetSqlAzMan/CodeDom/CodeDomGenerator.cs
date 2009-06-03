@@ -255,7 +255,7 @@ namespace NetSqlAzMan.CodeDom
                 }
                 itemNameForRole.Statements.Add(
                     new CodeThrowExceptionStatement(
-                        new CodeObjectCreateExpression(typeof(ArgumentException), new CodePrimitiveExpression("Unknow Role name"), new CodePrimitiveExpression("role")
+                        new CodeObjectCreateExpression(typeof(ArgumentException), new CodePrimitiveExpression("Unknown Role name"), new CodePrimitiveExpression("role")
                 )));
             }
             if (tasksAllowed && tasks.Length > 0)
@@ -280,7 +280,7 @@ namespace NetSqlAzMan.CodeDom
                 }
                 itemNameForTask.Statements.Add(
                     new CodeThrowExceptionStatement(
-                        new CodeObjectCreateExpression(typeof(ArgumentException), new CodePrimitiveExpression("Unknow Task name"), new CodePrimitiveExpression("task")
+                        new CodeObjectCreateExpression(typeof(ArgumentException), new CodePrimitiveExpression("Unknown Task name"), new CodePrimitiveExpression("task")
                 )));
             }
             CodeMemberMethod itemNameForOperation = new CodeMemberMethod();
@@ -303,7 +303,7 @@ namespace NetSqlAzMan.CodeDom
             }
             itemNameForOperation.Statements.Add(
                 new CodeThrowExceptionStatement(
-                    new CodeObjectCreateExpression(typeof(ArgumentException), new CodePrimitiveExpression("Unknow Operation name"), new CodePrimitiveExpression("operation")
+                    new CodeObjectCreateExpression(typeof(ArgumentException), new CodePrimitiveExpression("Unknown Operation name"), new CodePrimitiveExpression("operation")
             )));
             #endregion ItemName
             #region CheckAccess

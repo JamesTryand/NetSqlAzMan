@@ -47,7 +47,7 @@ namespace NetSqlAzManWebConsole {
         protected global::System.Web.UI.WebControls.Label lblMessage;
         
         /// <summary>
-        /// txtUnknow control.
+        /// txtUnknown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

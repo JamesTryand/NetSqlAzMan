@@ -198,7 +198,7 @@ namespace Prova.BizRules
                 t1 = DateTime.Now;
                 for (int i = 0; i < 1000; i++)
                 {
-                    var auttt = sc.CheckAccess("Eidos", "DB Persone", "Accesso", ssid, gsid, DateTime.Now, false);
+                    sc.CheckAccess("Eidos", "DB Persone", "Accesso", ssid, gsid, DateTime.Now, false);
                 }
                 t2 = DateTime.Now;
                 MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
@@ -222,7 +222,7 @@ namespace Prova.BizRules
                 //}
                 //t2 = DateTime.Now;
                 //MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
-                return;
+                //return;
 
                 //DateTime dt = DateTime.Now;
                 //foreach (string user in users)
