@@ -330,16 +330,7 @@ namespace Prova.BizRules
             //try
             //{
             //    frmImportFromAzMan frm = new frmImportFromAzMan();
-            //    IAzManStorage storage = new SqlAzManStorage("data source=eidos-egcc1\\sql2005;Initial Catalog=NetSqlAzManStore;Integrated Security = SSPI;");
-            //    try
-            //    {
-            //        IAzManStore store = storage.OpenStore("Store Imported From AzMan");
-            //        store.Delete();
-            //    }
-            //    catch
-            //    {
-
-            //    }
+            //    IAzManStorage storage = new SqlAzManStorage("data source=.\\sql2005;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
             //    frm.storage = storage;
             //    DialogResult dr = frm.ShowDialog(this);
             //    if (dr == DialogResult.OK)

@@ -39,7 +39,7 @@ namespace NetSqlAzMan_WinTest
                             try
                             {
                             csc.Open();
-                            KeyValuePair<string, string>[] attrs = null;
+                            //KeyValuePair<string, string>[] attrs = null;
                             
                                 AuthorizationType auth = csc.CheckAccessForWindowsUsersWithoutAttributesRetrieve("Eidos", "DB Persone",
                                     "Gestore", WindowsIdentity.GetCurrent().GetUserBinarySSid(), WindowsIdentity.GetCurrent().GetGroupsBinarySSid(),

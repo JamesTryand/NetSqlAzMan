@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Linq;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -289,8 +290,24 @@ namespace NetSqlAzMan.SnapIn.Forms
                             {
                                 foreach (string azGroupMember in azStoreGroupMembers)
                                 {
-                                    IAzManStoreGroup storemember = store.GetStoreGroup(azGroupMember);
-                                    IAzManApplicationGroup appmember = application.GetApplicationGroup(azGroupMember);
+                                    IAzManStoreGroup storemember;
+                                    try
+                                    {
+                                        storemember = store.GetStoreGroup(azGroupMember);
+                                    }
+                                    catch (SqlAzManException)
+                                    {
+                                        storemember = null;
+                                    }
+                                    IAzManApplicationGroup appmember;
+                                    try
+                                    {
+                                        appmember = application.GetApplicationGroup(azGroupMember);
+                                    }
+                                    catch (SqlAzManException)
+                                    {
+                                        appmember = null;
+                                    }
                                     if (storemember != null)
                                         applicationGroup.CreateApplicationGroupMember(storemember.SID, WhereDefined.Store, true);
                                     else
@@ -304,8 +321,24 @@ namespace NetSqlAzMan.SnapIn.Forms
                             {
                                 foreach (string azGroupNonMember in azStoreGroupNonMembers)
                                 {
-                                    IAzManStoreGroup storenonMember = store.GetStoreGroup(azGroupNonMember);
-                                    IAzManApplicationGroup appnonMember = application.GetApplicationGroup(azGroupNonMember);
+                                    IAzManStoreGroup storenonMember;
+                                    try
+                                    {
+                                        storenonMember = store.GetStoreGroup(azGroupNonMember);
+                                    }
+                                    catch (SqlAzManException)
+                                    {
+                                        storenonMember = null;
+                                    }
+                                    IAzManApplicationGroup appnonMember;
+                                    try
+                                    {
+                                        appnonMember = application.GetApplicationGroup(azGroupNonMember);
+                                    }
+                                    catch (SqlAzManException)
+                                    {
+                                        appnonMember = null;
+                                    }
                                     if (storenonMember != null)
                                         applicationGroup.CreateApplicationGroupMember(storenonMember.SID, WhereDefined.Store, false);
                                     else
@@ -417,13 +450,38 @@ namespace NetSqlAzMan.SnapIn.Forms
                     IAzRoles azRoles = azApplication.Roles;
                     foreach (IAzRole azRole in azRoles)
                     {
-                        IAzManItem item = application.GetItem(azRole.Name);
-                        if (item == null) item = application.CreateItem(azRole.Name, azRole.Description, ItemType.Role);
+                        IAzManItem item;
+                        try
+                        {
+                            item = application.GetItem(azRole.Name);
+                        }
+                        catch (SqlAzManException)
+                        {
+                            item = null;
+                        }
+                        if (item == null) 
+                            item = application.CreateItem(azRole.Name, azRole.Description, ItemType.Role);
                         //Store & Application Groups Authorizations
                         foreach (string member in (object[])azRole.AppMembers)
                         {
-                            IAzManStoreGroup storeGroup = application.Store.GetStoreGroup(member);
-                            IAzManApplicationGroup applicationGroup = application.GetApplicationGroup(member);
+                            IAzManStoreGroup storeGroup;
+                            try 
+                            { 
+                                storeGroup = application.Store.GetStoreGroup(member); 
+                            }
+                            catch (SqlAzManException) 
+                            { 
+                                storeGroup = null;  
+                            }
+                            IAzManApplicationGroup applicationGroup;
+                            try
+                            {
+                                applicationGroup = application.GetApplicationGroup(member);
+                            }
+                            catch (SqlAzManException)
+                            {
+                                applicationGroup = null;
+                            }
                             if (storeGroup != null)
                                 item.CreateAuthorization(this.currentOwnerSid, this.currentOwnerSidWhereDefined, storeGroup.SID, WhereDefined.Store, defaultAuthorization, null, null);
                             else if (applicationGroup != null)
@@ -445,13 +503,38 @@ namespace NetSqlAzMan.SnapIn.Forms
                         IAzRoles azRolesWithScopes = azScope.Roles;
                         foreach (IAzRole azRole in azRolesWithScopes)
                         {
-                            IAzManItem item = application.GetItem(azRole.Name);
-                            if (item == null) item = application.CreateItem(azRole.Name, azRole.Description, ItemType.Role);
+                            IAzManItem item;
+                            try
+                            {
+                                item = application.GetItem(azRole.Name);
+                            }
+                            catch (SqlAzManException)
+                            {
+                                item = null;
+                            }
+                            if (item == null) 
+                                item = application.CreateItem(azRole.Name, azRole.Description, ItemType.Role);
                             //Store & Application Groups Authorizations
                             foreach (string member in (object[])azRole.AppMembers)
                             {
-                                IAzManStoreGroup storeGroup = application.Store.GetStoreGroup(member);
-                                IAzManApplicationGroup applicationGroup = application.GetApplicationGroup(member);
+                                IAzManStoreGroup storeGroup;
+                                try
+                                {
+                                    storeGroup = application.Store.GetStoreGroup(member);
+                                }
+                                catch (SqlAzManException)
+                                {
+                                    storeGroup = null;
+                                }
+                                IAzManApplicationGroup applicationGroup;
+                                try
+                                {
+                                    applicationGroup = application.GetApplicationGroup(member);
+                                }
+                                catch (SqlAzManException)
+                                {
+                                    applicationGroup = null;
+                                }
                                 if (storeGroup != null)
                                     item.CreateAuthorization(this.currentOwnerSid, this.currentOwnerSidWhereDefined, storeGroup.SID, WhereDefined.Store, defaultAuthorization, null, null);
                                 else if (applicationGroup != null)
@@ -521,7 +604,9 @@ namespace NetSqlAzMan.SnapIn.Forms
                     foreach (string azSubTask in azSubTasks)
                     {
                         IAzManItem subItem = application.GetItem(azSubTask);
-                        item.AddMember(subItem);
+                        var members = item.GetMembers();
+                        if (members == null || members.Where(t => t.ItemId == subItem.ItemId).Count() == 0)
+                            item.AddMember(subItem);
                         this.SetHirearchy(azScope, azApplication, azSubTask, application);
                     }
                 }
@@ -532,7 +617,9 @@ namespace NetSqlAzMan.SnapIn.Forms
                     foreach (string azSubOperation in azSubOperations)
                     {
                         IAzManItem subItem = application.GetItem(azSubOperation);
-                        item.AddMember(subItem);
+                        var members = item.GetMembers();
+                        if (members == null || members.Where(t => t.ItemId == subItem.ItemId).Count() == 0)
+                            item.AddMember(subItem);
                     }
                 }
             }
