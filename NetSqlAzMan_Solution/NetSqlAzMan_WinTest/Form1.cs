@@ -170,7 +170,7 @@ namespace Prova.BizRules
                 IAzManStorage storage = new SqlAzManStorage(cs);
                 //DateTime dt = new DateTime(2009, 05, 01);
                 //AuthorizationType authz = storage.CheckAccess("Eidos", "DB Persone", "Super utente senza dati retributivi", WindowsIdentity.GetCurrent(), dt, false);
-                UserPermissionCache upcTest = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, false, ctx);
+
                 //authz = upcTest.CheckAccess("Super utente senza dati retributivi", dt);
                 //MessageBox.Show(authz.ToString());
                 DateTime t1, t2;
@@ -182,9 +182,11 @@ namespace Prova.BizRules
                 ////MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
                 //t1 = DateTime.Now;
                 //UserPermissionCache uupc = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, true);
-                //t2 = DateTime.Now;
-                ////MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
-
+                t2 = DateTime.Now;
+                MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
+                
+                return;
+                UserPermissionCache upcTest = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, false, ctx);
                 t1 = DateTime.Now;
                 for (int i = 0; i < 1000; i++)
                 {
@@ -910,6 +912,26 @@ namespace Prova.BizRules
                     storage.RollBackTransaction();
                 }
             }
+        }
+
+        private void btnStorageCacheAuthorizedItems_Click(object sender, EventArgs e)
+        {
+            string cs = "data source=.;Initial Catalog=NetSqlAzManStorage;user id=testuser;password=;";
+            var ctx = new[] { new KeyValuePair<string, object>("Value1", "111"), new KeyValuePair<string, object>("Value2", "222") };
+            string ssid = WindowsIdentity.GetCurrent().GetUserBinarySSid();
+            string[] gsid = WindowsIdentity.GetCurrent().GetGroupsBinarySSid();
+            DateTime t1, t2;
+
+            StorageCache sc = new StorageCache(cs);
+            sc.BuildStorageCache("Eidos");
+            t1 = DateTime.Now;
+            for (int i = 0; i < 1000; i++)
+            {
+                AuthorizedItem[] result = sc.GetAuthorizedItems("Eidos", "DB Persone", ssid, gsid, DateTime.Now, ctx);
+            }
+            t2 = DateTime.Now;
+            double ms = t2.Subtract(t1).TotalMilliseconds;
+            MessageBox.Show(String.Format("Done in {0} ms", ms));
         }
     }
 }

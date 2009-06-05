@@ -225,8 +225,24 @@ namespace NetSqlAzManWebConsole
                             {
                                 foreach (string azGroupMember in azStoreGroupMembers)
                                 {
-                                    IAzManStoreGroup storemember = store.GetStoreGroup(azGroupMember);
-                                    IAzManApplicationGroup appmember = application.GetApplicationGroup(azGroupMember);
+                                    IAzManStoreGroup storemember;
+                                    try
+                                    {
+                                        storemember = store.GetStoreGroup(azGroupMember);
+                                    }
+                                    catch (SqlAzManException)
+                                    {
+                                        storemember = null;
+                                    }
+                                    IAzManApplicationGroup appmember;
+                                    try
+                                    {
+                                        appmember = application.GetApplicationGroup(azGroupMember);
+                                    }
+                                    catch (SqlAzManException)
+                                    {
+                                        appmember = null;
+                                    }
                                     if (storemember != null)
                                         applicationGroup.CreateApplicationGroupMember(storemember.SID, WhereDefined.Store, true);
                                     else
@@ -239,8 +255,24 @@ namespace NetSqlAzManWebConsole
                             {
                                 foreach (string azGroupNonMember in azStoreGroupNonMembers)
                                 {
-                                    IAzManStoreGroup storenonMember = store.GetStoreGroup(azGroupNonMember);
-                                    IAzManApplicationGroup appnonMember = application.GetApplicationGroup(azGroupNonMember);
+                                    IAzManStoreGroup storenonMember;
+                                    try
+                                    {
+                                        storenonMember = store.GetStoreGroup(azGroupNonMember);
+                                    }
+                                    catch (SqlAzManException)
+                                    {
+                                        storenonMember = null;
+                                    }
+                                    IAzManApplicationGroup appnonMember;
+                                    try
+                                    {
+                                        appnonMember = application.GetApplicationGroup(azGroupNonMember);
+                                    }
+                                    catch (SqlAzManException)
+                                    {
+                                        appnonMember = null;
+                                    }
                                     if (storenonMember != null)
                                         applicationGroup.CreateApplicationGroupMember(storenonMember.SID, WhereDefined.Store, false);
                                     else
@@ -343,13 +375,38 @@ namespace NetSqlAzManWebConsole
                     IAzRoles azRoles = azApplication.Roles;
                     foreach (IAzRole azRole in azRoles)
                     {
-                        IAzManItem item = application.GetItem(azRole.Name);
-                        if (item == null) item = application.CreateItem(azRole.Name, azRole.Description, ItemType.Role);
+                        IAzManItem item;
+                        try
+                        {
+                            item = application.GetItem(azRole.Name);
+                        }
+                        catch (SqlAzManException)
+                        {
+                            item = null;
+                        }
+                        if (item == null)
+                            item = application.CreateItem(azRole.Name, azRole.Description, ItemType.Role);
                         //Store & Application Groups Authorizations
                         foreach (string member in (object[])azRole.AppMembers)
                         {
-                            IAzManStoreGroup storeGroup = application.Store.GetStoreGroup(member);
-                            IAzManApplicationGroup applicationGroup = application.GetApplicationGroup(member);
+                            IAzManStoreGroup storeGroup;
+                            try
+                            {
+                                storeGroup = application.Store.GetStoreGroup(member);
+                            }
+                            catch (SqlAzManException)
+                            {
+                                storeGroup = null;
+                            }
+                            IAzManApplicationGroup applicationGroup;
+                            try
+                            {
+                                applicationGroup = application.GetApplicationGroup(member);
+                            }
+                            catch (SqlAzManException)
+                            {
+                                applicationGroup = null;
+                            }
                             if (storeGroup != null)
                                 item.CreateAuthorization(this.currentOwnerSid, this.currentOwnerSidWhereDefined, storeGroup.SID, WhereDefined.Store, defaultAuthorization, null, null);
                             else if (applicationGroup != null)
@@ -371,13 +428,38 @@ namespace NetSqlAzManWebConsole
                         IAzRoles azRolesWithScopes = azScope.Roles;
                         foreach (IAzRole azRole in azRolesWithScopes)
                         {
-                            IAzManItem item = application.GetItem(azRole.Name);
-                            if (item == null) item = application.CreateItem(azRole.Name, azRole.Description, ItemType.Role);
+                            IAzManItem item;
+                            try
+                            {
+                                item = application.GetItem(azRole.Name);
+                            }
+                            catch (SqlAzManException)
+                            {
+                                item = null;
+                            }
+                            if (item == null)
+                                item = application.CreateItem(azRole.Name, azRole.Description, ItemType.Role);
                             //Store & Application Groups Authorizations
                             foreach (string member in (object[])azRole.AppMembers)
                             {
-                                IAzManStoreGroup storeGroup = application.Store.GetStoreGroup(member);
-                                IAzManApplicationGroup applicationGroup = application.GetApplicationGroup(member);
+                                IAzManStoreGroup storeGroup;
+                                try
+                                {
+                                    storeGroup = application.Store.GetStoreGroup(member);
+                                }
+                                catch (SqlAzManException)
+                                {
+                                    storeGroup = null;
+                                }
+                                IAzManApplicationGroup applicationGroup;
+                                try
+                                {
+                                    applicationGroup = application.GetApplicationGroup(member);
+                                }
+                                catch (SqlAzManException)
+                                {
+                                    applicationGroup = null;
+                                }
                                 if (storeGroup != null)
                                     item.CreateAuthorization(this.currentOwnerSid, this.currentOwnerSidWhereDefined, storeGroup.SID, WhereDefined.Store, defaultAuthorization, null, null);
                                 else if (applicationGroup != null)
@@ -394,6 +476,14 @@ namespace NetSqlAzManWebConsole
                             }
                         }
                     }
+                    //try
+                    //{
+                    //    azstore.CloseApplication(azApplication.Name, 0);
+                    //}
+                    //catch 
+                    //{ 
+                    //    //PorkAround: COM Is a mistery  
+                    //}
                 }
                 #endregion Applications
                 if (storage.TransactionInProgress)

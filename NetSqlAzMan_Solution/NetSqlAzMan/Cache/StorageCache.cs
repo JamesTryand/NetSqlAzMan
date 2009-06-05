@@ -280,6 +280,7 @@ namespace NetSqlAzMan.Cache
         {
             System.Diagnostics.Debug.WriteLine(String.Format("Cache Building started at {0}", DateTime.Now));
             SqlAzManStorage newStorage = new SqlAzManStorage(this.storage.ConnectionString);
+            //Just iterate over all collections to cache all values
             var dummy1 = newStorage.Mode;
             var dummy2 = newStorage.LogInformations;
             var dummy3 = newStorage.LogOnDb;
@@ -287,12 +288,13 @@ namespace NetSqlAzMan.Cache
             var dummy5 = newStorage.LogWarnings;
             var dummy6 = newStorage.IAmAdmin;
             var dummy7 = newStorage.LogErrors;
+            //Clean Biz Rule Assembly Cache
             SqlAzManItem.ClearBizRuleAssemblyCache();
-            var db = newStorage.db;
-            //Just iterate over all collections to cache all values
+            NetSqlAzManStorageDataContext db = newStorage.db;
             newStorage.OpenConnection();
             try
             {
+                #region VALIDATION
                 if (!String.IsNullOrEmpty(storeNameFilter))
                     storeNameFilter = storeNameFilter.Trim();
                 if (!String.IsNullOrEmpty(applicationNameFilter))
@@ -304,7 +306,7 @@ namespace NetSqlAzMan.Cache
                                      String.IsNullOrEmpty(storeNameFilter)
                                      select s;
 
-                if (filteredStores.Count() == 0)
+                if (!String.IsNullOrEmpty(storeNameFilter) && filteredStores.Count() == 0)
                     throw new ArgumentOutOfRangeException("storeNameFilter");
 
                 var filteredApplications = from s in filteredStores
@@ -315,26 +317,151 @@ namespace NetSqlAzMan.Cache
                                            String.IsNullOrEmpty(applicationNameFilter)
                                            select a;
 
-                if (filteredApplications.Count()==0)
+                if (!String.IsNullOrEmpty(applicationNameFilter) && filteredApplications.Count()==0)
                     throw new ArgumentOutOfRangeException("applicationNameFilter");
-
-                //All data
+                #endregion VALIDATION
                 SqlAzManENS ens = (SqlAzManENS)newStorage.ENS;
-                var allStores = (from s in filteredStores orderby s.Name select s).ToList();;
-                var allStoreAttributes = (from sa in db.StoreAttributes() orderby sa.AttributeKey select sa).ToList();
-                var allStoreGroups = (from sg in db.StoreGroups() orderby sg.Name select sg).ToList();
-                var allStoreGroupMembers = (from sgm in db.StoreGroupMembers() select sgm).ToList();
-                var allApplications = (from a in filteredApplications orderby a.Name select a).ToList();
-                var allApplicationAttributes = (from aa in db.ApplicationAttributes() orderby aa.AttributeKey select aa).ToList();
-                var allApplicationGroups = (from ag in db.ApplicationGroups() orderby ag.Name select ag).ToList();
-                var allApplicationGroupMembers = (from agm in db.ApplicationGroupMembers() select agm).ToList();
-                var allItems = (from i in db.Items() orderby i.Name select i).ToList();
-                var allItemsHierarchy = (from ih in db.ItemsHierarchyView select ih).ToList();
-                var allItemAttributes = (from ia in db.ItemAttributes() select ia).ToList();
-                var allBizRules = (from br in db.BizRules() select br).ToList();
-                var allAuthorizations = (from a in db.Authorizations() select a).ToList();
-                var allAuthorizationAttributes = (from aa in db.AuthorizationAttributes() orderby aa.AttributeKey select aa).ToList();
+                List<StoresResult> allStores;
+                List<StoreAttributesResult> allStoreAttributes;
+                List<StoreGroupsResult> allStoreGroups;
+                List<StoreGroupMembersResult> allStoreGroupMembers;
+                List<ApplicationsResult> allApplications;
+                List<ApplicationAttributesResult> allApplicationAttributes;
+                List<ApplicationGroupsResult> allApplicationGroups;
+                List<ApplicationGroupMembersResult> allApplicationGroupMembers;
+                List<ItemsResult> allItems;
+                List<ItemsHierarchyView> allItemsHierarchy;
+                List<ItemAttributesResult> allItemAttributes;
+                List<ItemsResult> allBizRulesId;
+                List<BizRulesResult> allBizRules;
+                List<AuthorizationsResult> allAuthorizations;
+                List<AuthorizationAttributesResult> allAuthorizationAttributes;
+                //Cache All data (of StoreNameFilter / ApplicationNameFilter)
+                if (String.IsNullOrEmpty(storeNameFilter) || String.IsNullOrEmpty(applicationNameFilter))
+                {
+                    #region LINQ QUERIES (Not Filtered)
+                    var allStoresQ = (from s in filteredStores orderby s.Name select s).ToList();
+                    var allStoreAttributesQ = (from sa in db.StoreAttributes()
+                                               orderby sa.AttributeKey
+                                               select sa).ToList();
+                    var allStoreGroupsQ = (from sg in db.StoreGroups()
+                                           orderby sg.Name
+                                           select sg).ToList();
+                    var allStoreGroupMembersQ = (from sgm in db.StoreGroupMembers()
+                                                 select sgm).ToList();
+                    var allApplicationsQ = (from a in filteredApplications orderby a.Name select a).ToList();
+                    var allApplicationAttributesQ = (from aa in db.ApplicationAttributes()
+                                                     orderby aa.AttributeKey
+                                                     select aa).ToList();
+                    var allApplicationGroupsQ = (from ag in db.ApplicationGroups()
+                                                 orderby ag.Name
+                                                 select ag).ToList();
+                    var allApplicationGroupMembersQ = (from agm in db.ApplicationGroupMembers()
+                                                       select agm).ToList();
+                    var allItemsQ = (from i in db.Items()
+                                     orderby i.Name
+                                     select i).ToList();
+                    var allItemsHierarchyQ = (from ih in db.ItemsHierarchyView
+                                              select ih).ToList();
+                    var allItemAttributesQ = (from ia in db.ItemAttributes()
+                                              select ia).ToList();
+                    var allBizRulesQ = (from br in db.BizRules()
+                                        select br).ToList();
+                    var allAuthorizationsQ = (from a in db.Authorizations()
+                                              select a).ToList();
+                    var allAuthorizationAttributesQ = (from aa in db.AuthorizationAttributes()
+                                                       orderby aa.AttributeKey
+                                                       select aa).ToList();
 
+                    //Retrieve all records (without JOIN clause)
+                    allStores = (allStoresQ).ToList();
+                    allStoreAttributes = (allStoreAttributesQ).ToList();
+                    allStoreGroups = (allStoreGroupsQ).ToList();
+                    allStoreGroupMembers = (allStoreGroupMembersQ).ToList();
+                    allApplications = (allApplicationsQ).ToList();
+                    allApplicationAttributes = (allApplicationAttributesQ).ToList();
+                    allApplicationGroups = (allApplicationGroupsQ).ToList();
+                    allApplicationGroupMembers = (allApplicationGroupMembersQ).ToList();
+                    allItems = (allItemsQ).ToList();
+                    allItemsHierarchy = (allItemsHierarchyQ).ToList();
+                    allItemAttributes = (allItemAttributesQ).ToList();
+                    allBizRules = (allBizRulesQ).ToList();
+                    allAuthorizations = (allAuthorizationsQ).ToList();
+                    allAuthorizationAttributes = (allAuthorizationAttributesQ).ToList();
+
+
+                    #endregion LINQ QUERIES (Not Filtered)
+                }
+                else
+                {
+                    #region LINQ QUERIES (Filtered)
+                    var allStoresFQ = (from s in filteredStores orderby s.Name select s);
+                    var allStoreAttributesFQ = (from sa in db.StoreAttributes()
+                                                join fs in filteredStores on sa.StoreId equals fs.StoreId
+                                                orderby sa.AttributeKey
+                                                select sa);
+                    var allStoreGroupsFQ = (from sg in db.StoreGroups()
+                                            join fs in filteredStores on sg.StoreId equals fs.StoreId
+                                            orderby sg.Name
+                                            select sg);
+                    var allStoreGroupMembersFQ = (from sgm in db.StoreGroupMembers()
+                                                  join sg in allStoreGroupsFQ on sgm.StoreGroupId equals sg.StoreGroupId
+                                                  select sgm);
+                    var allApplicationsFQ = (from a in filteredApplications orderby a.Name select a);
+                    var allApplicationAttributesFQ = (from aa in db.ApplicationAttributes()
+                                                      join fa in allApplicationsFQ on aa.ApplicationId equals fa.ApplicationId
+                                                      orderby aa.AttributeKey
+                                                      select aa);
+                    var allApplicationGroupsFQ = (from ag in db.ApplicationGroups()
+                                                  join fa in allApplicationsFQ on ag.ApplicationId equals fa.ApplicationId
+                                                  orderby ag.Name
+                                                  select ag);
+                    var allApplicationGroupMembersFQ = (from agm in db.ApplicationGroupMembers()
+                                                        join ag in allApplicationGroupsFQ on agm.ApplicationGroupId equals ag.ApplicationGroupId
+                                                        select agm);
+                    var allItemsFQ = (from i in db.Items()
+                                      join a in allApplicationsFQ on i.ApplicationId equals a.ApplicationId
+                                      orderby i.Name
+                                      select i);
+                    var allItemsHierarchyFQ = (from ih in db.ItemsHierarchyView
+                                               join ai in allApplicationsFQ on ih.ApplicationId equals ai.ApplicationId
+                                               select ih);
+                    var allItemAttributesFQ = (from ia in db.ItemAttributes()
+                                               join ai in allItemsFQ on ia.ItemId equals ai.ItemId
+                                               select ia);
+                    var allBizRulesIdFQ = (from ai in allItemsFQ
+                                           where ai.BizRuleId != null
+                                           select ai);
+                    var allBizRulesFQ = (from br in db.BizRules()
+                                         join ab in allBizRulesIdFQ on br.BizRuleId equals ab.BizRuleId
+                                         select br);
+                    var allAuthorizationsFQ = (from a in db.Authorizations()
+                                               join ai in allItemsFQ on a.ItemId equals ai.ItemId
+                                               select a);
+                    var allAuthorizationAttributesFQ = (from aa in db.AuthorizationAttributes()
+                                                        join a in allAuthorizationsFQ on aa.AuthorizationId equals a.AuthorizationId
+                                                        orderby aa.AttributeKey
+                                                        select aa);
+                    //Retrieve filtered records (with JOIN clause)
+                    allStores = (allStoresFQ).ToList();
+                    allStoreAttributes = (allStoreAttributesFQ).ToList();
+                    allStoreGroups = (allStoreGroupsFQ).ToList();
+                    allStoreGroupMembers = (allStoreGroupMembersFQ).ToList();
+                    allApplications = (allApplicationsFQ).ToList();
+                    allApplicationAttributes = (allApplicationAttributesFQ).ToList();
+                    allApplicationGroups = (allApplicationGroupsFQ).ToList();
+                    allApplicationGroupMembers = (allApplicationGroupMembersFQ).ToList();
+                    allItems = (allItemsFQ).ToList();
+                    allItemsHierarchy = (allItemsHierarchyFQ).ToList();
+                    allItemAttributes = (allItemAttributesFQ).ToList();
+                    allBizRulesId = (allBizRulesIdFQ).ToList();
+                    allBizRules = (allBizRulesFQ).ToList();
+                    allAuthorizations = (allAuthorizationsFQ).ToList();
+                    allAuthorizationAttributes = (allAuthorizationAttributesFQ).ToList();
+
+                    #endregion LINQ QUERIES (Filtered)
+                }
+                #region CACHE BUILDING
                 //Stores
                 var stores = allStores.ToDictionary<StoresResult, string, IAzManStore>(sr => sr.Name, sr =>
                 {
@@ -540,6 +667,7 @@ namespace NetSqlAzMan.Cache
                 {
                     this.storage = newStorage;
                 }
+                #endregion CACHE BUILDING
             }
             finally
             {
@@ -656,6 +784,23 @@ namespace NetSqlAzMan.Cache
                     select a).FirstOrDefault();
             if (item == null) throw SqlAzManException.ItemNotFoundException(itemName, application, null);
             allItems = from t in item.Application.Items.Values
+                       select t;
+        }
+
+        private void storeApplicationItemValidation(string storeName, string applicationName, out IAzManStore store, out IAzManApplication application, out IEnumerable<IAzManItem> allItems)
+        {
+            this.itemResultCache = new Hashtable();
+            storeName = storeName.Trim();
+            applicationName = applicationName.Trim();
+            store = (from s in this.storage.Stores.Values
+                     where String.Equals(s.Name, storeName, StringComparison.OrdinalIgnoreCase)
+                     select s).FirstOrDefault();
+            if (store == null) throw SqlAzManException.StoreNotFoundException(storeName, null);
+            application = (from a in store.Applications.Values
+                           where String.Equals(a.Name, applicationName, StringComparison.OrdinalIgnoreCase)
+                           select a).FirstOrDefault();
+            if (application == null) throw SqlAzManException.ApplicationNotFoundException(applicationName, store, null);
+            allItems = from t in application.Items.Values
                        select t;
         }
 
@@ -925,9 +1070,80 @@ namespace NetSqlAzMan.Cache
                 }
             }
             //Cache temporarly the result
-            this.itemResultCache.Add(item.Name, authorizationType);
+            if (!this.itemResultCache.ContainsKey(item.Name))
+            {
+                this.itemResultCache.Add(item.Name, authorizationType);
+            }
             return authorizationType;
         }
+
+        /// <summary>
+        /// Gets the authorized Items.
+        /// </summary>
+        /// <param name="storeName">Name of the store.</param>
+        /// <param name="applicationName">Name of the application.</param>
+        /// <param name="DBuserSSid">The D buser S sid.</param>
+        /// <param name="validFor">The valid for.</param>
+        /// <param name="contextParameters">The context parameters.</param>
+        /// <returns></returns>
+        public AuthorizedItem[] GetAuthorizedItems(string storeName, string applicationName, string DBuserSSid, DateTime validFor, params KeyValuePair<string, object>[] contextParameters)
+        {
+            IAzManStore store;
+            IAzManApplication application;
+            IEnumerable<IAzManItem> allItems;
+            this.storeApplicationItemValidation(storeName, applicationName, out store, out application, out allItems);
+            List<AuthorizedItem> result = new List<AuthorizedItem>();
+            foreach (var item in allItems)
+            {
+                List<KeyValuePair<string, string>> attributes;
+                AuthorizationType auth = this.internalCheckAccess(store, application, item, allItems, DBuserSSid, new string[0], validFor, false, true, out attributes, contextParameters);
+                result.Add(new AuthorizedItem()
+                {
+                    Name = item.Name,
+                    Authorization = auth,
+                    Type = item.ItemType,
+                    Attributes = attributes
+                });
+                 
+            }
+            return result.ToArray();
+        }
+
+        /// <summary>
+        /// Gets the authorized Items.
+        /// </summary>
+        /// <param name="storeName">Name of the store.</param>
+        /// <param name="applicationName">Name of the application.</param>
+        /// <param name="userSSid">The user S sid.</param>
+        /// <param name="groupsSSid">The groups S sid.</param>
+        /// <param name="validFor">The valid for.</param>
+        /// <param name="contextParameters">The context parameters.</param>
+        /// <returns></returns>
+        public AuthorizedItem[] GetAuthorizedItems(string storeName, string applicationName, string userSSid, string[] groupsSSid, DateTime validFor, params KeyValuePair<string, object>[] contextParameters)
+        {
+            IAzManStore store;
+            IAzManApplication application;
+            IEnumerable<IAzManItem> allItems;
+            this.storeApplicationItemValidation(storeName, applicationName, out store, out application, out allItems);
+            List<AuthorizedItem> result = new List<AuthorizedItem>();
+            foreach (var item in allItems)
+            {
+                List<KeyValuePair<string, string>> attributes;
+                AuthorizationType auth = this.internalCheckAccess(store, application, item, allItems, userSSid, groupsSSid, validFor, false, true, out attributes, contextParameters);
+                result.Add(new AuthorizedItem()
+                {
+                    Name = item.Name,
+                    Authorization = auth,
+                    Type = item.ItemType,
+                    Attributes = attributes
+                });
+
+            }
+            return result.ToArray();
+        }
+
+
+
         #endregion Public Methods
     }
 }

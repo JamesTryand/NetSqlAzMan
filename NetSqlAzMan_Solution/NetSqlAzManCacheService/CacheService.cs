@@ -177,6 +177,17 @@ namespace NetSqlAzMan.Cache.Service
             }
             return items.ToArray();
         }
+
+        public AuthorizedItem[] GetAuthorizedItems(string storeName, string applicationName, string DBuserSSid, DateTime validFor, params KeyValuePair<string, object>[] contextParameters)
+        {
+            return CacheService.storageCache.GetAuthorizedItems(storeName, applicationName, DBuserSSid, validFor, contextParameters);
+        }
+
+        public AuthorizedItem[] GetAuthorizedItems(string storeName, string applicationName, string userSSid, string[] groupsSSid, DateTime validFor, params KeyValuePair<string, object>[] contextParameters)
+        {
+            return CacheService.storageCache.GetAuthorizedItems(storeName, applicationName, userSSid, groupsSSid, validFor, contextParameters);
+        }
+
         #endregion
     }
 }

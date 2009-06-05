@@ -53,6 +53,7 @@ namespace NetSqlAzMan_WinTest
             this.btnSerializeUserPermissionCache = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnCreateItemsFromAFolder = new System.Windows.Forms.Button();
+            this.btnStorageCacheAuthorizedItems = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -60,11 +61,11 @@ namespace NetSqlAzMan_WinTest
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(9, 177);
+            this.textBox1.Location = new System.Drawing.Point(9, 185);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(861, 500);
+            this.textBox1.Size = new System.Drawing.Size(861, 492);
             this.textBox1.TabIndex = 1;
             // 
             // btnStoreManipulate
@@ -305,11 +306,22 @@ namespace NetSqlAzMan_WinTest
             this.btnCreateItemsFromAFolder.UseVisualStyleBackColor = true;
             this.btnCreateItemsFromAFolder.Click += new System.EventHandler(this.btnCreateItemsFromAFolder_Click);
             // 
+            // btnStorageCacheAuthorizedItems
+            // 
+            this.btnStorageCacheAuthorizedItems.Location = new System.Drawing.Point(12, 156);
+            this.btnStorageCacheAuthorizedItems.Name = "btnStorageCacheAuthorizedItems";
+            this.btnStorageCacheAuthorizedItems.Size = new System.Drawing.Size(209, 23);
+            this.btnStorageCacheAuthorizedItems.TabIndex = 34;
+            this.btnStorageCacheAuthorizedItems.Text = "StorageCache AuthorizedItems";
+            this.btnStorageCacheAuthorizedItems.UseVisualStyleBackColor = true;
+            this.btnStorageCacheAuthorizedItems.Click += new System.EventHandler(this.btnStorageCacheAuthorizedItems_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(874, 682);
+            this.Controls.Add(this.btnStorageCacheAuthorizedItems);
             this.Controls.Add(this.btnCreateItemsFromAFolder);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnSerializeUserPermissionCache);
@@ -370,6 +382,7 @@ namespace NetSqlAzMan_WinTest
         private System.Windows.Forms.Button btnSerializeUserPermissionCache;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnCreateItemsFromAFolder;
+        private System.Windows.Forms.Button btnStorageCacheAuthorizedItems;
     }
 }
 

@@ -82,6 +82,7 @@
     <Compile Include="AuthorizationAttributes\CheckAccessEventHandlers.cs" />
     <Compile Include="AuthorizationAttributes\NetSqlAzManAuthorizationAttribute.cs" />
     <Compile Include="BizRuleSourceLanguage.cs" />
+    <Compile Include="Cache\AuthorizedItem.cs" />
     <Compile Include="Cache\ItemCheckAccessResult.cs" />
     <Compile Include="Cache\StorageCache.cs" />
     <Compile Include="Cache\UserPermissionCache.cs" />

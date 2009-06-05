@@ -34,5 +34,9 @@ namespace NetSqlAzMan.Cache.Service
         string[] GetItemNames(string storeName, string applicationName, ItemType type);
         [OperationContract()]
         KeyValuePair<string, ItemType>[] GetAllItems(string storeName, string applicationName);
+        [OperationContract(Name="GetAuthorizedItemsForDatabaseUsers")]
+        AuthorizedItem[] GetAuthorizedItems(string storeName, string applicationName, string DBuserSSid, DateTime validFor, params KeyValuePair<string, object>[] contextParameters);
+        [OperationContract(Name = "GetAuthorizedItemsForWindowsUsers")]
+        AuthorizedItem[] GetAuthorizedItems(string storeName, string applicationName, string userSSid, string[] groupsSSid, DateTime validFor, params KeyValuePair<string, object>[] contextParameters);
     }
 }
