@@ -342,7 +342,7 @@ namespace NetSqlAzMan
         {
             if (this.groupType != GroupType.Basic)
                 throw new InvalidOperationException("Method not supported for LDAP Groups");
-            var agm = from f in this.db.ApplicationGroupMembers()
+            var agm = (from f in this.db.ApplicationGroupMembers()
                       where
                       (
                       this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && f.WhereDefined != (byte)WhereDefined.Local
@@ -350,10 +350,10 @@ namespace NetSqlAzMan
                       this.application.Store.Storage.Mode == NetSqlAzManMode.Developer)
                       &&
                       f.ApplicationGroupId == this.applicationGroupId && f.IsMember == true
-                      select f;
+                      select f).ToList();
             
             int index = 0;
-            IAzManApplicationGroupMember[] applicationGroupMembers = new SqlAzManApplicationGroupMember[agm.Count()];
+            IAzManApplicationGroupMember[] applicationGroupMembers = new SqlAzManApplicationGroupMember[agm.Count];
             foreach (var row in agm)
             {
                 applicationGroupMembers[index] = new SqlAzManApplicationGroupMember(this.db, this, row.ApplicationGroupMemberId.Value, new SqlAzManSID(row.ObjectSid.ToArray(), row.WhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.WhereDefined, row.IsMember.Value, this.ens);
@@ -400,16 +400,16 @@ namespace NetSqlAzMan
         {
             if (this.groupType != GroupType.Basic)
                 throw new InvalidOperationException("Method not supported for LDAP Groups");
-            var agnm = from f in this.db.ApplicationGroupMembers()
+            var agnm = (from f in this.db.ApplicationGroupMembers()
                        where
                        (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && f.WhereDefined != (byte)WhereDefined.Local
                        ||
                        this.application.Store.Storage.Mode == NetSqlAzManMode.Developer)
                        &&
                        f.ApplicationGroupId == this.applicationGroupId && f.IsMember == false
-                       select f;
+                       select f).ToList();
             int index = 0;
-            IAzManApplicationGroupMember[] applicationGroupNonMembers = new SqlAzManApplicationGroupMember[agnm.Count()];
+            IAzManApplicationGroupMember[] applicationGroupNonMembers = new SqlAzManApplicationGroupMember[agnm.Count];
             foreach (var row in agnm)
             {
                 applicationGroupNonMembers[index] = new SqlAzManApplicationGroupMember(this.db, this, row.ApplicationGroupMemberId.Value, new SqlAzManSID(row.ObjectSid.ToArray(), row.WhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.WhereDefined, row.IsMember.Value, this.ens);
@@ -427,16 +427,16 @@ namespace NetSqlAzMan
         {
             if (this.groupType != GroupType.Basic)
                 throw new InvalidOperationException("Method not supported for LDAP Groups");
-            var agam = from f in this.db.ApplicationGroupMembers()
+            var agam = (from f in this.db.ApplicationGroupMembers()
                        where 
                        (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && f.WhereDefined != (byte)WhereDefined.Local
                        ||
                        this.application.Store.Storage.Mode != NetSqlAzManMode.Administrator)
                        &&
                        f.ApplicationGroupId == this.applicationGroupId
-                       select f;
+                       select f).ToList();
             int index = 0;
-            IAzManApplicationGroupMember[] applicationGroupAllMembers = new SqlAzManApplicationGroupMember[agam.Count()];
+            IAzManApplicationGroupMember[] applicationGroupAllMembers = new SqlAzManApplicationGroupMember[agam.Count];
             foreach (var row in agam)
             {
                 applicationGroupAllMembers[index] = new SqlAzManApplicationGroupMember(this.db, this, row.ApplicationGroupMemberId.Value, new SqlAzManSID(row.ObjectSid.ToArray(), row.WhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.WhereDefined, row.IsMember.Value, this.ens);

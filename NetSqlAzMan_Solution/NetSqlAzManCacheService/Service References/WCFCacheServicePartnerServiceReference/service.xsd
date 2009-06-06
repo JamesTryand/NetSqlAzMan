@@ -3,6 +3,7 @@
   <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:import namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
   <xs:import namespace="http://NetSqlAzMan/ServiceModel" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache" />
   <xs:element name="CheckAccessForWindowsUsersWithAttributesRetrieve">
     <xs:complexType>
       <xs:sequence>
@@ -137,6 +138,43 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="GetAllItemsResult" nillable="true" type="q15:ArrayOfKeyValuePairOfstringItemTypeBcjCBCiD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuthorizedItemsForDatabaseUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="storeName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DBuserSSid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="validFor" type="xs:dateTime" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="contextParameters" nillable="true" type="q16:ArrayOfKeyValuePairOfstringanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuthorizedItemsForDatabaseUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache" minOccurs="0" name="GetAuthorizedItemsForDatabaseUsersResult" nillable="true" type="q17:ArrayOfAuthorizedItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuthorizedItemsForWindowsUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="storeName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userSSid" nillable="true" type="xs:string" />
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="groupsSSid" nillable="true" type="q18:ArrayOfstring" />
+        <xs:element minOccurs="0" name="validFor" type="xs:dateTime" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="contextParameters" nillable="true" type="q19:ArrayOfKeyValuePairOfstringanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuthorizedItemsForWindowsUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache" minOccurs="0" name="GetAuthorizedItemsForWindowsUsersResult" nillable="true" type="q20:ArrayOfAuthorizedItem" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

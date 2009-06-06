@@ -346,15 +346,15 @@ namespace NetSqlAzMan
         {
             if (this.groupType != GroupType.Basic)
                 throw new InvalidOperationException("Method not supported for LDAP Groups");
-            var sgm = from f in this.db.StoreGroupMembers()
+            var sgm = (from f in this.db.StoreGroupMembers()
                       where 
                       (this.store.Storage.Mode == NetSqlAzManMode.Administrator && f.WhereDefined != (byte)WhereDefined.Local
                       ||
                       this.store.Storage.Mode == NetSqlAzManMode.Developer) &&
                       f.StoreGroupId == this.storeGroupId
-                      select f;
+                      select f).ToList();
             int index = 0;
-            IAzManStoreGroupMember[] storeGroupAllMembers = new SqlAzManStoreGroupMember[sgm.Count()];
+            IAzManStoreGroupMember[] storeGroupAllMembers = new SqlAzManStoreGroupMember[sgm.Count];
             foreach (var row in sgm)
             {
                 storeGroupAllMembers[index] = new SqlAzManStoreGroupMember(this.db, this, row.StoreGroupMemberId.Value, new SqlAzManSID(row.ObjectSid.ToArray(), row.WhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.WhereDefined, row.IsMember.Value, this.ens);
@@ -372,16 +372,16 @@ namespace NetSqlAzMan
         {
             if (this.groupType != GroupType.Basic)
                 throw new InvalidOperationException("Method not supported for LDAP Groups");
-            var sgm = from f in this.db.StoreGroupMembers()
+            var sgm = (from f in this.db.StoreGroupMembers()
                       where 
                       (
                       this.store.Storage.Mode == NetSqlAzManMode.Administrator && f.WhereDefined != (byte)WhereDefined.Local
                       ||
                       this.store.Storage.Mode == NetSqlAzManMode.Developer) &&
                       f.StoreGroupId == this.storeGroupId && f.IsMember == true
-                      select f;
+                      select f).ToList();
             int index = 0;
-            IAzManStoreGroupMember[] storeGroupMembers = new SqlAzManStoreGroupMember[sgm.Count()];
+            IAzManStoreGroupMember[] storeGroupMembers = new SqlAzManStoreGroupMember[sgm.Count];
             foreach (var row in sgm)
             {
                 storeGroupMembers[index] = new SqlAzManStoreGroupMember(this.db, this, row.StoreGroupMemberId.Value, new SqlAzManSID(row.ObjectSid.ToArray(), row.WhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.WhereDefined, row.IsMember.Value, this.ens);
@@ -428,7 +428,7 @@ namespace NetSqlAzMan
         {
             if (this.groupType != GroupType.Basic)
                 throw new InvalidOperationException("Method not supported for LDAP Groups");
-            var sgnm = from f in this.db.StoreGroupMembers()
+            var sgnm = (from f in this.db.StoreGroupMembers()
                        where 
                        (
                        this.store.Storage.Mode == NetSqlAzManMode.Administrator && f.WhereDefined != (byte)WhereDefined.Local
@@ -436,9 +436,9 @@ namespace NetSqlAzMan
                        this.store.Storage.Mode == NetSqlAzManMode.Developer)
                        &&
                        f.StoreGroupId == this.storeGroupId && f.IsMember == false
-                       select f;
+                       select f).ToList();
             int index = 0;
-            IAzManStoreGroupMember[] storeGroupNonMembers = new SqlAzManStoreGroupMember[sgnm.Count()];
+            IAzManStoreGroupMember[] storeGroupNonMembers = new SqlAzManStoreGroupMember[sgnm.Count];
             foreach (var row in sgnm)
             {
                 storeGroupNonMembers[index] = new SqlAzManStoreGroupMember(this.db, this, row.StoreGroupMemberId.Value, new SqlAzManSID(row.ObjectSid.ToArray(), row.WhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.WhereDefined, row.IsMember.Value, this.ens);

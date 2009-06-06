@@ -20,15 +20,17 @@
     <MetadataSource Address="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="d1bf6f97-af0a-43d5-870a-63026ba00c51" SourceId="1" SourceUrl="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd0" />
     <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="d25c4a60-cc8c-4845-8d7d-d06f32625094" SourceId="1" SourceUrl="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd2" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="07039e1f-41f3-4e5b-9a6a-f973bc79fc41" SourceId="1" SourceUrl="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd1" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="d1bf6f97-af0a-43d5-870a-63026ba00c51" SourceId="1" SourceUrl="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd0" />
     <MetadataFile FileName="CacheService.wsdl" MetadataType="Wsdl" ID="a2520734-3212-46be-baa6-dddd0e514552" SourceId="1" SourceUrl="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/?wsdl" />
-    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="c78a4c98-98e4-4cab-ada6-fae2be0435af" SourceId="1" SourceUrl="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd4" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="361ddf71-865f-45b8-80bb-81a2dee7a7e7" SourceId="1" SourceUrl="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/?disco" />
+    <MetadataFile FileName="item5.xsd" MetadataType="Schema" ID="82fb8203-bd93-4a71-b99b-e8a1e055c86e" SourceId="1" SourceUrl="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd5" />
     <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="6ecba506-7c9f-4ca8-b98c-9474e1c75218" SourceId="1" SourceUrl="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd3" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="361ddf71-865f-45b8-80bb-81a2dee7a7e7" SourceId="1" SourceUrl="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/?disco" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="c78a4c98-98e4-4cab-ada6-fae2be0435af" SourceId="1" SourceUrl="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd4" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="07039e1f-41f3-4e5b-9a6a-f973bc79fc41" SourceId="1" SourceUrl="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
   </Extensions>
 </ReferenceGroup>

@@ -107,12 +107,6 @@
     <WCFMetadataStorage Include="Service References\NetSqlAzManSR\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\NetSqlAzManSR\NetSqlAzManWCFService.disco" />
-    <None Include="Service References\NetSqlAzManSR\NetSqlAzManWCFService.wsdl" />
-    <None Include="Service References\NetSqlAzManSR\NetSqlAzManWCFService.xsd" />
-    <None Include="Service References\NetSqlAzManSR\NetSqlAzManWCFService1.xsd" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\NetSqlAzManSR\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -120,11 +114,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\NetSqlAzMan.SqlAzManStorage.datasource" />
-    <None Include="Service References\NetSqlAzManSR\NetSqlAzManWCFService2.xsd" />
+    <None Include="Service References\NetSqlAzManSR\NetSqlAzManWCFService3.xsd" />
+    <None Include="Service References\NetSqlAzManSR\NetSqlAzManWCFService31.xsd" />
     <None Include="Service References\NetSqlAzManSR\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NetSqlAzManSR\NetSqlAzManWCFService1.disco" />
+    <None Include="Service References\NetSqlAzManSR\NetSqlAzManWCFService1.wsdl" />
+    <None Include="Service References\NetSqlAzManSR\NetSqlAzManWCFService32.xsd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

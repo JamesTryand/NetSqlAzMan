@@ -77,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AuthoringTests.txt" />
+    <None Include="Service References\sr\configuration91.svcinfo" />
     <None Include="Service References\sr\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -112,15 +113,14 @@
     <None Include="LoadTest1.loadtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Properties\DataSources\NetSqlAzMan.Cache.AuthorizedItem.datasource" />
     <None Include="Service References\sr\CacheService.wsdl" />
     <None Include="Service References\sr\item.xsd" />
     <None Include="Service References\sr\item1.xsd" />
     <None Include="Service References\sr\item2.xsd" />
     <None Include="Service References\sr\item3.xsd" />
     <None Include="Service References\sr\item4.xsd" />
-    <None Include="Service References\sr\NetSqlAzMan_Test.sr.AuthorizationType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
+    <None Include="Service References\sr\item5.xsd" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\sr\" />

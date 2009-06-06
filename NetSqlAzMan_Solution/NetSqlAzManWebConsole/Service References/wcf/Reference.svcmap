@@ -26,6 +26,7 @@
     <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="fd6c80a2-5732-47d9-9bf0-b697871783f2" SourceId="1" SourceUrl="net.tcp://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/mex" />
     <MetadataFile FileName="System.Collections.Generic.xsd" MetadataType="Schema" ID="39e7e79c-70ff-4787-85d1-ac23c41ccad9" SourceId="1" SourceUrl="net.tcp://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/mex" />
     <MetadataFile FileName="ServiceModel.xsd" MetadataType="Schema" ID="da90e44f-cd0c-4629-8800-4ecb8baf9a9b" SourceId="1" SourceUrl="net.tcp://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/mex" />
+    <MetadataFile FileName="NetSqlAzMan.Cache.xsd" MetadataType="Schema" ID="fa7ca1e7-f39c-4f99-ba67-2cabf9d0bfeb" SourceId="1" SourceUrl="net.tcp://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

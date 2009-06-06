@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NetSqlAzMan.Cache;
+using NetSqlAzMan.Interfaces;
 
 namespace NetSqlAzMan_Test
 {
@@ -70,7 +71,7 @@ namespace NetSqlAzMan_Test
                 try
                 {
                     KeyValuePair<string, string>[] kvp;
-                    sr.AuthorizationType result = csc.CheckAccessForWindowsUsersWithAttributesRetrieve(out kvp, "Italferr", "CartaDeiServizi", "Visualizza Dettagli Richiesta", ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).GetUserBinarySSid(), ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).GetGroupsBinarySSid(), DateTime.Now, false, null);
+                    AuthorizationType result = csc.CheckAccessForWindowsUsersWithAttributesRetrieve(out kvp, "Italferr", "CartaDeiServizi", "Visualizza Dettagli Richiesta", ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).GetUserBinarySSid(), ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).GetGroupsBinarySSid(), DateTime.Now, false, null);
                     Debug.WriteLine(result);
                 }
                 finally

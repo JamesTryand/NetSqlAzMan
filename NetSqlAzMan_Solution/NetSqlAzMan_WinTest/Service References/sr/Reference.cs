@@ -46,6 +46,12 @@ namespace NetSqlAzMan_WinTest.sr {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICacheService/GetAllItems", ReplyAction="http://tempuri.org/ICacheService/GetAllItemsResponse")]
         System.Collections.Generic.KeyValuePair<string, NetSqlAzMan.Interfaces.ItemType>[] GetAllItems(string storeName, string applicationName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICacheService/GetAuthorizedItemsForDatabaseUsers", ReplyAction="http://tempuri.org/ICacheService/GetAuthorizedItemsForDatabaseUsersResponse")]
+        NetSqlAzMan.Cache.AuthorizedItem[] GetAuthorizedItemsForDatabaseUsers(string storeName, string applicationName, string DBuserSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICacheService/GetAuthorizedItemsForWindowsUsers", ReplyAction="http://tempuri.org/ICacheService/GetAuthorizedItemsForWindowsUsersResponse")]
+        NetSqlAzMan.Cache.AuthorizedItem[] GetAuthorizedItemsForWindowsUsers(string storeName, string applicationName, string userSSid, string[] groupsSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
@@ -105,6 +111,14 @@ namespace NetSqlAzMan_WinTest.sr {
         
         public System.Collections.Generic.KeyValuePair<string, NetSqlAzMan.Interfaces.ItemType>[] GetAllItems(string storeName, string applicationName) {
             return base.Channel.GetAllItems(storeName, applicationName);
+        }
+        
+        public NetSqlAzMan.Cache.AuthorizedItem[] GetAuthorizedItemsForDatabaseUsers(string storeName, string applicationName, string DBuserSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
+            return base.Channel.GetAuthorizedItemsForDatabaseUsers(storeName, applicationName, DBuserSSid, validFor, contextParameters);
+        }
+        
+        public NetSqlAzMan.Cache.AuthorizedItem[] GetAuthorizedItemsForWindowsUsers(string storeName, string applicationName, string userSSid, string[] groupsSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
+            return base.Channel.GetAuthorizedItemsForWindowsUsers(storeName, applicationName, userSSid, groupsSSid, validFor, contextParameters);
         }
     }
 }

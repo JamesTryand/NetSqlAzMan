@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+  <xs:import namespace="http://NetSqlAzMan/ServiceModel" />
+  <xs:complexType name="ArrayOfAuthorizedItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AuthorizedItem" nillable="true" type="tns:AuthorizedItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAuthorizedItem" nillable="true" type="tns:ArrayOfAuthorizedItem" />
+  <xs:complexType name="AuthorizedItem">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="Attributes" nillable="true" type="q1:ArrayOfKeyValuePairOfstringstring" />
+      <xs:element xmlns:q2="http://NetSqlAzMan/ServiceModel" minOccurs="0" name="Authorization" type="q2:AuthorizationType" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://NetSqlAzMan/ServiceModel" minOccurs="0" name="Type" type="q3:ItemType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuthorizedItem" nillable="true" type="tns:AuthorizedItem" />
+</xs:schema>

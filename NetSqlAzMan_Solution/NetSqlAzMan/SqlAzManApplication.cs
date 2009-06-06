@@ -350,7 +350,6 @@ namespace NetSqlAzMan
         /// </returns>
         public bool HasItems(ItemType itemType)
         {
-
             return this.db.Items().Any(p=>p.ApplicationId == this.applicationId && p.ItemType.Value == (byte)itemType);
         }
 
@@ -361,11 +360,11 @@ namespace NetSqlAzMan
         public IAzManItem[] GetItems()
         {
             IAzManItem[] items;
-            var ds = from tf in this.db.Items()
+            var ds = (from tf in this.db.Items()
                       where tf.ApplicationId == this.applicationId
                       orderby tf.Name
-                      select tf;
-            items = new SqlAzManItem[ds.Count()];
+                      select tf).ToList();
+            items = new SqlAzManItem[ds.Count];
             int index = 0;
             this.items = new Dictionary<string, IAzManItem>();
             foreach (var row in ds)
@@ -387,9 +386,9 @@ namespace NetSqlAzMan
                 index++;
             }
             //Members
-            var dt = from v in this.db.ItemsHierarchyView
+            var dt = (from v in this.db.ItemsHierarchyView
                      where v.ApplicationId == this.applicationId
-                     select v;
+                     select v).ToList();
             foreach (IAzManItem item in this.items.Values)
             {
                 ((SqlAzManItem)item).members = new Dictionary<string, IAzManItem>();
@@ -418,11 +417,11 @@ namespace NetSqlAzMan
         public IAzManItem[] GetItems(ItemType itemType)
         {
             IAzManItem[] items;
-            var ds = from tf in this.db.Items()
+            var ds = (from tf in this.db.Items()
                      where tf.ApplicationId == this.applicationId && tf.ItemType.Value == (byte)itemType
                      orderby tf.Name
-                     select tf;
-            items = new SqlAzManItem[ds.Count()];
+                     select tf).ToList();
+            items = new SqlAzManItem[ds.Count];
             int index = 0;
             foreach (var row in ds)
             {
@@ -499,12 +498,12 @@ namespace NetSqlAzMan
         /// <returns></returns>
         public IAzManApplicationGroup[] GetApplicationGroups()
         {
-            var ds = from tf in this.db.ApplicationGroups()
+            var ds = (from tf in this.db.ApplicationGroups()
                      where tf.ApplicationId == this.applicationId
                      orderby tf.Name
-                     select tf;
+                     select tf).ToList();
             int index = 0;
-            IAzManApplicationGroup[] applicationGroups = new SqlAzManApplicationGroup[ds.Count()];
+            IAzManApplicationGroup[] applicationGroups = new SqlAzManApplicationGroup[ds.Count];
             foreach (var row in ds)
             {
                 applicationGroups[index] = new SqlAzManApplicationGroup(this.db, this, row.ApplicationGroupId.Value, new SqlAzManSID(row.ObjectSid.ToArray()), row.Name, row.Description, row.LDapQuery, (GroupType)row.GroupType.Value, this.ens);
@@ -569,10 +568,10 @@ namespace NetSqlAzMan
         {
 
             IAzManAttribute<IAzManApplication>[] attributes;
-            var ds = from tf in this.db.ApplicationAttributes()
+            var ds = (from tf in this.db.ApplicationAttributes()
                      where tf.ApplicationId == this.applicationId
-                     select tf;
-            attributes = new SqlAzManApplicationAttribute[ds.Count()];
+                     select tf).ToList();
+            attributes = new SqlAzManApplicationAttribute[ds.Count];
             int index = 0;
             foreach (var row in ds)
             {

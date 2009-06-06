@@ -187,8 +187,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\DataSources\NetSqlAzMan.Cache.AuthorizedItem.datasource" />
     <None Include="Service References\sr\Arrays1.xsd" />
     <None Include="Service References\sr\configuration911.svcinfo" />
+    <None Include="Service References\sr\NetSqlAzMan.Cache.xsd" />
     <None Include="Service References\sr\service1.wsdl" />
     <None Include="Service References\sr\service2.xsd" />
     <None Include="Service References\sr\service3.xsd" />

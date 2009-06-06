@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System.Collections.Generic" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd4" namespace="http://NetSqlAzMan/ServiceModel" />
   <xs:complexType name="ArrayOfKeyValuePairOfstringanyType">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValuePairOfstringanyType" type="tns:KeyValuePairOfstringanyType" />
@@ -45,4 +46,26 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="KeyValuePairOfstringstring" nillable="true" type="tns:KeyValuePairOfstringstring" />
+  <xs:complexType name="ArrayOfKeyValuePairOfstringItemTypeBcjCBCiD">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValuePairOfstringItemTypeBcjCBCiD" type="tns:KeyValuePairOfstringItemTypeBcjCBCiD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValuePairOfstringItemTypeBcjCBCiD" nillable="true" type="tns:ArrayOfKeyValuePairOfstringItemTypeBcjCBCiD" />
+  <xs:complexType name="KeyValuePairOfstringItemTypeBcjCBCiD">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="KeyValuePairOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="ItemType" Namespace="http://NetSqlAzMan/ServiceModel" />
+        </GenericType>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="key" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://NetSqlAzMan/ServiceModel" name="value" type="q1:ItemType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KeyValuePairOfstringItemTypeBcjCBCiD" nillable="true" type="tns:KeyValuePairOfstringItemTypeBcjCBCiD" />
 </xs:schema>

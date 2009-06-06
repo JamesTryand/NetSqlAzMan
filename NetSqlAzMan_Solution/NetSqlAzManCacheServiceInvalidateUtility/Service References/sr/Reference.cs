@@ -10,20 +10,100 @@
 
 namespace NetSqlAzManCacheServiceInvalidateUtility.sr {
     using System.Runtime.Serialization;
+    using System;
     
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ItemType", Namespace="http://NetSqlAzMan/ServiceModel")]
-    public enum ItemType : int {
+    [System.Runtime.Serialization.DataContractAttribute(Name="AuthorizedItem", Namespace="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache")]
+    [System.SerializableAttribute()]
+    public partial class AuthorizedItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Role = 0,
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Task = 1,
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.KeyValuePair<string, string>[] AttributesField;
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Operation = 2,
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private NetSqlAzManCacheServiceInvalidateUtility.sr.AuthorizationType AuthorizationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private NetSqlAzManCacheServiceInvalidateUtility.sr.ItemType TypeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.KeyValuePair<string, string>[] Attributes {
+            get {
+                return this.AttributesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AttributesField, value) != true)) {
+                    this.AttributesField = value;
+                    this.RaisePropertyChanged("Attributes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public NetSqlAzManCacheServiceInvalidateUtility.sr.AuthorizationType Authorization {
+            get {
+                return this.AuthorizationField;
+            }
+            set {
+                if ((this.AuthorizationField.Equals(value) != true)) {
+                    this.AuthorizationField = value;
+                    this.RaisePropertyChanged("Authorization");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public NetSqlAzManCacheServiceInvalidateUtility.sr.ItemType Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((this.TypeField.Equals(value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
@@ -41,6 +121,20 @@ namespace NetSqlAzManCacheServiceInvalidateUtility.sr {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllowWithDelegation = 3,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ItemType", Namespace="http://NetSqlAzMan/ServiceModel")]
+    public enum ItemType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Role = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Task = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Operation = 2,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
@@ -78,6 +172,12 @@ namespace NetSqlAzManCacheServiceInvalidateUtility.sr {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICacheService/GetAllItems", ReplyAction="http://tempuri.org/ICacheService/GetAllItemsResponse")]
         System.Collections.Generic.KeyValuePair<string, NetSqlAzManCacheServiceInvalidateUtility.sr.ItemType>[] GetAllItems(string storeName, string applicationName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICacheService/GetAuthorizedItemsForDatabaseUsers", ReplyAction="http://tempuri.org/ICacheService/GetAuthorizedItemsForDatabaseUsersResponse")]
+        NetSqlAzManCacheServiceInvalidateUtility.sr.AuthorizedItem[] GetAuthorizedItemsForDatabaseUsers(string storeName, string applicationName, string DBuserSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICacheService/GetAuthorizedItemsForWindowsUsers", ReplyAction="http://tempuri.org/ICacheService/GetAuthorizedItemsForWindowsUsersResponse")]
+        NetSqlAzManCacheServiceInvalidateUtility.sr.AuthorizedItem[] GetAuthorizedItemsForWindowsUsers(string storeName, string applicationName, string userSSid, string[] groupsSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
@@ -137,6 +237,14 @@ namespace NetSqlAzManCacheServiceInvalidateUtility.sr {
         
         public System.Collections.Generic.KeyValuePair<string, NetSqlAzManCacheServiceInvalidateUtility.sr.ItemType>[] GetAllItems(string storeName, string applicationName) {
             return base.Channel.GetAllItems(storeName, applicationName);
+        }
+        
+        public NetSqlAzManCacheServiceInvalidateUtility.sr.AuthorizedItem[] GetAuthorizedItemsForDatabaseUsers(string storeName, string applicationName, string DBuserSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
+            return base.Channel.GetAuthorizedItemsForDatabaseUsers(storeName, applicationName, DBuserSSid, validFor, contextParameters);
+        }
+        
+        public NetSqlAzManCacheServiceInvalidateUtility.sr.AuthorizedItem[] GetAuthorizedItemsForWindowsUsers(string storeName, string applicationName, string userSSid, string[] groupsSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
+            return base.Channel.GetAuthorizedItemsForWindowsUsers(storeName, applicationName, userSSid, groupsSSid, validFor, contextParameters);
         }
     }
 }

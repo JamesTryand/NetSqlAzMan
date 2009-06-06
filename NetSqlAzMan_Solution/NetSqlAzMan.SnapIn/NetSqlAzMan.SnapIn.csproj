@@ -649,6 +649,8 @@
     </Content>
     <Content Include="ObjectPikerHelper2\ReadMe.txt" />
     <None Include="app.config" />
+    <None Include="Properties\DataSources\NetSqlAzMan.Cache.AuthorizedItem.datasource" />
+    <None Include="Service References\wcf\NetSqlAzMan.Cache.xsd" />
     <None Include="Service References\wcf\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

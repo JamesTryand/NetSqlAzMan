@@ -363,10 +363,10 @@ namespace NetSqlAzMan
         /// <returns></returns>
         public IAzManApplication[] GetApplications()
         {
-            var ds = from tf in this.db.Applications()
+            var ds = (from tf in this.db.Applications()
                       where tf.StoreId == this.storeId
                       orderby tf.Name
-                      select tf;
+                      select tf).ToList();
             List<IAzManApplication> applications = new List<IAzManApplication>();
             foreach (var row in ds)
             {
@@ -445,10 +445,10 @@ namespace NetSqlAzMan
         /// <returns></returns>
         public IAzManStoreGroup[] GetStoreGroups()
         {
-            var ds = from tf in this.db.StoreGroups()
+            var ds = (from tf in this.db.StoreGroups()
                      where tf.StoreId == this.storeId
                      orderby tf.Name
-                     select tf;
+                     select tf).ToList();
             int index = 0;
             IAzManStoreGroup[] storeGroups = new SqlAzManStoreGroup[ds.Count()];
             foreach (var row in ds)
@@ -518,10 +518,10 @@ namespace NetSqlAzMan
         public IAzManAttribute<IAzManStore>[] GetAttributes()
         {
             IAzManAttribute<IAzManStore>[] attributes;
-            var ds = from tf in this.db.StoreAttributes()
+            var ds = (from tf in this.db.StoreAttributes()
                      where tf.StoreId == this.storeId
-                     select tf;
-            attributes = new SqlAzManStoreAttribute[ds.Count()];
+                     select tf).ToList();
+            attributes = new SqlAzManStoreAttribute[ds.Count];
             int index = 0;
             foreach (var row in ds)
             {

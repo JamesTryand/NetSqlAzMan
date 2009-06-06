@@ -334,10 +334,10 @@ namespace NetSqlAzMan
         /// <returns></returns>
         public IAzManItem[] GetMembers()
         {
-            var dt = from v in this.db.ItemsHierarchyView
+            var dt = (from v in this.db.ItemsHierarchyView
                      where v.ItemId == this.itemId
-                     select v.MemberName;
-            IAzManItem[] result = new IAzManItem[dt.Count()];
+                     select v.MemberName).ToList();
+            IAzManItem[] result = new IAzManItem[dt.Count];
             int index=0;
             this.members = new Dictionary<string, IAzManItem>();
             foreach (var row in dt)
@@ -355,10 +355,10 @@ namespace NetSqlAzMan
         /// <returns></returns>
         public IAzManItem[] GetItemsWhereIAmAMember()
         {
-            var dt = from v in this.db.ItemsHierarchyView
+            var dt = (from v in this.db.ItemsHierarchyView
                      where v.MemberItemId == this.itemId
-                     select v.Name;
-            IAzManItem[] result = new IAzManItem[dt.Count()];
+                     select v.Name).ToList();
+            IAzManItem[] result = new IAzManItem[dt.Count];
             int index = 0;
             this.itemsWhereIAmAMember = new Dictionary<string, IAzManItem>();
             foreach (var row in dt)
@@ -819,16 +819,16 @@ namespace NetSqlAzMan
         public IAzManAuthorization[] GetAuthorizations(AuthorizationType type)
         {
 
-            var auths = from tf in this.db.Authorizations()
+            var auths = (from tf in this.db.Authorizations()
                         where
                         (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && tf.ObjectSidWhereDefined != (byte)WhereDefined.Local
                         ||
                         this.application.Store.Storage.Mode != NetSqlAzManMode.Administrator)
                         &&
                         tf.ItemId == this.itemId && tf.AuthorizationType == (byte)(type)
-                        select tf;
+                        select tf).ToList();
             int index = 0;
-            IAzManAuthorization[] authorizations = new SqlAzManAuthorization[auths.Count()];
+            IAzManAuthorization[] authorizations = new SqlAzManAuthorization[auths.Count];
             foreach (var row in auths)
             {
                 authorizations[index] = new SqlAzManAuthorization(this.db, this, row.AuthorizationId.Value, new SqlAzManSID(row.OwnerSid.ToArray(), row.OwnerSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.OwnerSidWhereDefined, new SqlAzManSID(row.ObjectSid.ToArray(), row.ObjectSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.ObjectSidWhereDefined, (AuthorizationType)row.AuthorizationType, (row.ValidFrom.HasValue ? row.ValidFrom : new DateTime?()), (row.ValidTo.HasValue ? row.ValidTo : new DateTime?()), this.ens);
@@ -845,16 +845,16 @@ namespace NetSqlAzMan
         /// <returns></returns>
         public IAzManAuthorization[] GetAuthorizations()
         {
-            var auths = from tf in this.db.Authorizations()
+            var auths = (from tf in this.db.Authorizations()
                         where
                         (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && tf.ObjectSidWhereDefined != (byte)WhereDefined.Local
                         ||
                         this.application.Store.Storage.Mode != NetSqlAzManMode.Administrator)
                         &&
                         tf.ItemId == this.itemId
-                        select tf;
+                        select tf).ToList();
             int index = 0;
-            IAzManAuthorization[] authorizations = new SqlAzManAuthorization[auths.Count()];
+            IAzManAuthorization[] authorizations = new SqlAzManAuthorization[auths.Count];
             foreach (var row in auths)
             {
                 authorizations[index] = new SqlAzManAuthorization(this.db, this, row.AuthorizationId.Value, new SqlAzManSID(row.OwnerSid.ToArray(), row.OwnerSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.OwnerSidWhereDefined, new SqlAzManSID(row.ObjectSid.ToArray(), row.ObjectSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.ObjectSidWhereDefined, (AuthorizationType)row.AuthorizationType, row.ValidFrom, row.ValidTo, this.ens);
@@ -873,16 +873,16 @@ namespace NetSqlAzMan
         /// <returns></returns>
         public IAzManAuthorization[] GetAuthorizations(IAzManSid owner, IAzManSid Sid)
         {
-            var auths = from tf in this.db.Authorizations()
+            var auths = (from tf in this.db.Authorizations()
                         where
                         (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && tf.ObjectSidWhereDefined != (byte)WhereDefined.Local
                         ||
                         this.application.Store.Storage.Mode != NetSqlAzManMode.Administrator)
                         &&
                         tf.ItemId == this.itemId && tf.OwnerSid == owner.BinaryValue && tf.ObjectSid == Sid.BinaryValue
-                        select tf;
+                        select tf).ToList();
             int index = 0;
-            IAzManAuthorization[] authorizations = new SqlAzManAuthorization[auths.Count()];
+            IAzManAuthorization[] authorizations = new SqlAzManAuthorization[auths.Count];
             foreach (var row in auths)
             {
                 authorizations[index] = new SqlAzManAuthorization(this.db, this, row.AuthorizationId.Value, new SqlAzManSID(row.OwnerSid.ToArray(), row.OwnerSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.OwnerSidWhereDefined, new SqlAzManSID(row.ObjectSid.ToArray(), row.ObjectSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.ObjectSidWhereDefined, (AuthorizationType)row.AuthorizationType, row.ValidFrom, row.ValidTo, this.ens);
@@ -900,16 +900,16 @@ namespace NetSqlAzMan
         /// <returns></returns>
         public IAzManAuthorization[] GetAuthorizationsOfMember(IAzManSid sid)
         {
-            var aom = from tf in this.db.Authorizations()
+            var aom = (from tf in this.db.Authorizations()
                       where
                       (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && tf.ObjectSidWhereDefined != (byte)WhereDefined.Local
                       ||
                       this.application.Store.Storage.Mode != NetSqlAzManMode.Administrator)
                       &&
                       tf.ItemId == this.itemId && tf.ObjectSid == sid.BinaryValue
-                      select tf;
+                      select tf).ToList();
             int index = 0;
-            IAzManAuthorization[] authorizations = new SqlAzManAuthorization[aom.Count()];
+            IAzManAuthorization[] authorizations = new SqlAzManAuthorization[aom.Count];
             foreach (var row in aom)
             {
                 authorizations[index] = new SqlAzManAuthorization(this.db, this, row.AuthorizationId.Value, new SqlAzManSID(row.OwnerSid.ToArray(), row.OwnerSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.OwnerSidWhereDefined, new SqlAzManSID(row.ObjectSid.ToArray(), row.ObjectSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.ObjectSidWhereDefined, (AuthorizationType)row.AuthorizationType, row.ValidFrom, row.ValidTo, this.ens);
@@ -927,16 +927,16 @@ namespace NetSqlAzMan
         /// <returns></returns>
         public IAzManAuthorization[] GetAuthorizationsOfOwner(IAzManSid owner)
         {
-            var auths = from tf in this.db.Authorizations()
+            var auths = (from tf in this.db.Authorizations()
                         where
                         (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && tf.ObjectSidWhereDefined != (byte)WhereDefined.Local
                         ||
                         this.application.Store.Storage.Mode != NetSqlAzManMode.Administrator)
                         &&
                         tf.ItemId == this.itemId && tf.OwnerSid == owner.BinaryValue
-                        select tf;
+                        select tf).ToList();
             int index = 0;
-            IAzManAuthorization[] authorizations = new SqlAzManAuthorization[auths.Count()];
+            IAzManAuthorization[] authorizations = new SqlAzManAuthorization[auths.Count];
             foreach (var row in auths)
             {
                 authorizations[index] = new SqlAzManAuthorization(this.db, this, row.AuthorizationId.Value, new SqlAzManSID(row.OwnerSid.ToArray(), row.OwnerSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.OwnerSidWhereDefined, new SqlAzManSID(row.ObjectSid.ToArray(), row.ObjectSidWhereDefined == (byte)(WhereDefined.Database)), (WhereDefined)row.ObjectSidWhereDefined, (AuthorizationType)row.AuthorizationType, row.ValidFrom, row.ValidTo, this.ens);

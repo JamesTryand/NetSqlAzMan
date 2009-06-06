@@ -95,6 +95,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\sr\configuration91.svcinfo" />
+    <None Include="Service References\sr\item5.xsd" />
+    <None Include="Service References\sr\NetSqlAzManCacheServiceInvalidateUtility.sr.AuthorizedItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\sr\NetSqlAzManCacheServiceInvalidateUtility.sr.ItemType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

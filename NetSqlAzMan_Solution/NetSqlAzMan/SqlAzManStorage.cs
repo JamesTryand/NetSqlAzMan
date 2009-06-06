@@ -461,10 +461,10 @@ namespace NetSqlAzMan
         public IAzManStore[] GetStores()
         {
             IAzManStore[] stores;
-            var s = from tf in this.db.Stores()
+            var s = (from tf in this.db.Stores()
                     orderby tf.Name
-                    select tf;
-            stores = new SqlAzManStore[s.Count()];
+                    select tf).ToList();
+            stores = new SqlAzManStore[s.Count];
             int index = 0;
             foreach (var row in s)
             {

@@ -40,6 +40,7 @@
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
       <xsd:import namespace="http://NetSqlAzMan/ServiceModel" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ICacheService_CheckAccessForWindowsUsersWithAttributesRetrieve_InputMessage">
@@ -90,6 +91,18 @@
   <wsdl:message name="ICacheService_GetAllItems_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllItemsResponse" />
   </wsdl:message>
+  <wsdl:message name="ICacheService_GetAuthorizedItemsForDatabaseUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorizedItemsForDatabaseUsers" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_GetAuthorizedItemsForDatabaseUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorizedItemsForDatabaseUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_GetAuthorizedItemsForWindowsUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorizedItemsForWindowsUsers" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_GetAuthorizedItemsForWindowsUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorizedItemsForWindowsUsersResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICacheService">
     <wsdl:operation name="CheckAccessForWindowsUsersWithAttributesRetrieve">
       <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/CheckAccessForWindowsUsersWithAttributesRetrieve" message="tns:ICacheService_CheckAccessForWindowsUsersWithAttributesRetrieve_InputMessage" />
@@ -122,6 +135,14 @@
     <wsdl:operation name="GetAllItems">
       <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/GetAllItems" message="tns:ICacheService_GetAllItems_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICacheService/GetAllItemsResponse" message="tns:ICacheService_GetAllItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizedItemsForDatabaseUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/GetAuthorizedItemsForDatabaseUsers" message="tns:ICacheService_GetAuthorizedItemsForDatabaseUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICacheService/GetAuthorizedItemsForDatabaseUsersResponse" message="tns:ICacheService_GetAuthorizedItemsForDatabaseUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizedItemsForWindowsUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/GetAuthorizedItemsForWindowsUsers" message="tns:ICacheService_GetAuthorizedItemsForWindowsUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICacheService/GetAuthorizedItemsForWindowsUsersResponse" message="tns:ICacheService_GetAuthorizedItemsForWindowsUsers_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_ICacheService" type="tns:ICacheService">
@@ -193,6 +214,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllItems">
       <soap12:operation soapAction="http://tempuri.org/ICacheService/GetAllItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizedItemsForDatabaseUsers">
+      <soap12:operation soapAction="http://tempuri.org/ICacheService/GetAuthorizedItemsForDatabaseUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizedItemsForWindowsUsers">
+      <soap12:operation soapAction="http://tempuri.org/ICacheService/GetAuthorizedItemsForWindowsUsers" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -94,6 +94,22 @@ namespace NetSqlAzMan.Cache.Service.WCFCacheServicePartnerServiceReference {
         System.IAsyncResult BeginGetAllItems(string storeName, string applicationName, System.AsyncCallback callback, object asyncState);
         
         System.Collections.Generic.KeyValuePair<string, NetSqlAzMan.Interfaces.ItemType>[] EndGetAllItems(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICacheService/GetAuthorizedItemsForDatabaseUsers", ReplyAction="http://tempuri.org/ICacheService/GetAuthorizedItemsForDatabaseUsersResponse")]
+        NetSqlAzMan.Cache.AuthorizedItem[] GetAuthorizedItemsForDatabaseUsers(string storeName, string applicationName, string DBuserSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/ICacheService/GetAuthorizedItemsForDatabaseUsers", ReplyAction="http://tempuri.org/ICacheService/GetAuthorizedItemsForDatabaseUsersResponse")]
+        System.IAsyncResult BeginGetAuthorizedItemsForDatabaseUsers(string storeName, string applicationName, string DBuserSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters, System.AsyncCallback callback, object asyncState);
+        
+        NetSqlAzMan.Cache.AuthorizedItem[] EndGetAuthorizedItemsForDatabaseUsers(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICacheService/GetAuthorizedItemsForWindowsUsers", ReplyAction="http://tempuri.org/ICacheService/GetAuthorizedItemsForWindowsUsersResponse")]
+        NetSqlAzMan.Cache.AuthorizedItem[] GetAuthorizedItemsForWindowsUsers(string storeName, string applicationName, string userSSid, string[] groupsSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/ICacheService/GetAuthorizedItemsForWindowsUsers", ReplyAction="http://tempuri.org/ICacheService/GetAuthorizedItemsForWindowsUsersResponse")]
+        System.IAsyncResult BeginGetAuthorizedItemsForWindowsUsers(string storeName, string applicationName, string userSSid, string[] groupsSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters, System.AsyncCallback callback, object asyncState);
+        
+        NetSqlAzMan.Cache.AuthorizedItem[] EndGetAuthorizedItemsForWindowsUsers(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
@@ -230,6 +246,44 @@ namespace NetSqlAzMan.Cache.Service.WCFCacheServicePartnerServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+    public partial class GetAuthorizedItemsForDatabaseUsersCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetAuthorizedItemsForDatabaseUsersCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public NetSqlAzMan.Cache.AuthorizedItem[] Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((NetSqlAzMan.Cache.AuthorizedItem[])(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+    public partial class GetAuthorizedItemsForWindowsUsersCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetAuthorizedItemsForWindowsUsersCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public NetSqlAzMan.Cache.AuthorizedItem[] Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((NetSqlAzMan.Cache.AuthorizedItem[])(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
     public partial class CacheServiceClient : System.ServiceModel.ClientBase<NetSqlAzMan.Cache.Service.WCFCacheServicePartnerServiceReference.ICacheService>, NetSqlAzMan.Cache.Service.WCFCacheServicePartnerServiceReference.ICacheService {
         
         private BeginOperationDelegate onBeginCheckAccessForWindowsUsersWithAttributesRetrieveDelegate;
@@ -280,6 +334,18 @@ namespace NetSqlAzMan.Cache.Service.WCFCacheServicePartnerServiceReference {
         
         private System.Threading.SendOrPostCallback onGetAllItemsCompletedDelegate;
         
+        private BeginOperationDelegate onBeginGetAuthorizedItemsForDatabaseUsersDelegate;
+        
+        private EndOperationDelegate onEndGetAuthorizedItemsForDatabaseUsersDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetAuthorizedItemsForDatabaseUsersCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetAuthorizedItemsForWindowsUsersDelegate;
+        
+        private EndOperationDelegate onEndGetAuthorizedItemsForWindowsUsersDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetAuthorizedItemsForWindowsUsersCompletedDelegate;
+        
         public CacheServiceClient() {
         }
         
@@ -314,6 +380,10 @@ namespace NetSqlAzMan.Cache.Service.WCFCacheServicePartnerServiceReference {
         public event System.EventHandler<GetItemNamesCompletedEventArgs> GetItemNamesCompleted;
         
         public event System.EventHandler<GetAllItemsCompletedEventArgs> GetAllItemsCompleted;
+        
+        public event System.EventHandler<GetAuthorizedItemsForDatabaseUsersCompletedEventArgs> GetAuthorizedItemsForDatabaseUsersCompleted;
+        
+        public event System.EventHandler<GetAuthorizedItemsForWindowsUsersCompletedEventArgs> GetAuthorizedItemsForWindowsUsersCompleted;
         
         public NetSqlAzMan.Interfaces.AuthorizationType CheckAccessForWindowsUsersWithAttributesRetrieve(out System.Collections.Generic.KeyValuePair<string, string>[] attributes, string storeName, string applicationName, string itemName, string userSSid, string[] groupsSSid, System.DateTime validFor, bool operationsOnly, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
             return base.Channel.CheckAccessForWindowsUsersWithAttributesRetrieve(out attributes, storeName, applicationName, itemName, userSSid, groupsSSid, validFor, operationsOnly, contextParameters);
@@ -771,6 +841,124 @@ namespace NetSqlAzMan.Cache.Service.WCFCacheServicePartnerServiceReference {
             base.InvokeAsync(this.onBeginGetAllItemsDelegate, new object[] {
                         storeName,
                         applicationName}, this.onEndGetAllItemsDelegate, this.onGetAllItemsCompletedDelegate, userState);
+        }
+        
+        public NetSqlAzMan.Cache.AuthorizedItem[] GetAuthorizedItemsForDatabaseUsers(string storeName, string applicationName, string DBuserSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
+            return base.Channel.GetAuthorizedItemsForDatabaseUsers(storeName, applicationName, DBuserSSid, validFor, contextParameters);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGetAuthorizedItemsForDatabaseUsers(string storeName, string applicationName, string DBuserSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetAuthorizedItemsForDatabaseUsers(storeName, applicationName, DBuserSSid, validFor, contextParameters, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public NetSqlAzMan.Cache.AuthorizedItem[] EndGetAuthorizedItemsForDatabaseUsers(System.IAsyncResult result) {
+            return base.Channel.EndGetAuthorizedItemsForDatabaseUsers(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetAuthorizedItemsForDatabaseUsers(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string storeName = ((string)(inValues[0]));
+            string applicationName = ((string)(inValues[1]));
+            string DBuserSSid = ((string)(inValues[2]));
+            System.DateTime validFor = ((System.DateTime)(inValues[3]));
+            System.Collections.Generic.KeyValuePair<string, object>[] contextParameters = ((System.Collections.Generic.KeyValuePair<string, object>[])(inValues[4]));
+            return this.BeginGetAuthorizedItemsForDatabaseUsers(storeName, applicationName, DBuserSSid, validFor, contextParameters, callback, asyncState);
+        }
+        
+        private object[] OnEndGetAuthorizedItemsForDatabaseUsers(System.IAsyncResult result) {
+            NetSqlAzMan.Cache.AuthorizedItem[] retVal = this.EndGetAuthorizedItemsForDatabaseUsers(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetAuthorizedItemsForDatabaseUsersCompleted(object state) {
+            if ((this.GetAuthorizedItemsForDatabaseUsersCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetAuthorizedItemsForDatabaseUsersCompleted(this, new GetAuthorizedItemsForDatabaseUsersCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetAuthorizedItemsForDatabaseUsersAsync(string storeName, string applicationName, string DBuserSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
+            this.GetAuthorizedItemsForDatabaseUsersAsync(storeName, applicationName, DBuserSSid, validFor, contextParameters, null);
+        }
+        
+        public void GetAuthorizedItemsForDatabaseUsersAsync(string storeName, string applicationName, string DBuserSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters, object userState) {
+            if ((this.onBeginGetAuthorizedItemsForDatabaseUsersDelegate == null)) {
+                this.onBeginGetAuthorizedItemsForDatabaseUsersDelegate = new BeginOperationDelegate(this.OnBeginGetAuthorizedItemsForDatabaseUsers);
+            }
+            if ((this.onEndGetAuthorizedItemsForDatabaseUsersDelegate == null)) {
+                this.onEndGetAuthorizedItemsForDatabaseUsersDelegate = new EndOperationDelegate(this.OnEndGetAuthorizedItemsForDatabaseUsers);
+            }
+            if ((this.onGetAuthorizedItemsForDatabaseUsersCompletedDelegate == null)) {
+                this.onGetAuthorizedItemsForDatabaseUsersCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetAuthorizedItemsForDatabaseUsersCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetAuthorizedItemsForDatabaseUsersDelegate, new object[] {
+                        storeName,
+                        applicationName,
+                        DBuserSSid,
+                        validFor,
+                        contextParameters}, this.onEndGetAuthorizedItemsForDatabaseUsersDelegate, this.onGetAuthorizedItemsForDatabaseUsersCompletedDelegate, userState);
+        }
+        
+        public NetSqlAzMan.Cache.AuthorizedItem[] GetAuthorizedItemsForWindowsUsers(string storeName, string applicationName, string userSSid, string[] groupsSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
+            return base.Channel.GetAuthorizedItemsForWindowsUsers(storeName, applicationName, userSSid, groupsSSid, validFor, contextParameters);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGetAuthorizedItemsForWindowsUsers(string storeName, string applicationName, string userSSid, string[] groupsSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetAuthorizedItemsForWindowsUsers(storeName, applicationName, userSSid, groupsSSid, validFor, contextParameters, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public NetSqlAzMan.Cache.AuthorizedItem[] EndGetAuthorizedItemsForWindowsUsers(System.IAsyncResult result) {
+            return base.Channel.EndGetAuthorizedItemsForWindowsUsers(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetAuthorizedItemsForWindowsUsers(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string storeName = ((string)(inValues[0]));
+            string applicationName = ((string)(inValues[1]));
+            string userSSid = ((string)(inValues[2]));
+            string[] groupsSSid = ((string[])(inValues[3]));
+            System.DateTime validFor = ((System.DateTime)(inValues[4]));
+            System.Collections.Generic.KeyValuePair<string, object>[] contextParameters = ((System.Collections.Generic.KeyValuePair<string, object>[])(inValues[5]));
+            return this.BeginGetAuthorizedItemsForWindowsUsers(storeName, applicationName, userSSid, groupsSSid, validFor, contextParameters, callback, asyncState);
+        }
+        
+        private object[] OnEndGetAuthorizedItemsForWindowsUsers(System.IAsyncResult result) {
+            NetSqlAzMan.Cache.AuthorizedItem[] retVal = this.EndGetAuthorizedItemsForWindowsUsers(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetAuthorizedItemsForWindowsUsersCompleted(object state) {
+            if ((this.GetAuthorizedItemsForWindowsUsersCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetAuthorizedItemsForWindowsUsersCompleted(this, new GetAuthorizedItemsForWindowsUsersCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetAuthorizedItemsForWindowsUsersAsync(string storeName, string applicationName, string userSSid, string[] groupsSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
+            this.GetAuthorizedItemsForWindowsUsersAsync(storeName, applicationName, userSSid, groupsSSid, validFor, contextParameters, null);
+        }
+        
+        public void GetAuthorizedItemsForWindowsUsersAsync(string storeName, string applicationName, string userSSid, string[] groupsSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters, object userState) {
+            if ((this.onBeginGetAuthorizedItemsForWindowsUsersDelegate == null)) {
+                this.onBeginGetAuthorizedItemsForWindowsUsersDelegate = new BeginOperationDelegate(this.OnBeginGetAuthorizedItemsForWindowsUsers);
+            }
+            if ((this.onEndGetAuthorizedItemsForWindowsUsersDelegate == null)) {
+                this.onEndGetAuthorizedItemsForWindowsUsersDelegate = new EndOperationDelegate(this.OnEndGetAuthorizedItemsForWindowsUsers);
+            }
+            if ((this.onGetAuthorizedItemsForWindowsUsersCompletedDelegate == null)) {
+                this.onGetAuthorizedItemsForWindowsUsersCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetAuthorizedItemsForWindowsUsersCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetAuthorizedItemsForWindowsUsersDelegate, new object[] {
+                        storeName,
+                        applicationName,
+                        userSSid,
+                        groupsSSid,
+                        validFor,
+                        contextParameters}, this.onEndGetAuthorizedItemsForWindowsUsersDelegate, this.onGetAuthorizedItemsForWindowsUsersCompletedDelegate, userState);
         }
     }
 }

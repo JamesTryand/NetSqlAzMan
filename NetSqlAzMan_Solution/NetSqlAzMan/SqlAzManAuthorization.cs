@@ -271,11 +271,11 @@ namespace NetSqlAzMan
         public IAzManAttribute<IAzManAuthorization>[] GetAttributes()
         {
             IAzManAttribute<IAzManAuthorization>[] attributes;
-            var attrs = from a in this.db.AuthorizationAttributes()
+            var attrs = (from a in this.db.AuthorizationAttributes()
                         where a.AuthorizationId == this.authorizationId
-                        select a;
+                        select a).ToList();
 
-            attributes = new SqlAzManAttribute<IAzManAuthorization>[attrs.Count()];
+            attributes = new SqlAzManAttribute<IAzManAuthorization>[attrs.Count];
             int index = 0;
             foreach (var row in attrs)
             {

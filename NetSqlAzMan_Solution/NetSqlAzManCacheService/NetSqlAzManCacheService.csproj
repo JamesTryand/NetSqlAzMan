@@ -172,6 +172,8 @@
     <None Include="Service References\WCFCacheServicePartnerServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\DataSources\NetSqlAzMan.Cache.AuthorizedItem.datasource" />
+    <None Include="Service References\WCFCacheServicePartnerServiceReference\NetSqlAzMan.Cache.xsd" />
     <None Include="Service References\WCFCacheServicePartnerServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

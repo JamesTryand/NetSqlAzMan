@@ -5,6 +5,6 @@
     Renaming the file extension or editing the content of this file may   
     cause the file to be unrecognizable by the program.
 -->
-<GenericObjectDataSource DisplayName="AuthorizationType" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>NetSqlAzMan_Test.sr.AuthorizationType, Service References.sr.Reference.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+<GenericObjectDataSource DisplayName="AuthorizedItem" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <TypeInfo>NetSqlAzMan.Cache.AuthorizedItem, NetSqlAzMan, Version=3.5.4.3, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504</TypeInfo>
 </GenericObjectDataSource>

@@ -578,6 +578,8 @@
     <Content Include="App_Themes\Yellow\Default.skin" />
     <Content Include="references\SqlAudit.dll" />
     <Content Include="references\SqlAudit.XML" />
+    <None Include="Properties\DataSources\NetSqlAzMan.Cache.AuthorizedItem.datasource" />
+    <None Include="Service References\wcf\NetSqlAzMan.Cache.xsd" />
     <None Include="Service References\wcf\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

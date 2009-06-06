@@ -35,7 +35,8 @@
       <xsd:import schemaLocation="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xsd:import schemaLocation="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
-      <xsd:import schemaLocation="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Interfaces" />
+      <xsd:import schemaLocation="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd4" namespace="http://NetSqlAzMan/ServiceModel" />
+      <xsd:import schemaLocation="http://localhost:9000/NetSqlAzMan.Cache.Service/CacheService/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ICacheService_CheckAccessForWindowsUsersWithAttributesRetrieve_InputMessage">
@@ -68,6 +69,36 @@
   <wsdl:message name="ICacheService_InvalidateCache_OutputMessage">
     <wsdl:part name="parameters" element="tns:InvalidateCacheResponse" />
   </wsdl:message>
+  <wsdl:message name="ICacheService_InvalidateCacheOnServicePartners_InputMessage">
+    <wsdl:part name="parameters" element="tns:InvalidateCacheOnServicePartners" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_InvalidateCacheOnServicePartners_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InvalidateCacheOnServicePartnersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_GetItemNames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemNames" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_GetItemNames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_GetAllItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllItems" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_GetAllItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_GetAuthorizedItemsForDatabaseUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorizedItemsForDatabaseUsers" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_GetAuthorizedItemsForDatabaseUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorizedItemsForDatabaseUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_GetAuthorizedItemsForWindowsUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorizedItemsForWindowsUsers" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_GetAuthorizedItemsForWindowsUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorizedItemsForWindowsUsersResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICacheService">
     <wsdl:operation name="CheckAccessForWindowsUsersWithAttributesRetrieve">
       <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/CheckAccessForWindowsUsersWithAttributesRetrieve" message="tns:ICacheService_CheckAccessForWindowsUsersWithAttributesRetrieve_InputMessage" />
@@ -88,6 +119,26 @@
     <wsdl:operation name="InvalidateCache">
       <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/InvalidateCache" message="tns:ICacheService_InvalidateCache_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICacheService/InvalidateCacheResponse" message="tns:ICacheService_InvalidateCache_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InvalidateCacheOnServicePartners">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/InvalidateCacheOnServicePartners" message="tns:ICacheService_InvalidateCacheOnServicePartners_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICacheService/InvalidateCacheOnServicePartnersResponse" message="tns:ICacheService_InvalidateCacheOnServicePartners_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemNames">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/GetItemNames" message="tns:ICacheService_GetItemNames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICacheService/GetItemNamesResponse" message="tns:ICacheService_GetItemNames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/GetAllItems" message="tns:ICacheService_GetAllItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICacheService/GetAllItemsResponse" message="tns:ICacheService_GetAllItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizedItemsForDatabaseUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/GetAuthorizedItemsForDatabaseUsers" message="tns:ICacheService_GetAuthorizedItemsForDatabaseUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICacheService/GetAuthorizedItemsForDatabaseUsersResponse" message="tns:ICacheService_GetAuthorizedItemsForDatabaseUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizedItemsForWindowsUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/GetAuthorizedItemsForWindowsUsers" message="tns:ICacheService_GetAuthorizedItemsForWindowsUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICacheService/GetAuthorizedItemsForWindowsUsersResponse" message="tns:ICacheService_GetAuthorizedItemsForWindowsUsers_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_ICacheService" type="tns:ICacheService">
@@ -138,6 +189,51 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="InvalidateCacheOnServicePartners">
+      <soap12:operation soapAction="http://tempuri.org/ICacheService/InvalidateCacheOnServicePartners" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemNames">
+      <soap12:operation soapAction="http://tempuri.org/ICacheService/GetItemNames" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllItems">
+      <soap12:operation soapAction="http://tempuri.org/ICacheService/GetAllItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizedItemsForDatabaseUsers">
+      <soap12:operation soapAction="http://tempuri.org/ICacheService/GetAuthorizedItemsForDatabaseUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizedItemsForWindowsUsers">
+      <soap12:operation soapAction="http://tempuri.org/ICacheService/GetAuthorizedItemsForWindowsUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="CacheService">
     <wsdl:port name="NetTcpBinding_ICacheService" binding="tns:NetTcpBinding_ICacheService">
@@ -145,7 +241,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8000/NetSqlAzMan.Cache.Service/CacheService/</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>a.ferendeles@Eidos.lan</Upn>
+          <Upn>EIDOSIS4-AFR\Andrea</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
