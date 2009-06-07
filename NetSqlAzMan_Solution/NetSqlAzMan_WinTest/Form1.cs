@@ -23,6 +23,7 @@ using NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker;
 using CheckAccessNamespace;
 using NetSqlAzMan.Cache;
 using System.Linq;
+using System.Diagnostics;
 
 namespace NetSqlAzMan_WinTest
 {
@@ -165,7 +166,8 @@ namespace Prova.BizRules
                 //IAzManDBUser dbUser2 = storage.GetDBUser(new SqlAzManSID(this.GetBytesFromInt32(2), true));
                 //AuthorizationType auth1 = storage.CheckAccess("Eidos", "DB Persone", "Accesso", dbUser1, DateTime.Now, false);
                 //AuthorizationType auth2 = storage.CheckAccess("Eidos", "DB Persone", "Accesso", dbUser1, DateTime.Now, false);
-                string cs = "data source=.;Initial Catalog=NetSqlAzManStorage;user id=testuser;password=;";
+                //string cs = "data source=.\\sql2005;Initial Catalog=NetSqlAzManStorage;Integrated Security=SSPI";
+                string cs = "data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security=SSPI";
                 var ctx = new[] { new KeyValuePair<string, object>("Value1", "111"), new KeyValuePair<string, object>("Value2", "222") };
                 IAzManStorage storage = new SqlAzManStorage(cs);
                 //DateTime dt = new DateTime(2009, 05, 01);
@@ -184,9 +186,12 @@ namespace Prova.BizRules
                 //UserPermissionCache uupc = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, true);
                 t2 = DateTime.Now;
                 MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
-                
-                
+
+                t1 = DateTime.Now;
                 UserPermissionCache upcTest = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, false, ctx);
+                t2 = DateTime.Now;
+                MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
+
                 t1 = DateTime.Now;
                 for (int i = 0; i < 1000; i++)
                 {
@@ -937,6 +942,42 @@ namespace Prova.BizRules
             //t2 = DateTime.Now;
             //double ms = t2.Subtract(t1).TotalMilliseconds;
             //MessageBox.Show(String.Format("Done in {0} ms", ms));
+        }
+
+        /// <summary>
+        /// Handles the Click event of the btnCreateALotOfItems control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void btnCreateALotOfItems_Click(object sender, EventArgs e)
+        {
+            string cs = "data source=.\\sql2005;initial catalog=NetSqlAzManStorage;Integrated Security=SSPI;";
+            IAzManStorage storage = new SqlAzManStorage(cs);
+            storage.OpenConnection();
+            storage.BeginTransaction();
+            IAzManStore store = storage.CreateStore("Test", String.Empty);
+            IAzManApplication app = store.CreateApplication("Test", String.Empty);
+            //Create 1 MLN Items
+            for (int r = 0; r < 100; r++)
+            {
+                IAzManItem role = app.CreateItem("Role " + r.ToString(), "", ItemType.Role);
+                IAzManAuthorization auth = role.CreateAuthorization(new SqlAzManSID(WindowsIdentity.GetCurrent().User), WhereDefined.Local,
+                    new SqlAzManSID(WindowsIdentity.GetCurrent().User), WhereDefined.Local, AuthorizationType.Allow, null, null);
+                Debug.WriteLine("Role "+ r.ToString()); 
+                auth.CreateAttribute("key", "value");
+                for (int t = 0; t < 100; t++)
+                {
+                    IAzManItem task = app.CreateItem("Task " + t.ToString() + " of Role " + r.ToString(), "", ItemType.Task);
+                    role.AddMember(task);
+                    for (int o = 0; o < 100; o++)
+                    {
+                        IAzManItem op = app.CreateItem("Operation " + o.ToString() + " of Task " + t.ToString() + " of Role " + r.ToString() , "", ItemType.Operation);
+                        task.AddMember(op);
+                    }
+                }   
+            }
+            storage.CommitTransaction();
+            storage.CloseConnection();
         }
     }
 }

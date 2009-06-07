@@ -294,6 +294,7 @@ namespace NetSqlAzMan
                 //Update cached items
                 if (this.items!=null && !this.items.ContainsKey(itemCreated.Name))
                     this.items.Add(itemCreated.Name, itemCreated);
+                ((SqlAzManItem)itemCreated).members = new Dictionary<string, IAzManItem>();
                 return itemCreated;
             }
             catch (System.Data.SqlClient.SqlException sqlex)

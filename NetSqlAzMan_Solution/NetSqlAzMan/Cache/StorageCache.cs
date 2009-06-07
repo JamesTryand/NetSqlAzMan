@@ -9,6 +9,7 @@ using NetSqlAzMan;
 using NetSqlAzMan.LINQ;
 using NetSqlAzMan.Interfaces;
 using NetSqlAzMan.ENS;
+using System.Diagnostics;
 
 namespace NetSqlAzMan.Cache
 {
@@ -330,7 +331,7 @@ namespace NetSqlAzMan.Cache
                 List<ApplicationGroupsResult> allApplicationGroups;
                 List<ApplicationGroupMembersResult> allApplicationGroupMembers;
                 List<ItemsResult> allItems;
-                List<ItemsHierarchyView> allItemsHierarchy;
+                List<ItemsHierarchyTable> allItemsHierarchy;
                 List<ItemAttributesResult> allItemAttributes;
                 List<ItemsResult> allBizRulesId;
                 List<BizRulesResult> allBizRules;
@@ -361,7 +362,7 @@ namespace NetSqlAzMan.Cache
                     var allItemsQ = (from i in db.Items()
                                      orderby i.Name
                                      select i).ToList();
-                    var allItemsHierarchyQ = (from ih in db.ItemsHierarchyView
+                    var allItemsHierarchyQ = (from ih in db.ItemsHierarchyTable
                                               select ih).ToList();
                     var allItemAttributesQ = (from ia in db.ItemAttributes()
                                               select ia).ToList();
@@ -423,8 +424,8 @@ namespace NetSqlAzMan.Cache
                                       join a in allApplicationsFQ on i.ApplicationId equals a.ApplicationId
                                       orderby i.Name
                                       select i);
-                    var allItemsHierarchyFQ = (from ih in db.ItemsHierarchyView
-                                               join ai in allApplicationsFQ on ih.ApplicationId equals ai.ApplicationId
+                    var allItemsHierarchyFQ = (from ih in db.ItemsHierarchyTable
+                                               join i in allItemsFQ on ih.ItemId equals i.ItemId
                                                select ih);
                     var allItemAttributesFQ = (from ia in db.ItemAttributes()
                                                join ai in allItemsFQ on ia.ItemId equals ai.ItemId
@@ -502,10 +503,6 @@ namespace NetSqlAzMan.Cache
                                     return new SqlAzManStoreGroupMember(db, storeGroup, sgm.StoreGroupMemberId.Value, new SqlAzManSID(sgm.ObjectSid.ToArray(), (WhereDefined)sgm.WhereDefined.Value == WhereDefined.Database), (WhereDefined)sgm.WhereDefined.Value, sgm.IsMember.Value, ens);
                                 });
                             ((SqlAzManStoreGroup)storeGroup).members = storeGroupMembers;
-                            //foreach (IAzManStoreGroupMember storeGroupMember in storeGroup.Members.Values)
-                            //{
-
-                            //}
                         }
                         else if (storeGroup.GroupType == GroupType.LDapQuery)
                         {
@@ -519,10 +516,6 @@ namespace NetSqlAzMan.Cache
                             return new SqlAzManStoreAttribute(db, store, sa.StoreAttributeId.Value, sa.AttributeKey, sa.AttributeValue, ens);
                         });
                     ((SqlAzManStore)store).attributes = storeAttributes;
-                    //foreach (IAzManAttribute<IAzManStore> storeAttribute in store.Attributes.Values)
-                    //{
-
-                    //}
                     //Applications
                     var applications = allApplications.Where(a => a.StoreId == store.StoreId).ToDictionary<ApplicationsResult, string, IAzManApplication>(a => a.Name, a =>
                         {
@@ -561,10 +554,6 @@ namespace NetSqlAzMan.Cache
                                     return new SqlAzManApplicationGroupMember(db, applicationGroup, agm.ApplicationGroupMemberId.Value, new SqlAzManSID(agm.ObjectSid.ToArray(), (WhereDefined)agm.WhereDefined.Value == WhereDefined.Database), (WhereDefined)agm.WhereDefined.Value, agm.IsMember.Value, ens);
                                 });
                                 ((SqlAzManApplicationGroup)applicationGroup).members = applicationGroupMembers;
-                                //foreach (IAzManApplicationGroupMember applicationGroupMember in applicationGroup.Members.Values)
-                                //{
-
-                                //}
                             }
                             else if (applicationGroup.GroupType == GroupType.LDapQuery)
                             {
@@ -577,10 +566,6 @@ namespace NetSqlAzMan.Cache
                             return new SqlAzManApplicationAttribute(db, application, sa.ApplicationAttributeId.Value, sa.AttributeKey, sa.AttributeValue, ens);
                         });
                         ((SqlAzManApplication)application).attributes = applicationAttributes;
-                        //foreach (IAzManAttribute<IAzManApplication> applicationAttribute in application.Attributes.Values)
-                        //{
-
-                        //}
                         //Item
                         var items = allItems.Where(i => i.ApplicationId == application.ApplicationId).ToDictionary<ItemsResult, string, IAzManItem>(i => i.Name, i =>
                             {
@@ -593,48 +578,38 @@ namespace NetSqlAzMan.Cache
                                 }
                                 return new SqlAzManItem(db, application, i.ItemId.Value, i.Name, i.Description, (ItemType)i.ItemType, bizRule != null ? bizRule.BizRuleSource : String.Empty, bizRule != null ? (BizRuleSourceLanguage)bizRule.BizRuleLanguage.Value : default(BizRuleSourceLanguage), ens);
                             });
-                        ((SqlAzManApplication)application).items = items;
-                        var itemsOfApplication = from i in allItems
-                                                 where i.ApplicationId == application.ApplicationId
-                                                 select i;
-                        var itemsHierarchy = from ih in allItemsHierarchy
-                                             where ih.ApplicationId == application.ApplicationId
-                                             select ih;
-                        foreach (IAzManItem item in application.Items.Values)
+                        Dictionary<int, IAzManItem> itemsById = items.Values.ToDictionary(f => f.ItemId);
+                        Dictionary<int, List<int>> allItemsHierarchyByMemberId = new Dictionary<int,List<int>>();
+                        foreach (var itemHierarchy in allItemsHierarchy)
                         {
+                            if (!allItemsHierarchyByMemberId.ContainsKey(itemHierarchy.MemberOfItemId))
+                                allItemsHierarchyByMemberId.Add(itemHierarchy.MemberOfItemId, new List<int>());
+                            allItemsHierarchyByMemberId[itemHierarchy.MemberOfItemId].Add(itemHierarchy.ItemId);
+                        }
+
+                        ((SqlAzManApplication)application).items = items;
+                        var itemsOfApplication = (from i in allItems
+                                                 where i.ApplicationId == application.ApplicationId
+                                                 select i).ToList();
+                        foreach (string itemKey in application.Items.Keys)
+                        {
+                            IAzManItem item = application.Items[itemKey];
+                            //Debug.WriteLine(item.Name);
                             var itemAttributes = allItemAttributes.Where(sa => sa.ItemId == item.ItemId).ToDictionary<ItemAttributesResult, string, IAzManAttribute<IAzManItem>>(sa => sa.AttributeKey, sa =>
                             {
                                 return new SqlAzManItemAttribute(db, item, sa.ItemAttributeId.Value, sa.AttributeKey, sa.AttributeValue, ens);
                             });
                             ((SqlAzManItem)item).attributes = itemAttributes;
-                            //Item Attributes
-                            //foreach (IAzManAttribute<IAzManItem> itemAttribute in item.Attributes.Values)
-                            //{
-
-                            //}
-                            
-                            var memberItemsId = from ihv in itemsHierarchy
-                                               where ihv.ItemId == item.ItemId
-                                               select ihv.MemberItemId;
-                            var itemMembers = (from i in itemsOfApplication
-                                               where memberItemsId.Contains(i.ItemId.Value)
-                                               select i).ToDictionary<ItemsResult, string, IAzManItem>(i => i.Name, i =>
-                                                  {
-                                                      BizRulesResult bizRule = null;
-                                                      if (i.BizRuleId.HasValue)
-                                                      {
-                                                          bizRule = (from br in allBizRules
-                                                                     where br.BizRuleId == i.BizRuleId
-                                                                     select br).First();
-                                                      }
-                                                      return new SqlAzManItem(db, application, i.ItemId.Value, i.Name, i.Description, (ItemType)i.ItemType, bizRule != null ? bizRule.BizRuleSource : String.Empty, bizRule != null ? (BizRuleSourceLanguage)bizRule.BizRuleLanguage.Value : default(BizRuleSourceLanguage), ens);
-                                                  });
-                            ((SqlAzManItem)item).members = itemMembers;
-                            //foreach (IAzManItem member in item.Members.Values)
-                            //{ 
-                            
-                            //}
-
+                            if (allItemsHierarchyByMemberId.ContainsKey(item.ItemId))
+                            {
+                                ((SqlAzManItem)item).members = (from i in itemsById
+                                                                join h in allItemsHierarchyByMemberId[item.ItemId] on i.Key equals h
+                                                                select i.Value).ToDictionary(f => f.Name);
+                            }
+                            else
+                            {
+                                ((SqlAzManItem)item).members = new Dictionary<string, IAzManItem>();
+                            }
                             //Authorizations
                             var authorizations = allAuthorizations.Where(a => a.ItemId == item.ItemId).ToDictionary<AuthorizationsResult, int, IAzManAuthorization>(a => a.AuthorizationId.Value, a =>
                                 {
@@ -644,18 +619,17 @@ namespace NetSqlAzMan.Cache
 
                                 }).Values.ToList();
                             ((SqlAzManItem)item).authorizations = authorizations;
-                            foreach (IAzManAuthorization authorization in item.Authorizations)
+                            if (authorizations.Count > 0)
                             {
-                                //Authorization Attributes
-                                var authorizationAttributes = allAuthorizationAttributes.Where(sa => sa.AuthorizationId == authorization.AuthorizationId).ToDictionary<AuthorizationAttributesResult, string, IAzManAttribute<IAzManAuthorization>>(sa => sa.AttributeKey, sa =>
+                                foreach (IAzManAuthorization authorization in item.Authorizations)
                                 {
-                                    return new SqlAzManAuthorizationAttribute(db, authorization, sa.AuthorizationAttributeId.Value, sa.AttributeKey, sa.AttributeValue, ens);
-                                });
-                                ((SqlAzManAuthorization)authorization).attributes = authorizationAttributes;
-                                //foreach (IAzManAttribute<IAzManAuthorization> authorizationAttribute in authorization.Attributes.Values)
-                                //{
-
-                                //}
+                                    //Authorization Attributes
+                                    var authorizationAttributes = allAuthorizationAttributes.Where(sa => sa.AuthorizationId == authorization.AuthorizationId).ToDictionary<AuthorizationAttributesResult, string, IAzManAttribute<IAzManAuthorization>>(sa => sa.AttributeKey, sa =>
+                                    {
+                                        return new SqlAzManAuthorizationAttribute(db, authorization, sa.AuthorizationAttributeId.Value, sa.AttributeKey, sa.AttributeValue, ens);
+                                    });
+                                    ((SqlAzManAuthorization)authorization).attributes = authorizationAttributes;
+                                }
                             }
                             //Biz Rules
                             if (!String.IsNullOrEmpty(item.BizRuleSource))

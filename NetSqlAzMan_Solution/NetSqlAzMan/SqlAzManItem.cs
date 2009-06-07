@@ -373,8 +373,8 @@ namespace NetSqlAzMan
         private bool detectLoop(IAzManItem memberToAdd)
         {
             bool loopDetected = false;
-            IAzManItem[] membersOfItemToAdd = memberToAdd.GetMembers();
-            foreach (IAzManItem member in membersOfItemToAdd)
+            var membersOfItemToAdd = memberToAdd.Members;
+            foreach (IAzManItem member in membersOfItemToAdd.Values)
             {
                 if (member.Name == this.name)
                 {

@@ -54,6 +54,7 @@ namespace NetSqlAzMan_WinTest
             this.btnExport = new System.Windows.Forms.Button();
             this.btnCreateItemsFromAFolder = new System.Windows.Forms.Button();
             this.btnStorageCacheAuthorizedItems = new System.Windows.Forms.Button();
+            this.btnCreateALotOfItems = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -310,17 +311,28 @@ namespace NetSqlAzMan_WinTest
             // 
             this.btnStorageCacheAuthorizedItems.Location = new System.Drawing.Point(12, 156);
             this.btnStorageCacheAuthorizedItems.Name = "btnStorageCacheAuthorizedItems";
-            this.btnStorageCacheAuthorizedItems.Size = new System.Drawing.Size(209, 23);
+            this.btnStorageCacheAuthorizedItems.Size = new System.Drawing.Size(245, 23);
             this.btnStorageCacheAuthorizedItems.TabIndex = 34;
             this.btnStorageCacheAuthorizedItems.Text = "StorageCache AuthorizedItems";
             this.btnStorageCacheAuthorizedItems.UseVisualStyleBackColor = true;
             this.btnStorageCacheAuthorizedItems.Click += new System.EventHandler(this.btnStorageCacheAuthorizedItems_Click);
+            // 
+            // btnCreateALotOfItems
+            // 
+            this.btnCreateALotOfItems.Location = new System.Drawing.Point(263, 155);
+            this.btnCreateALotOfItems.Name = "btnCreateALotOfItems";
+            this.btnCreateALotOfItems.Size = new System.Drawing.Size(248, 23);
+            this.btnCreateALotOfItems.TabIndex = 35;
+            this.btnCreateALotOfItems.Text = "Create A Lot Of Items";
+            this.btnCreateALotOfItems.UseVisualStyleBackColor = true;
+            this.btnCreateALotOfItems.Click += new System.EventHandler(this.btnCreateALotOfItems_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(874, 682);
+            this.Controls.Add(this.btnCreateALotOfItems);
             this.Controls.Add(this.btnStorageCacheAuthorizedItems);
             this.Controls.Add(this.btnCreateItemsFromAFolder);
             this.Controls.Add(this.btnExport);
@@ -383,6 +395,7 @@ namespace NetSqlAzMan_WinTest
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnCreateItemsFromAFolder;
         private System.Windows.Forms.Button btnStorageCacheAuthorizedItems;
+        private System.Windows.Forms.Button btnCreateALotOfItems;
     }
 }
 
