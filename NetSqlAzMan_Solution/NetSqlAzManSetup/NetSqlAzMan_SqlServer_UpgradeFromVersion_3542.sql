@@ -1,8 +1,7 @@
 --
--- Script To Update dbo.NetSqlAzMan_DBVersion Function In ..NetSqlAzMan_3521
--- Generated sabato, marzo 28, 2009, at 11.38 AM
+-- Script To Update dbo.NetSqlAzMan_DBVersion Function In ..NetSqlAzMan_3542
 --
--- Please backup ..NetSqlAzMan_3521 before executing this script
+-- Please backup ..NetSqlAzMan_3542 before executing this script
 --
 
 
