@@ -166,8 +166,8 @@ namespace Prova.BizRules
                 //IAzManDBUser dbUser2 = storage.GetDBUser(new SqlAzManSID(this.GetBytesFromInt32(2), true));
                 //AuthorizationType auth1 = storage.CheckAccess("Eidos", "DB Persone", "Accesso", dbUser1, DateTime.Now, false);
                 //AuthorizationType auth2 = storage.CheckAccess("Eidos", "DB Persone", "Accesso", dbUser1, DateTime.Now, false);
-                //string cs = "data source=.\\sql2005;Initial Catalog=NetSqlAzManStorage;Integrated Security=SSPI";
-                string cs = "data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security=SSPI";
+                string cs = "data source=.\\sql2005;Initial Catalog=NetSqlAzManStorage;Integrated Security=SSPI";
+                //string cs = "data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security=SSPI";
                 var ctx = new[] { new KeyValuePair<string, object>("Value1", "111"), new KeyValuePair<string, object>("Value2", "222") };
                 IAzManStorage storage = new SqlAzManStorage(cs);
                 //DateTime dt = new DateTime(2009, 05, 01);
@@ -186,7 +186,7 @@ namespace Prova.BizRules
                 //UserPermissionCache uupc = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, true);
                 t2 = DateTime.Now;
                 MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
-
+                return;
                 t1 = DateTime.Now;
                 UserPermissionCache upcTest = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, false, ctx);
                 t2 = DateTime.Now;
@@ -955,12 +955,15 @@ namespace Prova.BizRules
             IAzManStorage storage = new SqlAzManStorage(cs);
             storage.OpenConnection();
             storage.BeginTransaction();
-            IAzManStore store = storage.CreateStore("Test", String.Empty);
+            IAzManStore store = storage.CreateStore("Test2", String.Empty);
             IAzManApplication app = store.CreateApplication("Test", String.Empty);
+            storage.ENS.AuthorizationCreated+= new AuthorizationCreatedDelegate(ens_AuthorizationCreated);
+            
             //Create 1 MLN Items
             for (int r = 0; r < 100; r++)
             {
                 IAzManItem role = app.CreateItem("Role " + r.ToString(), "", ItemType.Role);
+
                 IAzManAuthorization auth = role.CreateAuthorization(new SqlAzManSID(WindowsIdentity.GetCurrent().User), WhereDefined.Local,
                     new SqlAzManSID(WindowsIdentity.GetCurrent().User), WhereDefined.Local, AuthorizationType.Allow, null, null);
                 Debug.WriteLine("Role "+ r.ToString()); 
@@ -978,6 +981,11 @@ namespace Prova.BizRules
             }
             storage.CommitTransaction();
             storage.CloseConnection();
+        }
+
+        void ens_AuthorizationCreated(IAzManItem item, IAzManAuthorization authorizationCreated)
+        {
+            MessageBox.Show("created");
         }
     }
 }

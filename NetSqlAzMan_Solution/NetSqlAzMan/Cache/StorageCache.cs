@@ -300,17 +300,17 @@ namespace NetSqlAzMan.Cache
                     storeNameFilter = storeNameFilter.Trim();
                 if (!String.IsNullOrEmpty(applicationNameFilter))
                     applicationNameFilter = applicationNameFilter.Trim();
-                var filteredStores = from s in db.Stores()
+                var filteredStoresByName = from s in db.Stores()
                                      where 
                                      !String.IsNullOrEmpty(storeNameFilter) && s.Name.Contains(storeNameFilter)
                                      ||
                                      String.IsNullOrEmpty(storeNameFilter)
                                      select s;
 
-                if (!String.IsNullOrEmpty(storeNameFilter) && filteredStores.Count() == 0)
+                if (!String.IsNullOrEmpty(storeNameFilter) && filteredStoresByName.Count() == 0)
                     throw new ArgumentOutOfRangeException("storeNameFilter");
 
-                var filteredApplications = from s in filteredStores
+                var filteredApplicationsByName = from s in filteredStoresByName
                                            join a in db.Applications() on s.StoreId equals a.StoreId
                                            where
                                            !String.IsNullOrEmpty(applicationNameFilter) && a.Name.Contains(applicationNameFilter)
@@ -318,8 +318,13 @@ namespace NetSqlAzMan.Cache
                                            String.IsNullOrEmpty(applicationNameFilter)
                                            select a;
 
-                if (!String.IsNullOrEmpty(applicationNameFilter) && filteredApplications.Count()==0)
+                if (!String.IsNullOrEmpty(applicationNameFilter) && filteredStoresByName.Count() == 0)
                     throw new ArgumentOutOfRangeException("applicationNameFilter");
+
+                
+
+
+
                 #endregion VALIDATION
                 SqlAzManENS ens = (SqlAzManENS)newStorage.ENS;
                 List<StoresResult> allStores;
@@ -338,10 +343,10 @@ namespace NetSqlAzMan.Cache
                 List<AuthorizationsResult> allAuthorizations;
                 List<AuthorizationAttributesResult> allAuthorizationAttributes;
                 //Cache All data (of StoreNameFilter / ApplicationNameFilter)
-                if (String.IsNullOrEmpty(storeNameFilter) || String.IsNullOrEmpty(applicationNameFilter))
+                if (String.IsNullOrEmpty(storeNameFilter) && String.IsNullOrEmpty(applicationNameFilter))
                 {
                     #region LINQ QUERIES (Not Filtered)
-                    var allStoresQ = (from s in filteredStores orderby s.Name select s).ToList();
+                    var allStoresQ = (from s in db.Stores() orderby s.Name select s).ToList();
                     var allStoreAttributesQ = (from sa in db.StoreAttributes()
                                                orderby sa.AttributeKey
                                                select sa).ToList();
@@ -350,7 +355,7 @@ namespace NetSqlAzMan.Cache
                                            select sg).ToList();
                     var allStoreGroupMembersQ = (from sgm in db.StoreGroupMembers()
                                                  select sgm).ToList();
-                    var allApplicationsQ = (from a in filteredApplications orderby a.Name select a).ToList();
+                    var allApplicationsQ = (from a in db.Applications() orderby a.Name select a).ToList();
                     var allApplicationAttributesQ = (from aa in db.ApplicationAttributes()
                                                      orderby aa.AttributeKey
                                                      select aa).ToList();
@@ -396,25 +401,35 @@ namespace NetSqlAzMan.Cache
                 else
                 {
                     #region LINQ QUERIES (Filtered)
-                    var allStoresFQ = (from s in filteredStores orderby s.Name select s);
+                    var filteredStores = (from s in filteredStoresByName
+                                          select s.StoreId.Value).ToList();
+
+                    var filteredApplications = (from a in filteredApplicationsByName
+                                                select a.ApplicationId.Value).ToList();
+
+                    var allStoresFQ = (from s in db.Stores()
+                                       where filteredStores.Contains(s.StoreId.Value)
+                                       orderby s.Name select s);
                     var allStoreAttributesFQ = (from sa in db.StoreAttributes()
-                                                join fs in filteredStores on sa.StoreId equals fs.StoreId
+                                                where filteredStores.Contains(sa.StoreId.Value)
                                                 orderby sa.AttributeKey
                                                 select sa);
                     var allStoreGroupsFQ = (from sg in db.StoreGroups()
-                                            join fs in filteredStores on sg.StoreId equals fs.StoreId
+                                            where filteredStores.Contains(sg.StoreId.Value)
                                             orderby sg.Name
                                             select sg);
                     var allStoreGroupMembersFQ = (from sgm in db.StoreGroupMembers()
                                                   join sg in allStoreGroupsFQ on sgm.StoreGroupId equals sg.StoreGroupId
                                                   select sgm);
-                    var allApplicationsFQ = (from a in filteredApplications orderby a.Name select a);
+                    var allApplicationsFQ = (from a in db.Applications()
+                                             where filteredApplications.Contains(a.ApplicationId.Value)
+                                             orderby a.Name select a);
                     var allApplicationAttributesFQ = (from aa in db.ApplicationAttributes()
-                                                      join fa in allApplicationsFQ on aa.ApplicationId equals fa.ApplicationId
+                                                      where filteredApplications.Contains(aa.ApplicationId.Value)
                                                       orderby aa.AttributeKey
                                                       select aa);
                     var allApplicationGroupsFQ = (from ag in db.ApplicationGroups()
-                                                  join fa in allApplicationsFQ on ag.ApplicationId equals fa.ApplicationId
+                                                  where filteredApplications.Contains(ag.ApplicationId.Value)
                                                   orderby ag.Name
                                                   select ag);
                     var allApplicationGroupMembersFQ = (from agm in db.ApplicationGroupMembers()
