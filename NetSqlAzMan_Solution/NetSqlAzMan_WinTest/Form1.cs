@@ -166,8 +166,8 @@ namespace Prova.BizRules
                 //IAzManDBUser dbUser2 = storage.GetDBUser(new SqlAzManSID(this.GetBytesFromInt32(2), true));
                 //AuthorizationType auth1 = storage.CheckAccess("Eidos", "DB Persone", "Accesso", dbUser1, DateTime.Now, false);
                 //AuthorizationType auth2 = storage.CheckAccess("Eidos", "DB Persone", "Accesso", dbUser1, DateTime.Now, false);
-                string cs = "data source=.\\sql2005;Initial Catalog=NetSqlAzManStorage;Integrated Security=SSPI";
-                //string cs = "data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security=SSPI";
+                //string cs = "data source=.\\sql2005;Initial Catalog=NetSqlAzManStorage;Integrated Security=SSPI";
+                string cs = "data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security=SSPI";
                 var ctx = new[] { new KeyValuePair<string, object>("Value1", "111"), new KeyValuePair<string, object>("Value2", "222") };
                 IAzManStorage storage = new SqlAzManStorage(cs);
                 //DateTime dt = new DateTime(2009, 05, 01);
@@ -186,9 +186,9 @@ namespace Prova.BizRules
                 //UserPermissionCache uupc = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, true);
                 t2 = DateTime.Now;
                 MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
-                return;
+                //return;
                 t1 = DateTime.Now;
-                UserPermissionCache upcTest = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, false, ctx);
+                UserPermissionCache upcTest = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, true, ctx);
                 t2 = DateTime.Now;
                 MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
 
@@ -205,7 +205,7 @@ namespace Prova.BizRules
                 t1 = DateTime.Now;
                 for (int i = 0; i < 1000; i++)
                 {
-                    sc.CheckAccess("Eidos", "DB Persone", "Accesso", ssid, gsid, DateTime.Now, false);
+                    sc.CheckAccess("Eidos", "DB Persone", "Gestore", ssid, gsid, DateTime.Now, false);
                 }
                 t2 = DateTime.Now;
                 MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
@@ -215,7 +215,7 @@ namespace Prova.BizRules
                 t1 = DateTime.Now;
                 for (int i = 0; i < 1000; i++)
                 {
-                    //csc.CheckAccessForWindowsUsersWithoutAttributesRetrieve("Eidos", "DB Persone", "Accesso", ssid, gsid, DateTime.Now, false, null);
+                    //csc.CheckAccessForWindowsUsersWithoutAttributesRetrieve("Eidos", "DB Persone", "Gestore", ssid, gsid, DateTime.Now, false, null);
                     csc.GetAuthorizedItemsForWindowsUsers("Eidos", "DB Persone", ssid, gsid, DateTime.Now, null);
                 }
                 t2 = DateTime.Now;

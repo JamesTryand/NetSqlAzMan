@@ -152,11 +152,11 @@ namespace NetSqlAzMan
         /// </summary>
         public event StoreOpenedDelegate StoreOpened;
         /// <summary>
-        /// Occurs after a Storage Transaction has benn initiated.
+        /// Occurs after a Storage Transaction has been initiated.
         /// </summary>
-        public event TransactionBeginnedDelegate TransactionBeggined;
+        public event TransactionBeginnedDelegate TransactionBeginned;
         /// <summary>
-        /// Occurs after a Storage Transaction has benn terminated.
+        /// Occurs after a Storage Transaction has been terminated.
         /// </summary>
         public event TransactionTerminatedDelegate TransactionTerminated;
         /// <summary>
@@ -177,8 +177,8 @@ namespace NetSqlAzMan
         }
         private void raiseTransactionBeginned()
         {
-            if (this.TransactionBeggined != null)
-                this.TransactionBeggined();
+            if (this.TransactionBeginned != null)
+                this.TransactionBeginned();
         }
         private void raiseTransactionTerminated(bool success)
         {
@@ -1624,7 +1624,7 @@ namespace NetSqlAzMan
                 this.ens.StoreOpened += new StoreOpenedDelegate(this.SqlAzManENS_StoreOpened);
                 this.ens.StoreRenamed += new StoreRenamedDelegate(this.SqlAzManENS_StoreRenamed);
                 this.ens.StoreUpdated += new StoreUpdatedDelegate(this.SqlAzManENS_StoreUpdated);
-                this.ens.TransactionBeggined += new TransactionBeginnedDelegate(this.SqlAzManENS_TransactionBeggined);
+                this.ens.TransactionBeginned += new TransactionBeginnedDelegate(this.SqlAzManENS_TransactionBeginned);
                 this.ens.TransactionTerminated += new TransactionTerminatedDelegate(this.SqlAzManENS_TransactionTerminated);
                 this.ens.NetSqlAzManModeChanged += new NetSqlAzManModeChangeDelegate(this.SqlAzManENS_NetSqlAzManModeChanged);
                 this.ens.StorePermissionGranted += new StorePermissionGrantedDelegate(this.SqlAzManENS_StorePermissionGranted);
@@ -1697,10 +1697,10 @@ namespace NetSqlAzMan
                 logging.WriteWarning(this, String.Format("ENS Event: {0}\r\n\r\n", "TransactionTerminated with Failure"));
         }
 
-        void SqlAzManENS_TransactionBeggined()
+        void SqlAzManENS_TransactionBeginned()
         {
             this.transactionGuid = Guid.NewGuid();
-            logging.WriteInfo(this, String.Format("ENS Event: {0}\r\n\r\n", "TransactionBeggined"));
+            logging.WriteInfo(this, String.Format("ENS Event: {0}\r\n\r\n", "TransactionBeginned"));
         }
 
         void SqlAzManENS_StoreUpdated(IAzManStore store, string oldDescription)

@@ -339,7 +339,7 @@ namespace NetSqlAzMan.Interfaces
         /// <summary>
         /// Occurs after a Storage Transaction has benn initiated.
         /// </summary>
-        event TransactionBeginnedDelegate TransactionBeggined;
+        event TransactionBeginnedDelegate TransactionBeginned;
         /// <summary>
         /// Occurs after a Storage Transaction has benn terminated.
         /// </summary>

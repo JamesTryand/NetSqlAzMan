@@ -221,7 +221,7 @@ namespace NetSqlAzMan.ENS
         /// <summary>
         /// Occurs after a Storage Transaction has benn initiated.
         /// </summary>
-        public event TransactionBeginnedDelegate TransactionBeggined;
+        public event TransactionBeginnedDelegate TransactionBeginned;
         /// <summary>
         /// Occurs after a Storage Transaction has benn terminated.
         /// </summary>
@@ -401,7 +401,7 @@ namespace NetSqlAzMan.ENS
         {
             publisher.StoreOpened += new StoreOpenedDelegate(delegate(IAzManStore store) { if (this.StoreOpened != null) this.StoreOpened(store); });
             publisher.StoreCreated += new StoreCreatedDelegate(delegate(IAzManStore storeCreated) { if (this.StoreCreated != null) this.StoreCreated(storeCreated); });
-            publisher.TransactionBeggined += new TransactionBeginnedDelegate(delegate() { if (this.TransactionBeggined != null) this.TransactionBeggined(); });
+            publisher.TransactionBeginned += new TransactionBeginnedDelegate(delegate() { if (this.TransactionBeginned != null) this.TransactionBeginned(); });
             publisher.TransactionTerminated += new TransactionTerminatedDelegate(delegate(bool success) { if (this.TransactionTerminated != null) this.TransactionTerminated(success); });
             publisher.NetSqlAzManModeChanged += new NetSqlAzManModeChangeDelegate(delegate(NetSqlAzManMode oldMode, NetSqlAzManMode newMode) { if (this.NetSqlAzManModeChanged != null) this.NetSqlAzManModeChanged(oldMode, newMode); });
         }
