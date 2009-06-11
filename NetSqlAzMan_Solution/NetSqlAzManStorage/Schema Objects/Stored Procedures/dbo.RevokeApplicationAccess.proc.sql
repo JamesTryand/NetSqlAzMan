@@ -4,8 +4,8 @@
 	@NetSqlAzManFixedServerRole tinyint)
 AS
 DECLARE @StoreId int
-SET @StoreId = (SELECT StoreId FROM dbo.Applications() WHERE ApplicationId = @ApplicationId)
-IF EXISTS(SELECT ApplicationId FROM dbo.[netsqlazman_ApplicationsTable] WHERE ApplicationId = @ApplicationId) AND (dbo.CheckApplicationPermissions(@ApplicationId, 2) = 1 AND @NetSqlAzManFixedServerRole BETWEEN 0 AND 1 OR dbo.CheckStorePermissions(@StoreId, 2) = 1 AND @NetSqlAzManFixedServerRole = 2)
+SET @StoreId = (SELECT StoreId FROM dbo.[netsqlazman_Applications]() WHERE ApplicationId = @ApplicationId)
+IF EXISTS(SELECT ApplicationId FROM dbo.[netsqlazman_ApplicationsTable] WHERE ApplicationId = @ApplicationId) AND (dbo.[netsqlazman_CheckApplicationPermissions](@ApplicationId, 2) = 1 AND @NetSqlAzManFixedServerRole BETWEEN 0 AND 1 OR dbo.[netsqlazman_CheckStorePermissions](@StoreId, 2) = 1 AND @NetSqlAzManFixedServerRole = 2)
 BEGIN
 	IF EXISTS(SELECT * FROM dbo.[netsqlazman_ApplicationPermissionsTable] WHERE ApplicationId = @ApplicationId AND SqlUserOrRole = @SqlUserOrRole AND NetSqlAzManFixedServerRole = @NetSqlAzManFixedServerRole)
 		DELETE FROM dbo.[netsqlazman_ApplicationPermissionsTable] WHERE ApplicationId = @ApplicationId AND SqlUserOrRole = @SqlUserOrRole AND NetSqlAzManFixedServerRole = @NetSqlAzManFixedServerRole

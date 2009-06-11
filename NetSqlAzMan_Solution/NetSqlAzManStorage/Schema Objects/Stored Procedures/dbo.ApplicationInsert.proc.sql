@@ -5,7 +5,7 @@
 	@Description nvarchar(1024)
 )
 AS
-IF EXISTS(SELECT StoreId FROM dbo.Stores() WHERE StoreId = @StoreId) AND dbo.CheckStorePermissions(@StoreId, 2) = 1
+IF EXISTS(SELECT StoreId FROM dbo.[netsqlazman_Stores]() WHERE StoreId = @StoreId) AND dbo.[netsqlazman_CheckStorePermissions](@StoreId, 2) = 1
 BEGIN
 	INSERT INTO [dbo].[netsqlazman_ApplicationsTable] ([StoreId], [Name], [Description]) VALUES (@StoreId, @Name, @Description);
 	RETURN SCOPE_IDENTITY()

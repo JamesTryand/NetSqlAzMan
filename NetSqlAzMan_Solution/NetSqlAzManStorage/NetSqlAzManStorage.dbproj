@@ -50,35 +50,35 @@
     <RootNamespace>NetSqlAzManStorage</RootNamespace>
     <FileGroups>
       <FileGroupDefinitionCollection Version="1" xmlns="">
-  <FileGroups>
-    <FileGroupDefinition Name="PRIMARY" UpdatabilityOption="ReadWrite" IsDefault="True" CreationSucceed="False">
-      <Files>
-        <DatabaseFileDefinition LogicalName="PrimaryFileName" FileType="Primary">
-          <PhysicalName>%24(PrimaryFilePhysicalName)</PhysicalName>
-          <Size Number="3" SizeType="MB" />
-          <MaxSize Number="3" SizeType="MB" />
-          <FileGrowth Number="1" SizeType="MB" />
-          <EnableAutoGrowth>True</EnableAutoGrowth>
-          <UseDefaultMinSizeOnServer>True</UseDefaultMinSizeOnServer>
-          <UseDefaultAutoGrowthOnServer>True</UseDefaultAutoGrowthOnServer>
-          <Offline>False</Offline>
-        </DatabaseFileDefinition>
-      </Files>
-    </FileGroupDefinition>
-  </FileGroups>
-  <LogFiles>
-    <DatabaseFileDefinition LogicalName="PrimaryLogFileName" FileType="PrimaryLog">
-      <PhysicalName>%24(PrimaryLogFilePhysicalName)</PhysicalName>
-      <Size Number="3" SizeType="MB" />
-      <MaxSize Number="3" SizeType="MB" />
-      <FileGrowth Number="1" SizeType="MB" />
-      <EnableAutoGrowth>True</EnableAutoGrowth>
-      <UseDefaultMinSizeOnServer>True</UseDefaultMinSizeOnServer>
-      <UseDefaultAutoGrowthOnServer>True</UseDefaultAutoGrowthOnServer>
-      <Offline>False</Offline>
-    </DatabaseFileDefinition>
-  </LogFiles>
-</FileGroupDefinitionCollection>
+        <FileGroups>
+          <FileGroupDefinition Name="PRIMARY" UpdatabilityOption="ReadWrite" IsDefault="True" CreationSucceed="False">
+            <Files>
+              <DatabaseFileDefinition LogicalName="PrimaryFileName" FileType="Primary">
+                <PhysicalName>%24(PrimaryFilePhysicalName)</PhysicalName>
+                <Size Number="3" SizeType="MB" />
+                <MaxSize Number="3" SizeType="MB" />
+                <FileGrowth Number="1" SizeType="MB" />
+                <EnableAutoGrowth>True</EnableAutoGrowth>
+                <UseDefaultMinSizeOnServer>True</UseDefaultMinSizeOnServer>
+                <UseDefaultAutoGrowthOnServer>True</UseDefaultAutoGrowthOnServer>
+                <Offline>False</Offline>
+              </DatabaseFileDefinition>
+            </Files>
+          </FileGroupDefinition>
+        </FileGroups>
+        <LogFiles>
+          <DatabaseFileDefinition LogicalName="PrimaryLogFileName" FileType="PrimaryLog">
+            <PhysicalName>%24(PrimaryLogFilePhysicalName)</PhysicalName>
+            <Size Number="3" SizeType="MB" />
+            <MaxSize Number="3" SizeType="MB" />
+            <FileGrowth Number="1" SizeType="MB" />
+            <EnableAutoGrowth>True</EnableAutoGrowth>
+            <UseDefaultMinSizeOnServer>True</UseDefaultMinSizeOnServer>
+            <UseDefaultAutoGrowthOnServer>True</UseDefaultAutoGrowthOnServer>
+            <Offline>False</Offline>
+          </DatabaseFileDefinition>
+        </LogFiles>
+      </FileGroupDefinitionCollection>
     </FileGroups>
     <PreviousProjectVersion>2</PreviousProjectVersion>
     <SccProjectName>SAK</SccProjectName>
@@ -258,9 +258,6 @@
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Security\Users\BUILTIN_Administrators.user.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Security\Users\testuser.user.sql">
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Stored Procedures\dbo.ApplicationAttributeDelete.proc.sql">

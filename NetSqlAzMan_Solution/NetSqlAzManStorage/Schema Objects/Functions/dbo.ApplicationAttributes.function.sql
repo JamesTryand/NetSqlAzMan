@@ -4,6 +4,6 @@ AS
 RETURN 
 	SELECT     dbo.[netsqlazman_ApplicationAttributesTable].*
 	FROM         dbo.[netsqlazman_ApplicationAttributesTable] INNER JOIN
-	                      dbo.Applications() Applications ON dbo.[netsqlazman_ApplicationAttributesTable].ApplicationId = Applications.ApplicationId
+	                      dbo.[netsqlazman_Applications]() Applications ON dbo.[netsqlazman_ApplicationAttributesTable].ApplicationId = Applications.ApplicationId
 
 

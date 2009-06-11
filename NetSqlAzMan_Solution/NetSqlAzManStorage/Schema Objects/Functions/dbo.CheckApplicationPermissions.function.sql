@@ -1,7 +1,7 @@
 ﻿/* 
    @ROLEID = { 0 READERS, 1 USERS, 2 MANAGERS}
 */
-CREATE FUNCTION [dbo].[CheckApplicationPermissions](@APPLICATIONID int, @ROLEID tinyint)
+CREATE FUNCTION [dbo].[netsqlazman_CheckApplicationPermissions](@APPLICATIONID int, @ROLEID tinyint)
 RETURNS bit
 AS
 BEGIN

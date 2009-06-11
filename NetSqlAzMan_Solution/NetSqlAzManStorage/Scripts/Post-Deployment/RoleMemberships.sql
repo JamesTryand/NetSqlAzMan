@@ -19,6 +19,3 @@ EXEC sp_addrolemember N'NetSqlAzMan_Readers', N'NetSqlAzMan_Administrators'
 GO
 EXEC sp_addrolemember N'NetSqlAzMan_Readers', N'BUILTIN\Administrators'
 GO
-EXEC sp_addrolemember N'NetSqlAzMan_Readers', N'testuser'
-
-GO

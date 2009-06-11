@@ -7,7 +7,7 @@
 	@ApplicationId int
 )
 AS
-IF EXISTS(SELECT ApplicationGroupId FROM dbo.[netsqlazman_ApplicationGroups]() WHERE ApplicationGroupId = @ApplicationGroupId) AND dbo.CheckApplicationPermissions(@ApplicationId, 2) = 1
+IF EXISTS(SELECT ApplicationGroupId FROM dbo.[netsqlazman_ApplicationGroups]() WHERE ApplicationGroupId = @ApplicationGroupId) AND dbo.[netsqlazman_CheckApplicationPermissions](@ApplicationId, 2) = 1
 BEGIN
 	INSERT INTO [dbo].[netsqlazman_ApplicationGroupMembersTable] ([ApplicationGroupId], [objectSid], [WhereDefined], [IsMember]) VALUES (@ApplicationGroupId, @objectSid, @WhereDefined, @IsMember)
 	RETURN SCOPE_IDENTITY()

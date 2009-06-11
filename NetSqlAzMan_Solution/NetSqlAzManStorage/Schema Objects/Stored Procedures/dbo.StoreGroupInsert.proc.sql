@@ -8,7 +8,7 @@
 	@GroupType tinyint
 )
 AS
-IF dbo.CheckStorePermissions(@StoreId, 2) = 1
+IF dbo.[netsqlazman_CheckStorePermissions](@StoreId, 2) = 1
 BEGIN
 	INSERT INTO [dbo].[netsqlazman_StoreGroupsTable] ([StoreId], [objectSid], [Name], [Description], [LDapQuery], [GroupType]) VALUES (@StoreId, @objectSid, @Name, @Description, @LDapQuery, @GroupType);
 	RETURN SCOPE_IDENTITY()

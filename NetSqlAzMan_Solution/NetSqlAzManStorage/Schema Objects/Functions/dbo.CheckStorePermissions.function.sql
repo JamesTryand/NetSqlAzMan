@@ -1,7 +1,7 @@
 ﻿/* 
    @ROLEID = { 0 READERS, 1 USERS, 2 MANAGERS}
 */
-CREATE FUNCTION [dbo].[CheckStorePermissions](@STOREID int, @ROLEID tinyint)
+CREATE FUNCTION [dbo].[netsqlazman_CheckStorePermissions](@STOREID int, @ROLEID tinyint)
 RETURNS bit
 AS
 BEGIN

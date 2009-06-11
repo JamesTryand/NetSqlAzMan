@@ -17,7 +17,7 @@
 	- Returned DBUserSid must be unique
 	- Returned DBUserName must be unique
 */
-CREATE FUNCTION [dbo].[GetDBUsers] (@StoreName nvarchar(255), @ApplicationName nvarchar(255), @DBUserSid VARBINARY(85) = NULL, @DBUserName nvarchar(255) = NULL)  
+CREATE FUNCTION [dbo].[netsqlazman_GetDBUsers] (@StoreName nvarchar(255), @ApplicationName nvarchar(255), @DBUserSid VARBINARY(85) = NULL, @DBUserName nvarchar(255) = NULL)  
 RETURNS TABLE 
 AS  
 RETURN 

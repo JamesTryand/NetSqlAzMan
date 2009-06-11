@@ -6,7 +6,7 @@
 	@ApplicationId int
 )
 AS
-IF EXISTS(SELECT AuthorizationId FROM dbo.Authorizations() WHERE AuthorizationId = @AuthorizationId) AND dbo.CheckApplicationPermissions(@ApplicationId, 1) = 1
+IF EXISTS(SELECT AuthorizationId FROM dbo.[netsqlazman_Authorizations]() WHERE AuthorizationId = @AuthorizationId) AND dbo.[netsqlazman_CheckApplicationPermissions](@ApplicationId, 1) = 1
 BEGIN
 	INSERT INTO [dbo].[netsqlazman_AuthorizationAttributesTable] ([AuthorizationId], [AttributeKey], [AttributeValue]) VALUES (@AuthorizationId, @AttributeKey, @AttributeValue)
 	RETURN SCOPE_IDENTITY()

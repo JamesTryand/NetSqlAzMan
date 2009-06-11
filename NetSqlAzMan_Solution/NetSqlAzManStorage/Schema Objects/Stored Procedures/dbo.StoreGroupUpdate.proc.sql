@@ -9,7 +9,7 @@
 	@Original_StoreGroupId int
 )
 AS
-IF dbo.CheckStorePermissions(@StoreId, 2) = 1
+IF dbo.[netsqlazman_CheckStorePermissions](@StoreId, 2) = 1
 	UPDATE [dbo].[netsqlazman_StoreGroupsTable] SET [objectSid] = @objectSid, [Name] = @Name, [Description] = @Description, [LDapQuery] = @LDapQuery, [GroupType] = @GroupType WHERE [StoreGroupId] = @Original_StoreGroupId AND StoreId = @StoreId
 ELSE
 	RAISERROR ('Store permission denied.', 16, 1)

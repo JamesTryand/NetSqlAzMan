@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [dbo].[IAmAdmin] ()  
+﻿CREATE FUNCTION [dbo].[netsqlazman_IAmAdmin] ()  
 RETURNS bit AS  
 BEGIN 
 DECLARE @result bit

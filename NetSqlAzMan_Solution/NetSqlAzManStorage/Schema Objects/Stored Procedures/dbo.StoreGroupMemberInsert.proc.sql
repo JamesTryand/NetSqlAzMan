@@ -7,7 +7,7 @@
 	@IsMember bit
 )
 AS
-IF EXISTS(SELECT StoreGroupId FROM dbo.StoreGroups() WHERE StoreGroupId = @StoreGroupId) AND dbo.CheckStorePermissions(@StoreId, 2) = 1
+IF EXISTS(SELECT StoreGroupId FROM dbo.[netsqlazman_StoreGroups]() WHERE StoreGroupId = @StoreGroupId) AND dbo.[netsqlazman_CheckStorePermissions](@StoreId, 2) = 1
 BEGIN
 	INSERT INTO [dbo].[netsqlazman_StoreGroupMembersTable] ([StoreGroupId], [objectSid], [WhereDefined], [IsMember]) VALUES (@StoreGroupId, @objectSid, @WhereDefined, @IsMember)
 	RETURN SCOPE_IDENTITY()

@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [dbo].[MergeAuthorizations](@AUTH1 tinyint, @AUTH2 tinyint)
+﻿CREATE FUNCTION [dbo].[netsqlazman_MergeAuthorizations](@AUTH1 tinyint, @AUTH2 tinyint)
 RETURNS tinyint
 AS
 BEGIN

@@ -1,8 +1,8 @@
-﻿CREATE FUNCTION [dbo].[Stores] ()
+﻿CREATE FUNCTION [dbo].[netsqlazman_Stores] ()
 RETURNS TABLE 
 AS
 RETURN
 	SELECT dbo.[netsqlazman_StoresTable].* FROM dbo.[netsqlazman_StoresTable]
-	WHERE dbo.CheckStorePermissions([netsqlazman_StoresTable].StoreId, 0) = 1
+	WHERE dbo.[netsqlazman_CheckStorePermissions]([netsqlazman_StoresTable].StoreId, 0) = 1
 
 

@@ -8,7 +8,7 @@
 	@Original_StoreGroupMemberId int
 )
 AS
-IF EXISTS(SELECT StoreGroupMemberId FROM dbo.StoreGroupMembers() WHERE StoreGroupMemberId = @Original_StoreGroupMemberId) AND dbo.CheckStorePermissions(@StoreId, 2) = 1
+IF EXISTS(SELECT StoreGroupMemberId FROM dbo.[netsqlazman_StoreGroupMembers]() WHERE StoreGroupMemberId = @Original_StoreGroupMemberId) AND dbo.[netsqlazman_CheckStorePermissions](@StoreId, 2) = 1
 	UPDATE [dbo].[netsqlazman_StoreGroupMembersTable] SET [StoreGroupId] = @StoreGroupId, [objectSid] = @objectSid, [WhereDefined] = @WhereDefined, [IsMember] = @IsMember WHERE [StoreGroupMemberId] = @Original_StoreGroupMemberId
 ELSE
 	RAISERROR ('Store permission denied.', 16, 1)

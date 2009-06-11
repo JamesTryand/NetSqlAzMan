@@ -6,7 +6,7 @@ DECLARE @GROUPTYPE TINYINT
 DECLARE @LDAPQUERY nvarchar(4000)
 DECLARE @sub_members_cur CURSOR
 DECLARE @OBJECTSID VARBINARY(85)
-SELECT @GROUPID = StoreGroupId, @GROUPTYPE = GroupType, @LDAPQUERY = LDapQuery FROM dbo.StoreGroups() WHERE objectSid = @GROUPOBJECTSID
+SELECT @GROUPID = StoreGroupId, @GROUPTYPE = GroupType, @LDAPQUERY = LDapQuery FROM dbo.[netsqlazman_StoreGroups]() WHERE objectSid = @GROUPOBJECTSID
 IF @GROUPTYPE = 0 -- BASIC
 BEGIN
 	--memo: WhereDefined can be:0 - Store; 1 - Application; 2 - LDAP; 3 - Local; 4 - Database

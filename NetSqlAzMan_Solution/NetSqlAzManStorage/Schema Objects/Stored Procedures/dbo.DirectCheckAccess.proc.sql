@@ -7,14 +7,14 @@ DECLARE @APPLICATIONID int
 DECLARE @ITEMID INT
 
 -- CHECK STORE EXISTANCE/PERMISSIONS
-Select @STOREID = StoreId FROM dbo.Stores() WHERE Name = @STORENAME
+Select @STOREID = StoreId FROM dbo.[netsqlazman_Stores]() WHERE Name = @STORENAME
 IF @STOREID IS NULL
 	BEGIN
 	RAISERROR ('Store not found or Store permission denied.', 16, 1)
 	RETURN 1
 	END
 -- CHECK APPLICATION EXISTANCE/PERMISSIONS
-Select @APPLICATIONID = ApplicationId FROM dbo.Applications() WHERE Name = @APPLICATIONNAME And StoreId = @STOREID
+Select @APPLICATIONID = ApplicationId FROM dbo.[netsqlazman_Applications]() WHERE Name = @APPLICATIONNAME And StoreId = @STOREID
 IF @APPLICATIONID IS NULL
 	BEGIN
 	RAISERROR ('Application not found or Application permission denied.', 16, 1)
@@ -22,9 +22,9 @@ IF @APPLICATIONID IS NULL
 	END
 
 SELECT @ITEMID = Items.ItemId
-	FROM         dbo.Applications() Applications INNER JOIN
-	                      dbo.Items() Items ON Applications.ApplicationId = Items.ApplicationId INNER JOIN
-	                      dbo.Stores() Stores ON Applications.StoreId = Stores.StoreId
+	FROM         dbo.[netsqlazman_Applications]() Applications INNER JOIN
+	                      dbo.[netsqlazman_Items]() Items ON Applications.ApplicationId = Items.ApplicationId INNER JOIN
+	                      dbo.[netsqlazman_Stores]() Stores ON Applications.StoreId = Stores.StoreId
 	WHERE     (Stores.StoreId = @STOREID) AND (Applications.ApplicationId = @APPLICATIONID) AND (Items.Name = @ITEMNAME) AND (@OPERATIONSONLY = 1 AND Items.ItemType=2 OR @OPERATIONSONLY = 0)
 IF @ITEMID IS NULL
 	BEGIN

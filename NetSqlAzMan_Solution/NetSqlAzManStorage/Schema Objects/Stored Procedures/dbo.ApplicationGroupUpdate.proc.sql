@@ -9,7 +9,7 @@
 	@ApplicationId int
 )
 AS
-IF EXISTS(SELECT ApplicationGroupId FROM dbo.[netsqlazman_ApplicationGroups]() WHERE ApplicationGroupId = @Original_ApplicationGroupId) AND dbo.CheckApplicationPermissions(@ApplicationId, 2) = 1
+IF EXISTS(SELECT ApplicationGroupId FROM dbo.[netsqlazman_ApplicationGroups]() WHERE ApplicationGroupId = @Original_ApplicationGroupId) AND dbo.[netsqlazman_CheckApplicationPermissions](@ApplicationId, 2) = 1
 	UPDATE [dbo].[netsqlazman_ApplicationGroupsTable] SET [objectSid] = @objectSid, [Name] = @Name, [Description] = @Description, [LDapQuery] = @LDapQuery, [GroupType] = @GroupType WHERE [ApplicationGroupId] = @Original_ApplicationGroupId AND [ApplicationId] = @ApplicationId
 ELSE
 	RAISERROR ('Application permission denied.', 16, 1)

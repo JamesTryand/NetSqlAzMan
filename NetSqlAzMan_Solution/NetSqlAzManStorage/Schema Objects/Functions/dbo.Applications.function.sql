@@ -1,8 +1,8 @@
-﻿CREATE FUNCTION [dbo].[Applications] ()
+﻿CREATE FUNCTION [dbo].[netsqlazman_Applications] ()
 RETURNS TABLE
 AS
 RETURN
 	SELECT * FROM dbo.[netsqlazman_ApplicationsTable]
-	WHERE dbo.CheckApplicationPermissions(ApplicationId, 0) = 1
+	WHERE dbo.[netsqlazman_CheckApplicationPermissions](ApplicationId, 0) = 1
 
 

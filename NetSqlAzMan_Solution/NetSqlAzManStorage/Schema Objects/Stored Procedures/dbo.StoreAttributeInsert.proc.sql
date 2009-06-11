@@ -5,7 +5,7 @@
 	@AttributeValue nvarchar(4000)
 )
 AS
-IF EXISTS(Select StoreId FROM dbo.Stores() WHERE StoreId = @StoreId) AND dbo.CheckStorePermissions(@StoreId, 2) = 1
+IF EXISTS(Select StoreId FROM dbo.[netsqlazman_Stores]() WHERE StoreId = @StoreId) AND dbo.[netsqlazman_CheckStorePermissions](@StoreId, 2) = 1
 BEGIN
 	INSERT INTO [dbo].[netsqlazman_StoreAttributesTable] ([StoreId], [AttributeKey], [AttributeValue]) VALUES (@StoreId, @AttributeKey, @AttributeValue);
 	RETURN SCOPE_IDENTITY()

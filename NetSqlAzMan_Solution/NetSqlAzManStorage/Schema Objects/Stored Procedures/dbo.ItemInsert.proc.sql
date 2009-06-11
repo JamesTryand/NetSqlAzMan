@@ -7,7 +7,7 @@
 	@ApplicationId int
 )
 AS
-IF EXISTS(SELECT ApplicationId FROM dbo.Applications() WHERE ApplicationId = @ApplicationId) AND dbo.CheckApplicationPermissions(@ApplicationId, 2) = 1
+IF EXISTS(SELECT ApplicationId FROM dbo.[netsqlazman_Applications]() WHERE ApplicationId = @ApplicationId) AND dbo.[netsqlazman_CheckApplicationPermissions](@ApplicationId, 2) = 1
 BEGIN
 	INSERT INTO [dbo].[netsqlazman_ItemsTable] ([ApplicationId], [Name], [Description], [ItemType], [BizRuleId]) VALUES (@ApplicationId, @Name, @Description, @ItemType, @BizRuleId)
 	RETURN SCOPE_IDENTITY()
