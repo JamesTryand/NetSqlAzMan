@@ -15,14 +15,14 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_062F3C2049424E10987918E069E3AFBD"
-        "OwnerKey" = "8:_43724FF5849649C18736B3B005457179"
+        "MsmKey" = "8:_04D732AA7DFE46928F39645F86FFB0AB"
+        "OwnerKey" = "8:_4A41DAB3E9FD4EDF9614B94AC22D3F3B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_0ABEB23D59D949A6B126548729AF40A5"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_04D732AA7DFE46928F39645F86FFB0AB"
+        "OwnerKey" = "8:_6EC20F3E25D0418B878637B7036972AC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -33,19 +33,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_113642DC5A3C4BD88B1536B62E904014"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_11CB8929017042D2A804596144A494B1"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_12A710F7C8F948F9B1B8AD823FE611B8"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -63,20 +51,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_1CEF72A46DC74BA8A6459310F3348FEA"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_1DE86B07B2496CD0DE51C1848AF503C6"
         "OwnerKey" = "8:_19138F78734242218592999AF10AA7D8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1FA6A802A511459C970C373A8C3AC955"
-        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -99,8 +75,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_37DFD0ACB48A401E845626D976DEED60"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_3A8504E2EA5D11634FC0964214E0315B"
+        "OwnerKey" = "8:_19138F78734242218592999AF10AA7D8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -117,24 +93,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_423913B4868543D8A5174F94F8D4602F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_43724FF5849649C18736B3B005457179"
-        "OwnerKey" = "8:_4A41DAB3E9FD4EDF9614B94AC22D3F3B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_43724FF5849649C18736B3B005457179"
-        "OwnerKey" = "8:_6EC20F3E25D0418B878637B7036972AC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_4A41DAB3E9FD4EDF9614B94AC22D3F3B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -142,25 +100,13 @@
         "Entry"
         {
         "MsmKey" = "8:_4E1CE44D8C51C37B22919611F3DCBEDA"
-        "OwnerKey" = "8:_85C0E63D5B37C351EF0EC12889D048EC"
+        "OwnerKey" = "8:_3A8504E2EA5D11634FC0964214E0315B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_4FA45F7CFD574A9EAE86FCC2BB112BE0"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_50C0C8B980BF4458BB033A5E286FC922"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5118E57072214B9AAD2FB37BD0ADE0DD"
-        "OwnerKey" = "8:_83B75FC26B074182A51C65287154B8B1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -178,18 +124,6 @@
         "Entry"
         {
         "MsmKey" = "8:_5AC542017FBD4404AED37BA2C225DC83"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5C174E9EFCB6424C89ED1F48A25BAF74"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5CEBB810B3764E2199BEDAFB962101FC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -231,19 +165,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_6F2F21072B1046688EB72443B42C1CF3"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_6FD793AEBD35435B9821AADE4E28AC38"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_7A387D56575A4EEA957BD58E3C2F6895"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -256,36 +178,6 @@
         "Entry"
         {
         "MsmKey" = "8:_7D56669310534C7D853373B21D86C2C2"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_7DBE4A99474446E8B19C2FB4EA1A3978"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_83B75FC26B074182A51C65287154B8B1"
-        "OwnerKey" = "8:_4A41DAB3E9FD4EDF9614B94AC22D3F3B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_83B75FC26B074182A51C65287154B8B1"
-        "OwnerKey" = "8:_6EC20F3E25D0418B878637B7036972AC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_85C0E63D5B37C351EF0EC12889D048EC"
-        "OwnerKey" = "8:_19138F78734242218592999AF10AA7D8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_8692767AD31C4837B22D4728C4646F35"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -315,18 +207,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_92AF71EA999140F68EC12706A3EC9AEF"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_94DB136622F54280A9708B44C3FBF6A3"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_9B3FBD23D2F24C0FAB7246A5D59946E4"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -339,8 +219,20 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_9EBF64D64EDF4A3182D1EA93CBFF9078"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_9DCB9CF7B0644B2397C9B93F6F5791CF"
+        "OwnerKey" = "8:_4A41DAB3E9FD4EDF9614B94AC22D3F3B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9DCB9CF7B0644B2397C9B93F6F5791CF"
+        "OwnerKey" = "8:_6EC20F3E25D0418B878637B7036972AC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9EBDB96E6E18443F824DBB43836E37BA"
+        "OwnerKey" = "8:_9DCB9CF7B0644B2397C9B93F6F5791CF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -351,25 +243,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A278D07779EB4B1590BCC5106FFC0004"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_A973258C816B43658E08D936D2580773"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A9805F67408449AF8838FCD87CC439F1"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B0D03AAF94F748359404A6136DA7B438"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -387,14 +261,32 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_CA274F7606B14BA1AE4859304F01C143"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_BB87F138050040709CA1D83629A9B248"
+        "OwnerKey" = "8:_04D732AA7DFE46928F39645F86FFB0AB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_CCEF418C782944039CE0421262AD73CB"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_D971E04427FD22F030FD5F563E868110"
+        "OwnerKey" = "8:_4A41DAB3E9FD4EDF9614B94AC22D3F3B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D971E04427FD22F030FD5F563E868110"
+        "OwnerKey" = "8:_6EC20F3E25D0418B878637B7036972AC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DC48E621C6CAAEA60F643A315E172AE4"
+        "OwnerKey" = "8:_4A41DAB3E9FD4EDF9614B94AC22D3F3B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DC48E621C6CAAEA60F643A315E172AE4"
+        "OwnerKey" = "8:_6EC20F3E25D0418B878637B7036972AC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -417,20 +309,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E78C2AEDE6474057ABE6B6127B90327D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_E8CCDC12A91F4EFF9FA5029A86EEB7A2"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E8DDAECF96060F552598923CDE980164"
-        "OwnerKey" = "8:_19138F78734242218592999AF10AA7D8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -447,8 +327,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F72F0806C2214C239B75D2344AD3E5B2"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_F93F1688441E6723B7D992FB79D54A20"
+        "OwnerKey" = "8:_19138F78734242218592999AF10AA7D8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -478,7 +358,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E8DDAECF96060F552598923CDE980164"
+        "OwnerKey" = "8:_F93F1688441E6723B7D992FB79D54A20"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -490,7 +370,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_85C0E63D5B37C351EF0EC12889D048EC"
+        "OwnerKey" = "8:_3A8504E2EA5D11634FC0964214E0315B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -660,26 +540,6 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0ABEB23D59D949A6B126548729AF40A5"
-            {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3541.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3541.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_10961F3FD0E943EFA87486968F90B229"
             {
             "SourcePath" = "8:help.ico"
@@ -697,26 +557,6 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:TRUE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_113642DC5A3C4BD88B1536B62E904014"
-            {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3540.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3540.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
@@ -740,52 +580,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_12A710F7C8F948F9B1B8AD823FE611B8"
-            {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3502.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3502.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1CC36076112349C7806CB8A7D5289DE8"
             {
             "SourcePath" = "8:NetSqlAzMan - Guide.pdf"
             "TargetName" = "8:NetSqlAzMan - Guide.pdf"
             "Tag" = "8:"
             "Folder" = "8:_B4C19B5B6DF943938D3EEDA4ED57B659"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1CEF72A46DC74BA8A6459310F3348FEA"
-            {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2451.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2451.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -829,26 +629,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1FA6A802A511459C970C373A8C3AC955"
-            {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3530.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3530.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_22ACDB9288E04957BD08B72D562406F7"
@@ -911,12 +691,23 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_37DFD0ACB48A401E845626D976DEED60"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3A8504E2EA5D11634FC0964214E0315B"
             {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3520.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3520.sql"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Interop.ObjectPickerHelper2Lib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=432d6a88618edbb1, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_3A8504E2EA5D11634FC0964214E0315B"
+                    {
+                    "Name" = "8:Interop.ObjectPickerHelper2Lib.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Interop.ObjectPickerHelper2Lib.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
+            "Folder" = "8:_01CCD32AB77E4E569260D008FC107766"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -928,7 +719,7 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3EF183EDDCBE4E6CA54E20B1FE619F20"
@@ -971,26 +762,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_423913B4868543D8A5174F94F8D4602F"
-            {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3543.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3543.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4E1CE44D8C51C37B22919611F3DCBEDA"
             {
             "SourcePath" = "8:ObjectPickerHelper2.dll"
@@ -1009,26 +780,6 @@
             "Register" = "3:4"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_50C0C8B980BF4458BB033A5E286FC922"
-            {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2300.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2300.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Condition" = "8:CREATESCRIPTFOLDER=\"1\""
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5A642B994550EB366415FA8F202D9947"
@@ -1069,46 +820,6 @@
             "Tag" = "8:"
             "Folder" = "8:_01CCD32AB77E4E569260D008FC107766"
             "Condition" = "8:CHKREFERENCE"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5C174E9EFCB6424C89ED1F48A25BAF74"
-            {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3510.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3510.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5CEBB810B3764E2199BEDAFB962101FC"
-            {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2420.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2420.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Condition" = "8:CREATESCRIPTFOLDER=\"1\""
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"
@@ -1222,26 +933,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6F2F21072B1046688EB72443B42C1CF3"
-            {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2500.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2500.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6FD793AEBD35435B9821AADE4E28AC38"
             {
             "SourcePath" = "8:..\\NetSqlAzMan.SnapIn\\Icons\\16x16\\Folder_16x16.ico"
@@ -1259,26 +950,6 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:TRUE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7A387D56575A4EEA957BD58E3C2F6895"
-            {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3511.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3511.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
@@ -1306,77 +977,6 @@
             {
             "SourcePath" = "8:NetSqlAzMan_SqlServer.sql"
             "TargetName" = "8:NetSqlAzMan_SqlServer.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Condition" = "8:CREATESCRIPTFOLDER=\"1\""
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7DBE4A99474446E8B19C2FB4EA1A3978"
-            {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2410.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2410.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Condition" = "8:CREATESCRIPTFOLDER=\"1\""
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_85C0E63D5B37C351EF0EC12889D048EC"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Interop.ObjectPickerHelper2Lib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=432d6a88618edbb1, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_85C0E63D5B37C351EF0EC12889D048EC"
-                    {
-                    "Name" = "8:Interop.ObjectPickerHelper2Lib.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Interop.ObjectPickerHelper2Lib.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_01CCD32AB77E4E569260D008FC107766"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8692767AD31C4837B22D4728C4646F35"
-            {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2400.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2400.sql"
             "Tag" = "8:"
             "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
             "Condition" = "8:CREATESCRIPTFOLDER=\"1\""
@@ -1473,46 +1073,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_92AF71EA999140F68EC12706A3EC9AEF"
-            {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2450.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2450.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_94DB136622F54280A9708B44C3FBF6A3"
-            {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2021.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2021.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Condition" = "8:CREATESCRIPTFOLDER=\"1\""
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9B3FBD23D2F24C0FAB7246A5D59946E4"
             {
             "SourcePath" = "8:BannerSetup.bmp"
@@ -1553,26 +1113,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9EBF64D64EDF4A3182D1EA93CBFF9078"
-            {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3542.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3542.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
             {
             "SourcePath" = "8:sqlserver_2000.ico"
@@ -1590,26 +1130,6 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:TRUE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A278D07779EB4B1590BCC5106FFC0004"
-            {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3500.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3500.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
@@ -1631,46 +1151,6 @@
             "Tag" = "8:"
             "Folder" = "8:_01CCD32AB77E4E569260D008FC107766"
             "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A9805F67408449AF8838FCD87CC439F1"
-            {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2440.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2440.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B0D03AAF94F748359404A6136DA7B438"
-            {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2100.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2100.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Condition" = "8:CREATESCRIPTFOLDER=\"1\""
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"
@@ -1746,12 +1226,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CA274F7606B14BA1AE4859304F01C143"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D971E04427FD22F030FD5F563E868110"
             {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3501.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3501.sql"
+            "SourcePath" = "8:NETAPI32.dll"
+            "TargetName" = "8:NETAPI32.dll"
             "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
+            "Folder" = "8:_01CCD32AB77E4E569260D008FC107766"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1763,15 +1243,15 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CCEF418C782944039CE0421262AD73CB"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DC48E621C6CAAEA60F643A315E172AE4"
             {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2430.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2430.sql"
+            "SourcePath" = "8:Secur32.dll"
+            "TargetName" = "8:Secur32.dll"
             "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
+            "Folder" = "8:_01CCD32AB77E4E569260D008FC107766"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1783,7 +1263,7 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DCE67C943EC94BC1B5C759F7881BB5CD"
@@ -1846,57 +1326,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E78C2AEDE6474057ABE6B6127B90327D"
-            {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2200.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2200.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Condition" = "8:CREATESCRIPTFOLDER=\"1\""
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E8DDAECF96060F552598923CDE980164"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.5.4.3, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_E8DDAECF96060F552598923CDE980164"
-                    {
-                    "Name" = "8:NetSqlAzMan.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:NetSqlAzMan.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_01CCD32AB77E4E569260D008FC107766"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_ECEA419C4B1141249B3C3514944B0E96"
             {
             "SourcePath" = "8:NetSqlAzManStorage.chm"
@@ -1937,12 +1366,23 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F72F0806C2214C239B75D2344AD3E5B2"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F93F1688441E6723B7D992FB79D54A20"
             {
-            "SourcePath" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3521.sql"
-            "TargetName" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3521.sql"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.5.4.4, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_F93F1688441E6723B7D992FB79D54A20"
+                    {
+                    "Name" = "8:NetSqlAzMan.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:NetSqlAzMan.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_F35F8E9677154A348D066CCB48877C33"
+            "Folder" = "8:_01CCD32AB77E4E569260D008FC107766"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1953,8 +1393,8 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
         }
@@ -2124,7 +1564,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:.NET Sql Authorization Manager"
         "ProductCode" = "8:{FECA03A5-D073-4D1B-941A-596F358E4324}"
-        "PackageCode" = "8:{93D52991-AEC2-4FFC-B059-E4321B73D97C}"
+        "PackageCode" = "8:{02A43E41-EC72-42F2-9BC7-23DC69B3B506}"
         "UpgradeCode" = "8:{84CEB3F7-876F-4448-8001-2FCB4D8214C7}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
@@ -2343,104 +1783,6 @@
             "Icon" = "8:_22ACDB9288E04957BD08B72D562406F7"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_1E53C9F41EC04BD89E4F289D9E2CAAAA"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2420.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_5CEBB810B3764E2199BEDAFB962101FC"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_24D82E12A1104CE2830963FD1829E2CC"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3541.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_0ABEB23D59D949A6B126548729AF40A5"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_26BE4BA7034E474A863BB7FC31A7BCF5"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3542.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_9EBF64D64EDF4A3182D1EA93CBFF9078"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_28B48B9F602F4E43833244B26657BEFA"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3511.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_7A387D56575A4EEA957BD58E3C2F6895"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_2E353E862EE9432D9BCC153D0D3274DE"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2451.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_1CEF72A46DC74BA8A6459310F3348FEA"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_323DA02EC76644339D169A0E4696F5C9"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2440.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_A9805F67408449AF8838FCD87CC439F1"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_3876AC9214CE40E29E73CE47AB6FD9D2"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2400.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_8692767AD31C4837B22D4728C4646F35"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
-            "Feature" = "8:"
-            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_48CBB7CA9B6645AF820F86361165F41E"
             {
             "Name" = "8:Uninstall"
@@ -2453,34 +1795,6 @@
             "Folder" = "8:_7D1064E46B49462FA5C09E4B49768352"
             "WorkingFolder" = "8:_01CCD32AB77E4E569260D008FC107766"
             "Icon" = "8:_11CB8929017042D2A804596144A494B1"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_4E5A73A38B4249788F56F923BC106035"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3521.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_F72F0806C2214C239B75D2344AD3E5B2"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_60C0C5AF7DB947EB825084FE5C0AB397"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3502.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_12A710F7C8F948F9B1B8AD823FE611B8"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_6D6A26210E91404592C69029AC66EAE0"
@@ -2497,48 +1811,6 @@
             "Icon" = "8:_66EBDADEEC4E42E58DC228E591531A3E"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_70D0F6D2471F40CCBE724BDBE96ED7EF"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3540.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_113642DC5A3C4BD88B1536B62E904014"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_7CBDF952EED34DE0B4E26DCD2EA12E49"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3520.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_37DFD0ACB48A401E845626D976DEED60"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_84AB7439C7FD4E7BA305CEC2EE81283D"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2100.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_B0D03AAF94F748359404A6136DA7B438"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
-            "Feature" = "8:"
-            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_84FEB390101F441F9B7D1F1448A8AA97"
             {
             "Name" = "8:NetSqlAzMan Web Site"
@@ -2551,34 +1823,6 @@
             "Folder" = "8:_7D1064E46B49462FA5C09E4B49768352"
             "WorkingFolder" = "8:_01CCD32AB77E4E569260D008FC107766"
             "Icon" = "8:_66D43B0B8A3D480BBB0A00A734FFD107"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_860A879FCDED49D8A864EE8453777787"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3501.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_CA274F7606B14BA1AE4859304F01C143"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_87DE07E0475B43A1954E7B50499F2F06"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2200.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_E78C2AEDE6474057ABE6B6127B90327D"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_8CA785EEAD4841A8975DDD6FDE39EF75"
@@ -2609,62 +1853,6 @@
             "Icon" = "8:_7ACBC4F4276645DF82B69092006AB553"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_93C48342FAD44B6885FE59D4B3B6377C"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3500.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_A278D07779EB4B1590BCC5106FFC0004"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_9511F2BF266A4F57ACECE6D6E2B69A40"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2300.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_50C0C8B980BF4458BB033A5E286FC922"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_A1D6D823B4E34EB193F4E89909E1A38E"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3543.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_423913B4868543D8A5174F94F8D4602F"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_A940A2C4C996449FB919FA75FA7D5E0C"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2021.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_94DB136622F54280A9708B44C3FBF6A3"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
-            "Feature" = "8:"
-            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_ADE4E04BDE8B496B9E63A761DE9FE4BA"
             {
             "Name" = "8:NetSqlAzMan Class Reference"
@@ -2677,34 +1865,6 @@
             "Folder" = "8:_7089489F5CE74F1E93D9E26FD949FCFC"
             "WorkingFolder" = "8:_01CCD32AB77E4E569260D008FC107766"
             "Icon" = "8:_10961F3FD0E943EFA87486968F90B229"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B0E34CFEC6374BCD9538CEC82B97D836"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2450.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_92AF71EA999140F68EC12706A3EC9AEF"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B4D482A71AC349F39B17F9327BEE906D"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2500.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_6F2F21072B1046688EB72443B42C1CF3"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B55EEBA6CE3F429F8C5A1EE4482E6246"
@@ -2735,20 +1895,6 @@
             "Icon" = "8:_10961F3FD0E943EFA87486968F90B229"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D362EACD192642C5832F2564A26DB312"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2410.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_7DBE4A99474446E8B19C2FB4EA1A3978"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
-            "Feature" = "8:"
-            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_E1F1180AE3CD4F14A5C41B5CF8ADCC7A"
             {
             "Name" = "8:Build History"
@@ -2763,34 +1909,6 @@
             "Icon" = "8:_4230C9D6016444C7BD6AF5D61CBF3646"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_ECAFF49C15674C20B89A5E51CDA5D79F"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_2430.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_CCEF418C782944039CE0421262AD73CB"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F4C070D0BB344AEDB0AC4C2E1B36CFB9"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3530.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_1FA6A802A511459C970C373A8C3AC955"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
-            "Feature" = "8:"
-            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F79BD8805E7040278A3C028B69AFBEBB"
             {
             "Name" = "8:VB.NET Samples.vb"
@@ -2803,20 +1921,6 @@
             "Folder" = "8:_A5B04CD44B4244BDA2F59C31C75D9577"
             "WorkingFolder" = "8:_861F1F1CC6D34765845B371CAA9442A3"
             "Icon" = "8:_8804073FB8814C3D90860977E135441A"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_FB4516C4A4284BEFB7570E889C54EF76"
-            {
-            "Name" = "8:NetSqlAzMan_SqlServer_UpgradeFromVersion_3510.sql"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_5C174E9EFCB6424C89ED1F48A25BAF74"
-            "Folder" = "8:_FE561DD5EF944807BFBE9A161F9604C1"
-            "WorkingFolder" = "8:_F35F8E9677154A348D066CCB48877C33"
-            "Icon" = "8:_9EFD5AA32FCD4CC4B51EAAEFE0F92AB1"
             "Feature" = "8:"
             }
         }
@@ -3741,21 +2845,7 @@
         }
         "MergeModule"
         {
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_062F3C2049424E10987918E069E3AFBD"
-            {
-            "UseDynamicProperties" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:microsoft_vc90_atl_x86.msm"
-                "Properties"
-                {
-                }
-            "LanguageId" = "3:0"
-            "Exclude" = "11:FALSE"
-            "Folder" = "8:"
-            "Feature" = "8:"
-            "IsolateTo" = "8:"
-            }
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_43724FF5849649C18736B3B005457179"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_04D732AA7DFE46928F39645F86FFB0AB"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
@@ -3769,7 +2859,21 @@
             "Feature" = "8:"
             "IsolateTo" = "8:"
             }
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_5118E57072214B9AAD2FB37BD0ADE0DD"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_9DCB9CF7B0644B2397C9B93F6F5791CF"
+            {
+            "UseDynamicProperties" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "SourcePath" = "8:policy_9_0_Microsoft_VC90_CRT_x86.msm"
+                "Properties"
+                {
+                }
+            "LanguageId" = "3:0"
+            "Exclude" = "11:FALSE"
+            "Folder" = "8:"
+            "Feature" = "8:"
+            "IsolateTo" = "8:"
+            }
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_9EBDB96E6E18443F824DBB43836E37BA"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
@@ -3783,11 +2887,11 @@
             "Feature" = "8:"
             "IsolateTo" = "8:"
             }
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_83B75FC26B074182A51C65287154B8B1"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_BB87F138050040709CA1D83629A9B248"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:policy_9_0_Microsoft_VC90_CRT_x86.msm"
+            "SourcePath" = "8:microsoft_vc90_atl_x86.msm"
                 "Properties"
                 {
                 }

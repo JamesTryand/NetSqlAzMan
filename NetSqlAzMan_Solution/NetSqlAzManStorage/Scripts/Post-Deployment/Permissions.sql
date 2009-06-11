@@ -192,5 +192,16 @@ GO
 GRANT EXECUTE ON  [dbo].[netsqlazman_StorePermissionInsert] TO [NetSqlAzMan_Managers]
 GO
 GRANT EXECUTE ON  [dbo].[netsqlazman_StoreUpdate] TO [NetSqlAzMan_Managers]
-
 GO
+
+/* ********************** */
+/* ONLY FOR SQL 2005/2008 */
+/* ********************** */
+IF CHARINDEX('Microsoft SQL Server 2005', REPLACE(@@VERSION,'  ', ' '))=1 
+   OR 
+   CHARINDEX('Microsoft SQL Server 2008', REPLACE(@@VERSION,'  ', ' '))=1
+   BEGIN
+        EXEC sp_executesql N'GRANT VIEW DEFINITION TO [NetSqlAzMan_Readers]' -- ALLOW NetSqlAzMan_Readers TO SEE ALL OTHER Logins 
+-- http://www.microsoft.com/technet/technetmag/issues/2006/01/ProtectMetaData/?topics=y
+END
+/* ********************** */

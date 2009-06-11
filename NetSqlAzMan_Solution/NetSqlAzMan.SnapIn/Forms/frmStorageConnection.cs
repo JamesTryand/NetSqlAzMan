@@ -276,7 +276,7 @@ namespace NetSqlAzMan.SnapIn.Forms
             SqlAzManStorage storage = new SqlAzManStorage(connectionString);
             string dbVersion = storage.DatabaseVesion;
             string netsqlazmanRunTimeVersion = storage.GetType().Assembly.GetName().Version.ToString();
-            if (netsqlazmanRunTimeVersion != dbVersion)
+            if (!String.Equals(netsqlazmanRunTimeVersion.Substring(0,6), dbVersion.Substring(0,6), StringComparison.InvariantCultureIgnoreCase))
             {
                 MessageBox.Show(String.Format("NetSqlAzMan Run-Time Version: {0}\r\nNetSqlAzMan Database Version: {1}", netsqlazmanRunTimeVersion, dbVersion), "Warning: Version mismatch",MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }

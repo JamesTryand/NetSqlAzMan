@@ -121,7 +121,7 @@ GO
 CREATE FUNCTION [dbo].[netsqlazman_DBVersion] ()  
 RETURNS nvarchar(200) AS  
 BEGIN 
-	return '3.5.4.4'
+	return '3.6.0.x'
 END
 GO
 /****** Object:  Table [dbo].[netsqlazman_ItemsHierarchyTable]    Script Date: 06/11/2009 17:45:31 ******/
@@ -3481,11 +3481,15 @@ GRANT EXECUTE ON [dbo].[netsqlazman_DirectCheckAccess] TO [NetSqlAzMan_Readers]
 GO
 
 
-/* ***************** */
-/* ONLY FOR SQL 2005 */
-/* ***************** */
-IF CHARINDEX('Microsoft SQL Server 2005', REPLACE(@@VERSION,'  ', ' '))=1 BEGIN
+/* ********************** */
+/* ONLY FOR SQL 2005/2008 */
+/* ********************** */
+IF CHARINDEX('Microsoft SQL Server 2005', REPLACE(@@VERSION,'  ', ' '))=1 
+   OR 
+   CHARINDEX('Microsoft SQL Server 2008', REPLACE(@@VERSION,'  ', ' '))=1
+   BEGIN
         EXEC sp_executesql N'GRANT VIEW DEFINITION TO [NetSqlAzMan_Readers]' -- ALLOW NetSqlAzMan_Readers TO SEE ALL OTHER Logins 
 -- http://www.microsoft.com/technet/technetmag/issues/2006/01/ProtectMetaData/?topics=y
 END
-/* ***************** */
+/* ********************** */
+

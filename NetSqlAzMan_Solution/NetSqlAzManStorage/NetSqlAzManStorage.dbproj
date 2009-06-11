@@ -116,6 +116,7 @@
     </FilegroupSetVariables>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="Help" />
     <Folder Include="Schema Objects" />
     <Folder Include="Schema Objects\Functions" />
     <Folder Include="Schema Objects\Security" />
@@ -150,6 +151,9 @@
     <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql">
       <SubType>Code</SubType>
     </PostDeploy>
+    <NotInBuild Include="Help\NetSqlAzManStorage.chm">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
     <NotInBuild Include="Scripts\Post-Deployment\DatabaseObjectOptions.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
