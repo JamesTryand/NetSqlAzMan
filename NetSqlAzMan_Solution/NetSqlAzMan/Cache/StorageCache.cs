@@ -180,7 +180,7 @@ namespace NetSqlAzMan.Cache
                             nonMemberType = false;
                     }
                     var subMembersResult = this.getStoreGroupSidMembers(application.Store, nonMemberType, subMember.SID);
-                    return result = result.Union(subMembersResult);
+                    result = result.Union(subMembersResult);
                 }
                 //Sub Application Groups
                 var subMembers2 = from agm in applicationGroup.Members.Values

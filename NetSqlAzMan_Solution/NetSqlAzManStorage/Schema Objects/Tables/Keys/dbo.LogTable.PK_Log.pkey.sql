@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[netsqlazman_LogTable] ADD CONSTRAINT [PK_Log] PRIMARY KEY NONCLUSTERED  ([LogId]) ON [PRIMARY]
+
+
