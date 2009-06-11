@@ -28,7 +28,7 @@ namespace NetSqlAzMan.LINQ
         /// <returns></returns>
         public DataTable GetDBUsersEx(string storeName, string applicationName, byte[] dBUserSid, string dBUserName)
         {
-            SqlDataAdapter da = new SqlDataAdapter("select * from dbo.GetDBUsers(@StoreName, @ApplicationName, @DBUserSID, @DBUserName)", (SqlConnection)this.Connection);
+            SqlDataAdapter da = new SqlDataAdapter("select * from dbo.netsqlazman_GetDBUsers(@StoreName, @ApplicationName, @DBUserSID, @DBUserName)", (SqlConnection)this.Connection);
             SqlParameter pStoreName = new SqlParameter("@StoreName", SqlDbType.NVarChar, 255);
             SqlParameter pApplicationName = new SqlParameter("@ApplicationName", SqlDbType.NVarChar, 255);
             SqlParameter pDBUserSID = new SqlParameter("@DBUserSID", SqlDbType.VarBinary, 85);

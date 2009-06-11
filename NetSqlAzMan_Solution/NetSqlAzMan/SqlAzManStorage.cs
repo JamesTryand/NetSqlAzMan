@@ -569,7 +569,7 @@ namespace NetSqlAzMan
             SqlConnection conn = new SqlConnection(this.db.Connection.ConnectionString);
             conn.Open();
             DataSet checkAccessResults = new DataSet();
-            System.Data.SqlClient.SqlCommand cmd = new SqlCommand("DirectCheckAccess", conn);
+            System.Data.SqlClient.SqlCommand cmd = new SqlCommand("dbo.netsqlazman_DirectCheckAccess", conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@STORENAME", StoreName);
             cmd.Parameters.AddWithValue("@APPLICATIONNAME", ApplicationName);

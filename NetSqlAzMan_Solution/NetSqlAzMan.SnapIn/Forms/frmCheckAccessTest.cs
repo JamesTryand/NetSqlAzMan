@@ -220,6 +220,7 @@ namespace NetSqlAzMan.SnapIn.Forms
                 this.WriteLineDetailMessage(String.Empty);
                 this.WriteDetailMessage(Globalization.MultilanguageResource.GetString("frmCheckAccessTest_Msg40"));
                 this.RefreshItemsHierarchy();
+                Application.DoEvents();
                 this.WriteLineDetailMessage(Globalization.MultilanguageResource.GetString("Done_Msg10"));
                 this.WriteLineDetailMessage(String.Empty);
                 TreeNode applicationTreeNode = this.checkAccessTestTreeView.Nodes[0].Nodes[0].Nodes[0];
@@ -425,8 +426,10 @@ namespace NetSqlAzMan.SnapIn.Forms
                 this.WriteLineDetailMessage(String.Format("{0} [{1} mls.]", ex.Message, elapsedTime.TotalMilliseconds));
             }
             tn.Text = String.Format("{0} - ({1})", tn.Text, sAuth.ToUpper());
+            
             tn.EnsureVisible();
-            /*Application.DoEvents();*/
+            Application.DoEvents();
+
             foreach (TreeNode tnChild in tn.Nodes)
             {
                 this.checkAccessTest(tnChild);

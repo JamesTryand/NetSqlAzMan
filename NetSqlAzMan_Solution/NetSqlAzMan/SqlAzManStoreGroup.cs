@@ -508,7 +508,7 @@ namespace NetSqlAzMan
             bool result = false;
             try
             {
-                System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("dbo.IsAMemberOfGroup", conn);
+                System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("dbo.netsqlazman_IsAMemberOfGroup", conn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@GROUPTYPE", groupType);
                 cmd.Parameters.AddWithValue("@GROUPOBJECTSID", GroupSid);

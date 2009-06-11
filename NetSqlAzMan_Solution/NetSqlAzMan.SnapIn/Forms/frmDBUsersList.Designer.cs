@@ -172,7 +172,7 @@ namespace NetSqlAzMan.SnapIn.Forms
             this.lblNote.Name = "lblNote";
             this.lblNote.Size = new System.Drawing.Size(634, 31);
             this.lblNote.TabIndex = 33;
-            this.lblNote.Text = "Note: to change DB Users list, modify \"dbo.GetDBUsers\" table-function on NetSqlAz" +
+            this.lblNote.Text = "Note: to change DB Users list, modify \"dbo.netsqlazman_GetDBUsers\" table-function on NetSqlAz" +
                 "ManStorage DB.";
             // 
             // lblFilter

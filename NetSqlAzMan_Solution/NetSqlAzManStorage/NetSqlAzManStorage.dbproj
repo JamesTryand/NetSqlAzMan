@@ -39,7 +39,7 @@
     <DefaultFileStructure>BySchemaType</DefaultFileStructure>
     <DatabaseChaining>False</DatabaseChaining>
     <EnableServiceBroker>False</EnableServiceBroker>
-    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <RecursiveTriggersEnabled>True</RecursiveTriggersEnabled>
     <Trustworthy>False</Trustworthy>
     <IncludeSchemaNameInFilename>True</IncludeSchemaNameInFilename>
     <DoNotUseAlterAssemblyStatementsToUpdateCLRTypes>False</DoNotUseAlterAssemblyStatementsToUpdateCLRTypes>
@@ -169,6 +169,9 @@
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Scripts\Pre-Deployment\Logins.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Pre-Deployment\Welcome.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Scripts\ScriptsIgnoredOnImport.sql">

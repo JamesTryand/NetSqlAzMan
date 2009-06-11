@@ -40,34 +40,9 @@ namespace NetSqlAzManWebConsole.SQLAudit
 
             //*** Tables Customization ***//
             myTables.Remove(new SchemaTablePair("dbo", "UsersDemo"));
-            myTables.Remove(new SchemaTablePair("dbo", "LogTable"));
+            myTables.Remove(new SchemaTablePair("dbo", "netsqlazman_LogTable"));
 
-            //ownerName
-            //CustomAuditColumn cac1 = new CustomAuditColumn(
-            //    "ownerName",
-            //    CustomColumnDataType.VarChar,
-            //    256,
-            //    "dbo.GetNameFromSid(NULL, NULL, ownerSid, ownerSidWhereDefined)");
-            //myTables[new SchemaTablePair("dbo", "AuthorizationsTable")].CustomAuditColumns.Add(cac1);
-            //CustomAuditColumn cac2 = new CustomAuditColumn(
-            //    "objectName",
-            //    CustomColumnDataType.VarChar,
-            //    256,
-            //    "dbo.GetNameFromSid(NULL, NULL, objectSid, objectSidWhereDefined)");
-            //myTables[new SchemaTablePair("dbo", "AuthorizationsTable")].CustomAuditColumns.Add(cac2);
-            //CustomAuditColumn cac3 = new CustomAuditColumn(
-            //    "objectName",
-            //    CustomColumnDataType.VarChar,
-            //    256,
-            //    "dbo.GetNameFromSid(NULL, NULL, objectSid, WhereDefined)");
-            //myTables[new SchemaTablePair("dbo", "ApplicationGroupMembersTable")].CustomAuditColumns.Add(cac3);
-            //CustomAuditColumn cac4 = new CustomAuditColumn(
-            //    "objectName",
-            //    CustomColumnDataType.VarChar,
-            //    256,
-            //    "dbo.GetNameFromSid(NULL, NULL, objectSid, WhereDefined)");
-            //myTables[new SchemaTablePair("dbo", "StoreGroupMembersTable")].CustomAuditColumns.Add(cac4);
-
+            
             //Generate Audit Script
             SqlAuditGenerator generator = new SqlAuditGenerator(myAuditSettings);
             generator.ProgressChange+=progressChangeDelegate;

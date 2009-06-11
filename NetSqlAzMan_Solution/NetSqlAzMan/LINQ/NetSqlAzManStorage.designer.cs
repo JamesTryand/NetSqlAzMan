@@ -360,7 +360,7 @@ namespace NetSqlAzMan.LINQ
 			}
 		}
 		
-		[Function(Name="dbo.ApplicationAttributeDelete")]
+		[Function(Name="dbo.netsqlazman_ApplicationAttributeDelete")]
 		[return: Parameter(DbType="Int")]
 		public int ApplicationAttributeDelete([Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId, [Parameter(Name="ApplicationAttributeId", DbType="Int")] System.Nullable<int> applicationAttributeId)
 		{
@@ -368,7 +368,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.ApplicationAttributeInsert")]
+		[Function(Name="dbo.netsqlazman_ApplicationAttributeInsert")]
 		[return: Parameter(DbType="Int")]
 		public int ApplicationAttributeInsert([Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId, [Parameter(Name="AttributeKey", DbType="NVarChar(255)")] string attributeKey, [Parameter(Name="AttributeValue", DbType="NVarChar(4000)")] string attributeValue)
 		{
@@ -376,13 +376,13 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.ApplicationAttributes", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_ApplicationAttributes", IsComposable=true)]
 		public IQueryable<ApplicationAttributesResult> ApplicationAttributes()
 		{
 			return this.CreateMethodCallQuery<ApplicationAttributesResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 		}
 		
-		[Function(Name="dbo.ApplicationAttributeUpdate")]
+		[Function(Name="dbo.netsqlazman_ApplicationAttributeUpdate")]
 		[return: Parameter(DbType="Int")]
 		public int ApplicationAttributeUpdate([Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId, [Parameter(Name="AttributeKey", DbType="NVarChar(255)")] string attributeKey, [Parameter(Name="AttributeValue", DbType="NVarChar(4000)")] string attributeValue, [Parameter(Name="Original_ApplicationAttributeId", DbType="Int")] System.Nullable<int> original_ApplicationAttributeId)
 		{
@@ -390,7 +390,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.ApplicationDelete")]
+		[Function(Name="dbo.netsqlazman_ApplicationDelete")]
 		[return: Parameter(DbType="Int")]
 		public int ApplicationDelete([Parameter(Name="StoreId", DbType="Int")] System.Nullable<int> storeId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -398,7 +398,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.ApplicationGroupDelete")]
+		[Function(Name="dbo.netsqlazman_ApplicationGroupDelete")]
 		[return: Parameter(DbType="Int")]
 		public int ApplicationGroupDelete([Parameter(Name="ApplicationGroupId", DbType="Int")] System.Nullable<int> applicationGroupId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -406,7 +406,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.ApplicationGroupInsert")]
+		[Function(Name="dbo.netsqlazman_ApplicationGroupInsert")]
 		[return: Parameter(DbType="Int")]
 		public int ApplicationGroupInsert([Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId, [Parameter(DbType="VarBinary(85)")] System.Data.Linq.Binary objectSid, [Parameter(Name="Name", DbType="NVarChar(255)")] string name, [Parameter(Name="Description", DbType="NVarChar(1024)")] string description, [Parameter(Name="LDapQuery", DbType="NVarChar(4000)")] string lDapQuery, [Parameter(Name="GroupType", DbType="TinyInt")] System.Nullable<byte> groupType)
 		{
@@ -414,7 +414,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.ApplicationGroupMemberDelete")]
+		[Function(Name="dbo.netsqlazman_ApplicationGroupMemberDelete")]
 		[return: Parameter(DbType="Int")]
 		public int ApplicationGroupMemberDelete([Parameter(Name="ApplicationGroupMemberId", DbType="Int")] System.Nullable<int> applicationGroupMemberId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -422,7 +422,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.ApplicationGroupMemberInsert")]
+		[Function(Name="dbo.netsqlazman_ApplicationGroupMemberInsert")]
 		[return: Parameter(DbType="Int")]
 		public int ApplicationGroupMemberInsert([Parameter(Name="ApplicationGroupId", DbType="Int")] System.Nullable<int> applicationGroupId, [Parameter(DbType="VarBinary(85)")] System.Data.Linq.Binary objectSid, [Parameter(Name="WhereDefined", DbType="TinyInt")] System.Nullable<byte> whereDefined, [Parameter(Name="IsMember", DbType="Bit")] System.Nullable<bool> isMember, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -430,13 +430,13 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.ApplicationGroupMembers", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_ApplicationGroupMembers", IsComposable=true)]
 		public IQueryable<ApplicationGroupMembersResult> ApplicationGroupMembers()
 		{
 			return this.CreateMethodCallQuery<ApplicationGroupMembersResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 		}
 		
-		[Function(Name="dbo.ApplicationGroupMemberUpdate")]
+		[Function(Name="dbo.netsqlazman_ApplicationGroupMemberUpdate")]
 		[return: Parameter(DbType="Int")]
 		public int ApplicationGroupMemberUpdate([Parameter(Name="ApplicationGroupId", DbType="Int")] System.Nullable<int> applicationGroupId, [Parameter(DbType="VarBinary(85)")] System.Data.Linq.Binary objectSid, [Parameter(Name="WhereDefined", DbType="TinyInt")] System.Nullable<byte> whereDefined, [Parameter(Name="IsMember", DbType="Bit")] System.Nullable<bool> isMember, [Parameter(Name="Original_ApplicationGroupMemberId", DbType="Int")] System.Nullable<int> original_ApplicationGroupMemberId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -444,13 +444,13 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.ApplicationGroups", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_ApplicationGroups", IsComposable=true)]
 		public IQueryable<ApplicationGroupsResult> ApplicationGroups()
 		{
 			return this.CreateMethodCallQuery<ApplicationGroupsResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 		}
 		
-		[Function(Name="dbo.ApplicationGroupUpdate")]
+		[Function(Name="dbo.netsqlazman_ApplicationGroupUpdate")]
 		[return: Parameter(DbType="Int")]
 		public int ApplicationGroupUpdate([Parameter(DbType="VarBinary(85)")] System.Data.Linq.Binary objectSid, [Parameter(Name="Name", DbType="NVarChar(255)")] string name, [Parameter(Name="Description", DbType="NVarChar(1024)")] string description, [Parameter(Name="LDapQuery", DbType="NVarChar(4000)")] string lDapQuery, [Parameter(Name="GroupType", DbType="TinyInt")] System.Nullable<byte> groupType, [Parameter(Name="Original_ApplicationGroupId", DbType="Int")] System.Nullable<int> original_ApplicationGroupId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -458,7 +458,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.ApplicationInsert")]
+		[Function(Name="dbo.netsqlazman_ApplicationInsert")]
 		[return: Parameter(DbType="Int")]
 		public int ApplicationInsert([Parameter(Name="StoreId", DbType="Int")] System.Nullable<int> storeId, [Parameter(Name="Name", DbType="NVarChar(255)")] string name, [Parameter(Name="Description", DbType="NVarChar(1024)")] string description)
 		{
@@ -466,7 +466,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.ApplicationPermissionDelete")]
+		[Function(Name="dbo.netsqlazman_ApplicationPermissionDelete")]
 		[return: Parameter(DbType="Int")]
 		public int ApplicationPermissionDelete([Parameter(Name="ApplicationPermissionId", DbType="Int")] System.Nullable<int> applicationPermissionId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -474,7 +474,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.ApplicationPermissionInsert")]
+		[Function(Name="dbo.netsqlazman_ApplicationPermissionInsert")]
 		[return: Parameter(DbType="Int")]
 		public int ApplicationPermissionInsert([Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId, [Parameter(Name="SqlUserOrRole", DbType="NVarChar(128)")] string sqlUserOrRole, [Parameter(Name="IsSqlRole", DbType="Bit")] System.Nullable<bool> isSqlRole, [Parameter(Name="NetSqlAzManFixedServerRole", DbType="TinyInt")] System.Nullable<byte> netSqlAzManFixedServerRole)
 		{
@@ -482,19 +482,19 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.ApplicationPermissions", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_ApplicationPermissions", IsComposable=true)]
 		public IQueryable<ApplicationPermissionsResult> ApplicationPermissions()
 		{
 			return this.CreateMethodCallQuery<ApplicationPermissionsResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 		}
 		
-		[Function(Name="dbo.Applications", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_Applications", IsComposable=true)]
 		public IQueryable<ApplicationsResult> Applications()
 		{
 			return this.CreateMethodCallQuery<ApplicationsResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 		}
 		
-		[Function(Name="dbo.ApplicationUpdate")]
+		[Function(Name="dbo.netsqlazman_ApplicationUpdate")]
 		[return: Parameter(DbType="Int")]
 		public int ApplicationUpdate([Parameter(Name="Name", DbType="NVarChar(255)")] string name, [Parameter(Name="Description", DbType="NVarChar(1024)")] string description, [Parameter(Name="Original_ApplicationId", DbType="Int")] System.Nullable<int> original_ApplicationId)
 		{
@@ -502,7 +502,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.AuthorizationAttributeDelete")]
+		[Function(Name="dbo.netsqlazman_AuthorizationAttributeDelete")]
 		[return: Parameter(DbType="Int")]
 		public int AuthorizationAttributeDelete([Parameter(Name="AuthorizationAttributeId", DbType="Int")] System.Nullable<int> authorizationAttributeId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -510,7 +510,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.AuthorizationAttributeInsert")]
+		[Function(Name="dbo.netsqlazman_AuthorizationAttributeInsert")]
 		[return: Parameter(DbType="Int")]
 		public int AuthorizationAttributeInsert([Parameter(Name="AuthorizationId", DbType="Int")] System.Nullable<int> authorizationId, [Parameter(Name="AttributeKey", DbType="NVarChar(255)")] string attributeKey, [Parameter(Name="AttributeValue", DbType="NVarChar(4000)")] string attributeValue, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -518,13 +518,13 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.AuthorizationAttributes", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_AuthorizationAttributes", IsComposable=true)]
 		public IQueryable<AuthorizationAttributesResult> AuthorizationAttributes()
 		{
 			return this.CreateMethodCallQuery<AuthorizationAttributesResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 		}
 		
-		[Function(Name="dbo.AuthorizationAttributeUpdate")]
+		[Function(Name="dbo.netsqlazman_AuthorizationAttributeUpdate")]
 		[return: Parameter(DbType="Int")]
 		public int AuthorizationAttributeUpdate([Parameter(Name="AttributeKey", DbType="NVarChar(255)")] string attributeKey, [Parameter(Name="AttributeValue", DbType="NVarChar(4000)")] string attributeValue, [Parameter(Name="Original_AuthorizationAttributeId", DbType="Int")] System.Nullable<int> original_AuthorizationAttributeId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -532,7 +532,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.AuthorizationDelete")]
+		[Function(Name="dbo.netsqlazman_AuthorizationDelete")]
 		[return: Parameter(DbType="Int")]
 		public int AuthorizationDelete([Parameter(Name="AuthorizationId", DbType="Int")] System.Nullable<int> authorizationId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -540,7 +540,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.AuthorizationInsert")]
+		[Function(Name="dbo.netsqlazman_AuthorizationInsert")]
 		[return: Parameter(DbType="Int")]
 		public int AuthorizationInsert([Parameter(Name="ItemId", DbType="Int")] System.Nullable<int> itemId, [Parameter(DbType="VarBinary(85)")] System.Data.Linq.Binary ownerSid, [Parameter(DbType="TinyInt")] System.Nullable<byte> ownerSidWhereDefined, [Parameter(DbType="VarBinary(85)")] System.Data.Linq.Binary objectSid, [Parameter(DbType="TinyInt")] System.Nullable<byte> objectSidWhereDefined, [Parameter(Name="AuthorizationType", DbType="TinyInt")] System.Nullable<byte> authorizationType, [Parameter(Name="ValidFrom", DbType="DateTime")] System.Nullable<System.DateTime> validFrom, [Parameter(Name="ValidTo", DbType="DateTime")] System.Nullable<System.DateTime> validTo, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -548,13 +548,13 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.Authorizations", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_Authorizations", IsComposable=true)]
 		public IQueryable<AuthorizationsResult> Authorizations()
 		{
 			return this.CreateMethodCallQuery<AuthorizationsResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 		}
 		
-		[Function(Name="dbo.AuthorizationUpdate")]
+		[Function(Name="dbo.netsqlazman_AuthorizationUpdate")]
 		[return: Parameter(DbType="Int")]
 		public int AuthorizationUpdate([Parameter(Name="ItemId", DbType="Int")] System.Nullable<int> itemId, [Parameter(DbType="VarBinary(85)")] System.Data.Linq.Binary ownerSid, [Parameter(DbType="TinyInt")] System.Nullable<byte> ownerSidWhereDefined, [Parameter(DbType="VarBinary(85)")] System.Data.Linq.Binary objectSid, [Parameter(DbType="TinyInt")] System.Nullable<byte> objectSidWhereDefined, [Parameter(Name="AuthorizationType", DbType="TinyInt")] System.Nullable<byte> authorizationType, [Parameter(Name="ValidFrom", DbType="DateTime")] System.Nullable<System.DateTime> validFrom, [Parameter(Name="ValidTo", DbType="DateTime")] System.Nullable<System.DateTime> validTo, [Parameter(Name="Original_AuthorizationId", DbType="Int")] System.Nullable<int> original_AuthorizationId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -562,7 +562,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.BizRuleDelete")]
+		[Function(Name="dbo.netsqlazman_BizRuleDelete")]
 		[return: Parameter(DbType="Int")]
 		public int BizRuleDelete([Parameter(Name="BizRuleId", DbType="Int")] System.Nullable<int> bizRuleId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -570,7 +570,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.BizRuleInsert")]
+		[Function(Name="dbo.netsqlazman_BizRuleInsert")]
 		[return: Parameter(DbType="Int")]
 		public int BizRuleInsert([Parameter(Name="BizRuleSource", DbType="Text")] string bizRuleSource, [Parameter(Name="BizRuleLanguage", DbType="TinyInt")] System.Nullable<byte> bizRuleLanguage, [Parameter(Name="CompiledAssembly", DbType="Image")] System.Data.Linq.Binary compiledAssembly)
 		{
@@ -578,13 +578,13 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.BizRules", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_BizRules", IsComposable=true)]
 		public IQueryable<BizRulesResult> BizRules()
 		{
 			return this.CreateMethodCallQuery<BizRulesResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 		}
 		
-		[Function(Name="dbo.BizRuleUpdate")]
+		[Function(Name="dbo.netsqlazman_BizRuleUpdate")]
 		[return: Parameter(DbType="Int")]
 		public int BizRuleUpdate([Parameter(Name="BizRuleSource", DbType="Text")] string bizRuleSource, [Parameter(Name="BizRuleLanguage", DbType="TinyInt")] System.Nullable<byte> bizRuleLanguage, [Parameter(Name="CompiledAssembly", DbType="Image")] System.Data.Linq.Binary compiledAssembly, [Parameter(Name="Original_BizRuleId", DbType="Int")] System.Nullable<int> original_BizRuleId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -592,7 +592,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.BuildUserPermissionCache")]
+		[Function(Name="dbo.netsqlazman_BuildUserPermissionCache")]
 		[ResultType(typeof(BuildUserPermissionCacheResult1))]
 		[ResultType(typeof(BuildUserPermissionCacheResult2))]
 		public IMultipleResults BuildUserPermissionCache([Parameter(Name="STORENAME", DbType="NVarChar(255)")] string sTORENAME, [Parameter(Name="APPLICATIONNAME", DbType="NVarChar(255)")] string aPPLICATIONNAME)
@@ -601,21 +601,21 @@ namespace NetSqlAzMan.LINQ
 			return ((IMultipleResults)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.CheckApplicationPermissions", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_CheckApplicationPermissions", IsComposable=true)]
 		[return: Parameter(DbType="Bit")]
 		public System.Nullable<bool> CheckApplicationPermissions([Parameter(Name="APPLICATIONID", DbType="Int")] System.Nullable<int> aPPLICATIONID, [Parameter(Name="ROLEID", DbType="TinyInt")] System.Nullable<byte> rOLEID)
 		{
 			return ((System.Nullable<bool>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aPPLICATIONID, rOLEID).ReturnValue));
 		}
 		
-		[Function(Name="dbo.CheckStorePermissions", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_CheckStorePermissions", IsComposable=true)]
 		[return: Parameter(DbType="Bit")]
 		public System.Nullable<bool> CheckStorePermissions([Parameter(Name="STOREID", DbType="Int")] System.Nullable<int> sTOREID, [Parameter(Name="ROLEID", DbType="TinyInt")] System.Nullable<byte> rOLEID)
 		{
 			return ((System.Nullable<bool>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sTOREID, rOLEID).ReturnValue));
 		}
 		
-		[Function(Name="dbo.ClearBizRule")]
+		[Function(Name="dbo.netsqlazman_ClearBizRule")]
 		[return: Parameter(DbType="Int")]
 		public int ClearBizRule([Parameter(Name="ItemId", DbType="Int")] System.Nullable<int> itemId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -623,7 +623,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.CreateDelegate")]
+		[Function(Name="dbo.netsqlazman_CreateDelegate")]
 		[return: Parameter(DbType="Int")]
 		public int CreateDelegate([Parameter(Name="ITEMID", DbType="Int")] System.Nullable<int> iTEMID, [Parameter(Name="OWNERSID", DbType="VarBinary(85)")] System.Data.Linq.Binary oWNERSID, [Parameter(Name="OWNERSIDWHEREDEFINED", DbType="TinyInt")] System.Nullable<byte> oWNERSIDWHEREDEFINED, [Parameter(Name="DELEGATEDUSERSID", DbType="VarBinary(85)")] System.Data.Linq.Binary dELEGATEDUSERSID, [Parameter(Name="SIDWHEREDEFINED", DbType="TinyInt")] System.Nullable<byte> sIDWHEREDEFINED, [Parameter(Name="AUTHORIZATIONTYPE", DbType="TinyInt")] System.Nullable<byte> aUTHORIZATIONTYPE, [Parameter(Name="VALIDFROM", DbType="DateTime")] System.Nullable<System.DateTime> vALIDFROM, [Parameter(Name="VALIDTO", DbType="DateTime")] System.Nullable<System.DateTime> vALIDTO, [Parameter(Name="AUTHORIZATIONID", DbType="Int")] ref System.Nullable<int> aUTHORIZATIONID)
 		{
@@ -632,7 +632,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.DeleteDelegate")]
+		[Function(Name="dbo.netsqlazman_DeleteDelegate")]
 		[return: Parameter(DbType="Int")]
 		public int DeleteDelegate([Parameter(Name="AUTHORIZATIONID", DbType="Int")] System.Nullable<int> aUTHORIZATIONID, [Parameter(Name="OWNERSID", DbType="VarBinary(85)")] System.Data.Linq.Binary oWNERSID)
 		{
@@ -640,7 +640,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.DirectCheckAccess")]
+		[Function(Name="dbo.netsqlazman_DirectCheckAccess")]
 		[return: Parameter(DbType="Int")]
 		public int DirectCheckAccess([Parameter(Name="STORENAME", DbType="NVarChar(255)")] string sTORENAME, [Parameter(Name="APPLICATIONNAME", DbType="NVarChar(255)")] string aPPLICATIONNAME, [Parameter(Name="ITEMNAME", DbType="NVarChar(255)")] string iTEMNAME, [Parameter(Name="OPERATIONSONLY", DbType="Bit")] System.Nullable<bool> oPERATIONSONLY, [Parameter(Name="TOKEN", DbType="Image")] System.Data.Linq.Binary tOKEN, [Parameter(Name="USERGROUPSCOUNT", DbType="Int")] System.Nullable<int> uSERGROUPSCOUNT, [Parameter(Name="VALIDFOR", DbType="DateTime")] System.Nullable<System.DateTime> vALIDFOR, [Parameter(Name="LDAPPATH", DbType="NVarChar(4000)")] string lDAPPATH, [Parameter(Name="AUTHORIZATION_TYPE", DbType="TinyInt")] ref System.Nullable<byte> aUTHORIZATION_TYPE, [Parameter(Name="RETRIEVEATTRIBUTES", DbType="Bit")] System.Nullable<bool> rETRIEVEATTRIBUTES)
 		{
@@ -649,20 +649,20 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.GetDBUsers", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_GetDBUsers", IsComposable=true)]
 		public IQueryable<GetDBUsersResult> GetDBUsers([Parameter(Name="StoreName", DbType="NVarChar(255)")] string storeName, [Parameter(Name="ApplicationName", DbType="NVarChar(255)")] string applicationName, [Parameter(Name="DBUserSid", DbType="VarBinary(85)")] System.Data.Linq.Binary dBUserSid, [Parameter(Name="DBUserName", DbType="NVarChar(255)")] string dBUserName)
 		{
 			return this.CreateMethodCallQuery<GetDBUsersResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), storeName, applicationName, dBUserSid, dBUserName);
 		}
 		
-		[Function(Name="dbo.GetNameFromSid", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_GetNameFromSid", IsComposable=true)]
 		[return: Parameter(DbType="NVarChar(255)")]
 		public string GetNameFromSid([Parameter(Name="StoreName", DbType="NVarChar(255)")] string storeName, [Parameter(Name="ApplicationName", DbType="NVarChar(255)")] string applicationName, [Parameter(Name="Sid", DbType="VarBinary(85)")] System.Data.Linq.Binary sid, [Parameter(Name="SidWhereDefined", DbType="TinyInt")] System.Nullable<byte> sidWhereDefined)
 		{
 			return ((string)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), storeName, applicationName, sid, sidWhereDefined).ReturnValue));
 		}
 		
-		[Function(Name="dbo.GrantApplicationAccess")]
+		[Function(Name="dbo.netsqlazman_GrantApplicationAccess")]
 		[return: Parameter(DbType="Int")]
 		public int GrantApplicationAccess([Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId, [Parameter(Name="SqlUserOrRole", DbType="NVarChar(128)")] string sqlUserOrRole, [Parameter(Name="NetSqlAzManFixedServerRole", DbType="TinyInt")] System.Nullable<byte> netSqlAzManFixedServerRole)
 		{
@@ -670,7 +670,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.GrantStoreAccess")]
+		[Function(Name="dbo.netsqlazman_GrantStoreAccess")]
 		[return: Parameter(DbType="Int")]
 		public int GrantStoreAccess([Parameter(Name="StoreId", DbType="Int")] System.Nullable<int> storeId, [Parameter(Name="SqlUserOrRole", DbType="NVarChar(128)")] string sqlUserOrRole, [Parameter(Name="NetSqlAzManFixedServerRole", DbType="TinyInt")] System.Nullable<byte> netSqlAzManFixedServerRole)
 		{
@@ -678,14 +678,14 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.IAmAdmin", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_IAmAdmin", IsComposable=true)]
 		[return: Parameter(DbType="Bit")]
 		public System.Nullable<bool> IAmAdmin()
 		{
 			return ((System.Nullable<bool>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod()))).ReturnValue));
 		}
 		
-		[Function(Name="dbo.ItemAttributeDelete")]
+		[Function(Name="dbo.netsqlazman_ItemAttributeDelete")]
 		[return: Parameter(DbType="Int")]
 		public int ItemAttributeDelete([Parameter(Name="ItemAttributeId", DbType="Int")] System.Nullable<int> itemAttributeId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -693,7 +693,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.ItemAttributeInsert")]
+		[Function(Name="dbo.netsqlazman_ItemAttributeInsert")]
 		[return: Parameter(DbType="Int")]
 		public int ItemAttributeInsert([Parameter(Name="ItemId", DbType="Int")] System.Nullable<int> itemId, [Parameter(Name="AttributeKey", DbType="NVarChar(255)")] string attributeKey, [Parameter(Name="AttributeValue", DbType="NVarChar(4000)")] string attributeValue, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -701,13 +701,13 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.ItemAttributes", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_ItemAttributes", IsComposable=true)]
 		public IQueryable<ItemAttributesResult> ItemAttributes()
 		{
 			return this.CreateMethodCallQuery<ItemAttributesResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 		}
 		
-		[Function(Name="dbo.ItemAttributeUpdate")]
+		[Function(Name="dbo.netsqlazman_ItemAttributeUpdate")]
 		[return: Parameter(DbType="Int")]
 		public int ItemAttributeUpdate([Parameter(Name="AttributeKey", DbType="NVarChar(255)")] string attributeKey, [Parameter(Name="AttributeValue", DbType="NVarChar(4000)")] string attributeValue, [Parameter(Name="Original_ItemAttributeId", DbType="Int")] System.Nullable<int> original_ItemAttributeId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -715,7 +715,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.ItemDelete")]
+		[Function(Name="dbo.netsqlazman_ItemDelete")]
 		[return: Parameter(DbType="Int")]
 		public int ItemDelete([Parameter(Name="ItemId", DbType="Int")] System.Nullable<int> itemId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -723,7 +723,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.ItemInsert")]
+		[Function(Name="dbo.netsqlazman_ItemInsert")]
 		[return: Parameter(DbType="Int")]
 		public int ItemInsert([Parameter(Name="Name", DbType="NVarChar(255)")] string name, [Parameter(Name="Description", DbType="NVarChar(1024)")] string description, [Parameter(Name="ItemType", DbType="TinyInt")] System.Nullable<byte> itemType, [Parameter(Name="BizRuleId", DbType="Int")] System.Nullable<int> bizRuleId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -731,19 +731,19 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.Items", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_Items", IsComposable=true)]
 		public IQueryable<ItemsResult> Items()
 		{
 			return this.CreateMethodCallQuery<ItemsResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 		}
 		
-		[Function(Name="dbo.ItemsHierarchy", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_ItemsHierarchy", IsComposable=true)]
 		public IQueryable<ItemsHierarchyResult> ItemsHierarchy()
 		{
 			return this.CreateMethodCallQuery<ItemsHierarchyResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 		}
 		
-		[Function(Name="dbo.ItemsHierarchyDelete")]
+		[Function(Name="dbo.netsqlazman_ItemsHierarchyDelete")]
 		[return: Parameter(DbType="Int")]
 		public int ItemsHierarchyDelete([Parameter(Name="ItemId", DbType="Int")] System.Nullable<int> itemId, [Parameter(Name="MemberOfItemId", DbType="Int")] System.Nullable<int> memberOfItemId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -751,7 +751,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.ItemsHierarchyInsert")]
+		[Function(Name="dbo.netsqlazman_ItemsHierarchyInsert")]
 		[return: Parameter(DbType="Int")]
 		public int ItemsHierarchyInsert([Parameter(Name="ItemId", DbType="Int")] System.Nullable<int> itemId, [Parameter(Name="MemberOfItemId", DbType="Int")] System.Nullable<int> memberOfItemId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -759,7 +759,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.ItemUpdate")]
+		[Function(Name="dbo.netsqlazman_ItemUpdate")]
 		[return: Parameter(DbType="Int")]
 		public int ItemUpdate([Parameter(Name="Name", DbType="NVarChar(255)")] string name, [Parameter(Name="Description", DbType="NVarChar(1024)")] string description, [Parameter(Name="ItemType", DbType="TinyInt")] System.Nullable<byte> itemType, [Parameter(Name="Original_ItemId", DbType="Int")] System.Nullable<int> original_ItemId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -767,21 +767,21 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.MergeAuthorizations", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_MergeAuthorizations", IsComposable=true)]
 		[return: Parameter(DbType="TinyInt")]
 		public System.Nullable<byte> MergeAuthorizations([Parameter(Name="AUTH1", DbType="TinyInt")] System.Nullable<byte> aUTH1, [Parameter(Name="AUTH2", DbType="TinyInt")] System.Nullable<byte> aUTH2)
 		{
 			return ((System.Nullable<byte>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aUTH1, aUTH2).ReturnValue));
 		}
 		
-		[Function(Name="dbo.NetSqlAzMan_DBVersion", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_DBVersion", IsComposable=true)]
 		[return: Parameter(DbType="NVarChar(200)")]
 		public string NetSqlAzMan_DBVersion()
 		{
 			return ((string)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod()))).ReturnValue));
 		}
 		
-		[Function(Name="dbo.ReloadBizRule")]
+		[Function(Name="dbo.netsqlazman_ReloadBizRule")]
 		[return: Parameter(DbType="Int")]
 		public int ReloadBizRule([Parameter(Name="ItemId", DbType="Int")] System.Nullable<int> itemId, [Parameter(Name="BizRuleId", DbType="Int")] System.Nullable<int> bizRuleId, [Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId)
 		{
@@ -789,7 +789,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.RevokeApplicationAccess")]
+		[Function(Name="dbo.netsqlazman_RevokeApplicationAccess")]
 		[return: Parameter(DbType="Int")]
 		public int RevokeApplicationAccess([Parameter(Name="ApplicationId", DbType="Int")] System.Nullable<int> applicationId, [Parameter(Name="SqlUserOrRole", DbType="NVarChar(128)")] string sqlUserOrRole, [Parameter(Name="NetSqlAzManFixedServerRole", DbType="TinyInt")] System.Nullable<byte> netSqlAzManFixedServerRole)
 		{
@@ -797,7 +797,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.RevokeStoreAccess")]
+		[Function(Name="dbo.netsqlazman_RevokeStoreAccess")]
 		[return: Parameter(DbType="Int")]
 		public int RevokeStoreAccess([Parameter(Name="StoreId", DbType="Int")] System.Nullable<int> storeId, [Parameter(Name="SqlUserOrRole", DbType="NVarChar(128)")] string sqlUserOrRole, [Parameter(Name="NetSqlAzManFixedServerRole", DbType="TinyInt")] System.Nullable<byte> netSqlAzManFixedServerRole)
 		{
@@ -805,7 +805,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.StoreAttributeDelete")]
+		[Function(Name="dbo.netsqlazman_StoreAttributeDelete")]
 		[return: Parameter(DbType="Int")]
 		public int StoreAttributeDelete([Parameter(Name="StoreId", DbType="Int")] System.Nullable<int> storeId, [Parameter(Name="StoreAttributeId", DbType="Int")] System.Nullable<int> storeAttributeId)
 		{
@@ -813,7 +813,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.StoreAttributeInsert")]
+		[Function(Name="dbo.netsqlazman_StoreAttributeInsert")]
 		[return: Parameter(DbType="Int")]
 		public int StoreAttributeInsert([Parameter(Name="StoreId", DbType="Int")] System.Nullable<int> storeId, [Parameter(Name="AttributeKey", DbType="NVarChar(255)")] string attributeKey, [Parameter(Name="AttributeValue", DbType="NVarChar(4000)")] string attributeValue)
 		{
@@ -821,13 +821,13 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.StoreAttributes", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_StoreAttributes", IsComposable=true)]
 		public IQueryable<StoreAttributesResult> StoreAttributes()
 		{
 			return this.CreateMethodCallQuery<StoreAttributesResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 		}
 		
-		[Function(Name="dbo.StoreAttributeUpdate")]
+		[Function(Name="dbo.netsqlazman_StoreAttributeUpdate")]
 		[return: Parameter(DbType="Int")]
 		public int StoreAttributeUpdate([Parameter(Name="StoreId", DbType="Int")] System.Nullable<int> storeId, [Parameter(Name="AttributeKey", DbType="NVarChar(255)")] string attributeKey, [Parameter(Name="AttributeValue", DbType="NVarChar(4000)")] string attributeValue, [Parameter(Name="Original_StoreAttributeId", DbType="Int")] System.Nullable<int> original_StoreAttributeId)
 		{
@@ -835,7 +835,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.StoreDelete")]
+		[Function(Name="dbo.netsqlazman_StoreDelete")]
 		[return: Parameter(DbType="Int")]
 		public int StoreDelete([Parameter(Name="Original_StoreId", DbType="Int")] System.Nullable<int> original_StoreId)
 		{
@@ -843,7 +843,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.StoreGroupDelete")]
+		[Function(Name="dbo.netsqlazman_StoreGroupDelete")]
 		[return: Parameter(DbType="Int")]
 		public int StoreGroupDelete([Parameter(Name="Original_StoreGroupId", DbType="Int")] System.Nullable<int> original_StoreGroupId, [Parameter(Name="StoreId", DbType="Int")] System.Nullable<int> storeId)
 		{
@@ -851,7 +851,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.StoreGroupInsert")]
+		[Function(Name="dbo.netsqlazman_StoreGroupInsert")]
 		[return: Parameter(DbType="Int")]
 		public int StoreGroupInsert([Parameter(Name="StoreId", DbType="Int")] System.Nullable<int> storeId, [Parameter(DbType="VarBinary(85)")] System.Data.Linq.Binary objectSid, [Parameter(Name="Name", DbType="NVarChar(255)")] string name, [Parameter(Name="Description", DbType="NVarChar(1024)")] string description, [Parameter(Name="LDapQuery", DbType="NVarChar(4000)")] string lDapQuery, [Parameter(Name="GroupType", DbType="TinyInt")] System.Nullable<byte> groupType)
 		{
@@ -859,7 +859,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.StoreGroupMemberDelete")]
+		[Function(Name="dbo.netsqlazman_StoreGroupMemberDelete")]
 		[return: Parameter(DbType="Int")]
 		public int StoreGroupMemberDelete([Parameter(Name="StoreId", DbType="Int")] System.Nullable<int> storeId, [Parameter(Name="StoreGroupMemberId", DbType="Int")] System.Nullable<int> storeGroupMemberId)
 		{
@@ -867,7 +867,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.StoreGroupMemberInsert")]
+		[Function(Name="dbo.netsqlazman_StoreGroupMemberInsert")]
 		[return: Parameter(DbType="Int")]
 		public int StoreGroupMemberInsert([Parameter(Name="StoreId", DbType="Int")] System.Nullable<int> storeId, [Parameter(Name="StoreGroupId", DbType="Int")] System.Nullable<int> storeGroupId, [Parameter(DbType="VarBinary(85)")] System.Data.Linq.Binary objectSid, [Parameter(Name="WhereDefined", DbType="TinyInt")] System.Nullable<byte> whereDefined, [Parameter(Name="IsMember", DbType="Bit")] System.Nullable<bool> isMember)
 		{
@@ -875,13 +875,13 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.StoreGroupMembers", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_StoreGroupMembers", IsComposable=true)]
 		public IQueryable<StoreGroupMembersResult> StoreGroupMembers()
 		{
 			return this.CreateMethodCallQuery<StoreGroupMembersResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 		}
 		
-		[Function(Name="dbo.StoreGroupMemberUpdate")]
+		[Function(Name="dbo.netsqlazman_StoreGroupMemberUpdate")]
 		[return: Parameter(DbType="Int")]
 		public int StoreGroupMemberUpdate([Parameter(Name="StoreId", DbType="Int")] System.Nullable<int> storeId, [Parameter(Name="StoreGroupId", DbType="Int")] System.Nullable<int> storeGroupId, [Parameter(DbType="VarBinary(85)")] System.Data.Linq.Binary objectSid, [Parameter(Name="WhereDefined", DbType="TinyInt")] System.Nullable<byte> whereDefined, [Parameter(Name="IsMember", DbType="Bit")] System.Nullable<bool> isMember, [Parameter(Name="Original_StoreGroupMemberId", DbType="Int")] System.Nullable<int> original_StoreGroupMemberId)
 		{
@@ -889,13 +889,13 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.StoreGroups", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_StoreGroups", IsComposable=true)]
 		public IQueryable<StoreGroupsResult> StoreGroups()
 		{
 			return this.CreateMethodCallQuery<StoreGroupsResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 		}
 		
-		[Function(Name="dbo.StoreGroupUpdate")]
+		[Function(Name="dbo.netsqlazman_StoreGroupUpdate")]
 		[return: Parameter(DbType="Int")]
 		public int StoreGroupUpdate([Parameter(Name="StoreId", DbType="Int")] System.Nullable<int> storeId, [Parameter(DbType="VarBinary(85)")] System.Data.Linq.Binary objectSid, [Parameter(Name="Name", DbType="NVarChar(255)")] string name, [Parameter(Name="Description", DbType="NVarChar(1024)")] string description, [Parameter(Name="LDapQuery", DbType="NVarChar(4000)")] string lDapQuery, [Parameter(Name="GroupType", DbType="TinyInt")] System.Nullable<byte> groupType, [Parameter(Name="Original_StoreGroupId", DbType="Int")] System.Nullable<int> original_StoreGroupId)
 		{
@@ -903,7 +903,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.StoreInsert")]
+		[Function(Name="dbo.netsqlazman_StoreInsert")]
 		[return: Parameter(DbType="Int")]
 		public int StoreInsert([Parameter(Name="Name", DbType="NVarChar(255)")] string name, [Parameter(Name="Description", DbType="NVarChar(1024)")] string description)
 		{
@@ -911,7 +911,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.StorePermissionDelete")]
+		[Function(Name="dbo.netsqlazman_StorePermissionDelete")]
 		[return: Parameter(DbType="Int")]
 		public int StorePermissionDelete([Parameter(Name="StorePermissionId", DbType="Int")] System.Nullable<int> storePermissionId, [Parameter(Name="StoreId", DbType="Int")] System.Nullable<int> storeId)
 		{
@@ -919,7 +919,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.StorePermissionInsert")]
+		[Function(Name="dbo.netsqlazman_StorePermissionInsert")]
 		[return: Parameter(DbType="Int")]
 		public int StorePermissionInsert([Parameter(Name="StoreId", DbType="Int")] System.Nullable<int> storeId, [Parameter(Name="SqlUserOrRole", DbType="NVarChar(128)")] string sqlUserOrRole, [Parameter(Name="IsSqlRole", DbType="Bit")] System.Nullable<bool> isSqlRole, [Parameter(Name="NetSqlAzManFixedServerRole", DbType="TinyInt")] System.Nullable<byte> netSqlAzManFixedServerRole)
 		{
@@ -927,19 +927,19 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.StorePermissions", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_StorePermissions", IsComposable=true)]
 		public IQueryable<StorePermissionsResult> StorePermissions()
 		{
 			return this.CreateMethodCallQuery<StorePermissionsResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 		}
 		
-		[Function(Name="dbo.Stores", IsComposable=true)]
+		[Function(Name="dbo.netsqlazman_Stores", IsComposable=true)]
 		public IQueryable<StoresResult> Stores()
 		{
 			return this.CreateMethodCallQuery<StoresResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 		}
 		
-		[Function(Name="dbo.StoreUpdate")]
+		[Function(Name="dbo.netsqlazman_StoreUpdate")]
 		[return: Parameter(DbType="Int")]
 		public int StoreUpdate([Parameter(Name="Name", DbType="NVarChar(255)")] string name, [Parameter(Name="Description", DbType="NVarChar(1024)")] string description, [Parameter(Name="Original_StoreId", DbType="Int")] System.Nullable<int> original_StoreId)
 		{
@@ -947,7 +947,7 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.CheckAccess")]
+		[Function(Name="dbo.netsqlazman_CheckAccess")]
 		public int CheckAccess([Parameter(Name="ITEMID", DbType="Int")] System.Nullable<int> iTEMID, [Parameter(Name="USERSID", DbType="VarBinary(85)")] System.Data.Linq.Binary uSERSID, [Parameter(Name="VALIDFOR", DbType="DateTime")] System.Nullable<System.DateTime> vALIDFOR, [Parameter(Name="LDAPPATH", DbType="NVarChar(4000)")] string lDAPPATH, [Parameter(Name="AUTHORIZATION_TYPE", DbType="TinyInt")] ref System.Nullable<byte> aUTHORIZATION_TYPE, [Parameter(Name="NETSQLAZMANMODE", DbType="Bit")] System.Nullable<bool> nETSQLAZMANMODE, [Parameter(Name="RETRIEVEATTRIBUTES", DbType="Bit")] System.Nullable<bool> rETRIEVEATTRIBUTES)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iTEMID, uSERSID, vALIDFOR, lDAPPATH, aUTHORIZATION_TYPE, nETSQLAZMANMODE, rETRIEVEATTRIBUTES);
@@ -955,14 +955,14 @@ namespace NetSqlAzMan.LINQ
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.helplogins")]
+		[Function(Name="dbo.netsqlazman_helplogins")]
 		public int helplogins([Parameter(DbType="NVarChar(128)")] string rolename)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rolename);
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.ExecuteLDAPQuery")]
+		[Function(Name="dbo.netsqlazman_ExecuteLDAPQuery")]
 		public int ExecuteLDAPQuery([Parameter(Name="LDAPPATH", DbType="NVarChar(4000)")] string lDAPPATH, [Parameter(Name="LDAPQUERY", DbType="NVarChar(4000)")] string lDAPQUERY, [Parameter(DbType="Int")] ref System.Nullable<int> members_cur)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), lDAPPATH, lDAPQUERY, members_cur);
@@ -971,7 +971,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.ApplicationAttributesTable")]
+	[Table(Name="dbo.netsqlazman_ApplicationAttributesTable")]
 	public partial class ApplicationAttributesTable : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -1146,7 +1146,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.ApplicationAttributesView")]
+	[Table(Name="dbo.netsqlazman_ApplicationAttributesView")]
 	public partial class ApplicationAttributesView
 	{
 		
@@ -1281,7 +1281,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.ApplicationGroupMembersTable")]
+	[Table(Name="dbo.netsqlazman_ApplicationGroupMembersTable")]
 	public partial class ApplicationGroupMembersTable : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -1480,7 +1480,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.ApplicationGroupMembersView")]
+	[Table(Name="dbo.netsqlazman_ApplicationGroupMembersView")]
 	public partial class ApplicationGroupMembersView
 	{
 		
@@ -1651,7 +1651,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.ApplicationGroupsTable")]
+	[Table(Name="dbo.netsqlazman_ApplicationGroupsTable")]
 	public partial class ApplicationGroupsTable : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -1926,7 +1926,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.ApplicationPermissionsTable")]
+	[Table(Name="dbo.netsqlazman_ApplicationPermissionsTable")]
 	public partial class ApplicationPermissionsTable : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -2125,7 +2125,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.ApplicationsTable")]
+	[Table(Name="dbo.netsqlazman_ApplicationsTable")]
 	public partial class ApplicationsTable : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -2412,7 +2412,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.ApplicationsView")]
+	[Table(Name="dbo.netsqlazman_ApplicationsView")]
 	public partial class ApplicationsView
 	{
 		
@@ -2529,7 +2529,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.AuthorizationAttributesTable")]
+	[Table(Name="dbo.netsqlazman_AuthorizationAttributesTable")]
 	public partial class AuthorizationAttributesTable : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -2704,7 +2704,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.AuthorizationAttributesView")]
+	[Table(Name="dbo.netsqlazman_AuthorizationAttributesView")]
 	public partial class AuthorizationAttributesView
 	{
 		
@@ -2929,7 +2929,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.AuthorizationsTable")]
+	[Table(Name="dbo.netsqlazman_AuthorizationsTable")]
 	public partial class AuthorizationsTable : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -3252,7 +3252,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.AuthorizationView")]
+	[Table(Name="dbo.netsqlazman_AuthorizationView")]
 	public partial class AuthorizationView
 	{
 		
@@ -3423,7 +3423,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.BizRulesTable")]
+	[Table(Name="dbo.netsqlazman_BizRulesTable")]
 	public partial class BizRulesTable : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -3585,7 +3585,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.BizRuleView")]
+	[Table(Name="dbo.netsqlazman_BizRuleView")]
 	public partial class BizRuleView
 	{
 		
@@ -3738,7 +3738,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.DatabaseUsers")]
+	[Table(Name="dbo.netsqlazman_DatabaseUsers")]
 	public partial class DatabaseUsers
 	{
 		
@@ -3783,7 +3783,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.ItemAttributesTable")]
+	[Table(Name="dbo.netsqlazman_ItemAttributesTable")]
 	public partial class ItemAttributesTable : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -3958,7 +3958,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.ItemAttributesView")]
+	[Table(Name="dbo.netsqlazman_ItemAttributesView")]
 	public partial class ItemAttributesView
 	{
 		
@@ -4111,7 +4111,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.ItemsHierarchyTable")]
+	[Table(Name="dbo.netsqlazman_ItemsHierarchyTable")]
 	public partial class ItemsHierarchyTable : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -4197,7 +4197,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.ItemsHierarchyView")]
+	[Table(Name="dbo.netsqlazman_ItemsHierarchyView")]
 	public partial class ItemsHierarchyView
 	{
 		
@@ -4386,7 +4386,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.ItemsTable")]
+	[Table(Name="dbo.netsqlazman_ItemsTable")]
 	public partial class ItemsTable : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -4706,7 +4706,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.LogTable")]
+	[Table(Name="dbo.netsqlazman_LogTable")]
 	public partial class LogTable : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -5008,7 +5008,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.Settings")]
+	[Table(Name="dbo.netsqlazman_Settings")]
 	public partial class Settings : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -5094,7 +5094,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.StoreAttributesTable")]
+	[Table(Name="dbo.netsqlazman_StoreAttributesTable")]
 	public partial class StoreAttributesTable : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -5269,7 +5269,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.StoreAttributesView")]
+	[Table(Name="dbo.netsqlazman_StoreAttributesView")]
 	public partial class StoreAttributesView
 	{
 		
@@ -5386,7 +5386,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.StoreGroupMembersTable")]
+	[Table(Name="dbo.netsqlazman_StoreGroupMembersTable")]
 	public partial class StoreGroupMembersTable : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -5585,7 +5585,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.StoreGroupMembersView")]
+	[Table(Name="dbo.netsqlazman_StoreGroupMembersView")]
 	public partial class StoreGroupMembersView
 	{
 		
@@ -5720,7 +5720,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.StoreGroupsTable")]
+	[Table(Name="dbo.netsqlazman_StoreGroupsTable")]
 	public partial class StoreGroupsTable : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -5995,7 +5995,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.StorePermissionsTable")]
+	[Table(Name="dbo.netsqlazman_StorePermissionsTable")]
 	public partial class StorePermissionsTable : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -6194,7 +6194,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.StoresTable")]
+	[Table(Name="dbo.netsqlazman_StoresTable")]
 	public partial class StoresTable : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -6416,7 +6416,7 @@ namespace NetSqlAzMan.LINQ
 		}
 	}
 	
-	[Table(Name="dbo.UsersDemo")]
+	[Table(Name="dbo.netsqlazman_UsersDemo")]
 	public partial class UsersDemo : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		

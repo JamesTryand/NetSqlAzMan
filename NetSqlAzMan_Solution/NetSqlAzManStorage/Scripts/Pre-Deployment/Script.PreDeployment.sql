@@ -9,6 +9,8 @@
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
+:r .\Welcome.sql
+
 :r .\Logins.sql
 
 :r .\LinkedServers.sql

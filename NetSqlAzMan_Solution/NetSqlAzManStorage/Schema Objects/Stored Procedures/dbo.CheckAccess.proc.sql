@@ -83,8 +83,8 @@ DEALLOCATE checkaccessonitem_cur
 --CHECK ACCESS FOR USER GROUPS AUTHORIZATIONS
 DECLARE usergroupsauthz_cur CURSOR LOCAL FAST_FORWARD READ_ONLY FOR 
 	SELECT AuthorizationType, AuthorizationID
-	FROM dbo.[netsqlazman_AuthorizationsTable] Authorizations INNER JOIN #USERGROUPS usergroups
-	ON Authorizations.objectSid = #USERGROUPS.objectSid WHERE 
+	FROM dbo.[netsqlazman_AuthorizationsTable] Authorizations INNER JOIN #USERGROUPS as usergroups
+	ON Authorizations.objectSid = usergroups.objectSid WHERE 
 	ItemId = @ITEMID AND
 	(ValidFrom IS NULL AND ValidTo IS NULL OR
 	@VALIDFOR >= ValidFrom  AND ValidTo IS NULL OR
@@ -151,7 +151,7 @@ BEGIN
 	DEALLOCATE @members_cur
 
 	IF EXISTS(SELECT * FROM @GROUPSIDMEMBERS WHERE objectSid = @USERSID) OR
-	     EXISTS(SELECT * FROM @GROUPSIDMEMBERS groupsidmembers INNER JOIN #USERGROUPS usergroups ON groupsidmembers.objectSid = #USERGROUPS.objectSid)
+	     EXISTS(SELECT * FROM @GROUPSIDMEMBERS groupsidmembers INNER JOIN #USERGROUPS as usergroups ON groupsidmembers.objectSid = usergroups.objectSid)
 	BEGIN
 	-- user is a non-member
 	SET @ISMEMBER = 0
@@ -171,7 +171,7 @@ BEGIN
 		DEALLOCATE @members_cur
 
 		IF EXISTS (SELECT * FROM @GROUPSIDMEMBERS WHERE objectSid = @USERSID) OR
-		     EXISTS (SELECT * FROM @GROUPSIDMEMBERS groupsidmembers INNER JOIN #USERGROUPS usergroups ON groupsidmembers.objectSid = #USERGROUPS.ObjectSId)
+		     EXISTS (SELECT * FROM @GROUPSIDMEMBERS groupsidmembers INNER JOIN #USERGROUPS usergroups ON groupsidmembers.objectSid = usergroups.ObjectSId)
 		BEGIN
 		-- user is a member
 		SET @ISMEMBER = 1
@@ -208,7 +208,7 @@ BEGIN
 	DEALLOCATE @members_cur
 
 	IF EXISTS(SELECT * FROM @GROUPSIDMEMBERS WHERE objectSid = @USERSID) OR
-	     EXISTS (SELECT* FROM @GROUPSIDMEMBERS groupsidmembers INNER JOIN #USERGROUPS usergroups ON groupsidmembers.objectSid = #USERGROUPS.objectSid)
+	     EXISTS (SELECT* FROM @GROUPSIDMEMBERS groupsidmembers INNER JOIN #USERGROUPS as usergroups ON groupsidmembers.objectSid = usergroups.objectSid)
 	BEGIN	-- user is a non-member
 	SET @ISMEMBER = 0
 	END
@@ -227,7 +227,7 @@ BEGIN
 		DEALLOCATE @members_cur
 
 		IF EXISTS(SELECT * FROM @GROUPSIDMEMBERS WHERE objectSid = @USERSID) OR
-		     EXISTS (SELECT * FROM @GROUPSIDMEMBERS groupsidmembers INNER JOIN #USERGROUPS usergroups ON groupsidmembers.objectSid = #USERGROUPS.objectSid)
+		     EXISTS (SELECT * FROM @GROUPSIDMEMBERS groupsidmembers INNER JOIN #USERGROUPS as usergroups ON groupsidmembers.objectSid = usergroups.objectSid)
 		BEGIN
 		-- user is a member
 		SET @ISMEMBER = 1

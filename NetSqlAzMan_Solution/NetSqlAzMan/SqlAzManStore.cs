@@ -973,7 +973,7 @@ namespace NetSqlAzMan
                 roleName = "NetSqlAzMan_Managers";
             SqlCommand cmd = (SqlCommand)this.db.Connection.CreateCommand();
             cmd.Transaction = (SqlTransaction)this.db.Transaction;
-            cmd.CommandText = "dbo.helplogins";
+            cmd.CommandText = "dbo.netsqlazman_helplogins";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@rolename", roleName);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
