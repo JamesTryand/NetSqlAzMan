@@ -31,6 +31,17 @@ namespace NetSqlAzMan.SnapIn.Forms
             {
                 clonedImageList.Images.Add((Image)image.Clone());
             }
+            if (this.applications != null && this.applications.Length > 0)
+            { 
+                //Refresh items cache 
+                foreach (IAzManApplication app in this.applications)
+                {
+                    if (app as SqlAzManApplication != null)
+                    {
+                        ((SqlAzManApplication)app).GetItems();
+                    }
+                }
+            }
             this.itemsHierarchyTreeView.ImageList = clonedImageList;
             /*Application.DoEvents();*/
             NetSqlAzMan.SnapIn.Globalization.ResourcesManager.CollectResources(this);
