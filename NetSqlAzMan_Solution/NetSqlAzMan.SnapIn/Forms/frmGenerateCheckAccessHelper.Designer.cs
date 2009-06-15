@@ -302,8 +302,9 @@ namespace NetSqlAzMan.SnapIn.Forms
             this.Name = "frmGenerateCheckAccessHelper";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Generate CheckAccessHelper Class";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmNetSqlAzManBase_FormClosing);
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmNetSqlAzManBase_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmNetSqlAzManBase_FormClosing);
             this.gbSourceCode.ResumeLayout(false);
             this.gbSourceCode.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

@@ -587,8 +587,8 @@ namespace Prova.BizRules
         private void btnGenerateCheckAccessHelper_Click(object sender, EventArgs e)
         {
             IAzManStorage storage = new SqlAzManStorage("data source=eidosis4-afr;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
-            IAzManApplication application = storage["Store Stress Test"]["Application0"];
-            CodeCompileUnit ccu = NetSqlAzMan.CodeDom.CodeDomGenerator.GenerateCheckAccessHelperClass("MyApplication.NetSqlHelper", "CheckAccessHelper", true, true, application, NetSqlAzMan.CodeDom.Language.CSharp);
+            IAzManApplication application = storage["Eidos"]["DB Persone"];
+            CodeCompileUnit ccu = NetSqlAzMan.CodeDom.CodeDomGenerator.GenerateItemConstants("MyApplication.NetSqlHelper", true, true, application, NetSqlAzMan.CodeDom.Language.CSharp);
             string code = NetSqlAzMan.CodeDom.CodeDomGenerator.GenerateSourceCode(ccu, NetSqlAzMan.CodeDom.Language.CSharp);
             this.textBox1.Text = code;
         }

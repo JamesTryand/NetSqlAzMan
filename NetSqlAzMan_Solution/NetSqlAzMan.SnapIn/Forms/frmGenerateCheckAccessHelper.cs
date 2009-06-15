@@ -100,8 +100,12 @@ namespace NetSqlAzMan.SnapIn.Forms
                 this.HourGlass(true);
                 this.txtSourceCode.Text = String.Empty;
                 this.btnGenerate.Enabled = false;
-                CodeCompileUnit ccu = NetSqlAzMan.CodeDom.CodeDomGenerator.GenerateCheckAccessHelperClass(this.txtNamespace.Text, this.txtClassName.Text, this.chkAllowRoles.Checked, this.chkAllowTasks.Checked, this.application, this.rbCSharp.Checked ? NetSqlAzMan.CodeDom.Language.CSharp : NetSqlAzMan.CodeDom.Language.VB);
-                this.txtSourceCode.Text = NetSqlAzMan.CodeDom.CodeDomGenerator.GenerateSourceCode(ccu, this.rbCSharp.Checked ? NetSqlAzMan.CodeDom.Language.CSharp : NetSqlAzMan.CodeDom.Language.VB);
+                CodeCompileUnit ccu1 = NetSqlAzMan.CodeDom.CodeDomGenerator.GenerateCheckAccessHelperClass(this.txtNamespace.Text, this.txtClassName.Text, this.chkAllowRoles.Checked, this.chkAllowTasks.Checked, this.application, this.rbCSharp.Checked ? NetSqlAzMan.CodeDom.Language.CSharp : NetSqlAzMan.CodeDom.Language.VB);
+                CodeCompileUnit ccu2 = NetSqlAzMan.CodeDom.CodeDomGenerator.GenerateItemConstants(this.txtNamespace.Text, this.chkAllowRoles.Checked, this.chkAllowTasks.Checked, this.application, this.rbCSharp.Checked ? NetSqlAzMan.CodeDom.Language.CSharp : NetSqlAzMan.CodeDom.Language.VB);
+                this.txtSourceCode.Text =
+                    NetSqlAzMan.CodeDom.CodeDomGenerator.GenerateSourceCode(ccu1, this.rbCSharp.Checked ? NetSqlAzMan.CodeDom.Language.CSharp : NetSqlAzMan.CodeDom.Language.VB)
+                    + "\r\n" +
+                    NetSqlAzMan.CodeDom.CodeDomGenerator.GenerateSourceCode(ccu2, this.rbCSharp.Checked ? NetSqlAzMan.CodeDom.Language.CSharp : NetSqlAzMan.CodeDom.Language.VB);
             }
             catch (Exception ex)
             {
