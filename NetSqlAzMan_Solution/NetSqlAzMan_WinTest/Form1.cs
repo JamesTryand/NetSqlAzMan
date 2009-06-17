@@ -20,7 +20,7 @@ using NetSqlAzMan;
 using NetSqlAzMan.SnapIn.Forms;
 using System.Security.Principal;
 using NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker;
-using CheckAccessNamespace;
+//using CheckAccessNamespace;
 using NetSqlAzMan.Cache;
 using System.Linq;
 using System.Diagnostics;
