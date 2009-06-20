@@ -230,12 +230,15 @@ namespace NetSqlAzMan.Cache
             {
                 //LDAP Group
                 var ldapQueryResult = storeGroup.ExecuteLDAPQuery();
-                IAzManSid[] membersResults = new IAzManSid[ldapQueryResult.Count];
-                for (int i = 0; i < ldapQueryResult.Count; i++)
+                if (ldapQueryResult != null)
                 {
-                    membersResults[i] = new SqlAzManSID((byte[])ldapQueryResult[i].Properties["objectSid"][0]);
+                    IAzManSid[] membersResults = new IAzManSid[ldapQueryResult.Count];
+                    for (int i = 0; i < ldapQueryResult.Count; i++)
+                    {
+                        membersResults[i] = new SqlAzManSID((byte[])ldapQueryResult[i].Properties["objectSid"][0]);
+                    }
+                    this.ldapQueryResults.Add(key, membersResults);
                 }
-                this.ldapQueryResults.Add(key, membersResults);
             }
             return (IAzManSid[])this.ldapQueryResults[key];
         }
@@ -246,12 +249,15 @@ namespace NetSqlAzMan.Cache
             {
                 //LDAP Group
                 var ldapQueryResult = applicationGroup.ExecuteLDAPQuery();
-                IAzManSid[] membersResults = new IAzManSid[ldapQueryResult.Count];
-                for (int i = 0; i < ldapQueryResult.Count; i++)
+                if (ldapQueryResult != null)
                 {
-                    membersResults[i] = new SqlAzManSID((byte[])ldapQueryResult[i].Properties["objectSid"][0]);
+                    IAzManSid[] membersResults = new IAzManSid[ldapQueryResult.Count];
+                    for (int i = 0; i < ldapQueryResult.Count; i++)
+                    {
+                        membersResults[i] = new SqlAzManSID((byte[])ldapQueryResult[i].Properties["objectSid"][0]);
+                    }
+                    this.ldapQueryResults.Add(key, membersResults);
                 }
-                this.ldapQueryResults.Add(key, membersResults);
             }
             return (IAzManSid[])this.ldapQueryResults[key];
         }

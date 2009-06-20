@@ -169,7 +169,7 @@ namespace Prova.BizRules
                 //AuthorizationType auth1 = storage.CheckAccess("Eidos", "DB Persone", "Accesso", dbUser1, DateTime.Now, false);
                 //AuthorizationType auth2 = storage.CheckAccess("Eidos", "DB Persone", "Accesso", dbUser1, DateTime.Now, false);
                 //string cs = "data source=.\\sql2005;Initial Catalog=NetSqlAzManStorage;Integrated Security=SSPI";
-                string cs = "data source=.\\sqlexpress;Initial Catalog=NetSqlAzManStorage;Integrated Security=SSPI";
+                string cs = "data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security=SSPI";
                 var ctx = new[] { new KeyValuePair<string, object>("Value1", "111"), new KeyValuePair<string, object>("Value2", "222") };
                 IAzManStorage storage = new SqlAzManStorage(cs);
                 //DateTime dt = new DateTime(2009, 05, 01);
@@ -187,7 +187,7 @@ namespace Prova.BizRules
                 //t1 = DateTime.Now;
                 //UserPermissionCache uupc = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, true);
                 t2 = DateTime.Now;
-                //MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
+                MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
                 //return;
                 //t1 = DateTime.Now;
                 //UserPermissionCache upcTest = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, true, ctx);
