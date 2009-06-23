@@ -94,14 +94,15 @@ namespace NetSqlAzMan.Cache.Service
                 TimeSpan tsFreq = new TimeSpan(int.Parse(expirationValue.Split(' ')[0]), int.Parse(expirationValue.Split(' ')[1]), int.Parse(expirationValue.Split(' ')[2]), int.Parse(expirationValue.Split(' ')[3]));
                 this.nextExecution = DateTime.Now.Add(tsFreq);
                 TimeSpan delta = this.nextExecution.Subtract(DateTime.Now);
-                if (delta.TotalMilliseconds > int.MaxValue)
+                double d = delta.TotalMilliseconds;
+                if (d > int.MaxValue)
                 {
                     this.timer1.Interval = int.MaxValue;
                 }
                 else
                 {
-                    if (delta.TotalMilliseconds >= 500)
-                        this.timer1.Interval = (int)delta.TotalMilliseconds;
+                    if (d >= 500)
+                        this.timer1.Interval = d;
                     else
                         this.timer1.Interval = 500D;
                 }
@@ -170,13 +171,14 @@ namespace NetSqlAzMan.Cache.Service
                 if (DateTime.Now < this.nextExecution && !this.faultState)
                 {
                     TimeSpan delta = this.nextExecution.Subtract(DateTime.Now);
-                    if (delta.TotalMilliseconds > int.MaxValue)
+                    double d = delta.TotalMilliseconds;
+                    if (d > int.MaxValue)
                         this.timer1.Interval = int.MaxValue;
                     else
                     {
-                        if (delta.TotalMilliseconds > 0)
+                        if (d > 0)
                         {
-                            this.timer1.Interval = (int)delta.TotalMilliseconds;
+                            this.timer1.Interval = d;
                         }
                     }
                 }
