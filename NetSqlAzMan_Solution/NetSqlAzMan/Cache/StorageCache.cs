@@ -17,12 +17,21 @@ namespace NetSqlAzMan.Cache
     /// Storage Cache class able to cache all Storage data without querying the DB Storage.
     /// </summary>
     [Serializable()]
-    public sealed class StorageCache
+    public class StorageCache
     {
         #region Fields
-        private SqlAzManStorage storage;
-        private Hashtable ldapQueryResults;
-        private Hashtable itemResultCache;
+        /// <summary>
+        /// The SqlAzMan Storage
+        /// </summary>
+        protected SqlAzManStorage storage;
+        /// <summary>
+        /// LDAP Query Results
+        /// </summary>
+        protected Hashtable ldapQueryResults;
+        /// <summary>
+        /// Item Result Cache
+        /// </summary>
+        protected Hashtable itemResultCache;
         #endregion Fields
         #region Properties
         /// <summary>

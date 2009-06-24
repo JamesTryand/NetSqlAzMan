@@ -21,20 +21,53 @@ namespace NetSqlAzMan.Cache
     /// UserPermissionCache class.
     /// </summary>
     [Serializable()]
-    public sealed class UserPermissionCache
+    public class UserPermissionCache
     {
         #region Fields
-        private IAzManStorage storage;
-        private string storeName;
-        private string applicationName;
-        private WindowsIdentity windowsIdentity;
-        private IAzManDBUser dbUser;
-        private ItemCheckAccessResult[] checkAccessTimeSlice;
-        private KeyValuePair<string, object>[] contextParameters;
-        private Dictionary<string, List<KeyValuePair<string, string>>> itemAttributes;
-        private bool retrieveAttributes;
-        private string[] items;
-        private DataTable dtHierarchy;
+        /// <summary>
+        /// The IAzManStorage Storage
+        /// </summary>
+        protected IAzManStorage storage;
+        /// <summary>
+        /// The Store Name
+        /// </summary>
+        protected string storeName;
+        /// <summary>
+        /// The Application Name
+        /// </summary>
+        protected string applicationName;
+        /// <summary>
+        /// The User WindowsIdentity
+        /// </summary>
+        protected WindowsIdentity windowsIdentity;
+        /// <summary>
+        /// The DB User Identity
+        /// </summary>
+        protected IAzManDBUser dbUser;
+        /// <summary>
+        /// The CheckAccess Time Splice array
+        /// </summary>
+        protected ItemCheckAccessResult[] checkAccessTimeSlice;
+        /// <summary>
+        /// The Context Parameters
+        /// </summary>
+        protected KeyValuePair<string, object>[] contextParameters;
+        /// <summary>
+        /// The Item Attributes
+        /// </summary>
+        protected Dictionary<string, List<KeyValuePair<string, string>>> itemAttributes;
+        /// <summary>
+        /// Gets or Sets if Retrieve Item Attributes.
+        /// </summary>
+        protected bool retrieveAttributes;
+        /// <summary>
+        /// The Items Array
+        /// </summary>
+        protected string[] items;
+        /// <summary>
+        /// The Items Hierarchy DataTable
+        /// </summary>
+        protected DataTable dtHierarchy;
         [NonSerialized()]
         private IEnumerable<BuildUserPermissionCacheResult2> dtAuthorizations;
         #endregion Fields
