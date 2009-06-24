@@ -21,7 +21,7 @@ namespace NetSqlAzMan.Cache
     /// UserPermissionCache class.
     /// </summary>
     [Serializable()]
-    public class UserPermissionCache
+    public class UserPermissionCache : IAzManUserPermissionCache
     {
         #region Fields
         /// <summary>

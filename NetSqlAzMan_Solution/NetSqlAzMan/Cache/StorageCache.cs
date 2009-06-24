@@ -17,7 +17,7 @@ namespace NetSqlAzMan.Cache
     /// Storage Cache class able to cache all Storage data without querying the DB Storage.
     /// </summary>
     [Serializable()]
-    public class StorageCache
+    public class StorageCache : IAzManStorageCache
     {
         #region Fields
         /// <summary>
