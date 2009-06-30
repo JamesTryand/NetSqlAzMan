@@ -14,6 +14,7 @@ namespace NetSqlAzMan
     /// Design Guidelines for Exceptions: http://msdn.microsoft.com/en-us/library/ms229014(VS.80).aspx
     /// For further details Check Data property.
     /// </remarks>
+    [Serializable()]
     public class SqlAzManException : System.Exception, ISerializable
     {
         /// <summary>
