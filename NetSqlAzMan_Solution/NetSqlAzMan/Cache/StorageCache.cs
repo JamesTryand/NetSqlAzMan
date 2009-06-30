@@ -351,7 +351,7 @@ namespace NetSqlAzMan.Cache
                 List<ApplicationGroupsResult> allApplicationGroups;
                 List<ApplicationGroupMembersResult> allApplicationGroupMembers;
                 List<ItemsResult> allItems;
-                List<ItemsHierarchyTable> allItemsHierarchy;
+                List<ItemsHierarchyResult> allItemsHierarchy;
                 List<ItemAttributesResult> allItemAttributes;
                 List<ItemsResult> allBizRulesId;
                 List<BizRulesResult> allBizRules;
@@ -382,7 +382,7 @@ namespace NetSqlAzMan.Cache
                     var allItemsQ = (from i in db.Items()
                                      orderby i.Name
                                      select i).ToList();
-                    var allItemsHierarchyQ = (from ih in db.ItemsHierarchyTable
+                    var allItemsHierarchyQ = (from ih in db.ItemsHierarchy()
                                               select ih).ToList();
                     var allItemAttributesQ = (from ia in db.ItemAttributes()
                                               select ia).ToList();
@@ -454,7 +454,7 @@ namespace NetSqlAzMan.Cache
                                       join a in allApplicationsFQ on i.ApplicationId equals a.ApplicationId
                                       orderby i.Name
                                       select i);
-                    var allItemsHierarchyFQ = (from ih in db.ItemsHierarchyTable
+                    var allItemsHierarchyFQ = (from ih in db.ItemsHierarchy()
                                                join i in allItemsFQ on ih.ItemId equals i.ItemId
                                                select ih);
                     var allItemAttributesFQ = (from ia in db.ItemAttributes()
@@ -612,9 +612,9 @@ namespace NetSqlAzMan.Cache
                         Dictionary<int, List<int>> allItemsHierarchyByMemberId = new Dictionary<int,List<int>>();
                         foreach (var itemHierarchy in allItemsHierarchy)
                         {
-                            if (!allItemsHierarchyByMemberId.ContainsKey(itemHierarchy.MemberOfItemId))
-                                allItemsHierarchyByMemberId.Add(itemHierarchy.MemberOfItemId, new List<int>());
-                            allItemsHierarchyByMemberId[itemHierarchy.MemberOfItemId].Add(itemHierarchy.ItemId);
+                            if (!allItemsHierarchyByMemberId.ContainsKey(itemHierarchy.MemberOfItemId.Value))
+                                allItemsHierarchyByMemberId.Add(itemHierarchy.MemberOfItemId.Value, new List<int>());
+                            allItemsHierarchyByMemberId[itemHierarchy.MemberOfItemId.Value].Add(itemHierarchy.ItemId.Value);
                         }
 
                         ((SqlAzManApplication)application).items = items;
