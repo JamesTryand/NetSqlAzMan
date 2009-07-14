@@ -11,6 +11,7 @@ using System.Web.Security;
 using System.Web.SessionState;
 using NetSqlAzMan;
 using NetSqlAzMan.Interfaces;
+using System.Reflection;
 
 
 namespace NetSqlAzManWebConsole
@@ -194,6 +195,43 @@ namespace NetSqlAzManWebConsole
                     Server.GetLastError().ToString();
             EventLog.WriteEntry("NetSqlAzManWebConsole", err, EventLogEntryType.Error);
             //Server.ClearError();
+        }
+
+        protected void Application_PreRequestHandlerExecute(object sender, EventArgs e)
+        {
+            //Uncomment this to enable State Session
+            //if (this.Session["storage"] != null)
+            //{
+            //    string storageConnectionString = ((SqlAzManStorage)this.Session["storage"]).ConnectionString;
+            //    NetSqlAzMan.LINQ.NetSqlAzManStorageDataContext dc = new NetSqlAzMan.LINQ.NetSqlAzManStorageDataContext(storageConnectionString);
+            //    for (int i = 0; i < this.Session.Keys.Count; i++)
+            //    {
+            //        string sessioneKey = this.Session.Keys[i];
+            //        object sessionOject = this.Session[sessioneKey];
+            //        if (sessionOject != null)
+            //        {
+            //            this.setDataContext(sessionOject, dc);
+            //        }
+            //    }
+            //}
+        }
+
+        private void setDataContext(object o, object dc)
+        {
+            if (o != null)
+            {
+                FieldInfo fi = o.GetType().GetField("db", BindingFlags.NonPublic | BindingFlags.Instance);
+                if (fi != null && fi.GetValue(o) == null)
+                {
+                    fi.SetValue(o, dc);
+                    var subFields = o.GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+                    foreach (var subField in subFields)
+                    {
+                        object subO = subField.GetValue(o);
+                        this.setDataContext(subO, dc);
+                    }
+                }
+            }
         }
     }
 }

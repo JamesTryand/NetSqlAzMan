@@ -6,12 +6,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
-using System.Windows.Forms;
 using NetSqlAzMan.Interfaces;
 using NetSqlAzMan;
 
 namespace NetSqlAzManWebConsole
 {
+    [Serializable()]
     internal class GenericMemberCollection : List<GenericMember>
     {
         internal bool Remove(string objectSid)

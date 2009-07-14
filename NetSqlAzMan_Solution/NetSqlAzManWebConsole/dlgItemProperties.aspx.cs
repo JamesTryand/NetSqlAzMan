@@ -6,7 +6,6 @@ using System.Configuration;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Windows.Forms;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -15,6 +14,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using NetSqlAzMan;
 using NetSqlAzMan.Interfaces;
+using NetSqlAzManWebConsole.Objects;
 
 
 namespace NetSqlAzManWebConsole
@@ -197,8 +197,8 @@ namespace NetSqlAzManWebConsole
             {
                 DataRow dr = dtRoles.NewRow();
                 dr["Name"] = lvi.Text;
-                dr["Description"] = lvi.SubItems[1].Text;
-                dr["ItemId"] = int.Parse(lvi.SubItems[2].Text);
+                dr["Description"] = lvi.SubItems[0].Text;
+                dr["ItemId"] = int.Parse(lvi.SubItems[1].Text);
                 dtRoles.Rows.Add(dr);
             }
             this.dgRoles.DataSource = dtRoles;
@@ -212,8 +212,8 @@ namespace NetSqlAzManWebConsole
             {
                 DataRow dr = dtTasks.NewRow();
                 dr["Name"] = lvi.Text;
-                dr["Description"] = lvi.SubItems[1].Text;
-                dr["ItemId"] = int.Parse(lvi.SubItems[2].Text);
+                dr["Description"] = lvi.SubItems[0].Text;
+                dr["ItemId"] = int.Parse(lvi.SubItems[1].Text);
                 dtTasks.Rows.Add(dr);
             }
             this.dgTasks.DataSource = dtTasks;
@@ -227,8 +227,8 @@ namespace NetSqlAzManWebConsole
             {
                 DataRow dr = dtOperations.NewRow();
                 dr["Name"] = lvi.Text;
-                dr["Description"] = lvi.SubItems[1].Text;
-                dr["ItemId"] = int.Parse(lvi.SubItems[2].Text);
+                dr["Description"] = lvi.SubItems[0].Text;
+                dr["ItemId"] = int.Parse(lvi.SubItems[1].Text);
                 dtOperations.Rows.Add(dr);
             }
             this.dgOperations.DataSource = dtOperations;
@@ -393,7 +393,7 @@ namespace NetSqlAzManWebConsole
                     string itemId = this.dgOperations.Rows[i].Cells[3].Text;
                     foreach (ListViewItem lvi in this.lsvOperations.Items)
                     {
-                        if (lvi.SubItems[2].Text == itemId)
+                        if (lvi.SubItems[1].Text == itemId)
                         {
                             if ((lvi.Tag as IAzManItem) != null)
                             {
@@ -423,7 +423,6 @@ namespace NetSqlAzManWebConsole
             IAzManItem item = this.item.Application.GetItem(member);
             lvi.Tag = new GenericMember(item.Name, item.Description);
             lvi.Text = member;
-            lvi.ImageIndex = 0;
             lvi.SubItems.Add(item.Description);
             lvi.SubItems.Add(itemId.ToString());
             return lvi;
@@ -434,7 +433,6 @@ namespace NetSqlAzManWebConsole
             ListViewItem lvi = new ListViewItem();
             lvi.Tag = member;
             lvi.Text = member.Name;
-            lvi.ImageIndex = 0;
             lvi.SubItems.Add(member.Description);
             lvi.SubItems.Add(member.ItemId.ToString());
             return lvi;
@@ -446,7 +444,10 @@ namespace NetSqlAzManWebConsole
             {
                 if (lvi.Text == member)
                 {
-                    lvi.Remove();
+                    List<ListViewItem> toRemove = new List<ListViewItem>();
+                    toRemove.Add(lvi);
+                    ListView.Remove(lsv, toRemove);
+                    //lvi.Remove();
                     return;
                 }
             }
@@ -575,7 +576,7 @@ namespace NetSqlAzManWebConsole
                     string itemId = this.dgRoles.Rows[i].Cells[3].Text;
                     foreach (ListViewItem lvi in this.lsvRoles.Items)
                     {
-                        if (lvi.SubItems[2].Text == itemId)
+                        if (lvi.SubItems[1].Text == itemId)
                         {
                             if ((lvi.Tag as IAzManItem) != null)
                             {
@@ -608,7 +609,7 @@ namespace NetSqlAzManWebConsole
                     string itemId = this.dgTasks.Rows[i].Cells[3].Text;
                     foreach (ListViewItem lvi in this.lsvTasks.Items)
                     {
-                        if (lvi.SubItems[2].Text == itemId)
+                        if (lvi.SubItems[1].Text == itemId)
                         {
                             if ((lvi.Tag as IAzManItem) != null)
                             {

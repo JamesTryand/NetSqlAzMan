@@ -198,6 +198,7 @@ namespace NetSqlAzMan
         private void OnDeserialized(StreamingContext context)
         {
             this.db = new NetSqlAzManStorageDataContext(this.ConnectionString);
+            this.logging = new LoggingUtility();
         }
         [System.Runtime.Serialization.OnSerializing()]
         private void OnSerializing(StreamingContext context)

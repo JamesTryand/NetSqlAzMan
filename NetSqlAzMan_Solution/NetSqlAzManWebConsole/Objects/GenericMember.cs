@@ -9,6 +9,7 @@ using NetSqlAzMan;
 
 namespace NetSqlAzManWebConsole
 {
+    [Serializable()]
     internal class GenericMember
     {
         internal string Name;

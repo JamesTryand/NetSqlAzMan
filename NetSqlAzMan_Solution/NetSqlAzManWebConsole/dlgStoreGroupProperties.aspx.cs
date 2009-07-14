@@ -6,7 +6,6 @@ using System.Configuration;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Windows.Forms;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -15,6 +14,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using NetSqlAzMan;
 using NetSqlAzMan.Interfaces;
+using NetSqlAzManWebConsole.Objects;
 
 namespace NetSqlAzManWebConsole
 {
@@ -180,8 +180,8 @@ namespace NetSqlAzManWebConsole
             {
                 DataRow dr = dtMembers.NewRow();
                 dr["Name"] = lvi.Text;
-                dr["WhereDefined"] = lvi.SubItems[1].Text;
-                dr["SID"] = lvi.SubItems[2].Text;
+                dr["WhereDefined"] = lvi.SubItems[0].Text;
+                dr["SID"] = lvi.SubItems[1].Text;
                 dtMembers.Rows.Add(dr);
             }
             this.dgMembers.DataSource = dtMembers;
@@ -195,8 +195,8 @@ namespace NetSqlAzManWebConsole
             {
                 DataRow dr = dtNonMembers.NewRow();
                 dr["Name"] = lvi.Text;
-                dr["WhereDefined"] = lvi.SubItems[1].Text;
-                dr["SID"] = lvi.SubItems[2].Text;
+                dr["WhereDefined"] = lvi.SubItems[0].Text;
+                dr["SID"] = lvi.SubItems[1].Text;
                 dtNonMembers.Rows.Add(dr);
             }
             this.dgNonMembers.DataSource = dtNonMembers;
@@ -256,6 +256,7 @@ namespace NetSqlAzManWebConsole
 
         private void RemoveListViewItem(ref ListView lsv, GenericMember member)
         {
+            List<ListViewItem> toRemove = new List<ListViewItem>();
             foreach (ListViewItem lvi in lsv.Items)
             {
                 string objectSid = null;
@@ -269,11 +270,14 @@ namespace NetSqlAzManWebConsole
                 {
                     if (member.sid.StringValue == objectSid)
                     {
-                        lvi.Remove();
+                        toRemove.Add(lvi);
+                        //lvi.Remove();
                         return;
                     }
                 }
             }
+
+            ListView.Remove(lsv, toRemove);
         }
 
         private void RefreshStoreGroupProperties()
@@ -392,7 +396,7 @@ namespace NetSqlAzManWebConsole
                     string sid = this.dgMembers.Rows[i].Cells[3].Text;
                     foreach (ListViewItem lvi in this.lsvMembers.Items)
                     {
-                        if (lvi.SubItems[2].Text == sid)
+                        if (lvi.SubItems[1].Text == sid)
                         {
                             lvi.Selected = true;
                             break;
@@ -629,7 +633,7 @@ namespace NetSqlAzManWebConsole
                     string sid = this.dgNonMembers.Rows[i].Cells[3].Text;
                     foreach (ListViewItem lvi in this.lsvNonMembers.Items)
                     {
-                        if (lvi.SubItems[2].Text == sid)
+                        if (lvi.SubItems[1].Text == sid)
                         {
                             lvi.Selected = true;
                             break;
