@@ -71,7 +71,7 @@ namespace NetSqlAzMan.SnapIn.Forms
             catch (Exception ex)
             {
                 this.HourGlass(false);
-                this.ShowError(ex.Message, Globalization.MultilanguageResource.GetString("frmImportFromAzMan_Tit10"));
+                this.ShowError(ex.Message, Globalization.MultilanguageResource.GetString("MMC_Msg20"));
             }
         }
 
