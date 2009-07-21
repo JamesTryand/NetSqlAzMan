@@ -7,6 +7,7 @@ namespace NetSqlAzManWebConsole
     /// <summary>
     /// Summary description for ADObject.
     /// </summary>
+    [Serializable()]
     public class ADObject
     {
         private string className;
@@ -16,6 +17,13 @@ namespace NetSqlAzManWebConsole
         internal SecurityIdentifier internalSid = null;
         internal ADObjectState state;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ADObject"/> class.
+        /// </summary>
+        public ADObject()
+        { 
+        
+        }
         /// <summary>
         /// Gets the name of the class.
         /// </summary>

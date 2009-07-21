@@ -10,7 +10,8 @@ using System.Web.UI.HtmlControls;
 
 namespace NetSqlAzManWebConsole
 {
-    internal enum ADObjectState
+    [Serializable()]
+    public enum ADObjectState
     {
         Resolved,
         NotFound,
