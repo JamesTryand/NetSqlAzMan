@@ -596,7 +596,7 @@ namespace NetSqlAzMan.Cache
                             return new SqlAzManApplicationAttribute(db, application, sa.ApplicationAttributeId.Value, sa.AttributeKey, sa.AttributeValue, ens);
                         });
                         ((SqlAzManApplication)application).attributes = applicationAttributes;
-                        //Item
+                        //Items
                         var items = allItems.Where(i => i.ApplicationId == application.ApplicationId).ToDictionary<ItemsResult, string, IAzManItem>(i => i.Name, i =>
                             {
                                 BizRulesResult bizRule = null;

@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
+using System.Security;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
@@ -35,3 +36,4 @@ using System.Security.Permissions;
 [assembly: AssemblyVersion("3.6.0.3")]
 [assembly: AssemblyFileVersion("3.6.0.3")]
 [assembly: PermissionSetAttribute(SecurityAction.RequestMinimum, Unrestricted = true)]
+[assembly: AllowPartiallyTrustedCallers()]

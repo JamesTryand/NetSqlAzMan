@@ -14,6 +14,7 @@ namespace NetSqlAzManWebConsole
         private string name;
         private string upn;
         private string aDSPath;
+        [NonSerialized()]
         internal SecurityIdentifier internalSid = null;
         internal ADObjectState state;
 

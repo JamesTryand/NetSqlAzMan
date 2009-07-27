@@ -146,70 +146,6 @@ namespace NetSqlAzManWebConsole
         private ADObject resolveName(string name)
         {
             name = name.Trim();
-            /*
-            #region TEST WITHOUT AD - BEGIN
-            ADObject res = new ADObject();
-            res.ADSPath = "adsPath";
-            res.ClassName = "user";
-            res.UPN = "a.ferendeles@eidos.lan";
-            name = name.ToLower();
-            if (name == "aaa")
-            {
-                res.Name = "AAA";
-                res.state = ADObjectState.Resolved;
-            }
-            if (name == "bbb")
-            {
-                res.Name = "BBB";
-                res.state = ADObjectState.Resolved;
-            }
-            if (name == "ccc")
-            {
-                res.Name = "ccc";
-                res.state = ADObjectState.NotFound;
-            }
-            if (name == "ddd")
-            {
-                res.Name = "ddd";
-                res.state = ADObjectState.NotFound;
-            }
-            if (name == "eee")
-            {
-                res.Name = "eee";
-                res.state = ADObjectState.Multiple;
-                List<ADObject> proposedADObjects = new List<ADObject>();
-                ADObject ado1 = new ADObject();
-                ado1.Name = "aaa";
-                ado1.ADSPath = "adspath";
-                ado1.UPN = "a.ferendeles@eidos.lan";
-                proposedADObjects.Add(ado1);
-                ADObject ado2 = new ADObject();
-                ado2.Name = "bbb";
-                ado2.ADSPath = "adspath";
-                ado2.UPN = "a.ferendeles@eidos.lan";
-                proposedADObjects.Add(ado2);
-                this.Session["proposedADObjects"] = proposedADObjects;
-            }
-            if (name == "fff")
-            {
-                res.Name = "fff";
-                res.state = ADObjectState.Multiple;
-                List<ADObject> proposedADObjects = new List<ADObject>();
-                ADObject ado1 = new ADObject();
-                ado1.Name = "aaa";
-                ado1.ADSPath = "adspath";
-                ado1.UPN = "a.ferendeles@eidos.lan";
-                proposedADObjects.Add(ado1);
-                ADObject ado2 = new ADObject();
-                ado2.Name = "bbb";
-                ado2.ADSPath = "adspath";
-                ado2.UPN = "a.ferendeles@eidos.lan";
-                proposedADObjects.Add(ado2);
-                this.Session["proposedADObjects"] = proposedADObjects;
-            }
-            return res;
-            #endregion TEST WITHOUT AD - BEGIN
-            */
             DirectoryEntry root = Utility.NewDirectoryEntry("LDAP://" + SqlAzManStorage.RootDSEPath);
             DirectorySearcher deSearch = new DirectorySearcher(root);
             //Try find exactly
@@ -224,64 +160,71 @@ namespace NetSqlAzManWebConsole
             
             SearchResultCollection results = deSearch.FindAll();
             ADObject ado = new ADObject();
-            //Try find exactly
-            if (results.Count == 1)
+            try
             {
-                DirectoryEntry de = results[0].GetDirectoryEntry();
-                ado.Name = (string)de.InvokeGet("samaccountname");
-                ado.ADSPath = de.Path;
-                ado.UPN = (string)de.InvokeGet("userPrincipalName");
-                ado.internalSid = new SecurityIdentifier((byte[])de.Properties["objectSid"][0], 0);
-                ado.state = ADObjectState.Resolved;
-                return ado;
-            }
-            //Then try find with jolly (*)
-            if (this.adObjectType == ADObjectType.UsersOnly || this.adObjectType == ADObjectType.OneUserOnly)
-            {
-                deSearch.Filter = String.Format("(&(|(displayName=*{0}*)(samaccountname=*{0}*)(userprincipalname=*{0}*))(&(objectClass=user)(objectCategory=person)))", name);
-            }
-            else if (this.adObjectType == ADObjectType.UsersAndGroups)
-            {
-                deSearch.Filter = String.Format("(&(|(displayName=*{0}*)(samaccountname=*{0}*)(userprincipalname=*{0}*))(|(&(objectClass=user)(objectCategory=person))(objectClass=group)))", name);
-            }
-            results = deSearch.FindAll();
-            if (results.Count == 0)
-            {
-                //Check for Well Know Sid
-                try
+                //Try find exactly
+                if (results.Count == 1)
                 {
-                    NTAccount nta = new NTAccount(name);
-                    SecurityIdentifier sid = (SecurityIdentifier)nta.Translate(typeof(SecurityIdentifier));
-                    nta = (NTAccount)sid.Translate(typeof(NTAccount));
-                    ado.Name = nta.Value;
-                    ado.ADSPath = String.Format("LDAP://<SID={0}>", sid.Value);
-                    ado.UPN = nta.Value;
-                    ado.internalSid = sid;
+                    DirectoryEntry de = results[0].GetDirectoryEntry();
+                    ado.Name = (string)de.InvokeGet("samaccountname");
+                    ado.ADSPath = de.Path;
+                    ado.UPN = (string)de.InvokeGet("userPrincipalName");
+                    ado.internalSid = new SecurityIdentifier((byte[])de.Properties["objectSid"][0], 0);
                     ado.state = ADObjectState.Resolved;
                     return ado;
                 }
-                catch { }
-                ado.Name = name;
-                ado.state = ADObjectState.NotFound;
-                return ado;
-            }
-            else
-            {
-                List<ADObject> proposedADObjects = new List<ADObject>();
-                foreach (SearchResult sr in results)
+                //Then try find with jolly (*)
+                if (this.adObjectType == ADObjectType.UsersOnly || this.adObjectType == ADObjectType.OneUserOnly)
                 {
-                    DirectoryEntry de = sr.GetDirectoryEntry();
-                    ADObject proposal = new ADObject();
-                    proposal.Name = (string)de.InvokeGet("samaccountname");
-                    proposal.ADSPath = de.Path;
-                    proposal.ClassName = de.SchemaClassName;
-                    proposal.UPN = (string)de.InvokeGet("userPrincipalName");
-                    proposal.internalSid = new SecurityIdentifier((byte[])de.Properties["objectSid"][0], 0);
-                    proposedADObjects.Add(proposal);
-                    this.Session["proposedADObjects"] = proposedADObjects;
+                    deSearch.Filter = String.Format("(&(|(displayName=*{0}*)(samaccountname=*{0}*)(userprincipalname=*{0}*))(&(objectClass=user)(objectCategory=person)))", name);
                 }
-                ado.Name = name;
-                ado.state = ADObjectState.Multiple;
+                else if (this.adObjectType == ADObjectType.UsersAndGroups)
+                {
+                    deSearch.Filter = String.Format("(&(|(displayName=*{0}*)(samaccountname=*{0}*)(userprincipalname=*{0}*))(|(&(objectClass=user)(objectCategory=person))(objectClass=group)))", name);
+                }
+                results = deSearch.FindAll();
+                if (results.Count == 0)
+                {
+                    //Check for Well Know Sid
+                    try
+                    {
+                        NTAccount nta = new NTAccount(name);
+                        SecurityIdentifier sid = (SecurityIdentifier)nta.Translate(typeof(SecurityIdentifier));
+                        nta = (NTAccount)sid.Translate(typeof(NTAccount));
+                        ado.Name = nta.Value;
+                        ado.ADSPath = String.Format("LDAP://<SID={0}>", sid.Value);
+                        ado.UPN = nta.Value;
+                        ado.internalSid = sid;
+                        ado.state = ADObjectState.Resolved;
+                        return ado;
+                    }
+                    catch { }
+                    ado.Name = name;
+                    ado.state = ADObjectState.NotFound;
+                    return ado;
+                }
+                else
+                {
+                    List<ADObject> proposedADObjects = new List<ADObject>();
+                    foreach (SearchResult sr in results)
+                    {
+                        DirectoryEntry de = sr.GetDirectoryEntry();
+                        ADObject proposal = new ADObject();
+                        proposal.Name = (string)de.InvokeGet("samaccountname");
+                        proposal.ADSPath = de.Path;
+                        proposal.ClassName = de.SchemaClassName;
+                        proposal.UPN = (string)de.InvokeGet("userPrincipalName");
+                        proposal.internalSid = new SecurityIdentifier((byte[])de.Properties["objectSid"][0], 0);
+                        proposedADObjects.Add(proposal);
+                        this.Session["proposedADObjects"] = proposedADObjects;
+                    }
+                    ado.Name = name;
+                    ado.state = ADObjectState.Multiple;
+                    return ado;
+                }
+            }
+            catch
+            {
                 return ado;
             }
         }
