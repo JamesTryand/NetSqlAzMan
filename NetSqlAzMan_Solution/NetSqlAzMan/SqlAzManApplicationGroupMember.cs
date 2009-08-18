@@ -151,7 +151,14 @@ namespace NetSqlAzMan
                         DirectoryServices.DirectoryServicesUtils.GetMemberInfo(this.sid.StringValue, out displayName, out isALocalGroup, out isLocal2);
                         return isALocalGroup ? MemberType.WindowsNTGroup : MemberType.WindowsNTUser;
                     case WhereDefined.Database:
-                        displayName = this.applicationGroup.Application.GetDBUser(this.sid).UserName;
+                        try
+                        {
+                            displayName = this.applicationGroup.Application.GetDBUser(this.sid).UserName;
+                        }
+                        catch (NetSqlAzMan.SqlAzManException)
+                        {
+                            displayName = this.sid.StringValue;
+                        }
                         return MemberType.DatabaseUser;
                 }
                 displayName = this.sid.StringValue;

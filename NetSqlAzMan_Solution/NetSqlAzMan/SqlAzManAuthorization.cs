@@ -61,7 +61,7 @@ namespace NetSqlAzMan
         private void raiseAuthorizationUpdated(IAzManAuthorization authorization, IAzManSid oldOwner, WhereDefined oldOwnerSidWhereDefined, IAzManSid oldSid, WhereDefined oldSidWhereDefined, AuthorizationType oldAuthorizationType, DateTime? oldValidFrom, DateTime? oldValidTo)
         {
             if (this.AuthorizationUpdated != null)
-                this.AuthorizationUpdated(authorization, oldOwner, oldOwnerSidWhereDefined, oldSid, oldSidWhereDefined, oldAuthorizationType, oldValidFrom, oldValidTo); 
+                this.AuthorizationUpdated(authorization, oldOwner, oldOwnerSidWhereDefined, oldSid, oldSidWhereDefined, oldAuthorizationType, oldValidFrom, oldValidTo);
         }
         private void raiseAuthorizationAttributeCreated(IAzManAuthorization owner, IAzManAttribute<IAzManAuthorization> attributeCreated)
         {
@@ -243,7 +243,7 @@ namespace NetSqlAzMan
                 bool isLocal;
                 DirectoryServicesUtils.GetMemberInfo(owner.StringValue, out memberName, out isLocal);
                 WhereDefined ownerSidWhereDefined = isLocal ? WhereDefined.Local : WhereDefined.LDAP;
-                this.db.AuthorizationUpdate(this.item.ItemId, owner.BinaryValue, (byte)ownerSidWhereDefined, sid.BinaryValue, (byte)sidWhereDefined, (byte)authorizationType, (validFrom.HasValue ? validFrom.Value : new DateTime?() ), (validTo.HasValue ? validTo.Value : new DateTime?() ), this.authorizationId, this.item.Application.ApplicationId);
+                this.db.AuthorizationUpdate(this.item.ItemId, owner.BinaryValue, (byte)ownerSidWhereDefined, sid.BinaryValue, (byte)sidWhereDefined, (byte)authorizationType, (validFrom.HasValue ? validFrom.Value : new DateTime?()), (validTo.HasValue ? validTo.Value : new DateTime?()), this.authorizationId, this.item.Application.ApplicationId);
                 this.owner = new SqlAzManSID(owner.BinaryValue);
                 this.ownerSidWhereDefined = ownerSidWhereDefined;
                 this.sid = sid;
@@ -272,8 +272,8 @@ namespace NetSqlAzMan
         {
             IAzManAttribute<IAzManAuthorization>[] attributes;
             var attrs = (from a in this.db.AuthorizationAttributes()
-                        where a.AuthorizationId == this.authorizationId
-                        select a).ToList();
+                         where a.AuthorizationId == this.authorizationId
+                         select a).ToList();
 
             attributes = new SqlAzManAttribute<IAzManAuthorization>[attrs.Count];
             int index = 0;
@@ -341,7 +341,7 @@ namespace NetSqlAzMan
         /// </summary>
         public void Dispose()
         {
-            
+
         }
         /// <summary>
         /// Gets the member info.
@@ -375,11 +375,18 @@ namespace NetSqlAzMan
                         return MemberType.AnonymousSID;
                     return isALocalGroup ? MemberType.WindowsNTGroup : MemberType.WindowsNTUser;
                 case WhereDefined.Database:
-                    displayName = this.item.Application.GetDBUser(this.sid).UserName;
-                    if (displayName == this.sid.StringValue)
-                        displayName = this.item.Application.Store.GetDBUser(this.sid).UserName;
-                    if (displayName == this.sid.StringValue)
-                        displayName = this.item.Application.Store.Storage.GetDBUser(this.sid).UserName;
+                    try
+                    {
+                        displayName = this.item.Application.GetDBUser(this.sid).UserName;
+                        if (displayName == this.sid.StringValue)
+                            displayName = this.item.Application.Store.GetDBUser(this.sid).UserName;
+                        if (displayName == this.sid.StringValue)
+                            displayName = this.item.Application.Store.Storage.GetDBUser(this.sid).UserName;
+                    }
+                    catch (SqlAzManException)
+                    {
+                        displayName = this.sid.StringValue;
+                    }
                     return MemberType.DatabaseUser;
             }
             displayName = this.sid.StringValue;
@@ -399,7 +406,14 @@ namespace NetSqlAzMan
             }
             if (this.ownerSidWhereDefined == WhereDefined.Database)
             {
-                displayName = this.item.Application.GetDBUser(this.owner).UserName;
+                try
+                {
+                    displayName = this.item.Application.GetDBUser(this.owner).UserName;
+                }
+                catch (SqlAzManException)
+                {
+                    displayName = this.owner.StringValue;
+                }
                 return MemberType.DatabaseUser;
             }
             bool isAGroup;
