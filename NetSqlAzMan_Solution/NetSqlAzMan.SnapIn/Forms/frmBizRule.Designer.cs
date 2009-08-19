@@ -50,12 +50,15 @@ namespace NetSqlAzMan.SnapIn.Forms
             // 
             // txtSourceCode
             // 
+            this.txtSourceCode.AcceptsReturn = true;
+            this.txtSourceCode.AcceptsTab = true;
             this.txtSourceCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSourceCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtSourceCode.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSourceCode.ForeColor = System.Drawing.Color.Yellow;
+            this.txtSourceCode.HideSelection = false;
             this.txtSourceCode.Location = new System.Drawing.Point(49, 49);
             this.txtSourceCode.MaxLength = 4096;
             this.txtSourceCode.Multiline = true;
@@ -201,7 +204,6 @@ namespace NetSqlAzMan.SnapIn.Forms
             // 
             // frmBizRule
             // 
-            this.AcceptButton = this.btnClose;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
@@ -225,8 +227,8 @@ namespace NetSqlAzMan.SnapIn.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Biz Rule";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmBizRule_FormClosing);
             this.Load += new System.EventHandler(this.frmBizRule_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmBizRule_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
