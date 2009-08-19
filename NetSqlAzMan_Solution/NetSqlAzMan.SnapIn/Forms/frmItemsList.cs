@@ -149,7 +149,7 @@ namespace NetSqlAzMan.SnapIn.Forms
 
         private void frmItemsList_Activated(object sender, EventArgs e)
         {
-            if (this.lsvItems.SelectedItems.Count==0)
+            if (this.lsvItems.CheckedItems.Count==0)
                 this.RefreshItemsList();
         }
 
