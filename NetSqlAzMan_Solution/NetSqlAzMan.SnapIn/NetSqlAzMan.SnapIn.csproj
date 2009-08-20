@@ -695,6 +695,10 @@
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CubicOrange.Windows.Forms.ActiveDirectory\DirectoryObjectPicker.csproj">
+      <Project>{AD25BE24-8A42-44E0-9588-3767F572C338}</Project>
+      <Name>DirectoryObjectPicker</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NetSqlAzMan\NetSqlAzMan.csproj">
       <Project>{CBDF2741-B771-4399-8996-77D08C3E8267}</Project>
       <Name>NetSqlAzMan</Name>
@@ -725,16 +729,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\wcf\" />
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="ObjectPickerHelper2Lib">
-      <Guid>{97449A73-B240-4AC1-BE9D-5B33DDC42C81}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

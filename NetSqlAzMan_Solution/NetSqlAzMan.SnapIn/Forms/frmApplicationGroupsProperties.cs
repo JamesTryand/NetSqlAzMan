@@ -360,7 +360,7 @@ namespace NetSqlAzMan.SnapIn.Forms
             try
             {
                 this.HourGlass(true);
-                ADObject[] res = DirectoryServicesUtils.ADObjectPickerShowDialog(this.Handle, this.applicationGroup.Application.Store.Storage.Mode==NetSqlAzManMode.Developer);
+                ADObject[] res = DirectoryServicesUtils.ADObjectPickerShowDialog(this, this.applicationGroup.Application.Store.Storage.Mode==NetSqlAzManMode.Developer);
                 /*Application.DoEvents();*/
                 if (res != null)
                 {
@@ -544,7 +544,7 @@ namespace NetSqlAzMan.SnapIn.Forms
         private void btnNonMembersAddWindowsUsersAndGroup_Click(object sender, EventArgs e)
         {
             this.HourGlass(true);
-            ADObject[] res = DirectoryServicesUtils.ADObjectPickerShowDialog(this.Handle, this.applicationGroup.Application.Store.Storage.Mode == NetSqlAzManMode.Developer);
+            ADObject[] res = DirectoryServicesUtils.ADObjectPickerShowDialog(this, this.applicationGroup.Application.Store.Storage.Mode == NetSqlAzManMode.Developer);
             if (res != null)
             {
                 foreach (ADObject o in res)

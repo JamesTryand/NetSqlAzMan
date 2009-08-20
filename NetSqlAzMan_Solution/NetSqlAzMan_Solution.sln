@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetSqlAzMan_WinTest", "NetSqlAzMan_WinTest\NetSqlAzMan_WinTest.csproj", "{A20896F2-BE4B-4B0A-AEA8-52547C8B000A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetSqlAzMan.SnapIn", "NetSqlAzMan.SnapIn\NetSqlAzMan.SnapIn.csproj", "{1B37F3C0-D1E4-4063-82AE-CC5FEF2E0553}"
-	ProjectSection(ProjectDependencies) = postProject
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346} = {F4B429C1-BE1C-49F0-A358-D6B29A2E6346}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetSqlAzMan", "NetSqlAzMan\NetSqlAzMan.csproj", "{CBDF2741-B771-4399-8996-77D08C3E8267}"
 EndProject
@@ -19,8 +16,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetSqlAzMan_vs_AzMan_StressTest", "NetSqlAzMan_vs_AzMan_StressTest_Solution\NetSqlAzMan_vs_AzMan_StressTest\NetSqlAzMan_vs_AzMan_StressTest.csproj", "{A23A5C74-2D76-4628-87D2-DB4C1EAD9932}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "NetSqlAzMan_VB_WinTest", "NetSqlAzMan_VB_WinTest\NetSqlAzMan_VB_WinTest.vbproj", "{FD6A0E85-9D46-4C5C-B2D8-625F1B12ADEC}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ObjectPickerHelper2", "ObjectPickerHelper2\ObjectPickerHelper2.vcproj", "{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SDS", "SDS", "{4F1B3B5C-4B54-4815-A2F7-0D19997BAF12}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -107,6 +102,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 Internal Testing", "5 Int
 EndProject
 Project("{A9ACE9BB-CECE-4E62-9AA4-C7E7C5BD2124}") = "NetSqlAzManStorage", "NetSqlAzManStorage\NetSqlAzManStorage.dbproj", "{93F4D570-A2E6-41C1-BB82-53134F897C1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryObjectPicker", "CubicOrange.Windows.Forms.ActiveDirectory\DirectoryObjectPicker.csproj", "{AD25BE24-8A42-44E0-9588-3767F572C338}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 22
@@ -183,24 +180,24 @@ Global
 		SccProjectTopLevelParentUniqueName17 = NetSqlAzMan_Solution.sln
 		SccProjectName17 = NetSqlAzManWebConsoleSetup
 		SccLocalPath17 = NetSqlAzManWebConsoleSetup
-		SccProjectUniqueName18 = ObjectPickerHelper2\\ObjectPickerHelper2.vcproj
+		SccWebProject18 = true
+		SccProjectUniqueName18 = SDS
 		SccProjectTopLevelParentUniqueName18 = NetSqlAzMan_Solution.sln
-		SccProjectName18 = ObjectPickerHelper2
-		SccLocalPath18 = ObjectPickerHelper2
-		SccWebProject19 = true
-		SccProjectUniqueName19 = SDS
+		SccLocalPath18 = .
+		SccProjectFilePathRelativizedFromConnection18 = SDS\\
+		SccProjectEnlistmentChoice18 = 2
+		SccProjectUniqueName19 = CheckAccessTemplate\\CheckAccessTemplate.csproj
 		SccProjectTopLevelParentUniqueName19 = NetSqlAzMan_Solution.sln
-		SccLocalPath19 = .
-		SccProjectFilePathRelativizedFromConnection19 = SDS\\
-		SccProjectEnlistmentChoice19 = 2
-		SccProjectUniqueName20 = CheckAccessTemplate\\CheckAccessTemplate.csproj
+		SccProjectName19 = CheckAccessTemplate
+		SccLocalPath19 = CheckAccessTemplate
+		SccProjectUniqueName20 = NetSqlAzManStorage\\NetSqlAzManStorage.dbproj
 		SccProjectTopLevelParentUniqueName20 = NetSqlAzMan_Solution.sln
-		SccProjectName20 = CheckAccessTemplate
-		SccLocalPath20 = CheckAccessTemplate
-		SccProjectUniqueName21 = NetSqlAzManStorage\\NetSqlAzManStorage.dbproj
+		SccProjectName20 = NetSqlAzManStorage
+		SccLocalPath20 = NetSqlAzManStorage
+		SccProjectUniqueName21 = CubicOrange.Windows.Forms.ActiveDirectory\\DirectoryObjectPicker.csproj
 		SccProjectTopLevelParentUniqueName21 = NetSqlAzMan_Solution.sln
-		SccProjectName21 = NetSqlAzManStorage
-		SccLocalPath21 = NetSqlAzManStorage
+		SccProjectName21 = CubicOrange.Windows.Forms.ActiveDirectory
+		SccLocalPath21 = CubicOrange.Windows.Forms.ActiveDirectory
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -377,26 +374,6 @@ Global
 		{FD6A0E85-9D46-4C5C-B2D8-625F1B12ADEC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{FD6A0E85-9D46-4C5C-B2D8-625F1B12ADEC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{FD6A0E85-9D46-4C5C-B2D8-625F1B12ADEC}.Release|Win32.ActiveCfg = Release|Any CPU
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}.Debug|.NET.ActiveCfg = Debug|Win32
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}.Debug|Mixed Platforms.Build.0 = Debug|Win32
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}.Debug|Win32.ActiveCfg = Debug|Win32
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}.Debug|Win32.Build.0 = Debug|Win32
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}.Default|.NET.ActiveCfg = Debug|Win32
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}.Default|Any CPU.ActiveCfg = Debug|Win32
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}.Default|Mixed Platforms.ActiveCfg = Debug|Win32
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}.Default|Mixed Platforms.Build.0 = Debug|Win32
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}.Default|Win32.ActiveCfg = Debug|Win32
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}.Default|Win32.Build.0 = Debug|Win32
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}.Release|.NET.ActiveCfg = Release|Win32
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}.Release|.NET.Build.0 = Release|Win32
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}.Release|Any CPU.ActiveCfg = Release|Win32
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}.Release|Any CPU.Build.0 = Release|Win32
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}.Release|Mixed Platforms.ActiveCfg = Release|Win32
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}.Release|Mixed Platforms.Build.0 = Release|Win32
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}.Release|Win32.ActiveCfg = Release|Win32
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346}.Release|Win32.Build.0 = Release|Win32
 		{4F1B3B5C-4B54-4815-A2F7-0D19997BAF12}.Debug|.NET.ActiveCfg = Debug|Any CPU
 		{4F1B3B5C-4B54-4815-A2F7-0D19997BAF12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4F1B3B5C-4B54-4815-A2F7-0D19997BAF12}.Debug|Any CPU.Build.0 = Debug|Any CPU
@@ -629,6 +606,24 @@ Global
 		{93F4D570-A2E6-41C1-BB82-53134F897C1A}.Release|Mixed Platforms.Build.0 = Default|Any CPU
 		{93F4D570-A2E6-41C1-BB82-53134F897C1A}.Release|Mixed Platforms.Deploy.0 = Default|Any CPU
 		{93F4D570-A2E6-41C1-BB82-53134F897C1A}.Release|Win32.ActiveCfg = Default|Any CPU
+		{AD25BE24-8A42-44E0-9588-3767F572C338}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{AD25BE24-8A42-44E0-9588-3767F572C338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD25BE24-8A42-44E0-9588-3767F572C338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD25BE24-8A42-44E0-9588-3767F572C338}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{AD25BE24-8A42-44E0-9588-3767F572C338}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{AD25BE24-8A42-44E0-9588-3767F572C338}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{AD25BE24-8A42-44E0-9588-3767F572C338}.Default|.NET.ActiveCfg = Debug|Any CPU
+		{AD25BE24-8A42-44E0-9588-3767F572C338}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD25BE24-8A42-44E0-9588-3767F572C338}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{AD25BE24-8A42-44E0-9588-3767F572C338}.Default|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{AD25BE24-8A42-44E0-9588-3767F572C338}.Default|Mixed Platforms.Build.0 = Debug|Any CPU
+		{AD25BE24-8A42-44E0-9588-3767F572C338}.Default|Win32.ActiveCfg = Debug|Any CPU
+		{AD25BE24-8A42-44E0-9588-3767F572C338}.Release|.NET.ActiveCfg = Release|Any CPU
+		{AD25BE24-8A42-44E0-9588-3767F572C338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD25BE24-8A42-44E0-9588-3767F572C338}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD25BE24-8A42-44E0-9588-3767F572C338}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{AD25BE24-8A42-44E0-9588-3767F572C338}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{AD25BE24-8A42-44E0-9588-3767F572C338}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -647,9 +642,9 @@ Global
 		{A20896F2-BE4B-4B0A-AEA8-52547C8B000A} = {A6152E38-F30F-402C-A311-7FC87276A134}
 		{CBDF2741-B771-4399-8996-77D08C3E8267} = {FA898198-2E8D-4145-A46A-0BD4C550898A}
 		{BE4776E3-69B4-49C8-AB70-AC1F87499C8A} = {FA898198-2E8D-4145-A46A-0BD4C550898A}
-		{F4B429C1-BE1C-49F0-A358-D6B29A2E6346} = {FA898198-2E8D-4145-A46A-0BD4C550898A}
 		{1B37F3C0-D1E4-4063-82AE-CC5FEF2E0553} = {FA898198-2E8D-4145-A46A-0BD4C550898A}
 		{93F4D570-A2E6-41C1-BB82-53134F897C1A} = {FA898198-2E8D-4145-A46A-0BD4C550898A}
+		{AD25BE24-8A42-44E0-9588-3767F572C338} = {FA898198-2E8D-4145-A46A-0BD4C550898A}
 		{D7E0828E-858A-446B-B466-E86DEA61B5F8} = {2B62417A-DC9E-4B9F-8C42-31F4E511E19C}
 		{FDA1F3A5-6403-45A9-AFBA-DAFF20D9308D} = {2B62417A-DC9E-4B9F-8C42-31F4E511E19C}
 		{A4C30C34-5B24-4CDD-8EDC-D57079ABF4D2} = {3967322F-1A7F-4A23-B880-192209BD3C50}

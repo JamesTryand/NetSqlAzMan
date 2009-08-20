@@ -357,7 +357,7 @@ namespace NetSqlAzMan.SnapIn.Forms
             try
             {
                 this.HourGlass(true);
-                ADObject[] res = DirectoryServicesUtils.ADObjectPickerShowDialog(this.Handle, this.item.Application.Store.Storage.Mode == NetSqlAzManMode.Developer);
+                ADObject[] res = DirectoryServicesUtils.ADObjectPickerShowDialog(this, this.item.Application.Store.Storage.Mode == NetSqlAzManMode.Developer);
                 /*Application.DoEvents();*/
                 if (res != null)
                 {

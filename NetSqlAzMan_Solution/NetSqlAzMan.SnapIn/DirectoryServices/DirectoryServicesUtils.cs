@@ -5,10 +5,11 @@ using System.Collections.Specialized;
 using System.DirectoryServices;
 using System.Collections.Generic;
 using System.Text;
-using ObjectPickerHelper2Lib;
 using NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker;
 using System.Security.Principal;
 using NetSqlAzMan.Logging;
+using CubicOrange.Windows.Forms.ActiveDirectory;
+using System.Windows.Forms;
 
 namespace NetSqlAzMan.SnapIn.DirectoryServices
 {
@@ -68,9 +69,9 @@ namespace NetSqlAzMan.SnapIn.DirectoryServices
         /// <param name="handle">The owner handle.</param>
         /// <param name="showLocalUsersAndGroups">if set to <c>true</c> [show local users and groups].</param>
         /// <returns></returns>
-        public static ADObject[] ADObjectPickerShowDialog(IntPtr handle, bool showLocalUsersAndGroups)
+        public static ADObject[] ADObjectPickerShowDialog(IWin32Window owner, bool showLocalUsersAndGroups)
         {
-            return DirectoryServicesUtils.ADObjectPickerShowDialog(handle, showLocalUsersAndGroups, false, true);
+            return DirectoryServicesUtils.ADObjectPickerShowDialog(owner, showLocalUsersAndGroups, false, true);
         }
 
         /// <summary>
@@ -81,118 +82,181 @@ namespace NetSqlAzMan.SnapIn.DirectoryServices
         /// <param name="showOnlyUsers">if set to <c>true</c> [show only users].</param>
         /// <param name="multipleSelection">if set to <c>true</c> [multiple selection].</param>
         /// <returns></returns>
-        public static ADObject[] ADObjectPickerShowDialog(IntPtr handle, bool showLocalUsersAndGroups, bool showOnlyUsers, bool multipleSelection)
+        public static ADObject[] ADObjectPickerShowDialog(IWin32Window owner, bool showLocalUsersAndGroups, bool showOnlyUsers, bool multipleSelection)
         {
+            #region OLD CODE
+            //try
+            //{
+            //    // Initialize 1st search scope			
+
+            //    uint flType = 0;
+
+            //    flType = flType |
+            //        DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_UPLEVEL_JOINED_DOMAIN |
+            //        DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_DOWNLEVEL_JOINED_DOMAIN |
+            //        DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_ENTERPRISE_DOMAIN |
+            //        DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_GLOBAL_CATALOG |
+            //        DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_EXTERNAL_DOWNLEVEL_DOMAIN |
+            //        DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_EXTERNAL_UPLEVEL_DOMAIN |
+            //        DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_USER_ENTERED_DOWNLEVEL_SCOPE |
+            //        DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_USER_ENTERED_UPLEVEL_SCOPE;
+            //    //DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_WORKGROUP;
+
+            //    if (showLocalUsersAndGroups)
+            //        flType = flType | DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_TARGET_COMPUTER;
+
+
+            //    uint flScope =
+            //        DSOP_SCOPE_INIT_INFO_FLAGS.DSOP_SCOPE_FLAG_WANT_PROVIDER_LDAP |
+            //        DSOP_SCOPE_INIT_INFO_FLAGS.DSOP_SCOPE_FLAG_DEFAULT_FILTER_USERS |
+            //        DSOP_SCOPE_INIT_INFO_FLAGS.DSOP_SCOPE_FLAG_WANT_PROVIDER_WINNT |
+            //        DSOP_SCOPE_INIT_INFO_FLAGS.DSOP_SCOPE_FLAG_STARTING_SCOPE |
+            //        DSOP_SCOPE_INIT_INFO_FLAGS.DSOP_SCOPE_FLAG_WANT_DOWNLEVEL_BUILTIN_PATH; // Starting !?;
+
+            //    if (!showOnlyUsers)
+            //        flScope = flScope | DSOP_SCOPE_INIT_INFO_FLAGS.DSOP_SCOPE_FLAG_DEFAULT_FILTER_GROUPS;
+
+
+            //    uint flBothModes =
+            //        DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_INCLUDE_ADVANCED_VIEW |
+            //        DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_USERS;
+
+            //    if (!showOnlyUsers)
+            //        flBothModes = flBothModes |
+            //        DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_BUILTIN_GROUPS |
+            //        //DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_DOMAIN_LOCAL_GROUPS_DL |
+            //        DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_DOMAIN_LOCAL_GROUPS_SE |
+            //        //DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_GLOBAL_GROUPS_DL |
+            //        DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_GLOBAL_GROUPS_SE |
+            //        //DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_UNIVERSAL_GROUPS_DL |
+            //        DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_UNIVERSAL_GROUPS_SE |
+            //        DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_WELL_KNOWN_PRINCIPALS;
+
+            //    uint flDownlevel =
+            //        //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_ANONYMOUS |
+            //        //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_AUTHENTICATED_USER |
+            //        //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_BATCH |
+            //        //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_CREATOR_GROUP |
+            //        //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_CREATOR_OWNER |
+            //        //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_DIALUP |
+            //        //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_INTERACTIVE |
+            //        //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_LOCAL_SERVICE |
+            //        //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_NETWORK |
+            //        //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_NETWORK_SERVICE |
+            //        //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_REMOTE_LOGON |
+            //        //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_SERVICE |
+            //        //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_SYSTEM |
+            //        //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_TERMINAL_SERVER |
+            //        DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_USERS;
+            //    //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_WORLD;
+
+            //    if (!showOnlyUsers)
+            //    {
+            //        flDownlevel = flDownlevel
+            //            | DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_ALL_WELLKNOWN_SIDS
+            //            | DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_GLOBAL_GROUPS
+            //            | DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_LOCAL_GROUPS;
+            //    }
+
+
+
+            //    ADObjectPickerClass cadObjectPicker = new ADObjectPickerClass();
+            //    cadObjectPicker.InitInfo_OptionFlags = DSOP_INIT_INFO_FLAGS.DSOP_FLAG_SKIP_TARGET_COMPUTER_DC_CHECK;
+            //    if (multipleSelection)
+            //    {
+            //        cadObjectPicker.InitInfo_OptionFlags = cadObjectPicker.InitInfo_OptionFlags
+            //            | DSOP_INIT_INFO_FLAGS.DSOP_FLAG_MULTISELECT;
+            //    }
+
+            //    cadObjectPicker.ScopeTypeFlags = flType;
+            //    cadObjectPicker.ScopeFlags = flScope;
+            //    cadObjectPicker.UplevelFilterFlags_Both = flBothModes;
+            //    cadObjectPicker.DownLevelFilterFlags = flDownlevel;
+            //    cadObjectPicker.InvokeDialog(handle.ToInt32());
+            //    ADObjectColl result = (ADObjectColl)cadObjectPicker.ADObjectsColl;
+            //    ADObject[] results = new ADObject[result.Count];
+            //    for (uint j = 1; j <= result.Count; j++)
+            //    {
+            //        try
+            //        {
+            //            int i = (int)j;
+            //            ADObjectInfo info = (ADObjectInfo)result.Item(i);
+            //            results[j - 1] = new ADObject();
+            //            results[j - 1].ADSPath = info.ADPath;
+            //            results[j - 1].ClassName = info.Class;
+            //            results[j - 1].Name = info.Name;
+            //            results[j - 1].UPN = info.UPN;
+            //        }
+            //        catch
+            //        {
+            //            continue;
+            //        }
+            //    }
+            //    return results;
+            //}
+            //catch (System.ArgumentException)
+            //{
+            //    return new ADObject[0];
+            //}
+            #endregion OLD CODE
             try
             {
-                // Initialize 1st search scope			
+                // Show dialog
+                DirectoryObjectPickerDialog picker = new DirectoryObjectPickerDialog();
+                ObjectTypes allowedTypes = ObjectTypes.None;
 
-                uint flType = 0;
-
-                flType = flType |
-                    DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_UPLEVEL_JOINED_DOMAIN |
-                    DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_DOWNLEVEL_JOINED_DOMAIN |
-                    DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_ENTERPRISE_DOMAIN |
-                    DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_GLOBAL_CATALOG |
-                    DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_EXTERNAL_DOWNLEVEL_DOMAIN |
-                    DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_EXTERNAL_UPLEVEL_DOMAIN |
-                    DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_USER_ENTERED_DOWNLEVEL_SCOPE |
-                    DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_USER_ENTERED_UPLEVEL_SCOPE;
-                //DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_WORKGROUP;
-
+                if (!showOnlyUsers)
+                    allowedTypes = ObjectTypes.BuiltInGroups | ObjectTypes.Groups | ObjectTypes.Users | ObjectTypes.WellKnownPrincipals;
+                else
+                    allowedTypes = ObjectTypes.Users;
+                ObjectTypes defaultTypes = allowedTypes;
+                picker.AllowedObjectTypes = allowedTypes;
+                picker.DefaultObjectTypes = defaultTypes;
+                Locations allowedLocations = Locations.None;
+                Locations defaultLocations = Locations.GlobalCatalog;
                 if (showLocalUsersAndGroups)
-                    flType = flType | DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_TARGET_COMPUTER;
-
-
-                uint flScope =
-                    DSOP_SCOPE_INIT_INFO_FLAGS.DSOP_SCOPE_FLAG_WANT_PROVIDER_LDAP |
-                    DSOP_SCOPE_INIT_INFO_FLAGS.DSOP_SCOPE_FLAG_DEFAULT_FILTER_USERS |
-                    DSOP_SCOPE_INIT_INFO_FLAGS.DSOP_SCOPE_FLAG_WANT_PROVIDER_WINNT |
-                    DSOP_SCOPE_INIT_INFO_FLAGS.DSOP_SCOPE_FLAG_STARTING_SCOPE |
-                    DSOP_SCOPE_INIT_INFO_FLAGS.DSOP_SCOPE_FLAG_WANT_DOWNLEVEL_BUILTIN_PATH; // Starting !?;
-
-                if (!showOnlyUsers)
-                    flScope = flScope | DSOP_SCOPE_INIT_INFO_FLAGS.DSOP_SCOPE_FLAG_DEFAULT_FILTER_GROUPS;
-
-
-                uint flBothModes =
-                    DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_INCLUDE_ADVANCED_VIEW |
-                    DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_USERS;
-
-                if (!showOnlyUsers)
-                    flBothModes = flBothModes |
-                    DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_BUILTIN_GROUPS |
-                    //DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_DOMAIN_LOCAL_GROUPS_DL |
-                    DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_DOMAIN_LOCAL_GROUPS_SE |
-                    //DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_GLOBAL_GROUPS_DL |
-                    DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_GLOBAL_GROUPS_SE |
-                    //DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_UNIVERSAL_GROUPS_DL |
-                    DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_UNIVERSAL_GROUPS_SE |
-                    DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_WELL_KNOWN_PRINCIPALS;
-
-                uint flDownlevel =
-                    //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_ANONYMOUS |
-                    //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_AUTHENTICATED_USER |
-                    //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_BATCH |
-                    //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_CREATOR_GROUP |
-                    //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_CREATOR_OWNER |
-                    //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_DIALUP |
-                    //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_INTERACTIVE |
-                    //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_LOCAL_SERVICE |
-                    //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_NETWORK |
-                    //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_NETWORK_SERVICE |
-                    //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_REMOTE_LOGON |
-                    //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_SERVICE |
-                    //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_SYSTEM |
-                    //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_TERMINAL_SERVER |
-                    DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_USERS;
-                //DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_WORLD;
-
-                if (!showOnlyUsers)
                 {
-                    flDownlevel = flDownlevel
-                        | DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_ALL_WELLKNOWN_SIDS
-                        | DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_GLOBAL_GROUPS
-                        | DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_LOCAL_GROUPS;
+                    allowedLocations = Locations.All;
                 }
-
-
-
-                ADObjectPickerClass cadObjectPicker = new ADObjectPickerClass();
-                cadObjectPicker.InitInfo_OptionFlags = DSOP_INIT_INFO_FLAGS.DSOP_FLAG_SKIP_TARGET_COMPUTER_DC_CHECK;
-                if (multipleSelection)
+                else
                 {
-                    cadObjectPicker.InitInfo_OptionFlags = cadObjectPicker.InitInfo_OptionFlags
-                        | DSOP_INIT_INFO_FLAGS.DSOP_FLAG_MULTISELECT;
+                    allowedLocations = Locations.EnterpriseDomain | Locations.ExternalDomain | Locations.GlobalCatalog | Locations.JoinedDomain | Locations.UserEntered | Locations.Workgroup;
                 }
-
-                cadObjectPicker.ScopeTypeFlags = flType;
-                cadObjectPicker.ScopeFlags = flScope;
-                cadObjectPicker.UplevelFilterFlags_Both = flBothModes;
-                cadObjectPicker.DownLevelFilterFlags = flDownlevel;
-                cadObjectPicker.InvokeDialog(handle.ToInt32());
-                ADObjectColl result = (ADObjectColl)cadObjectPicker.ADObjectsColl;
-                ADObject[] results = new ADObject[result.Count];
-                for (uint j = 1; j <= result.Count; j++)
+                picker.AllowedLocations = allowedLocations;
+                picker.DefaultLocations = defaultLocations;
+                picker.MultiSelect = multipleSelection;
+                DialogResult dialogResult = picker.ShowDialog(owner);
+                if (dialogResult == DialogResult.OK)
                 {
-                    try
+                    if (picker.SelectedObjects == null)
                     {
-                        int i = (int)j;
-                        ADObjectInfo info = (ADObjectInfo)result.Item(i);
-                        results[j - 1] = new ADObject();
-                        results[j - 1].ADSPath = info.ADPath;
-                        results[j - 1].ClassName = info.Class;
-                        results[j - 1].Name = info.Name;
-                        results[j - 1].UPN = info.UPN;
+                        return new ADObject[0];
                     }
-                    catch
+                    ADObject[] results = new ADObject[picker.SelectedObjects.Length];
+                    for (int j = 0; j < picker.SelectedObjects.Length; j++)
                     {
-                        continue;
+                        try
+                        {
+                            DirectoryObject info = (DirectoryObject)picker.SelectedObjects[j];
+                            results[j] = new ADObject();
+                            results[j].ADSPath = info.Path;
+                            results[j].ClassName = info.SchemaClassName;
+                            results[j].Name = info.Name;
+                            results[j].UPN = info.Upn;
+                        }
+                        catch
+                        {
+                            continue;
+                        }
                     }
+                    return results;
                 }
-                return results;
+                else
+                {
+                    return new ADObject[0];
+                }
             }
-            catch (System.ArgumentException)
+            catch
             {
                 return new ADObject[0];
             }

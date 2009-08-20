@@ -137,7 +137,8 @@ namespace Prova.BizRules
         {
             try
             {
-                ADObject[] res = NetSqlAzMan.SnapIn.DirectoryServices.DirectoryServicesUtils.ADObjectPickerShowDialog(this.Handle, true, true, false);
+                ADObject[] res = NetSqlAzMan.SnapIn.DirectoryServices.DirectoryServicesUtils.ADObjectPickerShowDialog(
+                    this, false, false, true);
                 if (res != null)
                 {
                     foreach (ADObject o in res)

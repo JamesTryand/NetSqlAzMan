@@ -116,7 +116,7 @@ namespace NetSqlAzMan.SnapIn.Forms
             try
             {
                 this.rbWindowsUser.Checked = true;
-                ADObject[] res = DirectoryServicesUtils.ADObjectPickerShowDialog(this.Handle, false, true, false);
+                ADObject[] res = DirectoryServicesUtils.ADObjectPickerShowDialog(this, false, true, false);
                 /*Application.DoEvents();*/
                 if (res != null)
                 {
