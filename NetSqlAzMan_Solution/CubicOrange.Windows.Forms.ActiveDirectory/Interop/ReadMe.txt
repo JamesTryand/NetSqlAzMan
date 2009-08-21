@@ -1,0 +1,1 @@
+﻿tlbimp activeds.tlb /out:c:\temp\Interop.ActiveDs.dll /silent /keyfile:Interop.ActiveDs.dll.snk

@@ -213,18 +213,21 @@ namespace NetSqlAzMan.SnapIn.DirectoryServices
                 picker.AllowedObjectTypes = allowedTypes;
                 picker.DefaultObjectTypes = defaultTypes;
                 Locations allowedLocations = Locations.None;
-                Locations defaultLocations = Locations.GlobalCatalog;
+                Locations defaultLocations = Locations.None;
                 if (showLocalUsersAndGroups)
                 {
                     allowedLocations = Locations.All;
+                    defaultLocations = Locations.GlobalCatalog | Locations.EnterpriseDomain | Locations.ExternalDomain | Locations.JoinedDomain | Locations.LocalComputer;
                 }
                 else
                 {
-                    allowedLocations = Locations.EnterpriseDomain | Locations.ExternalDomain | Locations.GlobalCatalog | Locations.JoinedDomain | Locations.UserEntered | Locations.Workgroup;
+                    allowedLocations = Locations.GlobalCatalog | Locations.EnterpriseDomain | Locations.ExternalDomain | Locations.JoinedDomain;
+                    defaultLocations = Locations.GlobalCatalog | Locations.EnterpriseDomain | Locations.ExternalDomain | Locations.JoinedDomain;
                 }
                 picker.AllowedLocations = allowedLocations;
                 picker.DefaultLocations = defaultLocations;
                 picker.MultiSelect = multipleSelection;
+                picker.ShowAdvancedView = true;
                 DialogResult dialogResult = picker.ShowDialog(owner);
                 if (dialogResult == DialogResult.OK)
                 {

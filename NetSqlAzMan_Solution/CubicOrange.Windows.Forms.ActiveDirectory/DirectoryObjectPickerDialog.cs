@@ -305,10 +305,6 @@ namespace CubicOrange.Windows.Forms.ActiveDirectory
         private static uint GetScope( Locations locations )
         {
             uint scope = 0;
-            if ((locations & Locations.LocalComputer) == Locations.LocalComputer)
-            {
-                scope |= DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_TARGET_COMPUTER;
-            }
             if ((locations & Locations.JoinedDomain) == Locations.JoinedDomain)
             {
                 scope |= DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_DOWNLEVEL_JOINED_DOMAIN |
@@ -336,6 +332,11 @@ namespace CubicOrange.Windows.Forms.ActiveDirectory
                 scope |= DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_USER_ENTERED_DOWNLEVEL_SCOPE |
                 DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_USER_ENTERED_UPLEVEL_SCOPE;
             }
+            if ((locations & Locations.LocalComputer) == Locations.LocalComputer)
+            {
+                scope |= DSOP_SCOPE_TYPE_FLAGS.DSOP_SCOPE_TYPE_TARGET_COMPUTER;
+            }
+
             return scope;
         }
 
