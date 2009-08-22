@@ -89,7 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DirectoryServices\ADObjectPicker\ADObject.cs" />
-    <Compile Include="DirectoryServices\ADObjectPicker\StructsFlags.cs" />
+    <None Include="DirectoryServices\ADObjectPicker\StructsFlags.cs" />
     <Compile Include="DirectoryServices\DirectoryServicesUtils.cs" />
     <None Include="Forms\BizRuleCSharpTemplate.cs" />
     <None Include="Forms\BizRuleVBNetTemplate.vb" />

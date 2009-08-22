@@ -160,7 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectoryObjectPicker.pfx" />
-    <None Include="Interop.ActiveDs.dll.snk" />
+    <None Include="Interop\Interop.ActiveDs.dll.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -217,7 +217,12 @@ namespace NetSqlAzMan.SnapIn.DirectoryServices
                 if (showLocalUsersAndGroups)
                 {
                     allowedLocations = Locations.All;
-                    defaultLocations = Locations.GlobalCatalog | Locations.EnterpriseDomain | Locations.ExternalDomain | Locations.JoinedDomain | Locations.LocalComputer;
+                    defaultLocations = Locations.GlobalCatalog | Locations.EnterpriseDomain | Locations.ExternalDomain | Locations.JoinedDomain;
+                    if (Environment.MachineName.Equals(Environment.UserDomainName, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        //NOT JOINED TO A DOMAIN
+                        defaultLocations |= Locations.LocalComputer;
+                    }
                 }
                 else
                 {
