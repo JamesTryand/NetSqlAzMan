@@ -642,6 +642,15 @@ namespace NetSqlAzMan
                 {
                     checkAccessAttributesDataTable = new DataTable(); //no attributes
                 }
+                //else
+                //{
+                //    DataRow[] rowWithBizRules = checkAccessPartialResultsDataTable.Select("ItemId=" + itemNode.azmanItem.ItemId.ToString());
+                //    foreach (DataRow dr in rowWithBizRules)
+                //    {
+                //        dr["AuthorizationType"] = (int)result;
+                //    }
+                //    checkAccessAttributesDataTable.AcceptChanges();
+                //}
             }
             //Populate Attributes authorizationType
             if (retrieveAttributes)
@@ -897,22 +906,21 @@ namespace NetSqlAzMan
                 {
                     AuthorizationType resultFromParent = this.computeCheckAccessResult(parentItemNode, ref checkAccessAttributes);
                     if (resultFromParent == AuthorizationType.AllowWithDelegation)
-                    {
                         resultFromParent = AuthorizationType.Allow;
-                    }
+
                     result = SqlAzManItem.mergeAuthorizations(result, resultFromParent);
-                    //Purge Attributes of Neutral/Deny Items
-                    if (result == AuthorizationType.Neutral || result == AuthorizationType.Deny)
+                }
+                //Purge Attributes of Neutral/Deny Items
+                if (result == AuthorizationType.Neutral || result == AuthorizationType.Deny)
+                {
+                    foreach (DataRow dr in checkAccessAttributes.Rows)
                     {
-                        foreach (DataRow dr in checkAccessAttributes.Rows)
+                        if (dr["ItemId"] != DBNull.Value && (int)dr["ItemId"] == itemNode.itemId)
                         {
-                            if (dr["ItemId"] != DBNull.Value && (int)dr["ItemId"] == itemNode.itemId)
-                            {
-                                dr.Delete();
-                            }
+                            dr.Delete();
                         }
-                        checkAccessAttributes.AcceptChanges();
                     }
+                    checkAccessAttributes.AcceptChanges();
                 }
             }
             return result;
