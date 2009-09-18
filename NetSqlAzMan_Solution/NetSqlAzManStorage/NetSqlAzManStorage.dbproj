@@ -102,8 +102,7 @@
     <PerformDatabaseBackup>False</PerformDatabaseBackup>
     <SingleUserMode>False</SingleUserMode>
     <UseFuzzyMatchForColumns>False</UseFuzzyMatchForColumns>
-    <SuppressWarnings>
-    </SuppressWarnings>
+    <SuppressWarnings>3028;</SuppressWarnings>
   </PropertyGroup>
   <!--Import the settings-->
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\TeamData\Microsoft.VisualStudio.TeamSystem.Data.Tasks.targets" />
