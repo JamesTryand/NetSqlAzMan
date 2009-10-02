@@ -12,6 +12,9 @@ using System.Web.SessionState;
 using NetSqlAzMan;
 using NetSqlAzMan.Interfaces;
 using System.Reflection;
+using System.Net;
+using System.Text;
+using System.Text.RegularExpressions;
 
 
 namespace NetSqlAzManWebConsole
@@ -114,41 +117,7 @@ namespace NetSqlAzManWebConsole
                 System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(
                     delegate(object session)
                     {
-                        try
-                        {
-                            //Get ws update url from http://netsqlazman.sourceforge.net/wsNetSqlAzManWebConsoleUpdateUrl.txt
-                            System.Net.WebRequest req = System.Net.WebRequest.Create("http://netsqlazman.sourceforge.net/wsNetSqlAzManWebConsoleUpdateUrl.txt");
-                            req.Proxy = System.Net.WebRequest.GetSystemWebProxy();
-                            req.Proxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
-                            System.Net.WebResponse resp = req.GetResponse();
-                            System.IO.Stream stream = resp.GetResponseStream();
-                            System.IO.StreamReader tr = new StreamReader(stream);
-                            string wsUrl = tr.ReadToEnd();
-                            tr.Close();
-                            stream.Close();
-                            //Call Update Providers Service
-                            wsUpdate.NetSqlAzManWebConsoleUpdateService ws = new wsUpdate.NetSqlAzManWebConsoleUpdateService();
-                            ws.Proxy = System.Net.WebRequest.GetSystemWebProxy();
-                            ws.Proxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
-                            ws.Url = wsUrl;
-                            string clientVersionId = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-                            string[] environmentInfo = new string[] {
-                "OS Version: "+Environment.OSVersion,
-                "CLR Version: " + Environment.Version.ToString(),
-                "Processor Count: "+Environment.ProcessorCount.ToString(),
-                "Machine: " + Environment.MachineName,
-                "NetSqlAzMan: "+ typeof(NetSqlAzMan.SqlAzManStorage).Assembly.GetName().Version.ToString().Trim()};
-
-                            string[] results = ws.CheckForUpdate(environmentInfo, clientVersionId);
-                            string serverVersionId = results[0].Trim();
-                            string downloadUrl = results[1].Trim();
-                            if (String.Compare(serverVersionId, clientVersionId, true) > 0)
-                            {
-                                string msg = "A new NetSqlAzMan Web Console version is available.\r\n\r\nYour version: {0}\r\nNew version: {1}\r\nDownload from: {2}.";
-                                ((HttpSessionState)session)["updateMessage"] = String.Format(msg, clientVersionId, serverVersionId, downloadUrl);
-                            }
-                        }
-                        catch { }
+                        ((HttpSessionState)session)["updateMessage"] = this.checkForUpdate();
                     }
                     ), this.Session);
             }
@@ -233,5 +202,37 @@ namespace NetSqlAzManWebConsole
                 }
             }
         }
+
+        private string checkForUpdate()
+        {
+            try
+            {
+                //Get ws update url from http://netsqlazman.sourceforge.net/wsNetSqlAzManWebConsoleUpdateUrl.txt
+                System.Net.WebRequest req = System.Net.WebRequest.Create("http://netsqlazman.codeplex.com");
+                req.Proxy = System.Net.WebRequest.GetSystemWebProxy();
+                req.Proxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
+                System.Net.WebResponse resp = req.GetResponse();
+                System.IO.Stream stream = resp.GetResponseStream();
+                System.IO.StreamReader tr = new StreamReader(stream);
+                string html = tr.ReadToEnd();
+                tr.Close();
+                stream.Close();
+                html = html.Substring(html.IndexOf("Recommended release:") + 20);
+                string serverVersion = Regex.Replace(html, "<.*?>", String.Empty);
+                serverVersion = serverVersion.Replace("\t", "").Replace(" ", String.Empty).Replace("\r", "").Replace("\n", "").Substring(0,7);
+                string clientVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                if (String.Compare(serverVersion, clientVersion, true) != 0)
+                {
+                    string msg = "A new NetSqlAzMan Web Console version is available.\r\n\r\nYour version: {0}\r\nNew version: {1}\r\nDownload from: {2}.";
+                    return String.Format(msg, clientVersion, serverVersion, "http://netsqlazman.codeplex.com/Release/ProjectReleases.aspx");
+                }
+            }
+            catch 
+            {
+            }
+            return null;
+        }
+
+        
     }
 }

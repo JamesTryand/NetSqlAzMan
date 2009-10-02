@@ -17,6 +17,7 @@ using NetSqlAzMan.SnapIn.ListViews;
 using NetSqlAzMan.SnapIn.Forms;
 using System.Configuration;
 using System.Security.Principal;
+using System.Text.RegularExpressions;
 
 namespace NetSqlAzMan.SnapIn.ScopeNodes
 {
@@ -410,6 +411,8 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
             }
         }
 
+
+
         private void CheckForUpdateSync(object stateObject)
         {
             try
@@ -419,44 +422,39 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
                 StorageScopeNode.alreadyCheckedForUpdate = true;
                 //Get ws update url from http://netsqlazman.sourceforge.net/wsNetSqlAzManUpdateUrl.txt
                 System.Threading.Thread.Sleep(3000);
-                System.Net.WebRequest req = System.Net.WebRequest.Create("http://netsqlazman.sourceforge.net/wsNetSqlAzManUpdateUrl.txt");
+                //Get ws update url from http://netsqlazman.sourceforge.net/wsNetSqlAzManWebConsoleUpdateUrl.txt
+                System.Net.WebRequest req = System.Net.WebRequest.Create("http://netsqlazman.codeplex.com");
                 req.Proxy = System.Net.WebRequest.GetSystemWebProxy();
                 req.Proxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
                 System.Net.WebResponse resp = req.GetResponse();
                 System.IO.Stream stream = resp.GetResponseStream();
                 System.IO.StreamReader tr = new StreamReader(stream);
-                string wsUrl = tr.ReadToEnd();
+                string html = tr.ReadToEnd();
                 tr.Close();
                 stream.Close();
-                //Call Update Providers Service
-                wsUpdate.NetSqlAzManUpdateService ws = new wsUpdate.NetSqlAzManUpdateService();
-                ws.Proxy = System.Net.WebRequest.GetSystemWebProxy();
-                ws.Proxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
-                ws.Url = wsUrl;
-                string clientVersionId = typeof(NetSqlAzMan.SqlAzManStorage).Assembly.GetName().Version.ToString().Trim();
-                string[] environmentInfo = new string[] {
-                "OS Version: "+Environment.OSVersion,
-                "CLR Version: " + Environment.Version.ToString(),
-                "Processor Count: "+Environment.ProcessorCount.ToString(),
-                "Machine: " + Environment.MachineName};
-
-                string[] results = ws.CheckForUpdate(environmentInfo, clientVersionId);
-                string serverVersionId = results[0].Trim();
-                string downloadUrl = results[1].Trim();
-                if (String.Compare(serverVersionId, clientVersionId, true) > 0)
+                html = html.Substring(html.IndexOf("Recommended release:") + 20);
+                string serverVersion = Regex.Replace(html, "<.*?>", String.Empty);
+                serverVersion = serverVersion.Replace("\t", "").Replace(" ", String.Empty).Replace("\r", "").Replace("\n", "").Substring(0, 7);
+                string clientVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                if (String.Compare(serverVersion, clientVersion, true) != 0)
                 {
                     System.Console.Beep();
-                    DialogResult dr = MessageBox.Show(String.Format(Globalization.MultilanguageResource.GetString("StorageScopeNode_Msg20"), clientVersionId, serverVersionId, downloadUrl), Globalization.MultilanguageResource.GetString("StorageScopeNode_Tit20"), MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                    string msg = "A new NetSqlAzMan version is available.\r\n\r\nYour version: {0}\r\nNew version: {1}\r\nDownload from: {2}.";
+                    msg = String.Format(msg, clientVersion, serverVersion, "http://netsqlazman.codeplex.com/Release/ProjectReleases.aspx");
+                    DialogResult dr = MessageBox.Show(msg, Globalization.MultilanguageResource.GetString("StorageScopeNode_Tit20"), MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                     if (dr == DialogResult.Yes)
                     {
                         System.Diagnostics.Process p = new System.Diagnostics.Process();
                         p.StartInfo.FileName = "iexplore.exe";
-                        p.StartInfo.Arguments = downloadUrl;
+                        p.StartInfo.Arguments = "http://netsqlazman.codeplex.com/Release/ProjectReleases.aspx";
                         p.Start();
                     }
+
                 }
             }
-            catch { }
+            catch
+            {
+            }
         }
 
         void exportAction_Triggered(object sender, MMC.SyncActionEventArgs e)

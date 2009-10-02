@@ -367,11 +367,6 @@
     <Compile Include="ThemePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web References\wsUpdate\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
     <Compile Include="dlgPage.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>dlgPage.aspx</DependentUpon>
@@ -554,7 +549,6 @@
     <Content Include="ModalDialogHandler.aspx" />
     <Content Include="dlgStoreProperties.aspx" />
     <Content Include="StorageConnection.aspx" />
-    <None Include="Web References\wsUpdate\NetSqlAzManWebConsoleUpdateService.disco" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\Green\Style.css" />
@@ -601,27 +595,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Web References\wsUpdate\NetSqlAzManWebConsoleUpdateService.wsdl" />
-    <None Include="Web References\wsUpdate\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferences Include="Web References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferenceUrl Include="http://63.134.232.17/WebServices/UpdateServices/NetSqlAzManWebConsoleUpdateService.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\wsUpdate\</RelPath>
-      <UpdateFromURL>http://63.134.232.17/WebServices/UpdateServices/NetSqlAzManWebConsoleUpdateService.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>NetSqlAzManWebConsole_wsUpdate_NetSqlAzManWebConsoleUpdateService</CachedSettingsPropName>
-    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NetSqlAzMan\NetSqlAzMan.csproj">

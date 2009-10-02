@@ -380,11 +380,6 @@
     </Compile>
     <Compile Include="SQLAudit\StorageAuditGenerator.cs" />
     <Compile Include="Utilities\ConsoleUtilities.cs" />
-    <Compile Include="Web References\wsUpdate\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="mmc.exe.config" />
@@ -668,31 +663,9 @@
     <None Include="BuildHistory.rtf" />
     <None Include="NetSqlAzMan.SnapIn.cd" />
     <None Include="NetSqlAzMan.SnapIn.pfx" />
-    <None Include="Web References\wsUpdate\NetSqlAzManUpdateService.disco" />
     <None Include="ObjectPikerHelper2\RegisterObjectPickerHelper2.bat" />
     <None Include="Resources\NetSqlAzMan_32x32.png" />
     <None Include="Resources\FILECOPY_16.gif" />
-    <None Include="Web References\wsUpdate\NetSqlAzManUpdateService.wsdl" />
-    <None Include="Web References\wsUpdate\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferences Include="Web References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:4426/TdoQuickStart/WebServices/UpdateServices/NetSqlAzManUpdateService.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\wsUpdate\</RelPath>
-      <UpdateFromURL>http://localhost:4426/TdoQuickStart/WebServices/UpdateServices/NetSqlAzManUpdateService.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>NetSqlAzMan_SnapIn_wsUpdate_NetSqlAzManUpdateService</CachedSettingsPropName>
-    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CubicOrange.Windows.Forms.ActiveDirectory\DirectoryObjectPicker.csproj">
