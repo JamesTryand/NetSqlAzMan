@@ -55,7 +55,7 @@ namespace NetSqlAzMan.SnapIn
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 21);
             this.label1.TabIndex = 1;
-            this.label1.Text = "3.6.0.3";
+            this.label1.Text = "3.6.0.4";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmSplash

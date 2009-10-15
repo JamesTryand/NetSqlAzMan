@@ -304,7 +304,7 @@ namespace NetSqlAzMan
         public bool Equals(IAzManSid sid)
         {
             SqlAzManSID sqlazmansid = sid as SqlAzManSID;
-            if (sqlazmansid != null)
+            if (!Object.ReferenceEquals(sqlazmansid, null))
                 return this.Equals(sqlazmansid);
             else
                 return this.GetHashCode() == sid.GetHashCode();
@@ -338,7 +338,7 @@ namespace NetSqlAzMan
         /// </returns>
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return this.StringValue.GetHashCode();
         }
 
         /// <summary>

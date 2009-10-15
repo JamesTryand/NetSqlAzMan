@@ -33,7 +33,7 @@ using System.Security;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("3.6.0.3")]
-[assembly: AssemblyFileVersion("3.6.0.3")]
+[assembly: AssemblyVersion("3.6.0.4")]
+[assembly: AssemblyFileVersion("3.6.0.4")]
 [assembly: PermissionSetAttribute(SecurityAction.RequestMinimum, Unrestricted = true)]
 [assembly: AllowPartiallyTrustedCallers()]

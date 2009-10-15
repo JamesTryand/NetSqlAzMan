@@ -10,7 +10,7 @@ namespace NetSqlAzMan.Interfaces
     /// Represents a Security IDentifier (SID)
     /// </summary>
     [ServiceContract(Namespace="http://NetSqlAzMan/ServiceModel", SessionMode=SessionMode.Required)]
-    public interface IAzManSid
+    public interface IAzManSid : IEquatable<IAzManSid>
     {
         /// <summary>
         /// Gets the binary value.
@@ -24,11 +24,5 @@ namespace NetSqlAzMan.Interfaces
         /// <value>The string value.</value>
         [DataMember]
         string StringValue { get; }
-        /// <summary>
-        /// Equalses the specified sid.
-        /// </summary>
-        /// <param name="sid">The sid.</param>
-        /// <returns></returns>
-        bool Equals(IAzManSid sid);
     }
 }
