@@ -40,11 +40,26 @@ namespace NetSqlAzMan.Providers
     public class NetSqlAzManRoleProvider : RoleProvider
     {
         #region Fields
-        private IAzManStorage storage;
-        private IAzManStore store;
-        private IAzManApplication application;
-        private string userLookupType;
-        private string defaultDomain;
+        /// <summary>
+        /// The Storage.
+        /// </summary>
+        protected IAzManStorage storage;
+        /// <summary>
+        /// The Store.
+        /// </summary>
+        protected IAzManStore store;
+        /// <summary>
+        /// The Application.
+        /// </summary>
+        protected IAzManApplication application;
+        /// <summary>
+        /// The user lookup type.
+        /// </summary>
+        protected string userLookupType;
+        /// <summary>
+        /// The default Domain.
+        /// </summary>
+        protected string defaultDomain;
         #endregion Fields
         #region Constructors
         /// <summary>
@@ -60,7 +75,7 @@ namespace NetSqlAzMan.Providers
         /// Gets the storage.
         /// </summary>
         /// <value>The storage.</value>
-        public IAzManStorage Storage
+        public virtual IAzManStorage Storage
         {
             get
             {
@@ -71,7 +86,7 @@ namespace NetSqlAzMan.Providers
         /// Gets the store.
         /// </summary>
         /// <value>The store.</value>
-        public IAzManStore Store
+        public virtual IAzManStore Store
         {
             get
             {
@@ -82,7 +97,7 @@ namespace NetSqlAzMan.Providers
         /// Gets the application.
         /// </summary>
         /// <value>The application.</value>
-        public IAzManApplication Application
+        public virtual IAzManApplication Application
         {
             get
             {
@@ -94,7 +109,7 @@ namespace NetSqlAzMan.Providers
         /// </summary>
         /// <value></value>
         /// <returns>The friendly name used to refer to the provider during configuration.</returns>
-        public override string Name
+        public virtual new string Name
         {
             get
             {
@@ -107,7 +122,7 @@ namespace NetSqlAzMan.Providers
         /// </summary>
         /// <value></value>
         /// <returns>A brief, friendly description suitable for display in administrative tools or other UIs.</returns>
-        public override string Description
+        public virtual new string Description
         {
             get
             {
@@ -135,7 +150,7 @@ namespace NetSqlAzMan.Providers
         /// <summary>
         /// Gets or sets the User Lookup Type. (LDAP or DB)
         /// </summary>
-        public string UserLookupType
+        public virtual string UserLookupType
         {
             get
             {
@@ -149,7 +164,7 @@ namespace NetSqlAzMan.Providers
         /// <summary>
         /// Gets or sets the Default Domain. (Valid only for UserLookupType = "LDAP")
         /// </summary>
-        public string DefaultDomain
+        public virtual string DefaultDomain
         {
             get
             {
