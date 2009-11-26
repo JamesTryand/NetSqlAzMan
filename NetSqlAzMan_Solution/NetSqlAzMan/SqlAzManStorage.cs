@@ -339,7 +339,7 @@ namespace NetSqlAzMan
         public void OpenConnection()
         {
             this.backupConnectionState = this.db.Connection.State;
-            if (this.backupConnectionState != ConnectionState.Open)
+            if (this.backupConnectionState == ConnectionState.Closed)
             {
                 this.db.Connection.Open();
             }
