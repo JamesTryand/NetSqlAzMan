@@ -510,8 +510,16 @@ namespace NetSqlAzMan.Providers
         /// </returns>
         public override bool RoleExists(string roleName)
         {
-            IAzManItem role = this.application[roleName];
-            return (role != null && role.ItemType == ItemType.Role);
+            try
+            {
+                IAzManItem role = this.application[roleName];
+                return (role != null && role.ItemType == ItemType.Role);
+            }
+            catch (NetSqlAzMan.SqlAzManException)
+            {
+                //Item not found
+                return false;
+            }
         }
         /// <summary>
         /// This code takes the user name supplied in the login form, constructs a UPN in the format userName@domainName, and passes the UPN to the WindowsIdentity constructor. This constructor uses the Kerberos S4U extension to obtain a Windows token for the user.
