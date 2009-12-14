@@ -781,12 +781,12 @@ GO
 /* 
    @ROLEID = { 0 READERS, 1 USERS, 2 MANAGERS}
 */
-CREATE FUNCTION [dbo].[netsqlazman_CheckApplicationPermissions](@APPLICATIONID int, @ROLEID tinyint)
+CREATE FUNCTION [dbo].[netsqlazman_CheckApplicationPermissions](@ApplicationId int, @ROLEID tinyint)
 RETURNS bit
 AS
 BEGIN
 DECLARE @RESULT bit
-IF @APPLICATIONID IS NULL OR @ROLEID IS NULL
+IF @ApplicationId IS NULL OR @ROLEID IS NULL
 	SET @RESULT = 0	
 ELSE
 BEGIN
@@ -802,11 +802,11 @@ BEGIN
 		@ROLEID = 1 AND IS_MEMBER('NetSqlAzMan_Users')=1 OR 
 		@ROLEID = 2 AND IS_MEMBER('NetSqlAzMan_Managers')=1) AND
 		(
-		(dbo.[netsqlazman_ApplicationPermissionsTable].ApplicationId = @APPLICATIONID AND dbo.[netsqlazman_ApplicationPermissionsTable].NetSqlAzManFixedServerRole >= @ROLEID AND 
+		(dbo.[netsqlazman_ApplicationPermissionsTable].ApplicationId = @ApplicationId AND dbo.[netsqlazman_ApplicationPermissionsTable].NetSqlAzManFixedServerRole >= @ROLEID AND 
 		(SUSER_SNAME(SUSER_SID())=[netsqlazman_ApplicationPermissionsTable].SqlUserOrRole AND [netsqlazman_ApplicationPermissionsTable].IsSqlRole = 0
 		OR IS_MEMBER([netsqlazman_ApplicationPermissionsTable].SqlUserOrRole)=1 AND [netsqlazman_ApplicationPermissionsTable].IsSqlRole = 1)) OR
 	
-		dbo.[netsqlazman_ApplicationsTable].ApplicationId = @APPLICATIONID AND 
+		dbo.[netsqlazman_ApplicationsTable].ApplicationId = @ApplicationId AND 
 		(dbo.[netsqlazman_StorePermissionsTable].StoreId = dbo.[netsqlazman_ApplicationsTable].StoreId AND dbo.[netsqlazman_StorePermissionsTable].NetSqlAzManFixedServerRole >= @ROLEID AND 
 		(SUSER_SNAME(SUSER_SID())=[netsqlazman_StorePermissionsTable].SqlUserOrRole AND [netsqlazman_StorePermissionsTable].IsSqlRole = 0 OR
 		IS_MEMBER([netsqlazman_StorePermissionsTable].SqlUserOrRole)=1 AND [netsqlazman_StorePermissionsTable].IsSqlRole = 1))
@@ -1588,9 +1588,9 @@ GO
 /****** Object:  Stored Procedure dbo.CreateDelegate    Script Date: 19/05/2006 19.11.19 ******/
 CREATE PROCEDURE [dbo].[netsqlazman_CreateDelegate](@ITEMID INT, @OWNERSID VARBINARY(85), @OWNERSIDWHEREDEFINED TINYINT, @DELEGATEDUSERSID VARBINARY(85), @SIDWHEREDEFINED TINYINT, @AUTHORIZATIONTYPE TINYINT, @VALIDFROM DATETIME, @VALIDTO DATETIME, @AUTHORIZATIONID INT OUTPUT)
 AS
-DECLARE @APPLICATIONID int
-SELECT @APPLICATIONID = ApplicationId FROM dbo.[netsqlazman_Items]() WHERE ItemId = @ItemId
-IF @APPLICATIONID IS NOT NULL AND dbo.[netsqlazman_CheckApplicationPermissions](@ApplicationId, 1) = 1
+DECLARE @ApplicationId int
+SELECT @ApplicationId = ApplicationId FROM dbo.[netsqlazman_Items]() WHERE ItemId = @ItemId
+IF @ApplicationId IS NOT NULL AND dbo.[netsqlazman_CheckApplicationPermissions](@ApplicationId, 1) = 1
 BEGIN
 	INSERT INTO dbo.[netsqlazman_AuthorizationsTable] (ItemId, ownerSid, ownerSidWhereDefined, objectSid, objectSidWhereDefined, AuthorizationType, ValidFrom, ValidTo)
 		VALUES (@ITEMID, @OWNERSID, @OWNERSIDWHEREDEFINED, @DELEGATEDUSERSID, @SIDWHEREDEFINED, @AUTHORIZATIONTYPE, @VALIDFROM, @VALIDTO)
@@ -2129,9 +2129,9 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[netsqlazman_DeleteDelegate](@AUTHORIZATIONID INT, @OWNERSID VARBINARY(85))
 AS
-DECLARE @APPLICATIONID int
-SELECT @APPLICATIONID = Items.ApplicationId FROM dbo.[netsqlazman_Items]() Items INNER JOIN dbo.[netsqlazman_Authorizations]() Authorizations ON Items.ItemId = Authorizations.ItemId WHERE Authorizations.AuthorizationId = @AUTHORIZATIONID
-IF @APPLICATIONID IS NOT NULL AND dbo.[netsqlazman_CheckApplicationPermissions](@ApplicationId, 1) = 1
+DECLARE @ApplicationId int
+SELECT @ApplicationId = Items.ApplicationId FROM dbo.[netsqlazman_Items]() Items INNER JOIN dbo.[netsqlazman_Authorizations]() Authorizations ON Items.ItemId = Authorizations.ItemId WHERE Authorizations.AuthorizationId = @AUTHORIZATIONID
+IF @ApplicationId IS NOT NULL AND dbo.[netsqlazman_CheckApplicationPermissions](@ApplicationId, 1) = 1
 	DELETE FROM dbo.[netsqlazman_AuthorizationsTable] WHERE AuthorizationId = @AUTHORIZATIONID AND ownerSid = @OWNERSID
 ELSE
 	RAISERROR ('Item NOT Found or Application permission denied.', 16, 1)
@@ -2998,7 +2998,7 @@ AS
 --Memo: 0 - Role; 1 - Task; 2 - Operation
 SET NOCOUNT ON
 DECLARE @STOREID int
-DECLARE @APPLICATIONID int
+DECLARE @ApplicationId int
 DECLARE @ITEMID INT
 
 -- CHECK STORE EXISTANCE/PERMISSIONS
@@ -3009,8 +3009,8 @@ IF @STOREID IS NULL
 	RETURN 1
 	END
 -- CHECK APPLICATION EXISTANCE/PERMISSIONS
-Select @APPLICATIONID = ApplicationId FROM dbo.[netsqlazman_Applications]() WHERE Name = @APPLICATIONNAME And StoreId = @STOREID
-IF @APPLICATIONID IS NULL
+Select @ApplicationId = ApplicationId FROM dbo.[netsqlazman_Applications]() WHERE Name = @APPLICATIONNAME And StoreId = @STOREID
+IF @ApplicationId IS NULL
 	BEGIN
 	RAISERROR ('Application not found or Application permission denied.', 16, 1)
 	RETURN 1
@@ -3020,7 +3020,7 @@ SELECT @ITEMID = Items.ItemId
 	FROM         dbo.[netsqlazman_Applications]() Applications INNER JOIN
 	                      dbo.[netsqlazman_Items]() Items ON Applications.ApplicationId = Items.ApplicationId INNER JOIN
 	                      dbo.[netsqlazman_Stores]() Stores ON Applications.StoreId = Stores.StoreId
-	WHERE     (Stores.StoreId = @STOREID) AND (Applications.ApplicationId = @APPLICATIONID) AND (Items.Name = @ITEMNAME) AND (@OPERATIONSONLY = 1 AND Items.ItemType=2 OR @OPERATIONSONLY = 0)
+	WHERE     (Stores.StoreId = @STOREID) AND (Applications.ApplicationId = @ApplicationId) AND (Items.Name = @ITEMNAME) AND (@OPERATIONSONLY = 1 AND Items.ItemType=2 OR @OPERATIONSONLY = 0)
 IF @ITEMID IS NULL
 	BEGIN
 	RAISERROR ('Item not found.', 16, 1)
@@ -3050,7 +3050,7 @@ BEGIN
 -- GET STORE AND APPLICATION ATTRIBUTES
 --------------------------------------------------------------------------------
 	INSERT INTO #ATTRIBUTES_TABLE SELECT AttributeKey, AttributeValue, NULL FROM dbo.[netsqlazman_StoreAttributesTable] StoreAttributes INNER JOIN dbo.[netsqlazman_StoresTable] Stores ON StoreAttributes.StoreId = Stores.StoreId WHERE Stores.StoreId = @STOREID
-	INSERT INTO #ATTRIBUTES_TABLE SELECT AttributeKey, AttributeValue, NULL FROM dbo.[netsqlazman_ApplicationAttributesTable] ApplicationAttributes INNER JOIN dbo.[netsqlazman_ApplicationsTable] Applications ON ApplicationAttributes.ApplicationId = Applications.ApplicationId WHERE Applications.ApplicationId = @APPLICATIONID
+	INSERT INTO #ATTRIBUTES_TABLE SELECT AttributeKey, AttributeValue, NULL FROM dbo.[netsqlazman_ApplicationAttributesTable] ApplicationAttributes INNER JOIN dbo.[netsqlazman_ApplicationsTable] Applications ON ApplicationAttributes.ApplicationId = Applications.ApplicationId WHERE Applications.ApplicationId = @ApplicationId
 END
 --------------------------------------------------------------------------------
 DECLARE @USERSID varbinary(85)
