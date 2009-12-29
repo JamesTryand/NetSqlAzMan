@@ -438,9 +438,7 @@ namespace CubicOrange.Windows.Forms.ActiveDirectory
 
             DSOP_SCOPE_INIT_INFO[] scopeInitInfo = scopeInitInfoList.ToArray();
 
-            // TODO: Scopes for alternate ADs, alternate domains, alternate computers, etc
-
-			// Allocate memory from the unmananged mem of the process, this should be freed later!??
+            // Allocate memory from the unmananged mem of the process, this should be freed later!??
 			IntPtr refScopeInitInfo = Marshal.AllocHGlobal
                 (Marshal.SizeOf(typeof(DSOP_SCOPE_INIT_INFO)) * scopeInitInfo.Length);
 			

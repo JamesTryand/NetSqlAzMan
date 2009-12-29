@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE dbo.[netsqlazman_BuildUserPermissionCache](@STORENAME nvarchar(255), @APPLICATIONNAME nvarchar(255))
+﻿CREATE PROCEDURE [dbo].[netsqlazman_BuildUserPermissionCache](@STORENAME nvarchar(255), @APPLICATIONNAME nvarchar(255))
 AS 
 -- Hierarchy
 SET NOCOUNT ON

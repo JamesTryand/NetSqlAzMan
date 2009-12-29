@@ -269,7 +269,7 @@ AS
 CREATE TABLE #temptable (
 	[DBRole] sysname NOT NULL ,
 	[MemberName] sysname NOT NULL ,
-	[MemberSID] varbinary(85) NULL
+	[MemberSid] varbinary(85) NULL
 	)
 
 IF @rolename = 'NetSqlAzMan_Managers'
@@ -1915,7 +1915,7 @@ GO
 -- Create date: 13/04/2006
 -- Description:	Get Name From Sid
 -- =============================================
-CREATE FUNCTION [dbo].[netsqlazman_GetNameFromSid] (@StoreName nvarchar(255), @ApplicationName nvarchar(255), @Sid varbinary(85), @SidWhereDefined tinyint)
+CREATE FUNCTION [dbo].[netsqlazman_GetNameFromSid] (@StoreName nvarchar(255), @ApplicationName nvarchar(255), @sid varbinary(85), @SidWhereDefined tinyint)
 RETURNS nvarchar(255)
 AS
 BEGIN
@@ -1925,23 +1925,23 @@ SET @Name = NULL
 
 IF (@SidWhereDefined=0) --Store
 BEGIN
-SET @Name = (SELECT TOP 1 Name FROM dbo.[netsqlazman_StoreGroups]() WHERE objectSid = @Sid)
+SET @Name = (SELECT TOP 1 Name FROM dbo.[netsqlazman_StoreGroups]() WHERE objectSid = @sid)
 END
 ELSE IF (@SidWhereDefined=1) --Application 
 BEGIN
-SET @Name = (SELECT TOP 1 Name FROM dbo.[netsqlazman_ApplicationGroups]() WHERE objectSid = @Sid)
+SET @Name = (SELECT TOP 1 Name FROM dbo.[netsqlazman_ApplicationGroups]() WHERE objectSid = @sid)
 END
 ELSE IF (@SidWhereDefined=2 OR @SidWhereDefined=3) --LDAP or LOCAL
 BEGIN
-SET @Name = (SELECT Suser_Sname(@Sid))
+SET @Name = (SELECT Suser_Sname(@sid))
 END
 ELSE IF (@SidWhereDefined=4) --Database
 BEGIN
-SET @Name = (SELECT DBUserName FROM dbo.[netsqlazman_GetDBUsers](@StoreName, @ApplicationName, @Sid, NULL))
+SET @Name = (SELECT DBUserName FROM dbo.[netsqlazman_GetDBUsers](@StoreName, @ApplicationName, @sid, NULL))
 END
 IF (@Name IS NULL)
 BEGIN
-	SET @Name = @Sid
+	SET @Name = @sid
 END
 RETURN @Name
 END
@@ -2885,7 +2885,7 @@ GO
 CREATE PROCEDURE [dbo].[netsqlazman_IsAMemberOfGroup](@GROUPTYPE bit, @GROUPOBJECTSID VARBINARY(85), @NETSQLAZMANMODE bit, @LDAPPATH nvarchar(4000), @TOKEN IMAGE, @USERGROUPSCOUNT INT)  
 AS  
 DECLARE @member_cur CURSOR
-DECLARE @memberSid VARBINARY(85)
+DECLARE @MemberSid VARBINARY(85)
 DECLARE @USERSID VARBINARY(85)
 DECLARE @USERGROUPS TABLE(objectSid VARBINARY(85))
 DECLARE @I INT
@@ -2921,17 +2921,17 @@ IF @GROUPTYPE = 0 -- STORE GROUP
 ELSE -- APPLICATON GROUP
 	EXEC dbo.[netsqlazman_GetApplicationGroupSidMembers] 0, @GROUPOBJECTSID, @NETSQLAZMANMODE, @LDAPPATH, @member_cur OUTPUT
 
-FETCH NEXT FROM @member_cur INTO @memberSid
+FETCH NEXT FROM @member_cur INTO @MemberSid
 WHILE @@FETCH_STATUS = 0
 BEGIN
-	IF @memberSid = @USERSID
+	IF @MemberSid = @USERSID
 	BEGIN
 		CLOSE @member_cur
 		DEALLOCATE @member_cur
 		SELECT CONVERT(bit, 0) -- true
 		RETURN
 	END		
-	SELECT @COUNT =  COUNT(*)  FROM @USERGROUPS WHERE objectSid = @memberSid
+	SELECT @COUNT =  COUNT(*)  FROM @USERGROUPS WHERE objectSid = @MemberSid
 	IF @COUNT>0
 	BEGIN
 		CLOSE @member_cur
@@ -2939,7 +2939,7 @@ BEGIN
 		SELECT CONVERT(bit, 0) -- true
 		RETURN
 	END		
-	FETCH NEXT FROM @member_cur INTO @memberSid
+	FETCH NEXT FROM @member_cur INTO @MemberSid
 END
 CLOSE @member_cur
 DEALLOCATE @member_cur
@@ -2950,17 +2950,17 @@ IF @GROUPTYPE = 0 -- STORE GROUP
 ELSE -- APPLICATON GROUP
 	EXEC dbo.[netsqlazman_GetApplicationGroupSidMembers] 1, @GROUPOBJECTSID, @NETSQLAZMANMODE, @LDAPPATH, @member_cur OUTPUT
 
-FETCH NEXT FROM @member_cur INTO @memberSid
+FETCH NEXT FROM @member_cur INTO @MemberSid
 WHILE @@FETCH_STATUS = 0
 BEGIN
-	IF @memberSid = @USERSID
+	IF @MemberSid = @USERSID
 	BEGIN
 		CLOSE @member_cur
 		DEALLOCATE @member_cur
 		SELECT CONVERT(bit,1) -- true
 		RETURN
 	END		
-	SELECT @COUNT =  COUNT(*)  FROM @USERGROUPS WHERE objectSid = @memberSid
+	SELECT @COUNT =  COUNT(*)  FROM @USERGROUPS WHERE objectSid = @MemberSid
 	IF @COUNT>0
 	BEGIN
 		CLOSE @member_cur
@@ -2968,7 +2968,7 @@ BEGIN
 		SELECT CONVERT(bit, 1) -- true
 		RETURN
 	END		
-	FETCH NEXT FROM @member_cur INTO @memberSid
+	FETCH NEXT FROM @member_cur INTO @MemberSid
 END
 CLOSE @member_cur
 DEALLOCATE @member_cur

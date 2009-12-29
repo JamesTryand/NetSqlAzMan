@@ -35,7 +35,7 @@
     <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
     <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
     <AnsiNullDefault>True</AnsiNullDefault>
-    <DefaultCollation>Latin1_General_CI_AS</DefaultCollation>
+    <DefaultCollation>Latin1_General_CS_AS</DefaultCollation>
     <DefaultFileStructure>BySchemaType</DefaultFileStructure>
     <DatabaseChaining>False</DatabaseChaining>
     <EnableServiceBroker>False</EnableServiceBroker>

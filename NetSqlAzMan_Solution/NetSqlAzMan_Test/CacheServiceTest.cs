@@ -18,9 +18,7 @@ namespace NetSqlAzMan_Test
     {
         public CacheServiceTest()
         {
-            //
-            // TODO: Add constructor logic here
-            //
+
         }
 
         private TestContext testContextInstance;

@@ -3,7 +3,7 @@ AS
 --Memo: 0 - Role; 1 - Task; 2 - Operation
 SET NOCOUNT ON
 DECLARE @STOREID int
-DECLARE @APPLICATIONID int
+DECLARE @ApplicationId int
 DECLARE @ITEMID INT
 
 -- CHECK STORE EXISTANCE/PERMISSIONS
@@ -14,8 +14,8 @@ IF @STOREID IS NULL
 	RETURN 1
 	END
 -- CHECK APPLICATION EXISTANCE/PERMISSIONS
-Select @APPLICATIONID = ApplicationId FROM dbo.[netsqlazman_Applications]() WHERE Name = @APPLICATIONNAME And StoreId = @STOREID
-IF @APPLICATIONID IS NULL
+Select @ApplicationId = ApplicationId FROM dbo.[netsqlazman_Applications]() WHERE Name = @APPLICATIONNAME And StoreId = @STOREID
+IF @ApplicationId IS NULL
 	BEGIN
 	RAISERROR ('Application not found or Application permission denied.', 16, 1)
 	RETURN 1
@@ -25,7 +25,7 @@ SELECT @ITEMID = Items.ItemId
 	FROM         dbo.[netsqlazman_Applications]() Applications INNER JOIN
 	                      dbo.[netsqlazman_Items]() Items ON Applications.ApplicationId = Items.ApplicationId INNER JOIN
 	                      dbo.[netsqlazman_Stores]() Stores ON Applications.StoreId = Stores.StoreId
-	WHERE     (Stores.StoreId = @STOREID) AND (Applications.ApplicationId = @APPLICATIONID) AND (Items.Name = @ITEMNAME) AND (@OPERATIONSONLY = 1 AND Items.ItemType=2 OR @OPERATIONSONLY = 0)
+	WHERE     (Stores.StoreId = @STOREID) AND (Applications.ApplicationId = @ApplicationId) AND (Items.Name = @ITEMNAME) AND (@OPERATIONSONLY = 1 AND Items.ItemType=2 OR @OPERATIONSONLY = 0)
 IF @ITEMID IS NULL
 	BEGIN
 	RAISERROR ('Item not found.', 16, 1)
@@ -55,7 +55,7 @@ BEGIN
 -- GET STORE AND APPLICATION ATTRIBUTES
 --------------------------------------------------------------------------------
 	INSERT INTO #ATTRIBUTES_TABLE SELECT AttributeKey, AttributeValue, NULL FROM dbo.[netsqlazman_StoreAttributesTable] StoreAttributes INNER JOIN dbo.[netsqlazman_StoresTable] Stores ON StoreAttributes.StoreId = Stores.StoreId WHERE Stores.StoreId = @STOREID
-	INSERT INTO #ATTRIBUTES_TABLE SELECT AttributeKey, AttributeValue, NULL FROM dbo.[netsqlazman_ApplicationAttributesTable] ApplicationAttributes INNER JOIN dbo.[netsqlazman_ApplicationsTable] Applications ON ApplicationAttributes.ApplicationId = Applications.ApplicationId WHERE Applications.ApplicationId = @APPLICATIONID
+	INSERT INTO #ATTRIBUTES_TABLE SELECT AttributeKey, AttributeValue, NULL FROM dbo.[netsqlazman_ApplicationAttributesTable] ApplicationAttributes INNER JOIN dbo.[netsqlazman_ApplicationsTable] Applications ON ApplicationAttributes.ApplicationId = Applications.ApplicationId WHERE Applications.ApplicationId = @ApplicationId
 END
 --------------------------------------------------------------------------------
 DECLARE @USERSID varbinary(85)

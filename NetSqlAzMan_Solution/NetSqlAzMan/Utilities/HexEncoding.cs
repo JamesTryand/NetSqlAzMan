@@ -14,9 +14,7 @@ namespace NetSqlAzMan.Utilities
         /// </summary>
         public HexEncoding()
         {
-            //
-            // TODO: Add constructor logic here
-            //
+            
         }
         /// <summary>
         /// Gets the byte count.

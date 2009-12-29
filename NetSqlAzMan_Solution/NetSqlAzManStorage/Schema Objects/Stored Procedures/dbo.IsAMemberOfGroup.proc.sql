@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[netsqlazman_IsAMemberOfGroup](@GROUPTYPE bit, @GROUPOBJECTSID VARBINARY(85), @NETSQLAZMANMODE bit, @LDAPPATH nvarchar(4000), @TOKEN IMAGE, @USERGROUPSCOUNT INT)  
 AS  
 DECLARE @member_cur CURSOR
-DECLARE @memberSid VARBINARY(85)
+DECLARE @MemberSid VARBINARY(85)
 DECLARE @USERSID VARBINARY(85)
 DECLARE @USERGROUPS TABLE(objectSid VARBINARY(85))
 DECLARE @I INT
@@ -37,17 +37,17 @@ IF @GROUPTYPE = 0 -- STORE GROUP
 ELSE -- APPLICATON GROUP
 	EXEC dbo.[netsqlazman_GetApplicationGroupSidMembers] 0, @GROUPOBJECTSID, @NETSQLAZMANMODE, @LDAPPATH, @member_cur OUTPUT
 
-FETCH NEXT FROM @member_cur INTO @memberSid
+FETCH NEXT FROM @member_cur INTO @MemberSid
 WHILE @@FETCH_STATUS = 0
 BEGIN
-	IF @memberSid = @USERSID
+	IF @MemberSid = @USERSID
 	BEGIN
 		CLOSE @member_cur
 		DEALLOCATE @member_cur
 		SELECT CONVERT(bit, 0) -- true
 		RETURN
 	END		
-	SELECT @COUNT =  COUNT(*)  FROM @USERGROUPS WHERE objectSid = @memberSid
+	SELECT @COUNT =  COUNT(*)  FROM @USERGROUPS WHERE objectSid = @MemberSid
 	IF @COUNT>0
 	BEGIN
 		CLOSE @member_cur
@@ -55,7 +55,7 @@ BEGIN
 		SELECT CONVERT(bit, 0) -- true
 		RETURN
 	END		
-	FETCH NEXT FROM @member_cur INTO @memberSid
+	FETCH NEXT FROM @member_cur INTO @MemberSid
 END
 CLOSE @member_cur
 DEALLOCATE @member_cur
@@ -66,17 +66,17 @@ IF @GROUPTYPE = 0 -- STORE GROUP
 ELSE -- APPLICATON GROUP
 	EXEC dbo.[netsqlazman_GetApplicationGroupSidMembers] 1, @GROUPOBJECTSID, @NETSQLAZMANMODE, @LDAPPATH, @member_cur OUTPUT
 
-FETCH NEXT FROM @member_cur INTO @memberSid
+FETCH NEXT FROM @member_cur INTO @MemberSid
 WHILE @@FETCH_STATUS = 0
 BEGIN
-	IF @memberSid = @USERSID
+	IF @MemberSid = @USERSID
 	BEGIN
 		CLOSE @member_cur
 		DEALLOCATE @member_cur
 		SELECT CONVERT(bit,1) -- true
 		RETURN
 	END		
-	SELECT @COUNT =  COUNT(*)  FROM @USERGROUPS WHERE objectSid = @memberSid
+	SELECT @COUNT =  COUNT(*)  FROM @USERGROUPS WHERE objectSid = @MemberSid
 	IF @COUNT>0
 	BEGIN
 		CLOSE @member_cur
@@ -84,7 +84,7 @@ BEGIN
 		SELECT CONVERT(bit, 1) -- true
 		RETURN
 	END		
-	FETCH NEXT FROM @member_cur INTO @memberSid
+	FETCH NEXT FROM @member_cur INTO @MemberSid
 END
 CLOSE @member_cur
 DEALLOCATE @member_cur

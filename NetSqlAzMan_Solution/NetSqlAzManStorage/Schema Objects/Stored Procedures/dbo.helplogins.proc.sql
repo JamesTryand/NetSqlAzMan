@@ -4,7 +4,7 @@ AS
 CREATE TABLE #temptable (
 	[DBRole] sysname NOT NULL ,
 	[MemberName] sysname NOT NULL ,
-	[MemberSID] varbinary(85) NULL
+	[MemberSid] varbinary(85) NULL
 	)
 
 IF @rolename = 'NetSqlAzMan_Managers'
