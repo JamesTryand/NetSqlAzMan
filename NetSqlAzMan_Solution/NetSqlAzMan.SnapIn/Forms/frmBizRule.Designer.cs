@@ -60,7 +60,7 @@ namespace NetSqlAzMan.SnapIn.Forms
             this.txtSourceCode.ForeColor = System.Drawing.Color.Yellow;
             this.txtSourceCode.HideSelection = false;
             this.txtSourceCode.Location = new System.Drawing.Point(49, 49);
-            this.txtSourceCode.MaxLength = 4096;
+            this.txtSourceCode.MaxLength = 5000000;
             this.txtSourceCode.Multiline = true;
             this.txtSourceCode.Name = "txtSourceCode";
             this.txtSourceCode.ScrollBars = System.Windows.Forms.ScrollBars.Both;
