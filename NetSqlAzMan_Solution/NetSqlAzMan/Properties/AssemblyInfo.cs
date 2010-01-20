@@ -7,11 +7,11 @@ using System.Security;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("NetSqlAzMan")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription(".NET SQL Authorization Manager")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Andrea Ferendeles")]
 [assembly: AssemblyProduct("NetSqlAzMan")]
-[assembly: AssemblyCopyright("Copyright © Andrea Ferendeles 2006-2008")]
+[assembly: AssemblyCopyright("Copyright © Andrea Ferendeles 2006-2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,6 +32,6 @@ using System.Security;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("3.6.0.4")]
-[assembly: AssemblyFileVersion("3.6.0.4")]
+[assembly: AssemblyVersion("3.6.0.5")]
+[assembly: AssemblyFileVersion("3.6.0.5")]
 [assembly: AllowPartiallyTrustedCallers()]

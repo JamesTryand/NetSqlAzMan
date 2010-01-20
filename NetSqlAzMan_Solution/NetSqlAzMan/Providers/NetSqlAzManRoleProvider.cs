@@ -109,7 +109,7 @@ namespace NetSqlAzMan.Providers
         /// </summary>
         /// <value></value>
         /// <returns>The friendly name used to refer to the provider during configuration.</returns>
-        public virtual new string Name
+        public override string Name
         {
             get
             {
@@ -122,7 +122,7 @@ namespace NetSqlAzMan.Providers
         /// </summary>
         /// <value></value>
         /// <returns>A brief, friendly description suitable for display in administrative tools or other UIs.</returns>
-        public virtual new string Description
+        public override string Description
         {
             get
             {

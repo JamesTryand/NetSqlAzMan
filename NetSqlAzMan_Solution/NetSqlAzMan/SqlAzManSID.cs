@@ -269,7 +269,13 @@ namespace NetSqlAzMan
         /// </returns>
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            if (Object.ReferenceEquals(obj, null))
+                return false;
+            SqlAzManSID sqlazmansid = obj as SqlAzManSID;
+            if (!object.ReferenceEquals(sqlazmansid, null))
+                return this.Equals(sqlazmansid);
+            else
+                return base.Equals(obj);
         }
 
         /// <summary>
@@ -279,6 +285,8 @@ namespace NetSqlAzMan
         /// <returns></returns>
         public bool Equals(SqlAzManSID sqlazmanSid)
         {
+            if (Object.ReferenceEquals(sqlazmanSid, null))
+                return false;
             if (this.securityIdentifier != null)
                 return this.securityIdentifier.Equals(sqlazmanSid.securityIdentifier);
             else if (this.guid != Guid.Empty)
@@ -296,6 +304,7 @@ namespace NetSqlAzMan
             }
         }
 
+
         /// <summary>
         /// Equalses the specified sid.
         /// </summary>
@@ -303,12 +312,15 @@ namespace NetSqlAzMan
         /// <returns></returns>
         public bool Equals(IAzManSid sid)
         {
+            if (Object.ReferenceEquals(sid, null))
+                return false;
             SqlAzManSID sqlazmansid = sid as SqlAzManSID;
-            if (!Object.ReferenceEquals(sqlazmansid, null))
+            if (!object.ReferenceEquals(sqlazmansid, null))
                 return this.Equals(sqlazmansid);
             else
                 return this.GetHashCode() == sid.GetHashCode();
         }
+
 
         /// <summary>
         /// Equalses the specified sid.

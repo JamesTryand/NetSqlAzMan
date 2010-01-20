@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 //
 [assembly: AssemblyTitle("Directory Object Picker common dialog")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription(".NET SQL Authorization Manager")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Directory Object Picker")]

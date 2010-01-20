@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("NetSqlAzMan_Test")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription(".NET SQL Authorization Manager")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("NetSqlAzMan_Test")]
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("3.6.0.4")]
-[assembly: AssemblyFileVersion("3.6.0.4")]
+[assembly: AssemblyVersion("3.6.0.5")]
+[assembly: AssemblyFileVersion("3.6.0.5")]

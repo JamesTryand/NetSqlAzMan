@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("CheckAccessTemplate")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription(".NET SQL Authorization Manager")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Eidos")]
 [assembly: AssemblyProduct("CheckAccessTemplate")]
