@@ -423,7 +423,7 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
                 //Get ws update url from http://netsqlazman.sourceforge.net/wsNetSqlAzManUpdateUrl.txt
                 System.Threading.Thread.Sleep(3000);
                 //Get ws update url from http://netsqlazman.sourceforge.net/wsNetSqlAzManWebConsoleUpdateUrl.txt
-                System.Net.WebRequest req = System.Net.WebRequest.Create("http://netsqlazman.codeplex.com");
+                System.Net.WebRequest req = System.Net.WebRequest.Create("http://netsqlazman.codeplex.com/wikipage?title=LatestReleaseVersion");
                 req.Proxy = System.Net.WebRequest.GetSystemWebProxy();
                 req.Proxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
                 System.Net.WebResponse resp = req.GetResponse();
@@ -432,9 +432,8 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
                 string html = tr.ReadToEnd();
                 tr.Close();
                 stream.Close();
-                html = html.Substring(html.IndexOf("Recommended release:") + 20);
-                string serverVersion = Regex.Replace(html, "<.*?>", String.Empty);
-                serverVersion = serverVersion.Replace("\t", "").Replace(" ", String.Empty).Replace("\r", "").Replace("\n", "").Substring(0, 7);
+                html = html.Substring(html.IndexOf("LatestReleaseVersion:") + 21);
+                string serverVersion = html.Substring(0, 7);
                 string clientVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
                 if (String.Compare(serverVersion, clientVersion, true) != 0)
                 {
