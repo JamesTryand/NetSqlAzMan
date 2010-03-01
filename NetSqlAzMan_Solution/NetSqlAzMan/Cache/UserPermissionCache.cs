@@ -255,7 +255,7 @@ namespace NetSqlAzMan.Cache
             var data = ((SqlAzManStorage)this.storage).db.BuildUserPermissionCache(this.storeName, this.applicationName);
             var hierarchy = (IEnumerable<BuildUserPermissionCacheResult1>)data.GetResult<BuildUserPermissionCacheResult1>();
             this.dtAuthorizations = (IEnumerable<BuildUserPermissionCacheResult2>)data.GetResult<BuildUserPermissionCacheResult2>().ToList();
-            this.dtHierarchy = new DataTable();
+            this.dtHierarchy = new DataTable("Hierarchy");
             this.dtHierarchy.Columns.Add("ItemName", typeof(string));
             this.dtHierarchy.Columns.Add("ParentItemName", typeof(string));
             StringCollection items = new StringCollection();
