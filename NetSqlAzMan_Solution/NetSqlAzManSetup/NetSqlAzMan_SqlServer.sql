@@ -3333,7 +3333,9 @@ GRANT EXECUTE ON [dbo].[netsqlazman_StoreGroupInsert] TO [NetSqlAzMan_Managers]
 GO
 GRANT EXECUTE ON [dbo].[netsqlazman_StoreGroupUpdate] TO [NetSqlAzMan_Managers]
 GO
-GRANT EXECUTE ON [dbo].[netsqlazman_StoreGroupDelete] TO [NetSqlAzMan_Administrators]
+GRANT EXECUTE ON [dbo].[netsqlazman_StoreGroupDelete] TO [NetSqlAzMan_Managers]
+GO
+GRANT EXECUTE ON [dbo].[netsqlazman_StoreDelete] TO [NetSqlAzMan_Managers]
 GO
 GRANT SELECT ON [dbo].[netsqlazman_Stores] TO [NetSqlAzMan_Readers]
 GO
