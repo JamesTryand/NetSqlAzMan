@@ -50,9 +50,11 @@ Project("{A9ACE9BB-CECE-4E62-9AA4-C7E7C5BD2124}") = "NetSqlAzManStorage", "NetSq
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryObjectPicker", "CubicOrange.Windows.Forms.ActiveDirectory\DirectoryObjectPicker.csproj", "{AD25BE24-8A42-44E0-9588-3767F572C338}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetSqlAzMan_RoleProviderWebTest", "NetSqlAzMan_RoleProviderWebTest\NetSqlAzMan_RoleProviderWebTest.csproj", "{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 19
+		SccNumberOfProjects = 20
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs08.codeplex.com/
 		SccLocalPath0 = .
@@ -128,6 +130,10 @@ Global
 		SccProjectTopLevelParentUniqueName18 = NetSqlAzMan_Solution.sln
 		SccProjectName18 = CubicOrange.Windows.Forms.ActiveDirectory
 		SccLocalPath18 = CubicOrange.Windows.Forms.ActiveDirectory
+		SccProjectUniqueName19 = NetSqlAzMan_RoleProviderWebTest\\NetSqlAzMan_RoleProviderWebTest.csproj
+		SccProjectTopLevelParentUniqueName19 = NetSqlAzMan_Solution.sln
+		SccProjectName19 = NetSqlAzMan_RoleProviderWebTest
+		SccLocalPath19 = NetSqlAzMan_RoleProviderWebTest
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -496,6 +502,25 @@ Global
 		{AD25BE24-8A42-44E0-9588-3767F572C338}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{AD25BE24-8A42-44E0-9588-3767F572C338}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{AD25BE24-8A42-44E0-9588-3767F572C338}.Release|Win32.ActiveCfg = Release|Any CPU
+		{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE}.Debug|.NET.Build.0 = Debug|Any CPU
+		{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE}.Default|.NET.ActiveCfg = Debug|Any CPU
+		{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE}.Default|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE}.Default|Mixed Platforms.Build.0 = Debug|Any CPU
+		{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE}.Default|Win32.ActiveCfg = Debug|Any CPU
+		{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE}.Release|.NET.ActiveCfg = Release|Any CPU
+		{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -509,6 +534,7 @@ Global
 		{7F77B3FA-23A3-461A-8950-8D23831D67EC} = {A6152E38-F30F-402C-A311-7FC87276A134}
 		{38C606BA-7D53-4D91-929C-FBD56ECFC2D1} = {A6152E38-F30F-402C-A311-7FC87276A134}
 		{A20896F2-BE4B-4B0A-AEA8-52547C8B000A} = {A6152E38-F30F-402C-A311-7FC87276A134}
+		{021F18FD-2FE2-443D-B484-9EE8FFCC2FDE} = {A6152E38-F30F-402C-A311-7FC87276A134}
 		{CBDF2741-B771-4399-8996-77D08C3E8267} = {FA898198-2E8D-4145-A46A-0BD4C550898A}
 		{BE4776E3-69B4-49C8-AB70-AC1F87499C8A} = {FA898198-2E8D-4145-A46A-0BD4C550898A}
 		{1B37F3C0-D1E4-4063-82AE-CC5FEF2E0553} = {FA898198-2E8D-4145-A46A-0BD4C550898A}
