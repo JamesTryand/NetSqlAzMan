@@ -13,7 +13,7 @@ namespace NetSqlAzMan_RoleProviderWebTest
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            bool isInRole = Roles.IsUserInRole("Utente2");
+            bool isInRole = Roles.IsUserInRole("Andrea");
         }
     }
 }

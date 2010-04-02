@@ -35,23 +35,15 @@ namespace NetSqlAzMan.Providers
     /// <summary>
     /// ASP.NET Role Provider for .NET Sql Authorization Manager.
     /// </summary>
+    /// <remarks>Thread Safe</remarks>
     [AspNetHostingPermission(SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
     [AspNetHostingPermission(SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
     public class NetSqlAzManRoleProvider : RoleProvider
     {
         #region Fields
-        /// <summary>
-        /// The Storage.
-        /// </summary>
-        protected IAzManStorage storage;
-        /// <summary>
-        /// The Store.
-        /// </summary>
-        protected IAzManStore store;
-        /// <summary>
-        /// The Application.
-        /// </summary>
-        protected IAzManApplication application;
+        private String connectionStringName;
+        private String storeName;
+        private String applicationName;
         /// <summary>
         /// The user lookup type.
         /// </summary>
@@ -79,7 +71,7 @@ namespace NetSqlAzMan.Providers
         {
             get
             {
-                return this.storage;
+                return new SqlAzManStorage(this.connectionStringName);
             }
         }
         /// <summary>
@@ -90,7 +82,8 @@ namespace NetSqlAzMan.Providers
         {
             get
             {
-                return this.store;
+                SqlAzManStorage storage = new SqlAzManStorage(this.connectionStringName);
+                return storage[this.storeName];
             }
         }
         /// <summary>
@@ -101,7 +94,8 @@ namespace NetSqlAzMan.Providers
         {
             get
             {
-                return this.application;
+                SqlAzManStorage storage = new SqlAzManStorage(this.connectionStringName);
+                return storage[this.storeName][this.applicationName];
             }
         }
         /// <summary>
@@ -139,11 +133,11 @@ namespace NetSqlAzMan.Providers
         {
             get
             {
-                return this.application.Name;
+                return this.applicationName;
             }
             set
             {
-                this.application = this.store.GetApplication(value);
+                this.applicationName = value;
             }
         }
 
@@ -201,14 +195,14 @@ namespace NetSqlAzMan.Providers
                 throw new ArgumentNullException("applicationName", "Application Name parameter required.");
             if (config["userLookupType"] == null)
                 throw new ArgumentNullException("userLookupType", "userLookupType Name parameter required.");
-            if (config["userLookupType"] != "LDAP" && config["userLookupType"]!="DB")
+            if (config["userLookupType"] != "LDAP" && config["userLookupType"] != "DB")
                 throw new ArgumentNullException("userLookupType", "userLookupType invalid parameter. Possible values: \"LDAP\", \"DB\".");
             if (config["defaultDomain"] == null)
                 throw new ArgumentNullException("defaultDomain", "defaultDomain Name parameter required.");
             base.Initialize(name, config);
-            this.storage = new SqlAzManStorage(System.Configuration.ConfigurationManager.ConnectionStrings[config["connectionStringName"]].ConnectionString);
-            this.store = this.storage[config["storeName"]];
-            this.application = this.store[config["applicationName"]];
+            this.connectionStringName = System.Configuration.ConfigurationManager.ConnectionStrings[config["connectionStringName"]].ConnectionString;
+            this.storeName = config["storeName"];
+            this.applicationName = config["applicationName"];
             this.UserLookupType = config["userLookupType"];
             this.DefaultDomain = config["defaultDomain"];
         }
@@ -219,13 +213,16 @@ namespace NetSqlAzMan.Providers
         /// <param name="roleNames">A string array of the role names to add the specified user names to.</param>
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)
         {
+            IAzManStorage storage = this.Storage;
             try
             {
-                this.storage.OpenConnection();
-                this.storage.BeginTransaction();
+                storage.OpenConnection();
+                storage.BeginTransaction();
+                IAzManStore store = storage[this.storeName];
+                IAzManApplication application = store[this.applicationName];
                 foreach (string roleName in roleNames)
                 {
-                    IAzManItem role = this.application.GetItem(roleName);
+                    IAzManItem role = application.GetItem(roleName);
                     if (role.ItemType != ItemType.Role)
                         throw new ArgumentException(String.Format("{0} must be a Role.", roleName));
 
@@ -233,7 +230,7 @@ namespace NetSqlAzMan.Providers
                     {
                         IAzManSid owner = new SqlAzManSID(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).User);
                         WhereDefined whereDefined = WhereDefined.LDAP;
-                        if (this.userLookupType=="LDAP")
+                        if (this.userLookupType == "LDAP")
                         {
                             string fqun = this.getFQUN(username);
                             NTAccount ntaccount = new NTAccount(fqun);
@@ -246,22 +243,22 @@ namespace NetSqlAzMan.Providers
                         }
                         else
                         {
-                            var dbuser = this.application.GetDBUser(username);
+                            var dbuser = application.GetDBUser(username);
                             IAzManSid sid = dbuser.CustomSid;
                             role.CreateAuthorization(owner, whereDefined, sid, WhereDefined.Database, AuthorizationType.Allow, null, null);
                         }
                     }
                 }
-                this.storage.CommitTransaction();
+                storage.CommitTransaction();
             }
             catch
             {
-                this.storage.RollBackTransaction();
+                storage.RollBackTransaction();
                 throw;
             }
             finally
             {
-                this.storage.CloseConnection();
+                storage.CloseConnection();
             }
         }
 
@@ -271,7 +268,7 @@ namespace NetSqlAzMan.Providers
         /// <param name="roleName">The name of the role to create.</param>
         public override void CreateRole(string roleName)
         {
-            this.application.CreateItem(roleName, String.Empty, ItemType.Role);
+            this.Application.CreateItem(roleName, String.Empty, ItemType.Role);
         }
 
         /// <summary>
@@ -284,14 +281,15 @@ namespace NetSqlAzMan.Providers
         /// </returns>
         public override bool DeleteRole(string roleName, bool throwOnPopulatedRole)
         {
-            IAzManItem role = this.application[roleName];
+            IAzManApplication application = this.Application;
+            IAzManItem role = application[roleName];
             if (role == null)
                 throw new ArgumentNullException("roleName");
             if (roleName.Trim() == String.Empty)
                 throw new ArgumentException("roleName parameter cannot be empty.");
             if (role.ItemType != ItemType.Role)
                 throw new ArgumentException(String.Format("{0} must be a Role.", roleName), "roleName");
-            if (throwOnPopulatedRole && this.application[roleName].GetMembers().Length > 0)
+            if (throwOnPopulatedRole && application[roleName].GetMembers().Length > 0)
             {
                 throw new ProviderException(String.Format("{0} has one or more members and cannot be deleted.", roleName));
             }
@@ -321,7 +319,7 @@ namespace NetSqlAzMan.Providers
         public override string[] GetAllRoles()
         {
             List<string> roles = new List<string>();
-            foreach (IAzManItem role in this.application.GetItems(ItemType.Role))
+            foreach (IAzManItem role in this.Application.GetItems(ItemType.Role))
             {
                 roles.Add(role.Name);
             }
@@ -337,9 +335,10 @@ namespace NetSqlAzMan.Providers
         /// </returns>
         public override string[] GetRolesForUser(string username)
         {
-            IAzManItem[] allRoles = this.application.GetItems(ItemType.Role);
+            IAzManApplication application = this.Application;            
+            IAzManItem[] allRoles = application.GetItems(ItemType.Role);
             List<string> roles = new List<string>();
-            if (this.userLookupType=="LDAP")
+            if (this.userLookupType == "LDAP")
             {
                 WindowsIdentity wid = null;
                 //if (System.Web.HttpContext.Current != null && System.Web.HttpContext.Current.User.Identity as WindowsIdentity != null && String.Compare(this.getFQUN(username), System.Web.HttpContext.Current.User.Identity.Name, true) == 0)
@@ -366,7 +365,7 @@ namespace NetSqlAzMan.Providers
             }
             else
             {
-                IAzManDBUser dbUser = this.application.GetDBUser(username);
+                IAzManDBUser dbUser = application.GetDBUser(username);
                 if (dbUser == null)
                     throw SqlAzManException.DBUserNotFoundException(username, null);
                 IAzManSid sid = dbUser.CustomSid;
@@ -391,7 +390,8 @@ namespace NetSqlAzMan.Providers
         /// </returns>
         public override string[] GetUsersInRole(string roleName)
         {
-            IAzManItem role = this.application[roleName];
+            IAzManApplication application = this.Application;            
+            IAzManItem role = application[roleName];
             if (role.ItemType != ItemType.Role)
                 throw new ArgumentException(String.Format("{0} must be a Role.", roleName), "roleName");
 
@@ -411,7 +411,7 @@ namespace NetSqlAzMan.Providers
                     }
                     else if (auth.SidWhereDefined == WhereDefined.Database)
                     {
-                        users.Add(this.application.GetDBUser(auth.SID).UserName);
+                        users.Add(application.GetDBUser(auth.SID).UserName);
                     }
                 }
             }
@@ -428,11 +428,12 @@ namespace NetSqlAzMan.Providers
         /// </returns>
         public override bool IsUserInRole(string username, string roleName)
         {
-            IAzManItem role = this.application[roleName];
+            IAzManApplication application = this.Application;            
+            IAzManItem role = application[roleName];
             if (role.ItemType != ItemType.Role)
                 throw new ArgumentException(String.Format("{0} must be a Role.", roleName), "roleName");
 
-            if (this.userLookupType=="LDAP")
+            if (this.userLookupType == "LDAP")
             {
                 WindowsIdentity wid = null;
                 //if (System.Web.HttpContext.Current != null && System.Web.HttpContext.Current.User.Identity as WindowsIdentity != null && String.Compare(this.getFQUN(username), System.Web.HttpContext.Current.User.Identity.Name, true) == 0)
@@ -453,7 +454,7 @@ namespace NetSqlAzMan.Providers
             }
             else
             {
-                IAzManDBUser dbUser = this.application.GetDBUser(username);
+                IAzManDBUser dbUser = application.GetDBUser(username);
                 AuthorizationType auth = role.CheckAccess(dbUser, DateTime.Now);
                 return auth == AuthorizationType.Allow || auth == AuthorizationType.AllowWithDelegation;
             }
@@ -466,13 +467,16 @@ namespace NetSqlAzMan.Providers
         /// <param name="roleNames">A string array of role names to remove the specified user names from.</param>
         public override void RemoveUsersFromRoles(string[] usernames, string[] roleNames)
         {
+            IAzManStorage storage = this.Storage;
             try
             {
-                this.storage.OpenConnection();
-                this.storage.BeginTransaction();
+                IAzManStore store = storage[this.storeName];
+                IAzManApplication application = store[this.applicationName];
+                storage.OpenConnection();
+                storage.BeginTransaction();
                 foreach (string roleName in roleNames)
                 {
-                    IAzManItem role = this.application.GetItem(roleName);
+                    IAzManItem role = application.GetItem(roleName);
                     if (role.ItemType != ItemType.Role)
                         throw new ArgumentException(String.Format("{0} must be a Role.", roleName));
                     foreach (IAzManAuthorization auth in role.GetAuthorizations())
@@ -488,16 +492,16 @@ namespace NetSqlAzMan.Providers
                         }
                     }
                 }
-                this.storage.CommitTransaction();
+                storage.CommitTransaction();
             }
             catch
             {
-                this.storage.RollBackTransaction();
+                storage.RollBackTransaction();
                 throw;
             }
             finally
             {
-                this.storage.CloseConnection();
+                storage.CloseConnection();
             }
         }
 
@@ -512,7 +516,7 @@ namespace NetSqlAzMan.Providers
         {
             try
             {
-                IAzManItem role = this.application[roleName];
+                IAzManItem role = this.Application[roleName];
                 return (role != null && role.ItemType == ItemType.Role);
             }
             catch (NetSqlAzMan.SqlAzManException)
@@ -528,7 +532,7 @@ namespace NetSqlAzMan.Providers
         /// <returns></returns>
         /// <remarks>http://msdn2.microsoft.com/en-us/library/ms998355.aspx</remarks>
         private string getUpn(string userName)
-        { 
+        {
             // Obtain the user name (obtained from forms authentication)
             string identity = userName;
 
