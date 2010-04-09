@@ -208,18 +208,16 @@ namespace NetSqlAzMan
         /// <summary>
         /// Updates the specified object owner.
         /// </summary>
-        /// <param name="sid">The object owner.</param>
         /// <param name="description">The description.</param>
         /// <param name="groupType">Type of the group.</param>
-        public void Update(IAzManSid sid, string description, GroupType groupType)
+        public void Update(string description, GroupType groupType)
         {
-            if (this.sid.StringValue != sid.StringValue || this.description != description || this.groupType != groupType)
+            if (this.description != description || this.groupType != groupType)
             {
                 IAzManSid oldSid = new SqlAzManSID(this.sid.StringValue);
                 string oldDescription = this.description;
                 GroupType oldGroupType = this.groupType;
                 this.db.StoreGroupUpdate(this.Store.StoreId, sid.BinaryValue, this.name, description, this.LDAPQuery, (byte)(groupType), this.storeGroupId);
-                this.sid = sid;
                 this.description = description;
                 this.groupType = groupType;
                 this.raiseStoreGroupUpdated(this, oldSid, oldDescription, oldGroupType);

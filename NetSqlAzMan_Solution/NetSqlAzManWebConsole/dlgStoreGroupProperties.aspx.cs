@@ -453,7 +453,7 @@ namespace NetSqlAzManWebConsole
                 //Store Group Properties
                 this.storeGroup.Store.Storage.BeginTransaction(AzManIsolationLevel.ReadUncommitted);
                 this.storeGroup.Rename(this.txtName.Text.Trim());
-                this.storeGroup.Update(this.storeGroup.SID, this.txtDescription.Text.Trim(), this.storeGroup.GroupType);
+                this.storeGroup.Update(this.txtDescription.Text.Trim(), this.storeGroup.GroupType);
                 if (this.storeGroup.GroupType == GroupType.Basic)
                 {
                     //Members

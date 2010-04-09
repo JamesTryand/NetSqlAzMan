@@ -447,7 +447,7 @@ namespace NetSqlAzMan.SnapIn.Forms
                 //Application Group Properties
                 this.applicationGroup.Application.Store.Storage.BeginTransaction(AzManIsolationLevel.ReadUncommitted);
                 this.applicationGroup.Rename(this.txtName.Text.Trim());
-                this.applicationGroup.Update(this.applicationGroup.SID, this.txtDescription.Text.Trim(), this.applicationGroup.GroupType);
+                this.applicationGroup.Update(this.txtDescription.Text.Trim(), this.applicationGroup.GroupType);
                 if (this.applicationGroup.GroupType == GroupType.Basic)
                 {
                     //Members

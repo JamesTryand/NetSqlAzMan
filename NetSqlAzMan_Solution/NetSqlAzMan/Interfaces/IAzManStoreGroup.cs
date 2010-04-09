@@ -60,11 +60,10 @@ namespace NetSqlAzMan.Interfaces
         /// <summary>
         /// Updates the specified object owner.
         /// </summary>
-        /// <param name="sid">The object owner.</param>
         /// <param name="description">The description.</param>
         /// <param name="groupType">Type of the group.</param>
         [OperationContract]
-        void Update(IAzManSid sid, string description, GroupType groupType);
+        void Update(string description, GroupType groupType);
         /// <summary>
         /// Updates the L dap query.
         /// </summary>
