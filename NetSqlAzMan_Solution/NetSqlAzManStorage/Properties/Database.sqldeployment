@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DeploymentConfigurationSettings xmlns="urn:Microsoft.VisualStudio.Data.Schema.Package.DeploymentConfigurationSettings">
+  <Version>1.0</Version>
+  <Properties>
+    <AlwaysCreateNewDatabase>false</AlwaysCreateNewDatabase>
+    <BlockIncrementalDeploymentIfDataLoss>True</BlockIncrementalDeploymentIfDataLoss>
+    <DeploymentCollationPreference>UseSourceModelCollation</DeploymentCollationPreference>
+    <GenerateDropsIfNotInProject>False</GenerateDropsIfNotInProject>
+    <PerformDatabaseBackup>False</PerformDatabaseBackup>
+    <SingleUserMode>False</SingleUserMode>
+  </Properties>
+</DeploymentConfigurationSettings>

@@ -9,10 +9,10 @@
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
-:r .\Welcome.sql
+--:r .\Welcome.sql
 
-:r .\Logins.sql
+--:r .\Logins.sql
 
-:r .\LinkedServers.sql
+--:r .\LinkedServers.sql
 
-:r .\CustomErrors.sql
+--:r .\CustomErrors.sql

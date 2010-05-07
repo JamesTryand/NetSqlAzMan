@@ -1,21 +1,41 @@
 ﻿
-EXEC sp_addrolemember N'NetSqlAzMan_Administrators', N'BUILTIN\Administrators'
+-- Project upgrade has moved this code to 'Upgraded.rolememberships.sql'.
+-- EXEC sp_addrolemember N'NetSqlAzMan_Administrators', N'BUILTIN\Administrators'
+
 GO
-EXEC sp_addrolemember N'NetSqlAzMan_Managers', N'NetSqlAzMan_Administrators'
+-- Project upgrade has moved this code to 'Upgraded.rolememberships.sql'.
+-- EXEC sp_addrolemember N'NetSqlAzMan_Managers', N'NetSqlAzMan_Administrators'
+
 GO
-EXEC sp_addrolemember N'NetSqlAzMan_Managers', N'BUILTIN\Administrators'
+-- Project upgrade has moved this code to 'Upgraded.rolememberships.sql'.
+-- EXEC sp_addrolemember N'NetSqlAzMan_Managers', N'BUILTIN\Administrators'
+
 GO
-EXEC sp_addrolemember N'NetSqlAzMan_Users', N'NetSqlAzMan_Managers'
+-- Project upgrade has moved this code to 'Upgraded.rolememberships.sql'.
+-- EXEC sp_addrolemember N'NetSqlAzMan_Users', N'NetSqlAzMan_Managers'
+
 GO
-EXEC sp_addrolemember N'NetSqlAzMan_Users', N'NetSqlAzMan_Administrators'
+-- Project upgrade has moved this code to 'Upgraded.rolememberships.sql'.
+-- EXEC sp_addrolemember N'NetSqlAzMan_Users', N'NetSqlAzMan_Administrators'
+
 GO
-EXEC sp_addrolemember N'NetSqlAzMan_Users', N'BUILTIN\Administrators'
+-- Project upgrade has moved this code to 'Upgraded.rolememberships.sql'.
+-- EXEC sp_addrolemember N'NetSqlAzMan_Users', N'BUILTIN\Administrators'
+
 GO
-EXEC sp_addrolemember N'NetSqlAzMan_Readers', N'NetSqlAzMan_Users'
+-- Project upgrade has moved this code to 'Upgraded.rolememberships.sql'.
+-- EXEC sp_addrolemember N'NetSqlAzMan_Readers', N'NetSqlAzMan_Users'
+
 GO
-EXEC sp_addrolemember N'NetSqlAzMan_Readers', N'NetSqlAzMan_Managers'
+-- Project upgrade has moved this code to 'Upgraded.rolememberships.sql'.
+-- EXEC sp_addrolemember N'NetSqlAzMan_Readers', N'NetSqlAzMan_Managers'
+
 GO
-EXEC sp_addrolemember N'NetSqlAzMan_Readers', N'NetSqlAzMan_Administrators'
+-- Project upgrade has moved this code to 'Upgraded.rolememberships.sql'.
+-- EXEC sp_addrolemember N'NetSqlAzMan_Readers', N'NetSqlAzMan_Administrators'
+
 GO
-EXEC sp_addrolemember N'NetSqlAzMan_Readers', N'BUILTIN\Administrators'
+-- Project upgrade has moved this code to 'Upgraded.rolememberships.sql'.
+-- EXEC sp_addrolemember N'NetSqlAzMan_Readers', N'BUILTIN\Administrators'
+
 GO
