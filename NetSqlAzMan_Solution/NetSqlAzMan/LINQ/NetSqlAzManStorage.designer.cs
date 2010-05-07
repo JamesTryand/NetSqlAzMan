@@ -3750,7 +3750,7 @@ namespace NetSqlAzMan.LINQ
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DBUserSid", DbType="VarBinary(85)", CanBeNull=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DBUserSid", DbType="VarBinary(85)")]
 		public System.Data.Linq.Binary DBUserSid
 		{
 			get
@@ -6493,7 +6493,7 @@ namespace NetSqlAzMan.LINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarBinary(50)", CanBeNull=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarBinary(50)")]
 		public System.Data.Linq.Binary Password
 		{
 			get
@@ -6703,7 +6703,7 @@ namespace NetSqlAzMan.LINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="objectSid", Storage="_ObjectSid", DbType="VarBinary(85)", CanBeNull=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="objectSid", Storage="_ObjectSid", DbType="VarBinary(85)")]
 		public System.Data.Linq.Binary ObjectSid
 		{
 			get
@@ -6805,7 +6805,7 @@ namespace NetSqlAzMan.LINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="objectSid", Storage="_ObjectSid", DbType="VarBinary(85)", CanBeNull=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="objectSid", Storage="_ObjectSid", DbType="VarBinary(85)")]
 		public System.Data.Linq.Binary ObjectSid
 		{
 			get
@@ -7201,7 +7201,7 @@ namespace NetSqlAzMan.LINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="ownerSid", Storage="_OwnerSid", DbType="VarBinary(85)", CanBeNull=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="ownerSid", Storage="_OwnerSid", DbType="VarBinary(85)")]
 		public System.Data.Linq.Binary OwnerSid
 		{
 			get
@@ -7233,7 +7233,7 @@ namespace NetSqlAzMan.LINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="objectSid", Storage="_ObjectSid", DbType="VarBinary(85)", CanBeNull=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="objectSid", Storage="_ObjectSid", DbType="VarBinary(85)")]
 		public System.Data.Linq.Binary ObjectSid
 		{
 			get
@@ -7377,7 +7377,7 @@ namespace NetSqlAzMan.LINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompiledAssembly", DbType="Image", CanBeNull=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompiledAssembly", DbType="Image")]
 		public System.Data.Linq.Binary CompiledAssembly
 		{
 			get
@@ -7511,7 +7511,7 @@ namespace NetSqlAzMan.LINQ
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DBUserSid", DbType="VarBinary(85)", CanBeNull=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DBUserSid", DbType="VarBinary(85)")]
 		public System.Data.Linq.Binary DBUserSid
 		{
 			get
@@ -7913,7 +7913,7 @@ namespace NetSqlAzMan.LINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="objectSid", Storage="_ObjectSid", DbType="VarBinary(85)", CanBeNull=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="objectSid", Storage="_ObjectSid", DbType="VarBinary(85)")]
 		public System.Data.Linq.Binary ObjectSid
 		{
 			get
@@ -8015,7 +8015,7 @@ namespace NetSqlAzMan.LINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="objectSid", Storage="_ObjectSid", DbType="VarBinary(85)", CanBeNull=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="objectSid", Storage="_ObjectSid", DbType="VarBinary(85)")]
 		public System.Data.Linq.Binary ObjectSid
 		{
 			get

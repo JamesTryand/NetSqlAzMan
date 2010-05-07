@@ -554,7 +554,7 @@ namespace NetSqlAzMan
                 var b = (from br in this.db.BizRules()
                         where br.BizRuleId == item.BizRuleId
                         select br).First();
-                Assembly result = Assembly.Load(b.CompiledAssembly.ToArray(), null, this.GetType().Assembly.Evidence);
+                Assembly result = Assembly.Load(b.CompiledAssembly.ToArray(), null);
                 try
                 {
                     //Try to load Types

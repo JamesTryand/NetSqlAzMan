@@ -35,5 +35,5 @@ using System.Security;
 // by using the '*' as shown below:
 [assembly: AssemblyVersion("3.6.0.6")]
 [assembly: AssemblyFileVersion("3.6.0.6")]
-[assembly: PermissionSetAttribute(SecurityAction.RequestMinimum, Unrestricted = true)]
+//[assembly: PermissionSetAttribute(SecurityAction.RequestMinimum, Unrestricted = true)]
 [assembly: AllowPartiallyTrustedCallers()]
