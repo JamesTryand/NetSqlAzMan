@@ -32,7 +32,7 @@ namespace NetSqlAzMan.Cache.Service
         {
             CacheService.startStorageBuildCache(storeName, String.Empty);
         }
-
+        [PreEmptive.Attributes.Feature("NetSqlAzManCacheService StorageBuildCache", EventType=PreEmptive.Attributes.FeatureEventTypes.Tick)]
         internal static void startStorageBuildCache(string storeName, string applicationName)
         {
             //Design Feature 1: If Not already building cache ... ignore new InvalidateCache

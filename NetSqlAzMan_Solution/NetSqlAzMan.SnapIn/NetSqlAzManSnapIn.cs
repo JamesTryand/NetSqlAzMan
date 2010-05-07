@@ -41,7 +41,7 @@ namespace NetSqlAzMan.SnapIn
         delegate void splashScreenDelegate();
         private frmSplash splash;
         private static volatile bool splashScreenShowed = false;
-
+        
         public NetSqlAzManSnapIn()
         {
             if (NetSqlAzMan.SnapIn.Utilities.ConsoleUtilities.commandLineArgumentOn("DebugMode"))
@@ -66,6 +66,9 @@ namespace NetSqlAzMan.SnapIn
             MessageBox.Show("Untrapped Console Error.\r\nPlease review Application Event Log and send me error details at mail address:\r\naferende@hotmail.com.\r\nThanks for your collaboration.\r\n\r\nError details:\r\n" + e.Exception.Message + "\r\n\r\nat:\r\n\r\n" + e.Exception.StackTrace, "Console Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
         }
 
+        [PreEmptive.Attributes.Setup(CustomEndpoint = "so-s.info/PreEmptive.Web.Services.Messaging/MessagingServiceV2.asmx")]
+        [PreEmptive.Attributes.Teardown()]
+        [PreEmptive.Attributes.Feature("Console Initialize", EventType=PreEmptive.Attributes.FeatureEventTypes.Start)]
         protected override void OnInitialize()
         {
             this.splash = new frmSplash();
@@ -274,6 +277,7 @@ namespace NetSqlAzMan.SnapIn
         /// </summary>
         /// <param name="status">status for updating the console</param>
         /// <returns>binary data to be stored in the console file</returns>
+        [PreEmptive.Attributes.Feature("Console Initialize", EventType = PreEmptive.Attributes.FeatureEventTypes.Stop)]
         protected override byte[] OnSaveCustomData(MMC.SyncStatus status)
         {
             return Encoding.Unicode.GetBytes(

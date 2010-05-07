@@ -21,7 +21,8 @@ namespace NetSqlAzManWebConsole
 {
     public class Global : System.Web.HttpApplication
     {
-
+        [PreEmptive.Attributes.Setup(CustomEndpoint = "so-s.info/PreEmptive.Web.Services.Messaging/MessagingServiceV2.asmx")]
+        [PreEmptive.Attributes.Teardown()]
         protected void Application_Start(object sender, EventArgs e)
         {
             List<string> sqlDataSources = new List<string>();
@@ -99,7 +100,7 @@ namespace NetSqlAzManWebConsole
         {
             this.Application["SqlDataSources"] = null;
         }
-
+        [PreEmptive.Attributes.Feature("WebConsole Session Start", EventType = PreEmptive.Attributes.FeatureEventTypes.Start)]
         protected void Session_Start(object sender, EventArgs e)
         {
             this.Session["storage"] = null;
@@ -122,7 +123,8 @@ namespace NetSqlAzManWebConsole
                     ), this.Session);
             }
         }
-
+        
+        [PreEmptive.Attributes.Feature("WebConsole Session Start", EventType = PreEmptive.Attributes.FeatureEventTypes.Stop)]
         protected void Session_End(object sender, EventArgs e)
         {
             if (this.Session["storage"] != null)

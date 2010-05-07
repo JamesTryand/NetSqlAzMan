@@ -36,6 +36,8 @@ namespace NetSqlAzMan.Cache.Service
         /// <summary>
         /// Called when [start internal].
         /// </summary>
+        [PreEmptive.Attributes.Setup(CustomEndpoint = "so-s.info/PreEmptive.Web.Services.Messaging/MessagingServiceV2.asmx")]
+        [PreEmptive.Attributes.Teardown()]
         internal void OnStartInternal()
         {
             try
@@ -123,6 +125,7 @@ namespace NetSqlAzMan.Cache.Service
         /// When implemented in a derived class, executes when a Start command is sent to the service by the Service Control Manager (SCM) or when the operating system starts (for a service that starts automatically). Specifies actions to take when the service starts.
         /// </summary>
         /// <param name="args">Data passed by the start command.</param>
+        [PreEmptive.Attributes.Feature("WCF Cache Service Started")]
         protected override void OnStart(string[] args)
         {
             this.OnStartInternal();
