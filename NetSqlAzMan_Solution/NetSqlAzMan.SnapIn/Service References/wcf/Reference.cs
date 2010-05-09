@@ -9,7 +9,133 @@
 //------------------------------------------------------------------------------
 
 namespace NetSqlAzMan.SnapIn.wcf {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ItemType", Namespace="http://NetSqlAzMan/ServiceModel")]
+    public enum ItemType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Role = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Task = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Operation = 2,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AuthorizationType", Namespace="http://NetSqlAzMan/ServiceModel")]
+    public enum AuthorizationType : byte {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Neutral = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Allow = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Deny = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllowWithDelegation = 3,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AuthorizedItem", Namespace="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache")]
+    [System.SerializableAttribute()]
+    public partial class AuthorizedItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.KeyValuePair<string, string>[] AttributesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private NetSqlAzMan.SnapIn.wcf.AuthorizationType AuthorizationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private NetSqlAzMan.SnapIn.wcf.ItemType TypeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.KeyValuePair<string, string>[] Attributes {
+            get {
+                return this.AttributesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AttributesField, value) != true)) {
+                    this.AttributesField = value;
+                    this.RaisePropertyChanged("Attributes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public NetSqlAzMan.SnapIn.wcf.AuthorizationType Authorization {
+            get {
+                return this.AuthorizationField;
+            }
+            set {
+                if ((this.AuthorizationField.Equals(value) != true)) {
+                    this.AuthorizationField = value;
+                    this.RaisePropertyChanged("Authorization");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public NetSqlAzMan.SnapIn.wcf.ItemType Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((this.TypeField.Equals(value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="wcf.ICacheService")]
@@ -18,22 +144,22 @@ namespace NetSqlAzMan.SnapIn.wcf {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICacheService/CheckAccessForWindowsUsersWithAttributesRetrieve" +
             "", ReplyAction="http://tempuri.org/ICacheService/CheckAccessForWindowsUsersWithAttributesRetrieve" +
             "Response")]
-        NetSqlAzMan.Interfaces.AuthorizationType CheckAccessForWindowsUsersWithAttributesRetrieve(out System.Collections.Generic.KeyValuePair<string, string>[] attributes, string storeName, string applicationName, string itemName, string userSSid, string[] groupsSSid, System.DateTime validFor, bool operationsOnly, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters);
+        NetSqlAzMan.SnapIn.wcf.AuthorizationType CheckAccessForWindowsUsersWithAttributesRetrieve(out System.Collections.Generic.KeyValuePair<string, string>[] attributes, string storeName, string applicationName, string itemName, string userSSid, string[] groupsSSid, System.DateTime validFor, bool operationsOnly, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICacheService/CheckAccessForWindowsUsersWithoutAttributesRetri" +
             "eve", ReplyAction="http://tempuri.org/ICacheService/CheckAccessForWindowsUsersWithoutAttributesRetri" +
             "eveResponse")]
-        NetSqlAzMan.Interfaces.AuthorizationType CheckAccessForWindowsUsersWithoutAttributesRetrieve(string storeName, string applicationName, string itemName, string userSSid, string[] groupsSSid, System.DateTime validFor, bool operationsOnly, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters);
+        NetSqlAzMan.SnapIn.wcf.AuthorizationType CheckAccessForWindowsUsersWithoutAttributesRetrieve(string storeName, string applicationName, string itemName, string userSSid, string[] groupsSSid, System.DateTime validFor, bool operationsOnly, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICacheService/CheckAccessForDatabaseUsersWithAttributesRetriev" +
             "e", ReplyAction="http://tempuri.org/ICacheService/CheckAccessForDatabaseUsersWithAttributesRetriev" +
             "eResponse")]
-        NetSqlAzMan.Interfaces.AuthorizationType CheckAccessForDatabaseUsersWithAttributesRetrieve(out System.Collections.Generic.KeyValuePair<string, string>[] attributes, string storeName, string applicationName, string itemName, string DBuserSSid, System.DateTime validFor, bool operationsOnly, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters);
+        NetSqlAzMan.SnapIn.wcf.AuthorizationType CheckAccessForDatabaseUsersWithAttributesRetrieve(out System.Collections.Generic.KeyValuePair<string, string>[] attributes, string storeName, string applicationName, string itemName, string DBuserSSid, System.DateTime validFor, bool operationsOnly, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICacheService/CheckAccessForDatabaseUsersWithoutAttributesRetr" +
             "ieve", ReplyAction="http://tempuri.org/ICacheService/CheckAccessForDatabaseUsersWithoutAttributesRetr" +
             "ieveResponse")]
-        NetSqlAzMan.Interfaces.AuthorizationType CheckAccessForDatabaseUsersWithoutAttributesRetrieve(string storeName, string applicationName, string itemName, string DBuserSSid, System.DateTime validFor, bool operationsOnly, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters);
+        NetSqlAzMan.SnapIn.wcf.AuthorizationType CheckAccessForDatabaseUsersWithoutAttributesRetrieve(string storeName, string applicationName, string itemName, string DBuserSSid, System.DateTime validFor, bool operationsOnly, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICacheService/InvalidateCache", ReplyAction="http://tempuri.org/ICacheService/InvalidateCacheResponse")]
         void InvalidateCache();
@@ -42,16 +168,16 @@ namespace NetSqlAzMan.SnapIn.wcf {
         void InvalidateCacheOnServicePartners([System.ServiceModel.MessageParameterAttribute(Name="invalidateCacheOnServicePartners")] bool invalidateCacheOnServicePartners1);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICacheService/GetItemNames", ReplyAction="http://tempuri.org/ICacheService/GetItemNamesResponse")]
-        string[] GetItemNames(string storeName, string applicationName, NetSqlAzMan.Interfaces.ItemType type);
+        string[] GetItemNames(string storeName, string applicationName, NetSqlAzMan.SnapIn.wcf.ItemType type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICacheService/GetAllItems", ReplyAction="http://tempuri.org/ICacheService/GetAllItemsResponse")]
-        System.Collections.Generic.KeyValuePair<string, NetSqlAzMan.Interfaces.ItemType>[] GetAllItems(string storeName, string applicationName);
+        System.Collections.Generic.KeyValuePair<string, NetSqlAzMan.SnapIn.wcf.ItemType>[] GetAllItems(string storeName, string applicationName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICacheService/GetAuthorizedItemsForDatabaseUsers", ReplyAction="http://tempuri.org/ICacheService/GetAuthorizedItemsForDatabaseUsersResponse")]
-        NetSqlAzMan.Cache.AuthorizedItem[] GetAuthorizedItemsForDatabaseUsers(string storeName, string applicationName, string DBuserSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters);
+        NetSqlAzMan.SnapIn.wcf.AuthorizedItem[] GetAuthorizedItemsForDatabaseUsers(string storeName, string applicationName, string DBuserSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICacheService/GetAuthorizedItemsForWindowsUsers", ReplyAction="http://tempuri.org/ICacheService/GetAuthorizedItemsForWindowsUsersResponse")]
-        NetSqlAzMan.Cache.AuthorizedItem[] GetAuthorizedItemsForWindowsUsers(string storeName, string applicationName, string userSSid, string[] groupsSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters);
+        NetSqlAzMan.SnapIn.wcf.AuthorizedItem[] GetAuthorizedItemsForWindowsUsers(string storeName, string applicationName, string userSSid, string[] groupsSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -81,19 +207,19 @@ namespace NetSqlAzMan.SnapIn.wcf {
                 base(binding, remoteAddress) {
         }
         
-        public NetSqlAzMan.Interfaces.AuthorizationType CheckAccessForWindowsUsersWithAttributesRetrieve(out System.Collections.Generic.KeyValuePair<string, string>[] attributes, string storeName, string applicationName, string itemName, string userSSid, string[] groupsSSid, System.DateTime validFor, bool operationsOnly, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
+        public NetSqlAzMan.SnapIn.wcf.AuthorizationType CheckAccessForWindowsUsersWithAttributesRetrieve(out System.Collections.Generic.KeyValuePair<string, string>[] attributes, string storeName, string applicationName, string itemName, string userSSid, string[] groupsSSid, System.DateTime validFor, bool operationsOnly, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
             return base.Channel.CheckAccessForWindowsUsersWithAttributesRetrieve(out attributes, storeName, applicationName, itemName, userSSid, groupsSSid, validFor, operationsOnly, contextParameters);
         }
         
-        public NetSqlAzMan.Interfaces.AuthorizationType CheckAccessForWindowsUsersWithoutAttributesRetrieve(string storeName, string applicationName, string itemName, string userSSid, string[] groupsSSid, System.DateTime validFor, bool operationsOnly, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
+        public NetSqlAzMan.SnapIn.wcf.AuthorizationType CheckAccessForWindowsUsersWithoutAttributesRetrieve(string storeName, string applicationName, string itemName, string userSSid, string[] groupsSSid, System.DateTime validFor, bool operationsOnly, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
             return base.Channel.CheckAccessForWindowsUsersWithoutAttributesRetrieve(storeName, applicationName, itemName, userSSid, groupsSSid, validFor, operationsOnly, contextParameters);
         }
         
-        public NetSqlAzMan.Interfaces.AuthorizationType CheckAccessForDatabaseUsersWithAttributesRetrieve(out System.Collections.Generic.KeyValuePair<string, string>[] attributes, string storeName, string applicationName, string itemName, string DBuserSSid, System.DateTime validFor, bool operationsOnly, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
+        public NetSqlAzMan.SnapIn.wcf.AuthorizationType CheckAccessForDatabaseUsersWithAttributesRetrieve(out System.Collections.Generic.KeyValuePair<string, string>[] attributes, string storeName, string applicationName, string itemName, string DBuserSSid, System.DateTime validFor, bool operationsOnly, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
             return base.Channel.CheckAccessForDatabaseUsersWithAttributesRetrieve(out attributes, storeName, applicationName, itemName, DBuserSSid, validFor, operationsOnly, contextParameters);
         }
         
-        public NetSqlAzMan.Interfaces.AuthorizationType CheckAccessForDatabaseUsersWithoutAttributesRetrieve(string storeName, string applicationName, string itemName, string DBuserSSid, System.DateTime validFor, bool operationsOnly, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
+        public NetSqlAzMan.SnapIn.wcf.AuthorizationType CheckAccessForDatabaseUsersWithoutAttributesRetrieve(string storeName, string applicationName, string itemName, string DBuserSSid, System.DateTime validFor, bool operationsOnly, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
             return base.Channel.CheckAccessForDatabaseUsersWithoutAttributesRetrieve(storeName, applicationName, itemName, DBuserSSid, validFor, operationsOnly, contextParameters);
         }
         
@@ -105,19 +231,19 @@ namespace NetSqlAzMan.SnapIn.wcf {
             base.Channel.InvalidateCacheOnServicePartners(invalidateCacheOnServicePartners1);
         }
         
-        public string[] GetItemNames(string storeName, string applicationName, NetSqlAzMan.Interfaces.ItemType type) {
+        public string[] GetItemNames(string storeName, string applicationName, NetSqlAzMan.SnapIn.wcf.ItemType type) {
             return base.Channel.GetItemNames(storeName, applicationName, type);
         }
         
-        public System.Collections.Generic.KeyValuePair<string, NetSqlAzMan.Interfaces.ItemType>[] GetAllItems(string storeName, string applicationName) {
+        public System.Collections.Generic.KeyValuePair<string, NetSqlAzMan.SnapIn.wcf.ItemType>[] GetAllItems(string storeName, string applicationName) {
             return base.Channel.GetAllItems(storeName, applicationName);
         }
         
-        public NetSqlAzMan.Cache.AuthorizedItem[] GetAuthorizedItemsForDatabaseUsers(string storeName, string applicationName, string DBuserSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
+        public NetSqlAzMan.SnapIn.wcf.AuthorizedItem[] GetAuthorizedItemsForDatabaseUsers(string storeName, string applicationName, string DBuserSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
             return base.Channel.GetAuthorizedItemsForDatabaseUsers(storeName, applicationName, DBuserSSid, validFor, contextParameters);
         }
         
-        public NetSqlAzMan.Cache.AuthorizedItem[] GetAuthorizedItemsForWindowsUsers(string storeName, string applicationName, string userSSid, string[] groupsSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
+        public NetSqlAzMan.SnapIn.wcf.AuthorizedItem[] GetAuthorizedItemsForWindowsUsers(string storeName, string applicationName, string userSSid, string[] groupsSSid, System.DateTime validFor, System.Collections.Generic.KeyValuePair<string, object>[] contextParameters) {
             return base.Channel.GetAuthorizedItemsForWindowsUsers(storeName, applicationName, userSSid, groupsSSid, validFor, contextParameters);
         }
     }

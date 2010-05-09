@@ -21,8 +21,8 @@ using System.Security;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("f0683ac2-efae-49a9-876b-51835ba05cf7")]
-[assembly: PreEmptive.Attributes.Business("3E35F098-CE43-4F82-9E9D-05C8B1046A45")]
-[assembly: PreEmptive.Attributes.Application("5B254108-E61B-4349-8961-1FF56B39F3B5")]
+//[assembly: PreEmptive.Attributes.Business("3E35F098-CE43-4F82-9E9D-05C8B1046A45")]
+//[assembly: PreEmptive.Attributes.Application("5B254108-E61B-4349-8961-1FF56B39F3B5")]
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
@@ -35,4 +35,4 @@ using System.Security;
 [assembly: AssemblyVersion("3.6.0.6")]
 [assembly: AssemblyFileVersion("3.6.0.6")]
 [assembly: AllowPartiallyTrustedCallers()]
-[assembly: System.Security.SecurityRules(System.Security.SecurityRuleSet.Level1)]
+//[assembly: System.Security.SecurityRules(System.Security.SecurityRuleSet.Level1)]

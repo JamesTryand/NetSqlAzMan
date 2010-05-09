@@ -45,24 +45,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_20232422BBFC40F1F865BC89A89D6339"
-        "OwnerKey" = "8:_4FA45F7CFD574A9EAE86FCC2BB112BE0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_20232422BBFC40F1F865BC89A89D6339"
-        "OwnerKey" = "8:_2207D2C003A0EB248729886FB359FBD5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_20232422BBFC40F1F865BC89A89D6339"
-        "OwnerKey" = "8:_60DF6ACD8F9D4707B68E5168639F3F52"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_2207D2C003A0EB248729886FB359FBD5"
         "OwnerKey" = "8:_60DF6ACD8F9D4707B68E5168639F3F52"
         "MsmSig" = "8:_UNDEFINED"
@@ -349,12 +331,6 @@
         "OwnerKey" = "8:_3A5912AEA5D3FDCCB4028C141F0B096E"
         "MsmSig" = "8:_UNDEFINED"
         }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_20232422BBFC40F1F865BC89A89D6339"
-        "MsmSig" = "8:_UNDEFINED"
-        }
     }
     "Configurations"
     {
@@ -382,15 +358,15 @@
             "ComponentsUrl" = "8:"
                 "Items"
                 {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Net.Framework.3.5.SP1"
                     {
-                    "Name" = "8:Microsoft .NET Framework 4 (x86 and x64)"
-                    "ProductCode" = "8:.NETFramework,Version=v4.0"
+                    "Name" = "8:.NET Framework 3.5 SP1"
+                    "ProductCode" = "8:Microsoft.Net.Framework.3.5.SP1"
                     }
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.4.5"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
                     {
-                    "Name" = "8:Windows Installer 4.5"
-                    "ProductCode" = "8:Microsoft.Windows.Installer.4.5"
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
                     }
                 }
             }
@@ -437,6 +413,62 @@
     {
         "CustomAction"
         {
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_0C5DF830A2DA4A8CA450B201046DE9DE"
+            {
+            "Name" = "8:Primary output from NetSqlAzMan.SnapIn (Active)"
+            "Condition" = "8:"
+            "Object" = "8:_60DF6ACD8F9D4707B68E5168639F3F52"
+            "FileType" = "3:1"
+            "InstallAction" = "3:4"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_079F9AB7_92DA_4D03_AA22_8798A16A5C93"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_9BD62EB41E604E368E904E6459377C1A"
+            {
+            "Name" = "8:Primary output from NetSqlAzMan.SnapIn (Active)"
+            "Condition" = "8:"
+            "Object" = "8:_60DF6ACD8F9D4707B68E5168639F3F52"
+            "FileType" = "3:1"
+            "InstallAction" = "3:3"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_7D87CB5F_909D_4D4B_9E3A_D21D878A4453"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_BC1D2C99C3E24A6C8DCE1A874A434609"
+            {
+            "Name" = "8:Primary output from NetSqlAzMan.SnapIn (Active)"
+            "Condition" = "8:"
+            "Object" = "8:_60DF6ACD8F9D4707B68E5168639F3F52"
+            "FileType" = "3:1"
+            "InstallAction" = "3:2"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_2EFC925F_2396_48D1_B99F_343F0B2B6381"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_F7FF1AFB99DE4E97AAB322593186F73B"
+            {
+            "Name" = "8:Primary output from NetSqlAzMan.SnapIn (Active)"
+            "Condition" = "8:"
+            "Object" = "8:_60DF6ACD8F9D4707B68E5168639F3F52"
+            "FileType" = "3:1"
+            "InstallAction" = "3:1"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_1A9B2B35_59CB_48F9_AC9C_C17E253077D8"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
         }
         "DefaultFeature"
         {
@@ -452,7 +484,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:.NETFramework,Version=v4.0"
+                "FrameworkVersion" = "8:.NETFramework,Version=v3.5"
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=9832"
                 }
@@ -569,37 +601,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_20232422BBFC40F1F865BC89A89D6339"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:PreEmptive.Attributes, Version=1.4.0.0, Culture=neutral, PublicKeyToken=0a50e0ef4ca013fe, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_20232422BBFC40F1F865BC89A89D6339"
-                    {
-                    "Name" = "8:PreEmptive.Attributes.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:PreEmptive.Attributes.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_01CCD32AB77E4E569260D008FC107766"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2207D2C003A0EB248729886FB359FBD5"
@@ -1526,7 +1527,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:.NET Sql Authorization Manager"
         "ProductCode" = "8:{FECA03A5-D073-4D1B-941A-596F358E4324}"
-        "PackageCode" = "8:{212F9B0E-B31D-4A67-B7AA-CD596CCD482A}"
+        "PackageCode" = "8:{987FED58-A588-42C5-96FB-C39A97A17B0B}"
         "UpgradeCode" = "8:{84CEB3F7-876F-4448-8001-2FCB4D8214C7}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

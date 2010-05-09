@@ -54,4 +54,4 @@ using System.Runtime.InteropServices;
 //       documentation for more information on this.
 //
 [assembly: ComVisibleAttribute(false)]
-[assembly: System.Security.SecurityRules(System.Security.SecurityRuleSet.Level1)]
+//[assembly: System.Security.SecurityRules(System.Security.SecurityRuleSet.Level1)]
