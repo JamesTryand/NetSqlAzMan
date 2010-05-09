@@ -1,19 +1,10 @@
 using System;
-using System.Xml;
-using System.IO;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using NetSqlAzMan.Interfaces;
-using NetSqlAzMan.SnapIn.DirectoryServices;
-using NetSqlAzMan;
-using MMC = Microsoft.ManagementConsole;
 using Microsoft.ManagementConsole.Advanced;
-using NetSqlAzMan.SnapIn.ListViews;
+using NetSqlAzMan.Interfaces;
 using NetSqlAzMan.SnapIn.Forms;
+using NetSqlAzMan.SnapIn.ListViews;
+using MMC = Microsoft.ManagementConsole;
 
 namespace NetSqlAzMan.SnapIn.ScopeNodes
 {

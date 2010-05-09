@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NetSqlAzManWCFServiceWinTest.Properties {
-    using System;
-    
-    
+namespace NetSqlAzManWCFServiceWinTest.Properties
+{
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>

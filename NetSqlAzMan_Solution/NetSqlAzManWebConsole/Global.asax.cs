@@ -1,20 +1,15 @@
 using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Diagnostics;
 using System.DirectoryServices;
 using System.IO;
-using System.Diagnostics;
-using System.Data;
-using System.Configuration;
-using System.Collections.Generic;
-using System.Collections;
-using System.Web;
-using System.Web.Security;
+using System.Reflection;
 using System.Web.SessionState;
 using NetSqlAzMan;
 using NetSqlAzMan.Interfaces;
-using System.Reflection;
-using System.Net;
-using System.Text;
-using System.Text.RegularExpressions;
+using System.Security;
 
 
 namespace NetSqlAzManWebConsole
@@ -101,6 +96,7 @@ namespace NetSqlAzManWebConsole
             this.Application["SqlDataSources"] = null;
         }
         [PreEmptive.Attributes.Feature("WebConsole Session Start", EventType = PreEmptive.Attributes.FeatureEventTypes.Start)]
+        [SecurityCritical()]
         protected void Session_Start(object sender, EventArgs e)
         {
             this.Session["storage"] = null;
@@ -125,6 +121,7 @@ namespace NetSqlAzManWebConsole
         }
         
         [PreEmptive.Attributes.Feature("WebConsole Session Start", EventType = PreEmptive.Attributes.FeatureEventTypes.Stop)]
+        [SecurityCritical()]
         protected void Session_End(object sender, EventArgs e)
         {
             if (this.Session["storage"] != null)

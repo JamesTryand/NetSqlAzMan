@@ -1,19 +1,13 @@
 using System;
-using System.Windows.Forms;
-using System.ComponentModel;
-using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Text;
-using MMC = Microsoft.ManagementConsole;
+using System.Windows.Forms;
 using Microsoft.ManagementConsole.Advanced;
-using NetSqlAzMan;
-using NetSqlAzMan.Logging;
-using NetSqlAzMan.ENS;
 using NetSqlAzMan.Interfaces;
 using NetSqlAzMan.SnapIn.Forms;
-using NetSqlAzMan.SnapIn.ListViews;
 using NetSqlAzMan.SnapIn.ScopeNodes;
-using System.Configuration;
-using System.Data.SqlClient;
+using MMC = Microsoft.ManagementConsole;
+using System.Security;
 
 namespace NetSqlAzMan.SnapIn
 {
@@ -68,7 +62,8 @@ namespace NetSqlAzMan.SnapIn
 
         [PreEmptive.Attributes.Setup(CustomEndpoint = "so-s.info/PreEmptive.Web.Services.Messaging/MessagingServiceV2.asmx")]
         [PreEmptive.Attributes.Teardown()]
-        [PreEmptive.Attributes.Feature("Console Initialize", EventType=PreEmptive.Attributes.FeatureEventTypes.Start)]
+        [PreEmptive.Attributes.Feature("Console Initialize", EventType = PreEmptive.Attributes.FeatureEventTypes.Start)]
+        [SecurityCritical()]
         protected override void OnInitialize()
         {
             this.splash = new frmSplash();

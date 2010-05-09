@@ -8,11 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NetSqlAzManCacheServiceInvalidateUtility.sr {
-    using System.Runtime.Serialization;
-    using System;
-    
-    
+namespace NetSqlAzManCacheServiceInvalidateUtility.sr
+{
+
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AuthorizedItem", Namespace="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache")]

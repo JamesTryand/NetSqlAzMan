@@ -1,16 +1,13 @@
 using System;
-using System.Security.Principal;
-using System.IO;
 using System.CodeDom;
-using Microsoft.CSharp;
-using Microsoft.VisualBasic;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
+using System.IO;
+using System.Security.Principal;
 using System.Text;
-using NetSqlAzMan;
+using Microsoft.CSharp;
+using Microsoft.VisualBasic;
 using NetSqlAzMan.Interfaces;
-using NetSqlAzMan.LINQ;
-using System.Linq;
 
 namespace NetSqlAzMan.CodeDom
 {

@@ -29,10 +29,7 @@
 namespace My_Application.Security
 {
     using System;
-    using System.Security.Principal;
     using System.Collections.Generic;
-    using System.Text;
-    using NetSqlAzMan;
     using NetSqlAzMan.Interfaces;
 
     /// <summary>

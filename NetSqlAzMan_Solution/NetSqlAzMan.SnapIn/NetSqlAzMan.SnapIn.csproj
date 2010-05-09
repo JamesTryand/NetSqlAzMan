@@ -67,11 +67,12 @@
       <HintPath>.\AzRoles\${Platform}\Microsoft.Interop.Security.AzRoles.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="Microsoft.ManagementConsole, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="microsoft.managementconsole, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Windows\System32\Microsoft.ManagementConsole.dll</HintPath>
+      <HintPath>C:\Program Files\Reference Assemblies\Microsoft\mmc\v3.0\microsoft.managementconsole.dll</HintPath>
     </Reference>
-    <Reference Include="PreEmptive.Attributes">
+    <Reference Include="PreEmptive.Attributes, Version=1.4.0.0, Culture=neutral, PublicKeyToken=0a50e0ef4ca013fe, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files\Microsoft Visual Studio 10.0\PreEmptive Solutions\Dotfuscator Community Edition\PreEmptive.Attributes.dll</HintPath>
     </Reference>
     <Reference Include="SqlAudit, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0010b2b0864b0d6b, processorArchitecture=MSIL" />
@@ -676,16 +677,6 @@
     <None Include="Resources\FILECOPY_16.gif" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CubicOrange.Windows.Forms.ActiveDirectory\DirectoryObjectPicker.csproj">
-      <Project>{AD25BE24-8A42-44E0-9588-3767F572C338}</Project>
-      <Name>DirectoryObjectPicker</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NetSqlAzMan\NetSqlAzMan.csproj">
-      <Project>{CBDF2741-B771-4399-8996-77D08C3E8267}</Project>
-      <Name>NetSqlAzMan</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
   </ItemGroup>
   <ItemGroup>
@@ -720,6 +711,16 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\wcf\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CubicOrange.Windows.Forms.ActiveDirectory\DirectoryObjectPicker.csproj">
+      <Project>{AD25BE24-8A42-44E0-9588-3767F572C338}</Project>
+      <Name>DirectoryObjectPicker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetSqlAzMan\NetSqlAzMan.csproj">
+      <Project>{CBDF2741-B771-4399-8996-77D08C3E8267}</Project>
+      <Name>NetSqlAzMan</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

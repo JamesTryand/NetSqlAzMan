@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
-using NetSqlAzMan.Interfaces;
+﻿using System.ServiceModel;
 using NetSqlAzMan;
 
 namespace NetSqlAzManWCFServiceTest

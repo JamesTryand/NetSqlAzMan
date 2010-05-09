@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Specialized;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Security.Principal;
-using NetSqlAzMan;
-using NetSqlAzMan.LINQ;
-using NetSqlAzMan.Interfaces;
 using NetSqlAzMan.ENS;
-using System.Diagnostics;
+using NetSqlAzMan.Interfaces;
+using NetSqlAzMan.LINQ;
 
 namespace NetSqlAzMan.Cache
 {

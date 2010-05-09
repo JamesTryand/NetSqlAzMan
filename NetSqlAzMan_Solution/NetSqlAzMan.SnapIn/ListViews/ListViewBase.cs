@@ -1,14 +1,6 @@
-using System;
-using System.ComponentModel;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Forms;
-using MMC = Microsoft.ManagementConsole;
 using Microsoft.ManagementConsole.Advanced;
-using NetSqlAzMan;
-using NetSqlAzMan.SnapIn.ScopeNodes;
-using NetSqlAzMan.SnapIn.Forms;
-using NetSqlAzMan.Interfaces;
+using MMC = Microsoft.ManagementConsole;
 
 namespace NetSqlAzMan.SnapIn.ListViews
 {

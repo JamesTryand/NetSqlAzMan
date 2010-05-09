@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using NetSqlAzMan;
-using NetSqlAzMan.Interfaces;
 
 namespace NetSqlAzMan.Interfaces
 {

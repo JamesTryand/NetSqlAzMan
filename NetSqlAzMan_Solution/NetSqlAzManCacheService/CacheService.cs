@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
-using NetSqlAzMan;
-using NetSqlAzMan.Interfaces;
 using System.Security.Principal;
-using System.Configuration;
+using System.ServiceModel;
+using NetSqlAzMan.Interfaces;
+using System.Security;
 
 namespace NetSqlAzMan.Cache.Service
 {
@@ -33,6 +31,7 @@ namespace NetSqlAzMan.Cache.Service
             CacheService.startStorageBuildCache(storeName, String.Empty);
         }
         [PreEmptive.Attributes.Feature("NetSqlAzManCacheService StorageBuildCache", EventType=PreEmptive.Attributes.FeatureEventTypes.Tick)]
+        [SecurityCritical()]
         internal static void startStorageBuildCache(string storeName, string applicationName)
         {
             //Design Feature 1: If Not already building cache ... ignore new InvalidateCache

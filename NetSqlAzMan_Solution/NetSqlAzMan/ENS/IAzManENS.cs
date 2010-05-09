@@ -1,8 +1,5 @@
-﻿using System;
+﻿using System.ServiceModel;
 using NetSqlAzMan.Interfaces;
-using NetSqlAzMan.LINQ;
-using System.Linq;
-using System.ServiceModel;
 
 namespace NetSqlAzMan.ENS
 {

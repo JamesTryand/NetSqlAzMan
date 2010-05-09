@@ -99,6 +99,24 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_BE79792449D40BD9FFB80728046C95FA"
+        "OwnerKey" = "8:_DEB63DF86D3E4A8B9055CDCFDA059391"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BE79792449D40BD9FFB80728046C95FA"
+        "OwnerKey" = "8:_E5B41DB1D08B4C29B31B5163CFA1A595"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BE79792449D40BD9FFB80728046C95FA"
+        "OwnerKey" = "8:_335333A9A5AADEAA9FCF1F07DFFF95C5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_D6CBCCD02C18433598A8AC2D1B0C3544"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -157,6 +175,12 @@
         "OwnerKey" = "8:_335333A9A5AADEAA9FCF1F07DFFF95C5"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BE79792449D40BD9FFB80728046C95FA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -189,10 +213,10 @@
                     "Name" = "8:Microsoft .NET Framework 4 (x86 and x64)"
                     "ProductCode" = "8:.NETFramework,Version=v4.0"
                     }
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.4.5"
                     {
-                    "Name" = "8:Windows Installer 3.1"
-                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    "Name" = "8:Windows Installer 4.5"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.4.5"
                     }
                 }
             }
@@ -623,6 +647,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BE79792449D40BD9FFB80728046C95FA"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:PreEmptive.Attributes, Version=1.4.0.0, Culture=neutral, PublicKeyToken=0a50e0ef4ca013fe, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_BE79792449D40BD9FFB80728046C95FA"
+                    {
+                    "Name" = "8:PreEmptive.Attributes.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:PreEmptive.Attributes.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_D53D34AB292B42AB9E4E4E3ADE36E49F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D6CBCCD02C18433598A8AC2D1B0C3544"
             {
             "SourcePath" = "8:LGPL.rtf"
@@ -835,7 +890,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:.NET Sql Authorization Manager Cache Service"
         "ProductCode" = "8:{49DC5446-1BC2-49DF-B504-FFE668025B06}"
-        "PackageCode" = "8:{A9F73601-1309-4F38-928B-F069741CEB96}"
+        "PackageCode" = "8:{4975831F-44D2-4867-BAE7-CF7CC9F56A4C}"
         "UpgradeCode" = "8:{7349E32A-9FF6-437A-87E5-7796CC3D6327}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -845,13 +900,13 @@
         "ProductVersion" = "8:1.0.0"
         "Manufacturer" = "8:Andrea Ferendeles"
         "ARPHELPTELEPHONE" = "8:"
-        "ARPHELPLINK" = "8:http://netsqlazman.sourceforge.net"
+        "ARPHELPLINK" = "8:http://netsqlazman.codeplex.com"
         "Title" = "8:.NET Sql Authorization Manager Cache Service"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Andrea Ferendeles"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:.NET Sql Authorization Manager Cache Service"
-        "ARPURLINFOABOUT" = "8:http://netsqlazman.sourceforge.net"
+        "ARPURLINFOABOUT" = "8:http://netsqlazman.codeplex.com"
         "ARPPRODUCTICON" = "8:_21FB08FA21EA49B8A8D59284CD5270C4"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"

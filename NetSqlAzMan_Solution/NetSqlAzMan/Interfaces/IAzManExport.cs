@@ -1,8 +1,5 @@
-using System;
-using System.Xml;
-using System.Collections.Generic;
-using System.Text;
 using System.ServiceModel;
+using System.Xml;
 
 namespace NetSqlAzMan.Interfaces
 {

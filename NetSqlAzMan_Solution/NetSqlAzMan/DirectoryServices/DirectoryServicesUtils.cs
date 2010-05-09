@@ -1,14 +1,10 @@
 using System;
-using System.Runtime.InteropServices;
-using System.ComponentModel;
-using System.Collections.Specialized;
-using System.DirectoryServices;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Security.Principal;
-using NetSqlAzMan.Logging;
 using System.Collections;
+using System.Collections.Generic;
+using System.DirectoryServices;
+using System.Runtime.InteropServices;
+using System.Security.Principal;
+using System.Text;
 
 namespace NetSqlAzMan.DirectoryServices
 {

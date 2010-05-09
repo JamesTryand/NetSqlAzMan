@@ -1,15 +1,7 @@
 using System;
-using System.Runtime.InteropServices;
-using System.ComponentModel;
-using System.Collections.Specialized;
-using System.Collections.Generic;
-using System.Text;
-using System.Security.Principal;
 using System.DirectoryServices;
 using System.DirectoryServices.ActiveDirectory;
 using NetSqlAzMan;
-using NetSqlAzMan.Interfaces;
-using NetSqlAzMan.Logging;
 
 namespace NetSqlAzManWebConsole
 {

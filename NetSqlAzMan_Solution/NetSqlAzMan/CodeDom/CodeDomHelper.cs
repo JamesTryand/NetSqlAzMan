@@ -1,15 +1,5 @@
 using System;
-using System.IO;
 using System.CodeDom;
-using System.CodeDom.Compiler;
-using System.Data;
-using System.Data.SqlClient;
-using System.Data.SqlTypes;
-using System.Xml;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.CSharp;
-using Microsoft.VisualBasic;
 
 namespace NetSqlAzMan.CodeDom
 {

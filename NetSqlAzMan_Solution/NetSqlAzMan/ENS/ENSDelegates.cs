@@ -1,9 +1,5 @@
 using System;
 using NetSqlAzMan.Interfaces;
-using NetSqlAzMan.LINQ;
-using System.Linq;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NetSqlAzMan.ENS
 {

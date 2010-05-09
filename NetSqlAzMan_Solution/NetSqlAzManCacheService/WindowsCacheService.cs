@@ -1,19 +1,11 @@
 ﻿//#define TEST
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
-using System.Configuration.Install;
-using System.Data;
 using System.Diagnostics;
-using System.Linq;
 using System.ServiceModel;
 using System.ServiceProcess;
-using System.Text;
-using NetSqlAzMan;
-using NetSqlAzMan.Cache;
-using NetSqlAzMan.Interfaces;
+using System.Security;
 
 namespace NetSqlAzMan.Cache.Service
 {
@@ -126,6 +118,7 @@ namespace NetSqlAzMan.Cache.Service
         /// </summary>
         /// <param name="args">Data passed by the start command.</param>
         [PreEmptive.Attributes.Feature("WCF Cache Service Started")]
+        [SecurityCritical()]
         protected override void OnStart(string[] args)
         {
             this.OnStartInternal();

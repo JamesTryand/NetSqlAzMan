@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Security.Principal;
 using System.Windows.Forms;
 using NetSqlAzMan;
-using System.Security.Principal;
 
 namespace NetSqlAzMan_WinTest
 {

@@ -1,13 +1,8 @@
 using System;
-using System.Threading;
-using System.Security.Principal;
 using System.Diagnostics;
-using System.Collections.Generic;
-using System.Text;
-using NetSqlAzMan;
+using System.Security.Principal;
 using NetSqlAzMan.Interfaces;
 using NetSqlAzMan.LINQ;
-using System.Linq;
 
 namespace NetSqlAzMan.Logging
 {

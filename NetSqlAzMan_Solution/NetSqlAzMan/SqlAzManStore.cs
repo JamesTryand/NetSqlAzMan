@@ -1,18 +1,15 @@
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Xml;
-using System.Data.SqlTypes;
-using System.Text;
+using System.Linq;
+using System.Runtime.Serialization;
 using System.Security.Principal;
-using System.Collections.Generic;
-using System.Collections.Specialized;
+using System.Xml;
 using NetSqlAzMan.ENS;
 using NetSqlAzMan.Interfaces;
 using NetSqlAzMan.LINQ;
-using System.Linq;
 using NetSqlAzMan.Utilities;
-using System.Runtime.Serialization;
 
 namespace NetSqlAzMan
 {

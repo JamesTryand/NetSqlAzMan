@@ -1,11 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Collections;
-using System.Collections.Specialized;
-using System.Data;
-using System.Text;
 using NetSqlAzMan.Interfaces;
-using NetSqlAzMan;
 
 namespace NetSqlAzManWebConsole
 {

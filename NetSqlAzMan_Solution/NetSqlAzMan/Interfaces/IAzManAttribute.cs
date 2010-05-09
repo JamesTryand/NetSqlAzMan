@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-using NetSqlAzMan.ENS;
-using System.ServiceModel;
 using System.Runtime.Serialization;
+using System.ServiceModel;
+using NetSqlAzMan.ENS;
 
 namespace NetSqlAzMan.Interfaces
 {

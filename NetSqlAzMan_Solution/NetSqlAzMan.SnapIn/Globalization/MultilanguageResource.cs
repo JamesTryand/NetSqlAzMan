@@ -1,11 +1,9 @@
 using System;
-using System.Reflection;
-using System.Windows.Forms;
-using System.Resources;
 using System.Globalization;
+using System.Reflection;
+using System.Resources;
 using System.Threading;
-using System.Collections.Generic;
-using System.Text;
+using System.Windows.Forms;
 
 namespace NetSqlAzMan.SnapIn.Globalization
 {

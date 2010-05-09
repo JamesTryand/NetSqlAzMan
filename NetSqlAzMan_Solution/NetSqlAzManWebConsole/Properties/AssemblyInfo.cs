@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security;
 
@@ -36,3 +35,4 @@ using System.Security;
 [assembly: AssemblyVersion("3.6.0.6")]
 [assembly: AssemblyFileVersion("3.6.0.6")]
 [assembly: AllowPartiallyTrustedCallers()]
+[assembly: System.Security.SecurityRules(System.Security.SecurityRuleSet.Level1)]

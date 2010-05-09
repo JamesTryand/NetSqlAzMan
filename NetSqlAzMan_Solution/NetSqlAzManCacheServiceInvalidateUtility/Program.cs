@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Security;
 
 namespace NetSqlAzManCacheServiceInvalidateUtility
 {
@@ -10,6 +8,7 @@ namespace NetSqlAzManCacheServiceInvalidateUtility
         [PreEmptive.Attributes.Setup(CustomEndpoint = "so-s.info/PreEmptive.Web.Services.Messaging/MessagingServiceV2.asmx")]
         [PreEmptive.Attributes.Teardown()]
         [PreEmptive.Attributes.Feature("NetSqlAzManCacheServiceInvalidateUtility Invoked")]
+        [SecurityCritical()]
         static void Main(string[] args)
         {
             Console.WriteLine();

@@ -1,18 +1,6 @@
 using System;
-using System.Security.Principal;
-using System.Xml;
-using System.Data;
-using System.Data.SqlTypes;
-using System.Text;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using NetSqlAzMan.Interfaces;
-using NetSqlAzMan.LINQ;
-using System.Linq;
-using NetSqlAzMan.ENS;
-using NetSqlAzMan.DirectoryServices;
-using System.Reflection;
-using System.Runtime.Serialization;
 
 namespace NetSqlAzMan.Cache
 {

@@ -29,10 +29,7 @@
 namespace SAC_Reference.Security
 {
     using System;
-    using System.Security.Principal;
     using System.Collections.Generic;
-    using System.Text;
-    using NetSqlAzMan;
     using NetSqlAzMan.Interfaces;
 
     /// <summary>
@@ -1127,7 +1124,6 @@ namespace SAC_Reference.Security
 // 
 namespace SAC_Reference.Security
 {
-    using System;
 
     /// <summary>
     /// NetSqlAzMan ROLE Helper Class for NetSqlAzMan 'SAC Reference' Application 

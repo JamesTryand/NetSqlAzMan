@@ -1,13 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Collections.Specialized;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using NetSqlAzMan.Interfaces;
-using NetSqlAzMan;
 
 namespace NetSqlAzMan.SnapIn.Forms
 {

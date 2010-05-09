@@ -1,16 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Collections;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using NetSqlAzMan.Interfaces;
-using NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker;
-using NetSqlAzMan.SnapIn.DirectoryServices;
-using NetSqlAzMan;
 
 namespace NetSqlAzMan.SnapIn.Forms
 {

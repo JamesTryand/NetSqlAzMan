@@ -123,6 +123,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_F3C85F7D277C3ABC266FE01DF9516109"
+        "OwnerKey" = "8:_75DA5F419AFD4ACBB6EA746817FD7419"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F3C85F7D277C3ABC266FE01DF9516109"
+        "OwnerKey" = "8:_C4F33F8639057D45A20F3465D9EF3068"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_75DA5F419AFD4ACBB6EA746817FD7419"
         "MsmSig" = "8:_UNDEFINED"
@@ -143,6 +155,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_78FFE4F99C29C0296E0EDD4EE5A743AE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F3C85F7D277C3ABC266FE01DF9516109"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -177,10 +195,10 @@
                     "Name" = "8:Microsoft .NET Framework 4 (x86 and x64)"
                     "ProductCode" = "8:.NETFramework,Version=v4.0"
                     }
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.4.5"
                     {
-                    "Name" = "8:Windows Installer 3.1"
-                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    "Name" = "8:Windows Installer 4.5"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.4.5"
                     }
                 }
             }
@@ -637,6 +655,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F3C85F7D277C3ABC266FE01DF9516109"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:PreEmptive.Attributes, Version=1.4.0.0, Culture=neutral, PublicKeyToken=0a50e0ef4ca013fe, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_F3C85F7D277C3ABC266FE01DF9516109"
+                    {
+                    "Name" = "8:PreEmptive.Attributes.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:PreEmptive.Attributes.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_F9A9FA1A4835426E9A1E5763AC1B0517"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -807,7 +856,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:.NET Sql Authorization Manager - Web Console"
         "ProductCode" = "8:{82B85F9E-9AB8-4DBE-A28A-B6AF8694B701}"
-        "PackageCode" = "8:{E2EF5ECE-0E88-428D-A8EE-A31DE5D1C4AF}"
+        "PackageCode" = "8:{9517AD10-BDBE-45E9-AB36-4B9122717B5C}"
         "UpgradeCode" = "8:{4D03D5B5-04EA-4EDE-9520-815DD7657549}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -817,13 +866,13 @@
         "ProductVersion" = "8:1.0.0"
         "Manufacturer" = "8:Andrea Ferendeles"
         "ARPHELPTELEPHONE" = "8:"
-        "ARPHELPLINK" = "8:http://netsqlazman.sourceforge.net"
+        "ARPHELPLINK" = "8:http://netsqlazman.codeplex.com"
         "Title" = "8:.NET Sql Authorization Manager - Web Console"
         "Subject" = "8:.NET Sql Authorization Manager - Web Console"
         "ARPCONTACT" = "8:Andrea Ferendeles"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:.NET Sql Authorization Manager - Web Console"
-        "ARPURLINFOABOUT" = "8:http://netsqlazman.sourceforge.net"
+        "ARPURLINFOABOUT" = "8:http://netsqlazman.codeplex.com"
         "ARPPRODUCTICON" = "8:_53AC47D68AF849808927BE52D120470E"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"

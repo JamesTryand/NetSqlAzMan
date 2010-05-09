@@ -1,11 +1,4 @@
-using System;
-using System.Drawing;
-using System.Windows.Forms;
-using System.ComponentModel;
-using System.Collections.Generic;
-using System.Text;
 using MMC = Microsoft.ManagementConsole;
-using Microsoft.ManagementConsole.Advanced;
 
 namespace NetSqlAzMan.SnapIn
 {

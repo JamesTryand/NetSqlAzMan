@@ -1,12 +1,9 @@
 using System;
 using System.Runtime.Serialization;
+using System.Security;
 using System.Security.Principal;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 using NetSqlAzMan.Interfaces;
-using NetSqlAzMan.LINQ;
-using System.Linq;
 
 namespace NetSqlAzMan
 {
@@ -412,6 +409,7 @@ namespace NetSqlAzMan
         /// <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> to populate with data.</param>
         /// <param name="context">The destination (see <see cref="T:System.Runtime.Serialization.StreamingContext"/>) for this serialization.</param>
         /// <exception cref="T:System.Security.SecurityException">The caller does not have the required permission. </exception>
+        [SecurityCritical()]
         public void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
         {
             info.AddValue("securityIdentifier", this.securityIdentifier !=null ? this.securityIdentifier.Value : null);

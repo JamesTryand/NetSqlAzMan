@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NetSqlAzMan.SnapIn.Properties {
-    using System;
-    
-    
+namespace NetSqlAzMan.SnapIn.Properties
+{
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>

@@ -1,17 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Linq;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using NetSqlAzMan.Interfaces;
-using NetSqlAzMan;
-using NetSqlAzMan.SnapIn.DirectoryServices;
-using System.DirectoryServices;
-using Microsoft.Interop.Security.AzRoles;
 using System.Security.Principal;
+using System.Windows.Forms;
+using Microsoft.Interop.Security.AzRoles;
+using NetSqlAzMan.Interfaces;
+using NetSqlAzMan.SnapIn.DirectoryServices;
 
 namespace NetSqlAzMan.SnapIn.Forms
 {

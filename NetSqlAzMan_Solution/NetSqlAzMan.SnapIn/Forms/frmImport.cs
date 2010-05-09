@@ -1,15 +1,8 @@
 using System;
-using System.Xml;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 using NetSqlAzMan.Interfaces;
-using NetSqlAzMan;
 using NetSqlAzMan.SnapIn.ScopeNodes;
-using MMC = Microsoft.ManagementConsole;
 
 namespace NetSqlAzMan.SnapIn.Forms
 {

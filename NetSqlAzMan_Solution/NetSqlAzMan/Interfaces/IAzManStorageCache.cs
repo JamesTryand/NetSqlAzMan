@@ -1,5 +1,4 @@
 ﻿using System;
-using NetSqlAzMan;
 using NetSqlAzMan.Cache;
 
 namespace NetSqlAzMan.Interfaces

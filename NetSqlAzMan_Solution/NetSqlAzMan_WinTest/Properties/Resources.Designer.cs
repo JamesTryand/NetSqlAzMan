@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NetSqlAzMan_WinTest.Properties {
-    using System;
-    
-    
+namespace NetSqlAzMan_WinTest.Properties
+{
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
