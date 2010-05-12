@@ -13,7 +13,7 @@ namespace NetSqlAzMan.SnapIn
     {
         private void InitializeComponent()
         {
-
+            
         }
     }
 }
