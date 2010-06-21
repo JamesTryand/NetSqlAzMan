@@ -248,6 +248,28 @@ namespace NetSqlAzMan
         }
 
         /// <summary>
+        /// Implements the operator ==.
+        /// </summary>
+        /// <param name="sid1">The sid1.</param>
+        /// <param name="sid2">The sid2.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator ==(SqlAzManSID sid1, SqlAzManSID sid2)
+        {
+            return sid1.Equals(sid2.BinaryValue);
+        }
+
+        /// <summary>
+        /// Implements the operator !=.
+        /// </summary>
+        /// <param name="sid1">The sid1.</param>
+        /// <param name="sid2">The sid2.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator !=(SqlAzManSID sid1, SqlAzManSID sid2)
+        {
+            return !(sid1.Equals(sid2.BinaryValue));
+        }
+
+        /// <summary>
         /// Implicit operators the specified windows identity.
         /// </summary>
         /// <param name="windowsIdentity">The windows identity.</param>
