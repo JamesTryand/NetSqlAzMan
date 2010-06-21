@@ -73,7 +73,8 @@ namespace NetSqlAzMan.Cache
         /// Initializes a new instance of the <see cref="StorageCache"/> class.
         /// </summary>
         /// <param name="connectionString">The connection string.</param>
-        public StorageCache(string connectionString) : this()
+        public StorageCache(string connectionString)
+            : this()
         {
             this.ConnectionString = connectionString;
         }
@@ -310,29 +311,66 @@ namespace NetSqlAzMan.Cache
                     storeNameFilter = storeNameFilter.Trim();
                 if (!String.IsNullOrEmpty(applicationNameFilter))
                     applicationNameFilter = applicationNameFilter.Trim();
-                var filteredStoresByName = from s in db.Stores()
-                                     where 
-                                     !String.IsNullOrEmpty(storeNameFilter) && s.Name.Contains(storeNameFilter)
-                                     ||
-                                     String.IsNullOrEmpty(storeNameFilter)
-                                     select s;
+
+                IQueryable<StoresResult> filteredStoresByName = null;
+                if (!storeNameFilter.Contains(';'))
+                {
+                    filteredStoresByName = from s in db.Stores()
+                                           where
+                                           !String.IsNullOrEmpty(storeNameFilter) && s.Name.Contains(storeNameFilter.Trim())
+                                           ||
+                                           String.IsNullOrEmpty(storeNameFilter)
+                                           select s;
+                }
+                else
+                {
+                    var storeNamesFilter = (from t in storeNameFilter.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries)
+                                            select t.Trim()).ToArray();
+
+                    foreach (String storeNameFilterItem in storeNamesFilter)
+                    {
+                        var filteredStoresByNameLocal = from s in db.Stores()
+                                                           where storeNamesFilter.Contains(s.Name)
+                                                           select s;
+                        if (filteredStoresByName != null)
+                            filteredStoresByName = filteredStoresByName.Union(filteredStoresByNameLocal);
+                        else
+                            filteredStoresByName = filteredStoresByNameLocal;
+                    }
+                }
 
                 if (!String.IsNullOrEmpty(storeNameFilter) && filteredStoresByName.Count() == 0)
                     throw new ArgumentOutOfRangeException("storeNameFilter");
 
-                var filteredApplicationsByName = from s in filteredStoresByName
-                                           join a in db.Applications() on s.StoreId equals a.StoreId
-                                           where
-                                           !String.IsNullOrEmpty(applicationNameFilter) && a.Name.Contains(applicationNameFilter)
-                                           ||
-                                           String.IsNullOrEmpty(applicationNameFilter)
-                                           select a;
+                IQueryable<ApplicationsResult> filteredApplicationsByName = null;
+                if (!applicationNameFilter.Contains(';'))
+                {
+                    filteredApplicationsByName = from s in filteredStoresByName
+                                                 join a in db.Applications() on s.StoreId equals a.StoreId
+                                                 where
+                                                 !String.IsNullOrEmpty(applicationNameFilter) && a.Name.Contains(applicationNameFilter.Trim())
+                                                 ||
+                                                 String.IsNullOrEmpty(applicationNameFilter)
+                                                 select a;
+                }
+                else
+                {
+                    var applicationNamesFilter = (from t in applicationNameFilter.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries)
+                                                  select t.Trim()).ToArray();
+                    foreach (String applicationNameFilterItem in applicationNamesFilter)
+                    {
+                        var filteredApplicationsByNameLocal = from a in db.Applications()
+                                                              where applicationNamesFilter.Contains(a.Name)
+                                                              select a;
+                        if (filteredApplicationsByName != null)
+                            filteredApplicationsByName = filteredApplicationsByName.Union(filteredApplicationsByNameLocal);
+                        else
+                            filteredApplicationsByName = filteredApplicationsByNameLocal;
+                    }
+                }
 
-                if (!String.IsNullOrEmpty(applicationNameFilter) && filteredStoresByName.Count() == 0)
+                if (!String.IsNullOrEmpty(applicationNameFilter) && filteredApplicationsByName.Count() == 0)
                     throw new ArgumentOutOfRangeException("applicationNameFilter");
-
-                
-
 
 
                 #endregion VALIDATION
@@ -404,8 +442,6 @@ namespace NetSqlAzMan.Cache
                     allBizRules = (allBizRulesQ).ToList();
                     allAuthorizations = (allAuthorizationsQ).ToList();
                     allAuthorizationAttributes = (allAuthorizationAttributesQ).ToList();
-
-
                     #endregion LINQ QUERIES (Not Filtered)
                 }
                 else
@@ -1103,7 +1139,7 @@ namespace NetSqlAzMan.Cache
                     Type = item.ItemType,
                     Attributes = attributes
                 });
-                 
+
             }
             return result.ToArray();
         }

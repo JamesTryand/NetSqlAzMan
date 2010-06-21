@@ -686,11 +686,13 @@ namespace Prova.BizRules
 
         private void btnCacheTest_Click(object sender, EventArgs e)
         {
-            DateTime dtStart = DateTime.Now;
-            IAzManStorage storage = new SqlAzManStorage("data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
-            NetSqlAzMan.Cache.UserPermissionCache userPermissionCache = new NetSqlAzMan.Cache.UserPermissionCache(storage, "Italferr", "CartaDeiServizi", WindowsIdentity.GetCurrent(), true, true);
-            AuthorizationType auth = userPermissionCache.CheckAccess("My Operation", DateTime.Now);
-            MessageBox.Show(((TimeSpan)(DateTime.Now-dtStart)).TotalMilliseconds.ToString());
+            NetSqlAzMan.Cache.StorageCache sc = new StorageCache("data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
+            sc.BuildStorageCache("Eidos; Olsa", "Web Portal; db persone");
+            //DateTime dtStart = DateTime.Now;
+            //IAzManStorage storage = new SqlAzManStorage("data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
+            //NetSqlAzMan.Cache.UserPermissionCache userPermissionCache = new NetSqlAzMan.Cache.UserPermissionCache(storage, "Italferr", "CartaDeiServizi", WindowsIdentity.GetCurrent(), true, true);
+            //AuthorizationType auth = userPermissionCache.CheckAccess("My Operation", DateTime.Now);
+            //MessageBox.Show(((TimeSpan)(DateTime.Now-dtStart)).TotalMilliseconds.ToString());
         }
 
         private void btnCheckStoreAccess_Click(object sender, EventArgs e)
