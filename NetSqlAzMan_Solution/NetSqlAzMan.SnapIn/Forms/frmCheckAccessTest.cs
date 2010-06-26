@@ -18,7 +18,7 @@ namespace NetSqlAzMan.SnapIn.Forms
         private IAzManDBUser dbuser = null;
         private Cache.UserPermissionCache cache = null;
         private Cache.StorageCache storageCache = null;
-
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Check Access Test")]
         public frmCheckAccessTest()
         {
             InitializeComponent();

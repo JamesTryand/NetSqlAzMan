@@ -158,6 +158,7 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
             frm.document = rep;
             this.SnapIn.Console.ShowDialog(frm);
         }
+
         void ItemsHVAction_Triggered(object sender, MMC.SyncActionEventArgs e)
         {
             frmItemsHierarchyView frm = new frmItemsHierarchyView();

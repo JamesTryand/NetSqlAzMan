@@ -20,7 +20,7 @@ namespace NetSqlAzManWebConsole
         private ListView lsvTasks;
         private ListView lsvOperations;
         private bool modified;
-
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Item Properties")]
         protected void Page_Init(object sender, EventArgs e)
         {
             this.showOkCancelApply();

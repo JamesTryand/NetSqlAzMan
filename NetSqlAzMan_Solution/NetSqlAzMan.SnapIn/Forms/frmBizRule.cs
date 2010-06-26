@@ -7,7 +7,7 @@ namespace NetSqlAzMan.SnapIn.Forms
     public partial class frmBizRule : frmBase
     {
         internal IAzManItem item;
-
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Business Rule")]
         public frmBizRule()
         {
             InitializeComponent();

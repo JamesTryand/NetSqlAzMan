@@ -13,7 +13,7 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <StartupObject>NetSqlAzMan.Cache.Service.Program</StartupObject>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>NetSqlAzManCacheService.pfx</AssemblyOriginatorKeyFile>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <SccProjectName>SAK</SccProjectName>
@@ -59,9 +59,29 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'MSI Only|AnyCPU'">
+    <OutputPath>bin\MSI Only\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\NetSqlAzManCacheService.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>true</DelaySign>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PreEmptive.Attributes">
-      <HintPath>C:\Program Files\Microsoft Visual Studio 10.0\PreEmptive Solutions\Dotfuscator Community Edition\PreEmptive.Attributes.dll</HintPath>
+    <Reference Include="PreEmptive.Attributes, Version=1.5.0.0, Culture=neutral, PublicKeyToken=0a50e0ef4ca013fe">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NetSqlAzMan\PreEmptive\PreEmptive.Attributes.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -201,6 +221,9 @@
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>"%25ProgramFiles%25\Microsoft SDKs\Windows\v7.0A\bin\sn.exe" –Vr "$(TargetPath)"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -8,6 +8,8 @@ namespace NetSqlAzMan.SnapIn.Forms
     public partial class frmGenerateCheckAccessHelper : frmBase
     {
         internal IAzManApplication application;
+
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Generate Check Access Helper")]
         public frmGenerateCheckAccessHelper()
         {
             InitializeComponent();

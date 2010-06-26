@@ -10,6 +10,8 @@ namespace NetSqlAzMan.SnapIn.Forms
         internal IAzManApplication[] applications=null;
         private bool firstShow = true;
         private bool closeRequest = false;
+
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Items Hierarchical View")]
         public frmItemsHierarchyView()
         {
             InitializeComponent();

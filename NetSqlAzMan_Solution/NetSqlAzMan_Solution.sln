@@ -54,12 +54,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetSqlAzMan_RoleProviderWeb
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 DotFuscator", "6 DotFuscator", "{3BCD8BAA-7CAE-41FD-A690-F884A264C22F}"
 	ProjectSection(SolutionItems) = preProject
+		Dotfuscated\deploy.bat = Dotfuscated\deploy.bat
 		NetSqlAzMan Dotfuscator.xml = NetSqlAzMan Dotfuscator.xml
 		Dotfuscated\NetSqlAzMan.dll = Dotfuscated\NetSqlAzMan.dll
 		Dotfuscated\NetSqlAzMan.SnapIn.dll = Dotfuscated\NetSqlAzMan.SnapIn.dll
 		Dotfuscated\NetSqlAzManCacheService.exe = Dotfuscated\NetSqlAzManCacheService.exe
 		Dotfuscated\NetSqlAzManCacheServiceInvalidateUtility.exe = Dotfuscated\NetSqlAzManCacheServiceInvalidateUtility.exe
 		Dotfuscated\NetSqlAzManWebConsole.dll = Dotfuscated\NetSqlAzManWebConsole.dll
+		Dotfuscated\ReadMe.txt = Dotfuscated\ReadMe.txt
 	EndProjectSection
 EndProject
 Global

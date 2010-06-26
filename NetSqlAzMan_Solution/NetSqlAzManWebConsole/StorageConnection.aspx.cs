@@ -14,6 +14,12 @@ namespace NetSqlAzManWebConsole
 {
     public partial class StorageConnection : ThemePage
     {
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Storage Connection")]
+        protected void Page_Init(object sender, EventArgs e)
+        { 
+        
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)

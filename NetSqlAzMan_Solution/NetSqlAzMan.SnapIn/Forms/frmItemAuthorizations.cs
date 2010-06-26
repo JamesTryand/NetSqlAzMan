@@ -19,6 +19,8 @@ namespace NetSqlAzMan.SnapIn.Forms
         private string currentOwnerName = ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).Name;
         private IAzManSid currentOwnerSid = new SqlAzManSID(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).User.Value);
         private WhereDefined currentOwnerSidWhereDefined;
+
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Item Authorizations")]
         public frmItemAuthorizations()
         {
             InitializeComponent();

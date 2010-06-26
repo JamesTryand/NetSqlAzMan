@@ -8,6 +8,7 @@ namespace NetSqlAzMan.SnapIn.Forms
     {
         internal IAzManStorage storage;
 
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: SQL Audit")]
         public frmSQLAudit() : base(false)
         {
             InitializeComponent();

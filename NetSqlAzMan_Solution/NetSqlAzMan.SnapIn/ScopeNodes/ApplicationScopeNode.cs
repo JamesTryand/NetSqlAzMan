@@ -157,6 +157,7 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
             frm.document = rep;
             this.SnapIn.Console.ShowDialog(frm);
         }
+
         void checkAccessTestAction_Triggered(object sender, MMC.SyncActionEventArgs e)
         {
             frmCheckAccessTest frm = new frmCheckAccessTest();

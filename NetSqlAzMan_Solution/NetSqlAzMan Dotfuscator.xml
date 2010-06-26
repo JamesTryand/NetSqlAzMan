@@ -7,30 +7,30 @@
       <inputassembly>
         <option>honoroas</option>
         <option>stripoa</option>
-        <file dir="D:\Documenti\Visual Studio 2005\Projects\NetSqlAzMan_Solution\NetSqlAzManCacheService\bin\Debug" name="NetSqlAzManCacheService.exe" />
+        <option>library</option>
+        <file dir="D:\Documenti\Visual Studio 2005\Projects\NetSqlAzMan_Solution\NetSqlAzMan\bin\Release" name="NetSqlAzMan.dll" />
       </inputassembly>
       <inputassembly>
         <option>honoroas</option>
         <option>stripoa</option>
-        <file dir="D:\Documenti\Visual Studio 2005\Projects\NetSqlAzMan_Solution\NetSqlAzManCacheServiceInvalidateUtility\bin\Debug" name="NetSqlAzManCacheServiceInvalidateUtility.exe" />
+        <option>library</option>
+        <file dir="D:\Documenti\Visual Studio 2005\Projects\NetSqlAzMan_Solution\NetSqlAzMan.SnapIn\bin\Release" name="NetSqlAzMan.SnapIn.dll" />
+      </inputassembly>
+      <inputassembly>
+        <option>honoroas</option>
+        <option>stripoa</option>
+        <file dir="D:\Documenti\Visual Studio 2005\Projects\NetSqlAzMan_Solution\NetSqlAzManCacheService\bin\Release" name="NetSqlAzManCacheService.exe" />
+      </inputassembly>
+      <inputassembly>
+        <option>honoroas</option>
+        <option>stripoa</option>
+        <file dir="D:\Documenti\Visual Studio 2005\Projects\NetSqlAzMan_Solution\NetSqlAzManCacheServiceInvalidateUtility\bin\Release" name="NetSqlAzManCacheServiceInvalidateUtility.exe" />
       </inputassembly>
       <inputassembly>
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>
         <file dir="D:\Documenti\Visual Studio 2005\Projects\NetSqlAzMan_Solution\NetSqlAzManWebConsole\bin" name="NetSqlAzManWebConsole.dll" />
-      </inputassembly>
-      <inputassembly>
-        <option>honoroas</option>
-        <option>stripoa</option>
-        <option>library</option>
-        <file dir="D:\Documenti\Visual Studio 2005\Projects\NetSqlAzMan_Solution\NetSqlAzMan\bin\Debug" name="NetSqlAzMan.dll" />
-      </inputassembly>
-      <inputassembly>
-        <option>honoroas</option>
-        <option>stripoa</option>
-        <option>library</option>
-        <file dir="D:\Documenti\Visual Studio 2005\Projects\NetSqlAzMan_Solution\NetSqlAzMan.SnapIn\bin\Debug" name="NetSqlAzMan.SnapIn.dll" />
       </inputassembly>
     </asmlist>
   </input>

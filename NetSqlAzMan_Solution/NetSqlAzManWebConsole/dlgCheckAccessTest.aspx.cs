@@ -15,7 +15,7 @@ namespace NetSqlAzManWebConsole
         private IAzManDBUser dbuser = null;
         private UserPermissionCache cache = null;
         private StorageCache storageCache = null;
-
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Check Access Test")]
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setImage("CheckAccessTest.gif");

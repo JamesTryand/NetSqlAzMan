@@ -8,7 +8,7 @@ namespace NetSqlAzMan.SnapIn.Forms
     public partial class frmApplicationPermissions : frmBase
     {
         public IAzManApplication application;
-
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Application Permissions")]
         public frmApplicationPermissions()
         {
             InitializeComponent();

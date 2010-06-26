@@ -117,7 +117,7 @@ namespace NetSqlAzMan.Cache.Service
         /// When implemented in a derived class, executes when a Start command is sent to the service by the Service Control Manager (SCM) or when the operating system starts (for a service that starts automatically). Specifies actions to take when the service starts.
         /// </summary>
         /// <param name="args">Data passed by the start command.</param>
-        [PreEmptive.Attributes.Feature("WCF Cache Service Started")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WCF Cache Service: Service Start")]
         [SecurityCritical()]
         protected override void OnStart(string[] args)
         {
@@ -139,6 +139,7 @@ namespace NetSqlAzMan.Cache.Service
         /// <summary>
         /// When implemented in a derived class, executes when a Stop command is sent to the service by the Service Control Manager (SCM). Specifies actions to take when a service stops running.
         /// </summary>
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WCF Cache Service: Service Stop")]
         protected override void OnStop()
         {
             this.OnStopInternal();

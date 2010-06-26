@@ -7,6 +7,8 @@ namespace NetSqlAzMan.SnapIn.Forms
     public partial class frmPrint : frmBase
     {
         internal PrintDocumentBase document;
+
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Print")]
         public frmPrint()
         {
             InitializeComponent();

@@ -14,7 +14,7 @@ namespace NetSqlAzManWebConsole
         internal IAzManStore store;
         internal IAzManStoreGroup storeGroup;
         internal IAzManStoreGroup[] selectedStoreGroups;
-
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Store Groups List")]
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setImage("StoreApplicationGroup_32x32.gif");

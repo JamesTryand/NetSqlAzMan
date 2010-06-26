@@ -62,6 +62,25 @@
     </DocumentationFile>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'MSI Only|AnyCPU'">
+    <OutputPath>bin\MSI Only\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\NetSqlAzMan.SnapIn.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>true</DelaySign>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Interop.Security.AzRoles, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
       <HintPath>.\AzRoles\${Platform}\Microsoft.Interop.Security.AzRoles.dll</HintPath>
@@ -71,8 +90,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files\Reference Assemblies\Microsoft\mmc\v3.0\microsoft.managementconsole.dll</HintPath>
     </Reference>
-    <Reference Include="PreEmptive.Attributes">
-      <HintPath>C:\Program Files\Microsoft Visual Studio 10.0\PreEmptive Solutions\Dotfuscator Community Edition\PreEmptive.Attributes.dll</HintPath>
+    <Reference Include="PreEmptive.Attributes, Version=1.5.0.0, Culture=neutral, PublicKeyToken=0a50e0ef4ca013fe">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NetSqlAzMan\PreEmptive\PreEmptive.Attributes.dll</HintPath>
     </Reference>
     <Reference Include="SqlAudit, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0010b2b0864b0d6b, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -731,7 +751,6 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>"%25ProgramFiles%25\Microsoft SDKs\Windows\v7.0A\bin\sn.exe" –Vr "$(TargetPath)"</PostBuildEvent>
   </PropertyGroup>
 </Project>

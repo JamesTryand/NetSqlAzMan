@@ -6,7 +6,7 @@ namespace NetSqlAzManWebConsole
     public partial class dlgOptions : dlgPage
     {
         internal IAzManStorage storage;
-
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Options")]
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setImage("Options_32x32.gif");

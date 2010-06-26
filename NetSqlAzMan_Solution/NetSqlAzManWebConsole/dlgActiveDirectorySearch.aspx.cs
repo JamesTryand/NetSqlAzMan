@@ -9,6 +9,7 @@ namespace NetSqlAzManWebConsole
 {
     public partial class dlgActiveDirectorySearch : dlgPage
     {
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Active Directory Search")]
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setImage("ActiveDirectory.gif");

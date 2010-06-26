@@ -13,6 +13,7 @@ namespace NetSqlAzMan.SnapIn.Forms
         internal IAzManStorage storage;
         private IAzManSid currentOwnerSid = new SqlAzManSID(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).User.Value);
         private WhereDefined currentOwnerSidWhereDefined;
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn Import from MS AzMan")]
         public frmImportFromAzMan()
         {
             InitializeComponent();

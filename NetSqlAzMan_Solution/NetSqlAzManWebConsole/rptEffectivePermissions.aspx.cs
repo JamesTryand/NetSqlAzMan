@@ -16,7 +16,7 @@ namespace NetSqlAzManWebConsole
         internal string[] userUPNs;
         internal List<WindowsIdentity> userIdenities = null;
         internal List<IAzManDBUser> dbUserIdentities = null;
-
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Report Effective Permissions")]
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setImage("EffectivePermissions_32x32.gif");

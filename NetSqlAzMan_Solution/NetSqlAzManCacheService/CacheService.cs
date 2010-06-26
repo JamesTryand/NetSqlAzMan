@@ -20,7 +20,9 @@ namespace NetSqlAzMan.Cache.Service
         {
             CacheService.buildingCache = false;
         }
-
+        
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WCF Cache Service: Build Storage Cache")]
+        [SecurityCritical()]
         internal static void startStorageBuildCache()
         {
             CacheService.startStorageBuildCache(ConfigurationManager.AppSettings["StoreNameFilter"], ConfigurationManager.AppSettings["ApplicationNameFilter"]);
@@ -30,8 +32,7 @@ namespace NetSqlAzMan.Cache.Service
         {
             CacheService.startStorageBuildCache(storeName, String.Empty);
         }
-        [PreEmptive.Attributes.Feature("NetSqlAzManCacheService StorageBuildCache", EventType=PreEmptive.Attributes.FeatureEventTypes.Tick)]
-        [SecurityCritical()]
+        
         internal static void startStorageBuildCache(string storeName, string applicationName)
         {
             //Design Feature 1: If Not already building cache ... ignore new InvalidateCache

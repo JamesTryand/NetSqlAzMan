@@ -14,7 +14,7 @@ namespace NetSqlAzManWebConsole
         internal IAzManApplication application;
         internal IAzManStore store;
         internal IAzManDBUser[] selectedDBUsers;
-
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: DB Users List")]
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setImage("DBUser_32x32.gif");

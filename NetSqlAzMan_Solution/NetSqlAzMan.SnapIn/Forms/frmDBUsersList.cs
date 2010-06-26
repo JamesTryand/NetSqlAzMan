@@ -12,6 +12,7 @@ namespace NetSqlAzMan.SnapIn.Forms
         internal IAzManDBUser[] selectedDBUsers;
         private IAzManDBUser[] dbUsers = null;
         private bool refreshing = false;
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: DB Users List")]
         public frmDBUsersList()
         {
             InitializeComponent();

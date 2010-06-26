@@ -5,6 +5,7 @@ namespace NetSqlAzManWebConsole
 {
     public partial class dlgInvalidateWCFCacheService : dlgPage
     {
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Invalidate WCF Cache")]
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setImage("Cache_32x32.gif");

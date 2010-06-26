@@ -8,6 +8,8 @@ namespace NetSqlAzMan.SnapIn.Forms
     {
         internal IAzManStore store;
         internal IAzManStoreGroup storeGroup = null;
+
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: New Store Group")]
         public frmNewStoreGroup()
         {
             InitializeComponent();

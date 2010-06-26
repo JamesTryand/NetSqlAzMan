@@ -10,7 +10,7 @@ namespace NetSqlAzManWebConsole
     {
         protected internal IAzManStorage storage = null;
         protected internal IAzManStore store = null;
-
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Store Permissions")]
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setImage("Logins.bmp");

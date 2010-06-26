@@ -95,7 +95,8 @@ namespace NetSqlAzManWebConsole
         {
             this.Application["SqlDataSources"] = null;
         }
-        [PreEmptive.Attributes.Feature("WebConsole Session Start", EventType = PreEmptive.Attributes.FeatureEventTypes.Start)]
+        
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Session Start")]
         [SecurityCritical()]
         protected void Session_Start(object sender, EventArgs e)
         {
@@ -120,7 +121,7 @@ namespace NetSqlAzManWebConsole
             }
         }
         
-        [PreEmptive.Attributes.Feature("WebConsole Session Start", EventType = PreEmptive.Attributes.FeatureEventTypes.Stop)]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Session End")]
         [SecurityCritical()]
         protected void Session_End(object sender, EventArgs e)
         {
@@ -153,6 +154,7 @@ namespace NetSqlAzManWebConsole
             return servers;
         }
 
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Application Error")]
         protected void Application_Error(object sender, EventArgs e)
         {
             Exception objErr = Server.GetLastError();
@@ -202,6 +204,7 @@ namespace NetSqlAzManWebConsole
             }
         }
 
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Check For Update")]
         private string checkForUpdate()
         {
             try
