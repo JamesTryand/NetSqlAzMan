@@ -61,8 +61,7 @@ namespace NetSqlAzMan.SnapIn
         }
 
         [PreEmptive.Attributes.Setup(CustomEndpoint = "so-s.info/PreEmptive.Web.Services.Messaging/MessagingServiceV2.asmx")]
-        [PreEmptive.Attributes.Teardown()]
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn Initialize")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Initialize")]
         [SecurityCritical()]
         protected override void OnInitialize()
         {
@@ -108,7 +107,7 @@ namespace NetSqlAzMan.SnapIn
         /// </summary>
         /// <param name="status">asynchronous status for updating the console</param>
         /// <param name="persistenceData">binary data stored in the console file</param>
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn Load Custom Data")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Load Custom Data")]
         protected override void OnLoadCustomData(MMC.AsyncStatus status, byte[] persistenceData)
         {
             try
@@ -269,11 +268,22 @@ namespace NetSqlAzMan.SnapIn
         }
 
         /// <summary>
+        /// Called when [shutdown].
+        /// </summary>
+        /// <param name="status">The status.</param>
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Shutdown")]
+        [PreEmptive.Attributes.Teardown()]
+        protected override void OnShutdown(MMC.AsyncStatus status)
+        {
+            base.OnShutdown(status);
+        }
+
+        /// <summary>
         /// If snapIn 'IsModified', then save data
         /// </summary>
         /// <param name="status">status for updating the console</param>
         /// <returns>binary data to be stored in the console file</returns>
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn Save Custom Data")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Save Custom Data")]
         protected override byte[] OnSaveCustomData(MMC.SyncStatus status)
         {
             return Encoding.Unicode.GetBytes(

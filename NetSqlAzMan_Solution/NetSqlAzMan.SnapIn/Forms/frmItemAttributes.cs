@@ -15,7 +15,7 @@ namespace NetSqlAzMan.SnapIn.Forms
         private bool modified;
         private KeyValuePair<string, string> keyValueNull = new KeyValuePair<string, string>(null, null);
 
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Item Attributes")]
+        //[PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Item Attributes")]
         public frmItemAttributes()
         {
             InitializeComponent();

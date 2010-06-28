@@ -269,7 +269,7 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
             this.ViewDescriptions.Add(mvd);
             this.ViewDescriptions.DefaultIndex = 0;
         }
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn Language: Spanish")]
+        //[PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Language Spanish")]
         void LanguageSpanishAction_Triggered(object sender, MMC.SyncActionEventArgs e)
         {
             if (this.selectedLanguage != "Spanish")
@@ -280,7 +280,7 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
                 this.SnapIn.IsModified = true;
             }
         }
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn Language: Italian")]
+        //[PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Language Italian")]
         void LanguageItalianAction_Triggered(object sender, MMC.SyncActionEventArgs e)
         {
             if (this.selectedLanguage != "Italian")
@@ -291,7 +291,7 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
                 this.SnapIn.IsModified = true;
             }
         }
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn Language: Albanian")]
+        //[PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Language Albanian")]
         void LanguageAlbanianAction_Triggered(object sender, MMC.SyncActionEventArgs e)
         {
             if (this.selectedLanguage != "Albanian")
@@ -302,7 +302,7 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
                 this.SnapIn.IsModified = true;
             }
         }
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn Language: Russian")]
+        //[PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Language Russian")]
         void LanguageRussianAction_Triggered(object sender, MMC.SyncActionEventArgs e)
         {
             if (this.selectedLanguage != "Russian")
@@ -313,7 +313,7 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
                 this.SnapIn.IsModified = true;
             }
         }
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn Language: English")]
+        //[PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Language English")]
         void LanguageEnglishAction_Triggered(object sender, MMC.SyncActionEventArgs e)
         {
             if (this.selectedLanguage != "English")
@@ -402,7 +402,7 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
         }
 
 
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn Check For Update: Version 3.6.0.6")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Check For Update from version 3.6.0.6")]
         private void CheckForUpdateSync(object stateObject)
         {
             try

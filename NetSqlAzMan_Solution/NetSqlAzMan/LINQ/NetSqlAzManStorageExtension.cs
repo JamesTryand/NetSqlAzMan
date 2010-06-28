@@ -45,6 +45,5 @@ namespace NetSqlAzMan.LINQ
         {
             this.ObjectTrackingEnabled = true;
         }
-
     }
 }

@@ -313,7 +313,7 @@ namespace NetSqlAzMan.Cache
                     applicationNameFilter = applicationNameFilter.Trim();
 
                 IQueryable<StoresResult> filteredStoresByName = null;
-                if (!storeNameFilter.Contains(';'))
+                if (String.IsNullOrWhiteSpace(storeNameFilter) || !storeNameFilter.Contains(';'))
                 {
                     filteredStoresByName = from s in db.Stores()
                                            where
@@ -339,11 +339,11 @@ namespace NetSqlAzMan.Cache
                     }
                 }
 
-                if (!String.IsNullOrEmpty(storeNameFilter) && filteredStoresByName.Count() == 0)
+                if (!String.IsNullOrWhiteSpace(storeNameFilter) && filteredStoresByName.Count() == 0)
                     throw new ArgumentOutOfRangeException("storeNameFilter");
 
                 IQueryable<ApplicationsResult> filteredApplicationsByName = null;
-                if (!applicationNameFilter.Contains(';'))
+                if (String.IsNullOrWhiteSpace(applicationNameFilter) || !applicationNameFilter.Contains(';'))
                 {
                     filteredApplicationsByName = from s in filteredStoresByName
                                                  join a in db.Applications() on s.StoreId equals a.StoreId
@@ -700,6 +700,7 @@ namespace NetSqlAzMan.Cache
                 }
                 lock (this)
                 {
+                    System.Diagnostics.Debug.WriteLine("StorageCache Built.");
                     this.storage = newStorage;
                 }
                 #endregion CACHE BUILDING
@@ -802,7 +803,7 @@ namespace NetSqlAzMan.Cache
 
         private void storeApplicationItemValidation(string storeName, string applicationName, string itemName, out IAzManStore store, out IAzManApplication application, out IAzManItem item, out IEnumerable<IAzManItem> allItems)
         {
-            this.itemResultCache = new Hashtable();
+            this.itemResultCache = Hashtable.Synchronized(new Hashtable());
             storeName = storeName.Trim();
             applicationName = applicationName.Trim();
             itemName = itemName.Trim();
@@ -824,7 +825,7 @@ namespace NetSqlAzMan.Cache
 
         private void storeApplicationItemValidation(string storeName, string applicationName, out IAzManStore store, out IAzManApplication application, out IEnumerable<IAzManItem> allItems)
         {
-            this.itemResultCache = new Hashtable();
+            this.itemResultCache = Hashtable.Synchronized(new Hashtable());
             storeName = storeName.Trim();
             applicationName = applicationName.Trim();
             store = (from s in this.storage.Stores.Values
@@ -861,6 +862,7 @@ namespace NetSqlAzMan.Cache
                 {
                     parentAuthorizationType = (AuthorizationType)this.itemResultCache[parentItem.Name];
                 }
+
                 authorizationType = SqlAzManItem.mergeAuthorizations(authorizationType, parentAuthorizationType);
             }
             if (authorizationType == AuthorizationType.AllowWithDelegation)
@@ -1105,9 +1107,12 @@ namespace NetSqlAzMan.Cache
                 }
             }
             //Cache temporarly the result
-            if (!this.itemResultCache.ContainsKey(item.Name))
+            lock (this.itemResultCache)
             {
-                this.itemResultCache.Add(item.Name, authorizationType);
+                if (!this.itemResultCache.ContainsKey(item.Name))
+                {
+                    this.itemResultCache.Add(item.Name, authorizationType);
+                }
             }
             return authorizationType;
         }

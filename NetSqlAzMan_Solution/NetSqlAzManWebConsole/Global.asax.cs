@@ -17,7 +17,6 @@ namespace NetSqlAzManWebConsole
     public class Global : System.Web.HttpApplication
     {
         [PreEmptive.Attributes.Setup(CustomEndpoint = "so-s.info/PreEmptive.Web.Services.Messaging/MessagingServiceV2.asmx")]
-        [PreEmptive.Attributes.Teardown()]
         protected void Application_Start(object sender, EventArgs e)
         {
             List<string> sqlDataSources = new List<string>();
@@ -91,6 +90,7 @@ namespace NetSqlAzManWebConsole
                 }));
         }
 
+        [PreEmptive.Attributes.Teardown()]
         protected void Application_End(object sender, EventArgs e)
         {
             this.Application["SqlDataSources"] = null;
@@ -233,7 +233,5 @@ namespace NetSqlAzManWebConsole
             }
             return null;
         }
-
-        
     }
 }

@@ -9,7 +9,7 @@ namespace NetSqlAzManWebConsole
     {
         protected internal IAzManStorage storage = null;
         protected internal IAzManApplication application = null;
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: New Application Group")]
+        //[PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: New Application Group")]
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setImage("StoreApplicationGroup_32x32.gif");

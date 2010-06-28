@@ -9,24 +9,32 @@ namespace NetSqlAzMan_RoleProviderWebTest
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 120; i++)
             {
-                Thread t = new Thread(
-                    new ThreadStart(
-                        delegate()
+                ThreadPool.QueueUserWorkItem(
+                    new WaitCallback(
+                ////Thread t = new Thread(
+                ////    new ThreadStart(
+                        delegate(object o)
                         {
                             try
                             {
-                                bool isInRole = Roles.IsUserInRole("Andrea");
-                                var dbUser = ((NetSqlAzMan.Providers.NetSqlAzManRoleProvider)Roles.Provider).Storage.GetDBUser("Andrea");
-                                Debug.WriteLine(String.Format("dbUser: {0}", dbUser.UserName));
+                                NetSqlAzMan.Providers.NetSqlAzManRoleProvider provider = ((NetSqlAzMan.Providers.NetSqlAzManRoleProvider)Roles.Provider);
+                                var dbUser = provider.GetApplication().GetDBUser("Arianna");
+                                string randomRoleName = String.Format("Random Role {0}", Guid.NewGuid().ToString());
+                                provider.CreateRole(randomRoleName);
+                                provider.AddUsersToRoles(new[] { "EIDOSIS4-AFR\\Andrea" }, new[] { randomRoleName });
+                                //provider.InvalidateCache(true);
+                                bool isInRole = provider.IsUserInRole("EIDOSIS4-AFR\\Andrea", randomRoleName); //Roles.IsUserInRole(randomRoleName);
+
+                                Debug.WriteLine(String.Format("isInRole: {0}", isInRole.ToString()));
                             }
                             catch (Exception ex)
                             {
                                 Debug.WriteLine("Error: {0}", ex.Message);
                             }
                         }));
-                t.Start();
+                //t.Start();
             }
         }
     }

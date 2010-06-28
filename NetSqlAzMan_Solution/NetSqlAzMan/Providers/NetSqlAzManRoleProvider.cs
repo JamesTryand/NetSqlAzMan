@@ -1,27 +1,33 @@
 using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Configuration.Provider;
-using System.Security.Permissions;
-using System.Security.Principal;
 using System.Web;
+using System.Security.Principal;
+using System.Security.Permissions;
+using System.Collections.Specialized;
+using System.Collections.Generic;
+using System.Configuration.Provider;
 using System.Web.Security;
 using NetSqlAzMan.Interfaces;
+using NetSqlAzMan.Cache;
+using System.Linq;
 
 namespace NetSqlAzMan.Providers
 {
     /// <summary>
     /// ASP.NET Role Provider for .NET Sql Authorization Manager.
     /// </summary>
-    /// <remarks>Thread Safe</remarks>
     [AspNetHostingPermission(SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
     [AspNetHostingPermission(SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
     public class NetSqlAzManRoleProvider : RoleProvider
     {
         #region Fields
-        private String connectionStringName;
+        /// <summary>
+        /// The Storage Cache
+        /// </summary>
+        protected StorageCache storageCache;
         private String storeName;
         private String applicationName;
+        private static Object locker = new Object();
+        private volatile static bool buildingCache = false;
         /// <summary>
         /// The user lookup type.
         /// </summary>
@@ -42,38 +48,44 @@ namespace NetSqlAzMan.Providers
         #endregion Constructors
         #region Properties
         /// <summary>
-        /// Gets the storage.
+        /// Gets the DB user.
         /// </summary>
-        /// <value>The storage.</value>
-        public virtual IAzManStorage Storage
+        /// <param name="dbUserName">Name of the db user.</param>
+        /// <returns></returns>
+        /// <remarks>Thread-Safe</remarks>
+        public virtual IAzManDBUser GetDBUser(string dbUserName)
         {
-            get
+            using (IAzManStorage storage = new SqlAzManStorage(this.storageCache.ConnectionString))
             {
-                return new SqlAzManStorage(this.connectionStringName);
+                IAzManApplication application = storage[this.storeName][this.applicationName];
+                return application.GetDBUser(dbUserName);
             }
         }
         /// <summary>
         /// Gets the store.
         /// </summary>
         /// <value>The store.</value>
-        public virtual IAzManStore Store
+        public virtual String StoreName
         {
             get
             {
-                SqlAzManStorage storage = new SqlAzManStorage(this.connectionStringName);
-                return storage[this.storeName];
+                return this.storeName;
             }
         }
         /// <summary>
-        /// Gets the application.
+        /// Gets or sets the name of the application to store and retrieve role information for.
         /// </summary>
-        /// <value>The application.</value>
-        public virtual IAzManApplication Application
+        /// <value></value>
+        /// <returns>The name of the application to store and retrieve role information for.</returns>
+        public override String ApplicationName
         {
             get
             {
-                SqlAzManStorage storage = new SqlAzManStorage(this.connectionStringName);
-                return storage[this.storeName][this.applicationName];
+                return this.applicationName;
+            }
+            set
+            {
+                this.applicationName = value;
             }
         }
         /// <summary>
@@ -101,24 +113,6 @@ namespace NetSqlAzMan.Providers
                 return "Role Provider for .NET Sql Authorization Manager - http://netsqlazman.codeplex.com - Andrea Ferendeles";
             }
         }
-
-        /// <summary>
-        /// Gets or sets the name of the application to store and retrieve role information for.
-        /// </summary>
-        /// <value></value>
-        /// <returns>The name of the application to store and retrieve role information for.</returns>
-        public override string ApplicationName
-        {
-            get
-            {
-                return this.applicationName;
-            }
-            set
-            {
-                this.applicationName = value;
-            }
-        }
-
         /// <summary>
         /// Gets or sets the User Lookup Type. (LDAP or DB)
         /// </summary>
@@ -178,9 +172,10 @@ namespace NetSqlAzMan.Providers
             if (config["defaultDomain"] == null)
                 throw new ArgumentNullException("defaultDomain", "defaultDomain Name parameter required.");
             base.Initialize(name, config);
-            this.connectionStringName = System.Configuration.ConfigurationManager.ConnectionStrings[config["connectionStringName"]].ConnectionString;
             this.storeName = config["storeName"];
             this.applicationName = config["applicationName"];
+            this.storageCache = new StorageCache(System.Configuration.ConfigurationManager.ConnectionStrings[config["connectionStringName"]].ConnectionString);
+            this.InvalidateCache(true);
             this.UserLookupType = config["userLookupType"];
             this.DefaultDomain = config["defaultDomain"];
         }
@@ -191,52 +186,55 @@ namespace NetSqlAzMan.Providers
         /// <param name="roleNames">A string array of the role names to add the specified user names to.</param>
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)
         {
-            IAzManStorage storage = this.Storage;
-            try
+            using (IAzManStorage storage = new SqlAzManStorage(this.storageCache.ConnectionString))
             {
-                storage.OpenConnection();
-                storage.BeginTransaction();
-                IAzManStore store = storage[this.storeName];
-                IAzManApplication application = store[this.applicationName];
-                foreach (string roleName in roleNames)
+                try
                 {
-                    IAzManItem role = application.GetItem(roleName);
-                    if (role.ItemType != ItemType.Role)
-                        throw new ArgumentException(String.Format("{0} must be a Role.", roleName));
-
-                    foreach (string username in usernames)
+                    storage.OpenConnection();
+                    storage.BeginTransaction();
+                    IAzManApplication application = storage[this.storeName][this.applicationName];
+                    foreach (string roleName in roleNames)
                     {
-                        IAzManSid owner = new SqlAzManSID(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).User);
-                        WhereDefined whereDefined = WhereDefined.LDAP;
-                        if (this.userLookupType == "LDAP")
+                        IAzManItem role = application.GetItem(roleName);
+                        if (role.ItemType != ItemType.Role)
+                            throw new ArgumentException(String.Format("{0} must be a Role.", roleName));
+
+                        foreach (string username in usernames)
                         {
-                            string fqun = this.getFQUN(username);
-                            NTAccount ntaccount = new NTAccount(fqun);
-                            if (ntaccount == null)
-                                throw SqlAzManException.UserNotFoundException(username, null);
-                            IAzManSid sid = new SqlAzManSID(((SecurityIdentifier)(ntaccount.Translate(typeof(SecurityIdentifier)))));
-                            if (sid == null)
-                                throw SqlAzManException.UserNotFoundException(username, null);
-                            role.CreateAuthorization(owner, whereDefined, sid, WhereDefined.LDAP, AuthorizationType.Allow, null, null);
-                        }
-                        else
-                        {
-                            var dbuser = application.GetDBUser(username);
-                            IAzManSid sid = dbuser.CustomSid;
-                            role.CreateAuthorization(owner, whereDefined, sid, WhereDefined.Database, AuthorizationType.Allow, null, null);
+                            IAzManSid owner = new SqlAzManSID(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).User);
+                            WhereDefined whereDefined = WhereDefined.LDAP;
+                            if (this.userLookupType == "LDAP")
+                            {
+                                string fqun = this.getFQUN(username);
+                                NTAccount ntaccount = new NTAccount(fqun);
+                                if (ntaccount == null)
+                                    throw SqlAzManException.UserNotFoundException(username, null);
+                                IAzManSid sid = new SqlAzManSID(((SecurityIdentifier)(ntaccount.Translate(typeof(SecurityIdentifier)))));
+                                if (sid == null)
+                                    throw SqlAzManException.UserNotFoundException(username, null);
+                                role.CreateAuthorization(owner, whereDefined, sid, WhereDefined.LDAP, AuthorizationType.Allow, null, null);
+                            }
+                            else
+                            {
+                                var dbuser = application.GetDBUser(username);
+                                IAzManSid sid = dbuser.CustomSid;
+                                role.CreateAuthorization(owner, whereDefined, sid, WhereDefined.Database, AuthorizationType.Allow, null, null);
+                            }
                         }
                     }
+                    storage.CommitTransaction();
+                    //Rebuild StorageCache
+                    this.InvalidateCache(false);
                 }
-                storage.CommitTransaction();
-            }
-            catch
-            {
-                storage.RollBackTransaction();
-                throw;
-            }
-            finally
-            {
-                storage.CloseConnection();
+                catch
+                {
+                    storage.RollBackTransaction();
+                    throw;
+                }
+                finally
+                {
+                    storage.CloseConnection();
+                }
             }
         }
 
@@ -246,7 +244,13 @@ namespace NetSqlAzMan.Providers
         /// <param name="roleName">The name of the role to create.</param>
         public override void CreateRole(string roleName)
         {
-            this.Application.CreateItem(roleName, String.Empty, ItemType.Role);
+            using (IAzManStorage storage = new SqlAzManStorage(this.storageCache.ConnectionString))
+            {
+                IAzManApplication application = storage[this.storeName][this.applicationName];
+                application.CreateItem(roleName, String.Empty, ItemType.Role);
+            }
+            //Rebuild StorageCache
+            this.InvalidateCache(false);
         }
 
         /// <summary>
@@ -259,20 +263,25 @@ namespace NetSqlAzMan.Providers
         /// </returns>
         public override bool DeleteRole(string roleName, bool throwOnPopulatedRole)
         {
-            IAzManApplication application = this.Application;
-            IAzManItem role = application[roleName];
-            if (role == null)
-                throw new ArgumentNullException("roleName");
-            if (roleName.Trim() == String.Empty)
-                throw new ArgumentException("roleName parameter cannot be empty.");
-            if (role.ItemType != ItemType.Role)
-                throw new ArgumentException(String.Format("{0} must be a Role.", roleName), "roleName");
-            if (throwOnPopulatedRole && application[roleName].GetMembers().Length > 0)
+            using (IAzManStorage storage = new SqlAzManStorage(this.storageCache.ConnectionString))
             {
-                throw new ProviderException(String.Format("{0} has one or more members and cannot be deleted.", roleName));
+                IAzManApplication application = storage[this.storeName][this.applicationName];
+                IAzManItem role = application[roleName];
+                if (role == null)
+                    throw new ArgumentNullException("roleName");
+                if (roleName.Trim() == String.Empty)
+                    throw new ArgumentException("roleName parameter cannot be empty.");
+                if (role.ItemType != ItemType.Role)
+                    throw new ArgumentException(String.Format("{0} must be a Role.", roleName), "roleName");
+                if (throwOnPopulatedRole && application[roleName].GetMembers().Length > 0)
+                {
+                    throw new ProviderException(String.Format("{0} has one or more members and cannot be deleted.", roleName));
+                }
+                role.Delete();
+                //Rebuild StorageCache
+                this.InvalidateCache(false);
+                return true;
             }
-            role.Delete();
-            return true;
         }
 
         /// <summary>
@@ -296,12 +305,9 @@ namespace NetSqlAzMan.Providers
         /// </returns>
         public override string[] GetAllRoles()
         {
-            List<string> roles = new List<string>();
-            foreach (IAzManItem role in this.Application.GetItems(ItemType.Role))
-            {
-                roles.Add(role.Name);
-            }
-            return roles.ToArray();
+            return (from t in this.storageCache.GetAuthorizedItems(this.storeName, this.applicationName, WindowsIdentity.GetCurrent().GetUserBinarySSid(), new string[0], DateTime.Now)
+                    where t.Type == ItemType.Role
+                    select t.Name).ToArray();
         }
 
         /// <summary>
@@ -313,17 +319,9 @@ namespace NetSqlAzMan.Providers
         /// </returns>
         public override string[] GetRolesForUser(string username)
         {
-            IAzManApplication application = this.Application;            
-            IAzManItem[] allRoles = application.GetItems(ItemType.Role);
-            List<string> roles = new List<string>();
             if (this.userLookupType == "LDAP")
             {
                 WindowsIdentity wid = null;
-                //if (System.Web.HttpContext.Current != null && System.Web.HttpContext.Current.User.Identity as WindowsIdentity != null && String.Compare(this.getFQUN(username), System.Web.HttpContext.Current.User.Identity.Name, true) == 0)
-                //{
-                //    wid = (WindowsIdentity)System.Web.HttpContext.Current.User.Identity;
-                //}
-                //else 
                 if (String.Compare(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).Name, this.getFQUN(username), true) == 0)
                 {
                     wid = ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent());
@@ -332,31 +330,24 @@ namespace NetSqlAzMan.Providers
                 {
                     wid = new WindowsIdentity(this.getUpn(this.getFQUN(username))); //Kerberos Protocol Transition: Works in W2K3 native domain only 
                 }
-                foreach (IAzManItem role in allRoles)
-                {
-                    AuthorizationType auth = role.CheckAccess(wid, DateTime.Now);
-                    if (auth == AuthorizationType.Allow || auth == AuthorizationType.AllowWithDelegation)
-                    {
-                        roles.Add(role.Name);
-                    }
-                }
+                return (from t in this.storageCache.GetAuthorizedItems(this.storeName, this.applicationName, wid.GetUserBinarySSid(), wid.GetGroupsBinarySSid(), DateTime.Now)
+                        where t.Type == ItemType.Role && (t.Authorization == AuthorizationType.Allow || t.Authorization == AuthorizationType.AllowWithDelegation)
+                        select t.Name).ToArray();
             }
             else
             {
-                IAzManDBUser dbUser = application.GetDBUser(username);
-                if (dbUser == null)
-                    throw SqlAzManException.DBUserNotFoundException(username, null);
-                IAzManSid sid = dbUser.CustomSid;
-                foreach (IAzManItem role in allRoles)
+                using (IAzManStorage storage = new SqlAzManStorage(this.storageCache.ConnectionString))
                 {
-                    AuthorizationType auth = role.CheckAccess(new SqlAzManDBUser(sid, username), DateTime.Now);
-                    if (auth == AuthorizationType.Allow || auth == AuthorizationType.AllowWithDelegation)
-                    {
-                        roles.Add(role.Name);
-                    }
+                    IAzManApplication application = storage[this.storeName][this.applicationName];
+                    IAzManDBUser dbUser = application.GetDBUser(username);
+                    if (dbUser == null)
+                        throw SqlAzManException.DBUserNotFoundException(username, null);
+                    IAzManSid sid = dbUser.CustomSid;
+                    return (from t in this.storageCache.GetAuthorizedItems(this.storeName, this.applicationName, sid.StringValue, DateTime.Now)
+                            where t.Type == ItemType.Role && (t.Authorization == AuthorizationType.Allow || t.Authorization == AuthorizationType.AllowWithDelegation)
+                            select t.Name).ToArray();
                 }
             }
-            return roles.ToArray();
         }
 
         /// <summary>
@@ -368,32 +359,35 @@ namespace NetSqlAzMan.Providers
         /// </returns>
         public override string[] GetUsersInRole(string roleName)
         {
-            IAzManApplication application = this.Application;            
-            IAzManItem role = application[roleName];
-            if (role.ItemType != ItemType.Role)
-                throw new ArgumentException(String.Format("{0} must be a Role.", roleName), "roleName");
-
-            IAzManAuthorization[] authz = role.GetAuthorizations();
-            List<string> users = new List<string>();
-            foreach (IAzManAuthorization auth in authz)
+            using (IAzManStorage storage = new SqlAzManStorage(this.storageCache.ConnectionString))
             {
-                if (auth.AuthorizationType == AuthorizationType.Allow
-                    ||
-                    auth.AuthorizationType == AuthorizationType.AllowWithDelegation)
+                IAzManApplication application = storage[this.storeName][this.applicationName];
+                IAzManItem role = application[roleName];
+                if (role.ItemType != ItemType.Role)
+                    throw new ArgumentException(String.Format("{0} must be a Role.", roleName), "roleName");
+
+                IAzManAuthorization[] authz = role.GetAuthorizations();
+                List<string> users = new List<string>();
+                foreach (IAzManAuthorization auth in authz)
                 {
-                    if (auth.SidWhereDefined == WhereDefined.Local || auth.SidWhereDefined == WhereDefined.LDAP)
+                    if (auth.AuthorizationType == AuthorizationType.Allow
+                        ||
+                        auth.AuthorizationType == AuthorizationType.AllowWithDelegation)
                     {
-                        string displayName;
-                        auth.GetMemberInfo(out displayName);
-                        users.Add(displayName);
-                    }
-                    else if (auth.SidWhereDefined == WhereDefined.Database)
-                    {
-                        users.Add(application.GetDBUser(auth.SID).UserName);
+                        if (auth.SidWhereDefined == WhereDefined.Local || auth.SidWhereDefined == WhereDefined.LDAP)
+                        {
+                            string displayName;
+                            auth.GetMemberInfo(out displayName);
+                            users.Add(displayName);
+                        }
+                        else if (auth.SidWhereDefined == WhereDefined.Database)
+                        {
+                            users.Add(application.GetDBUser(auth.SID).UserName);
+                        }
                     }
                 }
+                return users.ToArray();
             }
-            return users.ToArray();
         }
 
         /// <summary>
@@ -406,19 +400,9 @@ namespace NetSqlAzMan.Providers
         /// </returns>
         public override bool IsUserInRole(string username, string roleName)
         {
-            IAzManApplication application = this.Application;            
-            IAzManItem role = application[roleName];
-            if (role.ItemType != ItemType.Role)
-                throw new ArgumentException(String.Format("{0} must be a Role.", roleName), "roleName");
-
             if (this.userLookupType == "LDAP")
             {
                 WindowsIdentity wid = null;
-                //if (System.Web.HttpContext.Current != null && System.Web.HttpContext.Current.User.Identity as WindowsIdentity != null && String.Compare(this.getFQUN(username), System.Web.HttpContext.Current.User.Identity.Name, true) == 0)
-                //{
-                //    wid = (WindowsIdentity)System.Web.HttpContext.Current.User.Identity;
-                //}
-                //else 
                 if (String.Compare(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).Name, this.getFQUN(username), true) == 0)
                 {
                     wid = ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent());
@@ -427,14 +411,30 @@ namespace NetSqlAzMan.Providers
                 {
                     wid = new WindowsIdentity(this.getUpn(this.getFQUN(username))); //Kerberos Protocol Transition: Works in W2K3 native domain only 
                 }
-                AuthorizationType auth = role.CheckAccess(wid, DateTime.Now);
-                return auth == AuthorizationType.Allow || auth == AuthorizationType.AllowWithDelegation;
+                return (from t in this.storageCache.GetAuthorizedItems(this.storeName, this.applicationName, wid.GetUserBinarySSid(), wid.GetGroupsBinarySSid(), DateTime.Now)
+                        where
+                        t.Type == ItemType.Role
+                        &&
+                        (t.Authorization == AuthorizationType.Allow || t.Authorization == AuthorizationType.AllowWithDelegation)
+                        &&
+                        t.Name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase)
+                        select t).Count() > 0;
             }
             else
             {
-                IAzManDBUser dbUser = application.GetDBUser(username);
-                AuthorizationType auth = role.CheckAccess(dbUser, DateTime.Now);
-                return auth == AuthorizationType.Allow || auth == AuthorizationType.AllowWithDelegation;
+                using (IAzManStorage storage = new SqlAzManStorage(this.storageCache.ConnectionString))
+                {
+                    IAzManApplication application = storage[this.storeName][this.applicationName];
+                    IAzManDBUser dbUser = application.GetDBUser(username);
+                    return (from t in this.storageCache.GetAuthorizedItems(this.storeName, this.applicationName, dbUser.CustomSid.StringValue, DateTime.Now)
+                            where 
+                            t.Type == ItemType.Role 
+                            && 
+                            (t.Authorization == AuthorizationType.Allow || t.Authorization == AuthorizationType.AllowWithDelegation)
+                            &&
+                            t.Name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase)
+                            select t).Count() > 0;
+                }
             }
         }
 
@@ -445,41 +445,44 @@ namespace NetSqlAzMan.Providers
         /// <param name="roleNames">A string array of role names to remove the specified user names from.</param>
         public override void RemoveUsersFromRoles(string[] usernames, string[] roleNames)
         {
-            IAzManStorage storage = this.Storage;
-            try
+            using (IAzManStorage storage = new SqlAzManStorage(this.storageCache.ConnectionString))
             {
-                IAzManStore store = storage[this.storeName];
-                IAzManApplication application = store[this.applicationName];
-                storage.OpenConnection();
-                storage.BeginTransaction();
-                foreach (string roleName in roleNames)
+                try
                 {
-                    IAzManItem role = application.GetItem(roleName);
-                    if (role.ItemType != ItemType.Role)
-                        throw new ArgumentException(String.Format("{0} must be a Role.", roleName));
-                    foreach (IAzManAuthorization auth in role.GetAuthorizations())
+                    storage.OpenConnection();
+                    storage.BeginTransaction();
+                    IAzManApplication application = storage[this.storeName][this.applicationName];
+                    foreach (string roleName in roleNames)
                     {
-                        string displayName;
-                        auth.GetMemberInfo(out displayName);
-                        foreach (string username in usernames)
+                        IAzManItem role = application.GetItem(roleName);
+                        if (role.ItemType != ItemType.Role)
+                            throw new ArgumentException(String.Format("{0} must be a Role.", roleName));
+                        foreach (IAzManAuthorization auth in role.GetAuthorizations())
                         {
-                            if (String.Compare(this.getFQUN(username), displayName, true) == 0)
+                            string displayName;
+                            auth.GetMemberInfo(out displayName);
+                            foreach (string username in usernames)
                             {
-                                auth.Delete();
+                                if (String.Compare(this.getFQUN(username), displayName, true) == 0)
+                                {
+                                    auth.Delete();
+                                }
                             }
                         }
                     }
+                    storage.CommitTransaction();
+                    //Rebuild StorageCache
+                    this.InvalidateCache(false);
                 }
-                storage.CommitTransaction();
-            }
-            catch
-            {
-                storage.RollBackTransaction();
-                throw;
-            }
-            finally
-            {
-                storage.CloseConnection();
+                catch
+                {
+                    storage.RollBackTransaction();
+                    throw;
+                }
+                finally
+                {
+                    storage.CloseConnection();
+                }
             }
         }
 
@@ -492,16 +495,9 @@ namespace NetSqlAzMan.Providers
         /// </returns>
         public override bool RoleExists(string roleName)
         {
-            try
-            {
-                IAzManItem role = this.Application[roleName];
-                return (role != null && role.ItemType == ItemType.Role);
-            }
-            catch (NetSqlAzMan.SqlAzManException)
-            {
-                //Item not found
-                return false;
-            }
+            return (from t in this.GetAllRoles()
+                    where t.Equals(roleName, StringComparison.CurrentCultureIgnoreCase)
+                    select t).Count() > 0;
         }
         /// <summary>
         /// This code takes the user name supplied in the login form, constructs a UPN in the format userName@domainName, and passes the UPN to the WindowsIdentity constructor. This constructor uses the Kerberos S4U extension to obtain a Windows token for the user.
@@ -546,6 +542,57 @@ namespace NetSqlAzMan.Providers
             else
             {
                 return userName;
+            }
+        }
+        /// <summary>
+        /// Gets the storage.
+        /// </summary>
+        /// <returns></returns>
+        public IAzManStorage GetStorage()
+        {
+            return new SqlAzManStorage(this.storageCache.ConnectionString);
+        }
+        /// <summary>
+        /// Gets the store.
+        /// </summary>
+        /// <returns></returns>
+        public IAzManStore GetStore()
+        {
+            return this.GetStorage()[this.storeName];
+        }
+        /// <summary>
+        /// Gets the application.
+        /// </summary>
+        /// <returns></returns>
+        public IAzManApplication GetApplication()
+        {
+            return this.GetStore()[this.applicationName];
+        }
+        /// <summary>
+        /// Invalidates the cache.
+        /// </summary>
+        /// <param name="waitForCacheBuiltCompletition">if set to <c>true</c> [wait for cache built completition].</param>
+        public void InvalidateCache(bool waitForCacheBuiltCompletition)
+        {
+            if (!waitForCacheBuiltCompletition && NetSqlAzManRoleProvider.buildingCache)
+            {
+                //Ignore build cache requests while building
+                return;
+            }
+            else
+            {
+                lock (NetSqlAzManRoleProvider.locker)
+                {
+                    try
+                    {
+                        NetSqlAzManRoleProvider.buildingCache = true;
+                        this.storageCache.BuildStorageCache(this.storeName, this.applicationName);
+                    }
+                    finally
+                    {
+                        NetSqlAzManRoleProvider.buildingCache = false;
+                    }
+                }
             }
         }
         #endregion Methods

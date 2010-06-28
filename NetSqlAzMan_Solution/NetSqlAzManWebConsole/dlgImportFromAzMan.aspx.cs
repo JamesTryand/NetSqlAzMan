@@ -11,7 +11,7 @@ namespace NetSqlAzManWebConsole
         protected internal IAzManStorage storage = null;
         private IAzManSid currentOwnerSid;
         private WhereDefined currentOwnerSidWhereDefined;
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Import From MS AzMan")]
+        //[PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Import From MS AzMan")]
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setImage("NetSqlAzMan_32x32.gif");

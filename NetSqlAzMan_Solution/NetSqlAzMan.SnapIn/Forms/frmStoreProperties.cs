@@ -9,7 +9,7 @@ namespace NetSqlAzMan.SnapIn.Forms
         internal IAzManStorage storage = null;
         internal IAzManStore store = null;
 
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Store Properties")]
+        //[PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Store Properties")]
         public frmStoreProperties()
         {
             InitializeComponent();

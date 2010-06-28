@@ -8,7 +8,7 @@ namespace NetSqlAzMan.SnapIn.Forms
 {
     public partial class frmImport : frmBase
     {
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn XML Import")]
+        //[PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: XML Import")]
         public frmImport()
         {
             InitializeComponent();

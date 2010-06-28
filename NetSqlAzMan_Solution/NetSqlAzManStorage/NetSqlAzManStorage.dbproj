@@ -49,17 +49,6 @@
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\TeamData\Microsoft.Data.Schema.SqlTasks.targets" />
   <PropertyGroup>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'MSI Only' ">
-    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
-    <TargetConnectionString />
-    <TargetDatabase />
-    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
-    <SuppressWarnings>3028;04151</SuppressWarnings>
-    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
-    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
-    <DeployToDatabase>True</DeployToDatabase>
-    <OutputPath>.\sql\MSI Only\</OutputPath>
-  </PropertyGroup>
   <ItemGroup>
     <Folder Include="Help" />
     <Folder Include="Schema Objects" />
