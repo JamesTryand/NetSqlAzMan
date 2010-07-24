@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<!DOCTYPE dotfuscator SYSTEM "http://www.preemptive.com/dotfuscator/dtd/dotfuscator_v2.2.dtd">
-<dotfuscator version="2.2">
+<!DOCTYPE dotfuscator SYSTEM "http://www.preemptive.com/dotfuscator/dtd/dotfuscator_v2.3.dtd">
+<dotfuscator version="2.3">
   <!--This is application generated code. Do not edit manually.-->
   <input>
+    <loadpaths />
     <asmlist>
-      <inputassembly>
+      <inputassembly refid="b80f6ed2-7f6e-4419-a903-c4bf097f6d8c">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>
         <file dir="D:\Documenti\Visual Studio 2005\Projects\NetSqlAzMan_Solution\NetSqlAzMan\bin\Release" name="NetSqlAzMan.dll" />
       </inputassembly>
-      <inputassembly>
+      <inputassembly refid="82fb6185-9560-465a-bf05-18f0530e2dab">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>
         <file dir="D:\Documenti\Visual Studio 2005\Projects\NetSqlAzMan_Solution\NetSqlAzMan.SnapIn\bin\Release" name="NetSqlAzMan.SnapIn.dll" />
       </inputassembly>
-      <inputassembly>
+      <inputassembly refid="b364981b-07a4-46d2-a63b-12954600df0b">
         <option>honoroas</option>
         <option>stripoa</option>
         <file dir="D:\Documenti\Visual Studio 2005\Projects\NetSqlAzMan_Solution\NetSqlAzManCacheService\bin\Release" name="NetSqlAzManCacheService.exe" />
       </inputassembly>
-      <inputassembly>
+      <inputassembly refid="637bcad1-6562-4007-aa8d-0f52d99fdbdb">
         <option>honoroas</option>
         <option>stripoa</option>
         <file dir="D:\Documenti\Visual Studio 2005\Projects\NetSqlAzMan_Solution\NetSqlAzManCacheServiceInvalidateUtility\bin\Release" name="NetSqlAzManCacheServiceInvalidateUtility.exe" />
       </inputassembly>
-      <inputassembly>
+      <inputassembly refid="6a13b673-b15d-4800-9750-b9e2690ad76a">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>
@@ -46,16 +47,15 @@
       </mapoutput>
     </mapping>
     <referencerulelist>
+      <referencerule rulekey="{2B7E7C8C-A39A-4db8-9DFC-6AFD38509061}" />
       <referencerule rulekey="{6655B10A-FD58-462d-8D4F-5B1316DFF0FF}" />
       <referencerule rulekey="{89769974-93E9-4e71-8D92-BE70E855ACFC}" />
-      <referencerule rulekey="{2B7E7C8C-A39A-4db8-9DFC-6AFD38509061}" />
       <referencerule rulekey="{229FD6F8-5BCC-427b-8F72-A7A413ECDF1A}" />
       <referencerule rulekey="{7D9C8B02-2383-420f-8740-A9760394C2C1}" />
     </referencerulelist>
   </renaming>
   <sos mergeruntime="true">
     <option>sendanalytics</option>
-    <option>dontsendtamper</option>
   </sos>
   <smartobfuscation>
     <smartobfuscationreport verbosity="all" overwrite="false" />

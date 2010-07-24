@@ -12,7 +12,7 @@ namespace NetSqlAzMan.SnapIn.Forms
         internal ItemType itemType;
         internal IAzManItem[] selectedItems;
 
-        //[PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Items List")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Items List")]
         public frmItemsList()
         {
             InitializeComponent();

@@ -288,7 +288,7 @@ namespace NetSqlAzMan
                 if (this.ens != null)
                     this.ens.AddPublisher(itemCreated);
                 //Update cached items
-                if (this.items!=null && !this.items.ContainsKey(itemCreated.Name))
+                if (this.items != null && !this.items.ContainsKey(itemCreated.Name))
                     this.items.Add(itemCreated.Name, itemCreated);
                 ((SqlAzManItem)itemCreated).members = new Dictionary<string, IAzManItem>();
                 return itemCreated;
@@ -296,7 +296,7 @@ namespace NetSqlAzMan
             catch (System.Data.SqlClient.SqlException sqlex)
             {
                 if (sqlex.Number == 2601) //Index Duplicate Error
-                    throw SqlAzManException.ItemDuplicateException(itemName, this,sqlex);
+                    throw SqlAzManException.ItemDuplicateException(itemName, this, sqlex);
                 else
                     throw SqlAzManException.GenericException(sqlex);
 
@@ -310,7 +310,7 @@ namespace NetSqlAzMan
         public IAzManItem GetItem(string itemName)
         {
             ItemsResult items;
-            if ((items = (from t in this.db.Items() where t.Name == itemName && t.ApplicationId == this.applicationId select t).FirstOrDefault())!=null)
+            if ((items = (from t in this.db.Items() where t.Name == itemName && t.ApplicationId == this.applicationId select t).FirstOrDefault()) != null)
             {
                 int itemId = items.ItemId.Value;
                 string name = items.Name;
@@ -321,8 +321,8 @@ namespace NetSqlAzMan
                 if (items.BizRuleId.HasValue)
                 {
                     var bizrule = (from br in this.db.BizRules()
-                                  where br.BizRuleId == items.BizRuleId.Value
-                                  select br).First();
+                                   where br.BizRuleId == items.BizRuleId.Value
+                                   select br).First();
                     bizRule = bizrule.BizRuleSource;
                     bizRuleScriptLanguage = (NetSqlAzMan.BizRuleSourceLanguage)bizrule.BizRuleLanguage.Value;
                 }
@@ -347,7 +347,7 @@ namespace NetSqlAzMan
         /// </returns>
         public bool HasItems(ItemType itemType)
         {
-            return this.db.Items().Any(p=>p.ApplicationId == this.applicationId && p.ItemType.Value == (byte)itemType);
+            return this.db.Items().Any(p => p.ApplicationId == this.applicationId && p.ItemType.Value == (byte)itemType);
         }
 
         /// <summary>
@@ -384,8 +384,8 @@ namespace NetSqlAzMan
             }
             //Members
             var dt = (from v in this.db.ItemsHierarchyView
-                     where v.ApplicationId == this.applicationId
-                     select v).ToList();
+                      where v.ApplicationId == this.applicationId
+                      select v).ToList();
             foreach (IAzManItem item in this.items.Values)
             {
                 ((SqlAzManItem)item).members = new Dictionary<string, IAzManItem>();
@@ -394,9 +394,9 @@ namespace NetSqlAzMan
                     IAzManItem member = this.items[row.MemberName];
                     ((SqlAzManItem)item).members.Add(member.Name, member);
                     //Items Where Im a member
-                    if (((SqlAzManItem)member).itemsWhereIAmAMember==null)
+                    if (((SqlAzManItem)member).itemsWhereIAmAMember == null)
                     {
-                        ((SqlAzManItem)member).itemsWhereIAmAMember = new Dictionary<string,IAzManItem>();
+                        ((SqlAzManItem)member).itemsWhereIAmAMember = new Dictionary<string, IAzManItem>();
                     }
                     if (!(((SqlAzManItem)member).itemsWhereIAmAMember.ContainsKey(item.Name)))
                     {
@@ -415,9 +415,9 @@ namespace NetSqlAzMan
         {
             IAzManItem[] items;
             var ds = (from tf in this.db.Items()
-                     where tf.ApplicationId == this.applicationId && tf.ItemType.Value == (byte)itemType
-                     orderby tf.Name
-                     select tf).ToList();
+                      where tf.ApplicationId == this.applicationId && tf.ItemType.Value == (byte)itemType
+                      orderby tf.Name
+                      select tf).ToList();
             items = new SqlAzManItem[ds.Count];
             int index = 0;
             foreach (var row in ds)
@@ -427,8 +427,8 @@ namespace NetSqlAzMan
                 if (row.BizRuleId.HasValue)
                 {
                     var bizrule = (from tf in this.db.BizRules()
-                                  where tf.BizRuleId == row.BizRuleId.Value
-                                  select tf).First();
+                                   where tf.BizRuleId == row.BizRuleId.Value
+                                   select tf).First();
                     bizRule = bizrule.BizRuleSource;
                     bizRuleScriptLanguage = (NetSqlAzMan.BizRuleSourceLanguage)bizrule.BizRuleLanguage.Value;
                 }
@@ -450,7 +450,7 @@ namespace NetSqlAzMan
         /// <returns></returns>
         public IAzManApplicationGroup CreateApplicationGroup(IAzManSid applicationGroupSid, string name, string description, string lDapQuery, GroupType groupType)
         {
-           try
+            try
             {
                 if (DirectoryServices.DirectoryServicesUtils.TestLDAPQuery(lDapQuery))
                 {
@@ -486,7 +486,7 @@ namespace NetSqlAzMan
         public bool HasApplicationGroups()
         {
 
-            return this.db.ApplicationGroups().Any(p=>p.ApplicationId == this.applicationId);
+            return this.db.ApplicationGroups().Any(p => p.ApplicationId == this.applicationId);
         }
 
         /// <summary>
@@ -496,9 +496,9 @@ namespace NetSqlAzMan
         public IAzManApplicationGroup[] GetApplicationGroups()
         {
             var ds = (from tf in this.db.ApplicationGroups()
-                     where tf.ApplicationId == this.applicationId
-                     orderby tf.Name
-                     select tf).ToList();
+                      where tf.ApplicationId == this.applicationId
+                      orderby tf.Name
+                      select tf).ToList();
             int index = 0;
             IAzManApplicationGroup[] applicationGroups = new SqlAzManApplicationGroup[ds.Count];
             foreach (var row in ds)
@@ -519,7 +519,7 @@ namespace NetSqlAzMan
         public IAzManApplicationGroup GetApplicationGroup(string name)
         {
             ApplicationGroupsResult agr;
-            if ((agr = (from t in this.db.ApplicationGroups() where t.Name == name && t.ApplicationId == this.applicationId select t).FirstOrDefault())!=null)
+            if ((agr = (from t in this.db.ApplicationGroups() where t.Name == name && t.ApplicationId == this.applicationId select t).FirstOrDefault()) != null)
             {
                 int applicationGroupid = agr.ApplicationGroupId.Value;
                 IAzManSid objectSid = new SqlAzManSID(agr.ObjectSid.ToArray());
@@ -545,10 +545,10 @@ namespace NetSqlAzMan
         public IAzManApplicationGroup GetApplicationGroup(IAzManSid sid)
         {
             ApplicationGroupsResult agr = null;
-            if ((agr = (from t in this.db.ApplicationGroups() where t.ObjectSid == sid.BinaryValue && t.ApplicationId == this.applicationId select t).FirstOrDefault())!=null)
+            if ((agr = (from t in this.db.ApplicationGroups() where t.ObjectSid == sid.BinaryValue && t.ApplicationId == this.applicationId select t).FirstOrDefault()) != null)
             {
                 IAzManApplicationGroup result = this.GetApplicationGroup(agr.Name);
-                if (this.ens != null) 
+                if (this.ens != null)
                     this.ens.AddPublisher(result);
                 return result;
             }
@@ -566,14 +566,14 @@ namespace NetSqlAzMan
 
             IAzManAttribute<IAzManApplication>[] attributes;
             var ds = (from tf in this.db.ApplicationAttributes()
-                     where tf.ApplicationId == this.applicationId
-                     select tf).ToList();
+                      where tf.ApplicationId == this.applicationId
+                      select tf).ToList();
             attributes = new SqlAzManApplicationAttribute[ds.Count];
             int index = 0;
             foreach (var row in ds)
             {
                 attributes[index] = new SqlAzManApplicationAttribute(this.db, this, row.ApplicationAttributeId.Value, row.AttributeKey, row.AttributeValue, this.ens);
-                if (this.ens != null) 
+                if (this.ens != null)
                     this.ens.AddPublisher(attributes[index]);
                 index++;
             }
@@ -588,10 +588,10 @@ namespace NetSqlAzMan
         public IAzManAttribute<IAzManApplication> GetAttribute(string key)
         {
             ApplicationAttributesResult aa;
-            if ((aa = (from t in this.db.ApplicationAttributes() where t.ApplicationId == this.applicationId && t.AttributeKey == key select t).FirstOrDefault())!=null)
+            if ((aa = (from t in this.db.ApplicationAttributes() where t.ApplicationId == this.applicationId && t.AttributeKey == key select t).FirstOrDefault()) != null)
             {
                 IAzManAttribute<IAzManApplication> result = new SqlAzManApplicationAttribute(this.db, this, aa.ApplicationAttributeId.Value, aa.AttributeKey, aa.AttributeValue, this.ens);
-                if (this.ens != null) 
+                if (this.ens != null)
                     this.ens.AddPublisher(result);
                 return result;
             }
@@ -614,7 +614,7 @@ namespace NetSqlAzMan
                 int applicationAttributeId = this.db.ApplicationAttributeInsert(this.applicationId, key, value);
                 IAzManAttribute<IAzManApplication> result = new SqlAzManApplicationAttribute(this.db, this, applicationAttributeId, key, value, this.ens);
                 this.raiseApplicationAttributeCreated(this, result);
-                if (this.ens != null) 
+                if (this.ens != null)
                     this.ens.AddPublisher(result);
                 return result;
             }
@@ -977,7 +977,7 @@ namespace NetSqlAzMan
                     }
                     else if (MergeUtilities.IsOn(mergeOptions, SqlAzManMergeOptions.OverwritesExistingItems))
                     {
-                        if (item!=null)
+                        if (item != null)
                             item.Delete();
                         this.CreateItem(node.Attributes["Name"].Value, node.Attributes["Description"].Value, itemType);
                         importedItemNames.Add(node.Attributes["Name"].Value);
@@ -1109,7 +1109,7 @@ namespace NetSqlAzMan
                 if (node.Name == "Item")
                 {
                     IAzManItem item = this.GetItem(node.Attributes["Name"].Value);
-                    if (item!=null)
+                    if (item != null)
                         item.ImportChildren(node, includeWindowsUsersAndGroups, includeDBUsers, includeAuthorizations, mergeOptions);
                 }
                 else if (node.Name == "Items")
@@ -1119,7 +1119,7 @@ namespace NetSqlAzMan
                         if (childNode.Name == "Item")
                         {
                             IAzManItem item = this.GetItem(childNode.Attributes["Name"].Value);
-                            if (item!=null)
+                            if (item != null)
                                 item.ImportChildren(childNode, includeWindowsUsersAndGroups, includeDBUsers, includeAuthorizations, mergeOptions);
                         }
                     }
@@ -1134,7 +1134,7 @@ namespace NetSqlAzMan
                     bool exists = false;
                     foreach (var iit in importedItemNames)
                     {
-                        if (String.Compare(iit, it.Name, true)==0)
+                        if (String.Compare(iit, it.Name, true) == 0)
                         {
                             exists = true;
                             break;
@@ -1183,7 +1183,7 @@ namespace NetSqlAzMan
             }
             else
             {
-                result = new SqlAzManDBUser(new SqlAzManSID(dtDBUsers.First().DBUserSid.ToArray(),true), dtDBUsers.First().DBUserName);
+                result = new SqlAzManDBUser(new SqlAzManSID(dtDBUsers.First().DBUserSid.ToArray(), true), dtDBUsers.First().DBUserName);
             }
             return result;
         }
@@ -1227,9 +1227,9 @@ namespace NetSqlAzMan
         {
             List<KeyValuePair<string, bool>> result = new List<KeyValuePair<string, bool>>();
             string roleName = "NetSqlAzMan_Readers";
-            if (netsqlazmanfixedserverrole==1) 
+            if (netsqlazmanfixedserverrole == 1)
                 roleName = "NetSqlAzMan_Users";
-            else if (netsqlazmanfixedserverrole==2) 
+            else if (netsqlazmanfixedserverrole == 2)
                 roleName = "NetSqlAzMan_Managers";
             SqlCommand cmdHelpLogins = (SqlCommand)this.db.Connection.CreateCommand();
             cmdHelpLogins.Transaction = (SqlTransaction)this.db.Transaction;
@@ -1254,7 +1254,7 @@ namespace NetSqlAzMan
                         break;
                     }
                 }
-                result.Add(new KeyValuePair<string,bool>(login, isGranted));
+                result.Add(new KeyValuePair<string, bool>(login, isGranted));
             }
             return result.ToArray();
         }

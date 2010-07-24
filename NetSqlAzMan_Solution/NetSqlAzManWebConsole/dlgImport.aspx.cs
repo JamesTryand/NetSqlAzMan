@@ -8,7 +8,7 @@ namespace NetSqlAzManWebConsole
     public partial class dlgImport : dlgPage
     {
         protected internal IAzManStorage storage = null;
-        //[PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: XML Import")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: XML Import")]
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setImage("NetSqlAzMan_32x32.gif");

@@ -9,7 +9,7 @@ namespace NetSqlAzMan.SnapIn.Forms
     public partial class frmExport : frmBase
     {
         IAzManStorage storage;
-        //[PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: XML Export")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: XML Export")]
         public frmExport()
         {
             InitializeComponent();

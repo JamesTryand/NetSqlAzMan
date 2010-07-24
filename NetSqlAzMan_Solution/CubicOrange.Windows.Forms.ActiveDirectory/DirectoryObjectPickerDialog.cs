@@ -43,8 +43,8 @@ namespace CubicOrange.Windows.Forms.ActiveDirectory
     /// into a single locations flag, e.g. external domains.
     /// </para>
     /// </remarks>
-	public class DirectoryObjectPickerDialog : CommonDialog
-	{
+    public class DirectoryObjectPickerDialog : CommonDialog
+    {
         private Locations allowedLocations;
         private ObjectTypes allowedTypes;
         private Locations defaultLocations;
@@ -269,7 +269,7 @@ namespace CubicOrange.Windows.Forms.ActiveDirectory
             }
             if ((allowedTypes & ObjectTypes.Computers) == ObjectTypes.Computers)
             {
-                downlevelFilter |=  DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_COMPUTERS;
+                downlevelFilter |= DSOP_DOWNLEVEL_FLAGS.DSOP_DOWNLEVEL_FILTER_COMPUTERS;
             }
             // Contacts not available in downlevel scopes
             //if ((allowedTypes & ObjectTypes.Contacts) == ObjectTypes.Contacts)
@@ -302,7 +302,7 @@ namespace CubicOrange.Windows.Forms.ActiveDirectory
         }
 
         // Convert Locations to DSOP_SCOPE_TYPE_FLAGS
-        private static uint GetScope( Locations locations )
+        private static uint GetScope(Locations locations)
         {
             uint scope = 0;
             if ((locations & Locations.JoinedDomain) == Locations.JoinedDomain)
@@ -386,16 +386,17 @@ namespace CubicOrange.Windows.Forms.ActiveDirectory
             {
                 uplevelFilter |= DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_WELL_KNOWN_PRINCIPALS;
             }
-            if( showAdvancedView ) {
+            if (showAdvancedView)
+            {
                 uplevelFilter |= DSOP_FILTER_FLAGS_FLAGS.DSOP_FILTER_INCLUDE_ADVANCED_VIEW;
             }
             return uplevelFilter;
         }
 
-		private IDsObjectPicker Initialize()
-		{
-			DSObjectPicker picker = new DSObjectPicker();
-			IDsObjectPicker ipicker = (IDsObjectPicker)picker;
+        private IDsObjectPicker Initialize()
+        {
+            DSObjectPicker picker = new DSObjectPicker();
+            IDsObjectPicker ipicker = (IDsObjectPicker)picker;
 
             List<DSOP_SCOPE_INIT_INFO> scopeInitInfoList = new List<DSOP_SCOPE_INIT_INFO>();
 
@@ -439,10 +440,10 @@ namespace CubicOrange.Windows.Forms.ActiveDirectory
             DSOP_SCOPE_INIT_INFO[] scopeInitInfo = scopeInitInfoList.ToArray();
 
             // Allocate memory from the unmananged mem of the process, this should be freed later!??
-			IntPtr refScopeInitInfo = Marshal.AllocHGlobal
+            IntPtr refScopeInitInfo = Marshal.AllocHGlobal
                 (Marshal.SizeOf(typeof(DSOP_SCOPE_INIT_INFO)) * scopeInitInfo.Length);
-			
-			// Marshal structs to pointers
+
+            // Marshal structs to pointers
             for (int index = 0; index < scopeInitInfo.Length; index++)
             {
                 //Marshal.StructureToPtr(scopeInitInfo[0],
@@ -457,105 +458,105 @@ namespace CubicOrange.Windows.Forms.ActiveDirectory
 
             }
 
-			// Initialize structure with data to initialize an object picker dialog box. 
-			DSOP_INIT_INFO initInfo = new DSOP_INIT_INFO (); 						
-			initInfo.cbSize = (uint) Marshal.SizeOf (initInfo); 
-			//initInfo.pwzTargetComputer = null; // local computer
+            // Initialize structure with data to initialize an object picker dialog box. 
+            DSOP_INIT_INFO initInfo = new DSOP_INIT_INFO();
+            initInfo.cbSize = (uint)Marshal.SizeOf(initInfo);
+            //initInfo.pwzTargetComputer = null; // local computer
             initInfo.pwzTargetComputer = targetComputer;
-            initInfo.cDsScopeInfos = (uint)scopeInitInfo.Length; 
-			initInfo.aDsScopeInfos = refScopeInitInfo;  
-			// Flags that determine the object picker options. 
-            uint flOptions = 0; 
+            initInfo.cDsScopeInfos = (uint)scopeInitInfo.Length;
+            initInfo.aDsScopeInfos = refScopeInitInfo;
+            // Flags that determine the object picker options. 
+            uint flOptions = 0;
             // Only set DSOP_INIT_INFO_FLAGS.DSOP_FLAG_SKIP_TARGET_COMPUTER_DC_CHECK
             // if we know target is not a DC (which then saves initialization time).
             if (multiSelect)
             {
                 flOptions |= DSOP_INIT_INFO_FLAGS.DSOP_FLAG_MULTISELECT;
             }
-			initInfo.flOptions = flOptions;
-			
-			// We're not retrieving any additional attributes
+            initInfo.flOptions = flOptions;
+
+            // We're not retrieving any additional attributes
             //string[] attributes = new string[] { "sAMaccountName" };
             //initInfo.cAttributesToFetch = (uint)attributes.Length; 
             //initInfo.apwzAttributeNames = Marshal.StringToHGlobalUni( attributes[0] );
             initInfo.cAttributesToFetch = 0;
             initInfo.apwzAttributeNames = IntPtr.Zero;
-			
-			// Initialize the Object Picker Dialog Box with our options
-			int hresult = ipicker.Initialize (ref initInfo);
+
+            // Initialize the Object Picker Dialog Box with our options
+            int hresult = ipicker.Initialize(ref initInfo);
 
             if (hresult != HRESULT.S_OK)
             {
                 return null;
             }
-			return ipicker;
-		}
+            return ipicker;
+        }
 
-		private DirectoryObject[] ProcessSelections(IDataObject dataObj)
-		{
-			if(dataObj == null)
-				return null;			
+        private DirectoryObject[] ProcessSelections(IDataObject dataObj)
+        {
+            if (dataObj == null)
+                return null;
 
-			DirectoryObject[] selections = null;
+            DirectoryObject[] selections = null;
 
-			// The STGMEDIUM structure is a generalized global memory handle used for data transfer operations
-			STGMEDIUM stg = new STGMEDIUM();
-			stg.tymed = (uint)TYMED.TYMED_HGLOBAL;
-			stg.hGlobal = IntPtr.Zero;
-			stg.pUnkForRelease = null;
+            // The STGMEDIUM structure is a generalized global memory handle used for data transfer operations
+            STGMEDIUM stg = new STGMEDIUM();
+            stg.tymed = (uint)TYMED.TYMED_HGLOBAL;
+            stg.hGlobal = IntPtr.Zero;
+            stg.pUnkForRelease = null;
 
-			// The FORMATETC structure is a generalized Clipboard format.
-			FORMATETC fe = new FORMATETC();
-            fe.cfFormat = System.Windows.Forms.DataFormats.GetFormat(CLIPBOARD_FORMAT.CFSTR_DSOP_DS_SELECTION_LIST).Id; 
+            // The FORMATETC structure is a generalized Clipboard format.
+            FORMATETC fe = new FORMATETC();
+            fe.cfFormat = System.Windows.Forms.DataFormats.GetFormat(CLIPBOARD_FORMAT.CFSTR_DSOP_DS_SELECTION_LIST).Id;
             // The CFSTR_DSOP_DS_SELECTION_LIST clipboard format is provided by the IDataObject obtained 
             // by calling IDsObjectPicker::InvokeDialog
-			fe.ptd = IntPtr.Zero;
-			fe.dwAspect = 1; //DVASPECT_CONTENT    = 1,  
-			fe.lindex = -1; // all of the data
-			fe.tymed = (uint)TYMED.TYMED_HGLOBAL; //The storage medium is a global memory handle (HGLOBAL)
+            fe.ptd = IntPtr.Zero;
+            fe.dwAspect = 1; //DVASPECT_CONTENT    = 1,  
+            fe.lindex = -1; // all of the data
+            fe.tymed = (uint)TYMED.TYMED_HGLOBAL; //The storage medium is a global memory handle (HGLOBAL)
 
-			dataObj.GetData(ref fe, ref stg);
-	
-			IntPtr pDsSL = PInvoke.GlobalLock(stg.hGlobal);
+            dataObj.GetData(ref fe, ref stg);
 
-			try
-			{
-				// the start of our structure
-				IntPtr current = pDsSL;
-				// get the # of items selected
-				int cnt = Marshal.ReadInt32(current);
-				
-				// if we selected at least 1 object
-				if (cnt > 0)
-				{				
-					selections = new DirectoryObject[cnt];
-					// increment the pointer so we can read the DS_SELECTION structure
-					current = (IntPtr)((int)current + (Marshal.SizeOf(typeof(uint))*2));
-					// now loop through the structures
-					for (int i = 0; i < cnt; i++)
-					{
-						// marshal the pointer to the structure
-						DS_SELECTION s = (DS_SELECTION)Marshal.PtrToStructure(current, typeof(DS_SELECTION));
-						//Marshal.DestroyStructure(current, typeof(DS_SELECTION));
+            IntPtr pDsSL = PInvoke.GlobalLock(stg.hGlobal);
 
-						// increment the position of our pointer by the size of the structure
-						current = (IntPtr)((int)current + Marshal.SizeOf(typeof(DS_SELECTION)));
+            try
+            {
+                // the start of our structure
+                IntPtr current = pDsSL;
+                // get the # of items selected
+                int cnt = Marshal.ReadInt32(current);
+
+                // if we selected at least 1 object
+                if (cnt > 0)
+                {
+                    selections = new DirectoryObject[cnt];
+                    // increment the pointer so we can read the DS_SELECTION structure
+                    current = (IntPtr)((int)current + (Marshal.SizeOf(typeof(uint)) * 2));
+                    // now loop through the structures
+                    for (int i = 0; i < cnt; i++)
+                    {
+                        // marshal the pointer to the structure
+                        DS_SELECTION s = (DS_SELECTION)Marshal.PtrToStructure(current, typeof(DS_SELECTION));
+                        //Marshal.DestroyStructure(current, typeof(DS_SELECTION));
+
+                        // increment the position of our pointer by the size of the structure
+                        current = (IntPtr)((int)current + Marshal.SizeOf(typeof(DS_SELECTION)));
 
                         string name = s.pwzName;
                         string path = s.pwzADsPath;
                         string schemaClassName = s.pwzClass;
-                        string upn =  s.pwzUPN;
+                        string upn = s.pwzUPN;
                         //string temp = Marshal.PtrToStringUni( s.pvarFetchedAttributes );
-                        selections[i] = new DirectoryObject( name, path, schemaClassName, upn );
-					}
-				}
-			}			
-			finally
-			{
-				PInvoke.GlobalUnlock(pDsSL);
+                        selections[i] = new DirectoryObject(name, path, schemaClassName, upn);
+                    }
+                }
+            }
+            finally
+            {
+                PInvoke.GlobalUnlock(pDsSL);
                 Marshal.FreeHGlobal(stg.hGlobal);
-			}		
-			return selections;
+            }
+            return selections;
         }
 
         #endregion

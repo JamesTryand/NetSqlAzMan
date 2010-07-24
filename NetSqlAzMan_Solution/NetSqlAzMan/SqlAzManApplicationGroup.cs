@@ -311,7 +311,7 @@ namespace NetSqlAzMan
         {
             if (this.groupType != GroupType.Basic)
                 throw new InvalidOperationException("Method not supported for LDAP Groups");
-            
+
             if (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && whereDefined == WhereDefined.Local)
             {
                 throw new SqlAzManException("Cannot create Application Group members defined on local in Administrator Mode");
@@ -326,7 +326,7 @@ namespace NetSqlAzMan
             int retV = this.db.ApplicationGroupMemberInsert(this.applicationGroupId, sid.BinaryValue, (byte)whereDefined, isMember, this.application.ApplicationId);
             IAzManApplicationGroupMember result = new SqlAzManApplicationGroupMember(this.db, this, retV, sid, whereDefined, isMember, this.ens);
             this.raiseApplicationGroupMemberCreated(this, result);
-            if (this.ens!=null) this.ens.AddPublisher(result);
+            if (this.ens != null) this.ens.AddPublisher(result);
             return result;
         }
         /// <summary>
@@ -338,15 +338,15 @@ namespace NetSqlAzMan
             if (this.groupType != GroupType.Basic)
                 throw new InvalidOperationException("Method not supported for LDAP Groups");
             var agm = (from f in this.db.ApplicationGroupMembers()
-                      where
-                      (
-                      this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && f.WhereDefined != (byte)WhereDefined.Local
-                      ||
-                      this.application.Store.Storage.Mode == NetSqlAzManMode.Developer)
-                      &&
-                      f.ApplicationGroupId == this.applicationGroupId && f.IsMember == true
-                      select f).ToList();
-            
+                       where
+                       (
+                       this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && f.WhereDefined != (byte)WhereDefined.Local
+                       ||
+                       this.application.Store.Storage.Mode == NetSqlAzManMode.Developer)
+                       &&
+                       f.ApplicationGroupId == this.applicationGroupId && f.IsMember == true
+                       select f).ToList();
+
             int index = 0;
             IAzManApplicationGroupMember[] applicationGroupMembers = new SqlAzManApplicationGroupMember[agm.Count];
             foreach (var row in agm)
@@ -368,7 +368,7 @@ namespace NetSqlAzMan
             if (this.groupType != GroupType.Basic)
                 throw new InvalidOperationException("Method not supported for LDAP Groups");
             ApplicationGroupMembersResult agm;
-            if ((agm = (from t in this.db.ApplicationGroupMembers() where t.ApplicationGroupId == this.applicationGroupId && t.ObjectSid == sid.BinaryValue select t).FirstOrDefault())!=null)
+            if ((agm = (from t in this.db.ApplicationGroupMembers() where t.ApplicationGroupId == this.applicationGroupId && t.ObjectSid == sid.BinaryValue select t).FirstOrDefault()) != null)
             {
                 if (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && agm.WhereDefined == (byte)WhereDefined.Local)
                 {
@@ -396,13 +396,13 @@ namespace NetSqlAzMan
             if (this.groupType != GroupType.Basic)
                 throw new InvalidOperationException("Method not supported for LDAP Groups");
             var agnm = (from f in this.db.ApplicationGroupMembers()
-                       where
-                       (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && f.WhereDefined != (byte)WhereDefined.Local
-                       ||
-                       this.application.Store.Storage.Mode == NetSqlAzManMode.Developer)
-                       &&
-                       f.ApplicationGroupId == this.applicationGroupId && f.IsMember == false
-                       select f).ToList();
+                        where
+                        (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && f.WhereDefined != (byte)WhereDefined.Local
+                        ||
+                        this.application.Store.Storage.Mode == NetSqlAzManMode.Developer)
+                        &&
+                        f.ApplicationGroupId == this.applicationGroupId && f.IsMember == false
+                        select f).ToList();
             int index = 0;
             IAzManApplicationGroupMember[] applicationGroupNonMembers = new SqlAzManApplicationGroupMember[agnm.Count];
             foreach (var row in agnm)
@@ -423,13 +423,13 @@ namespace NetSqlAzMan
             if (this.groupType != GroupType.Basic)
                 throw new InvalidOperationException("Method not supported for LDAP Groups");
             var agam = (from f in this.db.ApplicationGroupMembers()
-                       where 
-                       (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && f.WhereDefined != (byte)WhereDefined.Local
-                       ||
-                       this.application.Store.Storage.Mode != NetSqlAzManMode.Administrator)
-                       &&
-                       f.ApplicationGroupId == this.applicationGroupId
-                       select f).ToList();
+                        where
+                        (this.application.Store.Storage.Mode == NetSqlAzManMode.Administrator && f.WhereDefined != (byte)WhereDefined.Local
+                        ||
+                        this.application.Store.Storage.Mode != NetSqlAzManMode.Administrator)
+                        &&
+                        f.ApplicationGroupId == this.applicationGroupId
+                        select f).ToList();
             int index = 0;
             IAzManApplicationGroupMember[] applicationGroupAllMembers = new SqlAzManApplicationGroupMember[agam.Count];
             foreach (var row in agam)
@@ -611,7 +611,7 @@ namespace NetSqlAzMan
                             {
                                 IAzManSid sid = new SqlAzManSID(childNode.Attributes["Sid"].Value, whereDefined == WhereDefined.Database);
                                 if (this.Members.Where(m => m.Key.StringValue == sid.StringValue).Count() == 0)
-                                this.CreateApplicationGroupMember(sid, whereDefined, isMember);
+                                    this.CreateApplicationGroupMember(sid, whereDefined, isMember);
                             }
                         }
                     }
@@ -679,7 +679,7 @@ namespace NetSqlAzMan
                 string rootdse = DirectoryServicesUtils.GetRootDSEPart(testLDapQuery);
                 string ldapquery = DirectoryServicesUtils.GetLDAPQueryPart(testLDapQuery);
                 string query = String.Empty;
-                if (rootdse==null)
+                if (rootdse == null)
                     query = String.Format("(&(!(objectClass=computer))(&(|(objectClass=user)(objectClass=group)))({0}))", ldapquery);
                 else
                     query = String.Format("[RootDSE:{0}](&(!(objectClass=computer))(&(|(objectClass=user)(objectClass=group)))({1}))", rootdse, ldapquery);
@@ -701,8 +701,8 @@ namespace NetSqlAzMan
         /// </returns>
         public override string ToString()
         {
-            return String.Format("Application Group ID: {0}\r\nSID: {1}\r\nName: {2}\r\nDescription: {3}\r\nGroup Type: {4}\r\nLDAP Query: {5}", 
-                this.applicationGroupId, this.sid,this.name, this.description, this.groupType, this.lDapQuery);
+            return String.Format("Application Group ID: {0}\r\nSID: {1}\r\nName: {2}\r\nDescription: {3}\r\nGroup Type: {4}\r\nLDAP Query: {5}",
+                this.applicationGroupId, this.sid, this.name, this.description, this.groupType, this.lDapQuery);
         }
         #endregion Object Members
     }

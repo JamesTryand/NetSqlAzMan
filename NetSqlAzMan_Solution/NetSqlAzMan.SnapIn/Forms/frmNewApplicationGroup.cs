@@ -9,7 +9,7 @@ namespace NetSqlAzMan.SnapIn.Forms
         internal IAzManApplication application;
         internal IAzManApplicationGroup applicationGroup = null;
 
-        //[PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: New Application Group")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: New Application Group")]
         public frmNewApplicationGroup()
         {
             InitializeComponent();

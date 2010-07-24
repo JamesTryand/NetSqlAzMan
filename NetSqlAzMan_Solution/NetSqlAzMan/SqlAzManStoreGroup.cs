@@ -140,7 +140,7 @@ namespace NetSqlAzMan
                 return this.store;
             }
         }
-        
+
 
         /// <summary>
         /// Gets the object owner.
@@ -315,7 +315,7 @@ namespace NetSqlAzMan
         {
             if (this.groupType != GroupType.Basic)
                 throw new InvalidOperationException("Method not supported for LDAP Groups");
-            
+
             if (this.store.Storage.Mode == NetSqlAzManMode.Administrator && whereDefined == WhereDefined.Local)
             {
                 throw new SqlAzManException("Cannot create Store Group members defined on local in Administrator Mode");
@@ -342,12 +342,12 @@ namespace NetSqlAzMan
             if (this.groupType != GroupType.Basic)
                 throw new InvalidOperationException("Method not supported for LDAP Groups");
             var sgm = (from f in this.db.StoreGroupMembers()
-                      where 
-                      (this.store.Storage.Mode == NetSqlAzManMode.Administrator && f.WhereDefined != (byte)WhereDefined.Local
-                      ||
-                      this.store.Storage.Mode == NetSqlAzManMode.Developer) &&
-                      f.StoreGroupId == this.storeGroupId
-                      select f).ToList();
+                       where
+                       (this.store.Storage.Mode == NetSqlAzManMode.Administrator && f.WhereDefined != (byte)WhereDefined.Local
+                       ||
+                       this.store.Storage.Mode == NetSqlAzManMode.Developer) &&
+                       f.StoreGroupId == this.storeGroupId
+                       select f).ToList();
             int index = 0;
             IAzManStoreGroupMember[] storeGroupAllMembers = new SqlAzManStoreGroupMember[sgm.Count];
             foreach (var row in sgm)
@@ -368,13 +368,13 @@ namespace NetSqlAzMan
             if (this.groupType != GroupType.Basic)
                 throw new InvalidOperationException("Method not supported for LDAP Groups");
             var sgm = (from f in this.db.StoreGroupMembers()
-                      where 
-                      (
-                      this.store.Storage.Mode == NetSqlAzManMode.Administrator && f.WhereDefined != (byte)WhereDefined.Local
-                      ||
-                      this.store.Storage.Mode == NetSqlAzManMode.Developer) &&
-                      f.StoreGroupId == this.storeGroupId && f.IsMember == true
-                      select f).ToList();
+                       where
+                       (
+                       this.store.Storage.Mode == NetSqlAzManMode.Administrator && f.WhereDefined != (byte)WhereDefined.Local
+                       ||
+                       this.store.Storage.Mode == NetSqlAzManMode.Developer) &&
+                       f.StoreGroupId == this.storeGroupId && f.IsMember == true
+                       select f).ToList();
             int index = 0;
             IAzManStoreGroupMember[] storeGroupMembers = new SqlAzManStoreGroupMember[sgm.Count];
             foreach (var row in sgm)
@@ -396,7 +396,7 @@ namespace NetSqlAzMan
             if (this.groupType != GroupType.Basic)
                 throw new InvalidOperationException("Method not supported for LDAP Groups");
             StoreGroupMembersResult sgm;
-            if ((sgm = (from t in this.db.StoreGroupMembers() where t.StoreGroupId == this.storeGroupId && t.ObjectSid == sid.BinaryValue select t).FirstOrDefault())!=null)
+            if ((sgm = (from t in this.db.StoreGroupMembers() where t.StoreGroupId == this.storeGroupId && t.ObjectSid == sid.BinaryValue select t).FirstOrDefault()) != null)
             {
                 if (this.store.Storage.Mode == NetSqlAzManMode.Administrator && sgm.WhereDefined == (byte)WhereDefined.Local)
                 {
@@ -424,14 +424,14 @@ namespace NetSqlAzMan
             if (this.groupType != GroupType.Basic)
                 throw new InvalidOperationException("Method not supported for LDAP Groups");
             var sgnm = (from f in this.db.StoreGroupMembers()
-                       where 
-                       (
-                       this.store.Storage.Mode == NetSqlAzManMode.Administrator && f.WhereDefined != (byte)WhereDefined.Local
-                       ||
-                       this.store.Storage.Mode == NetSqlAzManMode.Developer)
-                       &&
-                       f.StoreGroupId == this.storeGroupId && f.IsMember == false
-                       select f).ToList();
+                        where
+                        (
+                        this.store.Storage.Mode == NetSqlAzManMode.Administrator && f.WhereDefined != (byte)WhereDefined.Local
+                        ||
+                        this.store.Storage.Mode == NetSqlAzManMode.Developer)
+                        &&
+                        f.StoreGroupId == this.storeGroupId && f.IsMember == false
+                        select f).ToList();
             int index = 0;
             IAzManStoreGroupMember[] storeGroupNonMembers = new SqlAzManStoreGroupMember[sgnm.Count];
             foreach (var row in sgnm)
@@ -578,20 +578,20 @@ namespace NetSqlAzMan
                     foreach (XmlNode childNode in node.ChildNodes)
                     {
                         if (childNode.Name == "StoreGroupMember")
-                        { 
+                        {
                             WhereDefined whereDefined;
                             switch (childNode.Attributes["WhereDefined"].Value)
                             {
-                                case "Application": whereDefined = WhereDefined.Application;break;
-                                case "LDAP": whereDefined = WhereDefined.LDAP;break;
-                                case "Local": whereDefined = WhereDefined.Local;break;
-                                case "Store": whereDefined = WhereDefined.Store;break;
+                                case "Application": whereDefined = WhereDefined.Application; break;
+                                case "LDAP": whereDefined = WhereDefined.LDAP; break;
+                                case "Local": whereDefined = WhereDefined.Local; break;
+                                case "Store": whereDefined = WhereDefined.Store; break;
                                 case "Database": whereDefined = WhereDefined.Database; break;
                                 default:
                                     throw new System.Xml.Schema.XmlSchemaValidationException("WhereDefined attribute valid");
                             }
                             bool isMember = false;
-                            if (childNode.Attributes["IsMember"].Value=="True")
+                            if (childNode.Attributes["IsMember"].Value == "True")
                             {
                                 isMember = true;
                             }
@@ -604,9 +604,9 @@ namespace NetSqlAzMan
                                 this.Store.Storage.Mode != NetSqlAzManMode.Developer
                                 ||
                                 includeDBUsers && whereDefined == WhereDefined.Database
-                                || 
-                                whereDefined==WhereDefined.Store
-                                || 
+                                ||
+                                whereDefined == WhereDefined.Store
+                                ||
                                 whereDefined == WhereDefined.Application)
                             {
                                 IAzManSid sid = new SqlAzManSID(childNode.Attributes["Sid"].Value, whereDefined == WhereDefined.Database);
@@ -647,7 +647,7 @@ namespace NetSqlAzMan
                     {
                         IAzManSid sid = new SqlAzManSID(node.Attributes["Sid"].Value, whereDefined == WhereDefined.Database);
                         if (this.Members.Where(m => m.Key.StringValue == sid.StringValue).Count() == 0)
-                        this.CreateStoreGroupMember(sid, whereDefined, isMember);
+                            this.CreateStoreGroupMember(sid, whereDefined, isMember);
                     }
                 }
             }

@@ -102,6 +102,11 @@
     <Compile Include="CodeDom\CodeDomHelper.cs" />
     <Compile Include="CodeDom\Language.cs" />
     <Compile Include="ENS\IAzManENS.cs" />
+    <Compile Include="Service References\NetSqlAzManWCFCacheService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="SqlAzManException.cs" />
     <Compile Include="Interfaces\IAzManBizRule.cs" />
     <Compile Include="Interfaces\IAzManDBUser.cs" />
@@ -170,6 +175,34 @@
   <ItemGroup>
     <None Include="NetSqlAzMan.cd" />
     <None Include="NetSqlAzMan.pfx" />
+    <None Include="Service References\NetSqlAzManWCFCacheService\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NetSqlAzManWCFCacheService\NetSqlAzMan.Cache.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NetSqlAzManWCFCacheService\NetSqlAzMan.NetSqlAzManWCFCacheService.AuthorizationType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NetSqlAzManWCFCacheService\NetSqlAzMan.NetSqlAzManWCFCacheService.AuthorizedItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NetSqlAzManWCFCacheService\NetSqlAzMan.NetSqlAzManWCFCacheService.ItemType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NetSqlAzManWCFCacheService\service.wsdl" />
+    <None Include="Service References\NetSqlAzManWCFCacheService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NetSqlAzManWCFCacheService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NetSqlAzManWCFCacheService\ServiceModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NetSqlAzManWCFCacheService\System.Collections.Generic.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
@@ -222,6 +255,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PreEmptive\PreEmptive.Attributes.dll" />
+    <None Include="Service References\NetSqlAzManWCFCacheService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\NetSqlAzManWCFCacheService\configuration.svcinfo" />
+    <None Include="Service References\NetSqlAzManWCFCacheService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\NetSqlAzManWCFCacheService\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

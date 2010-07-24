@@ -23,7 +23,7 @@ namespace NetSqlAzMan
         {
             this.customSid = customSid;
             this.userName = userName;
-            this.customColumns = new Dictionary<string,object>();
+            this.customColumns = new Dictionary<string, object>();
         }
         internal SqlAzManDBUser(DataRow DBUserDataRow)
         {
@@ -50,9 +50,9 @@ namespace NetSqlAzMan
         /// <value></value>
         public IAzManSid CustomSid
         {
-            get 
+            get
             {
-                return this.customSid;  
+                return this.customSid;
             }
         }
 
@@ -71,7 +71,7 @@ namespace NetSqlAzMan
         /// Gets the custom columns.
         /// </summary>
         /// <value>The custom columns.</value>
-        public Dictionary<string, object> CustomColumns 
+        public Dictionary<string, object> CustomColumns
         {
             get
             {
@@ -84,4 +84,3 @@ namespace NetSqlAzMan
     }
 }
 
- 

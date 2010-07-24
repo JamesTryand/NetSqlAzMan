@@ -16,7 +16,7 @@ namespace CubicOrange.Windows.Forms.ActiveDirectory
         /// <summary>
         /// Includes user objects.
         /// </summary>
-        Users = 0x0001, 
+        Users = 0x0001,
 
         /// <summary>
         /// Includes security groups with universal scope. 
@@ -29,17 +29,17 @@ namespace CubicOrange.Windows.Forms.ActiveDirectory
         /// In a down-level scope, this includes local and global groups.
         /// </para>
         /// </remarks>
-        Groups = 0x0002, 
-        
+        Groups = 0x0002,
+
         /// <summary>
         /// Includes computer objects.
         /// </summary>
-        Computers = 0x0004, 
+        Computers = 0x0004,
 
         /// <summary>
         /// Includes contact objects.
         /// </summary>
-        Contacts = 0x0008, 
+        Contacts = 0x0008,
 
         /// <summary>
         /// Includes built-in group objects.
@@ -52,7 +52,7 @@ namespace CubicOrange.Windows.Forms.ActiveDirectory
         /// In a down-level scope, not setting this object type excludes local built-in groups.
         /// </para>
         /// </summary>
-        BuiltInGroups = 0x0010, 
+        BuiltInGroups = 0x0010,
 
         /// <summary>
         /// Includes all well-known security principals. 
@@ -65,7 +65,7 @@ namespace CubicOrange.Windows.Forms.ActiveDirectory
         /// In a down-level scope, this includes all well-known SIDs.
         /// </para>
         /// </remarks>
-        WellKnownPrincipals = 0x0020, 
+        WellKnownPrincipals = 0x0020,
 
         /// <summary>
         /// All object types.

@@ -9,7 +9,7 @@ namespace NetSqlAzManWebConsole
     public partial class dlgAuthorizationAttributes : dlgPage
     {
         protected internal IAzManAuthorization authorization = null;
-        //[PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Authorization Attributes")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Authorization Attributes")]
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setImage("AuthorizationAttribute_32x32.gif");

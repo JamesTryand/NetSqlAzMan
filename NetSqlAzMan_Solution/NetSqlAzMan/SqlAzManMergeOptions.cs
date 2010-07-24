@@ -7,7 +7,7 @@ namespace NetSqlAzMan
     /// SqlAzMan Merge Options (Import)
     /// </summary>
     [Flags()]
-    [DataContract(Namespace="http://NetSqlAzMan/ServiceModel", IsReference = true)]
+    [DataContract(Namespace = "http://NetSqlAzMan/ServiceModel", IsReference = true)]
     public enum SqlAzManMergeOptions
     {
         /// <summary>

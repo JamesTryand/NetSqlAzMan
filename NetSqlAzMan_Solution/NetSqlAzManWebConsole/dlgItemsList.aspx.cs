@@ -14,7 +14,7 @@ namespace NetSqlAzManWebConsole
         internal IAzManItem item;
         internal ItemType itemType;
         internal IAzManItem[] selectedItems;
-        //[PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Items List")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Items List")]
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setOkHandler(new EventHandler(this.btnOk_Click));

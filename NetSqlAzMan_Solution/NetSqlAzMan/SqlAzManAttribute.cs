@@ -164,7 +164,7 @@ namespace NetSqlAzMan
         /// </summary>
         public void Dispose()
         {
-            
+
         }
 
         #endregion

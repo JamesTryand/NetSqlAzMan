@@ -209,9 +209,9 @@ namespace NetSqlAzMan
         /// <value>The store id.</value>
         int IAzManStore.StoreId
         {
-            get 
+            get
             {
-                
+
                 return this.storeId;
             }
         }
@@ -222,9 +222,9 @@ namespace NetSqlAzMan
         /// <value>The name.</value>
         public string Name
         {
-            get 
+            get
             {
-                
+
                 return this.name;
             }
         }
@@ -235,9 +235,9 @@ namespace NetSqlAzMan
         /// <value>The description.</value>
         public string Description
         {
-            get 
+            get
             {
-                
+
                 return this.description;
             }
         }
@@ -304,7 +304,7 @@ namespace NetSqlAzMan
                 int applicationId = this.db.ApplicationInsert(this.storeId, applicationName, applicationDescription);
                 IAzManApplication applicationCreated = new SqlAzManApplication(this.db, this, applicationId, applicationName, applicationDescription, this.netsqlazmanFixedServerRole, this.ens);
                 this.raiseApplicationCreated(this, applicationCreated);
-                if (this.ens!=null)
+                if (this.ens != null)
                     this.ens.AddPublisher(applicationCreated);
                 this.applications = null; //Force cache refresh
                 return applicationCreated;
@@ -384,7 +384,7 @@ namespace NetSqlAzMan
                 IAzManApplication app = new SqlAzManApplication(this.db, this, row.ApplicationId.Value, row.Name, row.Description, netsqlazmanFixedServerRole, this.ens);
                 applications.Add(app);
                 this.raiseApplicationOpened(app);
-                if (this.ens!=null)
+                if (this.ens != null)
                     this.ens.AddPublisher(app);
             }
             return applications.ToArray();
@@ -433,7 +433,7 @@ namespace NetSqlAzMan
         /// </returns>
         public bool HasStoreGroups()
         {
-            return this.db.StoreGroups().Any(p=>p.StoreId == this.storeId);
+            return this.db.StoreGroups().Any(p => p.StoreId == this.storeId);
         }
 
         /// <summary>
@@ -443,9 +443,9 @@ namespace NetSqlAzMan
         public IAzManStoreGroup[] GetStoreGroups()
         {
             var ds = (from tf in this.db.StoreGroups()
-                     where tf.StoreId == this.storeId
-                     orderby tf.Name
-                     select tf).ToList();
+                      where tf.StoreId == this.storeId
+                      orderby tf.Name
+                      select tf).ToList();
             int index = 0;
             IAzManStoreGroup[] storeGroups = new SqlAzManStoreGroup[ds.Count()];
             foreach (var row in ds)
@@ -472,7 +472,7 @@ namespace NetSqlAzMan
                 string description = sgr.Description;
                 string lDapQuery = sgr.LDapQuery;
                 GroupType groupType = (GroupType)sgr.GroupType.Value;
-                IAzManStoreGroup result = new SqlAzManStoreGroup(this.db, this, storeGroupid, objectSid, name, description, lDapQuery , groupType, this.ens);
+                IAzManStoreGroup result = new SqlAzManStoreGroup(this.db, this, storeGroupid, objectSid, name, description, lDapQuery, groupType, this.ens);
                 if (this.ens != null) this.ens.AddPublisher(result);
                 return result;
             }
@@ -516,8 +516,8 @@ namespace NetSqlAzMan
         {
             IAzManAttribute<IAzManStore>[] attributes;
             var ds = (from tf in this.db.StoreAttributes()
-                     where tf.StoreId == this.storeId
-                     select tf).ToList();
+                      where tf.StoreId == this.storeId
+                      select tf).ToList();
             attributes = new SqlAzManStoreAttribute[ds.Count];
             int index = 0;
             foreach (var row in ds)
@@ -620,7 +620,7 @@ namespace NetSqlAzMan
         /// </summary>
         public void Dispose()
         {
-            
+
         }
 
         #endregion
@@ -754,7 +754,7 @@ namespace NetSqlAzMan
                         {
                             foreach (XmlNode childChildNode in childNode.ChildNodes)
                             {
-                                if (childChildNode.Name == "Manager") 
+                                if (childChildNode.Name == "Manager")
                                     this.GrantAccessAsManager(childChildNode.Attributes["SqlUserOrRole"].Value);
                             }
                         }
@@ -841,7 +841,7 @@ namespace NetSqlAzMan
                     {
                         if (childNode.Name == "Application")
                         {
-                            IAzManApplication newApplication = 
+                            IAzManApplication newApplication =
                                 this.Applications.ContainsKey(childNode.Attributes["Name"].Value) ?
                                 this.Applications[childNode.Attributes["Name"].Value] :
                                 this.CreateApplication(childNode.Attributes["Name"].Value, childNode.Attributes["Description"].Value);
@@ -948,7 +948,7 @@ namespace NetSqlAzMan
         /// <returns></returns>
         public IAzManDBUser[] GetDBUsers()
         {
-            
+
             var dtDBUsers = this.db.GetDBUsersEx(this.name, null, null, null);
             IAzManDBUser[] result = new IAzManDBUser[dtDBUsers.Rows.Count];
             int i = 0;
@@ -986,7 +986,7 @@ namespace NetSqlAzMan
                 bool isGranted = false;
                 foreach (var drPermission in permissions)
                 {
-                    if (String.Compare(drPermission.SqlUserOrRole , login, true) == 0)
+                    if (String.Compare(drPermission.SqlUserOrRole, login, true) == 0)
                     {
                         isGranted = true;
                         break;

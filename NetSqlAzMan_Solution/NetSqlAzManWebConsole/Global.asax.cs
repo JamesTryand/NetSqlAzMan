@@ -95,9 +95,11 @@ namespace NetSqlAzManWebConsole
         {
             this.Application["SqlDataSources"] = null;
         }
-        
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Session Start")]
+
         [SecurityCritical()]
+        [PreEmptive.Attributes.PerformanceProbe()]
+        [PreEmptive.Attributes.SystemProfile()]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Session", EventType = PreEmptive.Attributes.FeatureEventTypes.Start)]
         protected void Session_Start(object sender, EventArgs e)
         {
             this.Session["storage"] = null;
@@ -120,8 +122,8 @@ namespace NetSqlAzManWebConsole
                     ), this.Session);
             }
         }
-        
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Session End")]
+
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Session", EventType = PreEmptive.Attributes.FeatureEventTypes.Stop)]
         [SecurityCritical()]
         protected void Session_End(object sender, EventArgs e)
         {
@@ -154,7 +156,6 @@ namespace NetSqlAzManWebConsole
             return servers;
         }
 
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Application Error")]
         protected void Application_Error(object sender, EventArgs e)
         {
             Exception objErr = Server.GetLastError();
@@ -204,7 +205,7 @@ namespace NetSqlAzManWebConsole
             }
         }
 
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Check For Update")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Check For Update from Version 3.6.0.6")]
         private string checkForUpdate()
         {
             try

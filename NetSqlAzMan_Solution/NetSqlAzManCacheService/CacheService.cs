@@ -31,7 +31,8 @@ namespace NetSqlAzMan.Cache.Service
             CacheService.startStorageBuildCache(storeName, String.Empty);
         }
 
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WCF Cache Service: Build Storage Cache")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WCF Cache Service: Build Storage Cache", EventType = PreEmptive.Attributes.FeatureEventTypes.Start)]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WCF Cache Service: Build Storage Cache", EventType = PreEmptive.Attributes.FeatureEventTypes.Stop)]
         [SecurityCritical()]
         internal static void startStorageBuildCache(string storeName, string applicationName)
         {
@@ -87,7 +88,7 @@ namespace NetSqlAzMan.Cache.Service
             }
         }
         #region ICacheService Members
-
+        
         public void InvalidateCache()
         {
             this.InvalidateCache(true);

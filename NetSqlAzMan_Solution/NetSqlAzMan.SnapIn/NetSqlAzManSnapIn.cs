@@ -35,7 +35,7 @@ namespace NetSqlAzMan.SnapIn
         delegate void splashScreenDelegate();
         private frmSplash splash;
         private static volatile bool splashScreenShowed = false;
-        
+
         public NetSqlAzManSnapIn()
         {
             if (NetSqlAzMan.SnapIn.Utilities.ConsoleUtilities.commandLineArgumentOn("DebugMode"))
@@ -61,7 +61,7 @@ namespace NetSqlAzMan.SnapIn
         }
 
         [PreEmptive.Attributes.Setup(CustomEndpoint = "so-s.info/PreEmptive.Web.Services.Messaging/MessagingServiceV2.asmx")]
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Initialize")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Session", EventType = PreEmptive.Attributes.FeatureEventTypes.Start)]
         [SecurityCritical()]
         protected override void OnInitialize()
         {
@@ -107,6 +107,8 @@ namespace NetSqlAzMan.SnapIn
         /// </summary>
         /// <param name="status">asynchronous status for updating the console</param>
         /// <param name="persistenceData">binary data stored in the console file</param>
+        [PreEmptive.Attributes.PerformanceProbe()]
+        [PreEmptive.Attributes.SystemProfile()]
         [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Load Custom Data")]
         protected override void OnLoadCustomData(MMC.AsyncStatus status, byte[] persistenceData)
         {
@@ -203,7 +205,7 @@ namespace NetSqlAzMan.SnapIn
             }
             finally
             {
-                if (this.splash!=null && this.splash.Visible)
+                if (this.splash != null && this.splash.Visible)
                 {
                     new System.Threading.Thread(new System.Threading.ThreadStart(
                         delegate()
@@ -271,7 +273,7 @@ namespace NetSqlAzMan.SnapIn
         /// Called when [shutdown].
         /// </summary>
         /// <param name="status">The status.</param>
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Shutdown")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Session", EventType = PreEmptive.Attributes.FeatureEventTypes.Stop)]
         [PreEmptive.Attributes.Teardown()]
         protected override void OnShutdown(MMC.AsyncStatus status)
         {

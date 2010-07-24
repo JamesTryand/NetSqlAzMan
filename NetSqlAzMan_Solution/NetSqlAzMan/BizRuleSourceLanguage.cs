@@ -5,7 +5,7 @@ namespace NetSqlAzMan
     /// <summary>
     /// Source Code Language for Biz Rules
     /// </summary>
-    [DataContract(Namespace="http://NetSqlAzMan/ServiceModel", IsReference = true)]
+    [DataContract(Namespace = "http://NetSqlAzMan/ServiceModel", IsReference = true)]
     public enum BizRuleSourceLanguage : byte
     {
         /// <summary>

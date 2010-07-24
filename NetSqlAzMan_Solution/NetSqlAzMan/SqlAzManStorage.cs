@@ -276,7 +276,7 @@ namespace NetSqlAzMan
             {
                 return this.db.CommandTimeout;
             }
-            set 
+            set
             {
                 this.db.CommandTimeout = value;
             }
@@ -398,7 +398,7 @@ namespace NetSqlAzMan
         public IAzManStore GetStore(string storeName)
         {
             StoresResult sr;
-            if ((sr = (from t in this.db.Stores() where t.Name == storeName select t).FirstOrDefault())!=null)
+            if ((sr = (from t in this.db.Stores() where t.Name == storeName select t).FirstOrDefault()) != null)
             {
                 int storeId = sr.StoreId.Value;
                 string name = sr.Name;
@@ -419,13 +419,13 @@ namespace NetSqlAzMan
                 }
                 IAzManStore result = new SqlAzManStore(this.db, this, storeId, name, description, netsqlazmanFixedServerRole, this.ens);
                 this.raiseStoreOpened(result);
-                if (this.ens!=null)
+                if (this.ens != null)
                     this.ens.AddPublisher(result);
                 return result;
             }
             else
             {
-                throw SqlAzManException.StoreNotFoundException(storeName,null);
+                throw SqlAzManException.StoreNotFoundException(storeName, null);
             }
         }
 
@@ -460,8 +460,8 @@ namespace NetSqlAzMan
         {
             IAzManStore[] stores;
             var s = (from tf in this.db.Stores()
-                    orderby tf.Name
-                    select tf).ToList();
+                     orderby tf.Name
+                     select tf).ToList();
             stores = new SqlAzManStore[s.Count];
             int index = 0;
             foreach (var row in s)
@@ -482,7 +482,7 @@ namespace NetSqlAzMan
                 }
                 stores[index] = new SqlAzManStore(this.db, this, row.StoreId.Value, row.Name, row.Description, netsqlazmanFixedServerRole, this.ens);
                 this.raiseStoreOpened(stores[index]);
-                if (this.ens!=null)
+                if (this.ens != null)
                     this.ens.AddPublisher(stores[index]);
                 index++;
             }
@@ -663,15 +663,15 @@ namespace NetSqlAzMan
                             if (result == AuthorizationType.Allow || result == AuthorizationType.AllowWithDelegation)
                                 attributes.Add(kvp);
                         }
-                        else if (dr["ItemId"]!=DBNull.Value)
+                        else if (dr["ItemId"] != DBNull.Value)
                         {
                             int itemId = (int)dr["ItemId"];
                             DataRow[] drItems = checkAccessPartialResultsDataTable.Select("ItemId=" + itemId.ToString());
-                            if (drItems.Length>0)
+                            if (drItems.Length > 0)
                             {
                                 DataRow drItem = drItems[0];
                                 AuthorizationType auth = (AuthorizationType)drItem["AuthorizationType"];
-                                if (auth== AuthorizationType.Allow || auth == AuthorizationType.AllowWithDelegation)
+                                if (auth == AuthorizationType.Allow || auth == AuthorizationType.AllowWithDelegation)
                                 {
                                     attributes.Add(kvp);
                                 }
@@ -709,8 +709,8 @@ namespace NetSqlAzMan
                     {
                         if (member.Name == itemName)
                         {
-                            DataRow[] drParentItems = checkAccessPartialResultsDataTable.Select("ItemId="+item.ItemId.ToString());
-                            if (drParentItems.Length>0)
+                            DataRow[] drParentItems = checkAccessPartialResultsDataTable.Select("ItemId=" + item.ItemId.ToString());
+                            if (drParentItems.Length > 0)
                             {
                                 DataRow drParentItem = drParentItems[0];
                                 result = SqlAzManItem.mergeAuthorizations(result, this.getParentResult(drParentItem, checkAccessPartialResultsDataTable, items));
@@ -852,7 +852,7 @@ namespace NetSqlAzMan
             }
             else
             {
-                attributes = new List<KeyValuePair<string,string>>();
+                attributes = new List<KeyValuePair<string, string>>();
             }
             return result;
         }
@@ -1209,7 +1209,7 @@ namespace NetSqlAzMan
             get
             {
                 if (this.db != null && this.db.Transaction != null && this.db.Transaction.Connection != null)
-                     return true;
+                    return true;
                 else
                     return false;
             }

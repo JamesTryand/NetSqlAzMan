@@ -1,15 +1,15 @@
 
 namespace CubicOrange.Windows.Forms.ActiveDirectory
 {
-	/// <summary>
-	/// Details of a directory object selected in the DirectoryObjectPickerDialog.
-	/// </summary>
-	public class DirectoryObject
-	{
+    /// <summary>
+    /// Details of a directory object selected in the DirectoryObjectPickerDialog.
+    /// </summary>
+    public class DirectoryObject
+    {
         private string adsPath;
         private string className;
-		private string name;
-		private string upn;
+        private string name;
+        private string upn;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DirectoryObject"/> class.
@@ -46,24 +46,24 @@ namespace CubicOrange.Windows.Forms.ActiveDirectory
         /// <summary>
         /// Gets the name of the schema class for this directory object (objectClass attribute).
         /// </summary>
-		public string SchemaClassName
-		{
-			get
-			{
-				return className;
-			}
-		}
+        public string SchemaClassName
+        {
+            get
+            {
+                return className;
+            }
+        }
 
         /// <summary>
         /// Gets the directory object's relative distinguished name (RDN).
         /// </summary>
-		public string Name
-		{
-			get
-			{
-				return name;
-			}
-		}
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+        }
 
         /// <summary>
         /// Gets the objects user principal name (userPrincipalName attribute).
@@ -73,12 +73,12 @@ namespace CubicOrange.Windows.Forms.ActiveDirectory
         /// If the object does not have a userPrincipalName value, this property is an empty string. 
         /// </para>
         /// </remarks>
-		public string Upn
-		{
-			get
-			{
-				return upn;
-			}
-		}
-	}
+        public string Upn
+        {
+            get
+            {
+                return upn;
+            }
+        }
+    }
 }

@@ -9,7 +9,7 @@ namespace NetSqlAzManWebConsole
     {
         protected internal IAzManStorage storage = null;
         internal IAzManApplication[] applications = null;
-        //[PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Report Items Hierarchy")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Report Items Hierarchy")]
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setImage("Hierarchy_32x32.gif");

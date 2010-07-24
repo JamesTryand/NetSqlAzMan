@@ -9,7 +9,7 @@ namespace NetSqlAzMan.SnapIn.Forms
         internal IAzManStore store;
         internal IAzManApplication application;
 
-        //[PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Application Properties")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Application Properties")]
         public frmApplicationProperties()
         {
             InitializeComponent();

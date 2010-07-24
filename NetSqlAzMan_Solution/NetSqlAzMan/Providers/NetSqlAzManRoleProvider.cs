@@ -26,6 +26,7 @@ namespace NetSqlAzMan.Providers
         protected StorageCache storageCache;
         private String storeName;
         private String applicationName;
+        private Boolean useWCFCacheService;
         private static Object locker = new Object();
         private volatile static bool buildingCache = false;
         /// <summary>
@@ -72,6 +73,18 @@ namespace NetSqlAzMan.Providers
                 return this.storeName;
             }
         }
+
+        /// <summary>
+        /// Gets a value indicating whether [use WCF cache service].
+        /// </summary>
+        /// <value><c>true</c> if [use WCF cache service]; otherwise, <c>false</c>.</value>
+        public virtual Boolean UseWCFCacheService
+        {
+            get
+            {
+                return this.useWCFCacheService;
+            }
+        }
         /// <summary>
         /// Gets or sets the name of the application to store and retrieve role information for.
         /// </summary>
@@ -113,6 +126,7 @@ namespace NetSqlAzMan.Providers
                 return "Role Provider for .NET Sql Authorization Manager - http://netsqlazman.codeplex.com - Andrea Ferendeles";
             }
         }
+
         /// <summary>
         /// Gets or sets the User Lookup Type. (LDAP or DB)
         /// </summary>
@@ -174,6 +188,7 @@ namespace NetSqlAzMan.Providers
             base.Initialize(name, config);
             this.storeName = config["storeName"];
             this.applicationName = config["applicationName"];
+            this.useWCFCacheService = config["UseWCFCacheService"] == null ? false : Boolean.Parse(config["UseWCFCacheService"]);
             this.storageCache = new StorageCache(System.Configuration.ConfigurationManager.ConnectionStrings[config["connectionStringName"]].ConnectionString);
             this.InvalidateCache(true);
             this.UserLookupType = config["userLookupType"];
@@ -305,9 +320,19 @@ namespace NetSqlAzMan.Providers
         /// </returns>
         public override string[] GetAllRoles()
         {
-            return (from t in this.storageCache.GetAuthorizedItems(this.storeName, this.applicationName, WindowsIdentity.GetCurrent().GetUserBinarySSid(), new string[0], DateTime.Now)
-                    where t.Type == ItemType.Role
-                    select t.Name).ToArray();
+            if (!this.useWCFCacheService)
+                return (from t in this.storageCache.GetAuthorizedItems(this.storeName, this.applicationName, WindowsIdentity.GetCurrent().GetUserBinarySSid(), new string[0], DateTime.Now)
+                        where t.Type == ItemType.Role
+                        select t.Name).ToArray();
+            else
+            {
+                using (NetSqlAzManWCFCacheService.CacheServiceClient csc = new NetSqlAzManWCFCacheService.CacheServiceClient())
+                {
+                    return (from t in csc.GetAuthorizedItemsForWindowsUsers(this.storeName, this.applicationName, WindowsIdentity.GetCurrent().GetUserBinarySSid(), WindowsIdentity.GetCurrent().GetGroupsBinarySSid(), DateTime.Now, null)
+                            where t.Type == NetSqlAzManWCFCacheService.ItemType.Role
+                            select t.Name).ToArray();
+                }
+            }
         }
 
         /// <summary>
@@ -330,9 +355,20 @@ namespace NetSqlAzMan.Providers
                 {
                     wid = new WindowsIdentity(this.getUpn(this.getFQUN(username))); //Kerberos Protocol Transition: Works in W2K3 native domain only 
                 }
-                return (from t in this.storageCache.GetAuthorizedItems(this.storeName, this.applicationName, wid.GetUserBinarySSid(), wid.GetGroupsBinarySSid(), DateTime.Now)
-                        where t.Type == ItemType.Role && (t.Authorization == AuthorizationType.Allow || t.Authorization == AuthorizationType.AllowWithDelegation)
-                        select t.Name).ToArray();
+
+                if (!this.useWCFCacheService)
+                    return (from t in this.storageCache.GetAuthorizedItems(this.storeName, this.applicationName, wid.GetUserBinarySSid(), wid.GetGroupsBinarySSid(), DateTime.Now)
+                            where t.Type == ItemType.Role && (t.Authorization == AuthorizationType.Allow || t.Authorization == AuthorizationType.AllowWithDelegation)
+                            select t.Name).ToArray();
+                else
+                {
+                    using (NetSqlAzManWCFCacheService.CacheServiceClient csc = new NetSqlAzManWCFCacheService.CacheServiceClient())
+                    {
+                        return (from t in csc.GetAuthorizedItemsForWindowsUsers(this.storeName, this.applicationName, wid.GetUserBinarySSid(), wid.GetGroupsBinarySSid(), DateTime.Now, null)
+                                where t.Type == NetSqlAzManWCFCacheService.ItemType.Role && (t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.Allow || t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.AllowWithDelegation)
+                                select t.Name).ToArray();
+                    }
+                }
             }
             else
             {
@@ -343,9 +379,20 @@ namespace NetSqlAzMan.Providers
                     if (dbUser == null)
                         throw SqlAzManException.DBUserNotFoundException(username, null);
                     IAzManSid sid = dbUser.CustomSid;
-                    return (from t in this.storageCache.GetAuthorizedItems(this.storeName, this.applicationName, sid.StringValue, DateTime.Now)
-                            where t.Type == ItemType.Role && (t.Authorization == AuthorizationType.Allow || t.Authorization == AuthorizationType.AllowWithDelegation)
-                            select t.Name).ToArray();
+
+                    if (!this.useWCFCacheService)
+                        return (from t in this.storageCache.GetAuthorizedItems(this.storeName, this.applicationName, sid.StringValue, DateTime.Now)
+                                where t.Type == ItemType.Role && (t.Authorization == AuthorizationType.Allow || t.Authorization == AuthorizationType.AllowWithDelegation)
+                                select t.Name).ToArray();
+                    else
+                    {
+                        using (NetSqlAzManWCFCacheService.CacheServiceClient csc = new NetSqlAzManWCFCacheService.CacheServiceClient())
+                        {
+                            return (from t in csc.GetAuthorizedItemsForDatabaseUsers(this.storeName, this.applicationName, sid.StringValue, DateTime.Now, null)
+                                    where t.Type == NetSqlAzManWCFCacheService.ItemType.Role && (t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.Allow || t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.AllowWithDelegation)
+                                    select t.Name).ToArray();
+                        }
+                    }
                 }
             }
         }
@@ -411,14 +458,30 @@ namespace NetSqlAzMan.Providers
                 {
                     wid = new WindowsIdentity(this.getUpn(this.getFQUN(username))); //Kerberos Protocol Transition: Works in W2K3 native domain only 
                 }
-                return (from t in this.storageCache.GetAuthorizedItems(this.storeName, this.applicationName, wid.GetUserBinarySSid(), wid.GetGroupsBinarySSid(), DateTime.Now)
-                        where
-                        t.Type == ItemType.Role
-                        &&
-                        (t.Authorization == AuthorizationType.Allow || t.Authorization == AuthorizationType.AllowWithDelegation)
-                        &&
-                        t.Name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase)
-                        select t).Count() > 0;
+
+                if (!this.useWCFCacheService)
+                    return (from t in this.storageCache.GetAuthorizedItems(this.storeName, this.applicationName, wid.GetUserBinarySSid(), wid.GetGroupsBinarySSid(), DateTime.Now)
+                            where
+                            t.Type == ItemType.Role
+                            &&
+                            (t.Authorization == AuthorizationType.Allow || t.Authorization == AuthorizationType.AllowWithDelegation)
+                            &&
+                            t.Name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase)
+                            select t).Count() > 0;
+                else
+                {
+                    using (NetSqlAzManWCFCacheService.CacheServiceClient csc = new NetSqlAzManWCFCacheService.CacheServiceClient())
+                    {
+                        return (from t in csc.GetAuthorizedItemsForWindowsUsers(this.storeName, this.applicationName, wid.GetUserBinarySSid(), wid.GetGroupsBinarySSid(), DateTime.Now, null)
+                                where
+                                t.Type == NetSqlAzManWCFCacheService.ItemType.Role
+                                &&
+                                (t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.Allow || t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.AllowWithDelegation)
+                                &&
+                                t.Name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase)
+                                select t).Count() > 0;
+                    }
+                }
             }
             else
             {
@@ -426,14 +489,30 @@ namespace NetSqlAzMan.Providers
                 {
                     IAzManApplication application = storage[this.storeName][this.applicationName];
                     IAzManDBUser dbUser = application.GetDBUser(username);
-                    return (from t in this.storageCache.GetAuthorizedItems(this.storeName, this.applicationName, dbUser.CustomSid.StringValue, DateTime.Now)
-                            where 
-                            t.Type == ItemType.Role 
-                            && 
-                            (t.Authorization == AuthorizationType.Allow || t.Authorization == AuthorizationType.AllowWithDelegation)
-                            &&
-                            t.Name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase)
-                            select t).Count() > 0;
+
+                    if (!this.useWCFCacheService)
+                        return (from t in this.storageCache.GetAuthorizedItems(this.storeName, this.applicationName, dbUser.CustomSid.StringValue, DateTime.Now)
+                                where
+                                t.Type == ItemType.Role
+                                &&
+                                (t.Authorization == AuthorizationType.Allow || t.Authorization == AuthorizationType.AllowWithDelegation)
+                                &&
+                                t.Name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase)
+                                select t).Count() > 0;
+                    else
+                    {
+                        using (NetSqlAzManWCFCacheService.CacheServiceClient csc = new NetSqlAzManWCFCacheService.CacheServiceClient())
+                        {
+                            return (from t in csc.GetAuthorizedItemsForDatabaseUsers(this.storeName, this.applicationName, dbUser.CustomSid.StringValue, DateTime.Now, null)
+                                    where
+                                    t.Type == NetSqlAzManWCFCacheService.ItemType.Role
+                                    &&
+                                    (t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.Allow || t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.AllowWithDelegation)
+                                    &&
+                                    t.Name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase)
+                                    select t).Count() > 0;
+                        }
+                    }
                 }
             }
         }
@@ -586,7 +665,17 @@ namespace NetSqlAzMan.Providers
                     try
                     {
                         NetSqlAzManRoleProvider.buildingCache = true;
-                        this.storageCache.BuildStorageCache(this.storeName, this.applicationName);
+                        if (!this.useWCFCacheService)
+                        {
+                            this.storageCache.BuildStorageCache(this.storeName, this.applicationName);
+                        }
+                        else
+                        {
+                            using (NetSqlAzManWCFCacheService.CacheServiceClient csc = new NetSqlAzManWCFCacheService.CacheServiceClient())
+                            {
+                                csc.InvalidateCache();
+                            }
+                        }
                     }
                     finally
                     {

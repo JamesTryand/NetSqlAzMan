@@ -9,7 +9,7 @@ namespace NetSqlAzManWebConsole
     public partial class dlgExport : dlgPage
     {
         protected internal IAzManStorage storage = null;
-        //[PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: XML Export")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: XML Export")]
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setImage("NetSqlAzMan_32x32.gif");

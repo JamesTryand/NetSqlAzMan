@@ -8,6 +8,8 @@ namespace NetSqlAzMan.SnapIn.Forms
     public partial class frmActiveDirectoryObjectsList : frmBase
     {
         internal SearchResultCollection searchResultCollection;
+
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Active Directory Object List")]
         public frmActiveDirectoryObjectsList()
         {
             InitializeComponent();

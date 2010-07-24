@@ -8,7 +8,7 @@ namespace NetSqlAzManWebConsole
     public partial class dlgBizRule : dlgPage
     {
         internal IAzManItem item;
-        //[PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Business Rule")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Business Rule")]
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setImage("BizRule.gif");

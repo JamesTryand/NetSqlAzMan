@@ -17,7 +17,7 @@ namespace NetSqlAzMan.SnapIn.Forms
         private bool modified;
         private bool firstShow;
 
-        //[PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Store Groups Properties")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Store Groups Properties")]
         public frmStoreGroupsProperties()
         {
             InitializeComponent();

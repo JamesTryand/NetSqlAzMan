@@ -194,8 +194,8 @@ namespace NetSqlAzMan
         public static IAzManSid NewSqlAzManSid()
         {
             Guid guid;
-            bool isGood=false;
-            SqlAzManSID result=null;
+            bool isGood = false;
+            SqlAzManSID result = null;
             while (!isGood)
             {
                 try
@@ -210,7 +210,7 @@ namespace NetSqlAzMan
                 catch
                 {
                     isGood = false;
-                } 
+                }
             }
             return result;
         }
@@ -228,7 +228,7 @@ namespace NetSqlAzMan
             {
                 return false;
             }
-            for (int i=0;i<binaryForm.Length;i++)
+            for (int i = 0; i < binaryForm.Length; i++)
             {
                 if (binarySid[i] != binaryForm[i])
                     return false;
@@ -417,10 +417,10 @@ namespace NetSqlAzMan
         public SqlAzManSID(SerializationInfo info, StreamingContext context)
         {
             string oSecurityIdentifier = info.GetString("securityIdentifier");
-            if (oSecurityIdentifier!=null)
+            if (oSecurityIdentifier != null)
                 this.securityIdentifier = new SecurityIdentifier(oSecurityIdentifier);
             string oGuid = info.GetString("guid");
-            if (oGuid!=null)
+            if (oGuid != null)
                 this.guid = new Guid(info.GetString("guid"));
             this.customSid = (byte[])info.GetValue("customSid", typeof(byte[]));
         }
@@ -434,8 +434,8 @@ namespace NetSqlAzMan
         [SecurityCritical()]
         public void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
         {
-            info.AddValue("securityIdentifier", this.securityIdentifier !=null ? this.securityIdentifier.Value : null);
-            info.AddValue("guid", this.guid!=null ? this.guid.ToString() : null);
+            info.AddValue("securityIdentifier", this.securityIdentifier != null ? this.securityIdentifier.Value : null);
+            info.AddValue("guid", this.guid != null ? this.guid.ToString() : null);
             info.AddValue("customSid", this.customSid, typeof(byte[]));
         }
 

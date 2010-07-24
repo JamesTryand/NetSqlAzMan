@@ -840,6 +840,8 @@ namespace NetSqlAzMan.Cache
                        select t;
         }
 
+        [PreEmptive.Attributes.Feature("NetSqlAzMan: CheckAccess", EventType = PreEmptive.Attributes.FeatureEventTypes.Start)]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan: CheckAccess", EventType = PreEmptive.Attributes.FeatureEventTypes.Stop)]
         internal AuthorizationType internalCheckAccess(IAzManStore store, IAzManApplication application, IAzManItem item, IEnumerable<IAzManItem> allItems, string userSSid, string[] groupsSSid, DateTime validFor, bool operationsOnly, bool retrieveAttributes, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters)
         {
             AuthorizationType authorizationType = AuthorizationType.Neutral;
@@ -1126,6 +1128,8 @@ namespace NetSqlAzMan.Cache
         /// <param name="validFor">The valid for.</param>
         /// <param name="contextParameters">The context parameters.</param>
         /// <returns></returns>
+        [PreEmptive.Attributes.Feature("NetSqlAzMan: GetAuthorizedItems (DB User)", EventType = PreEmptive.Attributes.FeatureEventTypes.Start)]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan: GetAuthorizedItems (DB User)", EventType = PreEmptive.Attributes.FeatureEventTypes.Stop)]
         public AuthorizedItem[] GetAuthorizedItems(string storeName, string applicationName, string DBuserSSid, DateTime validFor, params KeyValuePair<string, object>[] contextParameters)
         {
             IAzManStore store;
@@ -1159,6 +1163,8 @@ namespace NetSqlAzMan.Cache
         /// <param name="validFor">The valid for.</param>
         /// <param name="contextParameters">The context parameters.</param>
         /// <returns></returns>
+        [PreEmptive.Attributes.Feature("NetSqlAzMan: GetAuthorizedItems (Windows User)", EventType = PreEmptive.Attributes.FeatureEventTypes.Start)]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan: GetAuthorizedItems (Windows User)", EventType = PreEmptive.Attributes.FeatureEventTypes.Stop)]
         public AuthorizedItem[] GetAuthorizedItems(string storeName, string applicationName, string userSSid, string[] groupsSSid, DateTime validFor, params KeyValuePair<string, object>[] contextParameters)
         {
             IAzManStore store;

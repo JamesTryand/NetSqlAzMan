@@ -11,7 +11,7 @@ namespace NetSqlAzMan.SnapIn.Forms
         internal IAzManStoreGroup storeGroup;
         internal IAzManStoreGroup[] selectedStoreGroups;
 
-        //[PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Store Groups List")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Store Groups List")]
         public frmStoreGroupsList()
         {
             InitializeComponent();
