@@ -59,6 +59,7 @@
     </Reference>
     <Reference Include="SqlAudit, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0010b2b0864b0d6b, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Linq">
@@ -66,6 +67,7 @@
     </Reference>
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
@@ -421,6 +423,12 @@
     </Compile>
     <Compile Include="WebConsole.aspx.designer.cs">
       <DependentUpon>WebConsole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebConsoleInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebConsoleInstaller.Designer.cs">
+      <DependentUpon>WebConsoleInstaller.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
