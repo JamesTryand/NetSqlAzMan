@@ -117,12 +117,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D4315FA18C5CE8BEC3E3A87E0226655D"
-        "OwnerKey" = "8:_EE64BC75C0D746CDB62FE8B95E978E3E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_D6CBCCD02C18433598A8AC2D1B0C3544"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -449,7 +443,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.6, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.7, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_165D609BD96949928B0A2992828D7C2B"
@@ -660,7 +654,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzManCacheService, Version=3.6.0.6, Culture=neutral, PublicKeyToken=b32c82f28a5e6493, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzManCacheService, Version=3.6.0.7, Culture=neutral, PublicKeyToken=b32c82f28a5e6493, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_7E001695C3D54334B049CD72CA910D45"
@@ -751,7 +745,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.6, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.7, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_D4315FA18C5CE8BEC3E3A87E0226655D"
@@ -862,7 +856,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzManCacheServiceInvalidateUtility, Version=3.6.0.6, Culture=neutral, PublicKeyToken=767b91c78eca0fe0, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzManCacheServiceInvalidateUtility, Version=3.6.0.7, Culture=neutral, PublicKeyToken=767b91c78eca0fe0, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_EE64BC75C0D746CDB62FE8B95E978E3E"
@@ -983,7 +977,7 @@
                     "Name" = "8:.NET Sql Authorization Manager"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
+                    "Transitive" = "11:TRUE"
                     "Property" = "8:_9643EEC8300741AAA5C25F6B5BC64580"
                         "Folders"
                         {
@@ -992,7 +986,7 @@
                             "Name" = "8:Cache Service"
                             "AlwaysCreate" = "11:FALSE"
                             "Condition" = "8:"
-                            "Transitive" = "11:FALSE"
+                            "Transitive" = "11:TRUE"
                             "Property" = "8:_C980390A2A8A40B391C6F7871280382B"
                                 "Folders"
                                 {
@@ -1041,7 +1035,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:.NET Sql Authorization Manager Cache Service"
         "ProductCode" = "8:{49DC5446-1BC2-49DF-B504-FFE668025B06}"
-        "PackageCode" = "8:{A5C7869B-8A39-4B3E-8289-3794B2E5F8B5}"
+        "PackageCode" = "8:{6F6176C4-16C1-4D97-A412-EE7B9197D2AD}"
         "UpgradeCode" = "8:{7349E32A-9FF6-437A-87E5-7796CC3D6327}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
