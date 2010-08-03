@@ -8,8 +8,7 @@ namespace NetSqlAzManCacheServiceInvalidateUtility
         [PreEmptive.Attributes.Setup(CustomEndpoint = "so-s.info/PreEmptive.Web.Services.Messaging/MessagingServiceV2.asmx")]
         [PreEmptive.Attributes.SystemProfile()]
         [PreEmptive.Attributes.PerformanceProbe()]
-        [PreEmptive.Attributes.Feature("NetSqlAzMan Cache Service InvalidateUtility: Invalidate Cache Invoked", EventType = PreEmptive.Attributes.FeatureEventTypes.Start)]
-        [PreEmptive.Attributes.Feature("NetSqlAzMan Cache Service InvalidateUtility: Invalidate Cache Invoked", EventType = PreEmptive.Attributes.FeatureEventTypes.Stop)]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan Cache Service InvalidateUtility: Invalidate Cache Invoked")]
         [PreEmptive.Attributes.Teardown()]
         [SecurityCritical()]
         static void Main(string[] args)

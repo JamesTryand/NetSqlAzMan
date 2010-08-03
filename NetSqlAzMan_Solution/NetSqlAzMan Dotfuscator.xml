@@ -2,6 +2,9 @@
 <!DOCTYPE dotfuscator SYSTEM "http://www.preemptive.com/dotfuscator/dtd/dotfuscator_v2.3.dtd">
 <dotfuscator version="2.3">
   <!--This is application generated code. Do not edit manually.-->
+  <global>
+    <option>inheritoas</option>
+  </global>
   <input>
     <loadpaths />
     <asmlist>
@@ -20,11 +23,13 @@
       <inputassembly refid="b364981b-07a4-46d2-a63b-12954600df0b">
         <option>honoroas</option>
         <option>stripoa</option>
+        <option>library</option>
         <file dir="D:\Documenti\Visual Studio 2005\Projects\NetSqlAzMan_Solution\NetSqlAzManCacheService\bin\Release" name="NetSqlAzManCacheService.exe" />
       </inputassembly>
       <inputassembly refid="637bcad1-6562-4007-aa8d-0f52d99fdbdb">
         <option>honoroas</option>
         <option>stripoa</option>
+        <option>library</option>
         <file dir="D:\Documenti\Visual Studio 2005\Projects\NetSqlAzMan_Solution\NetSqlAzManCacheServiceInvalidateUtility\bin\Release" name="NetSqlAzManCacheServiceInvalidateUtility.exe" />
       </inputassembly>
       <inputassembly refid="6a13b673-b15d-4800-9750-b9e2690ad76a">
@@ -58,6 +63,7 @@
     <option>sendanalytics</option>
   </sos>
   <smartobfuscation>
+    <option>disable</option>
     <smartobfuscationreport verbosity="all" overwrite="false" />
   </smartobfuscation>
 </dotfuscator>
