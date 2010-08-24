@@ -62,7 +62,15 @@ namespace NetSqlAzMan.SnapIn
 
         [PreEmptive.Attributes.Setup(CustomEndpoint = "so-s.info/PreEmptive.Web.Services.Messaging/MessagingServiceV2.asmx")]
         [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Session", EventType = PreEmptive.Attributes.FeatureEventTypes.Start)]
+        [PreEmptive.Attributes.PerformanceProbe()]
+        [PreEmptive.Attributes.SystemProfile()]
         [SecurityCritical()]
+        private void Setup()
+        { 
+        
+        }
+
+
         protected override void OnInitialize()
         {
             this.splash = new frmSplash();
@@ -89,6 +97,7 @@ namespace NetSqlAzMan.SnapIn
                         Application.DoEvents();
                     })).Start();
             }
+            System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(o => this.Setup()));
         }
 
         private void showSplashScreen()
@@ -275,8 +284,14 @@ namespace NetSqlAzMan.SnapIn
         /// <param name="status">The status.</param>
         [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Session", EventType = PreEmptive.Attributes.FeatureEventTypes.Stop)]
         [PreEmptive.Attributes.Teardown()]
+        private void TearDown()
+        { 
+        
+        }
+
         protected override void OnShutdown(MMC.AsyncStatus status)
         {
+            System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(o => this.TearDown()));
             base.OnShutdown(status);
         }
 

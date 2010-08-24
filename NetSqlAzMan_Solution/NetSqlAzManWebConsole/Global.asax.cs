@@ -97,8 +97,8 @@ namespace NetSqlAzManWebConsole
         }
 
         [SecurityCritical()]
-        //[PreEmptive.Attributes.PerformanceProbe()]
-        //[PreEmptive.Attributes.SystemProfile()]
+        [PreEmptive.Attributes.PerformanceProbe()]
+        [PreEmptive.Attributes.SystemProfile()]
         [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Session", EventType = PreEmptive.Attributes.FeatureEventTypes.Start)]
         protected void Session_Start(object sender, EventArgs e)
         {

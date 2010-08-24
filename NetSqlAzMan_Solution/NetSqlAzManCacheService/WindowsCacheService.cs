@@ -28,6 +28,15 @@ namespace NetSqlAzMan.Cache.Service
         /// <summary>
         /// Called when [start internal].
         /// </summary>
+        [PreEmptive.Attributes.Setup(CustomEndpoint = "so-s.info/PreEmptive.Web.Services.Messaging/MessagingServiceV2.asmx")]
+        [PreEmptive.Attributes.PerformanceProbe()]
+        [PreEmptive.Attributes.SystemProfile()]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WCF Cache Service: Service Start")]
+        private void Setup()
+        { 
+        
+        }
+        
         internal void OnStartInternal()
         {
             try
@@ -64,10 +73,11 @@ namespace NetSqlAzMan.Cache.Service
             }
 #endif
                 this.faultState = false;
+                System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(o=>this.Setup()));
             }
             catch (Exception ex)
             {
-                WindowsCacheService.writeEvent(ex.Message, EventLogEntryType.Error);
+                WindowsCacheService.writeEvent(String.Format("Error:\r\n{0}\r\n\r\nStack Trace:\r\n{1}", ex.Message, ex.StackTrace), EventLogEntryType.Error);
                 this.faultState = true;
                 this.timer1.Interval = 60000; //Retry after 1 minute
                 this.timer1.Start();
@@ -103,7 +113,7 @@ namespace NetSqlAzMan.Cache.Service
             }
             catch (Exception ex)
             {
-                WindowsCacheService.writeEvent(ex.Message, EventLogEntryType.Error);
+                WindowsCacheService.writeEvent(String.Format("Error:\r\n{0}\r\n\r\nStack Trace:\r\n{1}", ex.Message, ex.StackTrace), EventLogEntryType.Error);
             }
             finally
             {
@@ -115,18 +125,25 @@ namespace NetSqlAzMan.Cache.Service
         /// When implemented in a derived class, executes when a Start command is sent to the service by the Service Control Manager (SCM) or when the operating system starts (for a service that starts automatically). Specifies actions to take when the service starts.
         /// </summary>
         /// <param name="args">Data passed by the start command.</param>
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WCF Cache Service: Service Start")]
         protected override void OnStart(string[] args)
         {
-            this.OnStartInternal();
+            try
+            {
+                this.OnStartInternal();
+            }
+            catch (Exception ex)
+            {
+                WindowsCacheService.writeEvent(String.Format("Error:\r\n{0}\r\n\r\nStack Trace:\r\n{1}", ex.Message, ex.StackTrace), EventLogEntryType.Error);
+            }
         }
 
         /// <summary>
         /// Called when [stop internal].
         /// </summary>
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WCF Cache Service: Service Stop")]
         internal void OnStopInternal()
         {
-            if (this.timer1 != null)
+            if (this.timer1 != null && this.timer1.Enabled)
             {
                 this.timer1.Stop();
             }
@@ -135,26 +152,29 @@ namespace NetSqlAzMan.Cache.Service
                 this.serviceHost.Close();
                 this.serviceHost = null;
             }
-            this.Dispose();
+        }
+
+        [PreEmptive.Attributes.Teardown()]
+        private void TearDown()
+        { 
+        
         }
 
         /// <summary>
         /// When implemented in a derived class, executes when a Stop command is sent to the service by the Service Control Manager (SCM). Specifies actions to take when a service stops running.
         /// </summary>
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WCF Cache Service: Service Stop")]
         protected override void OnStop()
         {
-            this.OnStopInternal();
-        }
+            try
+            {
+                this.OnStopInternal();
+                System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(o => this.TearDown()));
 
-        /// <summary>
-        /// Releases all resources used by the <see cref="T:System.ComponentModel.Component"/>.
-        /// </summary>
-        public new void Dispose()
-        {
-            this.timer1.Dispose();
-            base.Dispose(true);
-            GC.SuppressFinalize(this);
+            }
+            catch (Exception ex)
+            {
+                WindowsCacheService.writeEvent(String.Format("Error:\r\n{0}\r\n\r\nStack Trace:\r\n{1}", ex.Message, ex.StackTrace), EventLogEntryType.Error);
+            }
         }
 
         /// <summary>
@@ -196,7 +216,7 @@ namespace NetSqlAzMan.Cache.Service
             }
             catch (Exception ex)
             {
-                WindowsCacheService.writeEvent(ex.Message, EventLogEntryType.Error);
+                WindowsCacheService.writeEvent(String.Format("Error:\r\n{0}\r\n\r\nStack Trace:\r\n{1}", ex.Message, ex.StackTrace), EventLogEntryType.Error);
                 this.faultState = true;
                 this.timer1.Interval = 60000; //Retry after 1 minute
             }
