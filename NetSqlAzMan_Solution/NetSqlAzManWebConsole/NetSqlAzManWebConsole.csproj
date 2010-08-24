@@ -53,10 +53,7 @@
       <HintPath>.\AzRoles\${Platform}\Microsoft.Interop.Security.AzRoles.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="PreEmptive.Attributes, Version=1.5.0.0, Culture=neutral, PublicKeyToken=0a50e0ef4ca013fe">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\NetSqlAzMan\PreEmptive\PreEmptive.Attributes.dll</HintPath>
-    </Reference>
+    <Reference Include="PreEmptive.Attributes, Version=1.5.0.0, Culture=neutral, PublicKeyToken=0a50e0ef4ca013fe" />
     <Reference Include="SqlAudit, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0010b2b0864b0d6b, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />

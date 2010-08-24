@@ -107,8 +107,8 @@ namespace NetSqlAzMan.SnapIn
         /// </summary>
         /// <param name="status">asynchronous status for updating the console</param>
         /// <param name="persistenceData">binary data stored in the console file</param>
-        [PreEmptive.Attributes.PerformanceProbe()]
-        [PreEmptive.Attributes.SystemProfile()]
+        //[PreEmptive.Attributes.PerformanceProbe()]
+        //[PreEmptive.Attributes.SystemProfile()]
         [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Load Custom Data")]
         protected override void OnLoadCustomData(MMC.AsyncStatus status, byte[] persistenceData)
         {

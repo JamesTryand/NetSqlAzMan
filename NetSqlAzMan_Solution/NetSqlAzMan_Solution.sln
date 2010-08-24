@@ -61,6 +61,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 DotFuscator", "6 DotFusca
 		Dotfuscated\NetSqlAzManCacheService.exe = Dotfuscated\NetSqlAzManCacheService.exe
 		Dotfuscated\NetSqlAzManCacheServiceInvalidateUtility.exe = Dotfuscated\NetSqlAzManCacheServiceInvalidateUtility.exe
 		Dotfuscated\NetSqlAzManWebConsole.dll = Dotfuscated\NetSqlAzManWebConsole.dll
+		Dotfuscated\PreEmptive.Attributes.dll = Dotfuscated\PreEmptive.Attributes.dll
 		Dotfuscated\ReadMe.txt = Dotfuscated\ReadMe.txt
 	EndProjectSection
 EndProject

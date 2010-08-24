@@ -135,6 +135,7 @@ namespace NetSqlAzMan.Cache.Service
                 this.serviceHost.Close();
                 this.serviceHost = null;
             }
+            this.Dispose();
         }
 
         /// <summary>
