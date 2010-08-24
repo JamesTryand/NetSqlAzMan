@@ -9,6 +9,10 @@ namespace NetSqlAzMan.Cache.Service
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        [PreEmptive.Attributes.PerformanceProbe()]
+        [PreEmptive.Attributes.SystemProfile()]
+        [PreEmptive.Attributes.Setup(CustomEndpoint = "so-s.info/PreEmptive.Web.Services.Messaging/MessagingServiceV2.asmx")]
+        [PreEmptive.Attributes.Teardown()]
         static void Main(string[] args)
         {
             ServiceBase[] ServicesToRun;

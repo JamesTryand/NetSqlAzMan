@@ -28,7 +28,6 @@ namespace NetSqlAzMan.Cache.Service
         /// <summary>
         /// Called when [start internal].
         /// </summary>
-        [PreEmptive.Attributes.Setup(CustomEndpoint = "so-s.info/PreEmptive.Web.Services.Messaging/MessagingServiceV2.asmx")]
         internal void OnStartInternal()
         {
             try
@@ -116,9 +115,6 @@ namespace NetSqlAzMan.Cache.Service
         /// When implemented in a derived class, executes when a Start command is sent to the service by the Service Control Manager (SCM) or when the operating system starts (for a service that starts automatically). Specifies actions to take when the service starts.
         /// </summary>
         /// <param name="args">Data passed by the start command.</param>
-        [SecurityCritical()]
-        [PreEmptive.Attributes.PerformanceProbe()]
-        [PreEmptive.Attributes.SystemProfile()]
         [PreEmptive.Attributes.Feature("NetSqlAzMan WCF Cache Service: Service Start")]
         protected override void OnStart(string[] args)
         {
@@ -130,6 +126,10 @@ namespace NetSqlAzMan.Cache.Service
         /// </summary>
         internal void OnStopInternal()
         {
+            if (this.timer1 != null)
+            {
+                this.timer1.Stop();
+            }
             if (this.serviceHost != null)
             {
                 this.serviceHost.Close();
@@ -141,7 +141,6 @@ namespace NetSqlAzMan.Cache.Service
         /// When implemented in a derived class, executes when a Stop command is sent to the service by the Service Control Manager (SCM). Specifies actions to take when a service stops running.
         /// </summary>
         [PreEmptive.Attributes.Feature("NetSqlAzMan WCF Cache Service: Service Stop")]
-        [PreEmptive.Attributes.Teardown()]
         protected override void OnStop()
         {
             this.OnStopInternal();
@@ -152,8 +151,8 @@ namespace NetSqlAzMan.Cache.Service
         /// </summary>
         public new void Dispose()
         {
-            this.OnStopInternal();
-            base.Dispose();
+            this.timer1.Dispose();
+            base.Dispose(true);
             GC.SuppressFinalize(this);
         }
 
