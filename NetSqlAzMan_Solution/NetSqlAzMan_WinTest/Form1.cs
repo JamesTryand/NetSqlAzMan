@@ -980,5 +980,24 @@ namespace Prova.BizRules
         {
             MessageBox.Show("created");
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //var sc = new NetSqlAzMan.Cache.StorageCache("data source=.\\sql2005;Initial Catalog=NetSqlAzManStorage;Integrated Security=SSPI");
+            //sc.BuildStorageCache();
+            //List<KeyValuePair<String, String>> attributes;
+            //var au = sc.CheckAccess("XXX",
+            //    "Application", "X",
+            //    WindowsIdentity.GetCurrent().GetUserBinarySSid(),
+            //    WindowsIdentity.GetCurrent().GetGroupsBinarySSid(), 
+            //    DateTime.Now, false, out attributes);
+
+
+            //var au2 = sc.GetAuthorizedItems("XXXX",
+            //    "X", 
+            //    WindowsIdentity.GetCurrent().GetUserBinarySSid(),
+            //    WindowsIdentity.GetCurrent().GetGroupsBinarySSid(),
+            //    DateTime.Now);
+        }
     }
 }

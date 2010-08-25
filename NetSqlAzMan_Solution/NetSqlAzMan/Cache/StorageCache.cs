@@ -27,6 +27,10 @@ namespace NetSqlAzMan.Cache
         /// Item Result Cache
         /// </summary>
         protected Hashtable itemResultCache;
+        /// <summary>
+        /// 
+        /// </summary>
+        protected Hashtable attributesResultCache;
         #endregion Fields
         #region Properties
         /// <summary>
@@ -804,6 +808,7 @@ namespace NetSqlAzMan.Cache
         private void storeApplicationItemValidation(string storeName, string applicationName, string itemName, out IAzManStore store, out IAzManApplication application, out IAzManItem item, out IEnumerable<IAzManItem> allItems)
         {
             this.itemResultCache = Hashtable.Synchronized(new Hashtable());
+            this.attributesResultCache = Hashtable.Synchronized(new Hashtable());
             storeName = storeName.Trim();
             applicationName = applicationName.Trim();
             itemName = itemName.Trim();
@@ -826,6 +831,7 @@ namespace NetSqlAzMan.Cache
         private void storeApplicationItemValidation(string storeName, string applicationName, out IAzManStore store, out IAzManApplication application, out IEnumerable<IAzManItem> allItems)
         {
             this.itemResultCache = Hashtable.Synchronized(new Hashtable());
+            this.attributesResultCache = Hashtable.Synchronized(new Hashtable());
             storeName = storeName.Trim();
             applicationName = applicationName.Trim();
             store = (from s in this.storage.Stores.Values
@@ -852,6 +858,7 @@ namespace NetSqlAzMan.Cache
             foreach (var parentItem in parentItems)
             {
                 AuthorizationType parentAuthorizationType;
+
                 if (!this.itemResultCache.ContainsKey(parentItem.Name))
                 {
                     List<KeyValuePair<string, string>> localAttributes;
@@ -862,6 +869,9 @@ namespace NetSqlAzMan.Cache
                 else
                 {
                     parentAuthorizationType = (AuthorizationType)this.itemResultCache[parentItem.Name];
+                    List<KeyValuePair<string, string>> localAttributes = (List<KeyValuePair<String, String>>)this.attributesResultCache[parentItem.Name];
+                    if (retrieveAttributes && (parentAuthorizationType == AuthorizationType.Allow || parentAuthorizationType == AuthorizationType.AllowWithDelegation))
+                        attributes.AddRange(localAttributes);
                 }
 
                 authorizationType = SqlAzManItem.mergeAuthorizations(authorizationType, parentAuthorizationType);
@@ -1113,6 +1123,13 @@ namespace NetSqlAzMan.Cache
                 if (!this.itemResultCache.ContainsKey(item.Name))
                 {
                     this.itemResultCache.Add(item.Name, authorizationType);
+                }
+            }
+            lock (this.attributesResultCache)
+            {
+                if (!this.attributesResultCache.ContainsKey(item.Name))
+                {
+                    this.attributesResultCache.Add(item.Name, attributes);
                 }
             }
             return authorizationType;
