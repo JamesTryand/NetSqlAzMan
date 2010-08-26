@@ -22,7 +22,7 @@ using System.Security;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("3d5900ae-111a-45be-96b3-d9e4606ca793")]
 [assembly: PreEmptive.Attributes.Business("3E35F098-CE43-4F82-9E9D-05C8B1046A45")]
-[assembly: PreEmptive.Attributes.Application("5B254108-E61B-4349-8961-1FF56B39F3B5", "NetSqlAzMan", "3.6.0.7", "NetSqlAzManCacheService.exe")]
+[assembly: PreEmptive.Attributes.Application("5B254108-E61B-4349-8961-1FF56B39F3B5", "NetSqlAzMan", "3.6.0.8", "NetSqlAzManCacheService.exe")]
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
@@ -32,7 +32,7 @@ using System.Security;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("3.6.0.7")]
-[assembly: AssemblyFileVersion("3.6.0.7")]
+[assembly: AssemblyVersion("3.6.0.8")]
+[assembly: AssemblyFileVersion("3.6.0.8")]
 [assembly: AllowPartiallyTrustedCallers()]
 [assembly: System.Security.SecurityRules(System.Security.SecurityRuleSet.Level1)]

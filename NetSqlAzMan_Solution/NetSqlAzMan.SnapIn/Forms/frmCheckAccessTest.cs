@@ -7,6 +7,7 @@ using NetSqlAzMan.Cache;
 using NetSqlAzMan.Interfaces;
 using NetSqlAzMan.SnapIn.DirectoryServices;
 using NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker;
+using System.Text;
 
 namespace NetSqlAzMan.SnapIn.Forms
 {
@@ -18,6 +19,8 @@ namespace NetSqlAzMan.SnapIn.Forms
         private IAzManDBUser dbuser = null;
         private Cache.UserPermissionCache cache = null;
         private Cache.StorageCache storageCache = null;
+        private StringBuilder sbMessages = new StringBuilder();
+
         [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Check Access Test")]
         public frmCheckAccessTest()
         {
@@ -177,6 +180,7 @@ namespace NetSqlAzMan.SnapIn.Forms
 
         private void btnCheckAccessTest_Click(object sender, EventArgs e)
         {
+            Boolean turboMode = false;
             try
             {
                 NTAccount nta = (NTAccount)(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).User.Translate(typeof(NTAccount)));
@@ -206,6 +210,7 @@ namespace NetSqlAzMan.SnapIn.Forms
                 }
                 this.HourGlass(true);
                 this.txtDetails.Text = String.Empty;
+                this.sbMessages.Clear();
                 this.btnCheckAccessTest.Enabled = this.btnClose.Enabled = 
                     this.btnBrowseWindowsUser.Enabled = this.btnBrowseDBUser.Enabled =
                     this.rbWindowsUser.Enabled = this.rbDBUser.Enabled = false;
@@ -219,19 +224,45 @@ namespace NetSqlAzMan.SnapIn.Forms
                 this.WriteLineDetailMessage(Globalization.MultilanguageResource.GetString("Done_Msg10"));
                 this.WriteLineDetailMessage(String.Empty);
                 TreeNode applicationTreeNode = this.checkAccessTestTreeView.Nodes[0].Nodes[0].Nodes[0];
+                if (this.application.Items.Count > 50)
+                    turboMode = true;
+
+                if (turboMode)
+                {
+                    this.txtDetails.Visible = false;
+                    this.checkAccessTestTreeView.BeginUpdate();
+                }
                 foreach (TreeNode itemTreeNode in applicationTreeNode.Nodes)
                 {
-                    this.checkAccessTest(itemTreeNode);
+                    this.checkAccessTest(itemTreeNode, turboMode);
+                }
+                if (turboMode)
+                {
+                    this.txtDetails.Visible = true;
+                    this.WriteMessages();
+                    this.checkAccessTestTreeView.EndUpdate();
                 }
                 this.WriteLineDetailMessage(String.Empty);
                 this.WriteLineDetailMessage(Globalization.MultilanguageResource.GetString("frmCheckAccessTest_Msg50") + " " + DateTime.Now.ToString());
             }
             catch (Exception ex)
             {
+                if (turboMode)
+                {
+                    this.txtDetails.Visible = true;
+                    this.WriteMessages();
+                    this.checkAccessTestTreeView.EndUpdate();
+                }
                 this.ShowError(ex.Message, Globalization.MultilanguageResource.GetString("frmCheckAccessTest_Msg10"));
             }
             finally
             {
+                if (turboMode)
+                {
+                    this.WriteMessages();
+                    this.txtDetails.Visible = true;
+                    this.checkAccessTestTreeView.EndUpdate();
+                }
                 this.btnCheckAccessTest.Enabled = this.btnClose.Enabled = 
                     this.btnBrowseWindowsUser.Enabled = this.btnBrowseDBUser.Enabled =
                     this.rbWindowsUser.Enabled = this.rbDBUser.Enabled = true;
@@ -305,7 +336,7 @@ namespace NetSqlAzMan.SnapIn.Forms
             }
         }
 
-        private void checkAccessTest(TreeNode tn)
+        private void checkAccessTest(TreeNode tn, Boolean turboMode)
         {
             string sItemType = String.Empty;
             switch (tn.ImageIndex)
@@ -420,24 +451,33 @@ namespace NetSqlAzMan.SnapIn.Forms
                 sAuth = Globalization.MultilanguageResource.GetString("frmCheckAccessTest_Msg10");
                 this.WriteLineDetailMessage(String.Format("{0} [{1} mls.]", ex.Message, elapsedTime.TotalMilliseconds));
             }
-            tn.Text = String.Format("{0} - ({1})", tn.Text, sAuth.ToUpper());
+            if (!turboMode)
+            {
+                tn.Text = String.Format("{0} - ({1})", tn.Text, sAuth.ToUpper());
+                tn.EnsureVisible();
+                Application.DoEvents();
+            }
             
-            tn.EnsureVisible();
-            Application.DoEvents();
 
             foreach (TreeNode tnChild in tn.Nodes)
             {
-                this.checkAccessTest(tnChild);
+                this.checkAccessTest(tnChild, turboMode);
             }
         }
 
         private void WriteDetailMessage(string message)
         {
-            this.txtDetails.Text += message;
+            this.sbMessages = this.sbMessages.Append(message);
+            //this.txtDetails.AppendText(message);
             this.lblMessage.Text = message.Replace("\r\n", "");
-            this.txtDetails.SelectionStart = this.txtDetails.Text.Length;
-            this.txtDetails.ScrollToCaret();
+            //this.txtDetails.SelectionStart = this.txtDetails.Text.Length;
+            //this.txtDetails.ScrollToCaret();
             /*Application.DoEvents();*/
+        }
+
+        private void WriteMessages()
+        {
+            this.txtDetails.AppendText(this.sbMessages.ToString());
         }
 
         private void WriteLineDetailMessage(string message)

@@ -607,15 +607,15 @@ namespace Prova.BizRules
 
         private void btnCheckAccessTest_Click(object sender, EventArgs e)
         {
-            IAzManStorage storage = new SqlAzManStorage("data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
-            List<KeyValuePair<string, string>> attributes;
-            var auth = storage.CheckAccess("AET Authorization Store", "Trading Hub", "Create Deal", WindowsIdentity.GetCurrent(), DateTime.Now, false, out attributes);
-            return;
-            //frmCheckAccessTest frm = new frmCheckAccessTest();
             //IAzManStorage storage = new SqlAzManStorage("data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
-            //IAzManStore store = storage.GetStore("Italferr");
-            //frm.application = store.GetApplication("CartaDeiServizi");
-            //frm.ShowDialog();
+            //List<KeyValuePair<string, string>> attributes;
+            //var auth = storage.CheckAccess("AET Authorization Store", "Trading Hub", "Create Deal", WindowsIdentity.GetCurrent(), DateTime.Now, false, out attributes);
+            //return;
+            frmCheckAccessTest frm = new frmCheckAccessTest();
+            IAzManStorage storage = new SqlAzManStorage("data source=.\\sql2005;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
+            IAzManStore store = storage.GetStore("Sistel-1Sez");
+            frm.application = store.GetApplication("Perseo.net");
+            frm.ShowDialog();
         }
 
         private void btnIsAMemberOf_Click(object sender, EventArgs e)

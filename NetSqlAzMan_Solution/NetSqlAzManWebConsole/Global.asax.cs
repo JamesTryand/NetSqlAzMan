@@ -205,7 +205,7 @@ namespace NetSqlAzManWebConsole
             }
         }
 
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Check For Update from Version 3.6.0.7")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Check For Update from Version 3.6.0.8")]
         private string checkForUpdate()
         {
             try
