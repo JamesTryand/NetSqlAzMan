@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:NetSqlAzManSetup_x86"
+"ProjectName" = "8:NetSqlAzManSetup_x64"
 "LanguageId" = "3:0"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:0"
@@ -327,7 +327,7 @@
         "DisplayName" = "8:Debug"
         "IsDebugOnly" = "11:TRUE"
         "IsReleaseOnly" = "11:FALSE"
-        "OutputFilename" = "8:Debug\\NetSqlAzManSetup.msi"
+        "OutputFilename" = "8:Debug\\NetSqlAzManSetupX64.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -364,7 +364,7 @@
         "DisplayName" = "8:MSI Only"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:FALSE"
-        "OutputFilename" = "8:MSI Only\\NetSqlAzManSetup.msi"
+        "OutputFilename" = "8:MSI Only\\NetSqlAzManSetupX64.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -401,7 +401,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\NetSqlAzManSetup_x86.msi"
+        "OutputFilename" = "8:Release\\NetSqlAzManSetup_x64.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -438,49 +438,7 @@
     {
         "CustomAction"
         {
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_5477B79A15654EBA9E046642411C6BC1"
-            {
-            "Name" = "8:NetSqlAzMan.SnapIn.dll"
-            "Condition" = "8:"
-            "Object" = "8:_16B9C708F28144A1A19133DE35B7ED3C"
-            "FileType" = "3:1"
-            "InstallAction" = "3:1"
-            "Arguments" = "8:"
-            "EntryPoint" = "8:"
-            "Sequence" = "3:1"
-            "Identifier" = "8:_102B7B33_EA26_4F55_940C_2BE49D255D6D"
-            "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
-            }
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_A68403BF01B142E0943E728BBB09E270"
-            {
-            "Name" = "8:NetSqlAzMan.SnapIn.dll"
-            "Condition" = "8:"
-            "Object" = "8:_16B9C708F28144A1A19133DE35B7ED3C"
-            "FileType" = "3:1"
-            "InstallAction" = "3:2"
-            "Arguments" = "8:"
-            "EntryPoint" = "8:"
-            "Sequence" = "3:1"
-            "Identifier" = "8:_6D9B57FE_C464_43F2_BE0E_32C2FA63B813"
-            "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
-            }
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_B565570BDC524980AF44F2069E1BE5E7"
-            {
-            "Name" = "8:NetSqlAzMan.SnapIn.dll"
-            "Condition" = "8:"
-            "Object" = "8:_16B9C708F28144A1A19133DE35B7ED3C"
-            "FileType" = "3:1"
-            "InstallAction" = "3:4"
-            "Arguments" = "8:"
-            "EntryPoint" = "8:"
-            "Sequence" = "3:1"
-            "Identifier" = "8:_DD6F5B33_973A_4B89_8F94_4A0AE2346E65"
-            "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
-            }
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_DE409BBB69BE41949CA0DEF022F0386C"
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_18FC1D1F2ACE4BD4941601C39D95460E"
             {
             "Name" = "8:NetSqlAzMan.SnapIn.dll"
             "Condition" = "8:"
@@ -490,7 +448,49 @@
             "Arguments" = "8:"
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
-            "Identifier" = "8:_B19E5D75_40E5_4884_A559_BBA153247FA3"
+            "Identifier" = "8:_231919E1_8C5E_4C48_90A4_04406197EDB1"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_A5CA2122D5294B11BDE23F9541046964"
+            {
+            "Name" = "8:NetSqlAzMan.SnapIn.dll"
+            "Condition" = "8:"
+            "Object" = "8:_16B9C708F28144A1A19133DE35B7ED3C"
+            "FileType" = "3:1"
+            "InstallAction" = "3:1"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_1EDF2606_AB67_4F13_ADDC_E2739A839FFB"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_B1108641B9A34DBCA8508AEBC163B6C2"
+            {
+            "Name" = "8:NetSqlAzMan.SnapIn.dll"
+            "Condition" = "8:"
+            "Object" = "8:_16B9C708F28144A1A19133DE35B7ED3C"
+            "FileType" = "3:1"
+            "InstallAction" = "3:4"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_FB9FDEBB_81E1_4E34_B864_DFFCE5F04321"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_F5D165FEEC4E4D2F83B3FEFFB7F731CA"
+            {
+            "Name" = "8:NetSqlAzMan.SnapIn.dll"
+            "Condition" = "8:"
+            "Object" = "8:_16B9C708F28144A1A19133DE35B7ED3C"
+            "FileType" = "3:1"
+            "InstallAction" = "3:2"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_F9054C1D_CB58_46C9_BF9F_4CCE3741C911"
             "InstallerClass" = "11:TRUE"
             "CustomActionData" = "8:"
             }
@@ -1137,7 +1137,7 @@
             "SourcePath" = "8:..\\NetSqlAzMan.SnapIn\\mmc.exe.config"
             "TargetName" = "8:mmc.exe.config"
             "Tag" = "8:"
-            "Folder" = "8:_11E3F09500BB48CB97964023A8AE42CB"
+            "Folder" = "8:_860414543BE34541BA68DD512832A315"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1208,7 +1208,7 @@
             "SourcePath" = "8:NetSqlAzMan.msc"
             "TargetName" = "8:NetSqlAzMan.msc"
             "Tag" = "8:"
-            "Folder" = "8:_11E3F09500BB48CB97964023A8AE42CB"
+            "Folder" = "8:_860414543BE34541BA68DD512832A315"
             "Condition" = "8:"
             "Transitive" = "11:TRUE"
             "Vital" = "11:TRUE"
@@ -1464,7 +1464,7 @@
         {
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_01CCD32AB77E4E569260D008FC107766"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder]\\.NET Sql Authorization Manager"
+            "DefaultLocation" = "8:[ProgramFiles64Folder]\\.NET Sql Authorization Manager"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -1505,17 +1505,6 @@
                         {
                         }
                     }
-                }
-            }
-            "{1525181F-901A-416C-8A58-119130FE478E}:_11E3F09500BB48CB97964023A8AE42CB"
-            {
-            "Name" = "8:#1914"
-            "AlwaysCreate" = "11:FALSE"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Property" = "8:SystemFolder"
-                "Folders"
-                {
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_2A3EFDC253C14673A1935F0D945997B9"
@@ -1573,6 +1562,17 @@
                     }
                 }
             }
+            "{1525181F-901A-416C-8A58-119130FE478E}:_860414543BE34541BA68DD512832A315"
+            {
+            "Name" = "8:#1936"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:System64Folder"
+                "Folders"
+                {
+                }
+            }
             "{1525181F-901A-416C-8A58-119130FE478E}:_ACBFF3337AD84948B02B0BD897F5B449"
             {
             "Name" = "8:#1916"
@@ -1623,7 +1623,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:.NET Sql Authorization Manager"
         "ProductCode" = "8:{FECA03A5-D073-4D1B-941A-596F358E4324}"
-        "PackageCode" = "8:{D28C741D-57C0-4FB3-B2FF-E9838A678324}"
+        "PackageCode" = "8:{0C01A285-51FE-4FD1-AA5E-2F9D0CF40620}"
         "UpgradeCode" = "8:{84CEB3F7-876F-4448-8001-2FCB4D8214C7}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1644,7 +1644,7 @@
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
-        "TargetPlatform" = "3:0"
+        "TargetPlatform" = "3:1"
         "PreBuildEvent" = "8:"
         "PostBuildEvent" = "8:"
         "RunPostBuildEvent" = "3:0"

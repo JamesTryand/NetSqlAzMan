@@ -2,11 +2,11 @@
 @echo PreEmptive DotFuscator Post-Deployment
 
 @echo Making Assemblies Strong Name (Delay Sign) 
-"%ProgramFiles%\Microsoft SDKs\Windows\v7.0A\bin\sn" -R "NetSqlAzMan.dll" "NetSqlAzMan.pfx"
-"%ProgramFiles%\Microsoft SDKs\Windows\v7.0A\bin\sn" -R "NetSqlAzMan.SnapIn.dll" "NetSqlAzMan.SnapIn.pfx"
-"%ProgramFiles%\Microsoft SDKs\Windows\v7.0A\bin\sn" -R "NetSqlAzManCacheService.exe" "NetSqlAzManCacheService.pfx"
-"%ProgramFiles%\Microsoft SDKs\Windows\v7.0A\bin\sn" -R "NetSqlAzManCacheServiceInvalidateUtility.exe" "NetSqlAzManCacheServiceInvalidateUtility.pfx"
-"%ProgramFiles%\Microsoft SDKs\Windows\v7.0A\bin\sn" -R "NetSqlAzManWebConsole.dll" "NetSqlAzManWebConsole.pfx"
+"C:\Program Files (x86)\Microsoft Visual Studio 8\SDK\v2.0\Bin\sn" -R "NetSqlAzMan.dll" "NetSqlAzMan.pfx"
+"C:\Program Files (x86)\Microsoft Visual Studio 8\SDK\v2.0\Bin\sn" -R "NetSqlAzMan.SnapIn.dll" "NetSqlAzMan.SnapIn.pfx"
+"C:\Program Files (x86)\Microsoft Visual Studio 8\SDK\v2.0\Bin\sn" -R "NetSqlAzManCacheService.exe" "NetSqlAzManCacheService.pfx"
+"C:\Program Files (x86)\Microsoft Visual Studio 8\SDK\v2.0\Bin\sn" -R "NetSqlAzManCacheServiceInvalidateUtility.exe" "NetSqlAzManCacheServiceInvalidateUtility.pfx"
+"C:\Program Files (x86)\Microsoft Visual Studio 8\SDK\v2.0\Bin\sn" -R "NetSqlAzManWebConsole.dll" "NetSqlAzManWebConsole.pfx"
 
 @echo Copying Strong Name Assemblies to source directories
 copy netsqlazman.dll ..\NetSqlAzMan\bin\Debug\ /Y
@@ -31,6 +31,9 @@ copy NetSqlAzManCacheServiceInvalidateUtility.exe ..\NetSqlAzManCacheServiceInva
 copy netsqlazman.dll ..\NetSqlAzManWebConsole\bin\ /Y
 
 copy NetSqlAzManWebConsole.dll ..\NetSqlAzManWebConsole\bin\ /Y
+
+@Echo Remember to Fixing NetSqlAzManSetup_x64.msi
+@echo "D:\Documenti\Visual Studio 2005\Projects\NetSqlAzMan_Solution\NetSqlAzManSetup_x64_Fix64BitMSIFile\bin\Release\NetSqlAzManSetup_x64_Fix64BitMSIFile.exe"
 
 pause
 

@@ -117,6 +117,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_D4315FA18C5CE8BEC3E3A87E0226655D"
+        "OwnerKey" = "8:_EE64BC75C0D746CDB62FE8B95E978E3E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_D6CBCCD02C18433598A8AC2D1B0C3544"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -443,7 +449,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.7, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.8, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_165D609BD96949928B0A2992828D7C2B"
@@ -654,7 +660,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzManCacheService, Version=3.6.0.7, Culture=neutral, PublicKeyToken=b32c82f28a5e6493, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzManCacheService, Version=3.6.0.8, Culture=neutral, PublicKeyToken=b32c82f28a5e6493, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_7E001695C3D54334B049CD72CA910D45"
@@ -745,7 +751,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.7, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.8, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_D4315FA18C5CE8BEC3E3A87E0226655D"
@@ -856,7 +862,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzManCacheServiceInvalidateUtility, Version=3.6.0.7, Culture=neutral, PublicKeyToken=767b91c78eca0fe0, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzManCacheServiceInvalidateUtility, Version=3.6.0.8, Culture=neutral, PublicKeyToken=767b91c78eca0fe0, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_EE64BC75C0D746CDB62FE8B95E978E3E"
@@ -995,7 +1001,7 @@
                                     "Name" = "8:Service management"
                                     "AlwaysCreate" = "11:FALSE"
                                     "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
+                                    "Transitive" = "11:TRUE"
                                     "Property" = "8:_A1BD6E0400E041C284C5827694EBD524"
                                         "Folders"
                                         {
@@ -1006,7 +1012,7 @@
                                     "Name" = "8:Documentation"
                                     "AlwaysCreate" = "11:FALSE"
                                     "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
+                                    "Transitive" = "11:TRUE"
                                     "Property" = "8:_EC1E2EE369E5402E8A0DF0BA02C370A0"
                                         "Folders"
                                         {
@@ -1035,7 +1041,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:.NET Sql Authorization Manager Cache Service"
         "ProductCode" = "8:{49DC5446-1BC2-49DF-B504-FFE668025B06}"
-        "PackageCode" = "8:{6F6176C4-16C1-4D97-A412-EE7B9197D2AD}"
+        "PackageCode" = "8:{B66255CA-20C3-4903-A126-A089E7F9A931}"
         "UpgradeCode" = "8:{7349E32A-9FF6-437A-87E5-7796CC3D6327}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
