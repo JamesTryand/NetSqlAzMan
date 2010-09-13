@@ -29,11 +29,11 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "NetSqlAzMan_VB_WinTest", "N
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetSqlAzManWebConsole", "NetSqlAzManWebConsole\NetSqlAzManWebConsole.csproj", "{FDA1F3A5-6403-45A9-AFBA-DAFF20D9308D}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "NetSqlAzManWebConsoleSetup", "NetSqlAzManWebConsoleSetup\NetSqlAzManWebConsoleSetup.vdproj", "{D7E0828E-858A-446B-B466-E86DEA61B5F8}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "NetSqlAzManWebConsoleSetup_x86", "NetSqlAzManWebConsoleSetup\NetSqlAzManWebConsoleSetup.vdproj", "{D7E0828E-858A-446B-B466-E86DEA61B5F8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetSqlAzManCacheService", "NetSqlAzManCacheService\NetSqlAzManCacheService.csproj", "{F7BA1923-B790-4FDA-A708-7430B7438264}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "NetSqlAzManCacheServiceSetup", "NetSqlAzManCacheServiceSetup\NetSqlAzManCacheServiceSetup.vdproj", "{A4C30C34-5B24-4CDD-8EDC-D57079ABF4D2}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "NetSqlAzManCacheServiceSetup_x86", "NetSqlAzManCacheServiceSetup\NetSqlAzManCacheServiceSetup.vdproj", "{A4C30C34-5B24-4CDD-8EDC-D57079ABF4D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetSqlAzManCacheServiceInvalidateUtility", "NetSqlAzManCacheServiceInvalidateUtility\NetSqlAzManCacheServiceInvalidateUtility.csproj", "{9A4BC4D5-3E56-4E31-8CD9-CE1352F3F165}"
 EndProject
@@ -69,9 +69,13 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "NetSqlAzManSetup_x64", "Net
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetSqlAzManSetup_x64_Fix64BitMSIFile", "NetSqlAzManSetup_x64_Fix64BitMSIFile\NetSqlAzManSetup_x64_Fix64BitMSIFile.csproj", "{641C75A7-1AA6-419D-9D51-520744DCDD83}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "NetSqlAzManCacheServiceSetup_x64", "NetSqlAzManCacheServiceSetup_x64\NetSqlAzManCacheServiceSetup_x64.vdproj", "{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "NetSqlAzManWebConsoleSetup_x64", "NetSqlAzManWebConsoleSetup_x64\NetSqlAzManWebConsoleSetup_x64.vdproj", "{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 22
+		SccNumberOfProjects = 24
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs08
 		SccLocalPath0 = .
@@ -159,6 +163,14 @@ Global
 		SccProjectTopLevelParentUniqueName21 = NetSqlAzMan_Solution.sln
 		SccProjectName21 = NetSqlAzManSetup_x64_Fix64BitMSIFile
 		SccLocalPath21 = NetSqlAzManSetup_x64_Fix64BitMSIFile
+		SccProjectUniqueName22 = NetSqlAzManCacheServiceSetup_x64\\NetSqlAzManCacheServiceSetup_x64.vdproj
+		SccProjectTopLevelParentUniqueName22 = NetSqlAzMan_Solution.sln
+		SccProjectName22 = NetSqlAzManCacheServiceSetup_x64
+		SccLocalPath22 = NetSqlAzManCacheServiceSetup_x64
+		SccProjectUniqueName23 = NetSqlAzManWebConsoleSetup_x64\\NetSqlAzManWebConsoleSetup_x64.vdproj
+		SccProjectTopLevelParentUniqueName23 = NetSqlAzMan_Solution.sln
+		SccProjectName23 = NetSqlAzManWebConsoleSetup_x64
+		SccLocalPath23 = NetSqlAzManWebConsoleSetup_x64
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -488,6 +500,7 @@ Global
 		{D7E0828E-858A-446B-B466-E86DEA61B5F8}.Release|.NET.ActiveCfg = Release
 		{D7E0828E-858A-446B-B466-E86DEA61B5F8}.Release|.NET.Build.0 = Release
 		{D7E0828E-858A-446B-B466-E86DEA61B5F8}.Release|Any CPU.ActiveCfg = Release
+		{D7E0828E-858A-446B-B466-E86DEA61B5F8}.Release|Any CPU.Build.0 = Release
 		{D7E0828E-858A-446B-B466-E86DEA61B5F8}.Release|Mixed Platforms.ActiveCfg = Release
 		{D7E0828E-858A-446B-B466-E86DEA61B5F8}.Release|Win32.ActiveCfg = Release
 		{D7E0828E-858A-446B-B466-E86DEA61B5F8}.Release|x86.ActiveCfg = Release
@@ -551,6 +564,7 @@ Global
 		{A4C30C34-5B24-4CDD-8EDC-D57079ABF4D2}.Release|.NET.ActiveCfg = Release
 		{A4C30C34-5B24-4CDD-8EDC-D57079ABF4D2}.Release|.NET.Build.0 = Release
 		{A4C30C34-5B24-4CDD-8EDC-D57079ABF4D2}.Release|Any CPU.ActiveCfg = Release
+		{A4C30C34-5B24-4CDD-8EDC-D57079ABF4D2}.Release|Any CPU.Build.0 = Release
 		{A4C30C34-5B24-4CDD-8EDC-D57079ABF4D2}.Release|Mixed Platforms.ActiveCfg = Release
 		{A4C30C34-5B24-4CDD-8EDC-D57079ABF4D2}.Release|Win32.ActiveCfg = Release
 		{A4C30C34-5B24-4CDD-8EDC-D57079ABF4D2}.Release|x86.ActiveCfg = Release
@@ -707,7 +721,6 @@ Global
 		{93F4D570-A2E6-41C1-BB82-53134F897C1A}.Release|.NET.Build.0 = Default|Any CPU
 		{93F4D570-A2E6-41C1-BB82-53134F897C1A}.Release|Any CPU.ActiveCfg = Default|Any CPU
 		{93F4D570-A2E6-41C1-BB82-53134F897C1A}.Release|Any CPU.Build.0 = Default|Any CPU
-		{93F4D570-A2E6-41C1-BB82-53134F897C1A}.Release|Any CPU.Deploy.0 = Default|Any CPU
 		{93F4D570-A2E6-41C1-BB82-53134F897C1A}.Release|Mixed Platforms.ActiveCfg = Default|Any CPU
 		{93F4D570-A2E6-41C1-BB82-53134F897C1A}.Release|Mixed Platforms.Build.0 = Default|Any CPU
 		{93F4D570-A2E6-41C1-BB82-53134F897C1A}.Release|Mixed Platforms.Deploy.0 = Default|Any CPU
@@ -840,6 +853,86 @@ Global
 		{641C75A7-1AA6-419D-9D51-520744DCDD83}.Release|Win32.ActiveCfg = Release|x86
 		{641C75A7-1AA6-419D-9D51-520744DCDD83}.Release|x86.ActiveCfg = Release|x86
 		{641C75A7-1AA6-419D-9D51-520744DCDD83}.Release|x86.Build.0 = Release|x86
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Debug|.NET.ActiveCfg = Debug
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Debug|.NET.Build.0 = Debug
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Debug|Any CPU.ActiveCfg = Debug
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Debug|Any CPU.Build.0 = Debug
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Debug|Mixed Platforms.Build.0 = Debug
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Debug|Win32.ActiveCfg = Debug
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Debug|Win32.Build.0 = Debug
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Debug|x86.ActiveCfg = Debug
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Debug|x86.Build.0 = Debug
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Default|.NET.ActiveCfg = Debug
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Default|.NET.Build.0 = Debug
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Default|Any CPU.ActiveCfg = Debug
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Default|Any CPU.Build.0 = Debug
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Default|Mixed Platforms.ActiveCfg = Debug
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Default|Mixed Platforms.Build.0 = Debug
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Default|Win32.ActiveCfg = Debug
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Default|Win32.Build.0 = Debug
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Default|x86.ActiveCfg = Debug
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Default|x86.Build.0 = Debug
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.MSI Only|.NET.ActiveCfg = MSI Only
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.MSI Only|.NET.Build.0 = MSI Only
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.MSI Only|Any CPU.ActiveCfg = MSI Only
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.MSI Only|Any CPU.Build.0 = MSI Only
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.MSI Only|Mixed Platforms.ActiveCfg = MSI Only
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.MSI Only|Mixed Platforms.Build.0 = MSI Only
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.MSI Only|Win32.ActiveCfg = MSI Only
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.MSI Only|Win32.Build.0 = MSI Only
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.MSI Only|x86.ActiveCfg = MSI Only
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.MSI Only|x86.Build.0 = MSI Only
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Release|.NET.ActiveCfg = Release
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Release|.NET.Build.0 = Release
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Release|Any CPU.ActiveCfg = Release
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Release|Any CPU.Build.0 = Release
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Release|Mixed Platforms.ActiveCfg = Release
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Release|Mixed Platforms.Build.0 = Release
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Release|Win32.ActiveCfg = Release
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Release|Win32.Build.0 = Release
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Release|x86.ActiveCfg = Release
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D}.Release|x86.Build.0 = Release
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Debug|.NET.ActiveCfg = Debug
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Debug|.NET.Build.0 = Debug
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Debug|Any CPU.ActiveCfg = Debug
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Debug|Any CPU.Build.0 = Debug
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Debug|Mixed Platforms.Build.0 = Debug
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Debug|Win32.ActiveCfg = Debug
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Debug|Win32.Build.0 = Debug
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Debug|x86.ActiveCfg = Debug
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Debug|x86.Build.0 = Debug
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Default|.NET.ActiveCfg = Debug
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Default|.NET.Build.0 = Debug
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Default|Any CPU.ActiveCfg = Debug
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Default|Any CPU.Build.0 = Debug
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Default|Mixed Platforms.ActiveCfg = Debug
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Default|Mixed Platforms.Build.0 = Debug
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Default|Win32.ActiveCfg = Debug
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Default|Win32.Build.0 = Debug
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Default|x86.ActiveCfg = Debug
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Default|x86.Build.0 = Debug
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.MSI Only|.NET.ActiveCfg = MSI Only
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.MSI Only|.NET.Build.0 = MSI Only
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.MSI Only|Any CPU.ActiveCfg = MSI Only
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.MSI Only|Any CPU.Build.0 = MSI Only
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.MSI Only|Mixed Platforms.ActiveCfg = MSI Only
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.MSI Only|Mixed Platforms.Build.0 = MSI Only
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.MSI Only|Win32.ActiveCfg = MSI Only
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.MSI Only|Win32.Build.0 = MSI Only
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.MSI Only|x86.ActiveCfg = MSI Only
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.MSI Only|x86.Build.0 = MSI Only
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Release|.NET.ActiveCfg = Release
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Release|.NET.Build.0 = Release
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Release|Any CPU.ActiveCfg = Release
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Release|Any CPU.Build.0 = Release
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Release|Mixed Platforms.ActiveCfg = Release
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Release|Mixed Platforms.Build.0 = Release
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Release|Win32.ActiveCfg = Release
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Release|Win32.Build.0 = Release
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Release|x86.ActiveCfg = Release
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -854,9 +947,11 @@ Global
 		{641C75A7-1AA6-419D-9D51-520744DCDD83} = {FA898198-2E8D-4145-A46A-0BD4C550898A}
 		{FDA1F3A5-6403-45A9-AFBA-DAFF20D9308D} = {2B62417A-DC9E-4B9F-8C42-31F4E511E19C}
 		{D7E0828E-858A-446B-B466-E86DEA61B5F8} = {2B62417A-DC9E-4B9F-8C42-31F4E511E19C}
+		{E2C2BDDF-EF85-40C9-83A8-96F57D0AD1D8} = {2B62417A-DC9E-4B9F-8C42-31F4E511E19C}
 		{F7BA1923-B790-4FDA-A708-7430B7438264} = {3967322F-1A7F-4A23-B880-192209BD3C50}
 		{A4C30C34-5B24-4CDD-8EDC-D57079ABF4D2} = {3967322F-1A7F-4A23-B880-192209BD3C50}
 		{9A4BC4D5-3E56-4E31-8CD9-CE1352F3F165} = {3967322F-1A7F-4A23-B880-192209BD3C50}
+		{3A1F57BA-E8C9-4A22-8B77-8442861ED27D} = {3967322F-1A7F-4A23-B880-192209BD3C50}
 		{A20896F2-BE4B-4B0A-AEA8-52547C8B000A} = {A6152E38-F30F-402C-A311-7FC87276A134}
 		{D59D5618-B937-46ED-AC6A-E94EB3C2CA6F} = {A6152E38-F30F-402C-A311-7FC87276A134}
 		{8D76B38B-9BE6-41B3-8FE5-1E3D1370956F} = {A6152E38-F30F-402C-A311-7FC87276A134}

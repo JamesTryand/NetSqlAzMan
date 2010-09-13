@@ -54,7 +54,8 @@ namespace NetSqlAzManWebConsole
                 if (String.IsNullOrWhiteSpace(tcpIpPort))
                     tcpIpPort = "80";
 
-                string linkPath = Path.Combine(Context.Parameters["ProgramFilesFolder"], @".NET Sql Authorization Manager\Web Console\.NET Sql Authorization Manager - Web Console.url");
+                String programsFilesFolder = Context.Parameters["ProgramFilesFolder"];
+                String linkPath = Path.Combine(programsFilesFolder, @".NET Sql Authorization Manager\Web Console\.NET Sql Authorization Manager - Web Console.url");
                 using (StreamWriter sw = new StreamWriter(linkPath, false))
                 {
                     sw.WriteLine("[InternetShortcut]");
@@ -70,7 +71,8 @@ namespace NetSqlAzManWebConsole
 
         public override void Uninstall(IDictionary savedState)
         {
-            string linkPath = Path.Combine(Context.Parameters["ProgramFilesFolder"], @".NET Sql Authorization Manager\Web Console\.NET Sql Authorization Manager - Web Console.url");
+            String programsFilesFolder = Context.Parameters["ProgramFilesFolder"];
+            String linkPath = Path.Combine(programsFilesFolder, @".NET Sql Authorization Manager\Web Console\.NET Sql Authorization Manager - Web Console.url");
             if (File.Exists(linkPath))
                 File.Delete(linkPath);
             base.Uninstall(savedState);
