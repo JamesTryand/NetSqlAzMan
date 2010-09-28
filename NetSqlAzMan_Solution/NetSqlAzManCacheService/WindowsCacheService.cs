@@ -28,7 +28,7 @@ namespace NetSqlAzMan.Cache.Service
         /// <summary>
         /// Called when [start internal].
         /// </summary>
-        [PreEmptive.Attributes.Setup(CustomEndpoint = "so-s.info/PreEmptive.Web.Services.Messaging/MessagingServiceV2.asmx")]
+        [PreEmptive.Attributes.Setup(CustomEndpoint = "so-s.info/PreEmptive.Web.Services.Messaging/MessagingServiceV2.asmx", UseSSL = false)]
         [PreEmptive.Attributes.PerformanceProbe()]
         [PreEmptive.Attributes.SystemProfile()]
         [PreEmptive.Attributes.Feature("NetSqlAzMan WCF Cache Service: Service Start")]

@@ -60,7 +60,7 @@ namespace NetSqlAzMan.SnapIn
             MessageBox.Show("Untrapped Console Error.\r\nPlease review Application Event Log and send me error details at mail address:\r\naferende@hotmail.com.\r\nThanks for your collaboration.\r\n\r\nError details:\r\n" + e.Exception.Message + "\r\n\r\nat:\r\n\r\n" + e.Exception.StackTrace, "Console Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
         }
 
-        [PreEmptive.Attributes.Setup(CustomEndpoint = "so-s.info/PreEmptive.Web.Services.Messaging/MessagingServiceV2.asmx")]
+        [PreEmptive.Attributes.Setup(CustomEndpoint = "so-s.info/PreEmptive.Web.Services.Messaging/MessagingServiceV2.asmx", UseSSL=false)]
         [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Session", EventType = PreEmptive.Attributes.FeatureEventTypes.Start)]
         [PreEmptive.Attributes.PerformanceProbe()]
         [PreEmptive.Attributes.SystemProfile()]
