@@ -103,11 +103,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Service References\WCFCacheServicePartnerServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="WindowsCacheService.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -118,32 +113,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="BuildHistory.rtf" />
     <None Include="NetSqlAzManCacheService.pfx" />
     <None Include="Properties\DataSources\NetSqlAzMan.Cache.AuthorizedItem1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\WCFCacheServicePartnerServiceReference\Arrays.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WCFCacheServicePartnerServiceReference\NetSqlAzMan.Cache.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WCFCacheServicePartnerServiceReference\service.wsdl" />
-    <None Include="Service References\WCFCacheServicePartnerServiceReference\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WCFCacheServicePartnerServiceReference\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WCFCacheServicePartnerServiceReference\ServiceModel.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WCFCacheServicePartnerServiceReference\System.Collections.Generic.xsd">
-      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -195,25 +173,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Properties\DataSources\NetSqlAzMan.Cache.AuthorizedItem.datasource" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\WCFCacheServicePartnerServiceReference\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WCFCacheServicePartnerServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WCFCacheServicePartnerServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WCFCacheServicePartnerServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -402,7 +402,7 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
         }
 
 
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Check For Update from version 3.6.0.8")]
+        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Check For Update from version 3.6.0.9")]
         private void CheckForUpdateSync(object stateObject)
         {
             try

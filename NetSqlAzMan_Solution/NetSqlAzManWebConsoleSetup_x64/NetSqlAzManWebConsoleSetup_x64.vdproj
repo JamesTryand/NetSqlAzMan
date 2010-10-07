@@ -51,6 +51,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_439FFC72DBC836E65EA2254E24F1A032"
+        "OwnerKey" = "8:_2FEB5C60816947B4A03126AE7CBFB995"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_53AC47D68AF849808927BE52D120470E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -141,12 +147,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F0A45A2518CA1F8B14971DB4F16BE3F4"
-        "OwnerKey" = "8:_2FEB5C60816947B4A03126AE7CBFB995"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_F114C4AEC12D6FAE38AA1378FA56BE9B"
         "OwnerKey" = "8:_75DA5F419AFD4ACBB6EA746817FD7419"
         "MsmSig" = "8:_UNDEFINED"
@@ -167,6 +167,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_2FEB5C60816947B4A03126AE7CBFB995"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_439FFC72DBC836E65EA2254E24F1A032"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -421,7 +427,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.8, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.9, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_2BD3FD3C2E564163B2BEBCAE5B8E035D"
@@ -452,7 +458,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzManWebConsole, Version=3.6.0.8, Culture=neutral, PublicKeyToken=1c906a29a9555eec, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzManWebConsole, Version=3.6.0.9, Culture=neutral, PublicKeyToken=1c906a29a9555eec, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_2FEB5C60816947B4A03126AE7CBFB995"
@@ -537,6 +543,37 @@
             "Register" = "3:1"
             "Exclude" = "11:TRUE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_439FFC72DBC836E65EA2254E24F1A032"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.9, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_439FFC72DBC836E65EA2254E24F1A032"
+                    {
+                    "Name" = "8:NetSqlAzMan.DLL"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:NetSqlAzMan.DLL"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_F9A9FA1A4835426E9A1E5763AC1B0517"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_53AC47D68AF849808927BE52D120470E"
@@ -785,7 +822,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.8, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.9, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_F0A45A2518CA1F8B14971DB4F16BE3F4"
@@ -1013,7 +1050,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:.NET Sql Authorization Manager - Web Console"
         "ProductCode" = "8:{82B85F9E-9AB8-4DBE-A28A-B6AF8694B701}"
-        "PackageCode" = "8:{3772364F-09E7-4C20-A439-2594AC33A9EC}"
+        "PackageCode" = "8:{B90F03F6-1F25-437E-884B-E6E1C9CFE394}"
         "UpgradeCode" = "8:{4D03D5B5-04EA-4EDE-9520-815DD7657549}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

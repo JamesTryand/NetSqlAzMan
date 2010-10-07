@@ -13,7 +13,7 @@ namespace NetSqlAzMan.SnapIn
 {
     [MMC.SnapInSettings("{C8466485-78DA-473a-B864-3FE1A9A6F781}",
         DisplayName = ".NET SQL Authorization Manager",
-        Description = "Management Console for .NET SQL Authorization Manager Ver. 3.6.0.8. The .NET Sql Authorization Manager allows you to set item-based permissions for Authorization Manager-enabled .NET applications.",
+        Description = "Management Console for .NET SQL Authorization Manager Ver. 3.6.0.9. The .NET Sql Authorization Manager allows you to set item-based permissions for Authorization Manager-enabled .NET applications.",
         Vendor = "Andrea Ferendeles - http://netsqlazman.codeplex.com")]
     [MMC.SnapInAbout("NetSqlAzMan.SnapIn.resources.dll",
          ApplicationBaseRelative = true,

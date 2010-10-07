@@ -42,9 +42,9 @@ namespace NetSqlAzMan.Cache.Service
                 {
                     CacheService.buildingCache = true;
                     WindowsCacheService.writeEvent(String.Format("Invalidate Cache invoked from user '{0}'. Store: '{1}' - Application: '{2}'.", ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).Name, storeName ?? String.Empty, applicationName ?? String.Empty), System.Diagnostics.EventLogEntryType.Information);
-                    Boolean AsyncCacheBuilding = true;
-                    if (ConfigurationManager.AppSettings.AllKeys.Contains("AsyncCacheBuilding"))
-                        Boolean.TryParse(ConfigurationManager.AppSettings["AsyncCacheBuilding"], out AsyncCacheBuilding);
+                    Boolean AsyncCacheBuilding;
+                    if (!Boolean.TryParse(ConfigurationManager.AppSettings["AsyncCacheBuilding"], out AsyncCacheBuilding))
+                        AsyncCacheBuilding = true;
                     //Design Feature 2: Async Cache Building
                     if (AsyncCacheBuilding)
                     {
@@ -68,11 +68,11 @@ namespace NetSqlAzMan.Cache.Service
                                     {
                                         CacheService.storageCache = sc;
                                     }
-                                    WindowsCacheService.writeEvent("Cache Built.", System.Diagnostics.EventLogEntryType.Information);
+                                    WindowsCacheService.writeEvent("Cache Built (Async).", System.Diagnostics.EventLogEntryType.Information);
                                 }
                                 catch (Exception ex)
                                 {
-                                    WindowsCacheService.writeEvent(String.Format("Cache building error:\r\n{0}\r\n\r\nStack Track:\r\n{1}", ex.Message, ex.StackTrace), System.Diagnostics.EventLogEntryType.Error);
+                                    WindowsCacheService.writeEvent(String.Format("Cache building error (Async):\r\n{0}\r\n\r\nStack Track:\r\n{1}", ex.Message, ex.StackTrace), System.Diagnostics.EventLogEntryType.Error);
                                 }
                                 finally
                                 {
@@ -105,11 +105,11 @@ namespace NetSqlAzMan.Cache.Service
                             {
                                 CacheService.storageCache = sc;
                             }
-                            WindowsCacheService.writeEvent("Cache Built.", System.Diagnostics.EventLogEntryType.Information);
+                            WindowsCacheService.writeEvent("Cache Built (Sync).", System.Diagnostics.EventLogEntryType.Information);
                         }
                         catch (Exception ex)
                         {
-                            WindowsCacheService.writeEvent(String.Format("Cache building error:\r\n{0}\r\n\r\nStack Track:\r\n{1}", ex.Message, ex.StackTrace), System.Diagnostics.EventLogEntryType.Error);
+                            WindowsCacheService.writeEvent(String.Format("Cache building error (Sync):\r\n{0}\r\n\r\nStack Track:\r\n{1}", ex.Message, ex.StackTrace), System.Diagnostics.EventLogEntryType.Error);
                         }
                         finally
                         {
@@ -146,7 +146,7 @@ namespace NetSqlAzMan.Cache.Service
                         {
                             try
                             {
-                                using (WCFCacheServicePartnerServiceReference.CacheServiceClient csc = new NetSqlAzMan.Cache.Service.WCFCacheServicePartnerServiceReference.CacheServiceClient())
+                                using (NetSqlAzMan.NetSqlAzManWCFCacheService.CacheServiceClient csc = new NetSqlAzMan.NetSqlAzManWCFCacheService.CacheServiceClient())
                                 {
                                     csc.Endpoint.Address = new EndpointAddress(partnerEndpoint);
                                     csc.Open();
