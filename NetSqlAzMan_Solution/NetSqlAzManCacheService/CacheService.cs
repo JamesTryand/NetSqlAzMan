@@ -42,43 +42,83 @@ namespace NetSqlAzMan.Cache.Service
                 {
                     CacheService.buildingCache = true;
                     WindowsCacheService.writeEvent(String.Format("Invalidate Cache invoked from user '{0}'. Store: '{1}' - Application: '{2}'.", ((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).Name, storeName ?? String.Empty, applicationName ?? String.Empty), System.Diagnostics.EventLogEntryType.Information);
-
+                    Boolean AsyncCacheBuilding = true;
+                    if (ConfigurationManager.AppSettings.AllKeys.Contains("AsyncCacheBuilding"))
+                        Boolean.TryParse(ConfigurationManager.AppSettings["AsyncCacheBuilding"], out AsyncCacheBuilding);
                     //Design Feature 2: Async Cache Building
-                    System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(o =>
-                        {
-                            try
+                    if (AsyncCacheBuilding)
+                    {
+                        System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(o =>
                             {
-                                StorageCache sc = new StorageCache(Properties.Settings.Default.NetSqlAzManStorageCacheConnectionString);
-                                sc.BuildStorageCache(storeName, applicationName);
-                                if (CacheService.storageCache != null)
+                                try
                                 {
-                                    //Design Feature 3: When Build ... replace the old cache with new one
-                                    //3.1) This means that while building ... User can invoke CheckAccess on the OLD cache
-                                    //3.2) Replacement is thread safe
-                                    lock (CacheService.storageCache)
+                                    StorageCache sc = new StorageCache(Properties.Settings.Default.NetSqlAzManStorageCacheConnectionString);
+                                    sc.BuildStorageCache(storeName, applicationName);
+                                    if (CacheService.storageCache != null)
+                                    {
+                                        //Design Feature 3: When Build ... replace the old cache with new one
+                                        //3.1) This means that while building ... User can invoke CheckAccess on the OLD cache
+                                        //3.2) Replacement is thread safe
+                                        lock (CacheService.storageCache)
+                                        {
+                                            CacheService.storageCache = sc;
+                                        }
+                                    }
+                                    else
                                     {
                                         CacheService.storageCache = sc;
                                     }
+                                    WindowsCacheService.writeEvent("Cache Built.", System.Diagnostics.EventLogEntryType.Information);
                                 }
-                                else
+                                catch (Exception ex)
+                                {
+                                    WindowsCacheService.writeEvent(String.Format("Cache building error:\r\n{0}\r\n\r\nStack Track:\r\n{1}", ex.Message, ex.StackTrace), System.Diagnostics.EventLogEntryType.Error);
+                                }
+                                finally
+                                {
+                                    lock (CacheService.locker)
+                                    {
+                                        CacheService.buildingCache = false;
+                                    }
+                                }
+                            }
+                                ));
+                    }
+                    else
+                    {
+                        //Sync Cache Build
+                        try
+                        {
+                            StorageCache sc = new StorageCache(Properties.Settings.Default.NetSqlAzManStorageCacheConnectionString);
+                            sc.BuildStorageCache(storeName, applicationName);
+                            if (CacheService.storageCache != null)
+                            {
+                                //Design Feature 3: When Build ... replace the old cache with new one
+                                //3.1) This means that while building ... User can invoke CheckAccess on the OLD cache
+                                //3.2) Replacement is thread safe
+                                lock (CacheService.storageCache)
                                 {
                                     CacheService.storageCache = sc;
                                 }
-                                WindowsCacheService.writeEvent("Cache Built.", System.Diagnostics.EventLogEntryType.Information);
                             }
-                            catch (Exception ex)
+                            else
                             {
-                                WindowsCacheService.writeEvent(String.Format("Cache building error:\r\n{0}\r\n\r\nStack Track:\r\n{1}", ex.Message, ex.StackTrace), System.Diagnostics.EventLogEntryType.Error);
+                                CacheService.storageCache = sc;
                             }
-                            finally
+                            WindowsCacheService.writeEvent("Cache Built.", System.Diagnostics.EventLogEntryType.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            WindowsCacheService.writeEvent(String.Format("Cache building error:\r\n{0}\r\n\r\nStack Track:\r\n{1}", ex.Message, ex.StackTrace), System.Diagnostics.EventLogEntryType.Error);
+                        }
+                        finally
+                        {
+                            lock (CacheService.locker)
                             {
-                                lock (CacheService.locker)
-                                {
-                                    CacheService.buildingCache = false;
-                                }
+                                CacheService.buildingCache = false;
                             }
                         }
-                            ));
+                    }
                 }
                 else
                 {
