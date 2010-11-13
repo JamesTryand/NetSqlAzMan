@@ -103,15 +103,15 @@ namespace NetSqlAzMan_WinTest
             // 
             this.btnCheckAccess.Location = new System.Drawing.Point(391, 12);
             this.btnCheckAccess.Name = "btnCheckAccess";
-            this.btnCheckAccess.Size = new System.Drawing.Size(96, 23);
+            this.btnCheckAccess.Size = new System.Drawing.Size(180, 23);
             this.btnCheckAccess.TabIndex = 13;
-            this.btnCheckAccess.Text = "CheckAccess";
+            this.btnCheckAccess.Text = "CheckAccess (Detect Differences)";
             this.btnCheckAccess.UseVisualStyleBackColor = true;
             this.btnCheckAccess.Click += new System.EventHandler(this.btnACL_Click);
             // 
             // btnEventHandling
             // 
-            this.btnEventHandling.Location = new System.Drawing.Point(493, 12);
+            this.btnEventHandling.Location = new System.Drawing.Point(616, 12);
             this.btnEventHandling.Name = "btnEventHandling";
             this.btnEventHandling.Size = new System.Drawing.Size(121, 23);
             this.btnEventHandling.TabIndex = 14;

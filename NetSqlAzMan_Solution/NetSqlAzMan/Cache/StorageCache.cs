@@ -1132,6 +1132,7 @@ namespace NetSqlAzMan.Cache
                     this.attributesResultCache.Add(item.Name, attributes);
                 }
             }
+            attributes = attributes.Distinct().ToList();
             return authorizationType;
         }
 

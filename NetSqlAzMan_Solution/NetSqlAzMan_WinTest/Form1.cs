@@ -179,7 +179,7 @@ namespace Prova.BizRules
                 //t1 = DateTime.Now;
                 //UserPermissionCache uupc = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, true);
                 t2 = DateTime.Now;
-                MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
+                //MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
                 //return;
                 //t1 = DateTime.Now;
                 //UserPermissionCache upcTest = new UserPermissionCache(storage, "Eidos", "DB Persone", WindowsIdentity.GetCurrent(), true, true, ctx);
@@ -206,7 +206,7 @@ namespace Prova.BizRules
                 //t2 = DateTime.Now;
                 //MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
 
-                sr.CacheServiceClient csc = new NetSqlAzMan_WinTest.sr.CacheServiceClient();
+                //sr.CacheServiceClient csc = new NetSqlAzMan_WinTest.sr.CacheServiceClient();
                 //csc.Open();
                 //t1 = DateTime.Now;
                 ////for (int i = 0; i < 1000; i++)
@@ -220,13 +220,13 @@ namespace Prova.BizRules
                 //csc.Close();
 
 
-                t1 = DateTime.Now;
-                for (int i = 0; i < 1000; i++)
-                {
-                    storage.CheckAccess("Eidos", "DB Persone", "Gestore", WindowsIdentity.GetCurrent(), DateTime.Now, false);
-                }
-                t2 = DateTime.Now;
-                MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
+                //t1 = DateTime.Now;
+                //for (int i = 0; i < 1000; i++)
+                //{
+                //    storage.CheckAccess("Eidos", "DB Persone", "Gestore", WindowsIdentity.GetCurrent(), DateTime.Now, false);
+                //}
+                //t2 = DateTime.Now;
+                //MessageBox.Show((t2 - t1).TotalMilliseconds.ToString());
                 //return;
 
                 //DateTime dt = DateTime.Now;
@@ -244,6 +244,7 @@ namespace Prova.BizRules
                 List<KeyValuePair<string, string>> attributes1;
                 List<KeyValuePair<string, string>> attributes2;
                 List<KeyValuePair<string, string>> attributes3;
+                int h;
 
                 foreach (var store in storage.Stores)
                 {
@@ -252,9 +253,12 @@ namespace Prova.BizRules
                         UserPermissionCache upc = new UserPermissionCache(storage, store.Value.Name, application.Value.Name, WindowsIdentity.GetCurrent(), true, false, ctx);
                         foreach (var item in application.Value.Items)
                         {
+                            this.textBox1.Text += String.Format("Store: {0}\tApplication: {1}\tItem: {2}\r\n", store.Key, application.Key, item.Key);
                             AuthorizationType auth1 = sc.CheckAccess(store.Value.Name, application.Value.Name, item.Value.Name, WindowsIdentity.GetCurrent().GetUserBinarySSid(), WindowsIdentity.GetCurrent().GetGroupsBinarySSid(), DateTime.Now, false, out attributes1, ctx);
                             AuthorizationType auth2 = storage.CheckAccess(store.Value.Name, application.Value.Name, item.Value.Name, WindowsIdentity.GetCurrent(), DateTime.Now, false, out attributes2, ctx);
                             AuthorizationType auth3 = upc.CheckAccess(item.Value.Name, DateTime.Now, out attributes3);
+                            if (item.Key == "Method1")
+                                h = 9;
                             this.detectedDifferences(auth1, attributes1, auth2, attributes2);
                             this.detectedDifferences(auth2, attributes2, auth3, attributes3);
                             this.detectedDifferences(auth1, attributes1, auth3, attributes3);
