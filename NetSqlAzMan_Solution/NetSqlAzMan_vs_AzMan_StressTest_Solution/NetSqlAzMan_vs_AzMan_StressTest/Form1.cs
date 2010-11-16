@@ -98,7 +98,7 @@ namespace NetSqlAzMan_vs_AzMan_StressTest
         {
             int max = 20; // int.Parse(this.txtUnita.Text);
             //this.TestSuAzMan(this.txtAzManStorePath.Text, max);
-            this.TestSuAzMan(@"msldap://localhost:389/CN=AzMan, CN=EIDOSIS4-AFRAdam", max);
+            this.TestSuAzMan(@"msldap://localhost:389/CN=AzMan, CN=EIDOS-NBAFRAdam", max);
         }
 
         private void TestSuNetSqlAzManForThread()

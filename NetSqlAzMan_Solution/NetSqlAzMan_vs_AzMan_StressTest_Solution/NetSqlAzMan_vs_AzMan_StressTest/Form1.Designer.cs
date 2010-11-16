@@ -77,7 +77,7 @@ namespace NetSqlAzMan_vs_AzMan_StressTest
             this.txtAzManStorePath.Name = "txtAzManStorePath";
             this.txtAzManStorePath.Size = new System.Drawing.Size(466, 20);
             this.txtAzManStorePath.TabIndex = 3;
-            this.txtAzManStorePath.Text = "mssql://Driver={SQL Server};Server={EIDOSIS4-AFR};/AzManDB/AzManStore";
+            this.txtAzManStorePath.Text = "mssql://Driver={SQL Server};Server={EIDOS-NBAFR};/AzManDB/AzManStore";
             // 
             // label1
             // 
@@ -93,7 +93,7 @@ namespace NetSqlAzMan_vs_AzMan_StressTest
             this.txtNetSqlAzManConnectionString.Name = "txtNetSqlAzManConnectionString";
             this.txtNetSqlAzManConnectionString.Size = new System.Drawing.Size(466, 20);
             this.txtNetSqlAzManConnectionString.TabIndex = 5;
-            this.txtNetSqlAzManConnectionString.Text = "data source=EIDOSIS4-AFR;Initial Catalog=NetSqlAzManStorage;Integrated Security=T" +
+            this.txtNetSqlAzManConnectionString.Text = "data source=EIDOS-NBAFR;Initial Catalog=NetSqlAzManStorage;Integrated Security=T" +
                 "rue;";
             // 
             // label2

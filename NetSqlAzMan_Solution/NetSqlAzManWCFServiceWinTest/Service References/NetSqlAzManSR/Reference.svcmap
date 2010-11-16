@@ -20,11 +20,11 @@
     <MetadataSource Address="http://localhost/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="NetSqlAzManWCFService3.xsd" MetadataType="Schema" ID="a3c59326-3036-4868-a547-365bb8fa8075" SourceId="1" SourceUrl="http://eidosis4-afr.eidos.lan/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc?xsd=xsd1" />
-    <MetadataFile FileName="NetSqlAzManWCFService31.xsd" MetadataType="Schema" ID="a71b2059-4079-45c8-8705-afa565dbe754" SourceId="1" SourceUrl="http://eidosis4-afr.eidos.lan/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc?xsd=xsd2" />
-    <MetadataFile FileName="NetSqlAzManWCFService1.disco" MetadataType="Disco" ID="70857cea-d33d-4151-9e1d-da877493bba1" SourceId="1" SourceUrl="http://eidosis4-afr.eidos.lan/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc?disco" />
-    <MetadataFile FileName="NetSqlAzManWCFService1.wsdl" MetadataType="Wsdl" ID="0c175754-54e7-4cd8-b73d-010317ef40c4" SourceId="1" SourceUrl="http://eidosis4-afr.eidos.lan/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc?wsdl" />
-    <MetadataFile FileName="NetSqlAzManWCFService32.xsd" MetadataType="Schema" ID="82bb0ccc-2052-460c-b3f3-820c0869aeb4" SourceId="1" SourceUrl="http://eidosis4-afr.eidos.lan/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc?xsd=xsd0" />
+    <MetadataFile FileName="NetSqlAzManWCFService3.xsd" MetadataType="Schema" ID="a3c59326-3036-4868-a547-365bb8fa8075" SourceId="1" SourceUrl="http://EIDOS-NBAFR.eidos.lan/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc?xsd=xsd1" />
+    <MetadataFile FileName="NetSqlAzManWCFService31.xsd" MetadataType="Schema" ID="a71b2059-4079-45c8-8705-afa565dbe754" SourceId="1" SourceUrl="http://EIDOS-NBAFR.eidos.lan/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc?xsd=xsd2" />
+    <MetadataFile FileName="NetSqlAzManWCFService1.disco" MetadataType="Disco" ID="70857cea-d33d-4151-9e1d-da877493bba1" SourceId="1" SourceUrl="http://EIDOS-NBAFR.eidos.lan/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc?disco" />
+    <MetadataFile FileName="NetSqlAzManWCFService1.wsdl" MetadataType="Wsdl" ID="0c175754-54e7-4cd8-b73d-010317ef40c4" SourceId="1" SourceUrl="http://EIDOS-NBAFR.eidos.lan/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc?wsdl" />
+    <MetadataFile FileName="NetSqlAzManWCFService32.xsd" MetadataType="Schema" ID="82bb0ccc-2052-460c-b3f3-820c0869aeb4" SourceId="1" SourceUrl="http://EIDOS-NBAFR.eidos.lan/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -23,9 +23,9 @@ namespace NetSqlAzMan_RoleProviderWebTest
                                 var dbUser = provider.GetApplication().GetDBUser("Arianna");
                                 string randomRoleName = String.Format("Random Role {0}", Guid.NewGuid().ToString());
                                 provider.CreateRole(randomRoleName);
-                                provider.AddUsersToRoles(new[] { "EIDOSIS4-AFR\\Andrea" }, new[] { randomRoleName });
+                                provider.AddUsersToRoles(new[] { "EIDOS-NBAFR\\Andrea" }, new[] { randomRoleName });
                                 provider.InvalidateCache(true);
-                                bool isInRole = provider.IsUserInRole("EIDOSIS4-AFR\\Andrea", randomRoleName); //Roles.IsUserInRole(randomRoleName);
+                                bool isInRole = provider.IsUserInRole("EIDOS-NBAFR\\Andrea", randomRoleName); //Roles.IsUserInRole(randomRoleName);
 
                                 Debug.WriteLine(String.Format("isInRole: {0}", isInRole.ToString()));
                             }

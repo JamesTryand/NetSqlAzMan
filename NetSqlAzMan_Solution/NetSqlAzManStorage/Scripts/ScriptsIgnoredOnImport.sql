@@ -2,7 +2,7 @@
 
 /*
 This script was created by Visual Studio on 29/12/2009 at 11.08.
-Run this script on NetSqlAzManStorage to make it the same as eidosis4-afr.NetSqlAzManStorage.dbo.
+Run this script on NetSqlAzManStorage to make it the same as EIDOS-NBAFR.NetSqlAzManStorage.dbo.
 Please back up your target database before running this script.
 */
 
@@ -25,7 +25,7 @@ GO
 
 /*
 This script was created by Visual Studio on 29/12/2009 at 11.09.
-Run this script on NetSqlAzManStorage to make it the same as eidosis4-afr.NetSqlAzManStorage.dbo.
+Run this script on NetSqlAzManStorage to make it the same as EIDOS-NBAFR.NetSqlAzManStorage.dbo.
 Please back up your target database before running this script.
 */
 

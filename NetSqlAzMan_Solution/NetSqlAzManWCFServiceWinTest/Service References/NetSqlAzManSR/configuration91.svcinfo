@@ -115,10 +115,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_INetSqlAzManWCFService" contract="NetSqlAzManSR.INetSqlAzManWCFService" bindingType="wsHttpBinding" address="http://eidosis4-afr.eidos.lan/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc" bindingConfiguration="WSHttpBinding_INetSqlAzManWCFService">
+    <endpoint name="WSHttpBinding_INetSqlAzManWCFService" contract="NetSqlAzManSR.INetSqlAzManWCFService" bindingType="wsHttpBinding" address="http://EIDOS-NBAFR.eidos.lan/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc" bindingConfiguration="WSHttpBinding_INetSqlAzManWCFService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://eidosis4-afr.eidos.lan/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc</serializedValue>
+          <serializedValue>http://EIDOS-NBAFR.eidos.lan/NetSqlAzManWCFServiceTest/NetSqlAzManWCFService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

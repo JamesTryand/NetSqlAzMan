@@ -28,7 +28,7 @@ namespace NetSqlAzMan_WinTest
 
         private void btnStoreManipulate_Click(object sender, EventArgs e)
         {
-            IAzManStorage storage = new SqlAzManStorage("data source=eidosis4-afr;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
+            IAzManStorage storage = new SqlAzManStorage("data source=EIDOS-NBAFR;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
             storage.BeginTransaction(AzManIsolationLevel.ReadUncommitted);
             IAzManStore store1 = storage.CreateStore("Store di prova 3", "descrizione");
 
@@ -160,7 +160,7 @@ namespace Prova.BizRules
                 //IAzManDBUser dbUser2 = storage.GetDBUser(new SqlAzManSID(this.GetBytesFromInt32(2), true));
                 //AuthorizationType auth1 = storage.CheckAccess("Eidos", "DB Persone", "Accesso", dbUser1, DateTime.Now, false);
                 //AuthorizationType auth2 = storage.CheckAccess("Eidos", "DB Persone", "Accesso", dbUser1, DateTime.Now, false);
-                //string cs = "data source=.\\sql2005;Initial Catalog=NetSqlAzManStorage;Integrated Security=SSPI";
+                //string cs = "data source=(local);Initial Catalog=NetSqlAzManStorage;Integrated Security=SSPI";
                 string cs = "data source=.;Initial Catalog=NetSqlAzManStorage;Integrated Security=SSPI";
                 var ctx = new[] { new KeyValuePair<string, object>("Value1", "111"), new KeyValuePair<string, object>("Value2", "222") };
                 IAzManStorage storage = new SqlAzManStorage(cs);
@@ -250,15 +250,15 @@ namespace Prova.BizRules
                 {
                     foreach (var application in store.Value.Applications)
                     {
-                        UserPermissionCache upc = new UserPermissionCache(storage, store.Value.Name, application.Value.Name, WindowsIdentity.GetCurrent(), true, false, ctx);
+                        UserPermissionCache upc = new UserPermissionCache(storage, store.Value.Name, application.Value.Name, WindowsIdentity.GetCurrent(), true, true, ctx);
                         foreach (var item in application.Value.Items)
                         {
                             this.textBox1.Text += String.Format("Store: {0}\tApplication: {1}\tItem: {2}\r\n", store.Key, application.Key, item.Key);
                             AuthorizationType auth1 = sc.CheckAccess(store.Value.Name, application.Value.Name, item.Value.Name, WindowsIdentity.GetCurrent().GetUserBinarySSid(), WindowsIdentity.GetCurrent().GetGroupsBinarySSid(), DateTime.Now, false, out attributes1, ctx);
                             AuthorizationType auth2 = storage.CheckAccess(store.Value.Name, application.Value.Name, item.Value.Name, WindowsIdentity.GetCurrent(), DateTime.Now, false, out attributes2, ctx);
                             AuthorizationType auth3 = upc.CheckAccess(item.Value.Name, DateTime.Now, out attributes3);
-                            if (item.Key == "Method1")
-                                h = 9;
+                            //if (item.Key == "Method1")
+                            //    h = 9;
                             this.detectedDifferences(auth1, attributes1, auth2, attributes2);
                             this.detectedDifferences(auth2, attributes2, auth3, attributes3);
                             this.detectedDifferences(auth1, attributes1, auth3, attributes3);
@@ -339,7 +339,7 @@ namespace Prova.BizRules
             //try
             //{
             //    frmImportFromAzMan frm = new frmImportFromAzMan();
-            //    IAzManStorage storage = new SqlAzManStorage("data source=.\\sql2005;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
+            //    IAzManStorage storage = new SqlAzManStorage("data source=(local);Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
             //    frm.storage = storage;
             //    DialogResult dr = frm.ShowDialog(this);
             //    if (dr == DialogResult.OK)
@@ -355,7 +355,7 @@ namespace Prova.BizRules
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            //IAzManStorage storage = new SqlAzManStorage("data source=eidos-egcc1\\sql2005;Initial Catalog=NetSqlAzManStore;Integrated Security = SSPI;");
+            //IAzManStorage storage = new SqlAzManStorage("data source=(local);Initial Catalog=NetSqlAzManStore;Integrated Security = SSPI;");
             ////storage.CreateStore("Prova", "").CreateApplication("App 1", "").CreateItem("Task 1","");
             //IAzManItem storage = storage["Prova"]["App 1"]["Task 1"];
 
@@ -564,7 +564,7 @@ namespace Prova.BizRules
 
         private void btnCheckAccessTemplate_Click(object sender, EventArgs e)
         {
-            string cs = "data source=eidosis4-afr;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;";
+            string cs = "data source=EIDOS-NBAFR;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;";
             My_Application.Security.CheckAccessHelper helper = new My_Application.Security.CheckAccessHelper(cs, WindowsIdentity.GetCurrent());
             helper.OpenConnection();
             bool result = helper.CheckAccess(My_Application.Security.CheckAccessHelper.Operation.Op_1);
@@ -582,7 +582,7 @@ namespace Prova.BizRules
 
         private void btnGenerateCheckAccessHelper_Click(object sender, EventArgs e)
         {
-            IAzManStorage storage = new SqlAzManStorage("data source=eidosis4-afr;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
+            IAzManStorage storage = new SqlAzManStorage("data source=EIDOS-NBAFR;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
             IAzManApplication application = storage["Eidos"]["DB Persone"];
             CodeCompileUnit ccu = NetSqlAzMan.CodeDom.CodeDomGenerator.GenerateItemConstants("MyApplication.NetSqlHelper", true, true, application, NetSqlAzMan.CodeDom.Language.CSharp);
             string code = NetSqlAzMan.CodeDom.CodeDomGenerator.GenerateSourceCode(ccu, NetSqlAzMan.CodeDom.Language.CSharp);
@@ -592,7 +592,7 @@ namespace Prova.BizRules
         private void btnDBGetUsers_Click(object sender, EventArgs e)
         {
             this.textBox1.Text = String.Empty;
-            IAzManStorage storage = new SqlAzManStorage("data source=eidosis4-afr;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
+            IAzManStorage storage = new SqlAzManStorage("data source=EIDOS-NBAFR;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
             IAzManStore store = storage["My Store"];
 
             IAzManDBUser dbu = store.GetDBUser(store.GetStoreGroup("sg1").SID);
@@ -616,7 +616,7 @@ namespace Prova.BizRules
             //var auth = storage.CheckAccess("AET Authorization Store", "Trading Hub", "Create Deal", WindowsIdentity.GetCurrent(), DateTime.Now, false, out attributes);
             //return;
             frmCheckAccessTest frm = new frmCheckAccessTest();
-            IAzManStorage storage = new SqlAzManStorage("data source=.\\sql2005;Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
+            IAzManStorage storage = new SqlAzManStorage("data source=(local);Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
             IAzManStore store = storage.GetStore("Sistel-1Sez");
             frm.application = store.GetApplication("Perseo.net");
             frm.ShowDialog();
@@ -948,7 +948,7 @@ namespace Prova.BizRules
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btnCreateALotOfItems_Click(object sender, EventArgs e)
         {
-            string cs = "data source=.\\sql2005;initial catalog=NetSqlAzManStorage;Integrated Security=SSPI;";
+            string cs = "data source=(local);initial catalog=NetSqlAzManStorage;Integrated Security=SSPI;";
             IAzManStorage storage = new SqlAzManStorage(cs);
             storage.OpenConnection();
             storage.BeginTransaction();
@@ -987,7 +987,7 @@ namespace Prova.BizRules
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //var sc = new NetSqlAzMan.Cache.StorageCache("data source=.\\sql2005;Initial Catalog=NetSqlAzManStorage;Integrated Security=SSPI");
+            //var sc = new NetSqlAzMan.Cache.StorageCache("data source=(local);Initial Catalog=NetSqlAzManStorage;Integrated Security=SSPI");
             //sc.BuildStorageCache();
             //List<KeyValuePair<String, String>> attributes;
             //var au = sc.CheckAccess("XXX",

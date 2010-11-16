@@ -153,8 +153,17 @@ namespace NetSqlAzMan.Cache
                 int index = 0;
                 Exception lastException = null;
 
-                foreach (var drAuthorization in this.dtAuthorizations)
+                foreach (String itemname in this.items)
                 {
+                    var drAuthorization = this.dtAuthorizations.Where(t => t.ItemName == itemname).FirstOrDefault();
+                    if (drAuthorization == null)
+                        drAuthorization = new BuildUserPermissionCacheResult2()
+                        {
+                            ItemName = itemname,
+                            ValidFrom = null,
+                            ValidTo = null
+                        };
+                    //string itemName = drAuthorization.ItemName;
 
                     ManualResetEvent waitHandle = new ManualResetEvent(false);
                     waitHandles.Add(waitHandle);
@@ -286,9 +295,18 @@ namespace NetSqlAzMan.Cache
                 List<ItemCheckAccessResult> results = new List<ItemCheckAccessResult>();
                 IAzManSid sid = this.windowsIdentity!=null ? new SqlAzManSID(this.windowsIdentity.User) : this.dbUser.CustomSid;
                 int index = 0;
-                foreach (var drAuthorization in this.dtAuthorizations)
+                //foreach (var drAuthorization in this.dtAuthorizations)
+                foreach (String itemName in this.items)
                 {
-                    string itemName = drAuthorization.ItemName;
+                    var drAuthorization = this.dtAuthorizations.Where(t => t.ItemName == itemName).FirstOrDefault();
+                    if (drAuthorization == null)
+                        drAuthorization = new BuildUserPermissionCacheResult2()
+                        {
+                            ItemName = itemName,
+                            ValidFrom = null,
+                            ValidTo = null
+                        };
+                    //string itemName = drAuthorization.ItemName;
                     ItemCheckAccessResult result = new ItemCheckAccessResult(itemName);
                     result.ValidFrom = drAuthorization.ValidFrom.HasValue ? drAuthorization.ValidFrom.Value : DateTime.MinValue;
                     result.ValidTo = drAuthorization.ValidTo.HasValue ? drAuthorization.ValidTo.Value : DateTime.MaxValue;
