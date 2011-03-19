@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Resources;
 using System.Threading;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace NetSqlAzMan.SnapIn.Globalization
 {
@@ -14,6 +15,7 @@ namespace NetSqlAzMan.SnapIn.Globalization
     {
         internal static CultureInfo cultureInfo = null;
         internal static global::System.Resources.ResourceManager resourceManager = null;
+        internal static Hashtable currentResources = Hashtable.Synchronized(new Hashtable());
 
         /// <summary>
         /// Gets the string.
@@ -22,6 +24,9 @@ namespace NetSqlAzMan.SnapIn.Globalization
         /// <returns></returns>
         private static string GetStringInternal(string key)
         {
+            if (MultilanguageResource.currentResources.ContainsKey(key))
+                return (String)MultilanguageResource.currentResources[key];
+
             string culture = MultilanguageResource.GetCurrentCulture();
             if (cultureInfo == null)
             {
@@ -49,6 +54,10 @@ namespace NetSqlAzMan.SnapIn.Globalization
             {
                 result = String.Format("Globalization Error: Key '{0}' NOT FOUND in .resx file !!!", key);
             }
+            lock (MultilanguageResource.currentResources.SyncRoot)
+            {
+                MultilanguageResource.currentResources.Add(key, result);
+            }
             return result;
         }
 
@@ -58,6 +67,7 @@ namespace NetSqlAzMan.SnapIn.Globalization
         /// <param name="culture">The culture.</param>
         internal static void SetCulture(string culture)
         {
+            MultilanguageResource.currentResources = Hashtable.Synchronized(new Hashtable());
             MultilanguageResource.resourceManager = null;
             MultilanguageResource.cultureInfo = new CultureInfo(MultilanguageResource.cultureSuffix(culture));
             Thread.CurrentThread.CurrentUICulture = MultilanguageResource.cultureInfo;

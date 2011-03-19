@@ -118,31 +118,31 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ApplicationGroupScopeNode_Msg10" xml:space="preserve">
-    <value>Error Propiedades de Grupo de Aplicación</value>
+    <value>Error en Propiedades del Grupo de Aplicación</value>
   </data>
   <data name="ApplicationGroupsListView_Msg10" xml:space="preserve">
-    <value>Borrar Grupos de Aplicación seleccionados ?</value>
+    <value>Eliminar el Grupo de Aplicación seleccionado?</value>
   </data>
   <data name="ApplicationGroupsListView_Msg20" xml:space="preserve">
-    <value>Error de borrado de Grupos de Aplicación</value>
+    <value>Error al eliminar Grupos de Aplicaciones</value>
   </data>
   <data name="ApplicationGroupsScopeNode_Msg10" xml:space="preserve">
     <value>Importar desde ...</value>
   </data>
   <data name="AuthorizationsListView_Tit10" xml:space="preserve">
-    <value>Error en cambio Autorizaciones</value>
+    <value>Error en actualizar las Autorizaciones</value>
   </data>
   <data name="AuthorizationsListView_Tit20" xml:space="preserve">
-    <value>Error en borrado de Autorizaciones</value>
+    <value>Error al eliminar las Autorizaciones</value>
   </data>
   <data name="ColumnHeader_ApplicationGroupName" xml:space="preserve">
-    <value>Nombre Grupo de Aplicación</value>
+    <value>Nombre del Grupo de Aplicación</value>
   </data>
   <data name="ColumnHeader_ApplicationID" xml:space="preserve">
-    <value>ID Aplicación</value>
+    <value>Aplicación ID</value>
   </data>
   <data name="ColumnHeader_ApplicationName" xml:space="preserve">
-    <value>Nombre Aplicación</value>
+    <value>Nombre de Aplicación</value>
   </data>
   <data name="ColumnHeader_AuthorizationType" xml:space="preserve">
     <value>Tipo Autorización</value>
@@ -151,7 +151,7 @@
     <value>Descripción</value>
   </data>
   <data name="ColumnHeader_GroupType" xml:space="preserve">
-    <value>Tipo Grupo</value>
+    <value>Tipo de Grupo</value>
   </data>
   <data name="ColumnHeader_ItemID" xml:space="preserve">
     <value>Item ID</value>
@@ -172,7 +172,7 @@
     <value>Nombre</value>
   </data>
   <data name="ColumnHeader_ObjectSID" xml:space="preserve">
-    <value>Object SID</value>
+    <value>Objeto SID</value>
   </data>
   <data name="ColumnHeader_Owner" xml:space="preserve">
     <value>Propietario</value>
@@ -199,10 +199,10 @@
     <value>Condición definida</value>
   </data>
   <data name="DeleteError_Msg10" xml:space="preserve">
-    <value>Error de borrado</value>
+    <value>Error al eliminar</value>
   </data>
   <data name="DGColumn_10" xml:space="preserve">
-    <value>Tipo Miembro</value>
+    <value>Tipo de Miembro</value>
   </data>
   <data name="DGColumn_20" xml:space="preserve">
     <value>Propietario</value>
@@ -214,7 +214,7 @@
     <value>Nombre</value>
   </data>
   <data name="DGColumn_50" xml:space="preserve">
-    <value>Object SID</value>
+    <value>Objeto SID</value>
   </data>
   <data name="DGColumn_60" xml:space="preserve">
     <value>Condición definida</value>
@@ -235,10 +235,10 @@
     <value>Configurar permiso de Autorización</value>
   </data>
   <data name="Domain_AllowWithDelegation" xml:space="preserve">
-    <value>Permitir con Delegación</value>
+    <value>Permitir con Delegados</value>
   </data>
   <data name="Domain_AllowWithDelegationDescription" xml:space="preserve">
-    <value>Configurar permiso de Autorización con Delegación</value>
+    <value>Configurar permiso de Autorización con Delegados</value>
   </data>
   <data name="Domain_Deny" xml:space="preserve">
     <value>Negar</value>
@@ -274,7 +274,7 @@
     <value>Expandiendo...</value>
   </data>
   <data name="Folder_Msg10" xml:space="preserve">
-    <value>Contenedor Grupos de Aplicación</value>
+    <value>Contenedor de Grupos de Aplicación</value>
   </data>
   <data name="Folder_Msg100" xml:space="preserve">
     <value>Grupos de Store &amp; Aplicaciones</value>
@@ -325,7 +325,7 @@
     <value>Contenedor Autorizaciones de Operación</value>
   </data>
   <data name="Folder_Tit50" xml:space="preserve">
-    <value>Contenedor definiciones Operación</value>
+    <value>Contenedor definiciones de Operación</value>
   </data>
   <data name="Folder_Tit60" xml:space="preserve">
     <value>Contenedor Autorizaciones Rol</value>
@@ -382,10 +382,10 @@
     <value>&amp;Remover</value>
   </data>
   <data name="frmApplicationAttributes_label7.Text" xml:space="preserve">
-    <value>Atributos Aplicación</value>
+    <value>Atributos de Aplicación</value>
   </data>
   <data name="frmApplicationAttributes_lblInfo.Text" xml:space="preserve">
-    <value>Atributos Aplicación</value>
+    <value>Atributos de Aplicación</value>
   </data>
   <data name="frmApplicationAttributes_lsvAttributes_0.Text" xml:space="preserve">
     <value>Clave</value>
@@ -400,19 +400,19 @@
     <value>Valor</value>
   </data>
   <data name="frmApplicationAttributes_Msg10" xml:space="preserve">
-    <value>Ya existe un Atributo con la misma clave.\r\nNo puede agregar claves de Atributos duplicadas</value>
+    <value>Ya existe un Atributo con la misma clave.\r\nNo puede agregar claves duplicadas</value>
   </data>
   <data name="frmApplicationAttributes_Msg20" xml:space="preserve">
-    <value>Un Atributo con la misma clave no es cofirmado para Remover.\r\nNo se puede agregar claves de Atributos duplicadas.\r\nAplique  los cambios actuales, entonces intente agregar este Atributo nuevamente</value>
+    <value>Un Atributo con la misma clave no es cofirmado para Remover.\r\nNo puede agregar claves duplicadas.\r\nAplique los cambios actuales, y después intente agregar este Atributo nuevamente</value>
   </data>
   <data name="frmApplicationAttributes_Tit10" xml:space="preserve">
-    <value>Clave Atributo Duplicada</value>
+    <value>Clave Duplicada</value>
   </data>
   <data name="frmApplicationAttributes_Tit20" xml:space="preserve">
-    <value>Clave Atributo Duplicada</value>
+    <value>Clave Duplicada</value>
   </data>
   <data name="frmApplicationGroupsList.Text" xml:space="preserve">
-    <value>Lista Grupos Aplicación</value>
+    <value>Lista de Grupos Aplicación</value>
   </data>
   <data name="frmApplicationGroupsList_btnCancel.Text" xml:space="preserve">
     <value>&amp;Cancelar</value>
@@ -454,7 +454,7 @@
     <value>Agregar Grupos &amp;Aplicación</value>
   </data>
   <data name="frmApplicationGroupsProperties_btnMembersAddDBUsers.Text" xml:space="preserve">
-    <value>Agregar Usuarios &amp;DB</value>
+    <value>Agregar Usuarios &amp;BD</value>
   </data>
   <data name="frmApplicationGroupsProperties_btnMembersAddStoreGroups.Text" xml:space="preserve">
     <value>Agregar Grupos &amp;Store</value>
@@ -469,7 +469,7 @@
     <value>Agregar Grupos &amp;Aplicación</value>
   </data>
   <data name="frmApplicationGroupsProperties_btnNonMembersAddDBUsers.Text" xml:space="preserve">
-    <value>Agregar Usuarios &amp;DB</value>
+    <value>Agregar Usuarios &amp;BD</value>
   </data>
   <data name="frmApplicationGroupsProperties_btnNonMembersAddStoreGroups.Text" xml:space="preserve">
     <value>Agregar Grupos &amp;Store</value>
@@ -544,10 +544,10 @@
     <value>Nombre Grupo de Aplicación requerido</value>
   </data>
   <data name="frmApplicationGroupsProperties_Tit30" xml:space="preserve">
-    <value>Execute LDAP Query error</value>
+    <value>Error al ejecutar la consulta LDAP</value>
   </data>
   <data name="frmApplicationPermissions.Text" xml:space="preserve">
-    <value>Permisos Aplicación</value>
+    <value>Permisos de Aplicación</value>
   </data>
   <data name="frmApplicationPermissions_btnCancel.Text" xml:space="preserve">
     <value>&amp;Cancelar</value>
@@ -558,13 +558,13 @@
   <data name="frmApplicationPermissions_lblDescription.Text" xml:space="preserve">
     <value>Accesos a Sql con permisos especiales. 
 (Los accesos deben ser agregados antes a los roles de SQL: "NetSqlAzMan_Managers", "NetSqlAzMan_Users", "NetSqlAzMan_Readers").
-Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
+Solo los accesos marcados van a tener permiso a esta Aplicación.</value>
   </data>
   <data name="frmApplicationPermissions_lblInfo.Text" xml:space="preserve">
-    <value>Permisos Aplicación</value>
+    <value>Permisos de Aplicación</value>
   </data>
   <data name="frmApplicationProperties.Text" xml:space="preserve">
-    <value>Propiedades Aplicación</value>
+    <value>Propiedades de Aplicación</value>
   </data>
   <data name="frmApplicationProperties_btnAttributes.Text" xml:space="preserve">
     <value>A&amp;tributos</value>
@@ -585,10 +585,10 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Descripción:</value>
   </data>
   <data name="frmApplicationProperties_lblInfo.Text" xml:space="preserve">
-    <value>Propiedades Aplicación</value>
+    <value>Propiedades de Aplicación</value>
   </data>
   <data name="frmApplicationProperties_Msg10" xml:space="preserve">
-    <value>Propiedades Aplicación</value>
+    <value>Propiedades de Aplicación</value>
   </data>
   <data name="frmApplicationProperties_Msg20" xml:space="preserve">
     <value>Nueva Aplicación</value>
@@ -618,13 +618,13 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Valor:</value>
   </data>
   <data name="frmAttributeProperties_label7.Text" xml:space="preserve">
-    <value>Propiedades Atributo</value>
+    <value>Atributo Propiedades</value>
   </data>
   <data name="frmAttributeProperties_lblInfo.Text" xml:space="preserve">
-    <value>Propiedades Atributos</value>
+    <value>Atributo Propiedades</value>
   </data>
   <data name="frmAuthorizationAttributes.Text" xml:space="preserve">
-    <value>Atributos Autorización</value>
+    <value>Atributos de Autorización</value>
   </data>
   <data name="frmAuthorizationAttributes_btnAdd.Text" xml:space="preserve">
     <value>&amp;Agregar</value>
@@ -645,10 +645,10 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>&amp;Remover</value>
   </data>
   <data name="frmAuthorizationAttributes_label7.Text" xml:space="preserve">
-    <value>Atributos Autorización</value>
+    <value>Atributos de Autorización</value>
   </data>
   <data name="frmAuthorizationAttributes_lblInfo.Text" xml:space="preserve">
-    <value>Atributos Autorización</value>
+    <value>Atributos de Autorización</value>
   </data>
   <data name="frmAuthorizationAttributes_lsvAttributes_0.Text" xml:space="preserve">
     <value>Clave</value>
@@ -657,7 +657,7 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Valor</value>
   </data>
   <data name="frmBizRule.Text" xml:space="preserve">
-    <value>Regla Negocios</value>
+    <value>Regla de Negocio</value>
   </data>
   <data name="frmBizRule_btnClearBizRule.Text" xml:space="preserve">
     <value>&amp;Limpiar Regla desde Store</value>
@@ -666,52 +666,52 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>&amp;Cerrar</value>
   </data>
   <data name="frmBizRule_btnNewFromTemplate.Text" xml:space="preserve">
-    <value>&amp;Nueva Regla Negocios</value>
+    <value>&amp;Nueva Regla de Negocio</value>
   </data>
   <data name="frmBizRule_btnReloadBizRule.Text" xml:space="preserve">
-    <value>&amp;Recargar Regla en Store</value>
+    <value>&amp;Recargar Regla de Negocio</value>
   </data>
   <data name="frmBizRule_label1.Text" xml:space="preserve">
-    <value>Tipo lenguage fuente:</value>
+    <value>Tipo lenguaje fuente:</value>
   </data>
   <data name="frmBizRule_label2.Text" xml:space="preserve">
     <value>Código fuente:</value>
   </data>
   <data name="frmBizRule_label7.Text" xml:space="preserve">
-    <value>Regla Negocios</value>
+    <value>Regla de Negocio</value>
   </data>
   <data name="frmBizRule_lblInfo.Text" xml:space="preserve">
-    <value>Regla Negocios</value>
+    <value>Regla de Negocio</value>
   </data>
   <data name="frmBizRule_Msg10" xml:space="preserve">
-    <value> (Seleccione un lenguaje .NET y presione el botón "Nueva Regla Negocio" para componer una nueva Regla de Negocio,\n\rentonces presione "Recargar Regla en Store" para persistir los cambios y compilar la Regla de Negocio.)</value>
+    <value> (Seleccione un lenguaje .NET y presione el botón "Nueva Regla de Negocio" para crear una nueva Regla de Negocio,\n\rentonces presione "Recargar Regla de Negocio" para guardar los cambios y compilar la Regla de Negocio.)</value>
   </data>
   <data name="frmBizRule_Msg20" xml:space="preserve">
-    <value>Regla Negocios error</value>
+    <value>Erro en la Regla Negocio</value>
   </data>
   <data name="frmBizRule_Msg30" xml:space="preserve">
-    <value>Insertar su código aqui</value>
+    <value>Insertar su código aquí</value>
   </data>
   <data name="frmCheckAccessTest.Text" xml:space="preserve">
-    <value>Test Verificación Acceso</value>
+    <value>Prueba de Verificación de Acceso</value>
   </data>
   <data name="frmCheckAccessTest_btnCheckAccessTest.Text" xml:space="preserve">
-    <value>Iniciar &amp;Test Verificación Acceso</value>
+    <value>Iniciar &amp;Prueba de Verificación de Acceso</value>
   </data>
   <data name="frmCheckAccessTest_btnClose.Text" xml:space="preserve">
     <value>&amp;Cerrar</value>
   </data>
   <data name="frmCheckAccessTest_label1.Text" xml:space="preserve">
-    <value>Resultados Verificación Acceso:</value>
+    <value>Resultados de la Verificación de Acceso:</value>
   </data>
   <data name="frmCheckAccessTest_label2.Text" xml:space="preserve">
     <value>Detalles:</value>
   </data>
   <data name="frmCheckAccessTest_lblProtocolTransitionWarning.Text" xml:space="preserve">
-    <value>Usuarios en lugar del actual pueden ser seleccionados solo desde una máquina con Windows Server 2003 en un Dominio Nativo de Windows 2003 (Kerberos Protocol Transition).</value>
+    <value>Usuarios diferente del actual pueden ser seleccionados solo desde una máquina con Windows Server 2003 en un Dominio Nativo de Windows 2003 (Kerberos Protocol Transition).</value>
   </data>
   <data name="frmCheckAccessTest_Msg10" xml:space="preserve">
-    <value>Error Test Verificación Acceso</value>
+    <value>Error al probar la Verificación de Acceso</value>
   </data>
   <data name="frmCheckAccessTest_Msg100" xml:space="preserve">
     <value>Miembro de estos Grupos de Store:</value>
@@ -723,19 +723,19 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Por Favor seleccione solo un Usuario de Windows</value>
   </data>
   <data name="frmCheckAccessTest_Msg30" xml:space="preserve">
-    <value>Test Verificación Acceso iniciado a </value>
+    <value>La prueba de Verificación de Acceso inicio a </value>
   </data>
   <data name="frmCheckAccessTest_Msg40" xml:space="preserve">
     <value>Construyendo Jerarquía de Items ...</value>
   </data>
   <data name="frmCheckAccessTest_Msg50" xml:space="preserve">
-    <value>Test Verificación Acceso terminado a </value>
+    <value>La prueba de Verificación de Acceso termino a </value>
   </data>
   <data name="frmCheckAccessTest_Msg60" xml:space="preserve">
-    <value>Detalle Identidad:</value>
+    <value>Detalle de Identidad:</value>
   </data>
   <data name="frmCheckAccessTest_Msg70" xml:space="preserve">
-    <value>Test Verificación Acceso ejecutando</value>
+    <value>La prueba de Verificación de Acceso en</value>
   </data>
   <data name="frmCheckAccessTest_Msg80" xml:space="preserve">
     <value>Por Favor seleccione solo un usuario de Base de Datos</value>
@@ -744,13 +744,13 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Grupos</value>
   </data>
   <data name="frmCheckAccessTest_rbDBUser.Text" xml:space="preserve">
-    <value>Usuario Base De &amp;Datos:</value>
+    <value>Usuario de Base De &amp;Datos:</value>
   </data>
   <data name="frmCheckAccessTest_rbWindowsUser.Text" xml:space="preserve">
-    <value>Usuario &amp;Windows</value>
+    <value>Usuario de &amp;Windows</value>
   </data>
   <data name="frmDBUsersList.Text" xml:space="preserve">
-    <value>Lista Usuarios Base de Datos</value>
+    <value>Lista de Usuarios Base de Datos</value>
   </data>
   <data name="frmDBUsersList_btnCancel.Text" xml:space="preserve">
     <value>&amp;Cancelar</value>
@@ -759,10 +759,10 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>&amp;OK</value>
   </data>
   <data name="frmDBUsersList_label5.Text" xml:space="preserve">
-    <value>Lista Usuarios Base de Datos</value>
+    <value>Lista de Usuarios Base de Datos</value>
   </data>
   <data name="frmDBUsersList_lblInfo.Text" xml:space="preserve">
-    <value>Lista Usuarios Base de Datos</value>
+    <value>Lista de Usuarios Base de Datos</value>
   </data>
   <data name="frmDBUsersList_lblNote.Text" xml:space="preserve">
     <value>Nota: para cambiar la lista de Usuarios de Base de Datos, modifique la función "dbo.GetDBUsers" en la Base de Datos NetAzManStorage.</value>
@@ -771,16 +771,16 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Nombre</value>
   </data>
   <data name="frmDBUsersList_lsvDBUsers_1.Text" xml:space="preserve">
-    <value>Sid Personalizado</value>
+    <value>SID Personalizado</value>
   </data>
   <data name="frmDBUsersList_lsvDBUsers_2.Text" xml:space="preserve">
     <value>Tipo</value>
   </data>
   <data name="frmDBUsersList_Msg10" xml:space="preserve">
-    <value>El Store o Aplicación no pueden ser nulas. Por Favor contacte con el equipo de desarrollo</value>
+    <value>El Store o Aplicación no pueden ser nulas. Por Favor contacte al equipo de desarrollo</value>
   </data>
   <data name="frmDBUsersList_Msg20" xml:space="preserve">
-    <value>Usuario DB</value>
+    <value>Usuario BD</value>
   </data>
   <data name="frmExport.Text" xml:space="preserve">
     <value>Por Favor espere ...</value>
@@ -795,7 +795,7 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Exportación terminada</value>
   </data>
   <data name="frmExport_Msg30" xml:space="preserve">
-    <value>Error de Exportación</value>
+    <value>Error al Exportar</value>
   </data>
   <data name="frmExportOptions.Text" xml:space="preserve">
     <value>Opciones de Exportación del .NET Sql Authorization Manager</value>
@@ -816,7 +816,7 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Incluir Usuarios/Grupos de Windows</value>
   </data>
   <data name="frmExportOptions_lblInfo.Text" xml:space="preserve">
-    <value>Opciones Exportación</value>
+    <value>Opciones de Exportación</value>
   </data>
   <data name="frmExportOptions_lblTitle.Text" xml:space="preserve">
     <value>Seleccione una o mas opciones de Exportación:</value>
@@ -837,7 +837,7 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>&amp;Generar</value>
   </data>
   <data name="frmGenerateCheckAccessHelper_chkAllowOperations.Text" xml:space="preserve">
-    <value>Permitir Verificación Acceso Operación</value>
+    <value>Permitir la Operación de Verificación de Acceso </value>
   </data>
   <data name="frmGenerateCheckAccessHelper_chkAllowRoles.Text" xml:space="preserve">
     <value>Permitir Verificación Acceso Rol</value>
@@ -855,7 +855,7 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Lenguaje Código Fuente:</value>
   </data>
   <data name="frmGenerateCheckAccessHelper_label3.Text" xml:space="preserve">
-    <value>Namespace:</value>
+    <value>Espacio de Nombres:</value>
   </data>
   <data name="frmGenerateCheckAccessHelper_label4.Text" xml:space="preserve">
     <value>Generar Clase CheckAccessHelper:</value>
@@ -873,7 +873,7 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Se requiere Nombre de Clase</value>
   </data>
   <data name="frmGenerateCheckAccessHelper_Msg30" xml:space="preserve">
-    <value>Namespace requerido</value>
+    <value>Espacio de Nombres requerido</value>
   </data>
   <data name="frmImport.Text" xml:space="preserve">
     <value>Importando</value>
@@ -885,7 +885,7 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>El archivo XML no es válido o la posición de importación no es correcta.</value>
   </data>
   <data name="frmImport_Msg20" xml:space="preserve">
-    <value>No se puede encontrar referencia al Storage. Tipo ObjectForImport no soportado.</value>
+    <value>No se puede encontrar referencia al Almacenamiento. Tipo ObjectForImport no soportado.</value>
   </data>
   <data name="frmImportFromAzMan.Text" xml:space="preserve">
     <value>Importar Store desde Microsoft Authorization Manager (AzMan)</value>
@@ -927,7 +927,7 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Estado:</value>
   </data>
   <data name="frmImportFromAzMan_Msg10" xml:space="preserve">
-    <value>Azroles.dll no puede ser instalado. Por Favor instale los componentes de Microsoft Authorization Manager y reintente nuevamente.</value>
+    <value>Azroles.dll no puede ser instalado. Por Favor instale los componentes de Microsoft Authorization Manager e intente nuevamente.</value>
   </data>
   <data name="frmImportFromAzMan_Msg100" xml:space="preserve">
     <value>Liberar Store AzMan ...</value>
@@ -972,13 +972,13 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Incluir Autorizaciones de Items</value>
   </data>
   <data name="frmImportOptions_chkDBUsers.Text" xml:space="preserve">
-    <value>Incluir Usuarios Base de Datos</value>
+    <value>Incluir Usuarios de Base de Datos</value>
   </data>
   <data name="frmImportOptions_chkUsersAndGroups.Text" xml:space="preserve">
     <value>Incluir Usuarios/Grupos de Windows</value>
   </data>
   <data name="frmImportOptions_lblInfo.Text" xml:space="preserve">
-    <value>Opciones Importación</value>
+    <value>Opciones de Importación</value>
   </data>
   <data name="frmImportOptions_lblTitle.Text" xml:space="preserve">
     <value>Seleccione una o mas opciones de Importación:</value>
@@ -1023,10 +1023,10 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Autorizaciones Item</value>
   </data>
   <data name="frmItemAuthorizations_btnAddApplicationGroups.Text" xml:space="preserve">
-    <value>Agregar Grupos &amp;Aplicación</value>
+    <value>Agregar Grupos de &amp;Aplicación</value>
   </data>
   <data name="frmItemAuthorizations_btnAddDBUsers.Text" xml:space="preserve">
-    <value>Agregar Usuarios &amp;DB</value>
+    <value>Agregar Usuarios &amp;BD</value>
   </data>
   <data name="frmItemAuthorizations_btnAddStoreGroups.Text" xml:space="preserve">
     <value>Agregar Grupos &amp;Store</value>
@@ -1059,7 +1059,7 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Autorizaciones Item</value>
   </data>
   <data name="frmItemAuthorizations_Msg10" xml:space="preserve">
-    <value>Error en Autorizaciones Item</value>
+    <value>Error en Autorizaciones de Item</value>
   </data>
   <data name="frmItemAuthorizations_Msg20" xml:space="preserve">
     <value>El campo VALIDTO debe ser Mayor o Igual que el campo VALIDFROM</value>
@@ -1068,13 +1068,13 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Una o mas filas de Autorizaciones contiene errores. Por Favor verifique antes de aplicar los cambios.</value>
   </data>
   <data name="frmItemAuthorizations_Msg40" xml:space="preserve">
-    <value>Los cambios deben aplicarse antes de administrar la Autorización de Atributos.\r\nAplica los cambios ahora?</value>
+    <value>Los cambios deben aplicarse antes de administrar la Autorización de Atributos.\r\nAplicar los cambios ahora?</value>
   </data>
   <data name="frmItemAuthorizations_Msg50" xml:space="preserve">
     <value>Error en Actualización Atributos</value>
   </data>
   <data name="frmItemAuthorizations_Msg60" xml:space="preserve">
-    <value>El valor de la Columna no es válido. Por Favor verifique la Fecha ingresada y reintente nuevamente. Columna:</value>
+    <value>El valor de la Columna no es válido. Por Favor verifique la Fecha ingresada e intente nuevamente. Columna:</value>
   </data>
   <data name="frmItemAuthorizations_Tit40" xml:space="preserve">
     <value>Atención</value>
@@ -1098,7 +1098,7 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>A&amp;tributos</value>
   </data>
   <data name="frmItemProperties_btnBizRule.Text" xml:space="preserve">
-    <value>&amp;Regla Negocios</value>
+    <value>&amp;Regla de Negocio</value>
   </data>
   <data name="frmItemProperties_btnCancel.Text" xml:space="preserve">
     <value>&amp;Cancelar</value>
@@ -1161,34 +1161,34 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Nombre requerido</value>
   </data>
   <data name="frmItemProperties_Msg140" xml:space="preserve">
-    <value>Error en creación de Item</value>
+    <value>Error en creación del Item</value>
   </data>
   <data name="frmItemProperties_Msg150" xml:space="preserve">
-    <value>Error en actualización de Item</value>
+    <value>Error en actualización del Item</value>
   </data>
   <data name="frmItemProperties_Msg160" xml:space="preserve">
     <value>Error en Actualización Atributos</value>
   </data>
   <data name="frmItemProperties_Msg170" xml:space="preserve">
-    <value>Regla Negocios para item: </value>
+    <value>Regla de Negocio para item: </value>
   </data>
   <data name="frmItemProperties_Msg180" xml:space="preserve">
-    <value>Regla Negocios error</value>
+    <value>Error en Regla de Negocio</value>
   </data>
   <data name="frmItemProperties_Msg20" xml:space="preserve">
-    <value>Definición Rol</value>
+    <value>Definición del Rol</value>
   </data>
   <data name="frmItemProperties_Msg30" xml:space="preserve">
-    <value>Propiedades Tarea</value>
+    <value>Propiedades de la Tarea</value>
   </data>
   <data name="frmItemProperties_Msg40" xml:space="preserve">
-    <value>Definición Tareas</value>
+    <value>Definición de Tareas</value>
   </data>
   <data name="frmItemProperties_Msg50" xml:space="preserve">
-    <value>Propiedades Operación</value>
+    <value>Propiedades de Operación</value>
   </data>
   <data name="frmItemProperties_Msg60" xml:space="preserve">
-    <value>Definición Operación</value>
+    <value>Definición de Operación</value>
   </data>
   <data name="frmItemProperties_Msg70" xml:space="preserve">
     <value>Nuevo Rol</value>
@@ -1209,7 +1209,7 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Tareas</value>
   </data>
   <data name="frmItemsHierarchyView.Text" xml:space="preserve">
-    <value>Ver Jerarquía Items</value>
+    <value>Ver Jerarquía de Items</value>
   </data>
   <data name="frmItemsHierarchyView_btnClose.Text" xml:space="preserve">
     <value>&amp;Cerrar</value>
@@ -1251,13 +1251,13 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Lista de Roles</value>
   </data>
   <data name="frmItemsList_Msg20" xml:space="preserve">
-    <value>Lista Tareas</value>
+    <value>Lista de Tareas</value>
   </data>
   <data name="frmItemsList_Msg30" xml:space="preserve">
-    <value>Lista Operaciones</value>
+    <value>Lista de Operaciones</value>
   </data>
   <data name="frmNewApplicationGroup.Text" xml:space="preserve">
-    <value>Nuevo Grupo Aplicación</value>
+    <value>Nuevo Grupo de Aplicación</value>
   </data>
   <data name="frmNewApplicationGroup_btnCancel.Text" xml:space="preserve">
     <value>&amp;Cancelar</value>
@@ -1287,7 +1287,7 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>&amp;Básico</value>
   </data>
   <data name="frmNewApplicationGroup_rbtLDAPQuery.Text" xml:space="preserve">
-    <value>&amp;LDAP Query</value>
+    <value>&amp;Consulta LDAP</value>
   </data>
   <data name="frmNewStoreGroup.Text" xml:space="preserve">
     <value>Nuevo Grupo de Store</value>
@@ -1314,13 +1314,13 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Nombre de Grupo de Store requerido</value>
   </data>
   <data name="frmNewStoreGroup_Msg20" xml:space="preserve">
-    <value>Error en creación de Grupo de Store</value>
+    <value>Error en la creación de Grupo de Store</value>
   </data>
   <data name="frmNewStoreGroup_rbtBasic.Text" xml:space="preserve">
     <value>&amp;Básico</value>
   </data>
   <data name="frmNewStoreGroup_rbtLDAPQuery.Text" xml:space="preserve">
-    <value>&amp;LDAP Query</value>
+    <value>&amp;Consulta LDAP</value>
   </data>
   <data name="frmOptions.Text" xml:space="preserve">
     <value>Opciones NetSqlAzMan</value>
@@ -1335,19 +1335,19 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Errores</value>
   </data>
   <data name="frmOptions_chkInformations.Text" xml:space="preserve">
-    <value>Informaciones</value>
+    <value>Informacion</value>
   </data>
   <data name="frmOptions_chkLogOnDb.Text" xml:space="preserve">
-    <value>Log in &amp;Database</value>
+    <value>Log in &amp;Base de datos</value>
   </data>
   <data name="frmOptions_chkLogOnEventLog.Text" xml:space="preserve">
-    <value>Log in E&amp;vent Log</value>
+    <value>Log in bitácora de E&amp;ventos</value>
   </data>
   <data name="frmOptions_chkWarnings.Text" xml:space="preserve">
     <value>Advertencias</value>
   </data>
   <data name="frmOptions_label1.Text" xml:space="preserve">
-    <value>.NET Sql Authorization Manager modo:</value>
+    <value>Modo de.NET Sql Authorization Manager:</value>
   </data>
   <data name="frmOptions_label10.Text" xml:space="preserve">
     <value>MMC:</value>
@@ -1365,16 +1365,16 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>En modo Administrador, los Usuarios/Grupos locales de Windows son ignorados por los métodos de CheckAccess.</value>
   </data>
   <data name="frmOptions_label6.Text" xml:space="preserve">
-    <value>Run-Time:</value>
+    <value>Tiempo de Ejecución:</value>
   </data>
   <data name="frmOptions_label8.Text" xml:space="preserve">
-    <value>Run-Time:</value>
+    <value>Tiempo de Ejecución:</value>
   </data>
   <data name="frmOptions_label9.Text" xml:space="preserve">
     <value>En modo Desarrollador, los usuarios pueden ver Dominio/Usuarios/Grupos de Windows y tener un control sobre las Operaciones.</value>
   </data>
   <data name="frmOptions_lblEventLog.Text" xml:space="preserve">
-    <value>Eventos Log:</value>
+    <value>Bitácora de Eventos:</value>
   </data>
   <data name="frmOptions_rbAdministrator.Text" xml:space="preserve">
     <value>Modo Administrador:</value>
@@ -1383,7 +1383,7 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Modo Desarrollador:</value>
   </data>
   <data name="frmPrint.Text" xml:space="preserve">
-    <value>Opciones Impresión</value>
+    <value>Opciones de Impresión</value>
   </data>
   <data name="frmPrint_btnPageSetup.Text" xml:space="preserve">
     <value>Configurar Pá&amp;gina</value>
@@ -1425,10 +1425,10 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>&amp;Refrescar</value>
   </data>
   <data name="frmStorageConnection_btnTestConnection.Text" xml:space="preserve">
-    <value>&amp;Test</value>
+    <value>&amp;Prueba</value>
   </data>
   <data name="frmStorageConnection_btnTestConnection.Text1" xml:space="preserve">
-    <value>&amp;Test</value>
+    <value>&amp;Prueba</value>
   </data>
   <data name="frmStorageConnection_label1.Text" xml:space="preserve">
     <value>Data Source:</value>
@@ -1449,16 +1449,16 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>User Id:</value>
   </data>
   <data name="frmStorageConnection_label4.Text" xml:space="preserve">
-    <value>Clave:</value>
+    <value>Password:</value>
   </data>
   <data name="frmStorageConnection_label4.Text1" xml:space="preserve">
-    <value>Clave:</value>
+    <value>Password:</value>
   </data>
   <data name="frmStorageConnection_label5.Text" xml:space="preserve">
-    <value>NetSqlAzMan DB:</value>
+    <value>NetSqlAzMan BD:</value>
   </data>
   <data name="frmStorageConnection_label5.Text1" xml:space="preserve">
-    <value>NetSqlAzMan DB:</value>
+    <value>NetSqlAzMan BD:</value>
   </data>
   <data name="frmStorageConnection_label6.Text" xml:space="preserve">
     <value>Otras Configuraciones:</value>
@@ -1563,7 +1563,7 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>Tipo</value>
   </data>
   <data name="frmStoreGroupsProperties.Text" xml:space="preserve">
-    <value>Propiedades Grupo Store</value>
+    <value>Propiedades de Grupo de Store</value>
   </data>
   <data name="frmStoreGroupsProperties_btnApply.Text" xml:space="preserve">
     <value>&amp;Aplicar</value>
@@ -1572,7 +1572,7 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>&amp;Cancelar</value>
   </data>
   <data name="frmStoreGroupsProperties_btnMembersAddDBUsers.Text" xml:space="preserve">
-    <value>Agregar Usuarios &amp;DB</value>
+    <value>Agregar Usuarios &amp;BD</value>
   </data>
   <data name="frmStoreGroupsProperties_btnMembersAddStoreGroup.Text" xml:space="preserve">
     <value>Agregar Grupos &amp;Store</value>
@@ -1584,7 +1584,7 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
     <value>&amp;Remover</value>
   </data>
   <data name="frmStoreGroupsProperties_btnNonMembersAddDBUsers.Text" xml:space="preserve">
-    <value>Agregar Usuarios &amp;DB</value>
+    <value>Agregar Usuarios &amp;BD</value>
   </data>
   <data name="frmStoreGroupsProperties_btnNonMembersAddStoreGroup.Text" xml:space="preserve">
     <value>Agregar Grupos &amp;Store</value>
@@ -1679,7 +1679,7 @@ Solo los accesos marcados van a tener permiso para esta Aplicación.</value>
 Solo los accesos marcados van a tener permiso para este Store.</value>
   </data>
   <data name="frmStorePermissions_lblInfo.Text" xml:space="preserve">
-    <value>Permisos Store</value>
+    <value>Permisos del Store</value>
   </data>
   <data name="frmStoreProperties.Text" xml:space="preserve">
     <value>Nuevo Store</value>
@@ -1724,7 +1724,7 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <value>Error en Actualización Atributos</value>
   </data>
   <data name="ItemDefinitionsListView_Msg10" xml:space="preserve">
-    <value>Borrar Items seleccionados ?</value>
+    <value>Eliminar Items seleccionados ?</value>
   </data>
   <data name="ItemDefinitionsListView_Tit20" xml:space="preserve">
     <value>Error en borrado de Items</value>
@@ -1757,25 +1757,25 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <value>Idioma Español</value>
   </data>
   <data name="Language_Tit10" xml:space="preserve">
-    <value>Seleccionar Idioma Interfaz</value>
+    <value>Seleccionar Idioma de la Interfaz</value>
   </data>
   <data name="ListView_Msg10" xml:space="preserve">
     <value>Miembros Grupo de Aplicación</value>
   </data>
   <data name="ListView_Msg100" xml:space="preserve">
-    <value>Borrar Rol ?</value>
+    <value>Eliminar Rol ?</value>
   </data>
   <data name="ListView_Msg110" xml:space="preserve">
-    <value>Borrar Tarea</value>
+    <value>Eliminar Tarea</value>
   </data>
   <data name="ListView_Msg120" xml:space="preserve">
-    <value>Borrar Tarea ?</value>
+    <value>Eliminar Tarea ?</value>
   </data>
   <data name="ListView_Msg130" xml:space="preserve">
-    <value>Borrar Operación</value>
+    <value>Eliminar Operación</value>
   </data>
   <data name="ListView_Msg140" xml:space="preserve">
-    <value>Borrar Operación ?</value>
+    <value>Eliminar Operación ?</value>
   </data>
   <data name="ListView_Msg150" xml:space="preserve">
     <value>Miembros de Grupo de Store</value>
@@ -1796,22 +1796,22 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <value>Propiedades del Rol</value>
   </data>
   <data name="ListView_Msg70" xml:space="preserve">
-    <value>Propiedades Tarea</value>
+    <value>Propiedades de la Tarea</value>
   </data>
   <data name="ListView_Msg80" xml:space="preserve">
-    <value>Propiedades Operación</value>
+    <value>Propiedades de Operación</value>
   </data>
   <data name="ListView_Msg90" xml:space="preserve">
-    <value>Borrar Rol</value>
+    <value>Eliminar Rol</value>
   </data>
   <data name="ListView_Tit60" xml:space="preserve">
-    <value>Administrar Propiedades Rol</value>
+    <value>Administrar Propiedades del Rol</value>
   </data>
   <data name="ListView_Tit70" xml:space="preserve">
-    <value>Administrar Propiedades Tarea</value>
+    <value>Administrar Propiedades de la Tarea</value>
   </data>
   <data name="ListView_Tit80" xml:space="preserve">
-    <value>Administrar Propiedades Operaciones</value>
+    <value>Administrar Propiedades de Operaciones</value>
   </data>
   <data name="Menu_ItemsHierarchicalView" xml:space="preserve">
     <value>Ver Items por Jerarquía</value>
@@ -1820,22 +1820,22 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <value>Ver Vista Jerárquica de la Aplicación seleccionada.</value>
   </data>
   <data name="Menu_Msg10" xml:space="preserve">
-    <value>Exportar Grupo Aplicación seleccionados</value>
+    <value>Exportar Grupo de Aplicaciones seleccionados</value>
   </data>
   <data name="Menu_Msg100" xml:space="preserve">
-    <value>Borrar Aplicaciones seleccionadas ?</value>
+    <value>Eliminar Aplicaciones seleccionadas ?</value>
   </data>
   <data name="Menu_Msg110" xml:space="preserve">
     <value>Exportar Grupos de Store seleccionados</value>
   </data>
   <data name="Menu_Msg120" xml:space="preserve">
-    <value>Borrar Grupo de Store seleccionado</value>
+    <value>Eliminar Grupo de Stores seleccionados</value>
   </data>
   <data name="Menu_Msg130" xml:space="preserve">
     <value>Exportar Stores seleccionados</value>
   </data>
   <data name="Menu_Msg140" xml:space="preserve">
-    <value>Borrar Stores seleccionados</value>
+    <value>Eliminar Stores seleccionados</value>
   </data>
   <data name="Menu_Msg160" xml:space="preserve">
     <value>Propiedades de Grupo de Aplicación</value>
@@ -1844,13 +1844,13 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <value>Exportar Grupo Aplicación</value>
   </data>
   <data name="Menu_Msg180" xml:space="preserve">
-    <value>Borrar Grupo de Aplicación</value>
+    <value>Eliminar Grupo de Aplicación</value>
   </data>
   <data name="Menu_Msg190" xml:space="preserve">
-    <value>Borrar Grupo de Aplicación ?</value>
+    <value>Eliminar Grupo de Aplicación ?</value>
   </data>
   <data name="Menu_Msg20" xml:space="preserve">
-    <value>Borrar Grupos de Aplicación seleccionados</value>
+    <value>Eliminar Grupos de Aplicación seleccionados</value>
   </data>
   <data name="Menu_Msg210" xml:space="preserve">
     <value>Nuevo Grupo Aplicación</value>
@@ -1871,16 +1871,16 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <value>Exportar Aplicación</value>
   </data>
   <data name="Menu_Msg270" xml:space="preserve">
-    <value>Borrar Aplicación</value>
+    <value>Eliminar Aplicación</value>
   </data>
   <data name="Menu_Msg280" xml:space="preserve">
-    <value>Borrar Aplicación ?</value>
+    <value>Eliminar Aplicación ?</value>
   </data>
   <data name="Menu_Msg290" xml:space="preserve">
-    <value>Error en Borrado de Aplicación</value>
+    <value>Error al eliminar la Aplicación</value>
   </data>
   <data name="Menu_Msg30" xml:space="preserve">
-    <value>Authorizaciones</value>
+    <value>Autorizaciones</value>
   </data>
   <data name="Menu_Msg300" xml:space="preserve">
     <value>Importar Items</value>
@@ -1895,7 +1895,7 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <value>Nuevo Rol</value>
   </data>
   <data name="Menu_Msg340" xml:space="preserve">
-    <value>Conexión Base de Datos</value>
+    <value>Conexión a Base de Datos</value>
   </data>
   <data name="Menu_Msg350" xml:space="preserve">
     <value>Opciones</value>
@@ -1913,7 +1913,7 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <value>Importar Store desde AzMan</value>
   </data>
   <data name="Menu_Msg40" xml:space="preserve">
-    <value>Borrar</value>
+    <value>Eliminar</value>
   </data>
   <data name="Menu_Msg400" xml:space="preserve">
     <value>Propiedades de Grupo de Store</value>
@@ -1922,19 +1922,19 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <value>Exportar Grupo de Store</value>
   </data>
   <data name="Menu_Msg420" xml:space="preserve">
-    <value>Borrar Grupo Store</value>
+    <value>Eliminar Grupo de Stores</value>
   </data>
   <data name="Menu_Msg430" xml:space="preserve">
-    <value>Borrar Grupo Store ?</value>
+    <value>Eliminar Grupo de Stores ?</value>
   </data>
   <data name="Menu_Msg440" xml:space="preserve">
-    <value>Nuevo Grupo Store</value>
+    <value>Nuevo Grupo de Stores</value>
   </data>
   <data name="Menu_Msg450" xml:space="preserve">
-    <value>Importar Grupos de Store</value>
+    <value>Importar Grupos de Stores</value>
   </data>
   <data name="Menu_Msg460" xml:space="preserve">
-    <value>Importar datos Grupos de Store de .NET Sql Authorization Manager.</value>
+    <value>Importar datos Grupos de Stores de .NET Sql Authorization Manager.</value>
   </data>
   <data name="Menu_Msg470" xml:space="preserve">
     <value>Propiedades del Store</value>
@@ -1946,16 +1946,16 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <value>Importar Grupos de Store/Aplicaciones</value>
   </data>
   <data name="Menu_Msg50" xml:space="preserve">
-    <value>Borrar Autorizaciones seleccionadas ?</value>
+    <value>Eliminar Autorizaciones seleccionadas ?</value>
   </data>
   <data name="Menu_Msg500" xml:space="preserve">
     <value>Exportar Store</value>
   </data>
   <data name="Menu_Msg510" xml:space="preserve">
-    <value>Borrar Store</value>
+    <value>Eliminar Store</value>
   </data>
   <data name="Menu_Msg520" xml:space="preserve">
-    <value>Borrar Store ?</value>
+    <value>Eliminar Store ?</value>
   </data>
   <data name="Menu_Msg530" xml:space="preserve">
     <value>Nueva Tarea</value>
@@ -1964,7 +1964,7 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <value>Administrar Autorizaciones</value>
   </data>
   <data name="Menu_Msg550" xml:space="preserve">
-    <value>Modo y registración</value>
+    <value>Modo de registro</value>
   </data>
   <data name="Menu_Msg560" xml:space="preserve">
     <value>Revisión</value>
@@ -1973,31 +1973,31 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <value>Exportar Items seleccionados</value>
   </data>
   <data name="Menu_Msg70" xml:space="preserve">
-    <value>Borrar Items seleccionados</value>
+    <value>Eliminar Items seleccionados</value>
   </data>
   <data name="Menu_Msg80" xml:space="preserve">
     <value>Exportar Aplicaciones seleccionadas</value>
   </data>
   <data name="Menu_Msg90" xml:space="preserve">
-    <value>Borrar Aplicaciones seleccionadas</value>
+    <value>Eliminar Aplicaciones seleccionadas</value>
   </data>
   <data name="Menu_Tit10" xml:space="preserve">
-    <value>Exportar datos de Grupos de Aplicación de .NET Sql Authorization Manager.</value>
+    <value>Exportar datos de Grupos de Aplicaciones de .NET Sql Authorization Manager.</value>
   </data>
   <data name="Menu_Tit110" xml:space="preserve">
-    <value>Exportar datos Grupos de Store de .NET Sql Authorization Manager.</value>
+    <value>Exportar datos Grupos de Stores de .NET Sql Authorization Manager.</value>
   </data>
   <data name="Menu_Tit120" xml:space="preserve">
-    <value>Borrar el Grupo de Store seleccionado</value>
+    <value>Eliminar el Grupo de Stores seleccionados</value>
   </data>
   <data name="Menu_Tit130" xml:space="preserve">
     <value>Exportar datos de Store de .NET Sql Authorization Manager.</value>
   </data>
   <data name="Menu_Tit140" xml:space="preserve">
-    <value>Borrar los Stores seleccionados</value>
+    <value>Eliminar los Stores seleccionados</value>
   </data>
   <data name="Menu_Tit150" xml:space="preserve">
-    <value>Error en borrado de Stores</value>
+    <value>Error al eliminar los Stores</value>
   </data>
   <data name="Menu_Tit160" xml:space="preserve">
     <value>Administrar Propiedades Grupo de Aplicación</value>
@@ -2006,19 +2006,19 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <value>Exportar Datos Grupo de Aplicación de  .NET Sql Authorization Manager.</value>
   </data>
   <data name="Menu_Tit20" xml:space="preserve">
-    <value>Borrar Grupos de Aplicación seleccionados</value>
+    <value>Eliminar Grupo de Aplicaciones seleccionados</value>
   </data>
   <data name="Menu_Tit200" xml:space="preserve">
-    <value>Error en borrado de Grupo de Aplicación</value>
+    <value>Error al eliminar el Grupo de Aplicaciones</value>
   </data>
   <data name="Menu_Tit210" xml:space="preserve">
-    <value>Crear nuevo Grupo de Aplicación</value>
+    <value>Crear nuevo Grupo de Aplicaciones</value>
   </data>
   <data name="Menu_Tit220" xml:space="preserve">
-    <value>Importar datos Grupos de Aplicación de .NET Sql Authorization Manager.</value>
+    <value>Importar datos Grupos de Aplicaciones de .NET Sql Authorization Manager.</value>
   </data>
   <data name="Menu_Tit230" xml:space="preserve">
-    <value>Propiedades Actualización Aplicación</value>
+    <value>Propiedades al Actualizar la Aplicación</value>
   </data>
   <data name="Menu_Tit240" xml:space="preserve">
     <value>Generar código de Clase CheckAccessHelper (C#/VB.NET).</value>
@@ -2063,7 +2063,7 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <value>Importar datos en .NET Sql Authorization Manager Store desde Microsoft Authorization Manager (AzMan).</value>
   </data>
   <data name="Menu_Tit40" xml:space="preserve">
-    <value>Borrar Autorizaciones seleccionadas</value>
+    <value>Eliminar Autorizaciones seleccionadas</value>
   </data>
   <data name="Menu_Tit400" xml:space="preserve">
     <value>Administrar Propiedades Grupo Store</value>
@@ -2093,22 +2093,22 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <value>Administrar Autorizaciones Item</value>
   </data>
   <data name="Menu_Tit550" xml:space="preserve">
-    <value>Modo y registración de NetSqlAzMan</value>
+    <value>Modo de registro de NetSqlAzMan</value>
   </data>
   <data name="Menu_Tit560" xml:space="preserve">
-    <value>NetSqlAzMan Storage Revisión con SQLAudit</value>
+    <value>NetSqlAzMan Revisión de almacenamiento con SQLAudit</value>
   </data>
   <data name="Menu_Tit60" xml:space="preserve">
     <value>Exportar datos de Items de .NET Sql Authorization Manager.</value>
   </data>
   <data name="Menu_Tit70" xml:space="preserve">
-    <value>Borrar los Items seleccionados</value>
+    <value>Eliminar los Items seleccionados</value>
   </data>
   <data name="Menu_Tit80" xml:space="preserve">
     <value>Exportar datos Aplicaciones de .NET Sql Authorization Manager.</value>
   </data>
   <data name="Menu_Tit90" xml:space="preserve">
-    <value>Borrar la Aplicación seleccionada</value>
+    <value>Eliminar la Aplicación seleccionada</value>
   </data>
   <data name="MMC_Msg10" xml:space="preserve">
     <value>.NET SQL Authorization Manager Information (Primer Inicio)</value>
@@ -2117,11 +2117,11 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <value>Error NetSqlAzMan</value>
   </data>
   <data name="MMC_Msg30" xml:space="preserve">
-    <value>Un error ha ocurrido cuando se cargaban la configuración de conexión.\r\nError: {0}</value>
-    <comment>don't delete place holders {x}</comment>
+    <value>Un error ha ocurrido cuando se cargaba la configuración de conexión.\r\nError: {0}</value>
+    <comment>No elimine los marcadores {x}</comment>
   </data>
   <data name="MMC_Tit10" xml:space="preserve">
-    <value>Botón Derecho en el nodo NetSqlAzMan y seleccione 'Lenguaje' para seleccionar el idioma que prefiere.\r\n\r\nBotón Derecho en el nodo NetSqlAzMan y seleccione 'Conexión Almacenamiento' para configurar las propiedades de la conexión con Sql Server.\r\n\r\nNotas:Primero, debe crear manualmente la Base de Datos (NetSqlAzManStorage) y ejecutar el script NetSqlAzMan_SqlServer.sql (en NetSqlAzMan carpeta de instalación).\r\n\r\nMás información en http://netsqlazman.codeplex.com.\r\n</value>
+    <value>Botón Derecho en el nodo NetSqlAzMan y seleccione 'Lenguaje' para seleccionar el idioma que prefiera.\r\n\r\nBotón Derecho en el nodo NetSqlAzMan y seleccione 'Conexión Almacenamiento' para configurar las propiedades de la conexión con Sql Server.\r\n\r\nNotas:Primero, debe crear manualmente la Base de Datos (NetSqlAzManStorage) y ejecutar el script NetSqlAzMan_SqlServer.sql (en NetSqlAzMan carpeta de instalación).\r\n\r\nMás información en http://netsqlazman.codeplex.com.\r\n</value>
   </data>
   <data name="MMC_Tit30" xml:space="preserve">
     <value>Error de Conexión</value>
@@ -2155,7 +2155,7 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
   </data>
   <data name="StorageScopeNode_Msg20" xml:space="preserve">
     <value>Una nueva versión de NetSqlAzMan está disponible.\r\n\r\nSu versión: {0}\r\nNueva versión: {1}\r\nDescargar desde: {2}\r\n\r\nDesea descargar la nueva versión ahora ?\r\n</value>
-    <comment>don't delete place holders {x}</comment>
+    <comment>No elimine los marcadores {x}</comment>
   </data>
   <data name="StorageScopeNode_Msg30" xml:space="preserve">
     <value>Ha creado la Base de Datos NetSqlAzManStorage?\r\n(Por Favor, mire los scripts en la carpeta SQL Storage)</value>
@@ -2167,25 +2167,25 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <value>Falló la Prueba</value>
   </data>
   <data name="StoreGroupsAndApplicationsListView_Msg10" xml:space="preserve">
-    <value>Error en Borrado de Aplicación</value>
+    <value>Error al eliminar la Aplicación</value>
   </data>
   <data name="StoreGroupScopeNode_Msg10" xml:space="preserve">
-    <value>Error en Propiedades de Grupo de Store</value>
+    <value>Error en Propiedades de Grupo de Stores</value>
   </data>
   <data name="StoreGroupScopeNode_Msg20" xml:space="preserve">
-    <value>Error en borrado de Grupo de Store</value>
+    <value>Error al eliminar el Grupo de Stores</value>
   </data>
   <data name="StoreGroupsListView_Msg10" xml:space="preserve">
-    <value>Borrar Grupo de Store seleccionado ?</value>
+    <value>Eliminar Grupo de Stores seleccionados ?</value>
   </data>
   <data name="StoreGroupsListView_Tit20" xml:space="preserve">
-    <value>Error de Borrado de Grupos de Store</value>
+    <value>Error al eliminar el Grupos de Stores</value>
   </data>
   <data name="StoreScopeNode_Msg10" xml:space="preserve">
     <value>Error en borrado de Store</value>
   </data>
   <data name="StoresListView_Msg10" xml:space="preserve">
-    <value>Borrar Stores seleccionados ?</value>
+    <value>Eliminar Stores seleccionados ?</value>
   </data>
   <data name="UpdateError_Msg10" xml:space="preserve">
     <value>Error de Actualización</value>
@@ -2194,7 +2194,7 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <value>Aplicación</value>
   </data>
   <data name="WhereDefined_DB" xml:space="preserve">
-    <value>Usuario DB</value>
+    <value>Usuario BD</value>
   </data>
   <data name="WhereDefined_LDAP" xml:space="preserve">
     <value>Active Directory</value>
@@ -2212,7 +2212,7 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <value>Crea nuevos Items</value>
   </data>
   <data name="frmImportOptions_chkDeleteMissingItemAuthorizations.Text" xml:space="preserve">
-    <value>Eliminar los desaparecidos autorizaciones</value>
+    <value>Eliminar las autorizaciones faltantes</value>
   </data>
   <data name="frmImportOptions_chkDeleteMissingItems.Text" xml:space="preserve">
     <value>Eliminar los Items que faltan</value>
@@ -2227,7 +2227,7 @@ Solo los accesos marcados van a tener permiso para este Store.</value>
     <value>opciones de importación</value>
   </data>
   <data name="frmImportOptions_groupBox2.Text" xml:space="preserve">
-    <value>combinación de opciones</value>
+    <value>opciones de combinación</value>
   </data>
   <data name="Menu_Msg570" xml:space="preserve">
     <value>Invalidar el WCF Cache Service</value>

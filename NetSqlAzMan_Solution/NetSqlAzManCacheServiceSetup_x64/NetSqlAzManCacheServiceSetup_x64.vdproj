@@ -449,7 +449,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.8, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.9, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_165D609BD96949928B0A2992828D7C2B"
@@ -660,7 +660,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzManCacheService, Version=3.6.0.8, Culture=neutral, PublicKeyToken=b32c82f28a5e6493, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzManCacheService, Version=3.6.0.9, Culture=neutral, PublicKeyToken=b32c82f28a5e6493, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_7E001695C3D54334B049CD72CA910D45"
@@ -751,7 +751,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.8, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.9, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_D4315FA18C5CE8BEC3E3A87E0226655D"
@@ -862,7 +862,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzManCacheServiceInvalidateUtility, Version=3.6.0.8, Culture=neutral, PublicKeyToken=767b91c78eca0fe0, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzManCacheServiceInvalidateUtility, Version=3.6.0.9, Culture=neutral, PublicKeyToken=767b91c78eca0fe0, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_EE64BC75C0D746CDB62FE8B95E978E3E"
@@ -1041,7 +1041,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:.NET Sql Authorization Manager Cache Service"
         "ProductCode" = "8:{49DC5446-1BC2-49DF-B504-FFE668025B06}"
-        "PackageCode" = "8:{B5486C35-020E-44CF-B8B3-444DF86309B2}"
+        "PackageCode" = "8:{B449E311-7454-4D31-8C9F-52CB1E4E30EE}"
         "UpgradeCode" = "8:{7349E32A-9FF6-437A-87E5-7796CC3D6327}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

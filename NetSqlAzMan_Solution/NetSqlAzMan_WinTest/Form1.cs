@@ -244,7 +244,7 @@ namespace Prova.BizRules
                 List<KeyValuePair<string, string>> attributes1;
                 List<KeyValuePair<string, string>> attributes2;
                 List<KeyValuePair<string, string>> attributes3;
-                int h;
+                //int h;
 
                 foreach (var store in storage.Stores)
                 {
@@ -617,8 +617,10 @@ namespace Prova.BizRules
             //return;
             frmCheckAccessTest frm = new frmCheckAccessTest();
             IAzManStorage storage = new SqlAzManStorage("data source=(local);Initial Catalog=NetSqlAzManStorage;Integrated Security = SSPI;");
-            IAzManStore store = storage.GetStore("Sistel-1Sez");
-            frm.application = store.GetApplication("Perseo.net");
+            //IAzManStore store = storage.GetStore("Sistel-1Sez");
+            //frm.application = store.GetApplication("Perseo.Net");
+            IAzManStore store = storage.GetStore("Eidos");
+            frm.application = store.GetApplication("DB persone");
             frm.ShowDialog();
         }
 

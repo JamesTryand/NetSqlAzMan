@@ -7,19 +7,19 @@ using NetSqlAzMan.Cache;
 using NetSqlAzMan.Interfaces;
 using NetSqlAzMan.SnapIn.DirectoryServices;
 using NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker;
-using System.Text;
+using System.Diagnostics;
+using System.Collections;
 
 namespace NetSqlAzMan.SnapIn.Forms
 {
     public partial class frmCheckAccessTest : frmBase
     {
         public IAzManStorage storage = null;
-        public IAzManApplication application=null;
+        public IAzManApplication application = null;
         private WindowsIdentity wid = null;
         private IAzManDBUser dbuser = null;
         private Cache.UserPermissionCache cache = null;
         private Cache.StorageCache storageCache = null;
-        private StringBuilder sbMessages = new StringBuilder();
 
         [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Check Access Test")]
         public frmCheckAccessTest()
@@ -180,7 +180,6 @@ namespace NetSqlAzMan.SnapIn.Forms
 
         private void btnCheckAccessTest_Click(object sender, EventArgs e)
         {
-            Boolean turboMode = false;
             try
             {
                 NTAccount nta = (NTAccount)(((System.Threading.Thread.CurrentPrincipal.Identity as WindowsIdentity) ?? WindowsIdentity.GetCurrent()).User.Translate(typeof(NTAccount)));
@@ -210,8 +209,7 @@ namespace NetSqlAzMan.SnapIn.Forms
                 }
                 this.HourGlass(true);
                 this.txtDetails.Text = String.Empty;
-                this.sbMessages.Clear();
-                this.btnCheckAccessTest.Enabled = this.btnClose.Enabled = 
+                this.btnCheckAccessTest.Enabled = this.btnClose.Enabled =
                     this.btnBrowseWindowsUser.Enabled = this.btnBrowseDBUser.Enabled =
                     this.rbWindowsUser.Enabled = this.rbDBUser.Enabled = false;
                 this.WriteLineDetailMessage(Globalization.MultilanguageResource.GetString("frmCheckAccessTest_Msg30") + " " + DateTime.Now.ToString());
@@ -219,51 +217,35 @@ namespace NetSqlAzMan.SnapIn.Forms
                 this.WriteIdentityDetails();
                 this.WriteLineDetailMessage(String.Empty);
                 this.WriteDetailMessage(Globalization.MultilanguageResource.GetString("frmCheckAccessTest_Msg40"));
+                this.checkAccessTestTreeView.BeginUpdate();
                 this.RefreshItemsHierarchy();
+                this.checkAccessTestTreeView.EndUpdate();
                 Application.DoEvents();
                 this.WriteLineDetailMessage(Globalization.MultilanguageResource.GetString("Done_Msg10"));
                 this.WriteLineDetailMessage(String.Empty);
                 TreeNode applicationTreeNode = this.checkAccessTestTreeView.Nodes[0].Nodes[0].Nodes[0];
-                if (this.application.Items.Count > 50)
-                    turboMode = true;
-
+                Boolean turboMode = this.application.Items.Count>50;
+                Hashtable resultCache = new Hashtable();
+                Hashtable attributesCache = new Hashtable();
                 if (turboMode)
-                {
-                    this.txtDetails.Visible = false;
                     this.checkAccessTestTreeView.BeginUpdate();
-                }
                 foreach (TreeNode itemTreeNode in applicationTreeNode.Nodes)
                 {
-                    this.checkAccessTest(itemTreeNode, turboMode);
+                    this.checkAccessTest(itemTreeNode, turboMode, resultCache, attributesCache);
                 }
+
                 if (turboMode)
-                {
-                    this.txtDetails.Visible = true;
-                    this.WriteMessages();
                     this.checkAccessTestTreeView.EndUpdate();
-                }
                 this.WriteLineDetailMessage(String.Empty);
                 this.WriteLineDetailMessage(Globalization.MultilanguageResource.GetString("frmCheckAccessTest_Msg50") + " " + DateTime.Now.ToString());
             }
             catch (Exception ex)
             {
-                if (turboMode)
-                {
-                    this.txtDetails.Visible = true;
-                    this.WriteMessages();
-                    this.checkAccessTestTreeView.EndUpdate();
-                }
                 this.ShowError(ex.Message, Globalization.MultilanguageResource.GetString("frmCheckAccessTest_Msg10"));
             }
             finally
             {
-                if (turboMode)
-                {
-                    this.WriteMessages();
-                    this.txtDetails.Visible = true;
-                    this.checkAccessTestTreeView.EndUpdate();
-                }
-                this.btnCheckAccessTest.Enabled = this.btnClose.Enabled = 
+                this.btnCheckAccessTest.Enabled = this.btnClose.Enabled =
                     this.btnBrowseWindowsUser.Enabled = this.btnBrowseDBUser.Enabled =
                     this.rbWindowsUser.Enabled = this.rbDBUser.Enabled = true;
                 this.HourGlass(false);
@@ -272,7 +254,7 @@ namespace NetSqlAzMan.SnapIn.Forms
 
         private void WriteIdentityDetails()
         {
-            if (this.wid!=null)
+            if (this.wid != null)
             {
                 this.WriteLineDetailMessage(Globalization.MultilanguageResource.GetString("frmCheckAccessTest_Msg60"));
                 SecurityIdentifier sid = this.wid.User;
@@ -291,7 +273,7 @@ namespace NetSqlAzMan.SnapIn.Forms
                     }
                     catch (Exception ex)
                     {
-                        this.WriteLineDetailMessage(String.Format("{0}) {1} - ({2})", (++index), ex.Message.Replace("\r\n"," "), sidA.Value));
+                        this.WriteLineDetailMessage(String.Format("{0}) {1} - ({2})", (++index), ex.Message.Replace("\r\n", " "), sidA.Value));
                     }
                 }
                 this.WriteLineDetailMessage(String.Empty);
@@ -313,7 +295,7 @@ namespace NetSqlAzMan.SnapIn.Forms
                     }
                 }
             }
-            else if (this.dbuser!=null)
+            else if (this.dbuser != null)
             {
                 this.WriteLineDetailMessage(Globalization.MultilanguageResource.GetString("frmCheckAccessTest_Msg60"));
                 this.WriteLineDetailMessage(String.Format("{0}: {1}\t{2}: {3}", Globalization.MultilanguageResource.GetString("ColumnHeader_Name"), this.dbuser.UserName, Globalization.MultilanguageResource.GetString("frmDBUsersList_lsvDBUsers_1.Text"), this.dbuser.CustomSid.StringValue));
@@ -336,7 +318,7 @@ namespace NetSqlAzMan.SnapIn.Forms
             }
         }
 
-        private void checkAccessTest(TreeNode tn, Boolean turboMode)
+        private void checkAccessTest(TreeNode tn, Boolean turboMode, Hashtable resultCache, Hashtable attributesCache)
         {
             string sItemType = String.Empty;
             switch (tn.ImageIndex)
@@ -347,9 +329,8 @@ namespace NetSqlAzMan.SnapIn.Forms
             }
             AuthorizationType auth = AuthorizationType.Neutral;
             string sAuth = String.Empty;
-            DateTime chkStart = DateTime.Now;
-            TimeSpan elapsedTime = TimeSpan.Zero;
-            DateTime chkEnd = DateTime.Now;
+            Stopwatch elapsed = new Stopwatch();
+
             List<KeyValuePair<string, string>> attributes = null;
             //Cache Build
             if (this.chkCache.Checked && this.cache == null)
@@ -363,58 +344,65 @@ namespace NetSqlAzMan.SnapIn.Forms
                 {
                     this.cache = new NetSqlAzMan.Cache.UserPermissionCache(this.application.Store.Storage, this.application.Store.Name, this.application.Name, this.dbuser, true, true);
                 }
-                chkEnd = DateTime.Now;
-                elapsedTime = (TimeSpan)chkEnd.Subtract(chkStart);
-                this.WriteLineDetailMessage(String.Format("[{0} mls.]\r\n", elapsedTime.TotalMilliseconds));
+                elapsed.Stop();
+                this.WriteLineDetailMessage(String.Format("[{0} mls.]\r\n", elapsed.ElapsedMilliseconds));
             }
             else if (this.chkStorageCache.Checked && this.storageCache == null)
             {
                 this.WriteDetailMessage("Building StorageCache ...");
                 this.storageCache = new NetSqlAzMan.Cache.StorageCache(this.application.Store.Storage.ConnectionString);
                 this.storageCache.BuildStorageCache(this.application.Store.Name, application.Name);
-                chkEnd = DateTime.Now;
-                elapsedTime = (TimeSpan)chkEnd.Subtract(chkStart);
-                this.WriteLineDetailMessage(String.Format("[{0} mls.]\r\n", elapsedTime.TotalMilliseconds));
+                elapsed.Stop();
+                this.WriteLineDetailMessage(String.Format("[{0} mls.]\r\n", elapsed.ElapsedMilliseconds));
             }
-            chkStart = DateTime.Now;
-            elapsedTime = TimeSpan.Zero;
+            elapsed.Restart();
             this.WriteDetailMessage(String.Format("{0} {1} '{2}' ... ", Globalization.MultilanguageResource.GetString("frmCheckAccessTest_Msg70"), sItemType, tn.Text));
             try
             {
-                if (this.wid != null)
+                String itemName = tn.Text;
+                if (!resultCache.ContainsKey(itemName))
                 {
-                    if (this.chkCache.Checked)
+                    if (this.wid != null)
                     {
-                        auth = this.cache.CheckAccess(tn.Text, this.dtValidFor.Checked ? this.dtValidFor.Value : DateTime.Now, out attributes);
+                        if (this.chkCache.Checked)
+                        {
+                            auth = this.cache.CheckAccess(tn.Text, this.dtValidFor.Checked ? this.dtValidFor.Value : DateTime.Now, out attributes);
+                        }
+                        else if (this.chkStorageCache.Checked)
+                        {
+                            IAzManItem item = (IAzManItem)tn.Tag;
+                            auth = this.storageCache.CheckAccess(item.Application.Store.Name, item.Application.Name, item.Name, this.wid.GetUserBinarySSid(), this.wid.GetGroupsBinarySSid(), this.dtValidFor.Checked ? this.dtValidFor.Value : DateTime.Now, false, out attributes);
+                        }
+                        else
+                        {
+                            auth = this.application.Store.Storage.CheckAccess(this.application.Store.Name, this.application.Name, tn.Text, this.wid, this.dtValidFor.Checked ? this.dtValidFor.Value : DateTime.Now, false, out attributes);
+                        }
                     }
-                    else if (this.chkStorageCache.Checked)
-                    { 
-                        IAzManItem item = (IAzManItem)tn.Tag;
-                        auth = this.storageCache.CheckAccess(item.Application.Store.Name, item.Application.Name, item.Name, this.wid.GetUserBinarySSid(), this.wid.GetGroupsBinarySSid(), this.dtValidFor.Checked ? this.dtValidFor.Value : DateTime.Now, false, out attributes);
-                    }
-                    else
+                    else if (this.dbuser != null)
                     {
-                        auth = this.application.Store.Storage.CheckAccess(this.application.Store.Name, this.application.Name, tn.Text, this.wid, this.dtValidFor.Checked ? this.dtValidFor.Value : DateTime.Now, false, out attributes);
+                        if (this.chkCache.Checked)
+                        {
+                            auth = this.cache.CheckAccess(tn.Text, this.dtValidFor.Checked ? this.dtValidFor.Value : DateTime.Now, out attributes);
+                        }
+                        else if (this.chkStorageCache.Checked)
+                        {
+                            IAzManItem item = (IAzManItem)tn.Tag;
+                            auth = this.storageCache.CheckAccess(item.Application.Store.Name, item.Application.Name, item.Name, this.dbuser.CustomSid.StringValue, this.dtValidFor.Checked ? this.dtValidFor.Value : DateTime.Now, false);
+                        }
+                        else
+                        {
+                            auth = this.application.Store.Storage.CheckAccess(this.application.Store.Name, this.application.Name, tn.Text, this.dbuser, this.dtValidFor.Checked ? this.dtValidFor.Value : DateTime.Now, false, out attributes);
+                        }
                     }
+                    resultCache.Add(itemName, auth);
+                    attributesCache.Add(itemName, attributes);
                 }
-                else if (this.dbuser != null)
+                else
                 {
-                    if (this.chkCache.Checked)
-                    {
-                        auth = this.cache.CheckAccess(tn.Text, this.dtValidFor.Checked ? this.dtValidFor.Value : DateTime.Now, out attributes);
-                    }
-                    else if (this.chkStorageCache.Checked)
-                    {
-                        IAzManItem item = (IAzManItem)tn.Tag;
-                        auth = this.storageCache.CheckAccess(item.Application.Store.Name, item.Application.Name, item.Name, this.dbuser.CustomSid.StringValue,this.dtValidFor.Checked ? this.dtValidFor.Value : DateTime.Now, false);
-                    }
-                    else
-                    {
-                        auth = this.application.Store.Storage.CheckAccess(this.application.Store.Name, this.application.Name, tn.Text, this.dbuser, this.dtValidFor.Checked ? this.dtValidFor.Value : DateTime.Now, false, out attributes);
-                    }
+                    auth = (AuthorizationType)resultCache[itemName];
+                    attributes = (List<KeyValuePair<String, String>>)attributesCache[itemName];
                 }
-                chkEnd = DateTime.Now;
-                elapsedTime = (TimeSpan)chkEnd.Subtract(chkStart);
+                elapsed.Stop();
                 sAuth = Globalization.MultilanguageResource.GetString("Domain_Neutral");
                 switch (auth)
                 {
@@ -435,8 +423,8 @@ namespace NetSqlAzMan.SnapIn.Forms
                         tn.BackColor = Color.Gainsboro;
                         break;
                 }
-                this.WriteLineDetailMessage(String.Format("{0} [{1} mls.]", sAuth, elapsedTime.TotalMilliseconds));
-                if (attributes!=null && attributes.Count > 0)
+                this.WriteLineDetailMessage(String.Format("{0} [{1} mls.]", sAuth, elapsed.ElapsedMilliseconds));
+                if (attributes != null && attributes.Count > 0)
                 {
                     this.WriteLineDetailMessage(String.Format(" {0} attribute(s) found:", attributes.Count));
                     int attributeIndex = 0;
@@ -449,35 +437,27 @@ namespace NetSqlAzMan.SnapIn.Forms
             catch (Exception ex)
             {
                 sAuth = Globalization.MultilanguageResource.GetString("frmCheckAccessTest_Msg10");
-                this.WriteLineDetailMessage(String.Format("{0} [{1} mls.]", ex.Message, elapsedTime.TotalMilliseconds));
+                this.WriteLineDetailMessage(String.Format("{0} [{1} mls.]", ex.Message, elapsed.ElapsedMilliseconds));
             }
+            tn.Text = String.Format("{0} - ({1})", tn.Text, sAuth.ToUpper());
             if (!turboMode)
             {
-                tn.Text = String.Format("{0} - ({1})", tn.Text, sAuth.ToUpper());
                 tn.EnsureVisible();
                 Application.DoEvents();
             }
-            
-
             foreach (TreeNode tnChild in tn.Nodes)
             {
-                this.checkAccessTest(tnChild, turboMode);
+                this.checkAccessTest(tnChild, turboMode, resultCache, attributesCache);
             }
         }
 
         private void WriteDetailMessage(string message)
         {
-            this.sbMessages = this.sbMessages.Append(message);
-            //this.txtDetails.AppendText(message);
-            this.lblMessage.Text = message.Replace("\r\n", "");
+            this.txtDetails.AppendText(message);
+            //this.lblMessage.Text = message.Replace("\r\n", "");
             //this.txtDetails.SelectionStart = this.txtDetails.Text.Length;
             //this.txtDetails.ScrollToCaret();
             /*Application.DoEvents();*/
-        }
-
-        private void WriteMessages()
-        {
-            this.txtDetails.AppendText(this.sbMessages.ToString());
         }
 
         private void WriteLineDetailMessage(string message)

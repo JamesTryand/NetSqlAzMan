@@ -543,7 +543,7 @@ namespace NetSqlAzMan
         /// <returns>AuthorizationType</returns>
         public AuthorizationType CheckAccess(string StoreName, string ApplicationName, string ItemName, WindowsIdentity windowsIdentity, DateTime ValidFor, bool OperationsOnly, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters)
         {
-            return this.internalCheckAccess(StoreName, ApplicationName, ItemName, windowsIdentity, ValidFor, OperationsOnly, true, out attributes, contextParameters);
+            return this.internalCheckAccess(StoreName, ApplicationName, ItemName, windowsIdentity, ValidFor, OperationsOnly, true, out attributes,  contextParameters);
         }
 
         private AuthorizationType internalCheckAccess(string StoreName, string ApplicationName, string ItemName, WindowsIdentity windowsIdentity, DateTime ValidFor, bool OperationsOnly, bool retrieveAttributes, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters)
@@ -677,7 +677,11 @@ namespace NetSqlAzMan
                                 }
                                 else if (auth == AuthorizationType.Neutral)
                                 {
-                                    AuthorizationType authParent = this.getParentResult(drItem, checkAccessPartialResultsDataTable, this.Stores[StoreName][ApplicationName].Items.Values.ToArray());
+                                    var store = this.Stores[StoreName];
+                                    var application = store.Applications[ApplicationName];
+                                    var items = application.Items;
+                                    var itemValues = items.Values.ToArray();
+                                    AuthorizationType authParent = this.getParentResult(drItem, checkAccessPartialResultsDataTable, itemValues);
                                     if (authParent == AuthorizationType.Allow || authParent == AuthorizationType.AllowWithDelegation)
                                     {
                                         attributes.Add(kvp);

@@ -69,6 +69,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_2D91C320CEEC72F009A6CF94B49D6B54"
+        "OwnerKey" = "8:_D0ABC7D499E4957CA7B37E6FD941E2D3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_2EF16F48CA7442E087A54B12BDD41B59"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -317,6 +323,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_D0ABC7D499E4957CA7B37E6FD941E2D3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_2D91C320CEEC72F009A6CF94B49D6B54"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -612,7 +624,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzMan.SnapIn, Version=3.6.0.8, Culture=neutral, PublicKeyToken=432d6a88618edbb1, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzMan.SnapIn, Version=3.6.0.9, Culture=neutral, PublicKeyToken=432d6a88618edbb1, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_16B9C708F28144A1A19133DE35B7ED3C"
@@ -719,11 +731,42 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2D91C320CEEC72F009A6CF94B49D6B54"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:TRUE"
+            "AssemblyAsmDisplayName" = "8:stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+                "ScatterAssemblies"
+                {
+                    "_2D91C320CEEC72F009A6CF94B49D6B54"
+                    {
+                    "Name" = "8:stdole.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:stdole.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_01CCD32AB77E4E569260D008FC107766"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2EF16F48CA7442E087A54B12BDD41B59"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.8, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.9, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_2EF16F48CA7442E087A54B12BDD41B59"
@@ -1045,7 +1088,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.8, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.9, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_878115B7FD8D884F35CDF559FB86184C"
@@ -1623,7 +1666,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:.NET Sql Authorization Manager"
         "ProductCode" = "8:{FECA03A5-D073-4D1B-941A-596F358E4324}"
-        "PackageCode" = "8:{D28C741D-57C0-4FB3-B2FF-E9838A678324}"
+        "PackageCode" = "8:{D1FA5388-1A13-4F1A-9B1D-051CD554D89C}"
         "UpgradeCode" = "8:{84CEB3F7-876F-4448-8001-2FCB4D8214C7}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
