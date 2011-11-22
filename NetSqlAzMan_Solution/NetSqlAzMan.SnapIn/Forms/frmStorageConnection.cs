@@ -15,7 +15,6 @@ namespace NetSqlAzMan.SnapIn.Forms
         protected internal string password;
         protected internal string otherSettings;
 
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Storage Connection")]
         public frmStorageConnection()
         {
             InitializeComponent();

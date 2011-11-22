@@ -20,7 +20,6 @@ namespace NetSqlAzManWebConsole
         private bool modified;
         private ListView lsvMembers;
         private ListView lsvNonMembers;
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Application Group Properties")]
         protected void Page_Init(object sender, EventArgs e)
         {
             this.showOkCancelApply();

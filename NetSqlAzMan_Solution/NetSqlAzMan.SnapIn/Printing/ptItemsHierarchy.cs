@@ -22,7 +22,6 @@ namespace NetSqlAzMan.SnapIn.Printing
         /// <summary>
         /// Initializes a new instance of the <see cref="T:ptItemsHierarchy"/> class.
         /// </summary>
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Report Items Hierarchy")]
         public ptItemsHierarchy()
         {
             this.applications = new IAzManApplication[0];

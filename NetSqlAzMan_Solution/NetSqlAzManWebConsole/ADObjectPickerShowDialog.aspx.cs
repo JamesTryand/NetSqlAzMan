@@ -14,7 +14,6 @@ namespace NetSqlAzManWebConsole
         protected internal ADObjectType adObjectType;
         private List<ADObject> adObjects = null;
 
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Active Directory Object Picker")]
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setImage("ActiveDirectory.gif");

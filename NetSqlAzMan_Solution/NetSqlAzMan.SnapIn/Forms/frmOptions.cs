@@ -14,7 +14,6 @@ namespace NetSqlAzMan.SnapIn.Forms
         internal bool logOnEventLog;
         internal bool logOnDb;
 
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Options")]
         public frmOptions()
         {
             InitializeComponent();

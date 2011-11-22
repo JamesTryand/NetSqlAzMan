@@ -13,7 +13,7 @@ namespace NetSqlAzMan.SnapIn
 {
     [MMC.SnapInSettings("{C8466485-78DA-473a-B864-3FE1A9A6F781}",
         DisplayName = ".NET SQL Authorization Manager",
-        Description = "Management Console for .NET SQL Authorization Manager Ver. 3.6.0.9. The .NET Sql Authorization Manager allows you to set item-based permissions for Authorization Manager-enabled .NET applications.",
+        Description = "Management Console for .NET SQL Authorization Manager Ver. 3.6.0.10. The .NET Sql Authorization Manager allows you to set item-based permissions for Authorization Manager-enabled .NET applications.",
         Vendor = "Andrea Ferendeles - http://netsqlazman.codeplex.com")]
     [MMC.SnapInAbout("NetSqlAzMan.SnapIn.resources.dll",
          ApplicationBaseRelative = true,
@@ -60,10 +60,6 @@ namespace NetSqlAzMan.SnapIn
             MessageBox.Show("Untrapped Console Error.\r\nPlease review Application Event Log and send me error details at mail address:\r\naferende@hotmail.com.\r\nThanks for your collaboration.\r\n\r\nError details:\r\n" + e.Exception.Message + "\r\n\r\nat:\r\n\r\n" + e.Exception.StackTrace, "Console Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
         }
 
-        [PreEmptive.Attributes.Setup(CustomEndpoint = "so-s.info/PreEmptive.Web.Services.Messaging/MessagingServiceV2.asmx", UseSSL=false)]
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Session", EventType = PreEmptive.Attributes.FeatureEventTypes.Start)]
-        [PreEmptive.Attributes.PerformanceProbe()]
-        [PreEmptive.Attributes.SystemProfile()]
         [SecurityCritical()]
         private void Setup()
         { 
@@ -116,9 +112,6 @@ namespace NetSqlAzMan.SnapIn
         /// </summary>
         /// <param name="status">asynchronous status for updating the console</param>
         /// <param name="persistenceData">binary data stored in the console file</param>
-        //[PreEmptive.Attributes.PerformanceProbe()]
-        //[PreEmptive.Attributes.SystemProfile()]
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Load Custom Data")]
         protected override void OnLoadCustomData(MMC.AsyncStatus status, byte[] persistenceData)
         {
             try
@@ -278,20 +271,8 @@ namespace NetSqlAzMan.SnapIn
             } while (ssn.storage == null);
         }
 
-        /// <summary>
-        /// Called when [shutdown].
-        /// </summary>
-        /// <param name="status">The status.</param>
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Session", EventType = PreEmptive.Attributes.FeatureEventTypes.Stop)]
-        [PreEmptive.Attributes.Teardown()]
-        private void TearDown()
-        { 
-        
-        }
-
         protected override void OnShutdown(MMC.AsyncStatus status)
         {
-            System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(o => this.TearDown()));
             base.OnShutdown(status);
         }
 
@@ -300,7 +281,6 @@ namespace NetSqlAzMan.SnapIn
         /// </summary>
         /// <param name="status">status for updating the console</param>
         /// <returns>binary data to be stored in the console file</returns>
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Save Custom Data")]
         protected override byte[] OnSaveCustomData(MMC.SyncStatus status)
         {
             return Encoding.Unicode.GetBytes(

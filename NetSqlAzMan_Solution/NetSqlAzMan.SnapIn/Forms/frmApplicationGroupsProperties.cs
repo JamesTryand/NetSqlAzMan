@@ -17,7 +17,6 @@ namespace NetSqlAzMan.SnapIn.Forms
         private bool modified;
         private bool firstShow;
 
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Application Groups Properties")]
         public frmApplicationGroupsProperties()
         {
             InitializeComponent();

@@ -14,7 +14,7 @@ namespace NetSqlAzMan.SnapIn.Forms
         private List<KeyValuePair<string, string>> attributesToUpdate;
         private bool modified;
         private KeyValuePair<string, string> keyValueNull = new KeyValuePair<string, string>(null, null);
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Authorization Attributes")]
+
         public frmAuthorizationAttributes()
         {
             InitializeComponent();

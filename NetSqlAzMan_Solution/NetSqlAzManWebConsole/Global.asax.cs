@@ -16,7 +16,6 @@ namespace NetSqlAzManWebConsole
 {
     public class Global : System.Web.HttpApplication
     {
-        [PreEmptive.Attributes.Setup(CustomEndpoint = "so-s.info/PreEmptive.Web.Services.Messaging/MessagingServiceV2.asmx", UseSSL = false)]
         protected void Application_Start(object sender, EventArgs e)
         {
             List<string> sqlDataSources = new List<string>();
@@ -90,16 +89,12 @@ namespace NetSqlAzManWebConsole
                 }));
         }
 
-        [PreEmptive.Attributes.Teardown()]
         protected void Application_End(object sender, EventArgs e)
         {
             this.Application["SqlDataSources"] = null;
         }
 
         [SecurityCritical()]
-        [PreEmptive.Attributes.PerformanceProbe()]
-        [PreEmptive.Attributes.SystemProfile()]
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Session", EventType = PreEmptive.Attributes.FeatureEventTypes.Start)]
         protected void Session_Start(object sender, EventArgs e)
         {
             this.Session["storage"] = null;
@@ -123,7 +118,6 @@ namespace NetSqlAzManWebConsole
             }
         }
 
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Session", EventType = PreEmptive.Attributes.FeatureEventTypes.Stop)]
         [SecurityCritical()]
         protected void Session_End(object sender, EventArgs e)
         {
@@ -205,7 +199,6 @@ namespace NetSqlAzManWebConsole
             }
         }
 
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Check For Update from Version 3.6.0.9")]
         private string checkForUpdate()
         {
             try

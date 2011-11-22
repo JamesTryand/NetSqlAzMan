@@ -9,7 +9,7 @@ namespace NetSqlAzManWebConsole
         protected internal IAzManStorage storage = null;
         protected internal IAzManStore store = null;
         protected internal IAzManApplication application = null;
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Application Properties")]
+
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setImage("Application_32x32.gif");

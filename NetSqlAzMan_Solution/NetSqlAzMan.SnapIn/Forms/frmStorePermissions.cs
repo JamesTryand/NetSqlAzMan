@@ -9,7 +9,6 @@ namespace NetSqlAzMan.SnapIn.Forms
     {
         public IAzManStore store;
 
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Store Permissions")]
         public frmStorePermissions()
         {
             InitializeComponent();

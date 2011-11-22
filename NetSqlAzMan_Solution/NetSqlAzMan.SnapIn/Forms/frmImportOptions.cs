@@ -8,7 +8,6 @@ namespace NetSqlAzMan.SnapIn.Forms
         public object importIntoObject;
         public string fileName;
 
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Import Options")]
         public frmImportOptions()
         {
             InitializeComponent();

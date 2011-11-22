@@ -9,7 +9,7 @@ namespace NetSqlAzManWebConsole
     {
         protected internal IAzManStorage storage = null;
         internal IAzManApplication application;
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Generate Check Access Helper")]
+
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setImage("NetSqlAzMan_32x32.gif");

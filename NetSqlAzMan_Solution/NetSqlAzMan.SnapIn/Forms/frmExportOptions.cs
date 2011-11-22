@@ -10,7 +10,6 @@ namespace NetSqlAzMan.SnapIn.Forms
         internal bool includeDBUsers;
         internal bool includeAuthorizations;
 
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Export Options")]
         public frmExportOptions()
         {
             InitializeComponent();

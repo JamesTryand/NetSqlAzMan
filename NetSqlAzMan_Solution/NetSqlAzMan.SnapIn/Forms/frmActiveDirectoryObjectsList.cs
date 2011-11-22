@@ -9,7 +9,6 @@ namespace NetSqlAzMan.SnapIn.Forms
     {
         internal SearchResultCollection searchResultCollection;
 
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Active Directory Object List")]
         public frmActiveDirectoryObjectsList()
         {
             InitializeComponent();
@@ -31,6 +30,27 @@ namespace NetSqlAzMan.SnapIn.Forms
             NetSqlAzMan.SnapIn.Globalization.ResourcesManager.CollectResources(this);
         }
 
+        //private void RefreshActiveDirectoryObjectsList()
+        //{
+        //    this.HourGlass(true);
+        //    this.lsvObjectsSid.Items.Clear();
+        //    if (this.searchResultCollection != null)
+        //    {
+        //        foreach (SearchResult sr in this.searchResultCollection)
+        //        {
+        //            DirectoryEntry de = sr.GetDirectoryEntry();
+        //            ListViewItem lvi = new ListViewItem();
+        //            lvi.Tag = sr;
+        //            lvi.Text = (string)de.Properties["sAMAccountName"][0];
+        //            lvi.SubItems.Add((string)de.InvokeGet("displayname"));
+        //            lvi.SubItems.Add(de.SchemaClassName);
+        //            lvi.SubItems.Add(new SqlAzManSID((byte[])de.Properties["objectSid"].Value).StringValue);
+        //            this.lsvObjectsSid.Items.Add(lvi);
+        //        }
+        //    }
+        //    this.HourGlass(false);
+        //}
+
         private void RefreshActiveDirectoryObjectsList()
         {
             this.HourGlass(true);
@@ -42,7 +62,21 @@ namespace NetSqlAzMan.SnapIn.Forms
                     DirectoryEntry de = sr.GetDirectoryEntry();
                     ListViewItem lvi = new ListViewItem();
                     lvi.Tag = sr;
-                    lvi.Text = (string)de.Properties["sAMAccountName"][0];
+
+                    //// Original not working line
+                    //// OLD: lvi.Text = (string)de.Properties["sAMAccountName"][0];
+
+                    //// MOD: Below: if else resolving exception when used with ADAM/AD LDS users that do not
+                    //// have sAMAccountName property.
+                    if (de.Properties["sAMAccountName"] != null && de.Properties["sAMAccountName"].Value != null)
+                    {
+                        lvi.Text = (string)de.Properties["sAMAccountName"][0];
+                    }
+                    else
+                    {
+                        lvi.Text = string.Empty;
+                    }
+
                     lvi.SubItems.Add((string)de.InvokeGet("displayname"));
                     lvi.SubItems.Add(de.SchemaClassName);
                     lvi.SubItems.Add(new SqlAzManSID((byte[])de.Properties["objectSid"].Value).StringValue);
@@ -51,6 +85,7 @@ namespace NetSqlAzMan.SnapIn.Forms
             }
             this.HourGlass(false);
         }
+
 
         protected void HourGlass(bool switchOn)
         {

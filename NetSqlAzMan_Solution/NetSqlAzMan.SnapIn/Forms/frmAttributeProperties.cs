@@ -7,7 +7,6 @@ namespace NetSqlAzMan.SnapIn.Forms
     {
         internal string key;
         internal string value;
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Attribute Properties")]
         public frmAttributeProperties()
         {
             InitializeComponent();

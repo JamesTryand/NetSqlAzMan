@@ -7,7 +7,7 @@ namespace NetSqlAzManWebConsole
     public partial class dlgAuditing : dlgPage
     {
         protected internal IAzManStorage storage = null;
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Auditing")]
+
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setImage("SqlAudit.gif");

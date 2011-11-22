@@ -15,7 +15,7 @@ namespace NetSqlAzManWebConsole
         private string currentOwnerName;
         private IAzManSid currentOwnerSid;
         private WhereDefined currentOwnerSidWhereDefined;
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WebConsole: Item Authorizations")]
+
         protected void Page_Init(object sender, EventArgs e)
         {
             this.setImage("ItemAuthorization_32x32.gif");

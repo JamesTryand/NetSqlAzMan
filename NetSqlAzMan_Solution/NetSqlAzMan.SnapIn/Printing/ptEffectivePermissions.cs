@@ -19,7 +19,6 @@ namespace NetSqlAzMan.SnapIn.Printing
         private List<object> alreadyPrinted;
         private Pen linePen;
 
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Report Effectie Permissions")]
         public ptEffectivePermissions()
         {
             this.applications = new IAzManApplication[0];

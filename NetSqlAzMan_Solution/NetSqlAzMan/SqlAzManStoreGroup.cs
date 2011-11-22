@@ -95,20 +95,44 @@ namespace NetSqlAzMan
             this.lDapQuery = String.IsNullOrEmpty(lDapQuery) ? String.Empty : lDapQuery;
             this.groupType = groupType;
             this.ens = ens;
+            this.members = new Dictionary<IAzManSid, IAzManStoreGroupMember>();
         }
         #endregion Constructors
         #region IAzManStoreGroup Members
+        ///// <summary>
+        ///// Gets the members.
+        ///// </summary>
+        ///// <value>The members.</value>
+        //public Dictionary<IAzManSid, IAzManStoreGroupMember> Members
+        //{
+        //    get
+        //    {
+        //        if (this.members == null)
+        //        {
+        //            this.members = new Dictionary<IAzManSid, IAzManStoreGroupMember>();
+        //            foreach (IAzManStoreGroupMember m in this.GetStoreGroupAllMembers())
+        //            {
+        //                this.members.Add(m.SID, m);
+        //            }
+        //        }
+        //        return this.members;
+        //    }
+        //}
+
         /// <summary>
         /// Gets the members.
         /// </summary>
         /// <value>The members.</value>
+        /// <remarks></remarks>
         public Dictionary<IAzManSid, IAzManStoreGroupMember> Members
         {
             get
             {
-                if (this.members == null)
+                //// MOD: Add second part of the If condition to handle correctly LDAP group.
+                if (this.members == null && this.GroupType == GroupType.Basic)
                 {
-                    this.members = new Dictionary<IAzManSid, IAzManStoreGroupMember>();
+                    //// MOD: Dictionary creation moved from here fto constructor to handle LDAP Group correctly.
+                    //// OLD: this.members = new Dictionary<IAzManSid, IAzManApplicationGroupMember>();
                     foreach (IAzManStoreGroupMember m in this.GetStoreGroupAllMembers())
                     {
                         this.members.Add(m.SID, m);
@@ -117,6 +141,7 @@ namespace NetSqlAzMan
                 return this.members;
             }
         }
+
         /// <summary>
         /// Gets the store group id.
         /// </summary>

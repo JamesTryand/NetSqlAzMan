@@ -10,7 +10,6 @@ namespace NetSqlAzMan.SnapIn.Forms
         internal IAzManApplication application;
         internal IAzManApplicationGroup applicationGroup;
         internal IAzManApplicationGroup[] selectedApplicationGroups;
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Application Groups List")]
         public frmApplicationGroupsList()
         {
             InitializeComponent();

@@ -28,10 +28,6 @@ namespace NetSqlAzMan.Cache.Service
         /// <summary>
         /// Called when [start internal].
         /// </summary>
-        [PreEmptive.Attributes.Setup(CustomEndpoint = "so-s.info/PreEmptive.Web.Services.Messaging/MessagingServiceV2.asmx", UseSSL = false)]
-        [PreEmptive.Attributes.PerformanceProbe()]
-        [PreEmptive.Attributes.SystemProfile()]
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WCF Cache Service: Service Start")]
         private void Setup()
         { 
         
@@ -140,7 +136,6 @@ namespace NetSqlAzMan.Cache.Service
         /// <summary>
         /// Called when [stop internal].
         /// </summary>
-        [PreEmptive.Attributes.Feature("NetSqlAzMan WCF Cache Service: Service Stop")]
         internal void OnStopInternal()
         {
             if (this.timer1 != null && this.timer1.Enabled)
@@ -154,12 +149,6 @@ namespace NetSqlAzMan.Cache.Service
             }
         }
 
-        [PreEmptive.Attributes.Teardown()]
-        private void TearDown()
-        { 
-        
-        }
-
         /// <summary>
         /// When implemented in a derived class, executes when a Stop command is sent to the service by the Service Control Manager (SCM). Specifies actions to take when a service stops running.
         /// </summary>
@@ -168,8 +157,6 @@ namespace NetSqlAzMan.Cache.Service
             try
             {
                 this.OnStopInternal();
-                System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(o => this.TearDown()));
-
             }
             catch (Exception ex)
             {

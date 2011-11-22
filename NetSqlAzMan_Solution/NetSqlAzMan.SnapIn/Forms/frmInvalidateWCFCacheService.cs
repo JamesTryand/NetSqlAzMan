@@ -5,7 +5,6 @@ namespace NetSqlAzMan.SnapIn.Forms
 {
     public partial class frmInvalidateWCFCacheService : frmBase
     {
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Invalidate WCF Cache")]
         public frmInvalidateWCFCacheService()
         {
             InitializeComponent();

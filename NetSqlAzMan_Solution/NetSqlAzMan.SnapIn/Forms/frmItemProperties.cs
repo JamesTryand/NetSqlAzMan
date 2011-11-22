@@ -16,7 +16,6 @@ namespace NetSqlAzMan.SnapIn.Forms
         private bool modified;
         private bool firstFocus = false;
 
-        [PreEmptive.Attributes.Feature("NetSqlAzMan MMC SnapIn: Item Properties")]
         public frmItemProperties()
         {
             InitializeComponent();
