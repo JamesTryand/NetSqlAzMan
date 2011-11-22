@@ -421,7 +421,8 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
                 tr.Close();
                 stream.Close();
                 html = html.Substring(html.IndexOf("LatestReleaseVersion:") + 21);
-                string serverVersion = html.Substring(0, 7);
+                string serverVersion = html.Substring(0, 15);
+                serverVersion = serverVersion.Substring(0, serverVersion.IndexOf('<'));
                 string clientVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
                 if (String.Compare(serverVersion, clientVersion, true) != 0)
                 {
