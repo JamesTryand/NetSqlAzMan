@@ -26,11 +26,13 @@ namespace NetSqlAzMan.Cache
         /// <summary>
         /// Item Result Cache
         /// </summary>
-        protected Hashtable itemResultCache;
+        [ThreadStatic]
+        protected static Hashtable itemResultCache;
         /// <summary>
-        /// 
+        /// Attributes Result Cache
         /// </summary>
-        protected Hashtable attributesResultCache;
+        [ThreadStatic]
+        protected static Hashtable attributesResultCache;
         #endregion Fields
         #region Properties
         /// <summary>
@@ -237,16 +239,22 @@ namespace NetSqlAzMan.Cache
             string key = "storeGroup " + storeGroup.StoreGroupId.ToString();
             if (!this.ldapQueryResults.ContainsKey(key))
             {
-                //LDAP Group
-                var ldapQueryResult = storeGroup.ExecuteLDAPQuery();
-                if (ldapQueryResult != null)
+                lock (ldapQueryResults)
                 {
-                    IAzManSid[] membersResults = new IAzManSid[ldapQueryResult.Count];
-                    for (int i = 0; i < ldapQueryResult.Count; i++)
+                    if (!this.ldapQueryResults.ContainsKey(key))
                     {
-                        membersResults[i] = new SqlAzManSID((byte[])ldapQueryResult[i].Properties["objectSid"][0]);
+                        //LDAP Group
+                        var ldapQueryResult = storeGroup.ExecuteLDAPQuery();
+                        if (ldapQueryResult != null)
+                        {
+                            IAzManSid[] membersResults = new IAzManSid[ldapQueryResult.Count];
+                            for (int i = 0; i < ldapQueryResult.Count; i++)
+                            {
+                                membersResults[i] = new SqlAzManSID((byte[])ldapQueryResult[i].Properties["objectSid"][0]);
+                            }
+                            this.ldapQueryResults.Add(key, membersResults);
+                        }
                     }
-                    this.ldapQueryResults.Add(key, membersResults);
                 }
             }
             return (IAzManSid[])this.ldapQueryResults[key];
@@ -256,16 +264,22 @@ namespace NetSqlAzMan.Cache
             string key = "applicationGroup " + applicationGroup.ApplicationGroupId.ToString();
             if (!this.ldapQueryResults.ContainsKey(key))
             {
-                //LDAP Group
-                var ldapQueryResult = applicationGroup.ExecuteLDAPQuery();
-                if (ldapQueryResult != null)
+                lock (ldapQueryResults)
                 {
-                    IAzManSid[] membersResults = new IAzManSid[ldapQueryResult.Count];
-                    for (int i = 0; i < ldapQueryResult.Count; i++)
+                    if (!this.ldapQueryResults.ContainsKey(key))
                     {
-                        membersResults[i] = new SqlAzManSID((byte[])ldapQueryResult[i].Properties["objectSid"][0]);
+                        //LDAP Group
+                        var ldapQueryResult = applicationGroup.ExecuteLDAPQuery();
+                        if (ldapQueryResult != null)
+                        {
+                            IAzManSid[] membersResults = new IAzManSid[ldapQueryResult.Count];
+                            for (int i = 0; i < ldapQueryResult.Count; i++)
+                            {
+                                membersResults[i] = new SqlAzManSID((byte[])ldapQueryResult[i].Properties["objectSid"][0]);
+                            }
+                            this.ldapQueryResults.Add(key, membersResults);
+                        }
                     }
-                    this.ldapQueryResults.Add(key, membersResults);
                 }
             }
             return (IAzManSid[])this.ldapQueryResults[key];
@@ -334,8 +348,8 @@ namespace NetSqlAzMan.Cache
                     foreach (String storeNameFilterItem in storeNamesFilter)
                     {
                         var filteredStoresByNameLocal = from s in db.Stores()
-                                                           where storeNamesFilter.Contains(s.Name)
-                                                           select s;
+                                                        where storeNamesFilter.Contains(s.Name)
+                                                        select s;
                         if (filteredStoresByName != null)
                             filteredStoresByName = filteredStoresByName.Union(filteredStoresByNameLocal);
                         else
@@ -459,7 +473,8 @@ namespace NetSqlAzMan.Cache
 
                     var allStoresFQ = (from s in db.Stores()
                                        where filteredStores.Contains(s.StoreId.Value)
-                                       orderby s.Name select s);
+                                       orderby s.Name
+                                       select s);
                     var allStoreAttributesFQ = (from sa in db.StoreAttributes()
                                                 where filteredStores.Contains(sa.StoreId.Value)
                                                 orderby sa.AttributeKey
@@ -473,7 +488,8 @@ namespace NetSqlAzMan.Cache
                                                   select sgm);
                     var allApplicationsFQ = (from a in db.Applications()
                                              where filteredApplications.Contains(a.ApplicationId.Value)
-                                             orderby a.Name select a);
+                                             orderby a.Name
+                                             select a);
                     var allApplicationAttributesFQ = (from aa in db.ApplicationAttributes()
                                                       where filteredApplications.Contains(aa.ApplicationId.Value)
                                                       orderby aa.AttributeKey
@@ -551,19 +567,19 @@ namespace NetSqlAzMan.Cache
                 foreach (IAzManStore store in newStorage.Stores.Values)
                 {
                     //Store Groups
-                    var storeGroups = allStoreGroups.Where(sgr=>sgr.StoreId == store.StoreId).ToDictionary<StoreGroupsResult, string, IAzManStoreGroup>(sgr => sgr.Name, sgr =>
+                    var storeGroups = allStoreGroups.Where(sgr => sgr.StoreId == store.StoreId).ToDictionary<StoreGroupsResult, string, IAzManStoreGroup>(sgr => sgr.Name, sgr =>
                     {
                         return new SqlAzManStoreGroup(db, store, sgr.StoreGroupId.Value, new SqlAzManSID(sgr.ObjectSid.ToArray()), sgr.Name, sgr.Description, sgr.LDapQuery, (GroupType)sgr.GroupType.Value, ens);
                     });
                     ((SqlAzManStore)store).storeGroups = (from sgv in storeGroups.Values
-                                                         where sgv.Store.StoreId == store.StoreId
-                                                         select sgv).ToDictionary(sg=>sg.Name);
+                                                          where sgv.Store.StoreId == store.StoreId
+                                                          select sgv).ToDictionary(sg => sg.Name);
                     foreach (IAzManStoreGroup storeGroup in store.StoreGroups.Values)
                     {
                         //Store Groups Members
                         if (storeGroup.GroupType == GroupType.Basic)
                         {
-                            var storeGroupMembers = allStoreGroupMembers.Where(sgm => sgm.StoreGroupId == storeGroup.StoreGroupId).ToDictionary<StoreGroupMembersResult, IAzManSid, IAzManStoreGroupMember>(sgm => new SqlAzManSID(sgm.ObjectSid.ToArray(),(WhereDefined)sgm.WhereDefined.Value == WhereDefined.Database), sgm =>
+                            var storeGroupMembers = allStoreGroupMembers.Where(sgm => sgm.StoreGroupId == storeGroup.StoreGroupId).ToDictionary<StoreGroupMembersResult, IAzManSid, IAzManStoreGroupMember>(sgm => new SqlAzManSID(sgm.ObjectSid.ToArray(), (WhereDefined)sgm.WhereDefined.Value == WhereDefined.Database), sgm =>
                                 {
                                     return new SqlAzManStoreGroupMember(db, storeGroup, sgm.StoreGroupMemberId.Value, new SqlAzManSID(sgm.ObjectSid.ToArray(), (WhereDefined)sgm.WhereDefined.Value == WhereDefined.Database), (WhereDefined)sgm.WhereDefined.Value, sgm.IsMember.Value, ens);
                                 });
@@ -637,14 +653,14 @@ namespace NetSqlAzMan.Cache
                                 BizRulesResult bizRule = null;
                                 if (i.BizRuleId.HasValue)
                                 {
-                                bizRule = (from br in allBizRules
-                                              where br.BizRuleId == i.BizRuleId
-                                              select br).First();
+                                    bizRule = (from br in allBizRules
+                                               where br.BizRuleId == i.BizRuleId
+                                               select br).First();
                                 }
                                 return new SqlAzManItem(db, application, i.ItemId.Value, i.Name, i.Description, (ItemType)i.ItemType, bizRule != null ? bizRule.BizRuleSource : String.Empty, bizRule != null ? (BizRuleSourceLanguage)bizRule.BizRuleLanguage.Value : default(BizRuleSourceLanguage), ens);
                             });
                         Dictionary<int, IAzManItem> itemsById = items.Values.ToDictionary(f => f.ItemId);
-                        Dictionary<int, List<int>> allItemsHierarchyByMemberId = new Dictionary<int,List<int>>();
+                        Dictionary<int, List<int>> allItemsHierarchyByMemberId = new Dictionary<int, List<int>>();
                         foreach (var itemHierarchy in allItemsHierarchy)
                         {
                             if (!allItemsHierarchyByMemberId.ContainsKey(itemHierarchy.MemberOfItemId.Value))
@@ -654,8 +670,8 @@ namespace NetSqlAzMan.Cache
 
                         ((SqlAzManApplication)application).items = items;
                         var itemsOfApplication = (from i in allItems
-                                                 where i.ApplicationId == application.ApplicationId
-                                                 select i).ToList();
+                                                  where i.ApplicationId == application.ApplicationId
+                                                  select i).ToList();
                         foreach (string itemKey in application.Items.Keys)
                         {
                             IAzManItem item = application.Items[itemKey];
@@ -807,41 +823,46 @@ namespace NetSqlAzMan.Cache
 
         private void storeApplicationItemValidation(string storeName, string applicationName, string itemName, out IAzManStore store, out IAzManApplication application, out IAzManItem item, out IEnumerable<IAzManItem> allItems)
         {
-            this.itemResultCache = Hashtable.Synchronized(new Hashtable());
-            this.attributesResultCache = Hashtable.Synchronized(new Hashtable());
+            itemResultCache = new Hashtable();
+            attributesResultCache = new Hashtable();
             storeName = storeName.Trim();
             applicationName = applicationName.Trim();
             itemName = itemName.Trim();
             store = (from s in this.storage.Stores.Values
                      where String.Equals(s.Name, storeName, StringComparison.OrdinalIgnoreCase)
                      select s).FirstOrDefault();
-            if (store == null) throw SqlAzManException.StoreNotFoundException(storeName, null);
+            if (store == null)
+                throw SqlAzManException.StoreNotFoundException(storeName, null);
             application = (from a in store.Applications.Values
                            where String.Equals(a.Name, applicationName, StringComparison.OrdinalIgnoreCase)
                            select a).FirstOrDefault();
-            if (application == null) throw SqlAzManException.ApplicationNotFoundException(applicationName, store, null);
+            if (application == null)
+                throw SqlAzManException.ApplicationNotFoundException(applicationName, store, null);
             item = (from a in application.Items.Values
                     where String.Equals(a.Name, itemName, StringComparison.OrdinalIgnoreCase)
                     select a).FirstOrDefault();
-            if (item == null) throw SqlAzManException.ItemNotFoundException(itemName, application, null);
+            if (item == null)
+                throw SqlAzManException.ItemNotFoundException(itemName, application, null);
             allItems = from t in item.Application.Items.Values
                        select t;
         }
 
         private void storeApplicationItemValidation(string storeName, string applicationName, out IAzManStore store, out IAzManApplication application, out IEnumerable<IAzManItem> allItems)
         {
-            this.itemResultCache = Hashtable.Synchronized(new Hashtable());
-            this.attributesResultCache = Hashtable.Synchronized(new Hashtable());
+            itemResultCache = new Hashtable();
+            attributesResultCache = new Hashtable();
             storeName = storeName.Trim();
             applicationName = applicationName.Trim();
             store = (from s in this.storage.Stores.Values
                      where String.Equals(s.Name, storeName, StringComparison.OrdinalIgnoreCase)
                      select s).FirstOrDefault();
-            if (store == null) throw SqlAzManException.StoreNotFoundException(storeName, null);
+            if (store == null)
+                throw SqlAzManException.StoreNotFoundException(storeName, null);
             application = (from a in store.Applications.Values
                            where String.Equals(a.Name, applicationName, StringComparison.OrdinalIgnoreCase)
                            select a).FirstOrDefault();
-            if (application == null) throw SqlAzManException.ApplicationNotFoundException(applicationName, store, null);
+            if (application == null)
+                throw SqlAzManException.ApplicationNotFoundException(applicationName, store, null);
             allItems = from t in application.Items.Values
                        select t;
         }
@@ -858,7 +879,7 @@ namespace NetSqlAzMan.Cache
             {
                 AuthorizationType parentAuthorizationType;
 
-                if (!this.itemResultCache.ContainsKey(parentItem.Name))
+                if (!itemResultCache.ContainsKey(parentItem.Name))
                 {
                     List<KeyValuePair<string, string>> localAttributes;
                     parentAuthorizationType = this.internalCheckAccess(store, application, parentItem, allItems, userSSid, groupsSSid, validFor, operationsOnly, retrieveAttributes, out localAttributes, contextParameters);
@@ -867,8 +888,8 @@ namespace NetSqlAzMan.Cache
                 }
                 else
                 {
-                    parentAuthorizationType = (AuthorizationType)this.itemResultCache[parentItem.Name];
-                    List<KeyValuePair<string, string>> localAttributes = (List<KeyValuePair<String, String>>)this.attributesResultCache[parentItem.Name];
+                    parentAuthorizationType = (AuthorizationType)itemResultCache[parentItem.Name];
+                    List<KeyValuePair<string, string>> localAttributes = (List<KeyValuePair<String, String>>)attributesResultCache[parentItem.Name];
                     if (retrieveAttributes && (parentAuthorizationType == AuthorizationType.Allow || parentAuthorizationType == AuthorizationType.AllowWithDelegation))
                         attributes.AddRange(localAttributes);
                 }
@@ -1117,19 +1138,13 @@ namespace NetSqlAzMan.Cache
                 }
             }
             //Cache temporarly the result
-            lock (this.itemResultCache)
+            if (!itemResultCache.ContainsKey(item.Name))
             {
-                if (!this.itemResultCache.ContainsKey(item.Name))
-                {
-                    this.itemResultCache.Add(item.Name, authorizationType);
-                }
+                itemResultCache.Add(item.Name, authorizationType);
             }
-            lock (this.attributesResultCache)
+            if (!attributesResultCache.ContainsKey(item.Name))
             {
-                if (!this.attributesResultCache.ContainsKey(item.Name))
-                {
-                    this.attributesResultCache.Add(item.Name, attributes);
-                }
+                attributesResultCache.Add(item.Name, attributes);
             }
             attributes = attributes.Distinct().ToList();
             return authorizationType;
