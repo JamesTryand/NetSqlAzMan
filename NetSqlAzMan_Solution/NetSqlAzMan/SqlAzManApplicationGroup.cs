@@ -95,45 +95,25 @@ namespace NetSqlAzMan
             this.lDapQuery = String.IsNullOrEmpty(lDapQuery) ? String.Empty : lDapQuery;
             this.groupType = groupType;
             this.ens = ens;
-            this.members = new Dictionary<IAzManSid, IAzManApplicationGroupMember>();
+            if (groupType != GroupType.Basic)
+            {
+                this.members = new Dictionary<IAzManSid, IAzManApplicationGroupMember>();
+            }
         }
         #endregion Constructors
         #region IAzManApplicationGroup Members
-        
-        ///// <summary>
-        ///// Gets the members.
-        ///// </summary>
-        ///// <value>The members.</value>
-        //public Dictionary<IAzManSid, IAzManApplicationGroupMember> Members
-        //{
-        //    get
-        //    {
-        //        if (this.members == null)
-        //        {
-        //            this.members = new Dictionary<IAzManSid, IAzManApplicationGroupMember>();
-        //            foreach (IAzManApplicationGroupMember m in this.GetApplicationGroupAllMembers())
-        //            {
-        //                this.members.Add(m.SID, m);
-        //            }
-        //        }
-        //        return this.members;
-        //    }
-        //}
 
         /// <summary>
         /// Gets the members.
         /// </summary>
         /// <value>The members.</value>
-        /// <remarks></remarks>
         public Dictionary<IAzManSid, IAzManApplicationGroupMember> Members
         {
             get
             {
-                //// MOD: Add second part of the If condition to handle correctly LDAP group.
-                if (this.members == null && this.GroupType == GroupType.Basic)
+                if (this.members == null)
                 {
-                    //// MOD: Dictionary creation moved from here fto constructor to handle LDAP Group correctly.
-                    //// OLD: this.members = new Dictionary<IAzManSid, IAzManApplicationGroupMember>();
+                    this.members = new Dictionary<IAzManSid, IAzManApplicationGroupMember>();
                     foreach (IAzManApplicationGroupMember m in this.GetApplicationGroupAllMembers())
                     {
                         this.members.Add(m.SID, m);
@@ -142,7 +122,6 @@ namespace NetSqlAzMan
                 return this.members;
             }
         }
-
 
         /// <summary>
         /// Gets the application group id.
