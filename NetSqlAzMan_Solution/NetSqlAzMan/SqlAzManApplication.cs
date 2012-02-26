@@ -963,9 +963,15 @@ namespace NetSqlAzMan
                     ItemType itemType;
                     switch (node.Attributes["ItemType"].Value)
                     {
-                        case "Role": itemType = ItemType.Role; break;
-                        case "Task": itemType = ItemType.Task; break;
-                        case "Operation": itemType = ItemType.Operation; break;
+                        case "Role":
+                            itemType = ItemType.Role;
+                            break;
+                        case "Task":
+                            itemType = ItemType.Task;
+                            break;
+                        case "Operation":
+                            itemType = ItemType.Operation;
+                            break;
                         default:
                             throw new SerializationException("Invalid ItemType on xml node: " + node.InnerXml);
                     }
@@ -1000,9 +1006,15 @@ namespace NetSqlAzMan
                             ItemType childItemType;
                             switch (childNode.Attributes["ItemType"].Value)
                             {
-                                case "Role": childItemType = ItemType.Role; break;
-                                case "Task": childItemType = ItemType.Task; break;
-                                case "Operation": childItemType = ItemType.Operation; break;
+                                case "Role":
+                                    childItemType = ItemType.Role;
+                                    break;
+                                case "Task":
+                                    childItemType = ItemType.Task;
+                                    break;
+                                case "Operation":
+                                    childItemType = ItemType.Operation;
+                                    break;
                                 default:
                                     throw new SerializationException("Invalid ItemType on xml node: " + childNode.InnerXml);
                             }
@@ -1152,7 +1164,7 @@ namespace NetSqlAzMan
         /// <value></value>
         public IAzManItem this[string itemName]
         {
-            get { return this.GetItem(itemName); }
+            get { return this.Items[itemName]; }
         }
         #endregion
         #region Object Members

@@ -437,7 +437,7 @@ namespace NetSqlAzMan
         {
             get
             {
-                return this.GetStore(storeName);
+                return this.Stores[storeName];
             }
         }
 
@@ -543,7 +543,7 @@ namespace NetSqlAzMan
         /// <returns>AuthorizationType</returns>
         public AuthorizationType CheckAccess(string StoreName, string ApplicationName, string ItemName, WindowsIdentity windowsIdentity, DateTime ValidFor, bool OperationsOnly, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters)
         {
-            return this.internalCheckAccess(StoreName, ApplicationName, ItemName, windowsIdentity, ValidFor, OperationsOnly, true, out attributes,  contextParameters);
+            return this.internalCheckAccess(StoreName, ApplicationName, ItemName, windowsIdentity, ValidFor, OperationsOnly, true, out attributes, contextParameters);
         }
 
         private AuthorizationType internalCheckAccess(string StoreName, string ApplicationName, string ItemName, WindowsIdentity windowsIdentity, DateTime ValidFor, bool OperationsOnly, bool retrieveAttributes, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters)
@@ -1162,11 +1162,21 @@ namespace NetSqlAzMan
             System.Data.IsolationLevel isoLevel;
             switch (isolationLevel)
             {
-                case AzManIsolationLevel.ReadCommitted: isoLevel = System.Data.IsolationLevel.ReadCommitted; break;
-                case AzManIsolationLevel.ReadUncommitted: isoLevel = System.Data.IsolationLevel.ReadUncommitted; break;
-                case AzManIsolationLevel.RepeatableRead: isoLevel = System.Data.IsolationLevel.RepeatableRead; break;
-                case AzManIsolationLevel.Snapshot: isoLevel = System.Data.IsolationLevel.Snapshot; break;
-                default: isoLevel = System.Data.IsolationLevel.ReadCommitted; break;
+                case AzManIsolationLevel.ReadCommitted:
+                    isoLevel = System.Data.IsolationLevel.ReadCommitted;
+                    break;
+                case AzManIsolationLevel.ReadUncommitted:
+                    isoLevel = System.Data.IsolationLevel.ReadUncommitted;
+                    break;
+                case AzManIsolationLevel.RepeatableRead:
+                    isoLevel = System.Data.IsolationLevel.RepeatableRead;
+                    break;
+                case AzManIsolationLevel.Snapshot:
+                    isoLevel = System.Data.IsolationLevel.Snapshot;
+                    break;
+                default:
+                    isoLevel = System.Data.IsolationLevel.ReadCommitted;
+                    break;
             }
             this.OpenConnection();
             this.db.Transaction = this.db.Connection.BeginTransaction(isoLevel);
@@ -1248,7 +1258,8 @@ namespace NetSqlAzMan
                     else
                     {
                         this.mode = NetSqlAzManMode.Developer;
-                        if (this.IAmAdmin) this.Mode = NetSqlAzManMode.Developer;
+                        if (this.IAmAdmin)
+                            this.Mode = NetSqlAzManMode.Developer;
                     }
                 }
                 return this.mode.Value;
@@ -1291,7 +1302,8 @@ namespace NetSqlAzMan
                     else
                     {
                         this.logErrors = false;
-                        if (this.IAmAdmin) this.LogErrors = false;
+                        if (this.IAmAdmin)
+                            this.LogErrors = false;
                     }
 
                 }
@@ -1333,7 +1345,8 @@ namespace NetSqlAzMan
                     else
                     {
                         this.logWarnings = false;
-                        if (this.IAmAdmin) this.LogWarnings = false;
+                        if (this.IAmAdmin)
+                            this.LogWarnings = false;
                     }
                 }
                 return this.logWarnings.Value;
@@ -1374,7 +1387,8 @@ namespace NetSqlAzMan
                     else
                     {
                         this.logInformations = false;
-                        if (this.IAmAdmin) this.LogInformations = false;
+                        if (this.IAmAdmin)
+                            this.LogInformations = false;
                     }
                 }
                 return this.logInformations.Value;
@@ -1415,7 +1429,8 @@ namespace NetSqlAzMan
                     else
                     {
                         this.logOnEventLog = false;
-                        if (this.IAmAdmin) this.LogOnEventLog = false;
+                        if (this.IAmAdmin)
+                            this.LogOnEventLog = false;
                     }
                 }
                 return this.logOnEventLog.Value;
@@ -1455,7 +1470,8 @@ namespace NetSqlAzMan
                     else
                     {
                         this.logOnDb = false;
-                        if (this.IAmAdmin) this.LogOnDb = false;
+                        if (this.IAmAdmin)
+                            this.LogOnDb = false;
                     }
                 }
                 return this.logOnDb.Value;
