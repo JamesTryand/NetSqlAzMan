@@ -821,6 +821,7 @@ namespace Prova.BizRules
                 //Optional: add authorization attribute
                 //auth.CreateAttribute("attribute key", "attribute value");
                 storage.CloseConnection();
+                storage.Dispose();
             }
         }
 
@@ -876,9 +877,7 @@ namespace Prova.BizRules
                 storage.OpenConnection();
                 storage.BeginTransaction();
                 var a = storage["Eidos"]["DB Persone"]["Gestore"].GetMembers();
-
-                
-
+                storage.Dispose();
             }
             this.CreateItemsFromAFolder(
                 "Data Source=(local);Initial Catalog=NetSqlAzManStorage;Integrated Security=SSPI;",
@@ -915,6 +914,10 @@ namespace Prova.BizRules
                 catch
                 {
                     storage.RollBackTransaction();
+                }
+                finally
+                {
+                    storage.Dispose();
                 }
             }
         }

@@ -148,10 +148,17 @@ namespace NetSqlAzMan.Cache.Service
                             {
                                 using (NetSqlAzMan.NetSqlAzManWCFCacheService.CacheServiceClient csc = new NetSqlAzMan.NetSqlAzManWCFCacheService.CacheServiceClient())
                                 {
-                                    csc.Endpoint.Address = new EndpointAddress(partnerEndpoint);
-                                    csc.Open();
-                                    csc.BeginInvalidateCacheOnServicePartners(false, null, null);
-                                    WindowsCacheService.writeEvent(String.Format("Invalidate Cache invoked on WCF Cache Service Partner: '{0}'.", partnerEndpoint), System.Diagnostics.EventLogEntryType.Information);
+                                    try
+                                    {
+                                        csc.Endpoint.Address = new EndpointAddress(partnerEndpoint);
+                                        csc.Open();
+                                        csc.BeginInvalidateCacheOnServicePartners(false, null, null);
+                                        WindowsCacheService.writeEvent(String.Format("Invalidate Cache invoked on WCF Cache Service Partner: '{0}'.", partnerEndpoint), System.Diagnostics.EventLogEntryType.Information);
+                                    }
+                                    finally
+                                    {
+                                        ((IDisposable)csc).Dispose();
+                                    }
                                 }
                             }
                             catch (Exception ex)

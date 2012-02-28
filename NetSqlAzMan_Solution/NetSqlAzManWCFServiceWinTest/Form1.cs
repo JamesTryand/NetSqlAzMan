@@ -15,11 +15,18 @@ namespace NetSqlAzManWCFServiceWinTest
         {
             using (NetSqlAzManSR.NetSqlAzManWCFServiceClient c = new NetSqlAzManWCFServiceWinTest.NetSqlAzManSR.NetSqlAzManWCFServiceClient())
             {
-                c.Open();
-                SqlAzManStorage storage = (SqlAzManStorage)c.CreateStorageInstance("data source=.;Initial Catalog=NetSqlAzManStorage;user id=sa;password=");
-                var store = storage.GetStore("Eidos");
-                store.CreateApplication("Prova", "");
-                var apps = store.Applications;
+                try
+                {
+                    c.Open();
+                    SqlAzManStorage storage = (SqlAzManStorage)c.CreateStorageInstance("data source=.;Initial Catalog=NetSqlAzManStorage;user id=sa;password=");
+                    var store = storage.GetStore("Eidos");
+                    store.CreateApplication("Prova", "");
+                    var apps = store.Applications;
+                }
+                finally
+                {
+                    ((IDisposable)c).Dispose();
+                }
             }
         }
     }

@@ -11,7 +11,7 @@ using System.Security.Permissions;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Andrea Ferendeles")]
 [assembly: AssemblyProduct("NetSqlAzMan.SnapIn")]
-[assembly: AssemblyCopyright("Copyright © Andrea Ferendeles 2006-2010")]
+[assembly: AssemblyCopyright("Copyright © Andrea Ferendeles 2006-2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,7 +31,7 @@ using System.Security.Permissions;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("3.6.0.10")]
-[assembly: AssemblyFileVersion("3.6.0.10")]
+[assembly: AssemblyVersion("3.6.0.15")]
+[assembly: AssemblyFileVersion("3.6.0.15")]
 [assembly: AllowPartiallyTrustedCallers()]
 [assembly: System.Security.SecurityRules(System.Security.SecurityRuleSet.Level1)]

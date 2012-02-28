@@ -14,7 +14,14 @@ namespace NetSqlAzManWebConsole
             this.btnCancel.Text = "Close";
             using (wcf.CacheServiceClient csc = new NetSqlAzManWebConsole.wcf.CacheServiceClient())
             {
-                this.TextBox1.Text = csc.Endpoint.Address.ToString();
+                try
+                {
+                    this.TextBox1.Text = csc.Endpoint.Address.ToString();
+                }
+                finally
+                {
+                    ((IDisposable)csc).Dispose();
+                }
             }
         }
 
@@ -33,10 +40,18 @@ namespace NetSqlAzManWebConsole
             {
                 using (wcf.CacheServiceClient csc = new NetSqlAzManWebConsole.wcf.CacheServiceClient())
                 {
-                    csc.Endpoint.Address = new System.ServiceModel.EndpointAddress(this.TextBox1.Text);
-                    csc.Open();
-                    csc.InvalidateCache();
-                    base.closeWindow(false);
+                    try
+                    {
+                        csc.Endpoint.Address = new System.ServiceModel.EndpointAddress(this.TextBox1.Text);
+                        csc.Open();
+                        csc.InvalidateCache();
+                        base.closeWindow(false);
+                    }
+                    finally
+                    {
+                        ((IDisposable)csc).Dispose();
+                    }
+
                 }
             }
             catch (Exception ex)

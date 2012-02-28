@@ -148,13 +148,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_78FFE4F99C29C0296E0EDD4EE5A743AE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F114C4AEC12D6FAE38AA1378FA56BE9B"
+        "OwnerKey" = "8:_2FEB5C60816947B4A03126AE7CBFB995"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -166,13 +160,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2FEB5C60816947B4A03126AE7CBFB995"
+        "OwnerKey" = "8:_F0A45A2518CA1F8B14971DB4F16BE3F4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F0A45A2518CA1F8B14971DB4F16BE3F4"
+        "OwnerKey" = "8:_F114C4AEC12D6FAE38AA1378FA56BE9B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_78FFE4F99C29C0296E0EDD4EE5A743AE"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -491,6 +491,11 @@
             "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.0.9, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_439FFC72DBC836E65EA2254E24F1A032"
+                    {
+                    "Name" = "8:NetSqlAzMan.DLL"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:NetSqlAzMan.DLL"
             "TargetName" = "8:"
@@ -537,6 +542,11 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.Interop.Security.AzRoles, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
                 "ScatterAssemblies"
                 {
+                    "_78FFE4F99C29C0296E0EDD4EE5A743AE"
+                    {
+                    "Name" = "8:Microsoft.Interop.Security.AzRoles.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Microsoft.Interop.Security.AzRoles.dll"
             "TargetName" = "8:"
@@ -723,6 +733,11 @@
             "AssemblyAsmDisplayName" = "8:NetSqlAzMan, Version=3.6.1.0, Culture=neutral, PublicKeyToken=ad1153f7ddd0e504, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_F0A45A2518CA1F8B14971DB4F16BE3F4"
+                    {
+                    "Name" = "8:NetSqlAzMan.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:NetSqlAzMan.dll"
             "TargetName" = "8:"
@@ -749,6 +764,11 @@
             "AssemblyAsmDisplayName" = "8:SqlAudit, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0010b2b0864b0d6b, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_F114C4AEC12D6FAE38AA1378FA56BE9B"
+                    {
+                    "Name" = "8:SqlAudit.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:SqlAudit.dll"
             "TargetName" = "8:"
@@ -938,7 +958,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:.NET Sql Authorization Manager - Web Console"
         "ProductCode" = "8:{82B85F9E-9AB8-4DBE-A28A-B6AF8694B701}"
-        "PackageCode" = "8:{17F1A69E-0F57-4699-8DB4-00781E28E3F1}"
+        "PackageCode" = "8:{54389FFA-643A-4C59-8F28-BAAB710FC9E4}"
         "UpgradeCode" = "8:{4D03D5B5-04EA-4EDE-9520-815DD7657549}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

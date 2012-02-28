@@ -424,7 +424,7 @@ namespace NetSqlAzMan.SnapIn.ScopeNodes
                 string serverVersion = html.Substring(0, 15);
                 serverVersion = serverVersion.Substring(0, serverVersion.IndexOf('<'));
                 string clientVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-                if (String.Compare(serverVersion, clientVersion, true) != 0)
+                if (new Version(serverVersion.Trim())>new Version(clientVersion.Trim()))
                 {
                     System.Console.Beep();
                     string msg = "A new NetSqlAzMan version is available.\r\n\r\nYour version: {0}\r\nNew version: {1}\r\nDownload from: {2}.";

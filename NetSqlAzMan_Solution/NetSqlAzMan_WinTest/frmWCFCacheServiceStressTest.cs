@@ -30,9 +30,9 @@ namespace NetSqlAzMan_WinTest
                         {
                             try
                             {
-                            csc.Open();
-                            //KeyValuePair<string, string>[] attrs = null;
-                            
+                                csc.Open();
+                                //KeyValuePair<string, string>[] attrs = null;
+
                                 AuthorizationType auth = csc.CheckAccessForWindowsUsersWithoutAttributesRetrieve("Eidos", "DB Persone",
                                     "Gestore", WindowsIdentity.GetCurrent().GetUserBinarySSid(), WindowsIdentity.GetCurrent().GetGroupsBinarySSid(),
                                     DateTime.Now, false, null);
@@ -40,9 +40,13 @@ namespace NetSqlAzMan_WinTest
                             catch (Exception ex)
                             {
                                 MessageBox.Show(ex.Message);
-                                if (ex.InnerException!=null)
+                                if (ex.InnerException != null)
                                     MessageBox.Show(ex.InnerException.Message);
                                 this.errors++;
+                            }
+                            finally
+                            {
+                                ((IDisposable)csc).Dispose();
                             }
                         }
                         Thread.Sleep(new Random().Next(300));
@@ -61,6 +65,7 @@ namespace NetSqlAzMan_WinTest
             {
                 csc.Open();
                 csc.InvalidateCache();
+                ((IDisposable)csc).Dispose();
             }
         }
     }

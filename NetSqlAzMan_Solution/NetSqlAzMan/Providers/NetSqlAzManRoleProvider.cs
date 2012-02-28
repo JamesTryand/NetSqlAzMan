@@ -328,9 +328,16 @@ namespace NetSqlAzMan.Providers
             {
                 using (NetSqlAzManWCFCacheService.CacheServiceClient csc = new NetSqlAzManWCFCacheService.CacheServiceClient())
                 {
-                    return (from t in csc.GetAuthorizedItemsForWindowsUsers(this.storeName, this.applicationName, WindowsIdentity.GetCurrent().GetUserBinarySSid(), WindowsIdentity.GetCurrent().GetGroupsBinarySSid(), DateTime.Now, null)
-                            where t.Type == NetSqlAzManWCFCacheService.ItemType.Role
-                            select t.Name).ToArray();
+                    try
+                    {
+                        return (from t in csc.GetAuthorizedItemsForWindowsUsers(this.storeName, this.applicationName, WindowsIdentity.GetCurrent().GetUserBinarySSid(), WindowsIdentity.GetCurrent().GetGroupsBinarySSid(), DateTime.Now, null)
+                                where t.Type == NetSqlAzManWCFCacheService.ItemType.Role
+                                select t.Name).ToArray();
+                    }
+                    finally
+                    {
+                        ((IDisposable)csc).Dispose();
+                    }
                 }
             }
         }
@@ -364,9 +371,16 @@ namespace NetSqlAzMan.Providers
                 {
                     using (NetSqlAzManWCFCacheService.CacheServiceClient csc = new NetSqlAzManWCFCacheService.CacheServiceClient())
                     {
-                        return (from t in csc.GetAuthorizedItemsForWindowsUsers(this.storeName, this.applicationName, wid.GetUserBinarySSid(), wid.GetGroupsBinarySSid(), DateTime.Now, null)
-                                where t.Type == NetSqlAzManWCFCacheService.ItemType.Role && (t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.Allow || t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.AllowWithDelegation)
-                                select t.Name).ToArray();
+                        try
+                        {
+                            return (from t in csc.GetAuthorizedItemsForWindowsUsers(this.storeName, this.applicationName, wid.GetUserBinarySSid(), wid.GetGroupsBinarySSid(), DateTime.Now, null)
+                                    where t.Type == NetSqlAzManWCFCacheService.ItemType.Role && (t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.Allow || t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.AllowWithDelegation)
+                                    select t.Name).ToArray();
+                        }
+                        finally
+                        {
+                            ((IDisposable)csc).Dispose();
+                        }
                     }
                 }
             }
@@ -388,9 +402,16 @@ namespace NetSqlAzMan.Providers
                     {
                         using (NetSqlAzManWCFCacheService.CacheServiceClient csc = new NetSqlAzManWCFCacheService.CacheServiceClient())
                         {
-                            return (from t in csc.GetAuthorizedItemsForDatabaseUsers(this.storeName, this.applicationName, sid.StringValue, DateTime.Now, null)
-                                    where t.Type == NetSqlAzManWCFCacheService.ItemType.Role && (t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.Allow || t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.AllowWithDelegation)
-                                    select t.Name).ToArray();
+                            try
+                            {
+                                return (from t in csc.GetAuthorizedItemsForDatabaseUsers(this.storeName, this.applicationName, sid.StringValue, DateTime.Now, null)
+                                        where t.Type == NetSqlAzManWCFCacheService.ItemType.Role && (t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.Allow || t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.AllowWithDelegation)
+                                        select t.Name).ToArray();
+                            }
+                            finally
+                            {
+                                ((IDisposable)csc).Dispose();
+                            }
                         }
                     }
                 }
@@ -472,14 +493,21 @@ namespace NetSqlAzMan.Providers
                 {
                     using (NetSqlAzManWCFCacheService.CacheServiceClient csc = new NetSqlAzManWCFCacheService.CacheServiceClient())
                     {
-                        return (from t in csc.GetAuthorizedItemsForWindowsUsers(this.storeName, this.applicationName, wid.GetUserBinarySSid(), wid.GetGroupsBinarySSid(), DateTime.Now, null)
-                                where
-                                t.Type == NetSqlAzManWCFCacheService.ItemType.Role
-                                &&
-                                (t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.Allow || t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.AllowWithDelegation)
-                                &&
-                                t.Name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase)
-                                select t).Count() > 0;
+                        try
+                        {
+                            return (from t in csc.GetAuthorizedItemsForWindowsUsers(this.storeName, this.applicationName, wid.GetUserBinarySSid(), wid.GetGroupsBinarySSid(), DateTime.Now, null)
+                                    where
+                                    t.Type == NetSqlAzManWCFCacheService.ItemType.Role
+                                    &&
+                                    (t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.Allow || t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.AllowWithDelegation)
+                                    &&
+                                    t.Name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase)
+                                    select t).Count() > 0;
+                        }
+                        finally
+                        {
+                            ((IDisposable)csc).Dispose();
+                        }
                     }
                 }
             }
@@ -503,14 +531,21 @@ namespace NetSqlAzMan.Providers
                     {
                         using (NetSqlAzManWCFCacheService.CacheServiceClient csc = new NetSqlAzManWCFCacheService.CacheServiceClient())
                         {
-                            return (from t in csc.GetAuthorizedItemsForDatabaseUsers(this.storeName, this.applicationName, dbUser.CustomSid.StringValue, DateTime.Now, null)
-                                    where
-                                    t.Type == NetSqlAzManWCFCacheService.ItemType.Role
-                                    &&
-                                    (t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.Allow || t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.AllowWithDelegation)
-                                    &&
-                                    t.Name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase)
-                                    select t).Count() > 0;
+                            try
+                            {
+                                return (from t in csc.GetAuthorizedItemsForDatabaseUsers(this.storeName, this.applicationName, dbUser.CustomSid.StringValue, DateTime.Now, null)
+                                        where
+                                        t.Type == NetSqlAzManWCFCacheService.ItemType.Role
+                                        &&
+                                        (t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.Allow || t.Authorization == NetSqlAzManWCFCacheService.AuthorizationType.AllowWithDelegation)
+                                        &&
+                                        t.Name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase)
+                                        select t).Count() > 0;
+                            }
+                            finally
+                            {
+                                ((IDisposable)csc).Dispose();
+                            }
                         }
                     }
                 }
@@ -673,7 +708,14 @@ namespace NetSqlAzMan.Providers
                         {
                             using (NetSqlAzManWCFCacheService.CacheServiceClient csc = new NetSqlAzManWCFCacheService.CacheServiceClient())
                             {
-                                csc.InvalidateCache();
+                                try
+                                {
+                                    csc.InvalidateCache();
+                                }
+                                finally
+                                {
+                                    ((IDisposable)csc).Dispose();
+                                }
                             }
                         }
                     }

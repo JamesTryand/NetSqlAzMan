@@ -73,6 +73,7 @@ namespace NetSqlAzMan_Test
                 finally
                 {
                     csc.Close();
+                    ((IDisposable)csc).Dispose();
                 }
             }
         }

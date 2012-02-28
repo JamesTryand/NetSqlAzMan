@@ -17,6 +17,7 @@ namespace NetSqlAzMan.SnapIn.Forms
             using (wcf.CacheServiceClient csc = new NetSqlAzMan.SnapIn.wcf.CacheServiceClient())
             {
                 this.txtWCFCacheServiceEndPoint.Text = csc.Endpoint.Address.ToString();
+                ((IDisposable)csc).Dispose();
             }
         }
 
@@ -55,6 +56,7 @@ namespace NetSqlAzMan.SnapIn.Forms
                     csc.Endpoint.Address = new System.ServiceModel.EndpointAddress(this.txtWCFCacheServiceEndPoint.Text);
                     csc.Open();
                     csc.InvalidateCache();
+                    ((IDisposable)csc).Dispose();
                 }
                 this.DialogResult = DialogResult.OK;
             }
