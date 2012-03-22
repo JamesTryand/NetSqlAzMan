@@ -22,22 +22,26 @@ namespace NetSqlAzMan.LINQ
         /// <returns></returns>
         public DataTable GetDBUsersEx(string storeName, string applicationName, byte[] dBUserSid, string dBUserName)
         {
-            SqlDataAdapter da = new SqlDataAdapter("select * from dbo.netsqlazman_GetDBUsers(@StoreName, @ApplicationName, @DBUserSID, @DBUserName)", (SqlConnection)this.Connection);
-            SqlParameter pStoreName = new SqlParameter("@StoreName", SqlDbType.NVarChar, 255);
-            SqlParameter pApplicationName = new SqlParameter("@ApplicationName", SqlDbType.NVarChar, 255);
-            SqlParameter pDBUserSID = new SqlParameter("@DBUserSID", SqlDbType.VarBinary, 85);
-            SqlParameter pDBUserName = new SqlParameter("@DBUserName", SqlDbType.NVarChar, 255);
-            pStoreName.Value = !String.IsNullOrEmpty(storeName) ? (object)storeName : DBNull.Value;
-            pApplicationName.Value = !String.IsNullOrEmpty(applicationName) ? (object)applicationName : DBNull.Value;
-            pDBUserSID.Value = dBUserSid != null ? (object)dBUserSid : DBNull.Value;
-            pDBUserName.Value = !String.IsNullOrEmpty(dBUserName) ? (object)dBUserName : DBNull.Value;
-            da.SelectCommand.Parameters.Add(pStoreName);
-            da.SelectCommand.Parameters.Add(pApplicationName);
-            da.SelectCommand.Parameters.Add(pDBUserSID);
-            da.SelectCommand.Parameters.Add(pDBUserName);
             DataTable result = new DataTable("DBUsers");
-            da.SelectCommand.Transaction = this.Transaction as SqlTransaction;
-            da.Fill(result);
+            using (var da = new SqlDataAdapter("select * from dbo.netsqlazman_GetDBUsers(@StoreName, @ApplicationName, @DBUserSID, @DBUserName)", (SqlConnection)this.Connection))
+            {
+                SqlParameter pStoreName = new SqlParameter("@StoreName", SqlDbType.NVarChar, 255);
+                SqlParameter pApplicationName = new SqlParameter("@ApplicationName", SqlDbType.NVarChar, 255);
+                SqlParameter pDBUserSID = new SqlParameter("@DBUserSID", SqlDbType.VarBinary, 85);
+                SqlParameter pDBUserName = new SqlParameter("@DBUserName", SqlDbType.NVarChar, 255);
+                pStoreName.Value = !String.IsNullOrEmpty(storeName) ? (object) storeName : DBNull.Value;
+                pApplicationName.Value = !String.IsNullOrEmpty(applicationName)
+                                             ? (object) applicationName
+                                             : DBNull.Value;
+                pDBUserSID.Value = dBUserSid != null ? (object) dBUserSid : DBNull.Value;
+                pDBUserName.Value = !String.IsNullOrEmpty(dBUserName) ? (object) dBUserName : DBNull.Value;
+                da.SelectCommand.Parameters.Add(pStoreName);
+                da.SelectCommand.Parameters.Add(pApplicationName);
+                da.SelectCommand.Parameters.Add(pDBUserSID);
+                da.SelectCommand.Parameters.Add(pDBUserName);
+                da.SelectCommand.Transaction = this.Transaction as SqlTransaction;
+                da.Fill(result);
+            }
             return result;
         }
 
